@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPublicIpPrefix.InvokeAsync() instead")]
         public static Task<GetPublicIpPrefixResult> GetPublicIpPrefix(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPublicIpPrefix
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Public IP Prefix.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
+        /// </summary>
+        public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

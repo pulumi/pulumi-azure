@@ -16,8 +16,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Note:** The `azure.compute.ScaleSet` resource has been superseded by the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources. The existing `azure.compute.ScaleSet` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
     /// 
-    /// &gt; **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
     /// </summary>
     public partial class ScaleSet : Pulumi.CustomResource
@@ -68,7 +66,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -146,7 +144,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> SinglePlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU of the image used to create the virtual machines.
+        /// A sku block as documented below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ScaleSetSku> Sku { get; private set; } = null!;
@@ -285,7 +283,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -375,7 +373,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// Specifies the SKU of the image used to create the virtual machines.
+        /// A sku block as documented below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ScaleSetSkuArgs> Sku { get; set; } = null!;
@@ -493,7 +491,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -583,7 +581,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// Specifies the SKU of the image used to create the virtual machines.
+        /// A sku block as documented below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ScaleSetSkuGetArgs>? Sku { get; set; }
@@ -685,7 +683,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the extension.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -709,7 +707,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the publisher of the image.
+        /// The publisher of the extension, available publishers can be found by using the Azure CLI.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
@@ -746,7 +744,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the extension.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -770,7 +768,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the publisher of the image.
+        /// The publisher of the extension, available publishers can be found by using the Azure CLI.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
@@ -816,7 +814,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of extension, available types for a publisher can be found using the Azure CLI.
+        /// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -844,7 +842,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of extension, available types for a publisher can be found using the Azure CLI.
+        /// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -887,7 +885,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? IpForwarding { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the network interface configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -899,7 +897,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkSecurityGroupId { get; set; }
 
         /// <summary>
-        /// Specifies if this ip_configuration is the primary one.
+        /// Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         /// </summary>
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;
@@ -980,7 +978,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? IpForwarding { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the network interface configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -992,7 +990,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkSecurityGroupId { get; set; }
 
         /// <summary>
-        /// Specifies if this ip_configuration is the primary one.
+        /// Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         /// </summary>
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;
@@ -1053,7 +1051,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies name of the IP configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1132,7 +1130,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies name of the IP configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1175,7 +1173,7 @@ namespace Pulumi.Azure.Compute
         public Input<int> IdleTimeout { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// The name of the public ip address configuration
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1200,7 +1198,7 @@ namespace Pulumi.Azure.Compute
         public Input<int> IdleTimeout { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// The name of the public ip address configuration
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1407,7 +1405,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CertificateStore { get; set; }
 
         /// <summary>
-        /// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+        /// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
         /// </summary>
         [Input("certificateUrl", required: true)]
         public Input<string> CertificateUrl { get; set; } = null!;
@@ -1426,7 +1424,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CertificateStore { get; set; }
 
         /// <summary>
-        /// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+        /// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
         /// </summary>
         [Input("certificateUrl", required: true)]
         public Input<string> CertificateUrl { get; set; } = null!;
@@ -1743,7 +1741,7 @@ namespace Pulumi.Azure.Compute
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the size of virtual machines in a scale set.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1768,7 +1766,7 @@ namespace Pulumi.Azure.Compute
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the size of virtual machines in a scale set.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1874,7 +1872,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Offer { get; set; }
 
         /// <summary>
-        /// Specifies the publisher of the image.
+        /// Specifies the publisher of the image used to create the virtual machines.
         /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
@@ -1912,7 +1910,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Offer { get; set; }
 
         /// <summary>
-        /// Specifies the publisher of the image.
+        /// Specifies the publisher of the image used to create the virtual machines.
         /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
@@ -1943,7 +1941,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Caching { get; set; }
 
         /// <summary>
-        /// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+        /// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -1957,13 +1955,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Image { get; set; }
 
         /// <summary>
-        /// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+        /// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
         /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -2000,7 +1998,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Caching { get; set; }
 
         /// <summary>
-        /// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+        /// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -2014,13 +2012,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Image { get; set; }
 
         /// <summary>
-        /// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+        /// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
         /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -2076,7 +2074,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the extension.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -2088,7 +2086,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableArray<string> ProvisionAfterExtensions;
         /// <summary>
-        /// Specifies the publisher of the image.
+        /// The publisher of the extension, available publishers can be found by using the Azure CLI.
         /// </summary>
         public readonly string Publisher;
         /// <summary>
@@ -2135,7 +2133,7 @@ namespace Pulumi.Azure.Compute
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string PrincipalId;
         /// <summary>
-        /// The type of extension, available types for a publisher can be found using the Azure CLI.
+        /// Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
         /// </summary>
         public readonly string Type;
 
@@ -2171,7 +2169,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly bool? IpForwarding;
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the name of the network interface configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -2179,7 +2177,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string? NetworkSecurityGroupId;
         /// <summary>
-        /// Specifies if this ip_configuration is the primary one.
+        /// Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         /// </summary>
         public readonly bool Primary;
 
@@ -2238,7 +2236,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerInboundNatRulesIds;
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies name of the IP configuration.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -2288,7 +2286,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly int IdleTimeout;
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// The name of the public ip address configuration
         /// </summary>
         public readonly string Name;
 
@@ -2406,7 +2404,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string? CertificateStore;
         /// <summary>
-        /// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+        /// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
         /// </summary>
         public readonly string CertificateUrl;
 
@@ -2580,7 +2578,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the size of virtual machines in a scale set.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -2653,7 +2651,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string? Offer;
         /// <summary>
-        /// Specifies the publisher of the image.
+        /// Specifies the publisher of the image used to create the virtual machines.
         /// </summary>
         public readonly string? Publisher;
         /// <summary>
@@ -2689,7 +2687,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Caching;
         /// <summary>
-        /// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+        /// Specifies how the virtual machine should be created. The only possible option is `FromImage`.
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
@@ -2699,11 +2697,11 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string? Image;
         /// <summary>
-        /// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+        /// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
         /// </summary>
         public readonly string ManagedDiskType;
         /// <summary>
-        /// Specifies the name of the image from the marketplace.
+        /// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         /// </summary>
         public readonly string? Name;
         /// <summary>

@@ -71,6 +71,7 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
 
 
+    :param dict metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
     :param str storage_account_name: The name of the Storage Account where the Container was created.
     """

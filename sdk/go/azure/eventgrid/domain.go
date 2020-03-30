@@ -48,6 +48,12 @@ func NewDomain(ctx *pulumi.Context,
 	if args == nil {
 		args = &DomainArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/domain:Domain"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Domain
 	err := ctx.RegisterResource("azure:eventgrid/domain:Domain", name, args, &resource, opts...)
 	if err != nil {

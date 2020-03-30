@@ -30,6 +30,8 @@ type Database struct {
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringOutput `pulumi:"elasticPoolName"`
 	Encryption      pulumi.StringOutput `pulumi:"encryption"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -111,6 +113,8 @@ type databaseState struct {
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	Encryption      *string `pulumi:"encryption"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -159,6 +163,8 @@ type DatabaseState struct {
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
 	Encryption      pulumi.StringPtrInput
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -206,6 +212,8 @@ type databaseArgs struct {
 	Edition *string `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -250,6 +258,8 @@ type DatabaseArgs struct {
 	Edition pulumi.StringPtrInput
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

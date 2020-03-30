@@ -193,7 +193,7 @@ func (o LoadBalancerFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput)
 type OutboundRuleFrontendIpConfiguration struct {
 	// The ID of the Load Balancer Outbound Rule.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+	// The name of the Frontend IP Configuration.
 	Name string `pulumi:"name"`
 }
 
@@ -207,7 +207,7 @@ type OutboundRuleFrontendIpConfigurationInput interface {
 type OutboundRuleFrontendIpConfigurationArgs struct {
 	// The ID of the Load Balancer Outbound Rule.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+	// The name of the Frontend IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -263,7 +263,7 @@ func (o OutboundRuleFrontendIpConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutboundRuleFrontendIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+// The name of the Frontend IP Configuration.
 func (o OutboundRuleFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OutboundRuleFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -18,13 +18,13 @@ class Backend(pulumi.CustomResource):
     """
     A `credentials` block as documented below.
 
-      * `authorization` (`dict`)
-        * `parameter` (`str`)
-        * `scheme` (`str`)
+      * `authorization` (`dict`) - An `authorization` block as defined below.
+        * `parameter` (`str`) - The authentication Parameter value.
+        * `scheme` (`str`) - The authentication Scheme name.
 
-      * `certificates` (`list`)
-      * `header` (`dict`)
-      * `query` (`dict`)
+      * `certificates` (`list`) - A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+      * `header` (`dict`) - A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
+      * `query` (`dict`) - A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
     """
     description: pulumi.Output[str]
     """
@@ -42,9 +42,9 @@ class Backend(pulumi.CustomResource):
     """
     A `proxy` block as documented below.
 
-      * `password` (`str`)
-      * `url` (`str`) - The URL of the backend host.
-      * `username` (`str`)
+      * `password` (`str`) - The password to connect to the proxy server.
+      * `url` (`str`) - The URL of the proxy server.
+      * `username` (`str`) - The username to connect to the proxy server.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -58,12 +58,12 @@ class Backend(pulumi.CustomResource):
     """
     A `service_fabric_cluster` block as documented below.
 
-      * `clientCertificateThumbprint` (`str`)
-      * `managementEndpoints` (`list`)
-      * `maxPartitionResolutionRetries` (`float`)
-      * `serverCertificateThumbprints` (`list`)
-      * `serverX509Names` (`list`)
-        * `issuerCertificateThumbprint` (`str`)
+      * `clientCertificateThumbprint` (`str`) - The client certificate thumbprint for the management endpoint.
+      * `managementEndpoints` (`list`) - A list of cluster management endpoints.
+      * `maxPartitionResolutionRetries` (`float`) - The maximum number of retries when attempting resolve the partition.
+      * `serverCertificateThumbprints` (`list`) - A list of thumbprints of the server certificates of the Service Fabric cluster.
+      * `serverX509Names` (`list`) - One or more `server_x509_name` blocks as documented below.
+        * `issuerCertificateThumbprint` (`str`) - The thumbprint for the issuer of the certificate.
         * `name` (`str`) - The name of the API Management backend. Changing this forces a new resource to be created.
     """
     title: pulumi.Output[str]
@@ -74,8 +74,8 @@ class Backend(pulumi.CustomResource):
     """
     A `tls` block as documented below.
 
-      * `validateCertificateChain` (`bool`)
-      * `validateCertificateName` (`bool`)
+      * `validateCertificateChain` (`bool`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
+      * `validateCertificateName` (`bool`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
     """
     url: pulumi.Output[str]
     """
@@ -104,34 +104,34 @@ class Backend(pulumi.CustomResource):
 
         The **credentials** object supports the following:
 
-          * `authorization` (`pulumi.Input[dict]`)
-            * `parameter` (`pulumi.Input[str]`)
-            * `scheme` (`pulumi.Input[str]`)
+          * `authorization` (`pulumi.Input[dict]`) - An `authorization` block as defined below.
+            * `parameter` (`pulumi.Input[str]`) - The authentication Parameter value.
+            * `scheme` (`pulumi.Input[str]`) - The authentication Scheme name.
 
-          * `certificates` (`pulumi.Input[list]`)
-          * `header` (`pulumi.Input[dict]`)
-          * `query` (`pulumi.Input[dict]`)
+          * `certificates` (`pulumi.Input[list]`) - A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+          * `header` (`pulumi.Input[dict]`) - A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
+          * `query` (`pulumi.Input[dict]`) - A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
 
         The **proxy** object supports the following:
 
-          * `password` (`pulumi.Input[str]`)
-          * `url` (`pulumi.Input[str]`) - The URL of the backend host.
-          * `username` (`pulumi.Input[str]`)
+          * `password` (`pulumi.Input[str]`) - The password to connect to the proxy server.
+          * `url` (`pulumi.Input[str]`) - The URL of the proxy server.
+          * `username` (`pulumi.Input[str]`) - The username to connect to the proxy server.
 
         The **service_fabric_cluster** object supports the following:
 
-          * `clientCertificateThumbprint` (`pulumi.Input[str]`)
-          * `managementEndpoints` (`pulumi.Input[list]`)
-          * `maxPartitionResolutionRetries` (`pulumi.Input[float]`)
-          * `serverCertificateThumbprints` (`pulumi.Input[list]`)
-          * `serverX509Names` (`pulumi.Input[list]`)
-            * `issuerCertificateThumbprint` (`pulumi.Input[str]`)
+          * `clientCertificateThumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint for the management endpoint.
+          * `managementEndpoints` (`pulumi.Input[list]`) - A list of cluster management endpoints.
+          * `maxPartitionResolutionRetries` (`pulumi.Input[float]`) - The maximum number of retries when attempting resolve the partition.
+          * `serverCertificateThumbprints` (`pulumi.Input[list]`) - A list of thumbprints of the server certificates of the Service Fabric cluster.
+          * `serverX509Names` (`pulumi.Input[list]`) - One or more `server_x509_name` blocks as documented below.
+            * `issuerCertificateThumbprint` (`pulumi.Input[str]`) - The thumbprint for the issuer of the certificate.
             * `name` (`pulumi.Input[str]`) - The name of the API Management backend. Changing this forces a new resource to be created.
 
         The **tls** object supports the following:
 
-          * `validateCertificateChain` (`pulumi.Input[bool]`)
-          * `validateCertificateName` (`pulumi.Input[bool]`)
+          * `validateCertificateChain` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
+          * `validateCertificateName` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -200,34 +200,34 @@ class Backend(pulumi.CustomResource):
 
         The **credentials** object supports the following:
 
-          * `authorization` (`pulumi.Input[dict]`)
-            * `parameter` (`pulumi.Input[str]`)
-            * `scheme` (`pulumi.Input[str]`)
+          * `authorization` (`pulumi.Input[dict]`) - An `authorization` block as defined below.
+            * `parameter` (`pulumi.Input[str]`) - The authentication Parameter value.
+            * `scheme` (`pulumi.Input[str]`) - The authentication Scheme name.
 
-          * `certificates` (`pulumi.Input[list]`)
-          * `header` (`pulumi.Input[dict]`)
-          * `query` (`pulumi.Input[dict]`)
+          * `certificates` (`pulumi.Input[list]`) - A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+          * `header` (`pulumi.Input[dict]`) - A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
+          * `query` (`pulumi.Input[dict]`) - A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
 
         The **proxy** object supports the following:
 
-          * `password` (`pulumi.Input[str]`)
-          * `url` (`pulumi.Input[str]`) - The URL of the backend host.
-          * `username` (`pulumi.Input[str]`)
+          * `password` (`pulumi.Input[str]`) - The password to connect to the proxy server.
+          * `url` (`pulumi.Input[str]`) - The URL of the proxy server.
+          * `username` (`pulumi.Input[str]`) - The username to connect to the proxy server.
 
         The **service_fabric_cluster** object supports the following:
 
-          * `clientCertificateThumbprint` (`pulumi.Input[str]`)
-          * `managementEndpoints` (`pulumi.Input[list]`)
-          * `maxPartitionResolutionRetries` (`pulumi.Input[float]`)
-          * `serverCertificateThumbprints` (`pulumi.Input[list]`)
-          * `serverX509Names` (`pulumi.Input[list]`)
-            * `issuerCertificateThumbprint` (`pulumi.Input[str]`)
+          * `clientCertificateThumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint for the management endpoint.
+          * `managementEndpoints` (`pulumi.Input[list]`) - A list of cluster management endpoints.
+          * `maxPartitionResolutionRetries` (`pulumi.Input[float]`) - The maximum number of retries when attempting resolve the partition.
+          * `serverCertificateThumbprints` (`pulumi.Input[list]`) - A list of thumbprints of the server certificates of the Service Fabric cluster.
+          * `serverX509Names` (`pulumi.Input[list]`) - One or more `server_x509_name` blocks as documented below.
+            * `issuerCertificateThumbprint` (`pulumi.Input[str]`) - The thumbprint for the issuer of the certificate.
             * `name` (`pulumi.Input[str]`) - The name of the API Management backend. Changing this forces a new resource to be created.
 
         The **tls** object supports the following:
 
-          * `validateCertificateChain` (`pulumi.Input[bool]`)
-          * `validateCertificateName` (`pulumi.Input[bool]`)
+          * `validateCertificateChain` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
+          * `validateCertificateName` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

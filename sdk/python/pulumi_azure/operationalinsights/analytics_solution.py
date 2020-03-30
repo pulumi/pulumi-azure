@@ -19,9 +19,9 @@ class AnalyticsSolution(pulumi.CustomResource):
     A `plan` block as documented below.
 
       * `name` (`str`)
-      * `product` (`str`)
-      * `promotionCode` (`str`)
-      * `publisher` (`str`)
+      * `product` (`str`) - The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+      * `promotionCode` (`str`) - A promotion code to be used with the solution.
+      * `publisher` (`str`) - The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -57,9 +57,9 @@ class AnalyticsSolution(pulumi.CustomResource):
         The **plan** object supports the following:
 
           * `name` (`pulumi.Input[str]`)
-          * `product` (`pulumi.Input[str]`)
-          * `promotionCode` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `product` (`pulumi.Input[str]`) - The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+          * `promotionCode` (`pulumi.Input[str]`) - A promotion code to be used with the solution.
+          * `publisher` (`pulumi.Input[str]`) - The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,9 +119,9 @@ class AnalyticsSolution(pulumi.CustomResource):
         The **plan** object supports the following:
 
           * `name` (`pulumi.Input[str]`)
-          * `product` (`pulumi.Input[str]`)
-          * `promotionCode` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `product` (`pulumi.Input[str]`) - The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+          * `promotionCode` (`pulumi.Input[str]`) - A promotion code to be used with the solution.
+          * `publisher` (`pulumi.Input[str]`) - The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

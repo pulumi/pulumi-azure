@@ -12,8 +12,9 @@ import (
 )
 
 type ClusterSku struct {
+	// Specifies the node count for the cluster. Boundaries depend on the sku name.
 	Capacity int `pulumi:"capacity"`
-	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
 	Name string `pulumi:"name"`
 }
 
@@ -25,8 +26,9 @@ type ClusterSkuInput interface {
 }
 
 type ClusterSkuArgs struct {
+	// Specifies the node count for the cluster. Boundaries depend on the sku name.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -98,11 +100,13 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(ClusterSkuPtrOutput)
 }
+
+// Specifies the node count for the cluster. Boundaries depend on the sku name.
 func (o ClusterSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
 func (o ClusterSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -125,11 +129,12 @@ func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
 	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
 }
 
+// Specifies the node count for the cluster. Boundaries depend on the sku name.
 func (o ClusterSkuPtrOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
 func (o ClusterSkuPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -100,6 +100,7 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
 
 
     :param str name: The name of the EventHub Authorization Rule resource. 
+    :param str namespace_name: The name of the EventHub Namespace. 
     :param str resource_group_name: The name of the resource group in which the EventHub Namespace exists.
     """
     __args__ = dict()

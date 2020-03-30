@@ -18,15 +18,15 @@ class KafkaCluster(pulumi.CustomResource):
     """
     A `component_version` block as defined below.
 
-      * `kafka` (`str`)
+      * `kafka` (`str`) - The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
     """
     gateway: pulumi.Output[dict]
     """
     A `gateway` block as defined below.
 
-      * `enabled` (`bool`)
-      * `password` (`str`)
-      * `username` (`str`)
+      * `enabled` (`bool`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
+      * `password` (`str`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
+      * `username` (`str`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
     """
     https_endpoint: pulumi.Output[str]
     """
@@ -48,32 +48,32 @@ class KafkaCluster(pulumi.CustomResource):
     """
     A `roles` block as defined below.
 
-      * `headNode` (`dict`)
-        * `password` (`str`)
-        * `sshKeys` (`list`)
-        * `subnet_id` (`str`)
-        * `username` (`str`)
-        * `virtual_network_id` (`str`)
-        * `vm_size` (`str`)
+      * `headNode` (`dict`) - A `head_node` block as defined above.
+        * `password` (`str`) - The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        * `sshKeys` (`list`) - A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        * `subnet_id` (`str`) - The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        * `username` (`str`) - The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        * `virtual_network_id` (`str`) - The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        * `vm_size` (`str`) - The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 
-      * `workerNode` (`dict`)
-        * `minInstanceCount` (`float`)
-        * `numberOfDisksPerNode` (`float`)
-        * `password` (`str`)
-        * `sshKeys` (`list`)
-        * `subnet_id` (`str`)
-        * `targetInstanceCount` (`float`)
-        * `username` (`str`)
-        * `virtual_network_id` (`str`)
-        * `vm_size` (`str`)
+      * `workerNode` (`dict`) - A `worker_node` block as defined below.
+        * `minInstanceCount` (`float`) - The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        * `numberOfDisksPerNode` (`float`) - The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
+        * `password` (`str`) - The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        * `sshKeys` (`list`) - A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        * `subnet_id` (`str`) - The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        * `targetInstanceCount` (`float`) - The number of instances which should be run for the Worker Nodes.
+        * `username` (`str`) - The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        * `virtual_network_id` (`str`) - The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        * `vm_size` (`str`) - The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 
-      * `zookeeperNode` (`dict`)
-        * `password` (`str`)
-        * `sshKeys` (`list`)
-        * `subnet_id` (`str`)
-        * `username` (`str`)
-        * `virtual_network_id` (`str`)
-        * `vm_size` (`str`)
+      * `zookeeperNode` (`dict`) - A `zookeeper_node` block as defined below.
+        * `password` (`str`) - The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        * `sshKeys` (`list`) - A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        * `subnet_id` (`str`) - The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        * `username` (`str`) - The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        * `virtual_network_id` (`str`) - The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        * `vm_size` (`str`) - The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
     """
     ssh_endpoint: pulumi.Output[str]
     """
@@ -83,18 +83,18 @@ class KafkaCluster(pulumi.CustomResource):
     """
     A `storage_account_gen2` block as defined below.
 
-      * `filesystemId` (`str`)
-      * `isDefault` (`bool`)
-      * `managedIdentityResourceId` (`str`)
-      * `storageResourceId` (`str`)
+      * `filesystemId` (`str`) - The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+      * `isDefault` (`bool`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+      * `managedIdentityResourceId` (`str`) - The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+      * `storageResourceId` (`str`) - The ID of the Storage Account. Changing this forces a new resource to be created.
     """
     storage_accounts: pulumi.Output[list]
     """
     One or more `storage_account` block as defined below.
 
-      * `isDefault` (`bool`)
-      * `storage_account_key` (`str`)
-      * `storageContainerId` (`str`)
+      * `isDefault` (`bool`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+      * `storage_account_key` (`str`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+      * `storageContainerId` (`str`) - The ID of the Storage Container. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -126,55 +126,55 @@ class KafkaCluster(pulumi.CustomResource):
 
         The **component_version** object supports the following:
 
-          * `kafka` (`pulumi.Input[str]`)
+          * `kafka` (`pulumi.Input[str]`) - The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 
         The **gateway** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `password` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
+          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
+          * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
 
         The **roles** object supports the following:
 
-          * `headNode` (`pulumi.Input[dict]`)
-            * `password` (`pulumi.Input[str]`)
-            * `sshKeys` (`pulumi.Input[list]`)
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `username` (`pulumi.Input[str]`)
-            * `virtual_network_id` (`pulumi.Input[str]`)
-            * `vm_size` (`pulumi.Input[str]`)
+          * `headNode` (`pulumi.Input[dict]`) - A `head_node` block as defined above.
+            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 
-          * `workerNode` (`pulumi.Input[dict]`)
-            * `minInstanceCount` (`pulumi.Input[float]`)
-            * `numberOfDisksPerNode` (`pulumi.Input[float]`)
-            * `password` (`pulumi.Input[str]`)
-            * `sshKeys` (`pulumi.Input[list]`)
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `targetInstanceCount` (`pulumi.Input[float]`)
-            * `username` (`pulumi.Input[str]`)
-            * `virtual_network_id` (`pulumi.Input[str]`)
-            * `vm_size` (`pulumi.Input[str]`)
+          * `workerNode` (`pulumi.Input[dict]`) - A `worker_node` block as defined below.
+            * `minInstanceCount` (`pulumi.Input[float]`) - The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+            * `numberOfDisksPerNode` (`pulumi.Input[float]`) - The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `targetInstanceCount` (`pulumi.Input[float]`) - The number of instances which should be run for the Worker Nodes.
+            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 
-          * `zookeeperNode` (`pulumi.Input[dict]`)
-            * `password` (`pulumi.Input[str]`)
-            * `sshKeys` (`pulumi.Input[list]`)
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `username` (`pulumi.Input[str]`)
-            * `virtual_network_id` (`pulumi.Input[str]`)
-            * `vm_size` (`pulumi.Input[str]`)
+          * `zookeeperNode` (`pulumi.Input[dict]`) - A `zookeeper_node` block as defined below.
+            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         The **storage_account_gen2** object supports the following:
 
-          * `filesystemId` (`pulumi.Input[str]`)
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `managedIdentityResourceId` (`pulumi.Input[str]`)
-          * `storageResourceId` (`pulumi.Input[str]`)
+          * `filesystemId` (`pulumi.Input[str]`) - The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+          * `managedIdentityResourceId` (`pulumi.Input[str]`) - The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+          * `storageResourceId` (`pulumi.Input[str]`) - The ID of the Storage Account. Changing this forces a new resource to be created.
 
         The **storage_accounts** object supports the following:
 
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `storage_account_key` (`pulumi.Input[str]`)
-          * `storageContainerId` (`pulumi.Input[str]`)
+          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+          * `storage_account_key` (`pulumi.Input[str]`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+          * `storageContainerId` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -249,55 +249,55 @@ class KafkaCluster(pulumi.CustomResource):
 
         The **component_version** object supports the following:
 
-          * `kafka` (`pulumi.Input[str]`)
+          * `kafka` (`pulumi.Input[str]`) - The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 
         The **gateway** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `password` (`pulumi.Input[str]`)
-          * `username` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
+          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
+          * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
 
         The **roles** object supports the following:
 
-          * `headNode` (`pulumi.Input[dict]`)
-            * `password` (`pulumi.Input[str]`)
-            * `sshKeys` (`pulumi.Input[list]`)
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `username` (`pulumi.Input[str]`)
-            * `virtual_network_id` (`pulumi.Input[str]`)
-            * `vm_size` (`pulumi.Input[str]`)
+          * `headNode` (`pulumi.Input[dict]`) - A `head_node` block as defined above.
+            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
 
-          * `workerNode` (`pulumi.Input[dict]`)
-            * `minInstanceCount` (`pulumi.Input[float]`)
-            * `numberOfDisksPerNode` (`pulumi.Input[float]`)
-            * `password` (`pulumi.Input[str]`)
-            * `sshKeys` (`pulumi.Input[list]`)
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `targetInstanceCount` (`pulumi.Input[float]`)
-            * `username` (`pulumi.Input[str]`)
-            * `virtual_network_id` (`pulumi.Input[str]`)
-            * `vm_size` (`pulumi.Input[str]`)
+          * `workerNode` (`pulumi.Input[dict]`) - A `worker_node` block as defined below.
+            * `minInstanceCount` (`pulumi.Input[float]`) - The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+            * `numberOfDisksPerNode` (`pulumi.Input[float]`) - The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `targetInstanceCount` (`pulumi.Input[float]`) - The number of instances which should be run for the Worker Nodes.
+            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
 
-          * `zookeeperNode` (`pulumi.Input[dict]`)
-            * `password` (`pulumi.Input[str]`)
-            * `sshKeys` (`pulumi.Input[list]`)
-            * `subnet_id` (`pulumi.Input[str]`)
-            * `username` (`pulumi.Input[str]`)
-            * `virtual_network_id` (`pulumi.Input[str]`)
-            * `vm_size` (`pulumi.Input[str]`)
+          * `zookeeperNode` (`pulumi.Input[dict]`) - A `zookeeper_node` block as defined below.
+            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         The **storage_account_gen2** object supports the following:
 
-          * `filesystemId` (`pulumi.Input[str]`)
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `managedIdentityResourceId` (`pulumi.Input[str]`)
-          * `storageResourceId` (`pulumi.Input[str]`)
+          * `filesystemId` (`pulumi.Input[str]`) - The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+          * `managedIdentityResourceId` (`pulumi.Input[str]`) - The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+          * `storageResourceId` (`pulumi.Input[str]`) - The ID of the Storage Account. Changing this forces a new resource to be created.
 
         The **storage_accounts** object supports the following:
 
-          * `isDefault` (`pulumi.Input[bool]`)
-          * `storage_account_key` (`pulumi.Input[str]`)
-          * `storageContainerId` (`pulumi.Input[str]`)
+          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+          * `storage_account_key` (`pulumi.Input[str]`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+          * `storageContainerId` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

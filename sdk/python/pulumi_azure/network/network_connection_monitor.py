@@ -18,9 +18,9 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     """
     A `destination` block as defined below.
 
-      * `address` (`str`)
-      * `port` (`float`)
-      * `virtual_machine_id` (`str`)
+      * `address` (`str`) - IP address or domain name to monitor connectivity to.
+      * `port` (`float`) - The port on the destination to monitor connectivity to.
+      * `virtual_machine_id` (`str`) - The ID of the Virtual Machine to monitor connectivity to.
     """
     interval_in_seconds: pulumi.Output[float]
     """
@@ -46,8 +46,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     """
     A `source` block as defined below.
 
-      * `port` (`float`)
-      * `virtual_machine_id` (`str`)
+      * `port` (`float`) - The port on the destination to monitor connectivity to.
+      * `virtual_machine_id` (`str`) - The ID of the Virtual Machine to monitor connectivity to.
     """
     tags: pulumi.Output[dict]
     """
@@ -73,14 +73,14 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
         The **destination** object supports the following:
 
-          * `address` (`pulumi.Input[str]`)
-          * `port` (`pulumi.Input[float]`)
-          * `virtual_machine_id` (`pulumi.Input[str]`)
+          * `address` (`pulumi.Input[str]`) - IP address or domain name to monitor connectivity to.
+          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
 
         The **source** object supports the following:
 
-          * `port` (`pulumi.Input[float]`)
-          * `virtual_machine_id` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,14 +143,14 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
         The **destination** object supports the following:
 
-          * `address` (`pulumi.Input[str]`)
-          * `port` (`pulumi.Input[float]`)
-          * `virtual_machine_id` (`pulumi.Input[str]`)
+          * `address` (`pulumi.Input[str]`) - IP address or domain name to monitor connectivity to.
+          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
 
         The **source** object supports the following:
 
-          * `port` (`pulumi.Input[float]`)
-          * `virtual_machine_id` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

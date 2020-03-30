@@ -35,11 +35,14 @@ class SqlContainer(pulumi.CustomResource):
     The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
     """
     throughput: pulumi.Output[float]
+    """
+    The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+    """
     unique_keys: pulumi.Output[list]
     """
     One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `paths` (`list`)
+      * `paths` (`list`) - A list of paths to use for this unique key.
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, default_ttl=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -55,11 +58,12 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[list] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
 
         The **unique_keys** object supports the following:
 
-          * `paths` (`pulumi.Input[list]`)
+          * `paths` (`pulumi.Input[list]`) - A list of paths to use for this unique key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,11 +117,12 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[list] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
 
         The **unique_keys** object supports the following:
 
-          * `paths` (`pulumi.Input[list]`)
+          * `paths` (`pulumi.Input[list]`) - A list of paths to use for this unique key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

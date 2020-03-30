@@ -41,11 +41,16 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     An active-standby gateway requires exactly one `ip_configuration` block whereas
     an active-active gateway requires exactly two `ip_configuration` blocks.
 
-      * `name` (`str`) - The name of the Virtual Network Gateway. Changing the name
-        forces a new resource to be created.
-      * `privateIpAddressAllocation` (`str`)
-      * `publicIpAddressId` (`str`)
-      * `subnet_id` (`str`)
+      * `name` (`str`) - A user-defined name of the revoked certificate.
+      * `privateIpAddressAllocation` (`str`) - Defines how the private IP address
+        of the gateways virtual interface is assigned. Valid options are `Static` or
+        `Dynamic`. Defaults to `Dynamic`.
+      * `publicIpAddressId` (`str`) - The ID of the public ip address to associate
+        with the Virtual Network Gateway.
+      * `subnet_id` (`str`) - The ID of the gateway subnet of a virtual network in
+        which the virtual network gateway will be created. It is mandatory that
+        the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+        network can contain at most a single Virtual Network Gateway.
     """
     location: pulumi.Output[str]
     """
@@ -54,8 +59,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the Virtual Network Gateway. Changing the name
-    forces a new resource to be created.
+    A user-defined name of the revoked certificate.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -88,20 +92,29 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     is documented below. In this block the Virtual Network Gateway can be configured
     to accept IPSec point-to-site connections.
 
-      * `address_spaces` (`list`)
-      * `radiusServerAddress` (`str`)
-      * `radiusServerSecret` (`str`)
-      * `revokedCertificates` (`list`)
-        * `name` (`str`) - The name of the Virtual Network Gateway. Changing the name
-          forces a new resource to be created.
+      * `address_spaces` (`list`) - The address space out of which ip addresses for
+        vpn clients will be taken. You can provide more than one address space, e.g.
+        in CIDR notation.
+      * `radiusServerAddress` (`str`) - The address of the Radius server.
+        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+      * `radiusServerSecret` (`str`) - The secret used by the Radius server.
+        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+      * `revokedCertificates` (`list`) - One or more `revoked_certificate` blocks which
+        are defined below.
+        This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        * `name` (`str`) - A user-defined name of the revoked certificate.
         * `thumbprint` (`str`)
 
-      * `rootCertificates` (`list`)
-        * `name` (`str`) - The name of the Virtual Network Gateway. Changing the name
-          forces a new resource to be created.
-        * `publicCertData` (`str`)
+      * `rootCertificates` (`list`) - One or more `root_certificate` blocks which are
+        defined below. These root certificates are used to sign the client certificate
+        used by the VPN clients to connect to the gateway.
+        This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        * `name` (`str`) - A user-defined name of the revoked certificate.
+        * `publicCertData` (`str`) - The SHA1 thumbprint of the certificate to be
+          revoked.
 
-      * `vpnClientProtocols` (`list`)
+      * `vpnClientProtocols` (`list`) - List of the protocols supported by the vpn client.
+        The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
     """
     vpn_type: pulumi.Output[str]
     """
@@ -135,8 +148,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
                located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing the name
-               forces a new resource to be created.
+        :param pulumi.Input[str] name: A user-defined name of the revoked certificate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Network Gateway. Changing the resource group name forces
                a new resource to be created.
@@ -158,34 +170,52 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         The **bgp_settings** object supports the following:
 
-          * `asn` (`pulumi.Input[float]`)
-          * `peerWeight` (`pulumi.Input[float]`)
-          * `peeringAddress` (`pulumi.Input[str]`)
+          * `asn` (`pulumi.Input[float]`) - The Autonomous System Number (ASN) to use as part of the BGP.
+          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes which have been learned
+            through BGP peering. Valid values can be between `0` and `100`.
+          * `peeringAddress` (`pulumi.Input[str]`) - The BGP peer IP address of the virtual network
+            gateway. This address is needed to configure the created gateway as a BGP Peer
+            on the on-premises VPN devices. The IP address must be part of the subnet of
+            the Virtual Network Gateway. Changing this forces a new resource to be created.
 
         The **ip_configurations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
-            forces a new resource to be created.
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - Defines how the private IP address
+            of the gateways virtual interface is assigned. Valid options are `Static` or
+            `Dynamic`. Defaults to `Dynamic`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of the public ip address to associate
+            with the Virtual Network Gateway.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the gateway subnet of a virtual network in
+            which the virtual network gateway will be created. It is mandatory that
+            the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+            network can contain at most a single Virtual Network Gateway.
 
         The **vpn_client_configuration** object supports the following:
 
-          * `address_spaces` (`pulumi.Input[list]`)
-          * `radiusServerAddress` (`pulumi.Input[str]`)
-          * `radiusServerSecret` (`pulumi.Input[str]`)
-          * `revokedCertificates` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
-              forces a new resource to be created.
+          * `address_spaces` (`pulumi.Input[list]`) - The address space out of which ip addresses for
+            vpn clients will be taken. You can provide more than one address space, e.g.
+            in CIDR notation.
+          * `radiusServerAddress` (`pulumi.Input[str]`) - The address of the Radius server.
+            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+          * `radiusServerSecret` (`pulumi.Input[str]`) - The secret used by the Radius server.
+            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+          * `revokedCertificates` (`pulumi.Input[list]`) - One or more `revoked_certificate` blocks which
+            are defined below.
+            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
             * `thumbprint` (`pulumi.Input[str]`)
 
-          * `rootCertificates` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
-              forces a new resource to be created.
-            * `publicCertData` (`pulumi.Input[str]`)
+          * `rootCertificates` (`pulumi.Input[list]`) - One or more `root_certificate` blocks which are
+            defined below. These root certificates are used to sign the client certificate
+            used by the VPN clients to connect to the gateway.
+            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
+            * `publicCertData` (`pulumi.Input[str]`) - The SHA1 thumbprint of the certificate to be
+              revoked.
 
-          * `vpnClientProtocols` (`pulumi.Input[list]`)
+          * `vpnClientProtocols` (`pulumi.Input[list]`) - List of the protocols supported by the vpn client.
+            The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -258,8 +288,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
                located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing the name
-               forces a new resource to be created.
+        :param pulumi.Input[str] name: A user-defined name of the revoked certificate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Virtual Network Gateway. Changing the resource group name forces
                a new resource to be created.
@@ -281,34 +310,52 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         The **bgp_settings** object supports the following:
 
-          * `asn` (`pulumi.Input[float]`)
-          * `peerWeight` (`pulumi.Input[float]`)
-          * `peeringAddress` (`pulumi.Input[str]`)
+          * `asn` (`pulumi.Input[float]`) - The Autonomous System Number (ASN) to use as part of the BGP.
+          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes which have been learned
+            through BGP peering. Valid values can be between `0` and `100`.
+          * `peeringAddress` (`pulumi.Input[str]`) - The BGP peer IP address of the virtual network
+            gateway. This address is needed to configure the created gateway as a BGP Peer
+            on the on-premises VPN devices. The IP address must be part of the subnet of
+            the Virtual Network Gateway. Changing this forces a new resource to be created.
 
         The **ip_configurations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
-            forces a new resource to be created.
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - Defines how the private IP address
+            of the gateways virtual interface is assigned. Valid options are `Static` or
+            `Dynamic`. Defaults to `Dynamic`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of the public ip address to associate
+            with the Virtual Network Gateway.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the gateway subnet of a virtual network in
+            which the virtual network gateway will be created. It is mandatory that
+            the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+            network can contain at most a single Virtual Network Gateway.
 
         The **vpn_client_configuration** object supports the following:
 
-          * `address_spaces` (`pulumi.Input[list]`)
-          * `radiusServerAddress` (`pulumi.Input[str]`)
-          * `radiusServerSecret` (`pulumi.Input[str]`)
-          * `revokedCertificates` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
-              forces a new resource to be created.
+          * `address_spaces` (`pulumi.Input[list]`) - The address space out of which ip addresses for
+            vpn clients will be taken. You can provide more than one address space, e.g.
+            in CIDR notation.
+          * `radiusServerAddress` (`pulumi.Input[str]`) - The address of the Radius server.
+            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+          * `radiusServerSecret` (`pulumi.Input[str]`) - The secret used by the Radius server.
+            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+          * `revokedCertificates` (`pulumi.Input[list]`) - One or more `revoked_certificate` blocks which
+            are defined below.
+            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
             * `thumbprint` (`pulumi.Input[str]`)
 
-          * `rootCertificates` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
-              forces a new resource to be created.
-            * `publicCertData` (`pulumi.Input[str]`)
+          * `rootCertificates` (`pulumi.Input[list]`) - One or more `root_certificate` blocks which are
+            defined below. These root certificates are used to sign the client certificate
+            used by the VPN clients to connect to the gateway.
+            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
+            * `publicCertData` (`pulumi.Input[str]`) - The SHA1 thumbprint of the certificate to be
+              revoked.
 
-          * `vpnClientProtocols` (`pulumi.Input[list]`)
+          * `vpnClientProtocols` (`pulumi.Input[list]`) - List of the protocols supported by the vpn client.
+            The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

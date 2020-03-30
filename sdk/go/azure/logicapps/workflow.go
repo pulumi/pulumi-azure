@@ -17,8 +17,12 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
-	// The Access Endpoint for the Logic App Workflow
+	// The Access Endpoint for the Logic App Workflow.
 	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
+	// The list of access endpoint ip addresses of connector.
+	ConnectorEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"connectorEndpointIpAddresses"`
+	// The list of outgoing ip addresses of connector.
+	ConnectorOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"connectorOutboundIpAddresses"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -29,6 +33,10 @@ type Workflow struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The list of access endpoint ip addresses of workflow.
+	WorkflowEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"workflowEndpointIpAddresses"`
+	// The list of outgoing ip addresses of workflow.
+	WorkflowOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"workflowOutboundIpAddresses"`
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema pulumi.StringPtrOutput `pulumi:"workflowSchema"`
 	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
@@ -66,8 +74,12 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	// The Access Endpoint for the Logic App Workflow
+	// The Access Endpoint for the Logic App Workflow.
 	AccessEndpoint *string `pulumi:"accessEndpoint"`
+	// The list of access endpoint ip addresses of connector.
+	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
+	// The list of outgoing ip addresses of connector.
+	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -78,6 +90,10 @@ type workflowState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The list of access endpoint ip addresses of workflow.
+	WorkflowEndpointIpAddresses []string `pulumi:"workflowEndpointIpAddresses"`
+	// The list of outgoing ip addresses of workflow.
+	WorkflowOutboundIpAddresses []string `pulumi:"workflowOutboundIpAddresses"`
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema *string `pulumi:"workflowSchema"`
 	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
@@ -85,8 +101,12 @@ type workflowState struct {
 }
 
 type WorkflowState struct {
-	// The Access Endpoint for the Logic App Workflow
+	// The Access Endpoint for the Logic App Workflow.
 	AccessEndpoint pulumi.StringPtrInput
+	// The list of access endpoint ip addresses of connector.
+	ConnectorEndpointIpAddresses pulumi.StringArrayInput
+	// The list of outgoing ip addresses of connector.
+	ConnectorOutboundIpAddresses pulumi.StringArrayInput
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -97,6 +117,10 @@ type WorkflowState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The list of access endpoint ip addresses of workflow.
+	WorkflowEndpointIpAddresses pulumi.StringArrayInput
+	// The list of outgoing ip addresses of workflow.
+	WorkflowOutboundIpAddresses pulumi.StringArrayInput
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema pulumi.StringPtrInput
 	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.

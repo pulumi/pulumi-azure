@@ -25,7 +25,7 @@ type Certifiate struct {
 	CertificatePolicy CertifiateCertificatePolicyOutput `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
@@ -79,7 +79,7 @@ type certifiateState struct {
 	CertificatePolicy *CertifiateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the associated Key Vault Secret.
 	SecretId *string `pulumi:"secretId"`
@@ -100,7 +100,7 @@ type CertifiateState struct {
 	CertificatePolicy CertifiateCertificatePolicyPtrInput
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId pulumi.StringPtrInput
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringPtrInput
@@ -123,7 +123,7 @@ type certifiateArgs struct {
 	CertificatePolicy CertifiateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -137,7 +137,7 @@ type CertifiateArgs struct {
 	CertificatePolicy CertifiateCertificatePolicyInput
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId pulumi.StringInput
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

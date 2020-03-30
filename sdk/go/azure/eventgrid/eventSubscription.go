@@ -54,6 +54,12 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args == nil {
 		args = &EventSubscriptionArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/eventSubscription:EventSubscription"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource EventSubscription
 	err := ctx.RegisterResource("azure:eventgrid/eventSubscription:EventSubscription", name, args, &resource, opts...)
 	if err != nil {

@@ -196,14 +196,20 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostIpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+        /// The name of the IP configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Reference to a Public IP Address to associate with this Bastion Host.
+        /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;
 
+        /// <summary>
+        /// Reference to a subnet in which this Bastion Host has been created.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -215,14 +221,20 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostIpConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+        /// The name of the IP configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Reference to a Public IP Address to associate with this Bastion Host.
+        /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;
 
+        /// <summary>
+        /// Reference to a subnet in which this Bastion Host has been created.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -239,10 +251,16 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostIpConfiguration
     {
         /// <summary>
-        /// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+        /// The name of the IP configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Reference to a Public IP Address to associate with this Bastion Host.
+        /// </summary>
         public readonly string PublicIpAddressId;
+        /// <summary>
+        /// Reference to a subnet in which this Bastion Host has been created.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

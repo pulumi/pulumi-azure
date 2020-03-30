@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+        /// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+        /// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+        /// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.DevTest
     public sealed class ScheduleWeeklyRecurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time each day when the schedule takes effect.
+        /// The time when the schedule takes effect.
         /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.DevTest
     public sealed class ScheduleWeeklyRecurrenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time each day when the schedule takes effect.
+        /// The time when the schedule takes effect.
         /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.DevTest
     public sealed class ScheduleWeeklyRecurrence
     {
         /// <summary>
-        /// The time each day when the schedule takes effect.
+        /// The time when the schedule takes effect.
         /// </summary>
         public readonly string Time;
         /// <summary>

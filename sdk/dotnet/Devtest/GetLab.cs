@@ -16,7 +16,18 @@ namespace Pulumi.Azure.DevTest
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
         /// </summary>
+        [Obsolete("Use GetLab.InvokeAsync() instead")]
         public static Task<GetLabResult> GetLab(GetLabArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetLab
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Dev Test Lab.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
+        /// </summary>
+        public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.LogicApps
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
         /// </summary>
+        [Obsolete("Use GetWorkflow.InvokeAsync() instead")]
         public static Task<GetWorkflowResult> GetWorkflow(GetWorkflowArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetWorkflow
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Logic App Workflow.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
+        /// </summary>
+        public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -47,6 +58,14 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly string AccessEndpoint;
         /// <summary>
+        /// The list of access endpoint ip addresses of connector.
+        /// </summary>
+        public readonly ImmutableArray<string> ConnectorEndpointIpAddresses;
+        /// <summary>
+        /// The list of outgoing ip addresses of connector.
+        /// </summary>
+        public readonly ImmutableArray<string> ConnectorOutboundIpAddresses;
+        /// <summary>
         /// The Azure location where the Logic App Workflow exists.
         /// </summary>
         public readonly string Location;
@@ -60,6 +79,14 @@ namespace Pulumi.Azure.LogicApps
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The list of access endpoint ip addresses of workflow.
+        /// </summary>
+        public readonly ImmutableArray<string> WorkflowEndpointIpAddresses;
+        /// <summary>
+        /// The list of outgoing ip addresses of workflow.
+        /// </summary>
+        public readonly ImmutableArray<string> WorkflowOutboundIpAddresses;
         /// <summary>
         /// The Schema used for this Logic App Workflow.
         /// </summary>
@@ -76,21 +103,29 @@ namespace Pulumi.Azure.LogicApps
         [OutputConstructor]
         private GetWorkflowResult(
             string accessEndpoint,
+            ImmutableArray<string> connectorEndpointIpAddresses,
+            ImmutableArray<string> connectorOutboundIpAddresses,
             string location,
             string name,
             ImmutableDictionary<string, string> parameters,
             string resourceGroupName,
             ImmutableDictionary<string, string> tags,
+            ImmutableArray<string> workflowEndpointIpAddresses,
+            ImmutableArray<string> workflowOutboundIpAddresses,
             string workflowSchema,
             string workflowVersion,
             string id)
         {
             AccessEndpoint = accessEndpoint;
+            ConnectorEndpointIpAddresses = connectorEndpointIpAddresses;
+            ConnectorOutboundIpAddresses = connectorOutboundIpAddresses;
             Location = location;
             Name = name;
             Parameters = parameters;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
+            WorkflowEndpointIpAddresses = workflowEndpointIpAddresses;
+            WorkflowOutboundIpAddresses = workflowOutboundIpAddresses;
             WorkflowSchema = workflowSchema;
             WorkflowVersion = workflowVersion;
             Id = id;

@@ -236,11 +236,14 @@ namespace Pulumi.Azure.Network
     public sealed class PointToPointVpnGatewayConnectionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Connection Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `vpn_client_address_pool` block as defined below.
+        /// </summary>
         [Input("vpnClientAddressPool", required: true)]
         public Input<PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs> VpnClientAddressPool { get; set; } = null!;
 
@@ -252,11 +255,14 @@ namespace Pulumi.Azure.Network
     public sealed class PointToPointVpnGatewayConnectionConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Connection Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `vpn_client_address_pool` block as defined below.
+        /// </summary>
         [Input("vpnClientAddressPool", required: true)]
         public Input<PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolGetArgs> VpnClientAddressPool { get; set; } = null!;
 
@@ -269,6 +275,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// A list of CIDR Ranges which should be used as Address Prefixes.
+        /// </summary>
         public InputList<string> AddressPrefixes
         {
             get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
@@ -284,6 +294,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// A list of CIDR Ranges which should be used as Address Prefixes.
+        /// </summary>
         public InputList<string> AddressPrefixes
         {
             get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
@@ -303,9 +317,12 @@ namespace Pulumi.Azure.Network
     public sealed class PointToPointVpnGatewayConnectionConfiguration
     {
         /// <summary>
-        /// Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Connection Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A `vpn_client_address_pool` block as defined below.
+        /// </summary>
         public readonly PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool VpnClientAddressPool;
 
         [OutputConstructor]
@@ -321,6 +338,9 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool
     {
+        /// <summary>
+        /// A list of CIDR Ranges which should be used as Address Prefixes.
+        /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
 
         [OutputConstructor]

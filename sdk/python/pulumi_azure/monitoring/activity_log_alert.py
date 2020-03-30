@@ -14,23 +14,23 @@ class ActivityLogAlert(pulumi.CustomResource):
     """
     One or more `action` blocks as defined below.
 
-      * `actionGroupId` (`str`)
-      * `webhookProperties` (`dict`)
+      * `actionGroupId` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+      * `webhookProperties` (`dict`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
     """
     criteria: pulumi.Output[dict]
     """
     A `criteria` block as defined below.
 
-      * `caller` (`str`)
-      * `category` (`str`)
-      * `level` (`str`)
-      * `operationName` (`str`)
-      * `resourceGroup` (`str`)
-      * `resource_id` (`str`)
-      * `resourceProvider` (`str`)
-      * `resourceType` (`str`)
-      * `status` (`str`)
-      * `subStatus` (`str`)
+      * `caller` (`str`) - The email address or Azure Active Directory identifier of the user who performed the operation.
+      * `category` (`str`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
+      * `level` (`str`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+      * `operationName` (`str`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+      * `resourceGroup` (`str`) - The name of resource group monitored by the activity log alert.
+      * `resource_id` (`str`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+      * `resourceProvider` (`str`) - The name of the resource provider monitored by the activity log alert.
+      * `resourceType` (`str`) - The resource type monitored by the activity log alert.
+      * `status` (`str`) - The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+      * `subStatus` (`str`) - The sub status of the event.
     """
     description: pulumi.Output[str]
     """
@@ -75,21 +75,21 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`)
-          * `webhookProperties` (`pulumi.Input[dict]`)
+          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criteria** object supports the following:
 
-          * `caller` (`pulumi.Input[str]`)
-          * `category` (`pulumi.Input[str]`)
-          * `level` (`pulumi.Input[str]`)
-          * `operationName` (`pulumi.Input[str]`)
-          * `resourceGroup` (`pulumi.Input[str]`)
-          * `resource_id` (`pulumi.Input[str]`)
-          * `resourceProvider` (`pulumi.Input[str]`)
-          * `resourceType` (`pulumi.Input[str]`)
-          * `status` (`pulumi.Input[str]`)
-          * `subStatus` (`pulumi.Input[str]`)
+          * `caller` (`pulumi.Input[str]`) - The email address or Azure Active Directory identifier of the user who performed the operation.
+          * `category` (`pulumi.Input[str]`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
+          * `level` (`pulumi.Input[str]`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+          * `operationName` (`pulumi.Input[str]`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+          * `resourceGroup` (`pulumi.Input[str]`) - The name of resource group monitored by the activity log alert.
+          * `resource_id` (`pulumi.Input[str]`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+          * `resourceProvider` (`pulumi.Input[str]`) - The name of the resource provider monitored by the activity log alert.
+          * `resourceType` (`pulumi.Input[str]`) - The resource type monitored by the activity log alert.
+          * `status` (`pulumi.Input[str]`) - The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+          * `subStatus` (`pulumi.Input[str]`) - The sub status of the event.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -148,21 +148,21 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`)
-          * `webhookProperties` (`pulumi.Input[dict]`)
+          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criteria** object supports the following:
 
-          * `caller` (`pulumi.Input[str]`)
-          * `category` (`pulumi.Input[str]`)
-          * `level` (`pulumi.Input[str]`)
-          * `operationName` (`pulumi.Input[str]`)
-          * `resourceGroup` (`pulumi.Input[str]`)
-          * `resource_id` (`pulumi.Input[str]`)
-          * `resourceProvider` (`pulumi.Input[str]`)
-          * `resourceType` (`pulumi.Input[str]`)
-          * `status` (`pulumi.Input[str]`)
-          * `subStatus` (`pulumi.Input[str]`)
+          * `caller` (`pulumi.Input[str]`) - The email address or Azure Active Directory identifier of the user who performed the operation.
+          * `category` (`pulumi.Input[str]`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
+          * `level` (`pulumi.Input[str]`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+          * `operationName` (`pulumi.Input[str]`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+          * `resourceGroup` (`pulumi.Input[str]`) - The name of resource group monitored by the activity log alert.
+          * `resource_id` (`pulumi.Input[str]`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+          * `resourceProvider` (`pulumi.Input[str]`) - The name of the resource provider monitored by the activity log alert.
+          * `resourceType` (`pulumi.Input[str]`) - The resource type monitored by the activity log alert.
+          * `status` (`pulumi.Input[str]`) - The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+          * `subStatus` (`pulumi.Input[str]`) - The sub status of the event.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

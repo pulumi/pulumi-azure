@@ -37,7 +37,13 @@ export interface GetNatGatewayArgs {
      * Specifies the Name of the NAT Gateway.
      */
     readonly name: string;
+    /**
+     * A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+     */
     readonly publicIpAddressIds?: string[];
+    /**
+     * A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
+     */
     readonly publicIpPrefixIds?: string[];
     /**
      * Specifies the name of the Resource Group where the NAT Gateway exists.

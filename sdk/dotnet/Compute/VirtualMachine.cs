@@ -565,6 +565,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineAdditionalCapabilitiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should Ultra SSD disk be enabled for this Virtual Machine?
+        /// </summary>
         [Input("ultraSsdEnabled", required: true)]
         public Input<bool> UltraSsdEnabled { get; set; } = null!;
 
@@ -575,6 +578,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineAdditionalCapabilitiesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should Ultra SSD disk be enabled for this Virtual Machine?
+        /// </summary>
         [Input("ultraSsdEnabled", required: true)]
         public Input<bool> UltraSsdEnabled { get; set; } = null!;
 
@@ -585,9 +591,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineBootDiagnosticsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should Boot Diagnostics be enabled for this Virtual Machine?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
+        /// </summary>
         [Input("storageUri", required: true)]
         public Input<string> StorageUri { get; set; } = null!;
 
@@ -598,9 +610,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineBootDiagnosticsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should Boot Diagnostics be enabled for this Virtual Machine?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
+        /// </summary>
         [Input("storageUri", required: true)]
         public Input<string> StorageUri { get; set; } = null!;
 
@@ -613,6 +631,10 @@ namespace Pulumi.Azure.Compute
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -625,6 +647,9 @@ namespace Pulumi.Azure.Compute
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -637,6 +662,10 @@ namespace Pulumi.Azure.Compute
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -649,6 +678,9 @@ namespace Pulumi.Azure.Compute
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -659,15 +691,27 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password associated with the local administrator account.
+        /// </summary>
         [Input("adminPassword")]
         public Input<string>? AdminPassword { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the local administrator account.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the Virtual Machine.
+        /// </summary>
         [Input("computerName", required: true)]
         public Input<string> ComputerName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+        /// </summary>
         [Input("customData")]
         public Input<string>? CustomData { get; set; }
 
@@ -678,15 +722,27 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The password associated with the local administrator account.
+        /// </summary>
         [Input("adminPassword")]
         public Input<string>? AdminPassword { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the local administrator account.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the Virtual Machine.
+        /// </summary>
         [Input("computerName", required: true)]
         public Input<string> ComputerName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+        /// </summary>
         [Input("customData")]
         public Input<string>? CustomData { get; set; }
 
@@ -697,11 +753,18 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileLinuxConfigArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+        /// </summary>
         [Input("disablePasswordAuthentication", required: true)]
         public Input<bool> DisablePasswordAuthentication { get; set; } = null!;
 
         [Input("sshKeys")]
         private InputList<VirtualMachineOsProfileLinuxConfigSshKeysArgs>? _sshKeys;
+
+        /// <summary>
+        /// One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        /// </summary>
         public InputList<VirtualMachineOsProfileLinuxConfigSshKeysArgs> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<VirtualMachineOsProfileLinuxConfigSshKeysArgs>());
@@ -715,11 +778,18 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileLinuxConfigGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+        /// </summary>
         [Input("disablePasswordAuthentication", required: true)]
         public Input<bool> DisablePasswordAuthentication { get; set; } = null!;
 
         [Input("sshKeys")]
         private InputList<VirtualMachineOsProfileLinuxConfigSshKeysGetArgs>? _sshKeys;
+
+        /// <summary>
+        /// One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        /// </summary>
         public InputList<VirtualMachineOsProfileLinuxConfigSshKeysGetArgs> SshKeys
         {
             get => _sshKeys ?? (_sshKeys = new InputList<VirtualMachineOsProfileLinuxConfigSshKeysGetArgs>());
@@ -733,9 +803,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileLinuxConfigSshKeysArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Public SSH Key which should be written to the `path` defined above.
+        /// </summary>
         [Input("keyData", required: true)]
         public Input<string> KeyData { get; set; } = null!;
 
+        /// <summary>
+        /// The path of the destination file on the virtual machine
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
@@ -746,9 +822,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileLinuxConfigSshKeysGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Public SSH Key which should be written to the `path` defined above.
+        /// </summary>
         [Input("keyData", required: true)]
         public Input<string> KeyData { get; set; } = null!;
 
+        /// <summary>
+        /// The path of the destination file on the virtual machine
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
@@ -759,11 +841,18 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileSecretsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ID of the Key Vault to use.
+        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
         [Input("vaultCertificates")]
         private InputList<VirtualMachineOsProfileSecretsVaultCertificatesArgs>? _vaultCertificates;
+
+        /// <summary>
+        /// One or more `vault_certificates` blocks.
+        /// </summary>
         public InputList<VirtualMachineOsProfileSecretsVaultCertificatesArgs> VaultCertificates
         {
             get => _vaultCertificates ?? (_vaultCertificates = new InputList<VirtualMachineOsProfileSecretsVaultCertificatesArgs>());
@@ -777,11 +866,18 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileSecretsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the ID of the Key Vault to use.
+        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
         [Input("vaultCertificates")]
         private InputList<VirtualMachineOsProfileSecretsVaultCertificatesGetArgs>? _vaultCertificates;
+
+        /// <summary>
+        /// One or more `vault_certificates` blocks.
+        /// </summary>
         public InputList<VirtualMachineOsProfileSecretsVaultCertificatesGetArgs> VaultCertificates
         {
             get => _vaultCertificates ?? (_vaultCertificates = new InputList<VirtualMachineOsProfileSecretsVaultCertificatesGetArgs>());
@@ -795,9 +891,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileSecretsVaultCertificatesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+        /// </summary>
         [Input("certificateStore")]
         public Input<string>? CertificateStore { get; set; }
 
+        /// <summary>
+        /// The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
+        /// </summary>
         [Input("certificateUrl", required: true)]
         public Input<string> CertificateUrl { get; set; } = null!;
 
@@ -808,9 +910,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileSecretsVaultCertificatesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+        /// </summary>
         [Input("certificateStore")]
         public Input<string>? CertificateStore { get; set; }
 
+        /// <summary>
+        /// The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
+        /// </summary>
         [Input("certificateUrl", required: true)]
         public Input<string> CertificateUrl { get; set; } = null!;
 
@@ -821,15 +929,27 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+        /// </summary>
         [Input("component", required: true)]
         public Input<string> Component { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+        /// </summary>
         [Input("pass", required: true)]
         public Input<string> Pass { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
+        /// </summary>
         [Input("settingName", required: true)]
         public Input<string> SettingName { get; set; } = null!;
 
@@ -840,15 +960,27 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+        /// </summary>
         [Input("component", required: true)]
         public Input<string> Component { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+        /// </summary>
         [Input("pass", required: true)]
         public Input<string> Pass { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
+        /// </summary>
         [Input("settingName", required: true)]
         public Input<string> SettingName { get; set; } = null!;
 
@@ -861,23 +993,40 @@ namespace Pulumi.Azure.Compute
     {
         [Input("additionalUnattendConfigs")]
         private InputList<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs>? _additionalUnattendConfigs;
+
+        /// <summary>
+        /// A `additional_unattend_config` block.
+        /// </summary>
         public InputList<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs> AdditionalUnattendConfigs
         {
             get => _additionalUnattendConfigs ?? (_additionalUnattendConfigs = new InputList<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs>());
             set => _additionalUnattendConfigs = value;
         }
 
+        /// <summary>
+        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+        /// </summary>
         [Input("enableAutomaticUpgrades")]
         public Input<bool>? EnableAutomaticUpgrades { get; set; }
 
+        /// <summary>
+        /// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+        /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
 
+        /// <summary>
+        /// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         [Input("winrms")]
         private InputList<VirtualMachineOsProfileWindowsConfigWinrmsArgs>? _winrms;
+
+        /// <summary>
+        /// One or more `winrm` block.
+        /// </summary>
         public InputList<VirtualMachineOsProfileWindowsConfigWinrmsArgs> Winrms
         {
             get => _winrms ?? (_winrms = new InputList<VirtualMachineOsProfileWindowsConfigWinrmsArgs>());
@@ -893,23 +1042,40 @@ namespace Pulumi.Azure.Compute
     {
         [Input("additionalUnattendConfigs")]
         private InputList<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsGetArgs>? _additionalUnattendConfigs;
+
+        /// <summary>
+        /// A `additional_unattend_config` block.
+        /// </summary>
         public InputList<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsGetArgs> AdditionalUnattendConfigs
         {
             get => _additionalUnattendConfigs ?? (_additionalUnattendConfigs = new InputList<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsGetArgs>());
             set => _additionalUnattendConfigs = value;
         }
 
+        /// <summary>
+        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+        /// </summary>
         [Input("enableAutomaticUpgrades")]
         public Input<bool>? EnableAutomaticUpgrades { get; set; }
 
+        /// <summary>
+        /// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+        /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
 
+        /// <summary>
+        /// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         [Input("winrms")]
         private InputList<VirtualMachineOsProfileWindowsConfigWinrmsGetArgs>? _winrms;
+
+        /// <summary>
+        /// One or more `winrm` block.
+        /// </summary>
         public InputList<VirtualMachineOsProfileWindowsConfigWinrmsGetArgs> Winrms
         {
             get => _winrms ?? (_winrms = new InputList<VirtualMachineOsProfileWindowsConfigWinrmsGetArgs>());
@@ -923,9 +1089,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileWindowsConfigWinrmsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+        /// </summary>
         [Input("certificateUrl")]
         public Input<string>? CertificateUrl { get; set; }
 
+        /// <summary>
+        /// Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -936,9 +1108,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineOsProfileWindowsConfigWinrmsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+        /// </summary>
         [Input("certificateUrl")]
         public Input<string>? CertificateUrl { get; set; }
 
+        /// <summary>
+        /// Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -950,14 +1128,20 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachinePlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies the name of the image from the marketplace.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the product of the image from the marketplace.
+        /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the publisher of the image.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
@@ -969,14 +1153,20 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachinePlanGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies the name of the image from the marketplace.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the product of the image from the marketplace.
+        /// </summary>
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the publisher of the image.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
@@ -987,33 +1177,57 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineStorageDataDisksArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching")]
         public Input<string>? Caching { get; set; }
 
+        /// <summary>
+        /// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+        /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the size of the data disk in gigabytes.
+        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+        /// </summary>
         [Input("lun", required: true)]
         public Input<int> Lun { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+        /// </summary>
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }
 
+        /// <summary>
+        /// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+        /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// The name of the Data Disk.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vhdUri")]
         public Input<string>? VhdUri { get; set; }
 
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -1024,33 +1238,57 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineStorageDataDisksGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching")]
         public Input<string>? Caching { get; set; }
 
+        /// <summary>
+        /// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+        /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the size of the data disk in gigabytes.
+        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+        /// </summary>
         [Input("lun", required: true)]
         public Input<int> Lun { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+        /// </summary>
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }
 
+        /// <summary>
+        /// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+        /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// The name of the Data Disk.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vhdUri")]
         public Input<string>? VhdUri { get; set; }
 
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -1062,20 +1300,32 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachineStorageImageReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Virtual Machine.
+        /// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("offer")]
         public Input<string>? Offer { get; set; }
 
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
 
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -1087,20 +1337,32 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachineStorageImageReferenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Virtual Machine.
+        /// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("offer")]
         public Input<string>? Offer { get; set; }
 
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publisher")]
         public Input<string>? Publisher { get; set; }
 
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -1111,36 +1373,63 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineStorageOsDiskArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching")]
         public Input<string>? Caching { get; set; }
 
+        /// <summary>
+        /// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
+        /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the size of the OS Disk in gigabytes.
+        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        /// </summary>
         [Input("imageUri")]
         public Input<string>? ImageUri { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+        /// </summary>
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }
 
+        /// <summary>
+        /// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+        /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies the name of the OS Disk.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
+        /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
+        /// <summary>
+        /// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vhdUri")]
         public Input<string>? VhdUri { get; set; }
 
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -1151,36 +1440,63 @@ namespace Pulumi.Azure.Compute
 
     public sealed class VirtualMachineStorageOsDiskGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching")]
         public Input<string>? Caching { get; set; }
 
+        /// <summary>
+        /// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
+        /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the size of the OS Disk in gigabytes.
+        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        /// </summary>
         [Input("imageUri")]
         public Input<string>? ImageUri { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+        /// </summary>
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }
 
+        /// <summary>
+        /// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+        /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies the name of the OS Disk.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
+        /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
+        /// <summary>
+        /// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vhdUri")]
         public Input<string>? VhdUri { get; set; }
 
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -1196,6 +1512,9 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineAdditionalCapabilities
     {
+        /// <summary>
+        /// Should Ultra SSD disk be enabled for this Virtual Machine?
+        /// </summary>
         public readonly bool UltraSsdEnabled;
 
         [OutputConstructor]
@@ -1208,7 +1527,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineBootDiagnostics
     {
+        /// <summary>
+        /// Should Boot Diagnostics be enabled for this Virtual Machine?
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
+        /// </summary>
         public readonly string StorageUri;
 
         [OutputConstructor]
@@ -1224,11 +1549,17 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineIdentity
     {
+        /// <summary>
+        /// Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1246,9 +1577,21 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfile
     {
+        /// <summary>
+        /// The password associated with the local administrator account.
+        /// </summary>
         public readonly string? AdminPassword;
+        /// <summary>
+        /// Specifies the name of the local administrator account.
+        /// </summary>
         public readonly string AdminUsername;
+        /// <summary>
+        /// Specifies the name of the Virtual Machine.
+        /// </summary>
         public readonly string ComputerName;
+        /// <summary>
+        /// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+        /// </summary>
         public readonly string CustomData;
 
         [OutputConstructor]
@@ -1268,7 +1611,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfileLinuxConfig
     {
+        /// <summary>
+        /// Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+        /// </summary>
         public readonly bool DisablePasswordAuthentication;
+        /// <summary>
+        /// One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        /// </summary>
         public readonly ImmutableArray<VirtualMachineOsProfileLinuxConfigSshKeys> SshKeys;
 
         [OutputConstructor]
@@ -1284,7 +1633,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfileLinuxConfigSshKeys
     {
+        /// <summary>
+        /// The Public SSH Key which should be written to the `path` defined above.
+        /// </summary>
         public readonly string KeyData;
+        /// <summary>
+        /// The path of the destination file on the virtual machine
+        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]
@@ -1300,7 +1655,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfileSecrets
     {
+        /// <summary>
+        /// Specifies the ID of the Key Vault to use.
+        /// </summary>
         public readonly string SourceVaultId;
+        /// <summary>
+        /// One or more `vault_certificates` blocks.
+        /// </summary>
         public readonly ImmutableArray<VirtualMachineOsProfileSecretsVaultCertificates> VaultCertificates;
 
         [OutputConstructor]
@@ -1316,7 +1677,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfileSecretsVaultCertificates
     {
+        /// <summary>
+        /// Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+        /// </summary>
         public readonly string? CertificateStore;
+        /// <summary>
+        /// The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
+        /// </summary>
         public readonly string CertificateUrl;
 
         [OutputConstructor]
@@ -1332,10 +1699,25 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfileWindowsConfig
     {
+        /// <summary>
+        /// A `additional_unattend_config` block.
+        /// </summary>
         public readonly ImmutableArray<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs> AdditionalUnattendConfigs;
+        /// <summary>
+        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+        /// </summary>
         public readonly bool? EnableAutomaticUpgrades;
+        /// <summary>
+        /// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+        /// </summary>
         public readonly bool? ProvisionVmAgent;
+        /// <summary>
+        /// Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// </summary>
         public readonly string? Timezone;
+        /// <summary>
+        /// One or more `winrm` block.
+        /// </summary>
         public readonly ImmutableArray<VirtualMachineOsProfileWindowsConfigWinrms> Winrms;
 
         [OutputConstructor]
@@ -1357,9 +1739,21 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs
     {
+        /// <summary>
+        /// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+        /// </summary>
         public readonly string Component;
+        /// <summary>
+        /// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+        /// </summary>
         public readonly string Content;
+        /// <summary>
+        /// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+        /// </summary>
         public readonly string Pass;
+        /// <summary>
+        /// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
+        /// </summary>
         public readonly string SettingName;
 
         [OutputConstructor]
@@ -1379,7 +1773,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineOsProfileWindowsConfigWinrms
     {
+        /// <summary>
+        /// The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+        /// </summary>
         public readonly string? CertificateUrl;
+        /// <summary>
+        /// Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
+        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]
@@ -1396,10 +1796,16 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachinePlan
     {
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies the name of the image from the marketplace.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the product of the image from the marketplace.
+        /// </summary>
         public readonly string Product;
+        /// <summary>
+        /// Specifies the publisher of the image.
+        /// </summary>
         public readonly string Publisher;
 
         [OutputConstructor]
@@ -1417,17 +1823,41 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineStorageDataDisks
     {
+        /// <summary>
+        /// Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         public readonly string Caching;
+        /// <summary>
+        /// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+        /// </summary>
         public readonly string CreateOption;
+        /// <summary>
+        /// Specifies the size of the data disk in gigabytes.
+        /// </summary>
         public readonly int DiskSizeGb;
+        /// <summary>
+        /// Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+        /// </summary>
         public readonly int Lun;
+        /// <summary>
+        /// Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+        /// </summary>
         public readonly string ManagedDiskId;
+        /// <summary>
+        /// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+        /// </summary>
         public readonly string ManagedDiskType;
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// The name of the Data Disk.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VhdUri;
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]
@@ -1458,12 +1888,24 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachineStorageImageReference
     {
         /// <summary>
-        /// The ID of the Virtual Machine.
+        /// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Offer;
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Publisher;
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? Sku;
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
@@ -1485,18 +1927,45 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class VirtualMachineStorageOsDisk
     {
+        /// <summary>
+        /// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         public readonly string Caching;
+        /// <summary>
+        /// Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
+        /// </summary>
         public readonly string CreateOption;
+        /// <summary>
+        /// Specifies the size of the OS Disk in gigabytes.
+        /// </summary>
         public readonly int DiskSizeGb;
+        /// <summary>
+        /// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+        /// </summary>
         public readonly string? ImageUri;
+        /// <summary>
+        /// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+        /// </summary>
         public readonly string ManagedDiskId;
+        /// <summary>
+        /// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+        /// </summary>
         public readonly string ManagedDiskType;
         /// <summary>
-        /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+        /// Specifies the name of the OS Disk.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
+        /// </summary>
         public readonly string OsType;
+        /// <summary>
+        /// Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VhdUri;
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]

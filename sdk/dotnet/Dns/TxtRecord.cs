@@ -223,6 +223,9 @@ namespace Pulumi.Azure.Dns
 
     public sealed class TxtRecordRecordsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value of the record. Max length: 1024 characters
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -233,6 +236,9 @@ namespace Pulumi.Azure.Dns
 
     public sealed class TxtRecordRecordsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The value of the record. Max length: 1024 characters
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -248,6 +254,9 @@ namespace Pulumi.Azure.Dns
     [OutputType]
     public sealed class TxtRecordRecords
     {
+        /// <summary>
+        /// The value of the record. Max length: 1024 characters
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -28,7 +28,7 @@ type Schedule struct {
 	NotificationSettings ScheduleNotificationSettingsOutput `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -93,7 +93,7 @@ type scheduleState struct {
 	NotificationSettings *ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
 	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -116,7 +116,7 @@ type ScheduleState struct {
 	NotificationSettings ScheduleNotificationSettingsPtrInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
 	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -143,7 +143,7 @@ type scheduleArgs struct {
 	NotificationSettings ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
 	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -167,7 +167,7 @@ type ScheduleArgs struct {
 	NotificationSettings ScheduleNotificationSettingsInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	// The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
 	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

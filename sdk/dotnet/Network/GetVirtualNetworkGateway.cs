@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
         /// </summary>
+        [Obsolete("Use GetVirtualNetworkGateway.InvokeAsync() instead")]
         public static Task<GetVirtualNetworkGatewayResult> GetVirtualNetworkGateway(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetVirtualNetworkGateway
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Virtual Network Gateway.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
+        /// </summary>
+        public static Task<GetVirtualNetworkGatewayResult> InvokeAsync(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

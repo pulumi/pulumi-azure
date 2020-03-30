@@ -37,7 +37,7 @@ class SqlServer(pulumi.CustomResource):
 
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-      * `type` (`str`)
+      * `type` (`str`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
     """
     location: pulumi.Output[str]
     """
@@ -62,9 +62,6 @@ class SqlServer(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, extended_auditing_policy=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a SQL Azure Database Server.
-
-        > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
 
@@ -91,7 +88,7 @@ class SqlServer(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -165,7 +162,7 @@ class SqlServer(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

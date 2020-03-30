@@ -14,9 +14,8 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
     """
     One or more `custom_header` blocks as defined below
 
-      * `name` (`str`) - The name of the Traffic Manager endpoint. Changing this forces a
-        new resource to be created.
-      * `value` (`str`)
+      * `name` (`str`) - The name of the custom header.
+      * `value` (`str`) - The value of custom header. Applicable for Http and Https protocol.
     """
     endpoint_location: pulumi.Output[str]
     """
@@ -70,9 +69,9 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
     """
     One or more `subnet` blocks as defined below
 
-      * `first` (`str`)
-      * `last` (`str`)
-      * `scope` (`float`)
+      * `first` (`str`) - The First IP....
+      * `last` (`str`) - The Last IP...
+      * `scope` (`float`) - The Scope...
     """
     target: pulumi.Output[str]
     """
@@ -148,15 +147,14 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
 
         The **custom_headers** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Traffic Manager endpoint. Changing this forces a
-            new resource to be created.
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the custom header.
+          * `value` (`pulumi.Input[str]`) - The value of custom header. Applicable for Http and Https protocol.
 
         The **subnets** object supports the following:
 
-          * `first` (`pulumi.Input[str]`)
-          * `last` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[float]`)
+          * `first` (`pulumi.Input[str]`) - The First IP....
+          * `last` (`pulumi.Input[str]`) - The Last IP...
+          * `scope` (`pulumi.Input[float]`) - The Scope...
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -254,15 +252,14 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
 
         The **custom_headers** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Traffic Manager endpoint. Changing this forces a
-            new resource to be created.
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The name of the custom header.
+          * `value` (`pulumi.Input[str]`) - The value of custom header. Applicable for Http and Https protocol.
 
         The **subnets** object supports the following:
 
-          * `first` (`pulumi.Input[str]`)
-          * `last` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[float]`)
+          * `first` (`pulumi.Input[str]`) - The First IP....
+          * `last` (`pulumi.Input[str]`) - The Last IP...
+          * `scope` (`pulumi.Input[float]`) - The Scope...
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

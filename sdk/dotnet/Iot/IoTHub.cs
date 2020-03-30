@@ -130,6 +130,9 @@ namespace Pulumi.Azure.Iot
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -420,6 +423,9 @@ namespace Pulumi.Azure.Iot
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -433,30 +439,51 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubEndpointsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }
 
+        /// <summary>
+        /// The connection string for the endpoint.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
+        /// <summary>
+        /// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
+        /// <summary>
+        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }
 
+        /// <summary>
+        /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("maxChunkSizeInBytes")]
         public Input<int>? MaxChunkSizeInBytes { get; set; }
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -467,30 +494,51 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubEndpointsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }
 
+        /// <summary>
+        /// The connection string for the endpoint.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("containerName")]
         public Input<string>? ContainerName { get; set; }
 
+        /// <summary>
+        /// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
+        /// <summary>
+        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }
 
+        /// <summary>
+        /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         [Input("maxChunkSizeInBytes")]
         public Input<int>? MaxChunkSizeInBytes { get; set; }
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -501,20 +549,33 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubFallbackRouteArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// Used to specify whether the fallback route is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("endpointNames")]
         private InputList<string>? _endpointNames;
+
+        /// <summary>
+        /// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+        /// </summary>
         public InputList<string> EndpointNames
         {
             get => _endpointNames ?? (_endpointNames = new InputList<string>());
             set => _endpointNames = value;
         }
 
+        /// <summary>
+        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
@@ -525,20 +586,33 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubFallbackRouteGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// Used to specify whether the fallback route is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("endpointNames")]
         private InputList<string>? _endpointNames;
+
+        /// <summary>
+        /// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+        /// </summary>
         public InputList<string> EndpointNames
         {
             get => _endpointNames ?? (_endpointNames = new InputList<string>());
             set => _endpointNames = value;
         }
 
+        /// <summary>
+        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
@@ -549,24 +623,45 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubFileUploadArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connection string for the Azure Storage account to which files are uploaded.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
+        /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
+        /// <summary>
+        /// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+        /// </summary>
         [Input("defaultTtl")]
         public Input<string>? DefaultTtl { get; set; }
 
+        /// <summary>
+        /// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+        /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
 
+        /// <summary>
+        /// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+        /// </summary>
         [Input("maxDeliveryCount")]
         public Input<int>? MaxDeliveryCount { get; set; }
 
+        /// <summary>
+        /// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+        /// </summary>
         [Input("notifications")]
         public Input<bool>? Notifications { get; set; }
 
+        /// <summary>
+        /// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+        /// </summary>
         [Input("sasTtl")]
         public Input<string>? SasTtl { get; set; }
 
@@ -577,24 +672,45 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubFileUploadGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The connection string for the Azure Storage account to which files are uploaded.
+        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
+        /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
+        /// <summary>
+        /// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+        /// </summary>
         [Input("defaultTtl")]
         public Input<string>? DefaultTtl { get; set; }
 
+        /// <summary>
+        /// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+        /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
 
+        /// <summary>
+        /// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+        /// </summary>
         [Input("maxDeliveryCount")]
         public Input<int>? MaxDeliveryCount { get; set; }
 
+        /// <summary>
+        /// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+        /// </summary>
         [Input("notifications")]
         public Input<bool>? Notifications { get; set; }
 
+        /// <summary>
+        /// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+        /// </summary>
         [Input("sasTtl")]
         public Input<string>? SasTtl { get; set; }
 
@@ -605,14 +721,20 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubIpFilterRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The IP address range in CIDR notation for the rule.
+        /// </summary>
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the filter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -624,14 +746,20 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubIpFilterRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The IP address range in CIDR notation for the rule.
+        /// </summary>
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the filter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -643,14 +771,24 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubRoutesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// Used to specify whether a route is enabled.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         [Input("endpointNames", required: true)]
         private InputList<string>? _endpointNames;
+
+        /// <summary>
+        /// The list of endpoints to which messages that satisfy the condition are routed.
+        /// </summary>
         public InputList<string> EndpointNames
         {
             get => _endpointNames ?? (_endpointNames = new InputList<string>());
@@ -658,11 +796,14 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the route.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
@@ -673,14 +814,24 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubRoutesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// Used to specify whether a route is enabled.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         [Input("endpointNames", required: true)]
         private InputList<string>? _endpointNames;
+
+        /// <summary>
+        /// The list of endpoints to which messages that satisfy the condition are routed.
+        /// </summary>
         public InputList<string> EndpointNames
         {
             get => _endpointNames ?? (_endpointNames = new InputList<string>());
@@ -688,11 +839,14 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the route.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
@@ -734,11 +888,14 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubSkuArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of provisioned IoT Hub units.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -750,11 +907,14 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubSkuGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of provisioned IoT Hub units.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -771,16 +931,37 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IoTHubEndpoints
     {
+        /// <summary>
+        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         public readonly int? BatchFrequencyInSeconds;
+        /// <summary>
+        /// The connection string for the endpoint.
+        /// </summary>
         public readonly string ConnectionString;
+        /// <summary>
+        /// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         public readonly string? ContainerName;
+        /// <summary>
+        /// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         public readonly string? Encoding;
+        /// <summary>
+        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         public readonly string? FileNameFormat;
+        /// <summary>
+        /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        /// </summary>
         public readonly int? MaxChunkSizeInBytes;
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -808,9 +989,21 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IoTHubFallbackRoute
     {
+        /// <summary>
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// </summary>
         public readonly string? Condition;
+        /// <summary>
+        /// Used to specify whether the fallback route is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+        /// </summary>
         public readonly ImmutableArray<string> EndpointNames;
+        /// <summary>
+        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        /// </summary>
         public readonly string? Source;
 
         [OutputConstructor]
@@ -830,12 +1023,33 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IoTHubFileUpload
     {
+        /// <summary>
+        /// The connection string for the Azure Storage account to which files are uploaded.
+        /// </summary>
         public readonly string ConnectionString;
+        /// <summary>
+        /// The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
+        /// </summary>
         public readonly string ContainerName;
+        /// <summary>
+        /// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+        /// </summary>
         public readonly string DefaultTtl;
+        /// <summary>
+        /// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+        /// </summary>
         public readonly string LockDuration;
+        /// <summary>
+        /// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+        /// </summary>
         public readonly int? MaxDeliveryCount;
+        /// <summary>
+        /// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+        /// </summary>
         public readonly bool? Notifications;
+        /// <summary>
+        /// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+        /// </summary>
         public readonly string SasTtl;
 
         [OutputConstructor]
@@ -861,10 +1075,16 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IoTHubIpFilterRules
     {
+        /// <summary>
+        /// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// The IP address range in CIDR notation for the rule.
+        /// </summary>
         public readonly string IpMask;
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the filter.
         /// </summary>
         public readonly string Name;
 
@@ -883,13 +1103,25 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IoTHubRoutes
     {
+        /// <summary>
+        /// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        /// </summary>
         public readonly string? Condition;
+        /// <summary>
+        /// Used to specify whether a route is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The list of endpoints to which messages that satisfy the condition are routed.
+        /// </summary>
         public readonly ImmutableArray<string> EndpointNames;
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the route.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]
@@ -945,9 +1177,12 @@ namespace Pulumi.Azure.Iot
     [OutputType]
     public sealed class IoTHubSku
     {
+        /// <summary>
+        /// The number of provisioned IoT Hub units.
+        /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         /// </summary>
         public readonly string Name;
 

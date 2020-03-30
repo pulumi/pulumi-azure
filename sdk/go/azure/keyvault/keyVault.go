@@ -11,10 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages a Key Vault.
+//
+// ## Disclaimers
+//
+// > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+//
+// > **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
 type KeyVault struct {
 	pulumi.CustomResourceState
 
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment pulumi.BoolPtrOutput `pulumi:"enabledForDeployment"`
@@ -81,7 +90,7 @@ func GetKeyVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyVault resources.
 type keyVaultState struct {
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
@@ -112,7 +121,7 @@ type keyVaultState struct {
 }
 
 type KeyVaultState struct {
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment pulumi.BoolPtrInput
@@ -147,7 +156,7 @@ func (KeyVaultState) ElementType() reflect.Type {
 }
 
 type keyVaultArgs struct {
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
@@ -177,7 +186,7 @@ type keyVaultArgs struct {
 
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
-	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment pulumi.BoolPtrInput

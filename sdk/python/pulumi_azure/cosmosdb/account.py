@@ -14,7 +14,7 @@ class Account(pulumi.CustomResource):
     """
     The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 
-      * `name` (`str`) - The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+      * `name` (`str`) - Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
     """
     connection_strings: pulumi.Output[list]
     """
@@ -63,11 +63,11 @@ class Account(pulumi.CustomResource):
     """
     location: pulumi.Output[str]
     """
-    The name of the Azure region to host replicated data.
+    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
     name: pulumi.Output[str]
     """
-    The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+    Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
     """
     offer_type: pulumi.Output[str]
     """
@@ -127,8 +127,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] location: The name of the Azure region to host replicated data.
-        :param pulumi.Input[str] name: The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -136,7 +136,7 @@ class Account(pulumi.CustomResource):
 
         The **capabilities** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 
         The **consistency_policy** object supports the following:
 
@@ -227,8 +227,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] location: The name of the Azure region to host replicated data.
-        :param pulumi.Input[str] name: The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_master_key: The Primary master key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_master_key: The Primary read-only master Key for the CosmosDB Account.
@@ -242,7 +242,7 @@ class Account(pulumi.CustomResource):
 
         The **capabilities** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 
         The **consistency_policy** object supports the following:
 

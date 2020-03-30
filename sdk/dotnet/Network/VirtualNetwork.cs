@@ -294,11 +294,14 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkDdosProtectionPlanArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable/disable DDoS Protection Plan on Virtual Network.
+        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
         /// <summary>
-        /// The ID of this subnet.
+        /// The Resource ID of DDoS Protection Plan.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -310,11 +313,14 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkDdosProtectionPlanGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable/disable DDoS Protection Plan on Virtual Network.
+        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
         /// <summary>
-        /// The ID of this subnet.
+        /// The Resource ID of DDoS Protection Plan.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -326,11 +332,14 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkSubnetsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The address prefix to use for the subnet.
+        /// </summary>
         [Input("addressPrefix", required: true)]
         public Input<string> AddressPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The ID of this subnet.
+        /// The Resource ID of DDoS Protection Plan.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -342,6 +351,10 @@ namespace Pulumi.Azure.Network
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Network Security Group to associate with
+        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        /// </summary>
         [Input("securityGroup")]
         public Input<string>? SecurityGroup { get; set; }
 
@@ -352,11 +365,14 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkSubnetsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The address prefix to use for the subnet.
+        /// </summary>
         [Input("addressPrefix", required: true)]
         public Input<string> AddressPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The ID of this subnet.
+        /// The Resource ID of DDoS Protection Plan.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -368,6 +384,10 @@ namespace Pulumi.Azure.Network
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Network Security Group to associate with
+        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        /// </summary>
         [Input("securityGroup")]
         public Input<string>? SecurityGroup { get; set; }
 
@@ -383,9 +403,12 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VirtualNetworkDdosProtectionPlan
     {
+        /// <summary>
+        /// Enable/disable DDoS Protection Plan on Virtual Network.
+        /// </summary>
         public readonly bool Enable;
         /// <summary>
-        /// The ID of this subnet.
+        /// The Resource ID of DDoS Protection Plan.
         /// </summary>
         public readonly string Id;
 
@@ -402,9 +425,12 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VirtualNetworkSubnets
     {
+        /// <summary>
+        /// The address prefix to use for the subnet.
+        /// </summary>
         public readonly string AddressPrefix;
         /// <summary>
-        /// The ID of this subnet.
+        /// The Resource ID of DDoS Protection Plan.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -412,6 +438,10 @@ namespace Pulumi.Azure.Network
         /// new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Network Security Group to associate with
+        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        /// </summary>
         public readonly string? SecurityGroup;
 
         [OutputConstructor]

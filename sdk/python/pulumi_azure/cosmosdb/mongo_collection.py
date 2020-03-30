@@ -32,6 +32,9 @@ class MongoCollection(pulumi.CustomResource):
     The name of the key to partition on for sharding. There must not be any other unique index keys.
     """
     throughput: pulumi.Output[float]
+    """
+    The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+    """
     def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, default_ttl_seconds=None, name=None, resource_group_name=None, shard_key=None, throughput=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
@@ -45,6 +48,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
+        :param pulumi.Input[float] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,6 +100,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
+        :param pulumi.Input[float] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

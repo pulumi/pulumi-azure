@@ -9,6 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
+    /// <summary>
+    /// Manages a Windows Virtual Machine Scale Set.
+    /// 
+    /// ## Disclaimers
+    /// 
+    /// &gt; **Note** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+    /// 
+    /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine_scale_set.html.markdown.
+    /// </summary>
     public partial class WindowsVirtualMachineScaleSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -177,6 +188,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        /// </summary>
+        [Output("scaleInPolicy")]
+        public Output<string?> ScaleInPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `secret` blocks as defined below.
         /// </summary>
         [Output("secrets")]
@@ -211,6 +228,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A `terminate_notification` block as defined below.
+        /// </summary>
+        [Output("terminateNotification")]
+        public Output<Outputs.WindowsVirtualMachineScaleSetTerminateNotification> TerminateNotification { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
@@ -477,6 +500,12 @@ namespace Pulumi.Azure.Compute
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
 
+        /// <summary>
+        /// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        /// </summary>
+        [Input("scaleInPolicy")]
+        public Input<string>? ScaleInPolicy { get; set; }
+
         [Input("secrets")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetSecretsArgs>? _secrets;
 
@@ -524,6 +553,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `terminate_notification` block as defined below.
+        /// </summary>
+        [Input("terminateNotification")]
+        public Input<Inputs.WindowsVirtualMachineScaleSetTerminateNotificationArgs>? TerminateNotification { get; set; }
 
         /// <summary>
         /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
@@ -757,6 +792,12 @@ namespace Pulumi.Azure.Compute
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }
 
+        /// <summary>
+        /// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        /// </summary>
+        [Input("scaleInPolicy")]
+        public Input<string>? ScaleInPolicy { get; set; }
+
         [Input("secrets")]
         private InputList<Inputs.WindowsVirtualMachineScaleSetSecretsGetArgs>? _secrets;
 
@@ -804,6 +845,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `terminate_notification` block as defined below.
+        /// </summary>
+        [Input("terminateNotification")]
+        public Input<Inputs.WindowsVirtualMachineScaleSetTerminateNotificationGetArgs>? TerminateNotification { get; set; }
 
         /// <summary>
         /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
@@ -863,6 +910,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }
 
@@ -873,6 +923,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetAdditionalCapabilitiesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }
 
@@ -883,9 +936,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetAdditionalUnattendContentsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("setting", required: true)]
         public Input<string> Setting { get; set; } = null!;
 
@@ -896,9 +955,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetAdditionalUnattendContentsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("setting", required: true)]
         public Input<string> Setting { get; set; } = null!;
 
@@ -909,9 +974,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("disableAutomaticRollback", required: true)]
         public Input<bool> DisableAutomaticRollback { get; set; } = null!;
 
+        /// <summary>
+        /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enableAutomaticOsUpgrade", required: true)]
         public Input<bool> EnableAutomaticOsUpgrade { get; set; } = null!;
 
@@ -922,9 +993,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("disableAutomaticRollback", required: true)]
         public Input<bool> DisableAutomaticRollback { get; set; } = null!;
 
+        /// <summary>
+        /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enableAutomaticOsUpgrade", required: true)]
         public Input<bool> EnableAutomaticOsUpgrade { get; set; } = null!;
 
@@ -935,6 +1012,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetBootDiagnosticsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+        /// </summary>
         [Input("storageAccountUri", required: true)]
         public Input<string> StorageAccountUri { get; set; } = null!;
 
@@ -945,6 +1025,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetBootDiagnosticsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+        /// </summary>
         [Input("storageAccountUri", required: true)]
         public Input<string> StorageAccountUri { get; set; } = null!;
 
@@ -955,21 +1038,39 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetDataDisksArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        /// <summary>
+        /// The size of the Data Disk which should be created.
+        /// </summary>
         [Input("diskSizeGb", required: true)]
         public Input<int> DiskSizeGb { get; set; } = null!;
 
+        /// <summary>
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        /// </summary>
         [Input("lun", required: true)]
         public Input<int> Lun { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        /// <summary>
+        /// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -980,21 +1081,39 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetDataDisksGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        /// <summary>
+        /// The size of the Data Disk which should be created.
+        /// </summary>
         [Input("diskSizeGb", required: true)]
         public Input<int> DiskSizeGb { get; set; } = null!;
 
+        /// <summary>
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        /// </summary>
         [Input("lun", required: true)]
         public Input<int> Lun { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        /// <summary>
+        /// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -1007,6 +1126,10 @@ namespace Pulumi.Azure.Compute
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -1019,6 +1142,9 @@ namespace Pulumi.Azure.Compute
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -1031,6 +1157,10 @@ namespace Pulumi.Azure.Compute
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+        /// </summary>
         public InputList<string> IdentityIds
         {
             get => _identityIds ?? (_identityIds = new InputList<string>());
@@ -1043,6 +1173,9 @@ namespace Pulumi.Azure.Compute
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -1055,20 +1188,34 @@ namespace Pulumi.Azure.Compute
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        /// </summary>
         public InputList<string> DnsServers
         {
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
 
+        /// <summary>
+        /// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+        /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
 
+        /// <summary>
+        /// Does this Network Interface support IP Forwarding? Defaults to `false`.
+        /// </summary>
         [Input("enableIpForwarding")]
         public Input<bool>? EnableIpForwarding { get; set; }
 
         [Input("ipConfigurations", required: true)]
         private InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// One or more `ip_configuration` blocks as defined above.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsArgs> IpConfigurations
         {
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsArgs>());
@@ -1076,14 +1223,20 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of a Network Security Group which should be assigned to this Network Interface.
+        /// </summary>
         [Input("networkSecurityGroupId")]
         public Input<string>? NetworkSecurityGroupId { get; set; }
 
+        /// <summary>
+        /// Is this the Primary IP Configuration?
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
@@ -1096,20 +1249,34 @@ namespace Pulumi.Azure.Compute
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        /// </summary>
         public InputList<string> DnsServers
         {
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
 
+        /// <summary>
+        /// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+        /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
 
+        /// <summary>
+        /// Does this Network Interface support IP Forwarding? Defaults to `false`.
+        /// </summary>
         [Input("enableIpForwarding")]
         public Input<bool>? EnableIpForwarding { get; set; }
 
         [Input("ipConfigurations", required: true)]
         private InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsGetArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// One or more `ip_configuration` blocks as defined above.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsGetArgs> IpConfigurations
         {
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsGetArgs>());
@@ -1117,14 +1284,20 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of a Network Security Group which should be assigned to this Network Interface.
+        /// </summary>
         [Input("networkSecurityGroupId")]
         public Input<string>? NetworkSecurityGroupId { get; set; }
 
+        /// <summary>
+        /// Is this the Primary IP Configuration?
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
@@ -1137,6 +1310,10 @@ namespace Pulumi.Azure.Compute
     {
         [Input("applicationGatewayBackendAddressPoolIds")]
         private InputList<string>? _applicationGatewayBackendAddressPoolIds;
+
+        /// <summary>
+        /// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> ApplicationGatewayBackendAddressPoolIds
         {
             get => _applicationGatewayBackendAddressPoolIds ?? (_applicationGatewayBackendAddressPoolIds = new InputList<string>());
@@ -1145,6 +1322,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("applicationSecurityGroupIds")]
         private InputList<string>? _applicationSecurityGroupIds;
+
+        /// <summary>
+        /// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> ApplicationSecurityGroupIds
         {
             get => _applicationSecurityGroupIds ?? (_applicationSecurityGroupIds = new InputList<string>());
@@ -1153,6 +1334,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("loadBalancerBackendAddressPoolIds")]
         private InputList<string>? _loadBalancerBackendAddressPoolIds;
+
+        /// <summary>
+        /// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> LoadBalancerBackendAddressPoolIds
         {
             get => _loadBalancerBackendAddressPoolIds ?? (_loadBalancerBackendAddressPoolIds = new InputList<string>());
@@ -1161,6 +1346,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("loadBalancerInboundNatRulesIds")]
         private InputList<string>? _loadBalancerInboundNatRulesIds;
+
+        /// <summary>
+        /// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> LoadBalancerInboundNatRulesIds
         {
             get => _loadBalancerInboundNatRulesIds ?? (_loadBalancerInboundNatRulesIds = new InputList<string>());
@@ -1168,25 +1357,38 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
         [Input("publicIpAddresses")]
         private InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesArgs>? _publicIpAddresses;
+
+        /// <summary>
+        /// A `public_ip_address` block as defined below.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesArgs> PublicIpAddresses
         {
             get => _publicIpAddresses ?? (_publicIpAddresses = new InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesArgs>());
             set => _publicIpAddresses = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet which this IP Configuration should be connected to.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -1199,6 +1401,10 @@ namespace Pulumi.Azure.Compute
     {
         [Input("applicationGatewayBackendAddressPoolIds")]
         private InputList<string>? _applicationGatewayBackendAddressPoolIds;
+
+        /// <summary>
+        /// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> ApplicationGatewayBackendAddressPoolIds
         {
             get => _applicationGatewayBackendAddressPoolIds ?? (_applicationGatewayBackendAddressPoolIds = new InputList<string>());
@@ -1207,6 +1413,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("applicationSecurityGroupIds")]
         private InputList<string>? _applicationSecurityGroupIds;
+
+        /// <summary>
+        /// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> ApplicationSecurityGroupIds
         {
             get => _applicationSecurityGroupIds ?? (_applicationSecurityGroupIds = new InputList<string>());
@@ -1215,6 +1425,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("loadBalancerBackendAddressPoolIds")]
         private InputList<string>? _loadBalancerBackendAddressPoolIds;
+
+        /// <summary>
+        /// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> LoadBalancerBackendAddressPoolIds
         {
             get => _loadBalancerBackendAddressPoolIds ?? (_loadBalancerBackendAddressPoolIds = new InputList<string>());
@@ -1223,6 +1437,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("loadBalancerInboundNatRulesIds")]
         private InputList<string>? _loadBalancerInboundNatRulesIds;
+
+        /// <summary>
+        /// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public InputList<string> LoadBalancerInboundNatRulesIds
         {
             get => _loadBalancerInboundNatRulesIds ?? (_loadBalancerInboundNatRulesIds = new InputList<string>());
@@ -1230,25 +1448,38 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
         [Input("publicIpAddresses")]
         private InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesGetArgs>? _publicIpAddresses;
+
+        /// <summary>
+        /// A `public_ip_address` block as defined below.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesGetArgs> PublicIpAddresses
         {
             get => _publicIpAddresses ?? (_publicIpAddresses = new InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesGetArgs>());
             set => _publicIpAddresses = value;
         }
 
+        /// <summary>
+        /// The ID of the Subnet which this IP Configuration should be connected to.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -1259,14 +1490,24 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+        /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
 
+        /// <summary>
+        /// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         [Input("ipTags")]
         private InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsArgs>? _ipTags;
+
+        /// <summary>
+        /// One or more `ip_tag` blocks as defined above.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsArgs> IpTags
         {
             get => _ipTags ?? (_ipTags = new InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsArgs>());
@@ -1274,11 +1515,14 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name of the Public IP Address Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }
 
@@ -1289,14 +1533,24 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+        /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
 
+        /// <summary>
+        /// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         [Input("ipTags")]
         private InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsGetArgs>? _ipTags;
+
+        /// <summary>
+        /// One or more `ip_tag` blocks as defined above.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsGetArgs> IpTags
         {
             get => _ipTags ?? (_ipTags = new InputList<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsGetArgs>());
@@ -1304,11 +1558,14 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name of the Public IP Address Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }
 
@@ -1319,9 +1576,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of IP Tag, such as `FirstPartyUsage`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -1332,9 +1595,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTagsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of IP Tag, such as `FirstPartyUsage`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -1345,21 +1614,39 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetOsDiskArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
 
+        /// <summary>
+        /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("diffDiskSettings")]
         public Input<WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
 
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+        /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        /// <summary>
+        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        /// <summary>
+        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -1390,21 +1677,39 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetOsDiskGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
 
+        /// <summary>
+        /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("diffDiskSettings")]
         public Input<WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsGetArgs>? DiffDiskSettings { get; set; }
 
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+        /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        /// <summary>
+        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        /// <summary>
+        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
@@ -1453,15 +1758,27 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxBatchInstancePercent", required: true)]
         public Input<int> MaxBatchInstancePercent { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxUnhealthyInstancePercent", required: true)]
         public Input<int> MaxUnhealthyInstancePercent { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxUnhealthyUpgradedInstancePercent", required: true)]
         public Input<int> MaxUnhealthyUpgradedInstancePercent { get; set; } = null!;
 
+        /// <summary>
+        /// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("pauseTimeBetweenBatches", required: true)]
         public Input<string> PauseTimeBetweenBatches { get; set; } = null!;
 
@@ -1472,15 +1789,27 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetRollingUpgradePolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxBatchInstancePercent", required: true)]
         public Input<int> MaxBatchInstancePercent { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxUnhealthyInstancePercent", required: true)]
         public Input<int> MaxUnhealthyInstancePercent { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxUnhealthyUpgradedInstancePercent", required: true)]
         public Input<int> MaxUnhealthyUpgradedInstancePercent { get; set; } = null!;
 
+        /// <summary>
+        /// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("pauseTimeBetweenBatches", required: true)]
         public Input<string> PauseTimeBetweenBatches { get; set; } = null!;
 
@@ -1493,12 +1822,19 @@ namespace Pulumi.Azure.Compute
     {
         [Input("certificates", required: true)]
         private InputList<WindowsVirtualMachineScaleSetSecretsCertificatesArgs>? _certificates;
+
+        /// <summary>
+        /// One or more `certificate` blocks as defined above.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetSecretsCertificatesArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<WindowsVirtualMachineScaleSetSecretsCertificatesArgs>());
             set => _certificates = value;
         }
 
+        /// <summary>
+        /// The ID of the Key Vault from which all Secrets should be sourced.
+        /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
 
@@ -1509,9 +1845,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetSecretsCertificatesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate store on the Virtual Machine where the certificate should be added.
+        /// </summary>
         [Input("store", required: true)]
         public Input<string> Store { get; set; } = null!;
 
+        /// <summary>
+        /// The Secret URL of a Key Vault Certificate.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -1522,9 +1864,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetSecretsCertificatesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate store on the Virtual Machine where the certificate should be added.
+        /// </summary>
         [Input("store", required: true)]
         public Input<string> Store { get; set; } = null!;
 
+        /// <summary>
+        /// The Secret URL of a Key Vault Certificate.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -1537,12 +1885,19 @@ namespace Pulumi.Azure.Compute
     {
         [Input("certificates", required: true)]
         private InputList<WindowsVirtualMachineScaleSetSecretsCertificatesGetArgs>? _certificates;
+
+        /// <summary>
+        /// One or more `certificate` blocks as defined above.
+        /// </summary>
         public InputList<WindowsVirtualMachineScaleSetSecretsCertificatesGetArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<WindowsVirtualMachineScaleSetSecretsCertificatesGetArgs>());
             set => _certificates = value;
         }
 
+        /// <summary>
+        /// The ID of the Key Vault from which all Secrets should be sourced.
+        /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
 
@@ -1565,6 +1920,9 @@ namespace Pulumi.Azure.Compute
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -1587,6 +1945,9 @@ namespace Pulumi.Azure.Compute
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -1595,11 +1956,55 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+    public sealed class WindowsVirtualMachineScaleSetTerminateNotificationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        /// </summary>
+        [Input("timeout")]
+        public Input<string>? Timeout { get; set; }
+
+        public WindowsVirtualMachineScaleSetTerminateNotificationArgs()
+        {
+        }
+    }
+
+    public sealed class WindowsVirtualMachineScaleSetTerminateNotificationGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        /// </summary>
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
+
+        /// <summary>
+        /// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        /// </summary>
+        [Input("timeout")]
+        public Input<string>? Timeout { get; set; }
+
+        public WindowsVirtualMachineScaleSetTerminateNotificationGetArgs()
+        {
+        }
+    }
+
     public sealed class WindowsVirtualMachineScaleSetWinrmListenersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        /// </summary>
         [Input("certificateUrl")]
         public Input<string>? CertificateUrl { get; set; }
 
+        /// <summary>
+        /// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -1610,9 +2015,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class WindowsVirtualMachineScaleSetWinrmListenersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        /// </summary>
         [Input("certificateUrl")]
         public Input<string>? CertificateUrl { get; set; }
 
+        /// <summary>
+        /// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -1628,6 +2039,9 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetAdditionalCapabilities
     {
+        /// <summary>
+        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool? UltraSsdEnabled;
 
         [OutputConstructor]
@@ -1640,7 +2054,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetAdditionalUnattendContents
     {
+        /// <summary>
+        /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Content;
+        /// <summary>
+        /// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Setting;
 
         [OutputConstructor]
@@ -1656,7 +2076,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy
     {
+        /// <summary>
+        /// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool DisableAutomaticRollback;
+        /// <summary>
+        /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool EnableAutomaticOsUpgrade;
 
         [OutputConstructor]
@@ -1672,6 +2098,9 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetBootDiagnostics
     {
+        /// <summary>
+        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+        /// </summary>
         public readonly string StorageAccountUri;
 
         [OutputConstructor]
@@ -1684,11 +2113,29 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetDataDisks
     {
+        /// <summary>
+        /// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         public readonly string Caching;
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        /// </summary>
         public readonly string? DiskEncryptionSetId;
+        /// <summary>
+        /// The size of the Data Disk which should be created.
+        /// </summary>
         public readonly int DiskSizeGb;
+        /// <summary>
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        /// </summary>
         public readonly int Lun;
+        /// <summary>
+        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
+        /// </summary>
         public readonly string StorageAccountType;
+        /// <summary>
+        /// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+        /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]
@@ -1712,11 +2159,17 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetIdentity
     {
+        /// <summary>
+        /// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The ID of the System Managed Service Principal.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1734,15 +2187,33 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfaces
     {
+        /// <summary>
+        /// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        /// </summary>
         public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
+        /// <summary>
+        /// Does this Network Interface support IP Forwarding? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableIpForwarding;
+        /// <summary>
+        /// One or more `ip_configuration` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurations> IpConfigurations;
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of a Network Security Group which should be assigned to this Network Interface.
+        /// </summary>
         public readonly string? NetworkSecurityGroupId;
+        /// <summary>
+        /// Is this the Primary IP Configuration?
+        /// </summary>
         public readonly bool? Primary;
 
         [OutputConstructor]
@@ -1768,17 +2239,41 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurations
     {
+        /// <summary>
+        /// A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public readonly ImmutableArray<string> ApplicationGatewayBackendAddressPoolIds;
+        /// <summary>
+        /// A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public readonly ImmutableArray<string> ApplicationSecurityGroupIds;
+        /// <summary>
+        /// A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolIds;
+        /// <summary>
+        /// A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public readonly ImmutableArray<string> LoadBalancerInboundNatRulesIds;
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this IP Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
+        /// </summary>
         public readonly bool? Primary;
+        /// <summary>
+        /// A `public_ip_address` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddresses> PublicIpAddresses;
+        /// <summary>
+        /// The ID of the Subnet which this IP Configuration should be connected to.
+        /// </summary>
         public readonly string? SubnetId;
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
@@ -1808,13 +2303,25 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddresses
     {
+        /// <summary>
+        /// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
+        /// </summary>
         public readonly string? DomainNameLabel;
+        /// <summary>
+        /// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        /// </summary>
         public readonly int IdleTimeoutInMinutes;
+        /// <summary>
+        /// One or more `ip_tag` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTags> IpTags;
         /// <summary>
-        /// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name of the Public IP Address Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? PublicIpPrefixId;
 
         [OutputConstructor]
@@ -1836,7 +2343,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfacesIpConfigurationsPublicIpAddressesIpTags
     {
+        /// <summary>
+        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        /// </summary>
         public readonly string Tag;
+        /// <summary>
+        /// The Type of IP Tag, such as `FirstPartyUsage`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1852,11 +2365,29 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetOsDisk
     {
+        /// <summary>
+        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         public readonly string Caching;
+        /// <summary>
+        /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings? DiffDiskSettings;
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
+        /// </summary>
         public readonly string? DiskEncryptionSetId;
+        /// <summary>
+        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        /// </summary>
         public readonly int DiskSizeGb;
+        /// <summary>
+        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
+        /// </summary>
         public readonly string StorageAccountType;
+        /// <summary>
+        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+        /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]
@@ -1914,9 +2445,21 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetRollingUpgradePolicy
     {
+        /// <summary>
+        /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int MaxBatchInstancePercent;
+        /// <summary>
+        /// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int MaxUnhealthyInstancePercent;
+        /// <summary>
+        /// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int MaxUnhealthyUpgradedInstancePercent;
+        /// <summary>
+        /// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string PauseTimeBetweenBatches;
 
         [OutputConstructor]
@@ -1936,7 +2479,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetSecrets
     {
+        /// <summary>
+        /// One or more `certificate` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<WindowsVirtualMachineScaleSetSecretsCertificates> Certificates;
+        /// <summary>
+        /// The ID of the Key Vault from which all Secrets should be sourced.
+        /// </summary>
         public readonly string KeyVaultId;
 
         [OutputConstructor]
@@ -1952,7 +2501,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class WindowsVirtualMachineScaleSetSecretsCertificates
     {
+        /// <summary>
+        /// The certificate store on the Virtual Machine where the certificate should be added.
+        /// </summary>
         public readonly string Store;
+        /// <summary>
+        /// The Secret URL of a Key Vault Certificate.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]
@@ -1974,6 +2529,9 @@ namespace Pulumi.Azure.Compute
         /// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         /// </summary>
         public readonly string Sku;
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
@@ -1991,9 +2549,37 @@ namespace Pulumi.Azure.Compute
     }
 
     [OutputType]
+    public sealed class WindowsVirtualMachineScaleSetTerminateNotification
+    {
+        /// <summary>
+        /// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
+        /// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        /// </summary>
+        public readonly string? Timeout;
+
+        [OutputConstructor]
+        private WindowsVirtualMachineScaleSetTerminateNotification(
+            bool enabled,
+            string? timeout)
+        {
+            Enabled = enabled;
+            Timeout = timeout;
+        }
+    }
+
+    [OutputType]
     public sealed class WindowsVirtualMachineScaleSetWinrmListeners
     {
+        /// <summary>
+        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+        /// </summary>
         public readonly string? CertificateUrl;
+        /// <summary>
+        /// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

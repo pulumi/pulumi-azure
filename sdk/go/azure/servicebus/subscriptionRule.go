@@ -58,6 +58,12 @@ func NewSubscriptionRule(ctx *pulumi.Context,
 	if args == nil {
 		args = &SubscriptionRuleArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/subscriptionRule:SubscriptionRule"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource SubscriptionRule
 	err := ctx.RegisterResource("azure:servicebus/subscriptionRule:SubscriptionRule", name, args, &resource, opts...)
 	if err != nil {

@@ -23,7 +23,7 @@ type Endpoint struct {
 
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnectionOutput `pulumi:"privateServiceConnection"`
@@ -72,7 +72,7 @@ func GetEndpoint(ctx *pulumi.Context,
 type endpointState struct {
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection *EndpointPrivateServiceConnection `pulumi:"privateServiceConnection"`
@@ -85,7 +85,7 @@ type endpointState struct {
 type EndpointState struct {
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnectionPtrInput
@@ -102,7 +102,7 @@ func (EndpointState) ElementType() reflect.Type {
 type endpointArgs struct {
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnection `pulumi:"privateServiceConnection"`
@@ -116,7 +116,7 @@ type endpointArgs struct {
 type EndpointArgs struct {
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnectionInput

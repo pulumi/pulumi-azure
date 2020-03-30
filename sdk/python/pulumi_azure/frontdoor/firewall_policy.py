@@ -22,21 +22,21 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     One or more `custom_rule` blocks as defined below.
 
-      * `action` (`str`)
-      * `enabled` (`bool`) - Is the policy a enabled state or disabled state. Defaults to `true`.
-      * `matchConditions` (`list`)
-        * `matchValues` (`list`)
-        * `matchVariable` (`str`)
-        * `negationCondition` (`bool`)
-        * `operator` (`str`)
-        * `selector` (`str`)
-        * `transforms` (`list`)
+      * `action` (`str`) - The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+      * `enabled` (`bool`) - Is the rule is enabled or disabled? Defaults to `true`.
+      * `matchConditions` (`list`) - One or more `match_condition` block defined below.
+        * `matchValues` (`list`) - Up to `100` possible values to match.
+        * `matchVariable` (`str`) - The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        * `negationCondition` (`bool`) - Should the result of the condition be negated.
+        * `operator` (`str`) - Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        * `selector` (`str`) - Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        * `transforms` (`list`) - Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
 
-      * `name` (`str`) - The name of the policy. Changing this forces a new resource to be created.
-      * `priority` (`float`)
-      * `rateLimitDurationInMinutes` (`float`)
-      * `rateLimitThreshold` (`float`)
-      * `type` (`str`)
+      * `name` (`str`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+      * `priority` (`float`) - The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+      * `rateLimitDurationInMinutes` (`float`) - The rate limit duration in minutes. Defaults to `1`.
+      * `rateLimitThreshold` (`float`) - The rate limit threshold. Defaults to `10`.
+      * `type` (`str`) - The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
     """
     enabled: pulumi.Output[bool]
     """
@@ -54,30 +54,30 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     One or more `managed_rule` blocks as defined below.
 
-      * `exclusions` (`list`)
-        * `matchVariable` (`str`)
-        * `operator` (`str`)
-        * `selector` (`str`)
+      * `exclusions` (`list`) - One or more `exclusion` blocks as defined below.
+        * `matchVariable` (`str`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        * `operator` (`str`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        * `selector` (`str`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-      * `overrides` (`list`)
-        * `exclusions` (`list`)
-          * `matchVariable` (`str`)
-          * `operator` (`str`)
-          * `selector` (`str`)
+      * `overrides` (`list`) - One or more `override` blocks as defined below.
+        * `exclusions` (`list`) - One or more `exclusion` blocks as defined below.
+          * `matchVariable` (`str`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+          * `operator` (`str`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+          * `selector` (`str`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-        * `ruleGroupName` (`str`)
-        * `rules` (`list`)
-          * `action` (`str`)
-          * `enabled` (`bool`) - Is the policy a enabled state or disabled state. Defaults to `true`.
-          * `exclusions` (`list`)
-            * `matchVariable` (`str`)
-            * `operator` (`str`)
-            * `selector` (`str`)
+        * `ruleGroupName` (`str`) - The managed rule group to override.
+        * `rules` (`list`) - One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+          * `action` (`str`) - The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+          * `enabled` (`bool`) - Is the managed rule override enabled or disabled. Defaults to `false`
+          * `exclusions` (`list`) - One or more `exclusion` blocks as defined below.
+            * `matchVariable` (`str`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+            * `operator` (`str`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+            * `selector` (`str`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-          * `rule_id` (`str`)
+          * `rule_id` (`str`) - Identifier for the managed rule.
 
-      * `type` (`str`)
-      * `version` (`str`)
+      * `type` (`str`) - The name of the managed rule to use with this resource.
+      * `version` (`str`) - The version on the managed rule to use with this resource.
     """
     mode: pulumi.Output[str]
     """
@@ -120,48 +120,48 @@ class FirewallPolicy(pulumi.CustomResource):
 
         The **custom_rules** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`) - Is the policy a enabled state or disabled state. Defaults to `true`.
-          * `matchConditions` (`pulumi.Input[list]`)
-            * `matchValues` (`pulumi.Input[list]`)
-            * `matchVariable` (`pulumi.Input[str]`)
-            * `negationCondition` (`pulumi.Input[bool]`)
-            * `operator` (`pulumi.Input[str]`)
-            * `selector` (`pulumi.Input[str]`)
-            * `transforms` (`pulumi.Input[list]`)
+          * `action` (`pulumi.Input[str]`) - The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+          * `enabled` (`pulumi.Input[bool]`) - Is the rule is enabled or disabled? Defaults to `true`.
+          * `matchConditions` (`pulumi.Input[list]`) - One or more `match_condition` block defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Up to `100` possible values to match.
+            * `matchVariable` (`pulumi.Input[str]`) - The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+            * `negationCondition` (`pulumi.Input[bool]`) - Should the result of the condition be negated.
+            * `operator` (`pulumi.Input[str]`) - Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+            * `selector` (`pulumi.Input[str]`) - Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+            * `transforms` (`pulumi.Input[list]`) - Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
 
-          * `name` (`pulumi.Input[str]`) - The name of the policy. Changing this forces a new resource to be created.
-          * `priority` (`pulumi.Input[float]`)
-          * `rateLimitDurationInMinutes` (`pulumi.Input[float]`)
-          * `rateLimitThreshold` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+          * `priority` (`pulumi.Input[float]`) - The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+          * `rateLimitDurationInMinutes` (`pulumi.Input[float]`) - The rate limit duration in minutes. Defaults to `1`.
+          * `rateLimitThreshold` (`pulumi.Input[float]`) - The rate limit threshold. Defaults to `10`.
+          * `type` (`pulumi.Input[str]`) - The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
 
         The **managed_rules** object supports the following:
 
-          * `exclusions` (`pulumi.Input[list]`)
-            * `matchVariable` (`pulumi.Input[str]`)
-            * `operator` (`pulumi.Input[str]`)
-            * `selector` (`pulumi.Input[str]`)
+          * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` blocks as defined below.
+            * `matchVariable` (`pulumi.Input[str]`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+            * `operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+            * `selector` (`pulumi.Input[str]`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-          * `overrides` (`pulumi.Input[list]`)
-            * `exclusions` (`pulumi.Input[list]`)
-              * `matchVariable` (`pulumi.Input[str]`)
-              * `operator` (`pulumi.Input[str]`)
-              * `selector` (`pulumi.Input[str]`)
+          * `overrides` (`pulumi.Input[list]`) - One or more `override` blocks as defined below.
+            * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` blocks as defined below.
+              * `matchVariable` (`pulumi.Input[str]`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+              * `operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+              * `selector` (`pulumi.Input[str]`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-            * `ruleGroupName` (`pulumi.Input[str]`)
-            * `rules` (`pulumi.Input[list]`)
-              * `action` (`pulumi.Input[str]`)
-              * `enabled` (`pulumi.Input[bool]`) - Is the policy a enabled state or disabled state. Defaults to `true`.
-              * `exclusions` (`pulumi.Input[list]`)
-                * `matchVariable` (`pulumi.Input[str]`)
-                * `operator` (`pulumi.Input[str]`)
-                * `selector` (`pulumi.Input[str]`)
+            * `ruleGroupName` (`pulumi.Input[str]`) - The managed rule group to override.
+            * `rules` (`pulumi.Input[list]`) - One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+              * `action` (`pulumi.Input[str]`) - The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+              * `enabled` (`pulumi.Input[bool]`) - Is the managed rule override enabled or disabled. Defaults to `false`
+              * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` blocks as defined below.
+                * `matchVariable` (`pulumi.Input[str]`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+                * `operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+                * `selector` (`pulumi.Input[str]`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-              * `rule_id` (`pulumi.Input[str]`)
+              * `rule_id` (`pulumi.Input[str]`) - Identifier for the managed rule.
 
-          * `type` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The name of the managed rule to use with this resource.
+          * `version` (`pulumi.Input[str]`) - The version on the managed rule to use with this resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -224,48 +224,48 @@ class FirewallPolicy(pulumi.CustomResource):
 
         The **custom_rules** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`) - Is the policy a enabled state or disabled state. Defaults to `true`.
-          * `matchConditions` (`pulumi.Input[list]`)
-            * `matchValues` (`pulumi.Input[list]`)
-            * `matchVariable` (`pulumi.Input[str]`)
-            * `negationCondition` (`pulumi.Input[bool]`)
-            * `operator` (`pulumi.Input[str]`)
-            * `selector` (`pulumi.Input[str]`)
-            * `transforms` (`pulumi.Input[list]`)
+          * `action` (`pulumi.Input[str]`) - The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+          * `enabled` (`pulumi.Input[bool]`) - Is the rule is enabled or disabled? Defaults to `true`.
+          * `matchConditions` (`pulumi.Input[list]`) - One or more `match_condition` block defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Up to `100` possible values to match.
+            * `matchVariable` (`pulumi.Input[str]`) - The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+            * `negationCondition` (`pulumi.Input[bool]`) - Should the result of the condition be negated.
+            * `operator` (`pulumi.Input[str]`) - Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+            * `selector` (`pulumi.Input[str]`) - Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+            * `transforms` (`pulumi.Input[list]`) - Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
 
-          * `name` (`pulumi.Input[str]`) - The name of the policy. Changing this forces a new resource to be created.
-          * `priority` (`pulumi.Input[float]`)
-          * `rateLimitDurationInMinutes` (`pulumi.Input[float]`)
-          * `rateLimitThreshold` (`pulumi.Input[float]`)
-          * `type` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+          * `priority` (`pulumi.Input[float]`) - The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+          * `rateLimitDurationInMinutes` (`pulumi.Input[float]`) - The rate limit duration in minutes. Defaults to `1`.
+          * `rateLimitThreshold` (`pulumi.Input[float]`) - The rate limit threshold. Defaults to `10`.
+          * `type` (`pulumi.Input[str]`) - The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
 
         The **managed_rules** object supports the following:
 
-          * `exclusions` (`pulumi.Input[list]`)
-            * `matchVariable` (`pulumi.Input[str]`)
-            * `operator` (`pulumi.Input[str]`)
-            * `selector` (`pulumi.Input[str]`)
+          * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` blocks as defined below.
+            * `matchVariable` (`pulumi.Input[str]`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+            * `operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+            * `selector` (`pulumi.Input[str]`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-          * `overrides` (`pulumi.Input[list]`)
-            * `exclusions` (`pulumi.Input[list]`)
-              * `matchVariable` (`pulumi.Input[str]`)
-              * `operator` (`pulumi.Input[str]`)
-              * `selector` (`pulumi.Input[str]`)
+          * `overrides` (`pulumi.Input[list]`) - One or more `override` blocks as defined below.
+            * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` blocks as defined below.
+              * `matchVariable` (`pulumi.Input[str]`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+              * `operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+              * `selector` (`pulumi.Input[str]`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-            * `ruleGroupName` (`pulumi.Input[str]`)
-            * `rules` (`pulumi.Input[list]`)
-              * `action` (`pulumi.Input[str]`)
-              * `enabled` (`pulumi.Input[bool]`) - Is the policy a enabled state or disabled state. Defaults to `true`.
-              * `exclusions` (`pulumi.Input[list]`)
-                * `matchVariable` (`pulumi.Input[str]`)
-                * `operator` (`pulumi.Input[str]`)
-                * `selector` (`pulumi.Input[str]`)
+            * `ruleGroupName` (`pulumi.Input[str]`) - The managed rule group to override.
+            * `rules` (`pulumi.Input[list]`) - One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+              * `action` (`pulumi.Input[str]`) - The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+              * `enabled` (`pulumi.Input[bool]`) - Is the managed rule override enabled or disabled. Defaults to `false`
+              * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` blocks as defined below.
+                * `matchVariable` (`pulumi.Input[str]`) - The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+                * `operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+                * `selector` (`pulumi.Input[str]`) - Selector for the value in the `match_variable` attribute this exclusion applies to.
 
-              * `rule_id` (`pulumi.Input[str]`)
+              * `rule_id` (`pulumi.Input[str]`) - Identifier for the managed rule.
 
-          * `type` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The name of the managed rule to use with this resource.
+          * `version` (`pulumi.Input[str]`) - The version on the managed rule to use with this resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

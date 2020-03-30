@@ -16,7 +16,18 @@ namespace Pulumi.Azure.DatabaseMigration
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_project.html.markdown.
         /// </summary>
+        [Obsolete("Use GetProject.InvokeAsync() instead")]
         public static Task<GetProjectResult> GetProject(GetProjectArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetProject
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Database Migration Project.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_project.html.markdown.
+        /// </summary>
+        public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -34,12 +34,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
     """
     One or more `rule` blocks as defined below.
 
-      * `description` (`str`)
-      * `destinationAddresses` (`list`)
-      * `destinationPorts` (`list`)
-      * `name` (`str`) - Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-      * `protocols` (`list`)
-      * `sourceAddresses` (`list`)
+      * `description` (`str`) - Specifies a description for the rule.
+      * `destinationAddresses` (`list`) - A list of destination IP addresses and/or IP ranges.
+      * `destinationPorts` (`list`) - A list of destination ports.
+      * `name` (`str`) - Specifies the name of the rule.
+      * `protocols` (`list`) - A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+      * `sourceAddresses` (`list`) - A list of source IP addresses and/or IP ranges.
     """
     def __init__(__self__, resource_name, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -58,12 +58,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
 
         The **rules** object supports the following:
 
-          * `description` (`pulumi.Input[str]`)
-          * `destinationAddresses` (`pulumi.Input[list]`)
-          * `destinationPorts` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-          * `protocols` (`pulumi.Input[list]`)
-          * `sourceAddresses` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - Specifies a description for the rule.
+          * `destinationAddresses` (`pulumi.Input[list]`) - A list of destination IP addresses and/or IP ranges.
+          * `destinationPorts` (`pulumi.Input[list]`) - A list of destination ports.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the rule.
+          * `protocols` (`pulumi.Input[list]`) - A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+          * `sourceAddresses` (`pulumi.Input[list]`) - A list of source IP addresses and/or IP ranges.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,12 +122,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
 
         The **rules** object supports the following:
 
-          * `description` (`pulumi.Input[str]`)
-          * `destinationAddresses` (`pulumi.Input[list]`)
-          * `destinationPorts` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-          * `protocols` (`pulumi.Input[list]`)
-          * `sourceAddresses` (`pulumi.Input[list]`)
+          * `description` (`pulumi.Input[str]`) - Specifies a description for the rule.
+          * `destinationAddresses` (`pulumi.Input[list]`) - A list of destination IP addresses and/or IP ranges.
+          * `destinationPorts` (`pulumi.Input[list]`) - A list of destination ports.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the rule.
+          * `protocols` (`pulumi.Input[list]`) - A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+          * `sourceAddresses` (`pulumi.Input[list]`) - A list of source IP addresses and/or IP ranges.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

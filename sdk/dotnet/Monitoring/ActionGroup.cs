@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<Outputs.ActionGroupLogicAppReceivers>> LogicAppReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Action Group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Action Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Action Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupArmRoleReceiversArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the ARM role receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -507,7 +507,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupArmRoleReceiversGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the ARM role receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -544,7 +544,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool> IsGlobalRunbook { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the automation runbook receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -593,7 +593,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool> IsGlobalRunbook { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the automation runbook receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -630,13 +630,13 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupAzureAppPushReceiversArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email address of this receiver.
+        /// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
         /// </summary>
         [Input("emailAddress", required: true)]
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Azure app push receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -649,13 +649,13 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupAzureAppPushReceiversGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email address of this receiver.
+        /// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
         /// </summary>
         [Input("emailAddress", required: true)]
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Azure app push receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -683,7 +683,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> HttpTriggerUrl { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Azure Function receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -717,7 +717,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> HttpTriggerUrl { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Azure Function receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -742,7 +742,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -767,7 +767,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -792,7 +792,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> ConnectionId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the ITSM receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -829,7 +829,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> ConnectionId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the ITSM receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -866,7 +866,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> CallbackUrl { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the logic app receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -897,7 +897,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> CallbackUrl { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the logic app receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -922,19 +922,19 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupSmsReceiversArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The country code of the voice receiver.
+        /// The country code of the SMS receiver.
         /// </summary>
         [Input("countryCode", required: true)]
         public Input<string> CountryCode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The phone number of the voice receiver.
+        /// The phone number of the SMS receiver.
         /// </summary>
         [Input("phoneNumber", required: true)]
         public Input<string> PhoneNumber { get; set; } = null!;
@@ -947,19 +947,19 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupSmsReceiversGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The country code of the voice receiver.
+        /// The country code of the SMS receiver.
         /// </summary>
         [Input("countryCode", required: true)]
         public Input<string> CountryCode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The phone number of the voice receiver.
+        /// The phone number of the SMS receiver.
         /// </summary>
         [Input("phoneNumber", required: true)]
         public Input<string> PhoneNumber { get; set; } = null!;
@@ -978,7 +978,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> CountryCode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the voice receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1003,7 +1003,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> CountryCode { get; set; } = null!;
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the voice receiver.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -1077,7 +1077,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupArmRoleReceivers
     {
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the ARM role receiver.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -1113,7 +1113,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly bool IsGlobalRunbook;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the automation runbook receiver.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -1157,11 +1157,11 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupAzureAppPushReceivers
     {
         /// <summary>
-        /// The email address of this receiver.
+        /// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
         /// </summary>
         public readonly string EmailAddress;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Azure app push receiver.
         /// </summary>
         public readonly string Name;
 
@@ -1188,7 +1188,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string HttpTriggerUrl;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the Azure Function receiver.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -1220,7 +1220,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string EmailAddress;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -1248,7 +1248,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string ConnectionId;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the ITSM receiver.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -1288,7 +1288,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string CallbackUrl;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the logic app receiver.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -1318,15 +1318,15 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupSmsReceivers
     {
         /// <summary>
-        /// The country code of the voice receiver.
+        /// The country code of the SMS receiver.
         /// </summary>
         public readonly string CountryCode;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The phone number of the voice receiver.
+        /// The phone number of the SMS receiver.
         /// </summary>
         public readonly string PhoneNumber;
 
@@ -1350,7 +1350,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string CountryCode;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the voice receiver.
         /// </summary>
         public readonly string Name;
         /// <summary>

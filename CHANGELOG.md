@@ -6,6 +6,10 @@ _(none)_
 
 ---
 
+## 2.2.0 (2020-03-24)
+* Rename resource `containerService.Webook` to `containerService.Webhook`
+* Upgrade to v2.2.0 of the AzureRM Terraform Provider
+
 ## 2.1.0 (2020-03-10)
 * Upgrade to Pulumi v1.12.1
 * Upgrade to pulumi-terraform-bridge v1.8.2

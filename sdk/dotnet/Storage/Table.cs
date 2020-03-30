@@ -148,12 +148,21 @@ namespace Pulumi.Azure.Storage
 
     public sealed class TableAclsAccessPoliciesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ISO8061 UTC time at which this Access Policy should be valid until.
+        /// </summary>
         [Input("expiry", required: true)]
         public Input<string> Expiry { get; set; } = null!;
 
+        /// <summary>
+        /// The permissions which should associated with this Shared Identifier.
+        /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
 
+        /// <summary>
+        /// The ISO8061 UTC time at which this Access Policy should be valid from.
+        /// </summary>
         [Input("start", required: true)]
         public Input<string> Start { get; set; } = null!;
 
@@ -164,12 +173,21 @@ namespace Pulumi.Azure.Storage
 
     public sealed class TableAclsAccessPoliciesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ISO8061 UTC time at which this Access Policy should be valid until.
+        /// </summary>
         [Input("expiry", required: true)]
         public Input<string> Expiry { get; set; } = null!;
 
+        /// <summary>
+        /// The permissions which should associated with this Shared Identifier.
+        /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
 
+        /// <summary>
+        /// The ISO8061 UTC time at which this Access Policy should be valid from.
+        /// </summary>
         [Input("start", required: true)]
         public Input<string> Start { get; set; } = null!;
 
@@ -182,6 +200,10 @@ namespace Pulumi.Azure.Storage
     {
         [Input("accessPolicies")]
         private InputList<TableAclsAccessPoliciesArgs>? _accessPolicies;
+
+        /// <summary>
+        /// An `access_policy` block as defined below.
+        /// </summary>
         public InputList<TableAclsAccessPoliciesArgs> AccessPolicies
         {
             get => _accessPolicies ?? (_accessPolicies = new InputList<TableAclsAccessPoliciesArgs>());
@@ -189,7 +211,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The ID of the Table within the Storage Account.
+        /// The ID which should be used for this Shared Identifier.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -203,6 +225,10 @@ namespace Pulumi.Azure.Storage
     {
         [Input("accessPolicies")]
         private InputList<TableAclsAccessPoliciesGetArgs>? _accessPolicies;
+
+        /// <summary>
+        /// An `access_policy` block as defined below.
+        /// </summary>
         public InputList<TableAclsAccessPoliciesGetArgs> AccessPolicies
         {
             get => _accessPolicies ?? (_accessPolicies = new InputList<TableAclsAccessPoliciesGetArgs>());
@@ -210,7 +236,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The ID of the Table within the Storage Account.
+        /// The ID which should be used for this Shared Identifier.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -227,9 +253,12 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class TableAcls
     {
+        /// <summary>
+        /// An `access_policy` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<TableAclsAccessPolicies> AccessPolicies;
         /// <summary>
-        /// The ID of the Table within the Storage Account.
+        /// The ID which should be used for this Shared Identifier.
         /// </summary>
         public readonly string Id;
 
@@ -246,8 +275,17 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class TableAclsAccessPolicies
     {
+        /// <summary>
+        /// The ISO8061 UTC time at which this Access Policy should be valid until.
+        /// </summary>
         public readonly string Expiry;
+        /// <summary>
+        /// The permissions which should associated with this Shared Identifier.
+        /// </summary>
         public readonly string Permissions;
+        /// <summary>
+        /// The ISO8061 UTC time at which this Access Policy should be valid from.
+        /// </summary>
         public readonly string Start;
 
         [OutputConstructor]

@@ -12,8 +12,6 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
     /// 
-    /// &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
     /// </summary>
     public partial class KubernetesCluster : Pulumi.CustomResource
@@ -504,9 +502,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileAciConnectorLinuxArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the virtual node addon enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        /// </summary>
         [Input("subnetName")]
         public Input<string>? SubnetName { get; set; }
 
@@ -517,9 +521,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileAciConnectorLinuxGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the virtual node addon enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        /// </summary>
         [Input("subnetName")]
         public Input<string>? SubnetName { get; set; }
 
@@ -530,9 +540,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// </summary>
         [Input("aciConnectorLinux")]
         public Input<KubernetesClusterAddonProfileAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
 
+        /// <summary>
+        /// A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        /// </summary>
         [Input("azurePolicy")]
         public Input<KubernetesClusterAddonProfileAzurePolicyArgs>? AzurePolicy { get; set; }
 
@@ -542,9 +558,15 @@ namespace Pulumi.Azure.ContainerService
         [Input("httpApplicationRouting")]
         public Input<KubernetesClusterAddonProfileHttpApplicationRoutingArgs>? HttpApplicationRouting { get; set; }
 
+        /// <summary>
+        /// A `kube_dashboard` block as defined below.
+        /// </summary>
         [Input("kubeDashboard")]
         public Input<KubernetesClusterAddonProfileKubeDashboardArgs>? KubeDashboard { get; set; }
 
+        /// <summary>
+        /// A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        /// </summary>
         [Input("omsAgent")]
         public Input<KubernetesClusterAddonProfileOmsAgentArgs>? OmsAgent { get; set; }
 
@@ -555,6 +577,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileAzurePolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Azure Policy for Kubernetes Add On enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -565,6 +590,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileAzurePolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Azure Policy for Kubernetes Add On enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -575,9 +603,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// </summary>
         [Input("aciConnectorLinux")]
         public Input<KubernetesClusterAddonProfileAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
 
+        /// <summary>
+        /// A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        /// </summary>
         [Input("azurePolicy")]
         public Input<KubernetesClusterAddonProfileAzurePolicyGetArgs>? AzurePolicy { get; set; }
 
@@ -587,9 +621,15 @@ namespace Pulumi.Azure.ContainerService
         [Input("httpApplicationRouting")]
         public Input<KubernetesClusterAddonProfileHttpApplicationRoutingGetArgs>? HttpApplicationRouting { get; set; }
 
+        /// <summary>
+        /// A `kube_dashboard` block as defined below.
+        /// </summary>
         [Input("kubeDashboard")]
         public Input<KubernetesClusterAddonProfileKubeDashboardGetArgs>? KubeDashboard { get; set; }
 
+        /// <summary>
+        /// A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        /// </summary>
         [Input("omsAgent")]
         public Input<KubernetesClusterAddonProfileOmsAgentGetArgs>? OmsAgent { get; set; }
 
@@ -600,6 +640,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileHttpApplicationRoutingArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -616,6 +659,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileHttpApplicationRoutingGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -632,6 +678,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileKubeDashboardArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Kubernetes Dashboard enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -642,6 +691,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileKubeDashboardGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the Kubernetes Dashboard enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -652,9 +704,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileOmsAgentArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the OMS Agent Enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
@@ -665,9 +723,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterAddonProfileOmsAgentGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is the OMS Agent Enabled?
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
@@ -680,38 +744,64 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
+
+        /// <summary>
+        /// A list of Availability Zones across which the Node Pool should be spread.
+        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
 
+        /// <summary>
+        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
+        /// <summary>
+        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }
 
+        /// <summary>
+        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
 
+        /// <summary>
+        /// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxPods")]
         public Input<int>? MaxPods { get; set; }
 
+        /// <summary>
+        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
         /// <summary>
-        /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+        /// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
         [Input("nodeLabels")]
         private InputMap<string>? _nodeLabels;
+
+        /// <summary>
+        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+        /// </summary>
         public InputMap<string> NodeLabels
         {
             get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
@@ -720,12 +810,19 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
+
+        /// <summary>
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// </summary>
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
             set => _nodeTaints = value;
         }
 
+        /// <summary>
+        /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("osDiskSizeGb")]
         public Input<int>? OsDiskSizeGb { get; set; }
 
@@ -741,12 +838,21 @@ namespace Pulumi.Azure.ContainerService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
 
@@ -759,38 +865,64 @@ namespace Pulumi.Azure.ContainerService
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
+
+        /// <summary>
+        /// A list of Availability Zones across which the Node Pool should be spread.
+        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
 
+        /// <summary>
+        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
+        /// <summary>
+        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }
 
+        /// <summary>
+        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
 
+        /// <summary>
+        /// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("maxPods")]
         public Input<int>? MaxPods { get; set; }
 
+        /// <summary>
+        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
 
         /// <summary>
-        /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+        /// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
         [Input("nodeLabels")]
         private InputMap<string>? _nodeLabels;
+
+        /// <summary>
+        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+        /// </summary>
         public InputMap<string> NodeLabels
         {
             get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
@@ -799,12 +931,19 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
+
+        /// <summary>
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// </summary>
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
             set => _nodeTaints = value;
         }
 
+        /// <summary>
+        /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("osDiskSizeGb")]
         public Input<int>? OsDiskSizeGb { get; set; }
 
@@ -820,12 +959,21 @@ namespace Pulumi.Azure.ContainerService
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
 
@@ -843,11 +991,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by master components.
+        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -865,11 +1016,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by master components.
+        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -966,9 +1120,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterLinuxProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Admin Username for the Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        /// <summary>
+        /// An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sshKey", required: true)]
         public Input<KubernetesClusterLinuxProfileSshKeyArgs> SshKey { get; set; } = null!;
 
@@ -979,9 +1139,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterLinuxProfileGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Admin Username for the Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        /// <summary>
+        /// An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("sshKey", required: true)]
         public Input<KubernetesClusterLinuxProfileSshKeyGetArgs> SshKey { get; set; } = null!;
 
@@ -992,6 +1158,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterLinuxProfileSshKeyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("keyData", required: true)]
         public Input<string> KeyData { get; set; } = null!;
 
@@ -1002,6 +1171,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterLinuxProfileSshKeyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("keyData", required: true)]
         public Input<string> KeyData { get; set; } = null!;
 
@@ -1012,27 +1184,51 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterNetworkProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("dnsServiceIp")]
         public Input<string>? DnsServiceIp { get; set; }
 
+        /// <summary>
+        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
 
+        /// <summary>
+        /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
+        /// </summary>
         [Input("loadBalancerProfile")]
         public Input<KubernetesClusterNetworkProfileLoadBalancerProfileArgs>? LoadBalancerProfile { get; set; }
 
+        /// <summary>
+        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        /// </summary>
         [Input("loadBalancerSku")]
         public Input<string>? LoadBalancerSku { get; set; }
 
+        /// <summary>
+        /// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("networkPlugin", required: true)]
         public Input<string> NetworkPlugin { get; set; } = null!;
 
+        /// <summary>
+        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+        /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
+        /// <summary>
+        /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
 
+        /// <summary>
+        /// The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("serviceCidr")]
         public Input<string>? ServiceCidr { get; set; }
 
@@ -1043,27 +1239,51 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterNetworkProfileGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("dnsServiceIp")]
         public Input<string>? DnsServiceIp { get; set; }
 
+        /// <summary>
+        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
 
+        /// <summary>
+        /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
+        /// </summary>
         [Input("loadBalancerProfile")]
         public Input<KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs>? LoadBalancerProfile { get; set; }
 
+        /// <summary>
+        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        /// </summary>
         [Input("loadBalancerSku")]
         public Input<string>? LoadBalancerSku { get; set; }
 
+        /// <summary>
+        /// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("networkPlugin", required: true)]
         public Input<string> NetworkPlugin { get; set; } = null!;
 
+        /// <summary>
+        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+        /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
+        /// <summary>
+        /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
 
+        /// <summary>
+        /// The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("serviceCidr")]
         public Input<string>? ServiceCidr { get; set; }
 
@@ -1086,11 +1306,18 @@ namespace Pulumi.Azure.ContainerService
             set => _effectiveOutboundIps = value;
         }
 
+        /// <summary>
+        /// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+        /// </summary>
         [Input("managedOutboundIpCount")]
         public Input<int>? ManagedOutboundIpCount { get; set; }
 
         [Input("outboundIpAddressIds")]
         private InputList<string>? _outboundIpAddressIds;
+
+        /// <summary>
+        /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+        /// </summary>
         public InputList<string> OutboundIpAddressIds
         {
             get => _outboundIpAddressIds ?? (_outboundIpAddressIds = new InputList<string>());
@@ -1099,6 +1326,10 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("outboundIpPrefixIds")]
         private InputList<string>? _outboundIpPrefixIds;
+
+        /// <summary>
+        /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+        /// </summary>
         public InputList<string> OutboundIpPrefixIds
         {
             get => _outboundIpPrefixIds ?? (_outboundIpPrefixIds = new InputList<string>());
@@ -1124,11 +1355,18 @@ namespace Pulumi.Azure.ContainerService
             set => _effectiveOutboundIps = value;
         }
 
+        /// <summary>
+        /// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+        /// </summary>
         [Input("managedOutboundIpCount")]
         public Input<int>? ManagedOutboundIpCount { get; set; }
 
         [Input("outboundIpAddressIds")]
         private InputList<string>? _outboundIpAddressIds;
+
+        /// <summary>
+        /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+        /// </summary>
         public InputList<string> OutboundIpAddressIds
         {
             get => _outboundIpAddressIds ?? (_outboundIpAddressIds = new InputList<string>());
@@ -1137,6 +1375,10 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("outboundIpPrefixIds")]
         private InputList<string>? _outboundIpPrefixIds;
+
+        /// <summary>
+        /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+        /// </summary>
         public InputList<string> OutboundIpPrefixIds
         {
             get => _outboundIpPrefixIds ?? (_outboundIpPrefixIds = new InputList<string>());
@@ -1150,9 +1392,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterRoleBasedAccessControlArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `azure_active_directory` block.
+        /// </summary>
         [Input("azureActiveDirectory")]
         public Input<KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
 
+        /// <summary>
+        /// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -1163,17 +1411,26 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Client ID of an Azure Active Directory Application.
+        /// </summary>
         [Input("clientAppId", required: true)]
         public Input<string> ClientAppId { get; set; } = null!;
 
+        /// <summary>
+        /// The Server ID of an Azure Active Directory Application.
+        /// </summary>
         [Input("serverAppId", required: true)]
         public Input<string> ServerAppId { get; set; } = null!;
 
+        /// <summary>
+        /// The Server Secret of an Azure Active Directory Application.
+        /// </summary>
         [Input("serverAppSecret", required: true)]
         public Input<string> ServerAppSecret { get; set; } = null!;
 
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by master components.
+        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -1185,17 +1442,26 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Client ID of an Azure Active Directory Application.
+        /// </summary>
         [Input("clientAppId", required: true)]
         public Input<string> ClientAppId { get; set; } = null!;
 
+        /// <summary>
+        /// The Server ID of an Azure Active Directory Application.
+        /// </summary>
         [Input("serverAppId", required: true)]
         public Input<string> ServerAppId { get; set; } = null!;
 
+        /// <summary>
+        /// The Server Secret of an Azure Active Directory Application.
+        /// </summary>
         [Input("serverAppSecret", required: true)]
         public Input<string> ServerAppSecret { get; set; } = null!;
 
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by master components.
+        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -1207,9 +1473,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterRoleBasedAccessControlGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `azure_active_directory` block.
+        /// </summary>
         [Input("azureActiveDirectory")]
         public Input<KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryGetArgs>? AzureActiveDirectory { get; set; }
 
+        /// <summary>
+        /// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
@@ -1220,9 +1492,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterServicePrincipalArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Client ID for the Service Principal.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The Client Secret for the Service Principal.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
@@ -1233,9 +1511,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterServicePrincipalGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Client ID for the Service Principal.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The Client Secret for the Service Principal.
+        /// </summary>
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;
 
@@ -1246,9 +1530,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterWindowsProfileArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Admin Password for Windows VMs.
+        /// </summary>
         [Input("adminPassword")]
         public Input<string>? AdminPassword { get; set; }
 
+        /// <summary>
+        /// The Admin Username for Windows VMs.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
@@ -1259,9 +1549,15 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterWindowsProfileGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Admin Password for Windows VMs.
+        /// </summary>
         [Input("adminPassword")]
         public Input<string>? AdminPassword { get; set; }
 
+        /// <summary>
+        /// The Admin Username for Windows VMs.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
@@ -1277,13 +1573,25 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterAddonProfile
     {
+        /// <summary>
+        /// A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        /// </summary>
         public readonly KubernetesClusterAddonProfileAciConnectorLinux? AciConnectorLinux;
+        /// <summary>
+        /// A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        /// </summary>
         public readonly KubernetesClusterAddonProfileAzurePolicy? AzurePolicy;
         /// <summary>
         /// A `http_application_routing` block as defined below.
         /// </summary>
         public readonly KubernetesClusterAddonProfileHttpApplicationRouting? HttpApplicationRouting;
+        /// <summary>
+        /// A `kube_dashboard` block as defined below.
+        /// </summary>
         public readonly KubernetesClusterAddonProfileKubeDashboard? KubeDashboard;
+        /// <summary>
+        /// A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        /// </summary>
         public readonly KubernetesClusterAddonProfileOmsAgent? OmsAgent;
 
         [OutputConstructor]
@@ -1305,7 +1613,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterAddonProfileAciConnectorLinux
     {
+        /// <summary>
+        /// Is the virtual node addon enabled?
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
+        /// </summary>
         public readonly string? SubnetName;
 
         [OutputConstructor]
@@ -1321,6 +1635,9 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterAddonProfileAzurePolicy
     {
+        /// <summary>
+        /// Is the Azure Policy for Kubernetes Add On enabled?
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]
@@ -1333,6 +1650,9 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterAddonProfileHttpApplicationRouting
     {
+        /// <summary>
+        /// Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool Enabled;
         /// <summary>
         /// The Zone Name of the HTTP Application Routing.
@@ -1352,6 +1672,9 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterAddonProfileKubeDashboard
     {
+        /// <summary>
+        /// Is the Kubernetes Dashboard enabled?
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]
@@ -1364,7 +1687,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterAddonProfileOmsAgent
     {
+        /// <summary>
+        /// Is the OMS Agent Enabled?
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
+        /// </summary>
         public readonly string? LogAnalyticsWorkspaceId;
 
         [OutputConstructor]
@@ -1380,26 +1709,65 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterDefaultNodePool
     {
+        /// <summary>
+        /// A list of Availability Zones across which the Node Pool should be spread.
+        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
+        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableAutoScaling;
+        /// <summary>
+        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableNodePublicIp;
+        /// <summary>
+        /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// </summary>
         public readonly int? MaxCount;
+        /// <summary>
+        /// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int MaxPods;
+        /// <summary>
+        /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        /// </summary>
         public readonly int? MinCount;
         /// <summary>
-        /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+        /// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        /// </summary>
         public readonly int NodeCount;
+        /// <summary>
+        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
+        /// <summary>
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
+        /// <summary>
+        /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int OsDiskSizeGb;
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        /// </summary>
         public readonly string VmSize;
+        /// <summary>
+        /// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? VnetSubnetId;
 
         [OutputConstructor]
@@ -1446,9 +1814,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by master components.
+        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1558,7 +1929,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterLinuxProfile
     {
+        /// <summary>
+        /// The Admin Username for the Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string AdminUsername;
+        /// <summary>
+        /// An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly KubernetesClusterLinuxProfileSshKey SshKey;
 
         [OutputConstructor]
@@ -1574,6 +1951,9 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterLinuxProfileSshKey
     {
+        /// <summary>
+        /// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string KeyData;
 
         [OutputConstructor]
@@ -1586,13 +1966,37 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterNetworkProfile
     {
+        /// <summary>
+        /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string DnsServiceIp;
+        /// <summary>
+        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string DockerBridgeCidr;
+        /// <summary>
+        /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
+        /// </summary>
         public readonly KubernetesClusterNetworkProfileLoadBalancerProfile LoadBalancerProfile;
+        /// <summary>
+        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+        /// </summary>
         public readonly string? LoadBalancerSku;
+        /// <summary>
+        /// Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string NetworkPlugin;
+        /// <summary>
+        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+        /// </summary>
         public readonly string NetworkPolicy;
+        /// <summary>
+        /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string PodCidr;
+        /// <summary>
+        /// The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string ServiceCidr;
 
         [OutputConstructor]
@@ -1624,8 +2028,17 @@ namespace Pulumi.Azure.ContainerService
         /// The outcome (resource IDs) of the specified arguments.
         /// </summary>
         public readonly ImmutableArray<string> EffectiveOutboundIps;
+        /// <summary>
+        /// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+        /// </summary>
         public readonly int ManagedOutboundIpCount;
+        /// <summary>
+        /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+        /// </summary>
         public readonly ImmutableArray<string> OutboundIpAddressIds;
+        /// <summary>
+        /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+        /// </summary>
         public readonly ImmutableArray<string> OutboundIpPrefixIds;
 
         [OutputConstructor]
@@ -1645,7 +2058,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterRoleBasedAccessControl
     {
+        /// <summary>
+        /// An `azure_active_directory` block.
+        /// </summary>
         public readonly KubernetesClusterRoleBasedAccessControlAzureActiveDirectory? AzureActiveDirectory;
+        /// <summary>
+        /// Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]
@@ -1661,11 +2080,20 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterRoleBasedAccessControlAzureActiveDirectory
     {
+        /// <summary>
+        /// The Client ID of an Azure Active Directory Application.
+        /// </summary>
         public readonly string ClientAppId;
+        /// <summary>
+        /// The Server ID of an Azure Active Directory Application.
+        /// </summary>
         public readonly string ServerAppId;
+        /// <summary>
+        /// The Server Secret of an Azure Active Directory Application.
+        /// </summary>
         public readonly string ServerAppSecret;
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by master components.
+        /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
         public readonly string TenantId;
 
@@ -1686,7 +2114,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterServicePrincipal
     {
+        /// <summary>
+        /// The Client ID for the Service Principal.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The Client Secret for the Service Principal.
+        /// </summary>
         public readonly string ClientSecret;
 
         [OutputConstructor]
@@ -1702,7 +2136,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class KubernetesClusterWindowsProfile
     {
+        /// <summary>
+        /// The Admin Password for Windows VMs.
+        /// </summary>
         public readonly string? AdminPassword;
+        /// <summary>
+        /// The Admin Username for Windows VMs.
+        /// </summary>
         public readonly string AdminUsername;
 
         [OutputConstructor]

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Iot
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDpsSharedAccessPolicy.InvokeAsync() instead")]
         public static Task<GetDpsSharedAccessPolicyResult> GetDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDpsSharedAccessPolicy
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
+        /// </summary>
+        public static Task<GetDpsSharedAccessPolicyResult> InvokeAsync(GetDpsSharedAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

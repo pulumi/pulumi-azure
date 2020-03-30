@@ -23,7 +23,8 @@ type Table struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
+	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -66,7 +67,8 @@ type tableState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Throughput        *int    `pulumi:"throughput"`
+	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput *int `pulumi:"throughput"`
 }
 
 type TableState struct {
@@ -76,7 +78,8 @@ type TableState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Throughput        pulumi.IntPtrInput
+	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput pulumi.IntPtrInput
 }
 
 func (TableState) ElementType() reflect.Type {
@@ -90,7 +93,8 @@ type tableArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput        *int   `pulumi:"throughput"`
+	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput *int `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -101,7 +105,8 @@ type TableArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Throughput        pulumi.IntPtrInput
+	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput pulumi.IntPtrInput
 }
 
 func (TableArgs) ElementType() reflect.Type {

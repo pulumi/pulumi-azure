@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
         /// </summary>
+        [Obsolete("Use GetStorageContainer.InvokeAsync() instead")]
         public static Task<GetStorageContainerResult> GetStorageContainer(GetStorageContainerArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetStorageContainer
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Storage Container.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
+        /// </summary>
+        public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -24,6 +35,10 @@ namespace Pulumi.Azure.Storage
     {
         [Input("metadata")]
         private Dictionary<string, string>? _metadata;
+
+        /// <summary>
+        /// A mapping of MetaData for this Container.
+        /// </summary>
         public Dictionary<string, string> Metadata
         {
             get => _metadata ?? (_metadata = new Dictionary<string, string>());

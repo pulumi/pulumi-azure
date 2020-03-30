@@ -21,7 +21,8 @@ type Endpoint struct {
 	ContentTypesToCompresses pulumi.StringArrayOutput `pulumi:"contentTypesToCompresses"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters EndpointGeoFilterArrayOutput `pulumi:"geoFilters"`
-	HostName   pulumi.StringOutput          `pulumi:"hostName"`
+	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled pulumi.BoolPtrOutput `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
@@ -30,7 +31,7 @@ type Endpoint struct {
 	IsHttpsAllowed pulumi.BoolPtrOutput `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrOutput `pulumi:"optimizationType"`
@@ -93,7 +94,8 @@ type endpointState struct {
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters []EndpointGeoFilter `pulumi:"geoFilters"`
-	HostName   *string             `pulumi:"hostName"`
+	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+	HostName *string `pulumi:"hostName"`
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
@@ -102,7 +104,7 @@ type endpointState struct {
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType *string `pulumi:"optimizationType"`
@@ -129,7 +131,8 @@ type EndpointState struct {
 	ContentTypesToCompresses pulumi.StringArrayInput
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters EndpointGeoFilterArrayInput
-	HostName   pulumi.StringPtrInput
+	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+	HostName pulumi.StringPtrInput
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled pulumi.BoolPtrInput
 	// Defaults to `true`.
@@ -138,7 +141,7 @@ type EndpointState struct {
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrInput
@@ -177,7 +180,7 @@ type endpointArgs struct {
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType *string `pulumi:"optimizationType"`
@@ -213,7 +216,7 @@ type EndpointArgs struct {
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrInput

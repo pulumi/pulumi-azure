@@ -231,12 +231,19 @@ namespace Pulumi.Azure.Network
     {
         [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// A list of Address Prefixes.
+        /// </summary>
         public InputList<string> AddressPrefixes
         {
             get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
             set => _addressPrefixes = value;
         }
 
+        /// <summary>
+        /// The IP Address that Packets should be forwarded to as the Next Hop.
+        /// </summary>
         [Input("nextHopIpAddress", required: true)]
         public Input<string> NextHopIpAddress { get; set; } = null!;
 
@@ -249,12 +256,19 @@ namespace Pulumi.Azure.Network
     {
         [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// A list of Address Prefixes.
+        /// </summary>
         public InputList<string> AddressPrefixes
         {
             get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
             set => _addressPrefixes = value;
         }
 
+        /// <summary>
+        /// The IP Address that Packets should be forwarded to as the Next Hop.
+        /// </summary>
         [Input("nextHopIpAddress", required: true)]
         public Input<string> NextHopIpAddress { get; set; } = null!;
 
@@ -270,7 +284,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VirtualHubRoutes
     {
+        /// <summary>
+        /// A list of Address Prefixes.
+        /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
+        /// <summary>
+        /// The IP Address that Packets should be forwarded to as the Next Hop.
+        /// </summary>
         public readonly string NextHopIpAddress;
 
         [OutputConstructor]

@@ -316,20 +316,32 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class LinkServiceNatIpConfigurationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies a Private Static IP Address for this IP Configuration.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+        /// </summary>
         [Input("privateIpAddressVersion")]
         public Input<string>? PrivateIpAddressVersion { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the Subnet which should be used for the Private Link Service.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -341,20 +353,32 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class LinkServiceNatIpConfigurationsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("primary", required: true)]
         public Input<bool> Primary { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies a Private Static IP Address for this IP Configuration.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+        /// </summary>
         [Input("privateIpAddressVersion")]
         public Input<string>? PrivateIpAddressVersion { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the Subnet which should be used for the Private Link Service.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -371,12 +395,24 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class LinkServiceNatIpConfigurations
     {
         /// <summary>
-        /// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool Primary;
+        /// <summary>
+        /// Specifies a Private Static IP Address for this IP Configuration.
+        /// </summary>
         public readonly string? PrivateIpAddress;
+        /// <summary>
+        /// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+        /// </summary>
         public readonly string? PrivateIpAddressVersion;
+        /// <summary>
+        /// Specifies the ID of the Subnet which should be used for the Private Link Service.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

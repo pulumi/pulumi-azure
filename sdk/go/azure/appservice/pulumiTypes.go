@@ -12,21 +12,34 @@ import (
 )
 
 type AppServiceAuthSettings struct {
-	ActiveDirectory             *AppServiceAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
-	AdditionalLoginParams       map[string]string                      `pulumi:"additionalLoginParams"`
-	AllowedExternalRedirectUrls []string                               `pulumi:"allowedExternalRedirectUrls"`
-	DefaultProvider             *string                                `pulumi:"defaultProvider"`
-	// Is the App Service Enabled?
-	Enabled                     bool                             `pulumi:"enabled"`
-	Facebook                    *AppServiceAuthSettingsFacebook  `pulumi:"facebook"`
-	Google                      *AppServiceAuthSettingsGoogle    `pulumi:"google"`
-	Issuer                      *string                          `pulumi:"issuer"`
-	Microsoft                   *AppServiceAuthSettingsMicrosoft `pulumi:"microsoft"`
-	RuntimeVersion              *string                          `pulumi:"runtimeVersion"`
-	TokenRefreshExtensionHours  *float64                         `pulumi:"tokenRefreshExtensionHours"`
-	TokenStoreEnabled           *bool                            `pulumi:"tokenStoreEnabled"`
-	Twitter                     *AppServiceAuthSettingsTwitter   `pulumi:"twitter"`
-	UnauthenticatedClientAction *string                          `pulumi:"unauthenticatedClientAction"`
+	// A `activeDirectory` block as defined below.
+	ActiveDirectory *AppServiceAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams map[string]string `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled bool `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook *AppServiceAuthSettingsFacebook `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google *AppServiceAuthSettingsGoogle `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer *string `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft *AppServiceAuthSettingsMicrosoft `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter *AppServiceAuthSettingsTwitter `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 }
 
 type AppServiceAuthSettingsInput interface {
@@ -37,21 +50,34 @@ type AppServiceAuthSettingsInput interface {
 }
 
 type AppServiceAuthSettingsArgs struct {
-	ActiveDirectory             AppServiceAuthSettingsActiveDirectoryPtrInput `pulumi:"activeDirectory"`
-	AdditionalLoginParams       pulumi.StringMapInput                         `pulumi:"additionalLoginParams"`
-	AllowedExternalRedirectUrls pulumi.StringArrayInput                       `pulumi:"allowedExternalRedirectUrls"`
-	DefaultProvider             pulumi.StringPtrInput                         `pulumi:"defaultProvider"`
-	// Is the App Service Enabled?
-	Enabled                     pulumi.BoolInput                        `pulumi:"enabled"`
-	Facebook                    AppServiceAuthSettingsFacebookPtrInput  `pulumi:"facebook"`
-	Google                      AppServiceAuthSettingsGooglePtrInput    `pulumi:"google"`
-	Issuer                      pulumi.StringPtrInput                   `pulumi:"issuer"`
-	Microsoft                   AppServiceAuthSettingsMicrosoftPtrInput `pulumi:"microsoft"`
-	RuntimeVersion              pulumi.StringPtrInput                   `pulumi:"runtimeVersion"`
-	TokenRefreshExtensionHours  pulumi.Float64PtrInput                  `pulumi:"tokenRefreshExtensionHours"`
-	TokenStoreEnabled           pulumi.BoolPtrInput                     `pulumi:"tokenStoreEnabled"`
-	Twitter                     AppServiceAuthSettingsTwitterPtrInput   `pulumi:"twitter"`
-	UnauthenticatedClientAction pulumi.StringPtrInput                   `pulumi:"unauthenticatedClientAction"`
+	// A `activeDirectory` block as defined below.
+	ActiveDirectory AppServiceAuthSettingsActiveDirectoryPtrInput `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams pulumi.StringMapInput `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider pulumi.StringPtrInput `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook AppServiceAuthSettingsFacebookPtrInput `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google AppServiceAuthSettingsGooglePtrInput `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft AppServiceAuthSettingsMicrosoftPtrInput `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled pulumi.BoolPtrInput `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter AppServiceAuthSettingsTwitterPtrInput `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction pulumi.StringPtrInput `pulumi:"unauthenticatedClientAction"`
 }
 
 func (AppServiceAuthSettingsArgs) ElementType() reflect.Type {
@@ -122,59 +148,73 @@ func (o AppServiceAuthSettingsOutput) ToAppServiceAuthSettingsPtrOutputWithConte
 		return &v
 	}).(AppServiceAuthSettingsPtrOutput)
 }
+
+// A `activeDirectory` block as defined below.
 func (o AppServiceAuthSettingsOutput) ActiveDirectory() AppServiceAuthSettingsActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsActiveDirectory { return v.ActiveDirectory }).(AppServiceAuthSettingsActiveDirectoryPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
 func (o AppServiceAuthSettingsOutput) AdditionalLoginParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) map[string]string { return v.AdditionalLoginParams }).(pulumi.StringMapOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app.
 func (o AppServiceAuthSettingsOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
 func (o AppServiceAuthSettingsOutput) DefaultProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
 }
 
-// Is the App Service Enabled?
+// Is Authentication enabled?
 func (o AppServiceAuthSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `facebook` block as defined below.
 func (o AppServiceAuthSettingsOutput) Facebook() AppServiceAuthSettingsFacebookPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsFacebook { return v.Facebook }).(AppServiceAuthSettingsFacebookPtrOutput)
 }
 
+// A `google` block as defined below.
 func (o AppServiceAuthSettingsOutput) Google() AppServiceAuthSettingsGooglePtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsGoogle { return v.Google }).(AppServiceAuthSettingsGooglePtrOutput)
 }
 
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
 func (o AppServiceAuthSettingsOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// A `microsoft` block as defined below.
 func (o AppServiceAuthSettingsOutput) Microsoft() AppServiceAuthSettingsMicrosoftPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsMicrosoft { return v.Microsoft }).(AppServiceAuthSettingsMicrosoftPtrOutput)
 }
 
+// The runtime version of the Authentication/Authorization module.
 func (o AppServiceAuthSettingsOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
 func (o AppServiceAuthSettingsOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
 
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
 func (o AppServiceAuthSettingsOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `twitter` block as defined below.
 func (o AppServiceAuthSettingsOutput) Twitter() AppServiceAuthSettingsTwitterPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsTwitter { return v.Twitter }).(AppServiceAuthSettingsTwitterPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 func (o AppServiceAuthSettingsOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
@@ -197,67 +237,83 @@ func (o AppServiceAuthSettingsPtrOutput) Elem() AppServiceAuthSettingsOutput {
 	return o.ApplyT(func(v *AppServiceAuthSettings) AppServiceAuthSettings { return *v }).(AppServiceAuthSettingsOutput)
 }
 
+// A `activeDirectory` block as defined below.
 func (o AppServiceAuthSettingsPtrOutput) ActiveDirectory() AppServiceAuthSettingsActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsActiveDirectory { return v.ActiveDirectory }).(AppServiceAuthSettingsActiveDirectoryPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
 func (o AppServiceAuthSettingsPtrOutput) AdditionalLoginParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) map[string]string { return v.AdditionalLoginParams }).(pulumi.StringMapOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app.
 func (o AppServiceAuthSettingsPtrOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
 func (o AppServiceAuthSettingsPtrOutput) DefaultProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
 }
 
-// Is the App Service Enabled?
+// Is Authentication enabled?
 func (o AppServiceAuthSettingsPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `facebook` block as defined below.
 func (o AppServiceAuthSettingsPtrOutput) Facebook() AppServiceAuthSettingsFacebookPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsFacebook { return v.Facebook }).(AppServiceAuthSettingsFacebookPtrOutput)
 }
 
+// A `google` block as defined below.
 func (o AppServiceAuthSettingsPtrOutput) Google() AppServiceAuthSettingsGooglePtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsGoogle { return v.Google }).(AppServiceAuthSettingsGooglePtrOutput)
 }
 
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
 func (o AppServiceAuthSettingsPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// A `microsoft` block as defined below.
 func (o AppServiceAuthSettingsPtrOutput) Microsoft() AppServiceAuthSettingsMicrosoftPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsMicrosoft { return v.Microsoft }).(AppServiceAuthSettingsMicrosoftPtrOutput)
 }
 
+// The runtime version of the Authentication/Authorization module.
 func (o AppServiceAuthSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
 func (o AppServiceAuthSettingsPtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
 
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
 func (o AppServiceAuthSettingsPtrOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `twitter` block as defined below.
 func (o AppServiceAuthSettingsPtrOutput) Twitter() AppServiceAuthSettingsTwitterPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *AppServiceAuthSettingsTwitter { return v.Twitter }).(AppServiceAuthSettingsTwitterPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 func (o AppServiceAuthSettingsPtrOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettings) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
 
 type AppServiceAuthSettingsActiveDirectory struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
-	ClientId         string   `pulumi:"clientId"`
-	ClientSecret     *string  `pulumi:"clientSecret"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId string `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret *string `pulumi:"clientSecret"`
 }
 
 type AppServiceAuthSettingsActiveDirectoryInput interface {
@@ -268,9 +324,12 @@ type AppServiceAuthSettingsActiveDirectoryInput interface {
 }
 
 type AppServiceAuthSettingsActiveDirectoryArgs struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
-	ClientId         pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret     pulumi.StringPtrInput   `pulumi:"clientSecret"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 }
 
 func (AppServiceAuthSettingsActiveDirectoryArgs) ElementType() reflect.Type {
@@ -341,14 +400,18 @@ func (o AppServiceAuthSettingsActiveDirectoryOutput) ToAppServiceAuthSettingsAct
 		return &v
 	}).(AppServiceAuthSettingsActiveDirectoryPtrOutput)
 }
+
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 func (o AppServiceAuthSettingsActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 func (o AppServiceAuthSettingsActiveDirectoryOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 func (o AppServiceAuthSettingsActiveDirectoryOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsActiveDirectory) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
@@ -371,21 +434,27 @@ func (o AppServiceAuthSettingsActiveDirectoryPtrOutput) Elem() AppServiceAuthSet
 	return o.ApplyT(func(v *AppServiceAuthSettingsActiveDirectory) AppServiceAuthSettingsActiveDirectory { return *v }).(AppServiceAuthSettingsActiveDirectoryOutput)
 }
 
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 func (o AppServiceAuthSettingsActiveDirectoryPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 func (o AppServiceAuthSettingsActiveDirectoryPtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 func (o AppServiceAuthSettingsActiveDirectoryPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsActiveDirectory) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 type AppServiceAuthSettingsFacebook struct {
-	AppId       string   `pulumi:"appId"`
-	AppSecret   string   `pulumi:"appSecret"`
+	// The App ID of the Facebook app used for login
+	AppId string `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret string `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
@@ -397,8 +466,11 @@ type AppServiceAuthSettingsFacebookInput interface {
 }
 
 type AppServiceAuthSettingsFacebookArgs struct {
-	AppId       pulumi.StringInput      `pulumi:"appId"`
-	AppSecret   pulumi.StringInput      `pulumi:"appSecret"`
+	// The App ID of the Facebook app used for login
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
@@ -470,14 +542,18 @@ func (o AppServiceAuthSettingsFacebookOutput) ToAppServiceAuthSettingsFacebookPt
 		return &v
 	}).(AppServiceAuthSettingsFacebookPtrOutput)
 }
+
+// The App ID of the Facebook app used for login
 func (o AppServiceAuthSettingsFacebookOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsFacebook) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// The App Secret of the Facebook app used for Facebook Login.
 func (o AppServiceAuthSettingsFacebookOutput) AppSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 func (o AppServiceAuthSettingsFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -500,22 +576,28 @@ func (o AppServiceAuthSettingsFacebookPtrOutput) Elem() AppServiceAuthSettingsFa
 	return o.ApplyT(func(v *AppServiceAuthSettingsFacebook) AppServiceAuthSettingsFacebook { return *v }).(AppServiceAuthSettingsFacebookOutput)
 }
 
+// The App ID of the Facebook app used for login
 func (o AppServiceAuthSettingsFacebookPtrOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsFacebook) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// The App Secret of the Facebook app used for Facebook Login.
 func (o AppServiceAuthSettingsFacebookPtrOutput) AppSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 func (o AppServiceAuthSettingsFacebookPtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
 
 type AppServiceAuthSettingsGoogle struct {
-	ClientId     string   `pulumi:"clientId"`
-	ClientSecret string   `pulumi:"clientSecret"`
-	OauthScopes  []string `pulumi:"oauthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId string `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
 type AppServiceAuthSettingsGoogleInput interface {
@@ -526,9 +608,12 @@ type AppServiceAuthSettingsGoogleInput interface {
 }
 
 type AppServiceAuthSettingsGoogleArgs struct {
-	ClientId     pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput      `pulumi:"clientSecret"`
-	OauthScopes  pulumi.StringArrayInput `pulumi:"oauthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
 func (AppServiceAuthSettingsGoogleArgs) ElementType() reflect.Type {
@@ -599,14 +684,18 @@ func (o AppServiceAuthSettingsGoogleOutput) ToAppServiceAuthSettingsGooglePtrOut
 		return &v
 	}).(AppServiceAuthSettingsGooglePtrOutput)
 }
+
+// The OpenID Connect Client ID for the Google web application.
 func (o AppServiceAuthSettingsGoogleOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsGoogle) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret associated with the Google web application.
 func (o AppServiceAuthSettingsGoogleOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 func (o AppServiceAuthSettingsGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -629,22 +718,28 @@ func (o AppServiceAuthSettingsGooglePtrOutput) Elem() AppServiceAuthSettingsGoog
 	return o.ApplyT(func(v *AppServiceAuthSettingsGoogle) AppServiceAuthSettingsGoogle { return *v }).(AppServiceAuthSettingsGoogleOutput)
 }
 
+// The OpenID Connect Client ID for the Google web application.
 func (o AppServiceAuthSettingsGooglePtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsGoogle) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret associated with the Google web application.
 func (o AppServiceAuthSettingsGooglePtrOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 func (o AppServiceAuthSettingsGooglePtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
 
 type AppServiceAuthSettingsMicrosoft struct {
-	ClientId     string   `pulumi:"clientId"`
-	ClientSecret string   `pulumi:"clientSecret"`
-	OauthScopes  []string `pulumi:"oauthScopes"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
 type AppServiceAuthSettingsMicrosoftInput interface {
@@ -655,9 +750,12 @@ type AppServiceAuthSettingsMicrosoftInput interface {
 }
 
 type AppServiceAuthSettingsMicrosoftArgs struct {
-	ClientId     pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput      `pulumi:"clientSecret"`
-	OauthScopes  pulumi.StringArrayInput `pulumi:"oauthScopes"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
 func (AppServiceAuthSettingsMicrosoftArgs) ElementType() reflect.Type {
@@ -728,14 +826,18 @@ func (o AppServiceAuthSettingsMicrosoftOutput) ToAppServiceAuthSettingsMicrosoft
 		return &v
 	}).(AppServiceAuthSettingsMicrosoftPtrOutput)
 }
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
 func (o AppServiceAuthSettingsMicrosoftOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret that was created for the app used for authentication.
 func (o AppServiceAuthSettingsMicrosoftOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 func (o AppServiceAuthSettingsMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -758,14 +860,17 @@ func (o AppServiceAuthSettingsMicrosoftPtrOutput) Elem() AppServiceAuthSettingsM
 	return o.ApplyT(func(v *AppServiceAuthSettingsMicrosoft) AppServiceAuthSettingsMicrosoft { return *v }).(AppServiceAuthSettingsMicrosoftOutput)
 }
 
+// The OAuth 2.0 client ID that was created for the app used for authentication.
 func (o AppServiceAuthSettingsMicrosoftPtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret that was created for the app used for authentication.
 func (o AppServiceAuthSettingsMicrosoftPtrOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 func (o AppServiceAuthSettingsMicrosoftPtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceAuthSettingsMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -890,12 +995,14 @@ func (o AppServiceAuthSettingsTwitterPtrOutput) ConsumerSecret() pulumi.StringOu
 }
 
 type AppServiceBackup struct {
-	// Is the App Service Enabled?
+	// Is this Backup enabled?
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name              string                   `pulumi:"name"`
-	Schedule          AppServiceBackupSchedule `pulumi:"schedule"`
-	StorageAccountUrl string                   `pulumi:"storageAccountUrl"`
+	// Specifies the name for this Backup.
+	Name string `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedule AppServiceBackupSchedule `pulumi:"schedule"`
+	// The SAS URL to a Storage Container where Backups should be saved.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
 }
 
 type AppServiceBackupInput interface {
@@ -906,12 +1013,14 @@ type AppServiceBackupInput interface {
 }
 
 type AppServiceBackupArgs struct {
-	// Is the App Service Enabled?
+	// Is this Backup enabled?
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name              pulumi.StringInput            `pulumi:"name"`
-	Schedule          AppServiceBackupScheduleInput `pulumi:"schedule"`
-	StorageAccountUrl pulumi.StringInput            `pulumi:"storageAccountUrl"`
+	// Specifies the name for this Backup.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schedule` block as defined below.
+	Schedule AppServiceBackupScheduleInput `pulumi:"schedule"`
+	// The SAS URL to a Storage Container where Backups should be saved.
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
 }
 
 func (AppServiceBackupArgs) ElementType() reflect.Type {
@@ -983,20 +1092,22 @@ func (o AppServiceBackupOutput) ToAppServiceBackupPtrOutputWithContext(ctx conte
 	}).(AppServiceBackupPtrOutput)
 }
 
-// Is the App Service Enabled?
+// Is this Backup enabled?
 func (o AppServiceBackupOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceBackup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the App Service. Changing this forces a new resource to be created.
+// Specifies the name for this Backup.
 func (o AppServiceBackupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceBackup) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A `schedule` block as defined below.
 func (o AppServiceBackupOutput) Schedule() AppServiceBackupScheduleOutput {
 	return o.ApplyT(func(v AppServiceBackup) AppServiceBackupSchedule { return v.Schedule }).(AppServiceBackupScheduleOutput)
 }
 
+// The SAS URL to a Storage Container where Backups should be saved.
 func (o AppServiceBackupOutput) StorageAccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceBackup) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
 }
@@ -1019,30 +1130,37 @@ func (o AppServiceBackupPtrOutput) Elem() AppServiceBackupOutput {
 	return o.ApplyT(func(v *AppServiceBackup) AppServiceBackup { return *v }).(AppServiceBackupOutput)
 }
 
-// Is the App Service Enabled?
+// Is this Backup enabled?
 func (o AppServiceBackupPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceBackup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the App Service. Changing this forces a new resource to be created.
+// Specifies the name for this Backup.
 func (o AppServiceBackupPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceBackup) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A `schedule` block as defined below.
 func (o AppServiceBackupPtrOutput) Schedule() AppServiceBackupScheduleOutput {
 	return o.ApplyT(func(v AppServiceBackup) AppServiceBackupSchedule { return v.Schedule }).(AppServiceBackupScheduleOutput)
 }
 
+// The SAS URL to a Storage Container where Backups should be saved.
 func (o AppServiceBackupPtrOutput) StorageAccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceBackup) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
 }
 
 type AppServiceBackupSchedule struct {
-	FrequencyInterval     int     `pulumi:"frequencyInterval"`
-	FrequencyUnit         string  `pulumi:"frequencyUnit"`
-	KeepAtLeastOneBackup  *bool   `pulumi:"keepAtLeastOneBackup"`
-	RetentionPeriodInDays *int    `pulumi:"retentionPeriodInDays"`
-	StartTime             *string `pulumi:"startTime"`
+	// Sets how often the backup should be executed.
+	FrequencyInterval int `pulumi:"frequencyInterval"`
+	// Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+	FrequencyUnit string `pulumi:"frequencyUnit"`
+	// Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+	KeepAtLeastOneBackup *bool `pulumi:"keepAtLeastOneBackup"`
+	// Specifies the number of days after which Backups should be deleted.
+	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+	// Sets when the schedule should start working.
+	StartTime *string `pulumi:"startTime"`
 }
 
 type AppServiceBackupScheduleInput interface {
@@ -1053,11 +1171,16 @@ type AppServiceBackupScheduleInput interface {
 }
 
 type AppServiceBackupScheduleArgs struct {
-	FrequencyInterval     pulumi.IntInput       `pulumi:"frequencyInterval"`
-	FrequencyUnit         pulumi.StringInput    `pulumi:"frequencyUnit"`
-	KeepAtLeastOneBackup  pulumi.BoolPtrInput   `pulumi:"keepAtLeastOneBackup"`
-	RetentionPeriodInDays pulumi.IntPtrInput    `pulumi:"retentionPeriodInDays"`
-	StartTime             pulumi.StringPtrInput `pulumi:"startTime"`
+	// Sets how often the backup should be executed.
+	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
+	// Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	// Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+	KeepAtLeastOneBackup pulumi.BoolPtrInput `pulumi:"keepAtLeastOneBackup"`
+	// Specifies the number of days after which Backups should be deleted.
+	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
+	// Sets when the schedule should start working.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (AppServiceBackupScheduleArgs) ElementType() reflect.Type {
@@ -1086,30 +1209,37 @@ func (o AppServiceBackupScheduleOutput) ToAppServiceBackupScheduleOutputWithCont
 	return o
 }
 
+// Sets how often the backup should be executed.
 func (o AppServiceBackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceBackupSchedule) int { return v.FrequencyInterval }).(pulumi.IntOutput)
 }
 
+// Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
 func (o AppServiceBackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceBackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
 }
 
+// Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
 func (o AppServiceBackupScheduleOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceBackupSchedule) *bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the number of days after which Backups should be deleted.
 func (o AppServiceBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppServiceBackupSchedule) *int { return v.RetentionPeriodInDays }).(pulumi.IntPtrOutput)
 }
 
+// Sets when the schedule should start working.
 func (o AppServiceBackupScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceBackupSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
 type AppServiceConnectionString struct {
-	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name  string `pulumi:"name"`
-	Type  string `pulumi:"type"`
+	// The name of the Connection String.
+	Name string `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type string `pulumi:"type"`
+	// The value for the Connection String.
 	Value string `pulumi:"value"`
 }
 
@@ -1121,9 +1251,11 @@ type AppServiceConnectionStringInput interface {
 }
 
 type AppServiceConnectionStringArgs struct {
-	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name  pulumi.StringInput `pulumi:"name"`
-	Type  pulumi.StringInput `pulumi:"type"`
+	// The name of the Connection String.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the Connection String.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1174,15 +1306,17 @@ func (o AppServiceConnectionStringOutput) ToAppServiceConnectionStringOutputWith
 	return o
 }
 
-// Specifies the name of the App Service. Changing this forces a new resource to be created.
+// The name of the Connection String.
 func (o AppServiceConnectionStringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceConnectionString) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
 func (o AppServiceConnectionStringOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceConnectionString) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The value for the Connection String.
 func (o AppServiceConnectionStringOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceConnectionString) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1208,12 +1342,14 @@ func (o AppServiceConnectionStringArrayOutput) Index(i pulumi.IntInput) AppServi
 }
 
 type AppServiceIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	TenantId *string `pulumi:"tenantId"`
-	Type     string  `pulumi:"type"`
+	// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	Type string `pulumi:"type"`
 }
 
 type AppServiceIdentityInput interface {
@@ -1224,12 +1360,14 @@ type AppServiceIdentityInput interface {
 }
 
 type AppServiceIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type     pulumi.StringInput    `pulumi:"type"`
+	// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AppServiceIdentityArgs) ElementType() reflect.Type {
@@ -1300,6 +1438,8 @@ func (o AppServiceIdentityOutput) ToAppServiceIdentityPtrOutputWithContext(ctx c
 		return &v
 	}).(AppServiceIdentityPtrOutput)
 }
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 func (o AppServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1314,6 +1454,7 @@ func (o AppServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o AppServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1336,6 +1477,7 @@ func (o AppServiceIdentityPtrOutput) Elem() AppServiceIdentityOutput {
 	return o.ApplyT(func(v *AppServiceIdentity) AppServiceIdentity { return *v }).(AppServiceIdentityOutput)
 }
 
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 func (o AppServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1350,13 +1492,16 @@ func (o AppServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o AppServiceIdentityPtrOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AppServiceLogs struct {
+	// An `applicationLogs` block as defined below.
 	ApplicationLogs *AppServiceLogsApplicationLogs `pulumi:"applicationLogs"`
-	HttpLogs        *AppServiceLogsHttpLogs        `pulumi:"httpLogs"`
+	// An `httpLogs` block as defined below.
+	HttpLogs *AppServiceLogsHttpLogs `pulumi:"httpLogs"`
 }
 
 type AppServiceLogsInput interface {
@@ -1367,8 +1512,10 @@ type AppServiceLogsInput interface {
 }
 
 type AppServiceLogsArgs struct {
+	// An `applicationLogs` block as defined below.
 	ApplicationLogs AppServiceLogsApplicationLogsPtrInput `pulumi:"applicationLogs"`
-	HttpLogs        AppServiceLogsHttpLogsPtrInput        `pulumi:"httpLogs"`
+	// An `httpLogs` block as defined below.
+	HttpLogs AppServiceLogsHttpLogsPtrInput `pulumi:"httpLogs"`
 }
 
 func (AppServiceLogsArgs) ElementType() reflect.Type {
@@ -1439,10 +1586,13 @@ func (o AppServiceLogsOutput) ToAppServiceLogsPtrOutputWithContext(ctx context.C
 		return &v
 	}).(AppServiceLogsPtrOutput)
 }
+
+// An `applicationLogs` block as defined below.
 func (o AppServiceLogsOutput) ApplicationLogs() AppServiceLogsApplicationLogsPtrOutput {
 	return o.ApplyT(func(v AppServiceLogs) *AppServiceLogsApplicationLogs { return v.ApplicationLogs }).(AppServiceLogsApplicationLogsPtrOutput)
 }
 
+// An `httpLogs` block as defined below.
 func (o AppServiceLogsOutput) HttpLogs() AppServiceLogsHttpLogsPtrOutput {
 	return o.ApplyT(func(v AppServiceLogs) *AppServiceLogsHttpLogs { return v.HttpLogs }).(AppServiceLogsHttpLogsPtrOutput)
 }
@@ -1465,15 +1615,18 @@ func (o AppServiceLogsPtrOutput) Elem() AppServiceLogsOutput {
 	return o.ApplyT(func(v *AppServiceLogs) AppServiceLogs { return *v }).(AppServiceLogsOutput)
 }
 
+// An `applicationLogs` block as defined below.
 func (o AppServiceLogsPtrOutput) ApplicationLogs() AppServiceLogsApplicationLogsPtrOutput {
 	return o.ApplyT(func(v AppServiceLogs) *AppServiceLogsApplicationLogs { return v.ApplicationLogs }).(AppServiceLogsApplicationLogsPtrOutput)
 }
 
+// An `httpLogs` block as defined below.
 func (o AppServiceLogsPtrOutput) HttpLogs() AppServiceLogsHttpLogsPtrOutput {
 	return o.ApplyT(func(v AppServiceLogs) *AppServiceLogsHttpLogs { return v.HttpLogs }).(AppServiceLogsHttpLogsPtrOutput)
 }
 
 type AppServiceLogsApplicationLogs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage *AppServiceLogsApplicationLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
 }
 
@@ -1485,6 +1638,7 @@ type AppServiceLogsApplicationLogsInput interface {
 }
 
 type AppServiceLogsApplicationLogsArgs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage AppServiceLogsApplicationLogsAzureBlobStoragePtrInput `pulumi:"azureBlobStorage"`
 }
 
@@ -1556,6 +1710,8 @@ func (o AppServiceLogsApplicationLogsOutput) ToAppServiceLogsApplicationLogsPtrO
 		return &v
 	}).(AppServiceLogsApplicationLogsPtrOutput)
 }
+
+// An `azureBlobStorage` block as defined below.
 func (o AppServiceLogsApplicationLogsOutput) AzureBlobStorage() AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogs) *AppServiceLogsApplicationLogsAzureBlobStorage {
 		return v.AzureBlobStorage
@@ -1580,6 +1736,7 @@ func (o AppServiceLogsApplicationLogsPtrOutput) Elem() AppServiceLogsApplication
 	return o.ApplyT(func(v *AppServiceLogsApplicationLogs) AppServiceLogsApplicationLogs { return *v }).(AppServiceLogsApplicationLogsOutput)
 }
 
+// An `azureBlobStorage` block as defined below.
 func (o AppServiceLogsApplicationLogsPtrOutput) AzureBlobStorage() AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogs) *AppServiceLogsApplicationLogsAzureBlobStorage {
 		return v.AzureBlobStorage
@@ -1587,9 +1744,12 @@ func (o AppServiceLogsApplicationLogsPtrOutput) AzureBlobStorage() AppServiceLog
 }
 
 type AppServiceLogsApplicationLogsAzureBlobStorage struct {
-	Level           string `pulumi:"level"`
-	RetentionInDays int    `pulumi:"retentionInDays"`
-	SasUrl          string `pulumi:"sasUrl"`
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level string `pulumi:"level"`
+	// The number of days to retain logs for.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl string `pulumi:"sasUrl"`
 }
 
 type AppServiceLogsApplicationLogsAzureBlobStorageInput interface {
@@ -1600,9 +1760,12 @@ type AppServiceLogsApplicationLogsAzureBlobStorageInput interface {
 }
 
 type AppServiceLogsApplicationLogsAzureBlobStorageArgs struct {
-	Level           pulumi.StringInput `pulumi:"level"`
-	RetentionInDays pulumi.IntInput    `pulumi:"retentionInDays"`
-	SasUrl          pulumi.StringInput `pulumi:"sasUrl"`
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level pulumi.StringInput `pulumi:"level"`
+	// The number of days to retain logs for.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
 
 func (AppServiceLogsApplicationLogsAzureBlobStorageArgs) ElementType() reflect.Type {
@@ -1673,14 +1836,18 @@ func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) ToAppServiceLogsApp
 		return &v
 	}).(AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
+
+// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
 func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) string { return v.Level }).(pulumi.StringOutput)
 }
 
+// The number of days to retain logs for.
 func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -1705,21 +1872,26 @@ func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) Elem() AppServic
 	}).(AppServiceLogsApplicationLogsAzureBlobStorageOutput)
 }
 
+// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
 func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) string { return v.Level }).(pulumi.StringOutput)
 }
 
+// The number of days to retain logs for.
 func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsApplicationLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
 
 type AppServiceLogsHttpLogs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage *AppServiceLogsHttpLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
-	FileSystem       *AppServiceLogsHttpLogsFileSystem       `pulumi:"fileSystem"`
+	// A `fileSystem` block as defined below.
+	FileSystem *AppServiceLogsHttpLogsFileSystem `pulumi:"fileSystem"`
 }
 
 type AppServiceLogsHttpLogsInput interface {
@@ -1730,8 +1902,10 @@ type AppServiceLogsHttpLogsInput interface {
 }
 
 type AppServiceLogsHttpLogsArgs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage AppServiceLogsHttpLogsAzureBlobStoragePtrInput `pulumi:"azureBlobStorage"`
-	FileSystem       AppServiceLogsHttpLogsFileSystemPtrInput       `pulumi:"fileSystem"`
+	// A `fileSystem` block as defined below.
+	FileSystem AppServiceLogsHttpLogsFileSystemPtrInput `pulumi:"fileSystem"`
 }
 
 func (AppServiceLogsHttpLogsArgs) ElementType() reflect.Type {
@@ -1802,10 +1976,13 @@ func (o AppServiceLogsHttpLogsOutput) ToAppServiceLogsHttpLogsPtrOutputWithConte
 		return &v
 	}).(AppServiceLogsHttpLogsPtrOutput)
 }
+
+// An `azureBlobStorage` block as defined below.
 func (o AppServiceLogsHttpLogsOutput) AzureBlobStorage() AppServiceLogsHttpLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogs) *AppServiceLogsHttpLogsAzureBlobStorage { return v.AzureBlobStorage }).(AppServiceLogsHttpLogsAzureBlobStoragePtrOutput)
 }
 
+// A `fileSystem` block as defined below.
 func (o AppServiceLogsHttpLogsOutput) FileSystem() AppServiceLogsHttpLogsFileSystemPtrOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogs) *AppServiceLogsHttpLogsFileSystem { return v.FileSystem }).(AppServiceLogsHttpLogsFileSystemPtrOutput)
 }
@@ -1828,17 +2005,21 @@ func (o AppServiceLogsHttpLogsPtrOutput) Elem() AppServiceLogsHttpLogsOutput {
 	return o.ApplyT(func(v *AppServiceLogsHttpLogs) AppServiceLogsHttpLogs { return *v }).(AppServiceLogsHttpLogsOutput)
 }
 
+// An `azureBlobStorage` block as defined below.
 func (o AppServiceLogsHttpLogsPtrOutput) AzureBlobStorage() AppServiceLogsHttpLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogs) *AppServiceLogsHttpLogsAzureBlobStorage { return v.AzureBlobStorage }).(AppServiceLogsHttpLogsAzureBlobStoragePtrOutput)
 }
 
+// A `fileSystem` block as defined below.
 func (o AppServiceLogsHttpLogsPtrOutput) FileSystem() AppServiceLogsHttpLogsFileSystemPtrOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogs) *AppServiceLogsHttpLogsFileSystem { return v.FileSystem }).(AppServiceLogsHttpLogsFileSystemPtrOutput)
 }
 
 type AppServiceLogsHttpLogsAzureBlobStorage struct {
-	RetentionInDays int    `pulumi:"retentionInDays"`
-	SasUrl          string `pulumi:"sasUrl"`
+	// The number of days to retain logs for.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl string `pulumi:"sasUrl"`
 }
 
 type AppServiceLogsHttpLogsAzureBlobStorageInput interface {
@@ -1849,8 +2030,10 @@ type AppServiceLogsHttpLogsAzureBlobStorageInput interface {
 }
 
 type AppServiceLogsHttpLogsAzureBlobStorageArgs struct {
-	RetentionInDays pulumi.IntInput    `pulumi:"retentionInDays"`
-	SasUrl          pulumi.StringInput `pulumi:"sasUrl"`
+	// The number of days to retain logs for.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
 
 func (AppServiceLogsHttpLogsAzureBlobStorageArgs) ElementType() reflect.Type {
@@ -1921,10 +2104,13 @@ func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) ToAppServiceLogsHttpLogsAz
 		return &v
 	}).(AppServiceLogsHttpLogsAzureBlobStoragePtrOutput)
 }
+
+// The number of days to retain logs for.
 func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -1947,17 +2133,21 @@ func (o AppServiceLogsHttpLogsAzureBlobStoragePtrOutput) Elem() AppServiceLogsHt
 	return o.ApplyT(func(v *AppServiceLogsHttpLogsAzureBlobStorage) AppServiceLogsHttpLogsAzureBlobStorage { return *v }).(AppServiceLogsHttpLogsAzureBlobStorageOutput)
 }
 
+// The number of days to retain logs for.
 func (o AppServiceLogsHttpLogsAzureBlobStoragePtrOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o AppServiceLogsHttpLogsAzureBlobStoragePtrOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
 
 type AppServiceLogsHttpLogsFileSystem struct {
+	// The number of days to retain logs for.
 	RetentionInDays int `pulumi:"retentionInDays"`
-	RetentionInMb   int `pulumi:"retentionInMb"`
+	// The maximum size in megabytes that http log files can use before being removed.
+	RetentionInMb int `pulumi:"retentionInMb"`
 }
 
 type AppServiceLogsHttpLogsFileSystemInput interface {
@@ -1968,8 +2158,10 @@ type AppServiceLogsHttpLogsFileSystemInput interface {
 }
 
 type AppServiceLogsHttpLogsFileSystemArgs struct {
+	// The number of days to retain logs for.
 	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
-	RetentionInMb   pulumi.IntInput `pulumi:"retentionInMb"`
+	// The maximum size in megabytes that http log files can use before being removed.
+	RetentionInMb pulumi.IntInput `pulumi:"retentionInMb"`
 }
 
 func (AppServiceLogsHttpLogsFileSystemArgs) ElementType() reflect.Type {
@@ -2040,10 +2232,13 @@ func (o AppServiceLogsHttpLogsFileSystemOutput) ToAppServiceLogsHttpLogsFileSyst
 		return &v
 	}).(AppServiceLogsHttpLogsFileSystemPtrOutput)
 }
+
+// The number of days to retain logs for.
 func (o AppServiceLogsHttpLogsFileSystemOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsFileSystem) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The maximum size in megabytes that http log files can use before being removed.
 func (o AppServiceLogsHttpLogsFileSystemOutput) RetentionInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsFileSystem) int { return v.RetentionInMb }).(pulumi.IntOutput)
 }
@@ -2066,39 +2261,64 @@ func (o AppServiceLogsHttpLogsFileSystemPtrOutput) Elem() AppServiceLogsHttpLogs
 	return o.ApplyT(func(v *AppServiceLogsHttpLogsFileSystem) AppServiceLogsHttpLogsFileSystem { return *v }).(AppServiceLogsHttpLogsFileSystemOutput)
 }
 
+// The number of days to retain logs for.
 func (o AppServiceLogsHttpLogsFileSystemPtrOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsFileSystem) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The maximum size in megabytes that http log files can use before being removed.
 func (o AppServiceLogsHttpLogsFileSystemPtrOutput) RetentionInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v AppServiceLogsHttpLogsFileSystem) int { return v.RetentionInMb }).(pulumi.IntOutput)
 }
 
 type AppServiceSiteConfig struct {
-	AlwaysOn               *bool                               `pulumi:"alwaysOn"`
-	AppCommandLine         *string                             `pulumi:"appCommandLine"`
-	AutoSwapSlotName       *string                             `pulumi:"autoSwapSlotName"`
-	Cors                   *AppServiceSiteConfigCors           `pulumi:"cors"`
-	DefaultDocuments       []string                            `pulumi:"defaultDocuments"`
-	DotnetFrameworkVersion *string                             `pulumi:"dotnetFrameworkVersion"`
-	FtpsState              *string                             `pulumi:"ftpsState"`
-	Http2Enabled           *bool                               `pulumi:"http2Enabled"`
-	IpRestrictions         []AppServiceSiteConfigIpRestriction `pulumi:"ipRestrictions"`
-	JavaContainer          *string                             `pulumi:"javaContainer"`
-	JavaContainerVersion   *string                             `pulumi:"javaContainerVersion"`
-	JavaVersion            *string                             `pulumi:"javaVersion"`
-	LinuxFxVersion         *string                             `pulumi:"linuxFxVersion"`
-	LocalMysqlEnabled      *bool                               `pulumi:"localMysqlEnabled"`
-	ManagedPipelineMode    *string                             `pulumi:"managedPipelineMode"`
-	MinTlsVersion          *string                             `pulumi:"minTlsVersion"`
-	PhpVersion             *string                             `pulumi:"phpVersion"`
-	PythonVersion          *string                             `pulumi:"pythonVersion"`
-	RemoteDebuggingEnabled *bool                               `pulumi:"remoteDebuggingEnabled"`
-	RemoteDebuggingVersion *string                             `pulumi:"remoteDebuggingVersion"`
-	ScmType                *string                             `pulumi:"scmType"`
-	Use32BitWorkerProcess  *bool                               `pulumi:"use32BitWorkerProcess"`
-	WebsocketsEnabled      *bool                               `pulumi:"websocketsEnabled"`
-	WindowsFxVersion       *string                             `pulumi:"windowsFxVersion"`
+	// Should the app be loaded at all times? Defaults to `false`.
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+	AppCommandLine   *string `pulumi:"appCommandLine"`
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
+	// A `cors` block as defined below.
+	Cors *AppServiceSiteConfigCors `pulumi:"cors"`
+	// The ordering of default documents to load, if an address isn't specified.
+	DefaultDocuments []string `pulumi:"defaultDocuments"`
+	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
+	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	FtpsState *string `pulumi:"ftpsState"`
+	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// A list of objects representing ip restrictions as defined below.
+	IpRestrictions []AppServiceSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+	JavaContainer *string `pulumi:"javaContainer"`
+	// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
+	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
+	// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+	JavaVersion *string `pulumi:"javaVersion"`
+	// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
+	// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+	LocalMysqlEnabled *bool `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
+	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	PhpVersion *string `pulumi:"phpVersion"`
+	// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+	PythonVersion *string `pulumi:"pythonVersion"`
+	// Is Remote Debugging Enabled? Defaults to `false`.
+	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
+	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
+	// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType *string `pulumi:"scmType"`
+	// Should the App Service run in 32 bit mode, rather than 64 bit mode?
+	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+	// The Windows Docker container image (`DOCKER|<user/image:tag>`)
+	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
 }
 
 type AppServiceSiteConfigInput interface {
@@ -2109,30 +2329,53 @@ type AppServiceSiteConfigInput interface {
 }
 
 type AppServiceSiteConfigArgs struct {
-	AlwaysOn               pulumi.BoolPtrInput                         `pulumi:"alwaysOn"`
-	AppCommandLine         pulumi.StringPtrInput                       `pulumi:"appCommandLine"`
-	AutoSwapSlotName       pulumi.StringPtrInput                       `pulumi:"autoSwapSlotName"`
-	Cors                   AppServiceSiteConfigCorsPtrInput            `pulumi:"cors"`
-	DefaultDocuments       pulumi.StringArrayInput                     `pulumi:"defaultDocuments"`
-	DotnetFrameworkVersion pulumi.StringPtrInput                       `pulumi:"dotnetFrameworkVersion"`
-	FtpsState              pulumi.StringPtrInput                       `pulumi:"ftpsState"`
-	Http2Enabled           pulumi.BoolPtrInput                         `pulumi:"http2Enabled"`
-	IpRestrictions         AppServiceSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
-	JavaContainer          pulumi.StringPtrInput                       `pulumi:"javaContainer"`
-	JavaContainerVersion   pulumi.StringPtrInput                       `pulumi:"javaContainerVersion"`
-	JavaVersion            pulumi.StringPtrInput                       `pulumi:"javaVersion"`
-	LinuxFxVersion         pulumi.StringPtrInput                       `pulumi:"linuxFxVersion"`
-	LocalMysqlEnabled      pulumi.BoolPtrInput                         `pulumi:"localMysqlEnabled"`
-	ManagedPipelineMode    pulumi.StringPtrInput                       `pulumi:"managedPipelineMode"`
-	MinTlsVersion          pulumi.StringPtrInput                       `pulumi:"minTlsVersion"`
-	PhpVersion             pulumi.StringPtrInput                       `pulumi:"phpVersion"`
-	PythonVersion          pulumi.StringPtrInput                       `pulumi:"pythonVersion"`
-	RemoteDebuggingEnabled pulumi.BoolPtrInput                         `pulumi:"remoteDebuggingEnabled"`
-	RemoteDebuggingVersion pulumi.StringPtrInput                       `pulumi:"remoteDebuggingVersion"`
-	ScmType                pulumi.StringPtrInput                       `pulumi:"scmType"`
-	Use32BitWorkerProcess  pulumi.BoolPtrInput                         `pulumi:"use32BitWorkerProcess"`
-	WebsocketsEnabled      pulumi.BoolPtrInput                         `pulumi:"websocketsEnabled"`
-	WindowsFxVersion       pulumi.StringPtrInput                       `pulumi:"windowsFxVersion"`
+	// Should the app be loaded at all times? Defaults to `false`.
+	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+	AppCommandLine   pulumi.StringPtrInput `pulumi:"appCommandLine"`
+	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
+	// A `cors` block as defined below.
+	Cors AppServiceSiteConfigCorsPtrInput `pulumi:"cors"`
+	// The ordering of default documents to load, if an address isn't specified.
+	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
+	// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
+	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
+	// A list of objects representing ip restrictions as defined below.
+	IpRestrictions AppServiceSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
+	// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
+	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
+	// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
+	// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
+	// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+	LocalMysqlEnabled pulumi.BoolPtrInput `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
+	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
+	// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	// Is Remote Debugging Enabled? Defaults to `false`.
+	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
+	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
+	// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
+	// Should the App Service run in 32 bit mode, rather than 64 bit mode?
+	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
+	// The Windows Docker container image (`DOCKER|<user/image:tag>`)
+	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
 }
 
 func (AppServiceSiteConfigArgs) ElementType() reflect.Type {
@@ -2203,10 +2446,13 @@ func (o AppServiceSiteConfigOutput) ToAppServiceSiteConfigPtrOutputWithContext(c
 		return &v
 	}).(AppServiceSiteConfigPtrOutput)
 }
+
+// Should the app be loaded at all times? Defaults to `false`.
 func (o AppServiceSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
+// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
 func (o AppServiceSiteConfigOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
 }
@@ -2215,86 +2461,107 @@ func (o AppServiceSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
+// A `cors` block as defined below.
 func (o AppServiceSiteConfigOutput) Cors() AppServiceSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *AppServiceSiteConfigCors { return v.Cors }).(AppServiceSiteConfigCorsPtrOutput)
 }
 
+// The ordering of default documents to load, if an address isn't specified.
 func (o AppServiceSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
+// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o AppServiceSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
+// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 func (o AppServiceSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
+// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 func (o AppServiceSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A list of objects representing ip restrictions as defined below.
 func (o AppServiceSiteConfigOutput) IpRestrictions() AppServiceSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) []AppServiceSiteConfigIpRestriction { return v.IpRestrictions }).(AppServiceSiteConfigIpRestrictionArrayOutput)
 }
 
+// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
 func (o AppServiceSiteConfigOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
 }
 
+// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
 func (o AppServiceSiteConfigOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
 }
 
+// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
 func (o AppServiceSiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
+// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
 func (o AppServiceSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
 }
 
+// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
 func (o AppServiceSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.LocalMysqlEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
 func (o AppServiceSiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
 }
 
+// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 func (o AppServiceSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
+// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
 func (o AppServiceSiteConfigOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
 }
 
+// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
 func (o AppServiceSiteConfigOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
 
+// Is Remote Debugging Enabled? Defaults to `false`.
 func (o AppServiceSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
 func (o AppServiceSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
+// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o AppServiceSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
 
+// Should the App Service run in 32 bit mode, rather than 64 bit mode?
 func (o AppServiceSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
+// Should WebSockets be enabled?
 func (o AppServiceSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Windows Docker container image (`DOCKER|<user/image:tag>`)
 func (o AppServiceSiteConfigOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.WindowsFxVersion }).(pulumi.StringPtrOutput)
 }
@@ -2317,10 +2584,12 @@ func (o AppServiceSiteConfigPtrOutput) Elem() AppServiceSiteConfigOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) AppServiceSiteConfig { return *v }).(AppServiceSiteConfigOutput)
 }
 
+// Should the app be loaded at all times? Defaults to `false`.
 func (o AppServiceSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
+// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
 func (o AppServiceSiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
 }
@@ -2329,93 +2598,116 @@ func (o AppServiceSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
+// A `cors` block as defined below.
 func (o AppServiceSiteConfigPtrOutput) Cors() AppServiceSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *AppServiceSiteConfigCors { return v.Cors }).(AppServiceSiteConfigCorsPtrOutput)
 }
 
+// The ordering of default documents to load, if an address isn't specified.
 func (o AppServiceSiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
+// The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 func (o AppServiceSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.DotnetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
+// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 func (o AppServiceSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
+// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 func (o AppServiceSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A list of objects representing ip restrictions as defined below.
 func (o AppServiceSiteConfigPtrOutput) IpRestrictions() AppServiceSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) []AppServiceSiteConfigIpRestriction { return v.IpRestrictions }).(AppServiceSiteConfigIpRestrictionArrayOutput)
 }
 
+// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
 func (o AppServiceSiteConfigPtrOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
 }
 
+// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
 func (o AppServiceSiteConfigPtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
 }
 
+// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
 func (o AppServiceSiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
+// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
 func (o AppServiceSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
 }
 
+// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
 func (o AppServiceSiteConfigPtrOutput) LocalMysqlEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.LocalMysqlEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
 func (o AppServiceSiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
 }
 
+// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 func (o AppServiceSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
+// The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
 func (o AppServiceSiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
 }
 
+// The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
 func (o AppServiceSiteConfigPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
 
+// Is Remote Debugging Enabled? Defaults to `false`.
 func (o AppServiceSiteConfigPtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
 func (o AppServiceSiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
+// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o AppServiceSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
 
+// Should the App Service run in 32 bit mode, rather than 64 bit mode?
 func (o AppServiceSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
+// Should WebSockets be enabled?
 func (o AppServiceSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Windows Docker container image (`DOCKER|<user/image:tag>`)
 func (o AppServiceSiteConfigPtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.WindowsFxVersion }).(pulumi.StringPtrOutput)
 }
 
 type AppServiceSiteConfigCors struct {
-	AllowedOrigins     []string `pulumi:"allowedOrigins"`
-	SupportCredentials *bool    `pulumi:"supportCredentials"`
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials *bool `pulumi:"supportCredentials"`
 }
 
 type AppServiceSiteConfigCorsInput interface {
@@ -2426,8 +2718,10 @@ type AppServiceSiteConfigCorsInput interface {
 }
 
 type AppServiceSiteConfigCorsArgs struct {
-	AllowedOrigins     pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	SupportCredentials pulumi.BoolPtrInput     `pulumi:"supportCredentials"`
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
 }
 
 func (AppServiceSiteConfigCorsArgs) ElementType() reflect.Type {
@@ -2498,10 +2792,13 @@ func (o AppServiceSiteConfigCorsOutput) ToAppServiceSiteConfigCorsPtrOutputWithC
 		return &v
 	}).(AppServiceSiteConfigCorsPtrOutput)
 }
+
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o AppServiceSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// Are credentials supported?
 func (o AppServiceSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -2524,16 +2821,20 @@ func (o AppServiceSiteConfigCorsPtrOutput) Elem() AppServiceSiteConfigCorsOutput
 	return o.ApplyT(func(v *AppServiceSiteConfigCors) AppServiceSiteConfigCors { return *v }).(AppServiceSiteConfigCorsOutput)
 }
 
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o AppServiceSiteConfigCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// Are credentials supported?
 func (o AppServiceSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
 
 type AppServiceSiteConfigIpRestriction struct {
-	IpAddress              *string `pulumi:"ipAddress"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2545,7 +2846,9 @@ type AppServiceSiteConfigIpRestrictionInput interface {
 }
 
 type AppServiceSiteConfigIpRestrictionArgs struct {
-	IpAddress              pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -2596,10 +2899,12 @@ func (o AppServiceSiteConfigIpRestrictionOutput) ToAppServiceSiteConfigIpRestric
 	return o
 }
 
+// The IP Address used for this IP Restriction in CIDR notation.
 func (o AppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The Virtual Network Subnet ID used for this IP Restriction.
 func (o AppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2821,13 +3126,18 @@ func (o AppServiceSourceControlArrayOutput) Index(i pulumi.IntInput) AppServiceS
 }
 
 type AppServiceStorageAccount struct {
-	AccessKey   string  `pulumi:"accessKey"`
-	AccountName string  `pulumi:"accountName"`
-	MountPath   *string `pulumi:"mountPath"`
-	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name      string `pulumi:"name"`
+	// The access key for the storage account.
+	AccessKey string `pulumi:"accessKey"`
+	// The name of the storage account.
+	AccountName string `pulumi:"accountName"`
+	// The path to mount the storage within the site's runtime environment.
+	MountPath *string `pulumi:"mountPath"`
+	// The name of the storage account identifier.
+	Name string `pulumi:"name"`
+	// The name of the file share (container name, for Blob storage).
 	ShareName string `pulumi:"shareName"`
-	Type      string `pulumi:"type"`
+	// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+	Type string `pulumi:"type"`
 }
 
 type AppServiceStorageAccountInput interface {
@@ -2838,13 +3148,18 @@ type AppServiceStorageAccountInput interface {
 }
 
 type AppServiceStorageAccountArgs struct {
-	AccessKey   pulumi.StringInput    `pulumi:"accessKey"`
-	AccountName pulumi.StringInput    `pulumi:"accountName"`
-	MountPath   pulumi.StringPtrInput `pulumi:"mountPath"`
-	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name      pulumi.StringInput `pulumi:"name"`
+	// The access key for the storage account.
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// The name of the storage account.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The path to mount the storage within the site's runtime environment.
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// The name of the storage account identifier.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the file share (container name, for Blob storage).
 	ShareName pulumi.StringInput `pulumi:"shareName"`
-	Type      pulumi.StringInput `pulumi:"type"`
+	// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AppServiceStorageAccountArgs) ElementType() reflect.Type {
@@ -2894,27 +3209,32 @@ func (o AppServiceStorageAccountOutput) ToAppServiceStorageAccountOutputWithCont
 	return o
 }
 
+// The access key for the storage account.
 func (o AppServiceStorageAccountOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceStorageAccount) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
+// The name of the storage account.
 func (o AppServiceStorageAccountOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceStorageAccount) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// The path to mount the storage within the site's runtime environment.
 func (o AppServiceStorageAccountOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceStorageAccount) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the App Service. Changing this forces a new resource to be created.
+// The name of the storage account identifier.
 func (o AppServiceStorageAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceStorageAccount) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The name of the file share (container name, for Blob storage).
 func (o AppServiceStorageAccountOutput) ShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceStorageAccount) string { return v.ShareName }).(pulumi.StringOutput)
 }
 
+// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
 func (o AppServiceStorageAccountOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceStorageAccount) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3056,21 +3376,34 @@ func (o CertificateOrderCertificateArrayOutput) Index(i pulumi.IntInput) Certifi
 }
 
 type FunctionAppAuthSettings struct {
-	ActiveDirectory             *FunctionAppAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
-	AdditionalLoginParams       map[string]string                       `pulumi:"additionalLoginParams"`
-	AllowedExternalRedirectUrls []string                                `pulumi:"allowedExternalRedirectUrls"`
-	DefaultProvider             *string                                 `pulumi:"defaultProvider"`
-	// Is the Function App enabled?
-	Enabled                     bool                              `pulumi:"enabled"`
-	Facebook                    *FunctionAppAuthSettingsFacebook  `pulumi:"facebook"`
-	Google                      *FunctionAppAuthSettingsGoogle    `pulumi:"google"`
-	Issuer                      *string                           `pulumi:"issuer"`
-	Microsoft                   *FunctionAppAuthSettingsMicrosoft `pulumi:"microsoft"`
-	RuntimeVersion              *string                           `pulumi:"runtimeVersion"`
-	TokenRefreshExtensionHours  *float64                          `pulumi:"tokenRefreshExtensionHours"`
-	TokenStoreEnabled           *bool                             `pulumi:"tokenStoreEnabled"`
-	Twitter                     *FunctionAppAuthSettingsTwitter   `pulumi:"twitter"`
-	UnauthenticatedClientAction *string                           `pulumi:"unauthenticatedClientAction"`
+	// A `activeDirectory` block as defined below.
+	ActiveDirectory *FunctionAppAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams map[string]string `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled bool `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook *FunctionAppAuthSettingsFacebook `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google *FunctionAppAuthSettingsGoogle `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer *string `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft *FunctionAppAuthSettingsMicrosoft `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter *FunctionAppAuthSettingsTwitter `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 }
 
 type FunctionAppAuthSettingsInput interface {
@@ -3081,21 +3414,34 @@ type FunctionAppAuthSettingsInput interface {
 }
 
 type FunctionAppAuthSettingsArgs struct {
-	ActiveDirectory             FunctionAppAuthSettingsActiveDirectoryPtrInput `pulumi:"activeDirectory"`
-	AdditionalLoginParams       pulumi.StringMapInput                          `pulumi:"additionalLoginParams"`
-	AllowedExternalRedirectUrls pulumi.StringArrayInput                        `pulumi:"allowedExternalRedirectUrls"`
-	DefaultProvider             pulumi.StringPtrInput                          `pulumi:"defaultProvider"`
-	// Is the Function App enabled?
-	Enabled                     pulumi.BoolInput                         `pulumi:"enabled"`
-	Facebook                    FunctionAppAuthSettingsFacebookPtrInput  `pulumi:"facebook"`
-	Google                      FunctionAppAuthSettingsGooglePtrInput    `pulumi:"google"`
-	Issuer                      pulumi.StringPtrInput                    `pulumi:"issuer"`
-	Microsoft                   FunctionAppAuthSettingsMicrosoftPtrInput `pulumi:"microsoft"`
-	RuntimeVersion              pulumi.StringPtrInput                    `pulumi:"runtimeVersion"`
-	TokenRefreshExtensionHours  pulumi.Float64PtrInput                   `pulumi:"tokenRefreshExtensionHours"`
-	TokenStoreEnabled           pulumi.BoolPtrInput                      `pulumi:"tokenStoreEnabled"`
-	Twitter                     FunctionAppAuthSettingsTwitterPtrInput   `pulumi:"twitter"`
-	UnauthenticatedClientAction pulumi.StringPtrInput                    `pulumi:"unauthenticatedClientAction"`
+	// A `activeDirectory` block as defined below.
+	ActiveDirectory FunctionAppAuthSettingsActiveDirectoryPtrInput `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams pulumi.StringMapInput `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider pulumi.StringPtrInput `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook FunctionAppAuthSettingsFacebookPtrInput `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google FunctionAppAuthSettingsGooglePtrInput `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft FunctionAppAuthSettingsMicrosoftPtrInput `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled pulumi.BoolPtrInput `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter FunctionAppAuthSettingsTwitterPtrInput `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction pulumi.StringPtrInput `pulumi:"unauthenticatedClientAction"`
 }
 
 func (FunctionAppAuthSettingsArgs) ElementType() reflect.Type {
@@ -3166,59 +3512,73 @@ func (o FunctionAppAuthSettingsOutput) ToFunctionAppAuthSettingsPtrOutputWithCon
 		return &v
 	}).(FunctionAppAuthSettingsPtrOutput)
 }
+
+// A `activeDirectory` block as defined below.
 func (o FunctionAppAuthSettingsOutput) ActiveDirectory() FunctionAppAuthSettingsActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsActiveDirectory { return v.ActiveDirectory }).(FunctionAppAuthSettingsActiveDirectoryPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
 func (o FunctionAppAuthSettingsOutput) AdditionalLoginParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) map[string]string { return v.AdditionalLoginParams }).(pulumi.StringMapOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app.
 func (o FunctionAppAuthSettingsOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
 func (o FunctionAppAuthSettingsOutput) DefaultProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
 }
 
-// Is the Function App enabled?
+// Is Authentication enabled?
 func (o FunctionAppAuthSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `facebook` block as defined below.
 func (o FunctionAppAuthSettingsOutput) Facebook() FunctionAppAuthSettingsFacebookPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsFacebook { return v.Facebook }).(FunctionAppAuthSettingsFacebookPtrOutput)
 }
 
+// A `google` block as defined below.
 func (o FunctionAppAuthSettingsOutput) Google() FunctionAppAuthSettingsGooglePtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsGoogle { return v.Google }).(FunctionAppAuthSettingsGooglePtrOutput)
 }
 
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
 func (o FunctionAppAuthSettingsOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// A `microsoft` block as defined below.
 func (o FunctionAppAuthSettingsOutput) Microsoft() FunctionAppAuthSettingsMicrosoftPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsMicrosoft { return v.Microsoft }).(FunctionAppAuthSettingsMicrosoftPtrOutput)
 }
 
+// The runtime version of the Authentication/Authorization module.
 func (o FunctionAppAuthSettingsOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
 func (o FunctionAppAuthSettingsOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
 
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
 func (o FunctionAppAuthSettingsOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `twitter` block as defined below.
 func (o FunctionAppAuthSettingsOutput) Twitter() FunctionAppAuthSettingsTwitterPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsTwitter { return v.Twitter }).(FunctionAppAuthSettingsTwitterPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 func (o FunctionAppAuthSettingsOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
@@ -3241,67 +3601,83 @@ func (o FunctionAppAuthSettingsPtrOutput) Elem() FunctionAppAuthSettingsOutput {
 	return o.ApplyT(func(v *FunctionAppAuthSettings) FunctionAppAuthSettings { return *v }).(FunctionAppAuthSettingsOutput)
 }
 
+// A `activeDirectory` block as defined below.
 func (o FunctionAppAuthSettingsPtrOutput) ActiveDirectory() FunctionAppAuthSettingsActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsActiveDirectory { return v.ActiveDirectory }).(FunctionAppAuthSettingsActiveDirectoryPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
 func (o FunctionAppAuthSettingsPtrOutput) AdditionalLoginParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) map[string]string { return v.AdditionalLoginParams }).(pulumi.StringMapOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app.
 func (o FunctionAppAuthSettingsPtrOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
 func (o FunctionAppAuthSettingsPtrOutput) DefaultProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
 }
 
-// Is the Function App enabled?
+// Is Authentication enabled?
 func (o FunctionAppAuthSettingsPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `facebook` block as defined below.
 func (o FunctionAppAuthSettingsPtrOutput) Facebook() FunctionAppAuthSettingsFacebookPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsFacebook { return v.Facebook }).(FunctionAppAuthSettingsFacebookPtrOutput)
 }
 
+// A `google` block as defined below.
 func (o FunctionAppAuthSettingsPtrOutput) Google() FunctionAppAuthSettingsGooglePtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsGoogle { return v.Google }).(FunctionAppAuthSettingsGooglePtrOutput)
 }
 
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
 func (o FunctionAppAuthSettingsPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// A `microsoft` block as defined below.
 func (o FunctionAppAuthSettingsPtrOutput) Microsoft() FunctionAppAuthSettingsMicrosoftPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsMicrosoft { return v.Microsoft }).(FunctionAppAuthSettingsMicrosoftPtrOutput)
 }
 
+// The runtime version of the Authentication/Authorization module.
 func (o FunctionAppAuthSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
 func (o FunctionAppAuthSettingsPtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
 
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
 func (o FunctionAppAuthSettingsPtrOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `twitter` block as defined below.
 func (o FunctionAppAuthSettingsPtrOutput) Twitter() FunctionAppAuthSettingsTwitterPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *FunctionAppAuthSettingsTwitter { return v.Twitter }).(FunctionAppAuthSettingsTwitterPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 func (o FunctionAppAuthSettingsPtrOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettings) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
 
 type FunctionAppAuthSettingsActiveDirectory struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
-	ClientId         string   `pulumi:"clientId"`
-	ClientSecret     *string  `pulumi:"clientSecret"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId string `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret *string `pulumi:"clientSecret"`
 }
 
 type FunctionAppAuthSettingsActiveDirectoryInput interface {
@@ -3312,9 +3688,12 @@ type FunctionAppAuthSettingsActiveDirectoryInput interface {
 }
 
 type FunctionAppAuthSettingsActiveDirectoryArgs struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
-	ClientId         pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret     pulumi.StringPtrInput   `pulumi:"clientSecret"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 }
 
 func (FunctionAppAuthSettingsActiveDirectoryArgs) ElementType() reflect.Type {
@@ -3385,14 +3764,18 @@ func (o FunctionAppAuthSettingsActiveDirectoryOutput) ToFunctionAppAuthSettingsA
 		return &v
 	}).(FunctionAppAuthSettingsActiveDirectoryPtrOutput)
 }
+
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 func (o FunctionAppAuthSettingsActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 func (o FunctionAppAuthSettingsActiveDirectoryOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 func (o FunctionAppAuthSettingsActiveDirectoryOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsActiveDirectory) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
@@ -3415,21 +3798,27 @@ func (o FunctionAppAuthSettingsActiveDirectoryPtrOutput) Elem() FunctionAppAuthS
 	return o.ApplyT(func(v *FunctionAppAuthSettingsActiveDirectory) FunctionAppAuthSettingsActiveDirectory { return *v }).(FunctionAppAuthSettingsActiveDirectoryOutput)
 }
 
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 func (o FunctionAppAuthSettingsActiveDirectoryPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 func (o FunctionAppAuthSettingsActiveDirectoryPtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 func (o FunctionAppAuthSettingsActiveDirectoryPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsActiveDirectory) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 type FunctionAppAuthSettingsFacebook struct {
-	AppId       string   `pulumi:"appId"`
-	AppSecret   string   `pulumi:"appSecret"`
+	// The App ID of the Facebook app used for login
+	AppId string `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret string `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
@@ -3441,8 +3830,11 @@ type FunctionAppAuthSettingsFacebookInput interface {
 }
 
 type FunctionAppAuthSettingsFacebookArgs struct {
-	AppId       pulumi.StringInput      `pulumi:"appId"`
-	AppSecret   pulumi.StringInput      `pulumi:"appSecret"`
+	// The App ID of the Facebook app used for login
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
@@ -3514,14 +3906,18 @@ func (o FunctionAppAuthSettingsFacebookOutput) ToFunctionAppAuthSettingsFacebook
 		return &v
 	}).(FunctionAppAuthSettingsFacebookPtrOutput)
 }
+
+// The App ID of the Facebook app used for login
 func (o FunctionAppAuthSettingsFacebookOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsFacebook) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// The App Secret of the Facebook app used for Facebook Login.
 func (o FunctionAppAuthSettingsFacebookOutput) AppSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 func (o FunctionAppAuthSettingsFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -3544,22 +3940,28 @@ func (o FunctionAppAuthSettingsFacebookPtrOutput) Elem() FunctionAppAuthSettings
 	return o.ApplyT(func(v *FunctionAppAuthSettingsFacebook) FunctionAppAuthSettingsFacebook { return *v }).(FunctionAppAuthSettingsFacebookOutput)
 }
 
+// The App ID of the Facebook app used for login
 func (o FunctionAppAuthSettingsFacebookPtrOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsFacebook) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// The App Secret of the Facebook app used for Facebook Login.
 func (o FunctionAppAuthSettingsFacebookPtrOutput) AppSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 func (o FunctionAppAuthSettingsFacebookPtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
 
 type FunctionAppAuthSettingsGoogle struct {
-	ClientId     string   `pulumi:"clientId"`
-	ClientSecret string   `pulumi:"clientSecret"`
-	OauthScopes  []string `pulumi:"oauthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId string `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
 type FunctionAppAuthSettingsGoogleInput interface {
@@ -3570,9 +3972,12 @@ type FunctionAppAuthSettingsGoogleInput interface {
 }
 
 type FunctionAppAuthSettingsGoogleArgs struct {
-	ClientId     pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput      `pulumi:"clientSecret"`
-	OauthScopes  pulumi.StringArrayInput `pulumi:"oauthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
 func (FunctionAppAuthSettingsGoogleArgs) ElementType() reflect.Type {
@@ -3643,14 +4048,18 @@ func (o FunctionAppAuthSettingsGoogleOutput) ToFunctionAppAuthSettingsGooglePtrO
 		return &v
 	}).(FunctionAppAuthSettingsGooglePtrOutput)
 }
+
+// The OpenID Connect Client ID for the Google web application.
 func (o FunctionAppAuthSettingsGoogleOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsGoogle) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret associated with the Google web application.
 func (o FunctionAppAuthSettingsGoogleOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 func (o FunctionAppAuthSettingsGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -3673,22 +4082,28 @@ func (o FunctionAppAuthSettingsGooglePtrOutput) Elem() FunctionAppAuthSettingsGo
 	return o.ApplyT(func(v *FunctionAppAuthSettingsGoogle) FunctionAppAuthSettingsGoogle { return *v }).(FunctionAppAuthSettingsGoogleOutput)
 }
 
+// The OpenID Connect Client ID for the Google web application.
 func (o FunctionAppAuthSettingsGooglePtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsGoogle) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret associated with the Google web application.
 func (o FunctionAppAuthSettingsGooglePtrOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 func (o FunctionAppAuthSettingsGooglePtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
 
 type FunctionAppAuthSettingsMicrosoft struct {
-	ClientId     string   `pulumi:"clientId"`
-	ClientSecret string   `pulumi:"clientSecret"`
-	OauthScopes  []string `pulumi:"oauthScopes"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
 type FunctionAppAuthSettingsMicrosoftInput interface {
@@ -3699,9 +4114,12 @@ type FunctionAppAuthSettingsMicrosoftInput interface {
 }
 
 type FunctionAppAuthSettingsMicrosoftArgs struct {
-	ClientId     pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput      `pulumi:"clientSecret"`
-	OauthScopes  pulumi.StringArrayInput `pulumi:"oauthScopes"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
 func (FunctionAppAuthSettingsMicrosoftArgs) ElementType() reflect.Type {
@@ -3772,14 +4190,18 @@ func (o FunctionAppAuthSettingsMicrosoftOutput) ToFunctionAppAuthSettingsMicroso
 		return &v
 	}).(FunctionAppAuthSettingsMicrosoftPtrOutput)
 }
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
 func (o FunctionAppAuthSettingsMicrosoftOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret that was created for the app used for authentication.
 func (o FunctionAppAuthSettingsMicrosoftOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 func (o FunctionAppAuthSettingsMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -3802,14 +4224,17 @@ func (o FunctionAppAuthSettingsMicrosoftPtrOutput) Elem() FunctionAppAuthSetting
 	return o.ApplyT(func(v *FunctionAppAuthSettingsMicrosoft) FunctionAppAuthSettingsMicrosoft { return *v }).(FunctionAppAuthSettingsMicrosoftOutput)
 }
 
+// The OAuth 2.0 client ID that was created for the app used for authentication.
 func (o FunctionAppAuthSettingsMicrosoftPtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret that was created for the app used for authentication.
 func (o FunctionAppAuthSettingsMicrosoftPtrOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 func (o FunctionAppAuthSettingsMicrosoftPtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppAuthSettingsMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -4041,12 +4466,13 @@ func (o FunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) Functio
 }
 
 type FunctionAppIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type string `pulumi:"type"`
 }
 
@@ -4058,12 +4484,13 @@ type FunctionAppIdentityInput interface {
 }
 
 type FunctionAppIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4135,6 +4562,8 @@ func (o FunctionAppIdentityOutput) ToFunctionAppIdentityPtrOutputWithContext(ctx
 		return &v
 	}).(FunctionAppIdentityPtrOutput)
 }
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 func (o FunctionAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -4149,7 +4578,7 @@ func (o FunctionAppIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o FunctionAppIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4172,6 +4601,7 @@ func (o FunctionAppIdentityPtrOutput) Elem() FunctionAppIdentityOutput {
 	return o.ApplyT(func(v *FunctionAppIdentity) FunctionAppIdentity { return *v }).(FunctionAppIdentityOutput)
 }
 
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 func (o FunctionAppIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -4186,7 +4616,7 @@ func (o FunctionAppIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o FunctionAppIdentityPtrOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionAppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4200,7 +4630,7 @@ type FunctionAppSiteConfig struct {
 	FtpsState *string `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions []FunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
@@ -4228,7 +4658,7 @@ type FunctionAppSiteConfigArgs struct {
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions FunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
@@ -4329,7 +4759,7 @@ func (o FunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o FunctionAppSiteConfigOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
 }
@@ -4392,7 +4822,7 @@ func (o FunctionAppSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o FunctionAppSiteConfigPtrOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
 }
@@ -4418,8 +4848,10 @@ func (o FunctionAppSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput
 }
 
 type FunctionAppSiteConfigCors struct {
-	AllowedOrigins     []string `pulumi:"allowedOrigins"`
-	SupportCredentials *bool    `pulumi:"supportCredentials"`
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials *bool `pulumi:"supportCredentials"`
 }
 
 type FunctionAppSiteConfigCorsInput interface {
@@ -4430,8 +4862,10 @@ type FunctionAppSiteConfigCorsInput interface {
 }
 
 type FunctionAppSiteConfigCorsArgs struct {
-	AllowedOrigins     pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	SupportCredentials pulumi.BoolPtrInput     `pulumi:"supportCredentials"`
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
 }
 
 func (FunctionAppSiteConfigCorsArgs) ElementType() reflect.Type {
@@ -4502,10 +4936,13 @@ func (o FunctionAppSiteConfigCorsOutput) ToFunctionAppSiteConfigCorsPtrOutputWit
 		return &v
 	}).(FunctionAppSiteConfigCorsPtrOutput)
 }
+
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o FunctionAppSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// Are credentials supported?
 func (o FunctionAppSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -4528,17 +4965,21 @@ func (o FunctionAppSiteConfigCorsPtrOutput) Elem() FunctionAppSiteConfigCorsOutp
 	return o.ApplyT(func(v *FunctionAppSiteConfigCors) FunctionAppSiteConfigCors { return *v }).(FunctionAppSiteConfigCorsOutput)
 }
 
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o FunctionAppSiteConfigCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// Are credentials supported?
 func (o FunctionAppSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
 
 type FunctionAppSiteConfigIpRestriction struct {
+	// The IP Address CIDR notation used for this IP Restriction.
 	IpAddress *string `pulumi:"ipAddress"`
-	SubnetId  *string `pulumi:"subnetId"`
+	// The Subnet ID used for this IP Restriction.
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 type FunctionAppSiteConfigIpRestrictionInput interface {
@@ -4549,8 +4990,10 @@ type FunctionAppSiteConfigIpRestrictionInput interface {
 }
 
 type FunctionAppSiteConfigIpRestrictionArgs struct {
+	// The IP Address CIDR notation used for this IP Restriction.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	SubnetId  pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Subnet ID used for this IP Restriction.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (FunctionAppSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
@@ -4600,10 +5043,12 @@ func (o FunctionAppSiteConfigIpRestrictionOutput) ToFunctionAppSiteConfigIpRestr
 	return o
 }
 
+// The IP Address CIDR notation used for this IP Restriction.
 func (o FunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The Subnet ID used for this IP Restriction.
 func (o FunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -4869,21 +5314,34 @@ func (o PlanSkuPtrOutput) Tier() pulumi.StringOutput {
 }
 
 type SlotAuthSettings struct {
-	ActiveDirectory             *SlotAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
-	AdditionalLoginParams       map[string]string                `pulumi:"additionalLoginParams"`
-	AllowedExternalRedirectUrls []string                         `pulumi:"allowedExternalRedirectUrls"`
-	DefaultProvider             *string                          `pulumi:"defaultProvider"`
-	// Is the App Service Slot Enabled?
-	Enabled                     bool                       `pulumi:"enabled"`
-	Facebook                    *SlotAuthSettingsFacebook  `pulumi:"facebook"`
-	Google                      *SlotAuthSettingsGoogle    `pulumi:"google"`
-	Issuer                      *string                    `pulumi:"issuer"`
-	Microsoft                   *SlotAuthSettingsMicrosoft `pulumi:"microsoft"`
-	RuntimeVersion              *string                    `pulumi:"runtimeVersion"`
-	TokenRefreshExtensionHours  *float64                   `pulumi:"tokenRefreshExtensionHours"`
-	TokenStoreEnabled           *bool                      `pulumi:"tokenStoreEnabled"`
-	Twitter                     *SlotAuthSettingsTwitter   `pulumi:"twitter"`
-	UnauthenticatedClientAction *string                    `pulumi:"unauthenticatedClientAction"`
+	// A `activeDirectory` block as defined below.
+	ActiveDirectory *SlotAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams map[string]string `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled bool `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook *SlotAuthSettingsFacebook `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google *SlotAuthSettingsGoogle `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer *string `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft *SlotAuthSettingsMicrosoft `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter *SlotAuthSettingsTwitter `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
 }
 
 type SlotAuthSettingsInput interface {
@@ -4894,21 +5352,34 @@ type SlotAuthSettingsInput interface {
 }
 
 type SlotAuthSettingsArgs struct {
-	ActiveDirectory             SlotAuthSettingsActiveDirectoryPtrInput `pulumi:"activeDirectory"`
-	AdditionalLoginParams       pulumi.StringMapInput                   `pulumi:"additionalLoginParams"`
-	AllowedExternalRedirectUrls pulumi.StringArrayInput                 `pulumi:"allowedExternalRedirectUrls"`
-	DefaultProvider             pulumi.StringPtrInput                   `pulumi:"defaultProvider"`
-	// Is the App Service Slot Enabled?
-	Enabled                     pulumi.BoolInput                  `pulumi:"enabled"`
-	Facebook                    SlotAuthSettingsFacebookPtrInput  `pulumi:"facebook"`
-	Google                      SlotAuthSettingsGooglePtrInput    `pulumi:"google"`
-	Issuer                      pulumi.StringPtrInput             `pulumi:"issuer"`
-	Microsoft                   SlotAuthSettingsMicrosoftPtrInput `pulumi:"microsoft"`
-	RuntimeVersion              pulumi.StringPtrInput             `pulumi:"runtimeVersion"`
-	TokenRefreshExtensionHours  pulumi.Float64PtrInput            `pulumi:"tokenRefreshExtensionHours"`
-	TokenStoreEnabled           pulumi.BoolPtrInput               `pulumi:"tokenStoreEnabled"`
-	Twitter                     SlotAuthSettingsTwitterPtrInput   `pulumi:"twitter"`
-	UnauthenticatedClientAction pulumi.StringPtrInput             `pulumi:"unauthenticatedClientAction"`
+	// A `activeDirectory` block as defined below.
+	ActiveDirectory SlotAuthSettingsActiveDirectoryPtrInput `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams pulumi.StringMapInput `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider pulumi.StringPtrInput `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook SlotAuthSettingsFacebookPtrInput `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google SlotAuthSettingsGooglePtrInput `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft SlotAuthSettingsMicrosoftPtrInput `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled pulumi.BoolPtrInput `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter SlotAuthSettingsTwitterPtrInput `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction pulumi.StringPtrInput `pulumi:"unauthenticatedClientAction"`
 }
 
 func (SlotAuthSettingsArgs) ElementType() reflect.Type {
@@ -4979,59 +5450,73 @@ func (o SlotAuthSettingsOutput) ToSlotAuthSettingsPtrOutputWithContext(ctx conte
 		return &v
 	}).(SlotAuthSettingsPtrOutput)
 }
+
+// A `activeDirectory` block as defined below.
 func (o SlotAuthSettingsOutput) ActiveDirectory() SlotAuthSettingsActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsActiveDirectory { return v.ActiveDirectory }).(SlotAuthSettingsActiveDirectoryPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
 func (o SlotAuthSettingsOutput) AdditionalLoginParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SlotAuthSettings) map[string]string { return v.AdditionalLoginParams }).(pulumi.StringMapOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app.
 func (o SlotAuthSettingsOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettings) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
 func (o SlotAuthSettingsOutput) DefaultProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
 }
 
-// Is the App Service Slot Enabled?
+// Is Authentication enabled?
 func (o SlotAuthSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v SlotAuthSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `facebook` block as defined below.
 func (o SlotAuthSettingsOutput) Facebook() SlotAuthSettingsFacebookPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsFacebook { return v.Facebook }).(SlotAuthSettingsFacebookPtrOutput)
 }
 
+// A `google` block as defined below.
 func (o SlotAuthSettingsOutput) Google() SlotAuthSettingsGooglePtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsGoogle { return v.Google }).(SlotAuthSettingsGooglePtrOutput)
 }
 
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
 func (o SlotAuthSettingsOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// A `microsoft` block as defined below.
 func (o SlotAuthSettingsOutput) Microsoft() SlotAuthSettingsMicrosoftPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsMicrosoft { return v.Microsoft }).(SlotAuthSettingsMicrosoftPtrOutput)
 }
 
+// The runtime version of the Authentication/Authorization module.
 func (o SlotAuthSettingsOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
 func (o SlotAuthSettingsOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
 
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
 func (o SlotAuthSettingsOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `twitter` block as defined below.
 func (o SlotAuthSettingsOutput) Twitter() SlotAuthSettingsTwitterPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsTwitter { return v.Twitter }).(SlotAuthSettingsTwitterPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 func (o SlotAuthSettingsOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
@@ -5054,67 +5539,83 @@ func (o SlotAuthSettingsPtrOutput) Elem() SlotAuthSettingsOutput {
 	return o.ApplyT(func(v *SlotAuthSettings) SlotAuthSettings { return *v }).(SlotAuthSettingsOutput)
 }
 
+// A `activeDirectory` block as defined below.
 func (o SlotAuthSettingsPtrOutput) ActiveDirectory() SlotAuthSettingsActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsActiveDirectory { return v.ActiveDirectory }).(SlotAuthSettingsActiveDirectoryPtrOutput)
 }
 
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
 func (o SlotAuthSettingsPtrOutput) AdditionalLoginParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SlotAuthSettings) map[string]string { return v.AdditionalLoginParams }).(pulumi.StringMapOutput)
 }
 
+// External URLs that can be redirected to as part of logging in or logging out of the app.
 func (o SlotAuthSettingsPtrOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettings) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
 }
 
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
 func (o SlotAuthSettingsPtrOutput) DefaultProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
 }
 
-// Is the App Service Slot Enabled?
+// Is Authentication enabled?
 func (o SlotAuthSettingsPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v SlotAuthSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A `facebook` block as defined below.
 func (o SlotAuthSettingsPtrOutput) Facebook() SlotAuthSettingsFacebookPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsFacebook { return v.Facebook }).(SlotAuthSettingsFacebookPtrOutput)
 }
 
+// A `google` block as defined below.
 func (o SlotAuthSettingsPtrOutput) Google() SlotAuthSettingsGooglePtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsGoogle { return v.Google }).(SlotAuthSettingsGooglePtrOutput)
 }
 
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
 func (o SlotAuthSettingsPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
+// A `microsoft` block as defined below.
 func (o SlotAuthSettingsPtrOutput) Microsoft() SlotAuthSettingsMicrosoftPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsMicrosoft { return v.Microsoft }).(SlotAuthSettingsMicrosoftPtrOutput)
 }
 
+// The runtime version of the Authentication/Authorization module.
 func (o SlotAuthSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
 func (o SlotAuthSettingsPtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
 }
 
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
 func (o SlotAuthSettingsPtrOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `twitter` block as defined below.
 func (o SlotAuthSettingsPtrOutput) Twitter() SlotAuthSettingsTwitterPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *SlotAuthSettingsTwitter { return v.Twitter }).(SlotAuthSettingsTwitterPtrOutput)
 }
 
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
 func (o SlotAuthSettingsPtrOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettings) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
 }
 
 type SlotAuthSettingsActiveDirectory struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 	AllowedAudiences []string `pulumi:"allowedAudiences"`
-	ClientId         string   `pulumi:"clientId"`
-	ClientSecret     *string  `pulumi:"clientSecret"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId string `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret *string `pulumi:"clientSecret"`
 }
 
 type SlotAuthSettingsActiveDirectoryInput interface {
@@ -5125,9 +5626,12 @@ type SlotAuthSettingsActiveDirectoryInput interface {
 }
 
 type SlotAuthSettingsActiveDirectoryArgs struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
-	ClientId         pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret     pulumi.StringPtrInput   `pulumi:"clientSecret"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 }
 
 func (SlotAuthSettingsActiveDirectoryArgs) ElementType() reflect.Type {
@@ -5198,14 +5702,18 @@ func (o SlotAuthSettingsActiveDirectoryOutput) ToSlotAuthSettingsActiveDirectory
 		return &v
 	}).(SlotAuthSettingsActiveDirectoryPtrOutput)
 }
+
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 func (o SlotAuthSettingsActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 func (o SlotAuthSettingsActiveDirectoryOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 func (o SlotAuthSettingsActiveDirectoryOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettingsActiveDirectory) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
@@ -5228,21 +5736,27 @@ func (o SlotAuthSettingsActiveDirectoryPtrOutput) Elem() SlotAuthSettingsActiveD
 	return o.ApplyT(func(v *SlotAuthSettingsActiveDirectory) SlotAuthSettingsActiveDirectory { return *v }).(SlotAuthSettingsActiveDirectoryOutput)
 }
 
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 func (o SlotAuthSettingsActiveDirectoryPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
 }
 
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 func (o SlotAuthSettingsActiveDirectoryPtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 func (o SlotAuthSettingsActiveDirectoryPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotAuthSettingsActiveDirectory) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 type SlotAuthSettingsFacebook struct {
-	AppId       string   `pulumi:"appId"`
-	AppSecret   string   `pulumi:"appSecret"`
+	// The App ID of the Facebook app used for login
+	AppId string `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret string `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
@@ -5254,8 +5768,11 @@ type SlotAuthSettingsFacebookInput interface {
 }
 
 type SlotAuthSettingsFacebookArgs struct {
-	AppId       pulumi.StringInput      `pulumi:"appId"`
-	AppSecret   pulumi.StringInput      `pulumi:"appSecret"`
+	// The App ID of the Facebook app used for login
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
@@ -5327,14 +5844,18 @@ func (o SlotAuthSettingsFacebookOutput) ToSlotAuthSettingsFacebookPtrOutputWithC
 		return &v
 	}).(SlotAuthSettingsFacebookPtrOutput)
 }
+
+// The App ID of the Facebook app used for login
 func (o SlotAuthSettingsFacebookOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsFacebook) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// The App Secret of the Facebook app used for Facebook Login.
 func (o SlotAuthSettingsFacebookOutput) AppSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 func (o SlotAuthSettingsFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -5357,22 +5878,28 @@ func (o SlotAuthSettingsFacebookPtrOutput) Elem() SlotAuthSettingsFacebookOutput
 	return o.ApplyT(func(v *SlotAuthSettingsFacebook) SlotAuthSettingsFacebook { return *v }).(SlotAuthSettingsFacebookOutput)
 }
 
+// The App ID of the Facebook app used for login
 func (o SlotAuthSettingsFacebookPtrOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsFacebook) string { return v.AppId }).(pulumi.StringOutput)
 }
 
+// The App Secret of the Facebook app used for Facebook Login.
 func (o SlotAuthSettingsFacebookPtrOutput) AppSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
 func (o SlotAuthSettingsFacebookPtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
 
 type SlotAuthSettingsGoogle struct {
-	ClientId     string   `pulumi:"clientId"`
-	ClientSecret string   `pulumi:"clientSecret"`
-	OauthScopes  []string `pulumi:"oauthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId string `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
 type SlotAuthSettingsGoogleInput interface {
@@ -5383,9 +5910,12 @@ type SlotAuthSettingsGoogleInput interface {
 }
 
 type SlotAuthSettingsGoogleArgs struct {
-	ClientId     pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput      `pulumi:"clientSecret"`
-	OauthScopes  pulumi.StringArrayInput `pulumi:"oauthScopes"`
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
 func (SlotAuthSettingsGoogleArgs) ElementType() reflect.Type {
@@ -5456,14 +5986,18 @@ func (o SlotAuthSettingsGoogleOutput) ToSlotAuthSettingsGooglePtrOutputWithConte
 		return &v
 	}).(SlotAuthSettingsGooglePtrOutput)
 }
+
+// The OpenID Connect Client ID for the Google web application.
 func (o SlotAuthSettingsGoogleOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsGoogle) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret associated with the Google web application.
 func (o SlotAuthSettingsGoogleOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 func (o SlotAuthSettingsGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -5486,22 +6020,28 @@ func (o SlotAuthSettingsGooglePtrOutput) Elem() SlotAuthSettingsGoogleOutput {
 	return o.ApplyT(func(v *SlotAuthSettingsGoogle) SlotAuthSettingsGoogle { return *v }).(SlotAuthSettingsGoogleOutput)
 }
 
+// The OpenID Connect Client ID for the Google web application.
 func (o SlotAuthSettingsGooglePtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsGoogle) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client secret associated with the Google web application.
 func (o SlotAuthSettingsGooglePtrOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
 func (o SlotAuthSettingsGooglePtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
 
 type SlotAuthSettingsMicrosoft struct {
-	ClientId     string   `pulumi:"clientId"`
-	ClientSecret string   `pulumi:"clientSecret"`
-	OauthScopes  []string `pulumi:"oauthScopes"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes []string `pulumi:"oauthScopes"`
 }
 
 type SlotAuthSettingsMicrosoftInput interface {
@@ -5512,9 +6052,12 @@ type SlotAuthSettingsMicrosoftInput interface {
 }
 
 type SlotAuthSettingsMicrosoftArgs struct {
-	ClientId     pulumi.StringInput      `pulumi:"clientId"`
-	ClientSecret pulumi.StringInput      `pulumi:"clientSecret"`
-	OauthScopes  pulumi.StringArrayInput `pulumi:"oauthScopes"`
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 }
 
 func (SlotAuthSettingsMicrosoftArgs) ElementType() reflect.Type {
@@ -5585,14 +6128,18 @@ func (o SlotAuthSettingsMicrosoftOutput) ToSlotAuthSettingsMicrosoftPtrOutputWit
 		return &v
 	}).(SlotAuthSettingsMicrosoftPtrOutput)
 }
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
 func (o SlotAuthSettingsMicrosoftOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret that was created for the app used for authentication.
 func (o SlotAuthSettingsMicrosoftOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 func (o SlotAuthSettingsMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -5615,14 +6162,17 @@ func (o SlotAuthSettingsMicrosoftPtrOutput) Elem() SlotAuthSettingsMicrosoftOutp
 	return o.ApplyT(func(v *SlotAuthSettingsMicrosoft) SlotAuthSettingsMicrosoft { return *v }).(SlotAuthSettingsMicrosoftOutput)
 }
 
+// The OAuth 2.0 client ID that was created for the app used for authentication.
 func (o SlotAuthSettingsMicrosoftPtrOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 client secret that was created for the app used for authentication.
 func (o SlotAuthSettingsMicrosoftPtrOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotAuthSettingsMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
 func (o SlotAuthSettingsMicrosoftPtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotAuthSettingsMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -5854,10 +6404,11 @@ func (o SlotConnectionStringArrayOutput) Index(i pulumi.IntInput) SlotConnection
 }
 
 type SlotIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+	// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type string `pulumi:"type"`
 }
 
@@ -5869,10 +6420,11 @@ type SlotIdentityInput interface {
 }
 
 type SlotIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+	// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5944,6 +6496,8 @@ func (o SlotIdentityOutput) ToSlotIdentityPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(SlotIdentityPtrOutput)
 }
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 func (o SlotIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -5956,7 +6510,7 @@ func (o SlotIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o SlotIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5979,6 +6533,7 @@ func (o SlotIdentityPtrOutput) Elem() SlotIdentityOutput {
 	return o.ApplyT(func(v *SlotIdentity) SlotIdentity { return *v }).(SlotIdentityOutput)
 }
 
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 func (o SlotIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -5991,14 +6546,16 @@ func (o SlotIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 func (o SlotIdentityPtrOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type SlotLogs struct {
+	// An `applicationLogs` block as defined below.
 	ApplicationLogs *SlotLogsApplicationLogs `pulumi:"applicationLogs"`
-	HttpLogs        *SlotLogsHttpLogs        `pulumi:"httpLogs"`
+	// An `httpLogs` block as defined below.
+	HttpLogs *SlotLogsHttpLogs `pulumi:"httpLogs"`
 }
 
 type SlotLogsInput interface {
@@ -6009,8 +6566,10 @@ type SlotLogsInput interface {
 }
 
 type SlotLogsArgs struct {
+	// An `applicationLogs` block as defined below.
 	ApplicationLogs SlotLogsApplicationLogsPtrInput `pulumi:"applicationLogs"`
-	HttpLogs        SlotLogsHttpLogsPtrInput        `pulumi:"httpLogs"`
+	// An `httpLogs` block as defined below.
+	HttpLogs SlotLogsHttpLogsPtrInput `pulumi:"httpLogs"`
 }
 
 func (SlotLogsArgs) ElementType() reflect.Type {
@@ -6081,10 +6640,13 @@ func (o SlotLogsOutput) ToSlotLogsPtrOutputWithContext(ctx context.Context) Slot
 		return &v
 	}).(SlotLogsPtrOutput)
 }
+
+// An `applicationLogs` block as defined below.
 func (o SlotLogsOutput) ApplicationLogs() SlotLogsApplicationLogsPtrOutput {
 	return o.ApplyT(func(v SlotLogs) *SlotLogsApplicationLogs { return v.ApplicationLogs }).(SlotLogsApplicationLogsPtrOutput)
 }
 
+// An `httpLogs` block as defined below.
 func (o SlotLogsOutput) HttpLogs() SlotLogsHttpLogsPtrOutput {
 	return o.ApplyT(func(v SlotLogs) *SlotLogsHttpLogs { return v.HttpLogs }).(SlotLogsHttpLogsPtrOutput)
 }
@@ -6107,15 +6669,18 @@ func (o SlotLogsPtrOutput) Elem() SlotLogsOutput {
 	return o.ApplyT(func(v *SlotLogs) SlotLogs { return *v }).(SlotLogsOutput)
 }
 
+// An `applicationLogs` block as defined below.
 func (o SlotLogsPtrOutput) ApplicationLogs() SlotLogsApplicationLogsPtrOutput {
 	return o.ApplyT(func(v SlotLogs) *SlotLogsApplicationLogs { return v.ApplicationLogs }).(SlotLogsApplicationLogsPtrOutput)
 }
 
+// An `httpLogs` block as defined below.
 func (o SlotLogsPtrOutput) HttpLogs() SlotLogsHttpLogsPtrOutput {
 	return o.ApplyT(func(v SlotLogs) *SlotLogsHttpLogs { return v.HttpLogs }).(SlotLogsHttpLogsPtrOutput)
 }
 
 type SlotLogsApplicationLogs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage *SlotLogsApplicationLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
 }
 
@@ -6127,6 +6692,7 @@ type SlotLogsApplicationLogsInput interface {
 }
 
 type SlotLogsApplicationLogsArgs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage SlotLogsApplicationLogsAzureBlobStoragePtrInput `pulumi:"azureBlobStorage"`
 }
 
@@ -6198,6 +6764,8 @@ func (o SlotLogsApplicationLogsOutput) ToSlotLogsApplicationLogsPtrOutputWithCon
 		return &v
 	}).(SlotLogsApplicationLogsPtrOutput)
 }
+
+// An `azureBlobStorage` block as defined below.
 func (o SlotLogsApplicationLogsOutput) AzureBlobStorage() SlotLogsApplicationLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogs) *SlotLogsApplicationLogsAzureBlobStorage { return v.AzureBlobStorage }).(SlotLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
@@ -6220,14 +6788,18 @@ func (o SlotLogsApplicationLogsPtrOutput) Elem() SlotLogsApplicationLogsOutput {
 	return o.ApplyT(func(v *SlotLogsApplicationLogs) SlotLogsApplicationLogs { return *v }).(SlotLogsApplicationLogsOutput)
 }
 
+// An `azureBlobStorage` block as defined below.
 func (o SlotLogsApplicationLogsPtrOutput) AzureBlobStorage() SlotLogsApplicationLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogs) *SlotLogsApplicationLogsAzureBlobStorage { return v.AzureBlobStorage }).(SlotLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
 
 type SlotLogsApplicationLogsAzureBlobStorage struct {
-	Level           string `pulumi:"level"`
-	RetentionInDays int    `pulumi:"retentionInDays"`
-	SasUrl          string `pulumi:"sasUrl"`
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level string `pulumi:"level"`
+	// The number of days to retain logs for.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl string `pulumi:"sasUrl"`
 }
 
 type SlotLogsApplicationLogsAzureBlobStorageInput interface {
@@ -6238,9 +6810,12 @@ type SlotLogsApplicationLogsAzureBlobStorageInput interface {
 }
 
 type SlotLogsApplicationLogsAzureBlobStorageArgs struct {
-	Level           pulumi.StringInput `pulumi:"level"`
-	RetentionInDays pulumi.IntInput    `pulumi:"retentionInDays"`
-	SasUrl          pulumi.StringInput `pulumi:"sasUrl"`
+	// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
+	Level pulumi.StringInput `pulumi:"level"`
+	// The number of days to retain logs for.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
 
 func (SlotLogsApplicationLogsAzureBlobStorageArgs) ElementType() reflect.Type {
@@ -6311,14 +6886,18 @@ func (o SlotLogsApplicationLogsAzureBlobStorageOutput) ToSlotLogsApplicationLogs
 		return &v
 	}).(SlotLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
+
+// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
 func (o SlotLogsApplicationLogsAzureBlobStorageOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogsAzureBlobStorage) string { return v.Level }).(pulumi.StringOutput)
 }
 
+// The number of days to retain logs for.
 func (o SlotLogsApplicationLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o SlotLogsApplicationLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -6341,21 +6920,26 @@ func (o SlotLogsApplicationLogsAzureBlobStoragePtrOutput) Elem() SlotLogsApplica
 	return o.ApplyT(func(v *SlotLogsApplicationLogsAzureBlobStorage) SlotLogsApplicationLogsAzureBlobStorage { return *v }).(SlotLogsApplicationLogsAzureBlobStorageOutput)
 }
 
+// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
 func (o SlotLogsApplicationLogsAzureBlobStoragePtrOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogsAzureBlobStorage) string { return v.Level }).(pulumi.StringOutput)
 }
 
+// The number of days to retain logs for.
 func (o SlotLogsApplicationLogsAzureBlobStoragePtrOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o SlotLogsApplicationLogsAzureBlobStoragePtrOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotLogsApplicationLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
 
 type SlotLogsHttpLogs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage *SlotLogsHttpLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
-	FileSystem       *SlotLogsHttpLogsFileSystem       `pulumi:"fileSystem"`
+	// A `fileSystem` block as defined below.
+	FileSystem *SlotLogsHttpLogsFileSystem `pulumi:"fileSystem"`
 }
 
 type SlotLogsHttpLogsInput interface {
@@ -6366,8 +6950,10 @@ type SlotLogsHttpLogsInput interface {
 }
 
 type SlotLogsHttpLogsArgs struct {
+	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage SlotLogsHttpLogsAzureBlobStoragePtrInput `pulumi:"azureBlobStorage"`
-	FileSystem       SlotLogsHttpLogsFileSystemPtrInput       `pulumi:"fileSystem"`
+	// A `fileSystem` block as defined below.
+	FileSystem SlotLogsHttpLogsFileSystemPtrInput `pulumi:"fileSystem"`
 }
 
 func (SlotLogsHttpLogsArgs) ElementType() reflect.Type {
@@ -6438,10 +7024,13 @@ func (o SlotLogsHttpLogsOutput) ToSlotLogsHttpLogsPtrOutputWithContext(ctx conte
 		return &v
 	}).(SlotLogsHttpLogsPtrOutput)
 }
+
+// An `azureBlobStorage` block as defined below.
 func (o SlotLogsHttpLogsOutput) AzureBlobStorage() SlotLogsHttpLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogs) *SlotLogsHttpLogsAzureBlobStorage { return v.AzureBlobStorage }).(SlotLogsHttpLogsAzureBlobStoragePtrOutput)
 }
 
+// A `fileSystem` block as defined below.
 func (o SlotLogsHttpLogsOutput) FileSystem() SlotLogsHttpLogsFileSystemPtrOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogs) *SlotLogsHttpLogsFileSystem { return v.FileSystem }).(SlotLogsHttpLogsFileSystemPtrOutput)
 }
@@ -6464,17 +7053,21 @@ func (o SlotLogsHttpLogsPtrOutput) Elem() SlotLogsHttpLogsOutput {
 	return o.ApplyT(func(v *SlotLogsHttpLogs) SlotLogsHttpLogs { return *v }).(SlotLogsHttpLogsOutput)
 }
 
+// An `azureBlobStorage` block as defined below.
 func (o SlotLogsHttpLogsPtrOutput) AzureBlobStorage() SlotLogsHttpLogsAzureBlobStoragePtrOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogs) *SlotLogsHttpLogsAzureBlobStorage { return v.AzureBlobStorage }).(SlotLogsHttpLogsAzureBlobStoragePtrOutput)
 }
 
+// A `fileSystem` block as defined below.
 func (o SlotLogsHttpLogsPtrOutput) FileSystem() SlotLogsHttpLogsFileSystemPtrOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogs) *SlotLogsHttpLogsFileSystem { return v.FileSystem }).(SlotLogsHttpLogsFileSystemPtrOutput)
 }
 
 type SlotLogsHttpLogsAzureBlobStorage struct {
-	RetentionInDays int    `pulumi:"retentionInDays"`
-	SasUrl          string `pulumi:"sasUrl"`
+	// The number of days to retain logs for.
+	RetentionInDays int `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl string `pulumi:"sasUrl"`
 }
 
 type SlotLogsHttpLogsAzureBlobStorageInput interface {
@@ -6485,8 +7078,10 @@ type SlotLogsHttpLogsAzureBlobStorageInput interface {
 }
 
 type SlotLogsHttpLogsAzureBlobStorageArgs struct {
-	RetentionInDays pulumi.IntInput    `pulumi:"retentionInDays"`
-	SasUrl          pulumi.StringInput `pulumi:"sasUrl"`
+	// The number of days to retain logs for.
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
 
 func (SlotLogsHttpLogsAzureBlobStorageArgs) ElementType() reflect.Type {
@@ -6557,10 +7152,13 @@ func (o SlotLogsHttpLogsAzureBlobStorageOutput) ToSlotLogsHttpLogsAzureBlobStora
 		return &v
 	}).(SlotLogsHttpLogsAzureBlobStoragePtrOutput)
 }
+
+// The number of days to retain logs for.
 func (o SlotLogsHttpLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o SlotLogsHttpLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -6583,17 +7181,21 @@ func (o SlotLogsHttpLogsAzureBlobStoragePtrOutput) Elem() SlotLogsHttpLogsAzureB
 	return o.ApplyT(func(v *SlotLogsHttpLogsAzureBlobStorage) SlotLogsHttpLogsAzureBlobStorage { return *v }).(SlotLogsHttpLogsAzureBlobStorageOutput)
 }
 
+// The number of days to retain logs for.
 func (o SlotLogsHttpLogsAzureBlobStoragePtrOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsAzureBlobStorage) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 func (o SlotLogsHttpLogsAzureBlobStoragePtrOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsAzureBlobStorage) string { return v.SasUrl }).(pulumi.StringOutput)
 }
 
 type SlotLogsHttpLogsFileSystem struct {
+	// The number of days to retain logs for.
 	RetentionInDays int `pulumi:"retentionInDays"`
-	RetentionInMb   int `pulumi:"retentionInMb"`
+	// The maximum size in megabytes that http log files can use before being removed.
+	RetentionInMb int `pulumi:"retentionInMb"`
 }
 
 type SlotLogsHttpLogsFileSystemInput interface {
@@ -6604,8 +7206,10 @@ type SlotLogsHttpLogsFileSystemInput interface {
 }
 
 type SlotLogsHttpLogsFileSystemArgs struct {
+	// The number of days to retain logs for.
 	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
-	RetentionInMb   pulumi.IntInput `pulumi:"retentionInMb"`
+	// The maximum size in megabytes that http log files can use before being removed.
+	RetentionInMb pulumi.IntInput `pulumi:"retentionInMb"`
 }
 
 func (SlotLogsHttpLogsFileSystemArgs) ElementType() reflect.Type {
@@ -6676,10 +7280,13 @@ func (o SlotLogsHttpLogsFileSystemOutput) ToSlotLogsHttpLogsFileSystemPtrOutputW
 		return &v
 	}).(SlotLogsHttpLogsFileSystemPtrOutput)
 }
+
+// The number of days to retain logs for.
 func (o SlotLogsHttpLogsFileSystemOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsFileSystem) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The maximum size in megabytes that http log files can use before being removed.
 func (o SlotLogsHttpLogsFileSystemOutput) RetentionInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsFileSystem) int { return v.RetentionInMb }).(pulumi.IntOutput)
 }
@@ -6702,10 +7309,12 @@ func (o SlotLogsHttpLogsFileSystemPtrOutput) Elem() SlotLogsHttpLogsFileSystemOu
 	return o.ApplyT(func(v *SlotLogsHttpLogsFileSystem) SlotLogsHttpLogsFileSystem { return *v }).(SlotLogsHttpLogsFileSystemOutput)
 }
 
+// The number of days to retain logs for.
 func (o SlotLogsHttpLogsFileSystemPtrOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsFileSystem) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
+// The maximum size in megabytes that http log files can use before being removed.
 func (o SlotLogsHttpLogsFileSystemPtrOutput) RetentionInMb() pulumi.IntOutput {
 	return o.ApplyT(func(v SlotLogsHttpLogsFileSystem) int { return v.RetentionInMb }).(pulumi.IntOutput)
 }
@@ -6726,7 +7335,7 @@ type SlotSiteConfig struct {
 	FtpsState              *string `pulumi:"ftpsState"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions []SlotSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
 	JavaContainer *string `pulumi:"javaContainer"`
@@ -6781,7 +7390,7 @@ type SlotSiteConfigArgs struct {
 	FtpsState              pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	// A list of objects representing ip restrictions as defined below.
 	IpRestrictions SlotSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
 	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
@@ -6921,7 +7530,7 @@ func (o SlotSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o SlotSiteConfigOutput) IpRestrictions() SlotSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v SlotSiteConfig) []SlotSiteConfigIpRestriction { return v.IpRestrictions }).(SlotSiteConfigIpRestrictionArrayOutput)
 }
@@ -7056,7 +7665,7 @@ func (o SlotSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+// A list of objects representing ip restrictions as defined below.
 func (o SlotSiteConfigPtrOutput) IpRestrictions() SlotSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v SlotSiteConfig) []SlotSiteConfigIpRestriction { return v.IpRestrictions }).(SlotSiteConfigIpRestrictionArrayOutput)
 }
@@ -7135,8 +7744,10 @@ func (o SlotSiteConfigPtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 }
 
 type SlotSiteConfigCors struct {
-	AllowedOrigins     []string `pulumi:"allowedOrigins"`
-	SupportCredentials *bool    `pulumi:"supportCredentials"`
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials *bool `pulumi:"supportCredentials"`
 }
 
 type SlotSiteConfigCorsInput interface {
@@ -7147,8 +7758,10 @@ type SlotSiteConfigCorsInput interface {
 }
 
 type SlotSiteConfigCorsArgs struct {
-	AllowedOrigins     pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	SupportCredentials pulumi.BoolPtrInput     `pulumi:"supportCredentials"`
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
 }
 
 func (SlotSiteConfigCorsArgs) ElementType() reflect.Type {
@@ -7219,10 +7832,13 @@ func (o SlotSiteConfigCorsOutput) ToSlotSiteConfigCorsPtrOutputWithContext(ctx c
 		return &v
 	}).(SlotSiteConfigCorsPtrOutput)
 }
+
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o SlotSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// Are credentials supported?
 func (o SlotSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -7245,16 +7861,20 @@ func (o SlotSiteConfigCorsPtrOutput) Elem() SlotSiteConfigCorsOutput {
 	return o.ApplyT(func(v *SlotSiteConfigCors) SlotSiteConfigCors { return *v }).(SlotSiteConfigCorsOutput)
 }
 
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o SlotSiteConfigCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// Are credentials supported?
 func (o SlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
 
 type SlotSiteConfigIpRestriction struct {
-	IpAddress              *string `pulumi:"ipAddress"`
+	// The IP Address used for this IP Restriction.
+	IpAddress *string `pulumi:"ipAddress"`
+	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -7266,7 +7886,9 @@ type SlotSiteConfigIpRestrictionInput interface {
 }
 
 type SlotSiteConfigIpRestrictionArgs struct {
-	IpAddress              pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The IP Address used for this IP Restriction.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -7317,10 +7939,12 @@ func (o SlotSiteConfigIpRestrictionOutput) ToSlotSiteConfigIpRestrictionOutputWi
 	return o
 }
 
+// The IP Address used for this IP Restriction.
 func (o SlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
+// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
 func (o SlotSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

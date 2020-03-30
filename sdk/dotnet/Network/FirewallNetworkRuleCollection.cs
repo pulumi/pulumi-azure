@@ -199,11 +199,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallNetworkRuleCollectionRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a description for the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destinationAddresses", required: true)]
         private InputList<string>? _destinationAddresses;
+
+        /// <summary>
+        /// A list of destination IP addresses and/or IP ranges.
+        /// </summary>
         public InputList<string> DestinationAddresses
         {
             get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
@@ -212,6 +219,10 @@ namespace Pulumi.Azure.Network
 
         [Input("destinationPorts", required: true)]
         private InputList<string>? _destinationPorts;
+
+        /// <summary>
+        /// A list of destination ports.
+        /// </summary>
         public InputList<string> DestinationPorts
         {
             get => _destinationPorts ?? (_destinationPorts = new InputList<string>());
@@ -219,13 +230,17 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        /// Specifies the name of the rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("protocols", required: true)]
         private InputList<string>? _protocols;
+
+        /// <summary>
+        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
@@ -234,6 +249,10 @@ namespace Pulumi.Azure.Network
 
         [Input("sourceAddresses", required: true)]
         private InputList<string>? _sourceAddresses;
+
+        /// <summary>
+        /// A list of source IP addresses and/or IP ranges.
+        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -247,11 +266,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallNetworkRuleCollectionRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a description for the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("destinationAddresses", required: true)]
         private InputList<string>? _destinationAddresses;
+
+        /// <summary>
+        /// A list of destination IP addresses and/or IP ranges.
+        /// </summary>
         public InputList<string> DestinationAddresses
         {
             get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
@@ -260,6 +286,10 @@ namespace Pulumi.Azure.Network
 
         [Input("destinationPorts", required: true)]
         private InputList<string>? _destinationPorts;
+
+        /// <summary>
+        /// A list of destination ports.
+        /// </summary>
         public InputList<string> DestinationPorts
         {
             get => _destinationPorts ?? (_destinationPorts = new InputList<string>());
@@ -267,13 +297,17 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        /// Specifies the name of the rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("protocols", required: true)]
         private InputList<string>? _protocols;
+
+        /// <summary>
+        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+        /// </summary>
         public InputList<string> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<string>());
@@ -282,6 +316,10 @@ namespace Pulumi.Azure.Network
 
         [Input("sourceAddresses", required: true)]
         private InputList<string>? _sourceAddresses;
+
+        /// <summary>
+        /// A list of source IP addresses and/or IP ranges.
+        /// </summary>
         public InputList<string> SourceAddresses
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
@@ -300,14 +338,29 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class FirewallNetworkRuleCollectionRules
     {
+        /// <summary>
+        /// Specifies a description for the rule.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A list of destination IP addresses and/or IP ranges.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
+        /// <summary>
+        /// A list of destination ports.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationPorts;
         /// <summary>
-        /// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        /// Specifies the name of the rule.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+        /// </summary>
         public readonly ImmutableArray<string> Protocols;
+        /// <summary>
+        /// A list of source IP addresses and/or IP ranges.
+        /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
 
         [OutputConstructor]

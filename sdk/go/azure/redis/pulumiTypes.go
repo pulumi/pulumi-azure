@@ -107,18 +107,28 @@ type CacheRedisConfiguration struct {
 	AofBackupEnabled            *bool   `pulumi:"aofBackupEnabled"`
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
-	EnableAuthentication        *bool   `pulumi:"enableAuthentication"`
+	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+	EnableAuthentication *bool `pulumi:"enableAuthentication"`
 	// Returns the max number of connected clients at the same time.
-	Maxclients                     *int    `pulumi:"maxclients"`
-	MaxfragmentationmemoryReserved *int    `pulumi:"maxfragmentationmemoryReserved"`
-	MaxmemoryDelta                 *int    `pulumi:"maxmemoryDelta"`
-	MaxmemoryPolicy                *string `pulumi:"maxmemoryPolicy"`
-	MaxmemoryReserved              *int    `pulumi:"maxmemoryReserved"`
-	NotifyKeyspaceEvents           *string `pulumi:"notifyKeyspaceEvents"`
-	RdbBackupEnabled               *bool   `pulumi:"rdbBackupEnabled"`
-	RdbBackupFrequency             *int    `pulumi:"rdbBackupFrequency"`
-	RdbBackupMaxSnapshotCount      *int    `pulumi:"rdbBackupMaxSnapshotCount"`
-	RdbStorageConnectionString     *string `pulumi:"rdbStorageConnectionString"`
+	Maxclients *int `pulumi:"maxclients"`
+	// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
+	MaxfragmentationmemoryReserved *int `pulumi:"maxfragmentationmemoryReserved"`
+	// The max-memory delta for this Redis instance. Defaults are shown below.
+	MaxmemoryDelta *int `pulumi:"maxmemoryDelta"`
+	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+	MaxmemoryPolicy *string `pulumi:"maxmemoryPolicy"`
+	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
+	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
+	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+	NotifyKeyspaceEvents *string `pulumi:"notifyKeyspaceEvents"`
+	// Is Backup Enabled? Only supported on Premium SKU's.
+	RdbBackupEnabled *bool `pulumi:"rdbBackupEnabled"`
+	// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+	RdbBackupFrequency *int `pulumi:"rdbBackupFrequency"`
+	// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+	RdbBackupMaxSnapshotCount *int `pulumi:"rdbBackupMaxSnapshotCount"`
+	// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
 }
 
 type CacheRedisConfigurationInput interface {
@@ -132,18 +142,28 @@ type CacheRedisConfigurationArgs struct {
 	AofBackupEnabled            pulumi.BoolPtrInput   `pulumi:"aofBackupEnabled"`
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
-	EnableAuthentication        pulumi.BoolPtrInput   `pulumi:"enableAuthentication"`
+	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+	EnableAuthentication pulumi.BoolPtrInput `pulumi:"enableAuthentication"`
 	// Returns the max number of connected clients at the same time.
-	Maxclients                     pulumi.IntPtrInput    `pulumi:"maxclients"`
-	MaxfragmentationmemoryReserved pulumi.IntPtrInput    `pulumi:"maxfragmentationmemoryReserved"`
-	MaxmemoryDelta                 pulumi.IntPtrInput    `pulumi:"maxmemoryDelta"`
-	MaxmemoryPolicy                pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
-	MaxmemoryReserved              pulumi.IntPtrInput    `pulumi:"maxmemoryReserved"`
-	NotifyKeyspaceEvents           pulumi.StringPtrInput `pulumi:"notifyKeyspaceEvents"`
-	RdbBackupEnabled               pulumi.BoolPtrInput   `pulumi:"rdbBackupEnabled"`
-	RdbBackupFrequency             pulumi.IntPtrInput    `pulumi:"rdbBackupFrequency"`
-	RdbBackupMaxSnapshotCount      pulumi.IntPtrInput    `pulumi:"rdbBackupMaxSnapshotCount"`
-	RdbStorageConnectionString     pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
+	Maxclients pulumi.IntPtrInput `pulumi:"maxclients"`
+	// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
+	MaxfragmentationmemoryReserved pulumi.IntPtrInput `pulumi:"maxfragmentationmemoryReserved"`
+	// The max-memory delta for this Redis instance. Defaults are shown below.
+	MaxmemoryDelta pulumi.IntPtrInput `pulumi:"maxmemoryDelta"`
+	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+	MaxmemoryPolicy pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
+	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
+	MaxmemoryReserved pulumi.IntPtrInput `pulumi:"maxmemoryReserved"`
+	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+	NotifyKeyspaceEvents pulumi.StringPtrInput `pulumi:"notifyKeyspaceEvents"`
+	// Is Backup Enabled? Only supported on Premium SKU's.
+	RdbBackupEnabled pulumi.BoolPtrInput `pulumi:"rdbBackupEnabled"`
+	// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+	RdbBackupFrequency pulumi.IntPtrInput `pulumi:"rdbBackupFrequency"`
+	// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+	RdbBackupMaxSnapshotCount pulumi.IntPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
+	// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
 }
 
 func (CacheRedisConfigurationArgs) ElementType() reflect.Type {
@@ -226,6 +246,7 @@ func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.Stri
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
 
+// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 func (o CacheRedisConfigurationOutput) EnableAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.EnableAuthentication }).(pulumi.BoolPtrOutput)
 }
@@ -235,38 +256,47 @@ func (o CacheRedisConfigurationOutput) Maxclients() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.Maxclients }).(pulumi.IntPtrOutput)
 }
 
+// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
 func (o CacheRedisConfigurationOutput) MaxfragmentationmemoryReserved() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxfragmentationmemoryReserved }).(pulumi.IntPtrOutput)
 }
 
+// The max-memory delta for this Redis instance. Defaults are shown below.
 func (o CacheRedisConfigurationOutput) MaxmemoryDelta() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryDelta }).(pulumi.IntPtrOutput)
 }
 
+// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
 func (o CacheRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 func (o CacheRedisConfigurationOutput) MaxmemoryReserved() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryReserved }).(pulumi.IntPtrOutput)
 }
 
+// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 func (o CacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.NotifyKeyspaceEvents }).(pulumi.StringPtrOutput)
 }
 
+// Is Backup Enabled? Only supported on Premium SKU's.
 func (o CacheRedisConfigurationOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.RdbBackupEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 func (o CacheRedisConfigurationOutput) RdbBackupFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupFrequency }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
 func (o CacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupMaxSnapshotCount }).(pulumi.IntPtrOutput)
 }
 
+// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 func (o CacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -301,6 +331,7 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.S
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
 
+// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 func (o CacheRedisConfigurationPtrOutput) EnableAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.EnableAuthentication }).(pulumi.BoolPtrOutput)
 }
@@ -310,38 +341,47 @@ func (o CacheRedisConfigurationPtrOutput) Maxclients() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.Maxclients }).(pulumi.IntPtrOutput)
 }
 
+// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxfragmentationmemoryReserved() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxfragmentationmemoryReserved }).(pulumi.IntPtrOutput)
 }
 
+// The max-memory delta for this Redis instance. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryDelta }).(pulumi.IntPtrOutput)
 }
 
+// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryReserved }).(pulumi.IntPtrOutput)
 }
 
+// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.NotifyKeyspaceEvents }).(pulumi.StringPtrOutput)
 }
 
+// Is Backup Enabled? Only supported on Premium SKU's.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.RdbBackupEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupFrequency }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupMaxSnapshotCount }).(pulumi.IntPtrOutput)
 }
 
+// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
 }

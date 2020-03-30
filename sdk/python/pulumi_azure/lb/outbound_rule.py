@@ -27,7 +27,7 @@ class OutboundRule(pulumi.CustomResource):
     One or more `frontend_ip_configuration` blocks as defined below.
 
       * `id` (`str`) - The ID of the Load Balancer Outbound Rule.
-      * `name` (`str`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+      * `name` (`str`) - The name of the Frontend IP Configuration.
     """
     idle_timeout_in_minutes: pulumi.Output[float]
     """
@@ -72,7 +72,7 @@ class OutboundRule(pulumi.CustomResource):
         The **frontend_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer Outbound Rule.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The name of the Frontend IP Configuration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,7 +136,7 @@ class OutboundRule(pulumi.CustomResource):
         The **frontend_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer Outbound Rule.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - The name of the Frontend IP Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

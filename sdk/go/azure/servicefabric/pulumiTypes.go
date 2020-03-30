@@ -12,9 +12,12 @@ import (
 )
 
 type ClusterAzureActiveDirectory struct {
-	ClientApplicationId  string `pulumi:"clientApplicationId"`
+	// The Azure Active Directory Client ID which should be used for the Client Application.
+	ClientApplicationId string `pulumi:"clientApplicationId"`
+	// The Azure Active Directory Cluster Application ID.
 	ClusterApplicationId string `pulumi:"clusterApplicationId"`
-	TenantId             string `pulumi:"tenantId"`
+	// The Azure Active Directory Tenant ID.
+	TenantId string `pulumi:"tenantId"`
 }
 
 type ClusterAzureActiveDirectoryInput interface {
@@ -25,9 +28,12 @@ type ClusterAzureActiveDirectoryInput interface {
 }
 
 type ClusterAzureActiveDirectoryArgs struct {
-	ClientApplicationId  pulumi.StringInput `pulumi:"clientApplicationId"`
+	// The Azure Active Directory Client ID which should be used for the Client Application.
+	ClientApplicationId pulumi.StringInput `pulumi:"clientApplicationId"`
+	// The Azure Active Directory Cluster Application ID.
 	ClusterApplicationId pulumi.StringInput `pulumi:"clusterApplicationId"`
-	TenantId             pulumi.StringInput `pulumi:"tenantId"`
+	// The Azure Active Directory Tenant ID.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (ClusterAzureActiveDirectoryArgs) ElementType() reflect.Type {
@@ -98,14 +104,18 @@ func (o ClusterAzureActiveDirectoryOutput) ToClusterAzureActiveDirectoryPtrOutpu
 		return &v
 	}).(ClusterAzureActiveDirectoryPtrOutput)
 }
+
+// The Azure Active Directory Client ID which should be used for the Client Application.
 func (o ClusterAzureActiveDirectoryOutput) ClientApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
 }
 
+// The Azure Active Directory Cluster Application ID.
 func (o ClusterAzureActiveDirectoryOutput) ClusterApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
 }
 
+// The Azure Active Directory Tenant ID.
 func (o ClusterAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -128,22 +138,28 @@ func (o ClusterAzureActiveDirectoryPtrOutput) Elem() ClusterAzureActiveDirectory
 	return o.ApplyT(func(v *ClusterAzureActiveDirectory) ClusterAzureActiveDirectory { return *v }).(ClusterAzureActiveDirectoryOutput)
 }
 
+// The Azure Active Directory Client ID which should be used for the Client Application.
 func (o ClusterAzureActiveDirectoryPtrOutput) ClientApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
 }
 
+// The Azure Active Directory Cluster Application ID.
 func (o ClusterAzureActiveDirectoryPtrOutput) ClusterApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
 }
 
+// The Azure Active Directory Tenant ID.
 func (o ClusterAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 type ClusterCertificate struct {
-	Thumbprint          string  `pulumi:"thumbprint"`
+	// The Thumbprint of the Certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The Secondary Thumbprint of the Certificate.
 	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
-	X509StoreName       string  `pulumi:"x509StoreName"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName string `pulumi:"x509StoreName"`
 }
 
 type ClusterCertificateInput interface {
@@ -154,9 +170,12 @@ type ClusterCertificateInput interface {
 }
 
 type ClusterCertificateArgs struct {
-	Thumbprint          pulumi.StringInput    `pulumi:"thumbprint"`
+	// The Thumbprint of the Certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// The Secondary Thumbprint of the Certificate.
 	ThumbprintSecondary pulumi.StringPtrInput `pulumi:"thumbprintSecondary"`
-	X509StoreName       pulumi.StringInput    `pulumi:"x509StoreName"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
 }
 
 func (ClusterCertificateArgs) ElementType() reflect.Type {
@@ -227,14 +246,18 @@ func (o ClusterCertificateOutput) ToClusterCertificatePtrOutputWithContext(ctx c
 		return &v
 	}).(ClusterCertificatePtrOutput)
 }
+
+// The Thumbprint of the Certificate.
 func (o ClusterCertificateOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
+// The Secondary Thumbprint of the Certificate.
 func (o ClusterCertificateOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
+// The X509 Store where the Certificate Exists, such as `My`.
 func (o ClusterCertificateOutput) X509StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
@@ -257,21 +280,26 @@ func (o ClusterCertificatePtrOutput) Elem() ClusterCertificateOutput {
 	return o.ApplyT(func(v *ClusterCertificate) ClusterCertificate { return *v }).(ClusterCertificateOutput)
 }
 
+// The Thumbprint of the Certificate.
 func (o ClusterCertificatePtrOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
+// The Secondary Thumbprint of the Certificate.
 func (o ClusterCertificatePtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
+// The X509 Store where the Certificate Exists, such as `My`.
 func (o ClusterCertificatePtrOutput) X509StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
 type ClusterCertificateCommonNames struct {
-	CommonNames   []ClusterCertificateCommonNamesCommonName `pulumi:"commonNames"`
-	X509StoreName string                                    `pulumi:"x509StoreName"`
+	// A `commonNames` block as defined below.
+	CommonNames []ClusterCertificateCommonNamesCommonName `pulumi:"commonNames"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName string `pulumi:"x509StoreName"`
 }
 
 type ClusterCertificateCommonNamesInput interface {
@@ -282,8 +310,10 @@ type ClusterCertificateCommonNamesInput interface {
 }
 
 type ClusterCertificateCommonNamesArgs struct {
-	CommonNames   ClusterCertificateCommonNamesCommonNameArrayInput `pulumi:"commonNames"`
-	X509StoreName pulumi.StringInput                                `pulumi:"x509StoreName"`
+	// A `commonNames` block as defined below.
+	CommonNames ClusterCertificateCommonNamesCommonNameArrayInput `pulumi:"commonNames"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
 }
 
 func (ClusterCertificateCommonNamesArgs) ElementType() reflect.Type {
@@ -354,10 +384,13 @@ func (o ClusterCertificateCommonNamesOutput) ToClusterCertificateCommonNamesPtrO
 		return &v
 	}).(ClusterCertificateCommonNamesPtrOutput)
 }
+
+// A `commonNames` block as defined below.
 func (o ClusterCertificateCommonNamesOutput) CommonNames() ClusterCertificateCommonNamesCommonNameArrayOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
 }
 
+// The X509 Store where the Certificate Exists, such as `My`.
 func (o ClusterCertificateCommonNamesOutput) X509StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
@@ -380,16 +413,20 @@ func (o ClusterCertificateCommonNamesPtrOutput) Elem() ClusterCertificateCommonN
 	return o.ApplyT(func(v *ClusterCertificateCommonNames) ClusterCertificateCommonNames { return *v }).(ClusterCertificateCommonNamesOutput)
 }
 
+// A `commonNames` block as defined below.
 func (o ClusterCertificateCommonNamesPtrOutput) CommonNames() ClusterCertificateCommonNamesCommonNameArrayOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
 }
 
+// The X509 Store where the Certificate Exists, such as `My`.
 func (o ClusterCertificateCommonNamesPtrOutput) X509StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
 
 type ClusterCertificateCommonNamesCommonName struct {
-	CertificateCommonName       string  `pulumi:"certificateCommonName"`
+	// The common or subject name of the certificate.
+	CertificateCommonName string `pulumi:"certificateCommonName"`
+	// The Issuer Thumbprint of the Certificate.
 	CertificateIssuerThumbprint *string `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -401,7 +438,9 @@ type ClusterCertificateCommonNamesCommonNameInput interface {
 }
 
 type ClusterCertificateCommonNamesCommonNameArgs struct {
-	CertificateCommonName       pulumi.StringInput    `pulumi:"certificateCommonName"`
+	// The common or subject name of the certificate.
+	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
+	// The Issuer Thumbprint of the Certificate.
 	CertificateIssuerThumbprint pulumi.StringPtrInput `pulumi:"certificateIssuerThumbprint"`
 }
 
@@ -452,10 +491,12 @@ func (o ClusterCertificateCommonNamesCommonNameOutput) ToClusterCertificateCommo
 	return o
 }
 
+// The common or subject name of the certificate.
 func (o ClusterCertificateCommonNamesCommonNameOutput) CertificateCommonName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNamesCommonName) string { return v.CertificateCommonName }).(pulumi.StringOutput)
 }
 
+// The Issuer Thumbprint of the Certificate.
 func (o ClusterCertificateCommonNamesCommonNameOutput) CertificateIssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNamesCommonName) *string { return v.CertificateIssuerThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -481,7 +522,9 @@ func (o ClusterCertificateCommonNamesCommonNameArrayOutput) Index(i pulumi.IntIn
 }
 
 type ClusterClientCertificateThumbprint struct {
-	IsAdmin    bool   `pulumi:"isAdmin"`
+	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+	IsAdmin bool `pulumi:"isAdmin"`
+	// The Thumbprint associated with the Client Certificate.
 	Thumbprint string `pulumi:"thumbprint"`
 }
 
@@ -493,7 +536,9 @@ type ClusterClientCertificateThumbprintInput interface {
 }
 
 type ClusterClientCertificateThumbprintArgs struct {
-	IsAdmin    pulumi.BoolInput   `pulumi:"isAdmin"`
+	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+	// The Thumbprint associated with the Client Certificate.
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
 
@@ -544,10 +589,12 @@ func (o ClusterClientCertificateThumbprintOutput) ToClusterClientCertificateThum
 	return o
 }
 
+// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
 func (o ClusterClientCertificateThumbprintOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterClientCertificateThumbprint) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
+// The Thumbprint associated with the Client Certificate.
 func (o ClusterClientCertificateThumbprintOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterClientCertificateThumbprint) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
@@ -573,11 +620,16 @@ func (o ClusterClientCertificateThumbprintArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type ClusterDiagnosticsConfig struct {
-	BlobEndpoint            string `pulumi:"blobEndpoint"`
+	// The Blob Endpoint of the Storage Account.
+	BlobEndpoint string `pulumi:"blobEndpoint"`
+	// The protected diagnostics storage key name, such as `StorageAccountKey1`.
 	ProtectedAccountKeyName string `pulumi:"protectedAccountKeyName"`
-	QueueEndpoint           string `pulumi:"queueEndpoint"`
-	StorageAccountName      string `pulumi:"storageAccountName"`
-	TableEndpoint           string `pulumi:"tableEndpoint"`
+	// The Queue Endpoint of the Storage Account.
+	QueueEndpoint string `pulumi:"queueEndpoint"`
+	// The name of the Storage Account where the Diagnostics should be sent to.
+	StorageAccountName string `pulumi:"storageAccountName"`
+	// The Table Endpoint of the Storage Account.
+	TableEndpoint string `pulumi:"tableEndpoint"`
 }
 
 type ClusterDiagnosticsConfigInput interface {
@@ -588,11 +640,16 @@ type ClusterDiagnosticsConfigInput interface {
 }
 
 type ClusterDiagnosticsConfigArgs struct {
-	BlobEndpoint            pulumi.StringInput `pulumi:"blobEndpoint"`
+	// The Blob Endpoint of the Storage Account.
+	BlobEndpoint pulumi.StringInput `pulumi:"blobEndpoint"`
+	// The protected diagnostics storage key name, such as `StorageAccountKey1`.
 	ProtectedAccountKeyName pulumi.StringInput `pulumi:"protectedAccountKeyName"`
-	QueueEndpoint           pulumi.StringInput `pulumi:"queueEndpoint"`
-	StorageAccountName      pulumi.StringInput `pulumi:"storageAccountName"`
-	TableEndpoint           pulumi.StringInput `pulumi:"tableEndpoint"`
+	// The Queue Endpoint of the Storage Account.
+	QueueEndpoint pulumi.StringInput `pulumi:"queueEndpoint"`
+	// The name of the Storage Account where the Diagnostics should be sent to.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// The Table Endpoint of the Storage Account.
+	TableEndpoint pulumi.StringInput `pulumi:"tableEndpoint"`
 }
 
 func (ClusterDiagnosticsConfigArgs) ElementType() reflect.Type {
@@ -663,22 +720,28 @@ func (o ClusterDiagnosticsConfigOutput) ToClusterDiagnosticsConfigPtrOutputWithC
 		return &v
 	}).(ClusterDiagnosticsConfigPtrOutput)
 }
+
+// The Blob Endpoint of the Storage Account.
 func (o ClusterDiagnosticsConfigOutput) BlobEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
 }
 
+// The protected diagnostics storage key name, such as `StorageAccountKey1`.
 func (o ClusterDiagnosticsConfigOutput) ProtectedAccountKeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
 }
 
+// The Queue Endpoint of the Storage Account.
 func (o ClusterDiagnosticsConfigOutput) QueueEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
 }
 
+// The name of the Storage Account where the Diagnostics should be sent to.
 func (o ClusterDiagnosticsConfigOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
+// The Table Endpoint of the Storage Account.
 func (o ClusterDiagnosticsConfigOutput) TableEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
 }
@@ -701,29 +764,35 @@ func (o ClusterDiagnosticsConfigPtrOutput) Elem() ClusterDiagnosticsConfigOutput
 	return o.ApplyT(func(v *ClusterDiagnosticsConfig) ClusterDiagnosticsConfig { return *v }).(ClusterDiagnosticsConfigOutput)
 }
 
+// The Blob Endpoint of the Storage Account.
 func (o ClusterDiagnosticsConfigPtrOutput) BlobEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
 }
 
+// The protected diagnostics storage key name, such as `StorageAccountKey1`.
 func (o ClusterDiagnosticsConfigPtrOutput) ProtectedAccountKeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
 }
 
+// The Queue Endpoint of the Storage Account.
 func (o ClusterDiagnosticsConfigPtrOutput) QueueEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
 }
 
+// The name of the Storage Account where the Diagnostics should be sent to.
 func (o ClusterDiagnosticsConfigPtrOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
+// The Table Endpoint of the Storage Account.
 func (o ClusterDiagnosticsConfigPtrOutput) TableEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
 }
 
 type ClusterFabricSetting struct {
-	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name       string            `pulumi:"name"`
+	// The name of the Fabric Setting, such as `Security` or `Federation`.
+	Name string `pulumi:"name"`
+	// A map containing settings for the specified Fabric Setting.
 	Parameters map[string]string `pulumi:"parameters"`
 }
 
@@ -735,8 +804,9 @@ type ClusterFabricSettingInput interface {
 }
 
 type ClusterFabricSettingArgs struct {
-	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name       pulumi.StringInput    `pulumi:"name"`
+	// The name of the Fabric Setting, such as `Security` or `Federation`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map containing settings for the specified Fabric Setting.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 }
 
@@ -787,11 +857,12 @@ func (o ClusterFabricSettingOutput) ToClusterFabricSettingOutputWithContext(ctx 
 	return o
 }
 
-// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+// The name of the Fabric Setting, such as `Security` or `Federation`.
 func (o ClusterFabricSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterFabricSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A map containing settings for the specified Fabric Setting.
 func (o ClusterFabricSettingOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ClusterFabricSetting) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -817,18 +888,28 @@ func (o ClusterFabricSettingArrayOutput) Index(i pulumi.IntInput) ClusterFabricS
 }
 
 type ClusterNodeType struct {
-	ApplicationPorts   *ClusterNodeTypeApplicationPorts `pulumi:"applicationPorts"`
-	Capacities         map[string]string                `pulumi:"capacities"`
-	ClientEndpointPort int                              `pulumi:"clientEndpointPort"`
-	DurabilityLevel    *string                          `pulumi:"durabilityLevel"`
-	EphemeralPorts     *ClusterNodeTypeEphemeralPorts   `pulumi:"ephemeralPorts"`
-	HttpEndpointPort   int                              `pulumi:"httpEndpointPort"`
-	InstanceCount      int                              `pulumi:"instanceCount"`
-	IsPrimary          bool                             `pulumi:"isPrimary"`
-	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name                     string            `pulumi:"name"`
-	PlacementProperties      map[string]string `pulumi:"placementProperties"`
-	ReverseProxyEndpointPort *int              `pulumi:"reverseProxyEndpointPort"`
+	// A `applicationPorts` block as defined below.
+	ApplicationPorts *ClusterNodeTypeApplicationPorts `pulumi:"applicationPorts"`
+	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+	Capacities map[string]string `pulumi:"capacities"`
+	// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+	ClientEndpointPort int `pulumi:"clientEndpointPort"`
+	// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+	DurabilityLevel *string `pulumi:"durabilityLevel"`
+	// A `ephemeralPorts` block as defined below.
+	EphemeralPorts *ClusterNodeTypeEphemeralPorts `pulumi:"ephemeralPorts"`
+	// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+	HttpEndpointPort int `pulumi:"httpEndpointPort"`
+	// The number of nodes for this Node Type.
+	InstanceCount int `pulumi:"instanceCount"`
+	// Is this the Primary Node Type? Changing this forces a new resource to be created.
+	IsPrimary bool `pulumi:"isPrimary"`
+	// The name of the Node Type. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+	PlacementProperties map[string]string `pulumi:"placementProperties"`
+	// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
 }
 
 type ClusterNodeTypeInput interface {
@@ -839,18 +920,28 @@ type ClusterNodeTypeInput interface {
 }
 
 type ClusterNodeTypeArgs struct {
-	ApplicationPorts   ClusterNodeTypeApplicationPortsPtrInput `pulumi:"applicationPorts"`
-	Capacities         pulumi.StringMapInput                   `pulumi:"capacities"`
-	ClientEndpointPort pulumi.IntInput                         `pulumi:"clientEndpointPort"`
-	DurabilityLevel    pulumi.StringPtrInput                   `pulumi:"durabilityLevel"`
-	EphemeralPorts     ClusterNodeTypeEphemeralPortsPtrInput   `pulumi:"ephemeralPorts"`
-	HttpEndpointPort   pulumi.IntInput                         `pulumi:"httpEndpointPort"`
-	InstanceCount      pulumi.IntInput                         `pulumi:"instanceCount"`
-	IsPrimary          pulumi.BoolInput                        `pulumi:"isPrimary"`
-	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name                     pulumi.StringInput    `pulumi:"name"`
-	PlacementProperties      pulumi.StringMapInput `pulumi:"placementProperties"`
-	ReverseProxyEndpointPort pulumi.IntPtrInput    `pulumi:"reverseProxyEndpointPort"`
+	// A `applicationPorts` block as defined below.
+	ApplicationPorts ClusterNodeTypeApplicationPortsPtrInput `pulumi:"applicationPorts"`
+	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+	Capacities pulumi.StringMapInput `pulumi:"capacities"`
+	// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+	ClientEndpointPort pulumi.IntInput `pulumi:"clientEndpointPort"`
+	// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+	DurabilityLevel pulumi.StringPtrInput `pulumi:"durabilityLevel"`
+	// A `ephemeralPorts` block as defined below.
+	EphemeralPorts ClusterNodeTypeEphemeralPortsPtrInput `pulumi:"ephemeralPorts"`
+	// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+	HttpEndpointPort pulumi.IntInput `pulumi:"httpEndpointPort"`
+	// The number of nodes for this Node Type.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// Is this the Primary Node Type? Changing this forces a new resource to be created.
+	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	// The name of the Node Type. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
+	// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+	ReverseProxyEndpointPort pulumi.IntPtrInput `pulumi:"reverseProxyEndpointPort"`
 }
 
 func (ClusterNodeTypeArgs) ElementType() reflect.Type {
@@ -900,47 +991,57 @@ func (o ClusterNodeTypeOutput) ToClusterNodeTypeOutputWithContext(ctx context.Co
 	return o
 }
 
+// A `applicationPorts` block as defined below.
 func (o ClusterNodeTypeOutput) ApplicationPorts() ClusterNodeTypeApplicationPortsPtrOutput {
 	return o.ApplyT(func(v ClusterNodeType) *ClusterNodeTypeApplicationPorts { return v.ApplicationPorts }).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
 
+// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 func (o ClusterNodeTypeOutput) Capacities() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ClusterNodeType) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
 }
 
+// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
 func (o ClusterNodeTypeOutput) ClientEndpointPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeType) int { return v.ClientEndpointPort }).(pulumi.IntOutput)
 }
 
+// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
 func (o ClusterNodeTypeOutput) DurabilityLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNodeType) *string { return v.DurabilityLevel }).(pulumi.StringPtrOutput)
 }
 
+// A `ephemeralPorts` block as defined below.
 func (o ClusterNodeTypeOutput) EphemeralPorts() ClusterNodeTypeEphemeralPortsPtrOutput {
 	return o.ApplyT(func(v ClusterNodeType) *ClusterNodeTypeEphemeralPorts { return v.EphemeralPorts }).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
 
+// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
 func (o ClusterNodeTypeOutput) HttpEndpointPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeType) int { return v.HttpEndpointPort }).(pulumi.IntOutput)
 }
 
+// The number of nodes for this Node Type.
 func (o ClusterNodeTypeOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeType) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
+// Is this the Primary Node Type? Changing this forces a new resource to be created.
 func (o ClusterNodeTypeOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterNodeType) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
-// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+// The name of the Node Type. Changing this forces a new resource to be created.
 func (o ClusterNodeTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 func (o ClusterNodeTypeOutput) PlacementProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ClusterNodeType) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
 }
 
+// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
 func (o ClusterNodeTypeOutput) ReverseProxyEndpointPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterNodeType) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
 }
@@ -966,7 +1067,9 @@ func (o ClusterNodeTypeArrayOutput) Index(i pulumi.IntInput) ClusterNodeTypeOutp
 }
 
 type ClusterNodeTypeApplicationPorts struct {
-	EndPort   int `pulumi:"endPort"`
+	// The end of the Application Port Range on this Node Type.
+	EndPort int `pulumi:"endPort"`
+	// The start of the Application Port Range on this Node Type.
 	StartPort int `pulumi:"startPort"`
 }
 
@@ -978,7 +1081,9 @@ type ClusterNodeTypeApplicationPortsInput interface {
 }
 
 type ClusterNodeTypeApplicationPortsArgs struct {
-	EndPort   pulumi.IntInput `pulumi:"endPort"`
+	// The end of the Application Port Range on this Node Type.
+	EndPort pulumi.IntInput `pulumi:"endPort"`
+	// The start of the Application Port Range on this Node Type.
 	StartPort pulumi.IntInput `pulumi:"startPort"`
 }
 
@@ -1050,10 +1155,13 @@ func (o ClusterNodeTypeApplicationPortsOutput) ToClusterNodeTypeApplicationPorts
 		return &v
 	}).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
+
+// The end of the Application Port Range on this Node Type.
 func (o ClusterNodeTypeApplicationPortsOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
+// The start of the Application Port Range on this Node Type.
 func (o ClusterNodeTypeApplicationPortsOutput) StartPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
@@ -1076,16 +1184,20 @@ func (o ClusterNodeTypeApplicationPortsPtrOutput) Elem() ClusterNodeTypeApplicat
 	return o.ApplyT(func(v *ClusterNodeTypeApplicationPorts) ClusterNodeTypeApplicationPorts { return *v }).(ClusterNodeTypeApplicationPortsOutput)
 }
 
+// The end of the Application Port Range on this Node Type.
 func (o ClusterNodeTypeApplicationPortsPtrOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
+// The start of the Application Port Range on this Node Type.
 func (o ClusterNodeTypeApplicationPortsPtrOutput) StartPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
 
 type ClusterNodeTypeEphemeralPorts struct {
-	EndPort   int `pulumi:"endPort"`
+	// The end of the Ephemeral Port Range on this Node Type.
+	EndPort int `pulumi:"endPort"`
+	// The start of the Ephemeral Port Range on this Node Type.
 	StartPort int `pulumi:"startPort"`
 }
 
@@ -1097,7 +1209,9 @@ type ClusterNodeTypeEphemeralPortsInput interface {
 }
 
 type ClusterNodeTypeEphemeralPortsArgs struct {
-	EndPort   pulumi.IntInput `pulumi:"endPort"`
+	// The end of the Ephemeral Port Range on this Node Type.
+	EndPort pulumi.IntInput `pulumi:"endPort"`
+	// The start of the Ephemeral Port Range on this Node Type.
 	StartPort pulumi.IntInput `pulumi:"startPort"`
 }
 
@@ -1169,10 +1283,13 @@ func (o ClusterNodeTypeEphemeralPortsOutput) ToClusterNodeTypeEphemeralPortsPtrO
 		return &v
 	}).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
+
+// The end of the Ephemeral Port Range on this Node Type.
 func (o ClusterNodeTypeEphemeralPortsOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
+// The start of the Ephemeral Port Range on this Node Type.
 func (o ClusterNodeTypeEphemeralPortsOutput) StartPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
@@ -1195,18 +1312,23 @@ func (o ClusterNodeTypeEphemeralPortsPtrOutput) Elem() ClusterNodeTypeEphemeralP
 	return o.ApplyT(func(v *ClusterNodeTypeEphemeralPorts) ClusterNodeTypeEphemeralPorts { return *v }).(ClusterNodeTypeEphemeralPortsOutput)
 }
 
+// The end of the Ephemeral Port Range on this Node Type.
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
+// The start of the Ephemeral Port Range on this Node Type.
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) StartPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.StartPort }).(pulumi.IntOutput)
 }
 
 type ClusterReverseProxyCertificate struct {
-	Thumbprint          string  `pulumi:"thumbprint"`
+	// The Thumbprint of the Certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The Secondary Thumbprint of the Certificate.
 	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
-	X509StoreName       string  `pulumi:"x509StoreName"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName string `pulumi:"x509StoreName"`
 }
 
 type ClusterReverseProxyCertificateInput interface {
@@ -1217,9 +1339,12 @@ type ClusterReverseProxyCertificateInput interface {
 }
 
 type ClusterReverseProxyCertificateArgs struct {
-	Thumbprint          pulumi.StringInput    `pulumi:"thumbprint"`
+	// The Thumbprint of the Certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// The Secondary Thumbprint of the Certificate.
 	ThumbprintSecondary pulumi.StringPtrInput `pulumi:"thumbprintSecondary"`
-	X509StoreName       pulumi.StringInput    `pulumi:"x509StoreName"`
+	// The X509 Store where the Certificate Exists, such as `My`.
+	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
 }
 
 func (ClusterReverseProxyCertificateArgs) ElementType() reflect.Type {
@@ -1290,14 +1415,18 @@ func (o ClusterReverseProxyCertificateOutput) ToClusterReverseProxyCertificatePt
 		return &v
 	}).(ClusterReverseProxyCertificatePtrOutput)
 }
+
+// The Thumbprint of the Certificate.
 func (o ClusterReverseProxyCertificateOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
+// The Secondary Thumbprint of the Certificate.
 func (o ClusterReverseProxyCertificateOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterReverseProxyCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
+// The X509 Store where the Certificate Exists, such as `My`.
 func (o ClusterReverseProxyCertificateOutput) X509StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }
@@ -1320,14 +1449,17 @@ func (o ClusterReverseProxyCertificatePtrOutput) Elem() ClusterReverseProxyCerti
 	return o.ApplyT(func(v *ClusterReverseProxyCertificate) ClusterReverseProxyCertificate { return *v }).(ClusterReverseProxyCertificateOutput)
 }
 
+// The Thumbprint of the Certificate.
 func (o ClusterReverseProxyCertificatePtrOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
+// The Secondary Thumbprint of the Certificate.
 func (o ClusterReverseProxyCertificatePtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterReverseProxyCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
 }
 
+// The X509 Store where the Certificate Exists, such as `My`.
 func (o ClusterReverseProxyCertificatePtrOutput) X509StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
 }

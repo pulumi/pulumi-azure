@@ -253,18 +253,33 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkPacketCaptureFiltersArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("localIpAddress")]
         public Input<string>? LocalIpAddress { get; set; }
 
+        /// <summary>
+        /// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("localPort")]
         public Input<string>? LocalPort { get; set; }
 
+        /// <summary>
+        /// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("remoteIpAddress")]
         public Input<string>? RemoteIpAddress { get; set; }
 
+        /// <summary>
+        /// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("remotePort")]
         public Input<string>? RemotePort { get; set; }
 
@@ -275,18 +290,33 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkPacketCaptureFiltersGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("localIpAddress")]
         public Input<string>? LocalIpAddress { get; set; }
 
+        /// <summary>
+        /// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("localPort")]
         public Input<string>? LocalPort { get; set; }
 
+        /// <summary>
+        /// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("remoteIpAddress")]
         public Input<string>? RemoteIpAddress { get; set; }
 
+        /// <summary>
+        /// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("remotePort")]
         public Input<string>? RemotePort { get; set; }
 
@@ -297,9 +327,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkPacketCaptureStorageLocationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
 
+        /// <summary>
+        /// The ID of the storage account to save the packet capture session
+        /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
@@ -316,9 +352,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkPacketCaptureStorageLocationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
 
+        /// <summary>
+        /// The ID of the storage account to save the packet capture session
+        /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
 
@@ -340,10 +382,25 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class NetworkPacketCaptureFilters
     {
+        /// <summary>
+        /// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? LocalIpAddress;
+        /// <summary>
+        /// The local port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? LocalPort;
+        /// <summary>
+        /// The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// The remote IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? RemoteIpAddress;
+        /// <summary>
+        /// The remote port to be filtered on. Notation: "80" for single port entry."80-85" for range. "80;443;" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? RemotePort;
 
         [OutputConstructor]
@@ -365,7 +422,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class NetworkPacketCaptureStorageLocation
     {
+        /// <summary>
+        /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+        /// </summary>
         public readonly string? FilePath;
+        /// <summary>
+        /// The ID of the storage account to save the packet capture session
+        /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>
         /// The URI of the storage path to save the packet capture.

@@ -12,7 +12,7 @@ import (
 )
 
 type ActionGroupArmRoleReceiver struct {
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the ARM role receiver.
 	Name string `pulumi:"name"`
 	// The arm role id.
 	RoleId string `pulumi:"roleId"`
@@ -28,7 +28,7 @@ type ActionGroupArmRoleReceiverInput interface {
 }
 
 type ActionGroupArmRoleReceiverArgs struct {
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the ARM role receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The arm role id.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
@@ -83,7 +83,7 @@ func (o ActionGroupArmRoleReceiverOutput) ToActionGroupArmRoleReceiverOutputWith
 	return o
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the ARM role receiver.
 func (o ActionGroupArmRoleReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -123,7 +123,7 @@ type ActionGroupAutomationRunbookReceiver struct {
 	AutomationAccountId string `pulumi:"automationAccountId"`
 	// Indicates whether this instance is global runbook.
 	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the automation runbook receiver.
 	Name string `pulumi:"name"`
 	// The name for this runbook.
 	RunbookName string `pulumi:"runbookName"`
@@ -147,7 +147,7 @@ type ActionGroupAutomationRunbookReceiverArgs struct {
 	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
 	// Indicates whether this instance is global runbook.
 	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the automation runbook receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name for this runbook.
 	RunbookName pulumi.StringInput `pulumi:"runbookName"`
@@ -216,7 +216,7 @@ func (o ActionGroupAutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.Boo
 	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the automation runbook receiver.
 func (o ActionGroupAutomationRunbookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -262,9 +262,9 @@ func (o ActionGroupAutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput
 }
 
 type ActionGroupAzureAppPushReceiver struct {
-	// The email address of this receiver.
+	// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Azure app push receiver.
 	Name string `pulumi:"name"`
 }
 
@@ -276,9 +276,9 @@ type ActionGroupAzureAppPushReceiverInput interface {
 }
 
 type ActionGroupAzureAppPushReceiverArgs struct {
-	// The email address of this receiver.
+	// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Azure app push receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -329,12 +329,12 @@ func (o ActionGroupAzureAppPushReceiverOutput) ToActionGroupAzureAppPushReceiver
 	return o
 }
 
-// The email address of this receiver.
+// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 func (o ActionGroupAzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the Azure app push receiver.
 func (o ActionGroupAzureAppPushReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -365,7 +365,7 @@ type ActionGroupAzureFunctionReceiver struct {
 	FunctionName string `pulumi:"functionName"`
 	// The http trigger url where http request sent to.
 	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Azure Function receiver.
 	Name string `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
@@ -384,7 +384,7 @@ type ActionGroupAzureFunctionReceiverArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// The http trigger url where http request sent to.
 	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the Azure Function receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
@@ -451,7 +451,7 @@ func (o ActionGroupAzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOu
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the Azure Function receiver.
 func (o ActionGroupAzureFunctionReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -484,7 +484,7 @@ func (o ActionGroupAzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) Ac
 type ActionGroupEmailReceiver struct {
 	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
@@ -500,7 +500,7 @@ type ActionGroupEmailReceiverInput interface {
 type ActionGroupEmailReceiverArgs struct {
 	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
@@ -558,7 +558,7 @@ func (o ActionGroupEmailReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupEmailReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -591,7 +591,7 @@ func (o ActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 type ActionGroupItsmReceiver struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId string `pulumi:"connectionId"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the ITSM receiver.
 	Name string `pulumi:"name"`
 	// The region of the workspace.
 	Region string `pulumi:"region"`
@@ -611,7 +611,7 @@ type ActionGroupItsmReceiverInput interface {
 type ActionGroupItsmReceiverArgs struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the ITSM receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The region of the workspace.
 	Region pulumi.StringInput `pulumi:"region"`
@@ -673,7 +673,7 @@ func (o ActionGroupItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the ITSM receiver.
 func (o ActionGroupItsmReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -716,7 +716,7 @@ func (o ActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroup
 type ActionGroupLogicAppReceiver struct {
 	// The callback url where http request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the logic app receiver.
 	Name string `pulumi:"name"`
 	// The Azure resource ID of the logic app.
 	ResourceId string `pulumi:"resourceId"`
@@ -734,7 +734,7 @@ type ActionGroupLogicAppReceiverInput interface {
 type ActionGroupLogicAppReceiverArgs struct {
 	// The callback url where http request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the logic app receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Azure resource ID of the logic app.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -794,7 +794,7 @@ func (o ActionGroupLogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the logic app receiver.
 func (o ActionGroupLogicAppReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -830,11 +830,11 @@ func (o ActionGroupLogicAppReceiverArrayOutput) Index(i pulumi.IntInput) ActionG
 }
 
 type ActionGroupSmsReceiver struct {
-	// The country code of the voice receiver.
+	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
-	// The phone number of the voice receiver.
+	// The phone number of the SMS receiver.
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -846,11 +846,11 @@ type ActionGroupSmsReceiverInput interface {
 }
 
 type ActionGroupSmsReceiverArgs struct {
-	// The country code of the voice receiver.
+	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
+	// The phone number of the SMS receiver.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -901,17 +901,17 @@ func (o ActionGroupSmsReceiverOutput) ToActionGroupSmsReceiverOutputWithContext(
 	return o
 }
 
-// The country code of the voice receiver.
+// The country code of the SMS receiver.
 func (o ActionGroupSmsReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 func (o ActionGroupSmsReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the voice receiver.
+// The phone number of the SMS receiver.
 func (o ActionGroupSmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -939,7 +939,7 @@ func (o ActionGroupSmsReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupS
 type ActionGroupVoiceReceiver struct {
 	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the voice receiver.
 	Name string `pulumi:"name"`
 	// The phone number of the voice receiver.
 	PhoneNumber string `pulumi:"phoneNumber"`
@@ -955,7 +955,7 @@ type ActionGroupVoiceReceiverInput interface {
 type ActionGroupVoiceReceiverArgs struct {
 	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the voice receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The phone number of the voice receiver.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
@@ -1013,7 +1013,7 @@ func (o ActionGroupVoiceReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the voice receiver.
 func (o ActionGroupVoiceReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1151,7 +1151,9 @@ func (o ActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGr
 }
 
 type ActivityLogAlertAction struct {
-	ActionGroupId     string            `pulumi:"actionGroupId"`
+	// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+	ActionGroupId string `pulumi:"actionGroupId"`
+	// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -1163,7 +1165,9 @@ type ActivityLogAlertActionInput interface {
 }
 
 type ActivityLogAlertActionArgs struct {
-	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
+	// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
+	// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -1214,10 +1218,12 @@ func (o ActivityLogAlertActionOutput) ToActivityLogAlertActionOutputWithContext(
 	return o
 }
 
+// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
 func (o ActivityLogAlertActionOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertAction) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
+// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 func (o ActivityLogAlertActionOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActivityLogAlertAction) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -1243,16 +1249,26 @@ func (o ActivityLogAlertActionArrayOutput) Index(i pulumi.IntInput) ActivityLogA
 }
 
 type ActivityLogAlertCriteria struct {
-	Caller           *string `pulumi:"caller"`
-	Category         string  `pulumi:"category"`
-	Level            *string `pulumi:"level"`
-	OperationName    *string `pulumi:"operationName"`
-	ResourceGroup    *string `pulumi:"resourceGroup"`
-	ResourceId       *string `pulumi:"resourceId"`
+	// The email address or Azure Active Directory identifier of the user who performed the operation.
+	Caller *string `pulumi:"caller"`
+	// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
+	Category string `pulumi:"category"`
+	// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+	Level *string `pulumi:"level"`
+	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+	OperationName *string `pulumi:"operationName"`
+	// The name of resource group monitored by the activity log alert.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+	ResourceId *string `pulumi:"resourceId"`
+	// The name of the resource provider monitored by the activity log alert.
 	ResourceProvider *string `pulumi:"resourceProvider"`
-	ResourceType     *string `pulumi:"resourceType"`
-	Status           *string `pulumi:"status"`
-	SubStatus        *string `pulumi:"subStatus"`
+	// The resource type monitored by the activity log alert.
+	ResourceType *string `pulumi:"resourceType"`
+	// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+	Status *string `pulumi:"status"`
+	// The sub status of the event.
+	SubStatus *string `pulumi:"subStatus"`
 }
 
 type ActivityLogAlertCriteriaInput interface {
@@ -1263,16 +1279,26 @@ type ActivityLogAlertCriteriaInput interface {
 }
 
 type ActivityLogAlertCriteriaArgs struct {
-	Caller           pulumi.StringPtrInput `pulumi:"caller"`
-	Category         pulumi.StringInput    `pulumi:"category"`
-	Level            pulumi.StringPtrInput `pulumi:"level"`
-	OperationName    pulumi.StringPtrInput `pulumi:"operationName"`
-	ResourceGroup    pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	ResourceId       pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The email address or Azure Active Directory identifier of the user who performed the operation.
+	Caller pulumi.StringPtrInput `pulumi:"caller"`
+	// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
+	Category pulumi.StringInput `pulumi:"category"`
+	// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// The name of resource group monitored by the activity log alert.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The name of the resource provider monitored by the activity log alert.
 	ResourceProvider pulumi.StringPtrInput `pulumi:"resourceProvider"`
-	ResourceType     pulumi.StringPtrInput `pulumi:"resourceType"`
-	Status           pulumi.StringPtrInput `pulumi:"status"`
-	SubStatus        pulumi.StringPtrInput `pulumi:"subStatus"`
+	// The resource type monitored by the activity log alert.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The sub status of the event.
+	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
 }
 
 func (ActivityLogAlertCriteriaArgs) ElementType() reflect.Type {
@@ -1343,42 +1369,53 @@ func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaPtrOutputWithC
 		return &v
 	}).(ActivityLogAlertCriteriaPtrOutput)
 }
+
+// The email address or Azure Active Directory identifier of the user who performed the operation.
 func (o ActivityLogAlertCriteriaOutput) Caller() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Caller }).(pulumi.StringPtrOutput)
 }
 
+// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
 func (o ActivityLogAlertCriteriaOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) string { return v.Category }).(pulumi.StringOutput)
 }
 
+// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 func (o ActivityLogAlertCriteriaOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
+// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 func (o ActivityLogAlertCriteriaOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
+// The name of resource group monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
+// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 func (o ActivityLogAlertCriteriaOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the resource provider monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
 }
 
+// The resource type monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 func (o ActivityLogAlertCriteriaOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The sub status of the event.
 func (o ActivityLogAlertCriteriaOutput) SubStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
 }
@@ -1401,48 +1438,60 @@ func (o ActivityLogAlertCriteriaPtrOutput) Elem() ActivityLogAlertCriteriaOutput
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) ActivityLogAlertCriteria { return *v }).(ActivityLogAlertCriteriaOutput)
 }
 
+// The email address or Azure Active Directory identifier of the user who performed the operation.
 func (o ActivityLogAlertCriteriaPtrOutput) Caller() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Caller }).(pulumi.StringPtrOutput)
 }
 
+// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
 func (o ActivityLogAlertCriteriaPtrOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) string { return v.Category }).(pulumi.StringOutput)
 }
 
+// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 func (o ActivityLogAlertCriteriaPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
+// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 func (o ActivityLogAlertCriteriaPtrOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
+// The name of resource group monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
+// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the resource provider monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
 }
 
+// The resource type monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
+// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 func (o ActivityLogAlertCriteriaPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The sub status of the event.
 func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingNotification struct {
-	Email    *AutoscaleSettingNotificationEmail    `pulumi:"email"`
+	// A `email` block as defined below.
+	Email *AutoscaleSettingNotificationEmail `pulumi:"email"`
+	// One or more `webhook` blocks as defined below.
 	Webhooks []AutoscaleSettingNotificationWebhook `pulumi:"webhooks"`
 }
 
@@ -1454,7 +1503,9 @@ type AutoscaleSettingNotificationInput interface {
 }
 
 type AutoscaleSettingNotificationArgs struct {
-	Email    AutoscaleSettingNotificationEmailPtrInput     `pulumi:"email"`
+	// A `email` block as defined below.
+	Email AutoscaleSettingNotificationEmailPtrInput `pulumi:"email"`
+	// One or more `webhook` blocks as defined below.
 	Webhooks AutoscaleSettingNotificationWebhookArrayInput `pulumi:"webhooks"`
 }
 
@@ -1526,10 +1577,13 @@ func (o AutoscaleSettingNotificationOutput) ToAutoscaleSettingNotificationPtrOut
 		return &v
 	}).(AutoscaleSettingNotificationPtrOutput)
 }
+
+// A `email` block as defined below.
 func (o AutoscaleSettingNotificationOutput) Email() AutoscaleSettingNotificationEmailPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 
+// One or more `webhook` blocks as defined below.
 func (o AutoscaleSettingNotificationOutput) Webhooks() AutoscaleSettingNotificationWebhookArrayOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook { return v.Webhooks }).(AutoscaleSettingNotificationWebhookArrayOutput)
 }
@@ -1552,18 +1606,23 @@ func (o AutoscaleSettingNotificationPtrOutput) Elem() AutoscaleSettingNotificati
 	return o.ApplyT(func(v *AutoscaleSettingNotification) AutoscaleSettingNotification { return *v }).(AutoscaleSettingNotificationOutput)
 }
 
+// A `email` block as defined below.
 func (o AutoscaleSettingNotificationPtrOutput) Email() AutoscaleSettingNotificationEmailPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 
+// One or more `webhook` blocks as defined below.
 func (o AutoscaleSettingNotificationPtrOutput) Webhooks() AutoscaleSettingNotificationWebhookArrayOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook { return v.Webhooks }).(AutoscaleSettingNotificationWebhookArrayOutput)
 }
 
 type AutoscaleSettingNotificationEmail struct {
-	CustomEmails                      []string `pulumi:"customEmails"`
-	SendToSubscriptionAdministrator   *bool    `pulumi:"sendToSubscriptionAdministrator"`
-	SendToSubscriptionCoAdministrator *bool    `pulumi:"sendToSubscriptionCoAdministrator"`
+	// Specifies a list of custom email addresses to which the email notifications will be sent.
+	CustomEmails []string `pulumi:"customEmails"`
+	// Should email notifications be sent to the subscription administrator? Defaults to `false`.
+	SendToSubscriptionAdministrator *bool `pulumi:"sendToSubscriptionAdministrator"`
+	// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+	SendToSubscriptionCoAdministrator *bool `pulumi:"sendToSubscriptionCoAdministrator"`
 }
 
 type AutoscaleSettingNotificationEmailInput interface {
@@ -1574,9 +1633,12 @@ type AutoscaleSettingNotificationEmailInput interface {
 }
 
 type AutoscaleSettingNotificationEmailArgs struct {
-	CustomEmails                      pulumi.StringArrayInput `pulumi:"customEmails"`
-	SendToSubscriptionAdministrator   pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionAdministrator"`
-	SendToSubscriptionCoAdministrator pulumi.BoolPtrInput     `pulumi:"sendToSubscriptionCoAdministrator"`
+	// Specifies a list of custom email addresses to which the email notifications will be sent.
+	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
+	// Should email notifications be sent to the subscription administrator? Defaults to `false`.
+	SendToSubscriptionAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionAdministrator"`
+	// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+	SendToSubscriptionCoAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrator"`
 }
 
 func (AutoscaleSettingNotificationEmailArgs) ElementType() reflect.Type {
@@ -1647,14 +1709,18 @@ func (o AutoscaleSettingNotificationEmailOutput) ToAutoscaleSettingNotificationE
 		return &v
 	}).(AutoscaleSettingNotificationEmailPtrOutput)
 }
+
+// Specifies a list of custom email addresses to which the email notifications will be sent.
 func (o AutoscaleSettingNotificationEmailOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
+// Should email notifications be sent to the subscription administrator? Defaults to `false`.
 func (o AutoscaleSettingNotificationEmailOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
 }
 
+// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
 func (o AutoscaleSettingNotificationEmailOutput) SendToSubscriptionCoAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionCoAdministrator }).(pulumi.BoolPtrOutput)
 }
@@ -1677,21 +1743,26 @@ func (o AutoscaleSettingNotificationEmailPtrOutput) Elem() AutoscaleSettingNotif
 	return o.ApplyT(func(v *AutoscaleSettingNotificationEmail) AutoscaleSettingNotificationEmail { return *v }).(AutoscaleSettingNotificationEmailOutput)
 }
 
+// Specifies a list of custom email addresses to which the email notifications will be sent.
 func (o AutoscaleSettingNotificationEmailPtrOutput) CustomEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
 }
 
+// Should email notifications be sent to the subscription administrator? Defaults to `false`.
 func (o AutoscaleSettingNotificationEmailPtrOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
 }
 
+// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
 func (o AutoscaleSettingNotificationEmailPtrOutput) SendToSubscriptionCoAdministrator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionCoAdministrator }).(pulumi.BoolPtrOutput)
 }
 
 type AutoscaleSettingNotificationWebhook struct {
+	// A map of settings.
 	Properties map[string]string `pulumi:"properties"`
-	ServiceUri string            `pulumi:"serviceUri"`
+	// The HTTPS URI which should receive scale notifications.
+	ServiceUri string `pulumi:"serviceUri"`
 }
 
 type AutoscaleSettingNotificationWebhookInput interface {
@@ -1702,8 +1773,10 @@ type AutoscaleSettingNotificationWebhookInput interface {
 }
 
 type AutoscaleSettingNotificationWebhookArgs struct {
+	// A map of settings.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	ServiceUri pulumi.StringInput    `pulumi:"serviceUri"`
+	// The HTTPS URI which should receive scale notifications.
+	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 }
 
 func (AutoscaleSettingNotificationWebhookArgs) ElementType() reflect.Type {
@@ -1753,10 +1826,12 @@ func (o AutoscaleSettingNotificationWebhookOutput) ToAutoscaleSettingNotificatio
 	return o
 }
 
+// A map of settings.
 func (o AutoscaleSettingNotificationWebhookOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationWebhook) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// The HTTPS URI which should receive scale notifications.
 func (o AutoscaleSettingNotificationWebhookOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotificationWebhook) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
@@ -1782,12 +1857,16 @@ func (o AutoscaleSettingNotificationWebhookArrayOutput) Index(i pulumi.IntInput)
 }
 
 type AutoscaleSettingProfile struct {
-	Capacity  AutoscaleSettingProfileCapacity   `pulumi:"capacity"`
+	// A `capacity` block as defined below.
+	Capacity AutoscaleSettingProfileCapacity `pulumi:"capacity"`
+	// A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
 	FixedDate *AutoscaleSettingProfileFixedDate `pulumi:"fixedDate"`
-	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-	Name       string                             `pulumi:"name"`
+	// Specifies the name of the profile.
+	Name string `pulumi:"name"`
+	// A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
 	Recurrence *AutoscaleSettingProfileRecurrence `pulumi:"recurrence"`
-	Rules      []AutoscaleSettingProfileRule      `pulumi:"rules"`
+	// One or more (up to 10) `rule` blocks as defined below.
+	Rules []AutoscaleSettingProfileRule `pulumi:"rules"`
 }
 
 type AutoscaleSettingProfileInput interface {
@@ -1798,12 +1877,16 @@ type AutoscaleSettingProfileInput interface {
 }
 
 type AutoscaleSettingProfileArgs struct {
-	Capacity  AutoscaleSettingProfileCapacityInput     `pulumi:"capacity"`
+	// A `capacity` block as defined below.
+	Capacity AutoscaleSettingProfileCapacityInput `pulumi:"capacity"`
+	// A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
 	FixedDate AutoscaleSettingProfileFixedDatePtrInput `pulumi:"fixedDate"`
-	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-	Name       pulumi.StringInput                        `pulumi:"name"`
+	// Specifies the name of the profile.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
 	Recurrence AutoscaleSettingProfileRecurrencePtrInput `pulumi:"recurrence"`
-	Rules      AutoscaleSettingProfileRuleArrayInput     `pulumi:"rules"`
+	// One or more (up to 10) `rule` blocks as defined below.
+	Rules AutoscaleSettingProfileRuleArrayInput `pulumi:"rules"`
 }
 
 func (AutoscaleSettingProfileArgs) ElementType() reflect.Type {
@@ -1853,23 +1936,27 @@ func (o AutoscaleSettingProfileOutput) ToAutoscaleSettingProfileOutputWithContex
 	return o
 }
 
+// A `capacity` block as defined below.
 func (o AutoscaleSettingProfileOutput) Capacity() AutoscaleSettingProfileCapacityOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfile) AutoscaleSettingProfileCapacity { return v.Capacity }).(AutoscaleSettingProfileCapacityOutput)
 }
 
+// A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
 func (o AutoscaleSettingProfileOutput) FixedDate() AutoscaleSettingProfileFixedDatePtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfile) *AutoscaleSettingProfileFixedDate { return v.FixedDate }).(AutoscaleSettingProfileFixedDatePtrOutput)
 }
 
-// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+// Specifies the name of the profile.
 func (o AutoscaleSettingProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
 func (o AutoscaleSettingProfileOutput) Recurrence() AutoscaleSettingProfileRecurrencePtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfile) *AutoscaleSettingProfileRecurrence { return v.Recurrence }).(AutoscaleSettingProfileRecurrencePtrOutput)
 }
 
+// One or more (up to 10) `rule` blocks as defined below.
 func (o AutoscaleSettingProfileOutput) Rules() AutoscaleSettingProfileRuleArrayOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfile) []AutoscaleSettingProfileRule { return v.Rules }).(AutoscaleSettingProfileRuleArrayOutput)
 }
@@ -1895,8 +1982,11 @@ func (o AutoscaleSettingProfileArrayOutput) Index(i pulumi.IntInput) AutoscaleSe
 }
 
 type AutoscaleSettingProfileCapacity struct {
+	// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
 	Default int `pulumi:"default"`
+	// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
 	Maximum int `pulumi:"maximum"`
+	// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 	Minimum int `pulumi:"minimum"`
 }
 
@@ -1908,8 +1998,11 @@ type AutoscaleSettingProfileCapacityInput interface {
 }
 
 type AutoscaleSettingProfileCapacityArgs struct {
+	// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
 	Default pulumi.IntInput `pulumi:"default"`
+	// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
 	Maximum pulumi.IntInput `pulumi:"maximum"`
+	// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 	Minimum pulumi.IntInput `pulumi:"minimum"`
 }
 
@@ -1939,21 +2032,27 @@ func (o AutoscaleSettingProfileCapacityOutput) ToAutoscaleSettingProfileCapacity
 	return o
 }
 
+// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
 func (o AutoscaleSettingProfileCapacityOutput) Default() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Default }).(pulumi.IntOutput)
 }
 
+// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
 func (o AutoscaleSettingProfileCapacityOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Maximum }).(pulumi.IntOutput)
 }
 
+// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 func (o AutoscaleSettingProfileCapacityOutput) Minimum() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Minimum }).(pulumi.IntOutput)
 }
 
 type AutoscaleSettingProfileFixedDate struct {
-	End      string  `pulumi:"end"`
-	Start    string  `pulumi:"start"`
+	// Specifies the end date for the profile, formatted as an RFC3339 date string.
+	End string `pulumi:"end"`
+	// Specifies the start date for the profile, formatted as an RFC3339 date string.
+	Start string `pulumi:"start"`
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -1965,8 +2064,11 @@ type AutoscaleSettingProfileFixedDateInput interface {
 }
 
 type AutoscaleSettingProfileFixedDateArgs struct {
-	End      pulumi.StringInput    `pulumi:"end"`
-	Start    pulumi.StringInput    `pulumi:"start"`
+	// Specifies the end date for the profile, formatted as an RFC3339 date string.
+	End pulumi.StringInput `pulumi:"end"`
+	// Specifies the start date for the profile, formatted as an RFC3339 date string.
+	Start pulumi.StringInput `pulumi:"start"`
+	// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -2038,14 +2140,18 @@ func (o AutoscaleSettingProfileFixedDateOutput) ToAutoscaleSettingProfileFixedDa
 		return &v
 	}).(AutoscaleSettingProfileFixedDatePtrOutput)
 }
+
+// Specifies the end date for the profile, formatted as an RFC3339 date string.
 func (o AutoscaleSettingProfileFixedDateOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.End }).(pulumi.StringOutput)
 }
 
+// Specifies the start date for the profile, formatted as an RFC3339 date string.
 func (o AutoscaleSettingProfileFixedDateOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
 }
 
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDateOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -2068,23 +2174,30 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) Elem() AutoscaleSettingProfil
 	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) AutoscaleSettingProfileFixedDate { return *v }).(AutoscaleSettingProfileFixedDateOutput)
 }
 
+// Specifies the end date for the profile, formatted as an RFC3339 date string.
 func (o AutoscaleSettingProfileFixedDatePtrOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.End }).(pulumi.StringOutput)
 }
 
+// Specifies the start date for the profile, formatted as an RFC3339 date string.
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
 }
 
+// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingProfileRecurrence struct {
-	Days     []string `pulumi:"days"`
-	Hours    int      `pulumi:"hours"`
-	Minutes  int      `pulumi:"minutes"`
-	Timezone *string  `pulumi:"timezone"`
+	// A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+	Days []string `pulumi:"days"`
+	// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+	Hours int `pulumi:"hours"`
+	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+	Minutes int `pulumi:"minutes"`
+	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+	Timezone *string `pulumi:"timezone"`
 }
 
 type AutoscaleSettingProfileRecurrenceInput interface {
@@ -2095,10 +2208,14 @@ type AutoscaleSettingProfileRecurrenceInput interface {
 }
 
 type AutoscaleSettingProfileRecurrenceArgs struct {
-	Days     pulumi.StringArrayInput `pulumi:"days"`
-	Hours    pulumi.IntInput         `pulumi:"hours"`
-	Minutes  pulumi.IntInput         `pulumi:"minutes"`
-	Timezone pulumi.StringPtrInput   `pulumi:"timezone"`
+	// A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+	Days pulumi.StringArrayInput `pulumi:"days"`
+	// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+	Hours pulumi.IntInput `pulumi:"hours"`
+	// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+	// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
 func (AutoscaleSettingProfileRecurrenceArgs) ElementType() reflect.Type {
@@ -2169,18 +2286,23 @@ func (o AutoscaleSettingProfileRecurrenceOutput) ToAutoscaleSettingProfileRecurr
 		return &v
 	}).(AutoscaleSettingProfileRecurrencePtrOutput)
 }
+
+// A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o AutoscaleSettingProfileRecurrenceOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
+// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
 func (o AutoscaleSettingProfileRecurrenceOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Hours }).(pulumi.IntOutput)
 }
 
+// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 func (o AutoscaleSettingProfileRecurrenceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
+// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrenceOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -2203,25 +2325,31 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) Elem() AutoscaleSettingProfi
 	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) AutoscaleSettingProfileRecurrence { return *v }).(AutoscaleSettingProfileRecurrenceOutput)
 }
 
+// A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
+// A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Hours() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Hours }).(pulumi.IntOutput)
 }
 
+// A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
+// The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingProfileRule struct {
+	// A `metricTrigger` block as defined below.
 	MetricTrigger AutoscaleSettingProfileRuleMetricTrigger `pulumi:"metricTrigger"`
-	ScaleAction   AutoscaleSettingProfileRuleScaleAction   `pulumi:"scaleAction"`
+	// A `scaleAction` block as defined below.
+	ScaleAction AutoscaleSettingProfileRuleScaleAction `pulumi:"scaleAction"`
 }
 
 type AutoscaleSettingProfileRuleInput interface {
@@ -2232,8 +2360,10 @@ type AutoscaleSettingProfileRuleInput interface {
 }
 
 type AutoscaleSettingProfileRuleArgs struct {
+	// A `metricTrigger` block as defined below.
 	MetricTrigger AutoscaleSettingProfileRuleMetricTriggerInput `pulumi:"metricTrigger"`
-	ScaleAction   AutoscaleSettingProfileRuleScaleActionInput   `pulumi:"scaleAction"`
+	// A `scaleAction` block as defined below.
+	ScaleAction AutoscaleSettingProfileRuleScaleActionInput `pulumi:"scaleAction"`
 }
 
 func (AutoscaleSettingProfileRuleArgs) ElementType() reflect.Type {
@@ -2283,10 +2413,12 @@ func (o AutoscaleSettingProfileRuleOutput) ToAutoscaleSettingProfileRuleOutputWi
 	return o
 }
 
+// A `metricTrigger` block as defined below.
 func (o AutoscaleSettingProfileRuleOutput) MetricTrigger() AutoscaleSettingProfileRuleMetricTriggerOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRule) AutoscaleSettingProfileRuleMetricTrigger { return v.MetricTrigger }).(AutoscaleSettingProfileRuleMetricTriggerOutput)
 }
 
+// A `scaleAction` block as defined below.
 func (o AutoscaleSettingProfileRuleOutput) ScaleAction() AutoscaleSettingProfileRuleScaleActionOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRule) AutoscaleSettingProfileRuleScaleAction { return v.ScaleAction }).(AutoscaleSettingProfileRuleScaleActionOutput)
 }
@@ -2312,14 +2444,22 @@ func (o AutoscaleSettingProfileRuleArrayOutput) Index(i pulumi.IntInput) Autosca
 }
 
 type AutoscaleSettingProfileRuleMetricTrigger struct {
-	MetricName       string  `pulumi:"metricName"`
-	MetricResourceId string  `pulumi:"metricResourceId"`
-	Operator         string  `pulumi:"operator"`
-	Statistic        string  `pulumi:"statistic"`
-	Threshold        float64 `pulumi:"threshold"`
-	TimeAggregation  string  `pulumi:"timeAggregation"`
-	TimeGrain        string  `pulumi:"timeGrain"`
-	TimeWindow       string  `pulumi:"timeWindow"`
+	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+	MetricName string `pulumi:"metricName"`
+	// The ID of the Resource which the Rule monitors.
+	MetricResourceId string `pulumi:"metricResourceId"`
+	// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+	Statistic string `pulumi:"statistic"`
+	// Specifies the threshold of the metric that triggers the scale action.
+	Threshold float64 `pulumi:"threshold"`
+	// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+	TimeAggregation string `pulumi:"timeAggregation"`
+	// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+	TimeGrain string `pulumi:"timeGrain"`
+	// Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+	TimeWindow string `pulumi:"timeWindow"`
 }
 
 type AutoscaleSettingProfileRuleMetricTriggerInput interface {
@@ -2330,14 +2470,22 @@ type AutoscaleSettingProfileRuleMetricTriggerInput interface {
 }
 
 type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
-	MetricName       pulumi.StringInput  `pulumi:"metricName"`
-	MetricResourceId pulumi.StringInput  `pulumi:"metricResourceId"`
-	Operator         pulumi.StringInput  `pulumi:"operator"`
-	Statistic        pulumi.StringInput  `pulumi:"statistic"`
-	Threshold        pulumi.Float64Input `pulumi:"threshold"`
-	TimeAggregation  pulumi.StringInput  `pulumi:"timeAggregation"`
-	TimeGrain        pulumi.StringInput  `pulumi:"timeGrain"`
-	TimeWindow       pulumi.StringInput  `pulumi:"timeWindow"`
+	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The ID of the Resource which the Rule monitors.
+	MetricResourceId pulumi.StringInput `pulumi:"metricResourceId"`
+	// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
+	Statistic pulumi.StringInput `pulumi:"statistic"`
+	// Specifies the threshold of the metric that triggers the scale action.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
+	// Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+	TimeWindow pulumi.StringInput `pulumi:"timeWindow"`
 }
 
 func (AutoscaleSettingProfileRuleMetricTriggerArgs) ElementType() reflect.Type {
@@ -2366,43 +2514,55 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) ToAutoscaleSettingProfil
 	return o
 }
 
+// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// The ID of the Resource which the Rule monitors.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricResourceId }).(pulumi.StringOutput)
 }
 
+// Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Statistic() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
 }
 
+// Specifies the threshold of the metric that triggers the scale action.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
+// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeGrain() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeGrain }).(pulumi.StringOutput)
 }
 
+// Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeWindow }).(pulumi.StringOutput)
 }
 
 type AutoscaleSettingProfileRuleScaleAction struct {
-	Cooldown  string `pulumi:"cooldown"`
+	// The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+	Cooldown string `pulumi:"cooldown"`
+	// The scale direction. Possible values are `Increase` and `Decrease`.
 	Direction string `pulumi:"direction"`
-	Type      string `pulumi:"type"`
-	Value     int    `pulumi:"value"`
+	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+	Type string `pulumi:"type"`
+	// The number of instances involved in the scaling action. Defaults to `1`.
+	Value int `pulumi:"value"`
 }
 
 type AutoscaleSettingProfileRuleScaleActionInput interface {
@@ -2413,10 +2573,14 @@ type AutoscaleSettingProfileRuleScaleActionInput interface {
 }
 
 type AutoscaleSettingProfileRuleScaleActionArgs struct {
-	Cooldown  pulumi.StringInput `pulumi:"cooldown"`
+	// The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+	Cooldown pulumi.StringInput `pulumi:"cooldown"`
+	// The scale direction. Possible values are `Increase` and `Decrease`.
 	Direction pulumi.StringInput `pulumi:"direction"`
-	Type      pulumi.StringInput `pulumi:"type"`
-	Value     pulumi.IntInput    `pulumi:"value"`
+	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The number of instances involved in the scaling action. Defaults to `1`.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (AutoscaleSettingProfileRuleScaleActionArgs) ElementType() reflect.Type {
@@ -2445,25 +2609,32 @@ func (o AutoscaleSettingProfileRuleScaleActionOutput) ToAutoscaleSettingProfileR
 	return o
 }
 
+// The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Cooldown() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Cooldown }).(pulumi.StringOutput)
 }
 
+// The scale direction. Possible values are `Increase` and `Decrease`.
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Direction }).(pulumi.StringOutput)
 }
 
+// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The number of instances involved in the scaling action. Defaults to `1`.
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) int { return v.Value }).(pulumi.IntOutput)
 }
 
 type DiagnosticSettingLog struct {
-	Category        string                              `pulumi:"category"`
-	Enabled         *bool                               `pulumi:"enabled"`
+	// The name of a Diagnostic Log Category for this Resource.
+	Category string `pulumi:"category"`
+	// Is this Diagnostic Log enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy DiagnosticSettingLogRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -2475,8 +2646,11 @@ type DiagnosticSettingLogInput interface {
 }
 
 type DiagnosticSettingLogArgs struct {
-	Category        pulumi.StringInput                       `pulumi:"category"`
-	Enabled         pulumi.BoolPtrInput                      `pulumi:"enabled"`
+	// The name of a Diagnostic Log Category for this Resource.
+	Category pulumi.StringInput `pulumi:"category"`
+	// Is this Diagnostic Log enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy DiagnosticSettingLogRetentionPolicyInput `pulumi:"retentionPolicy"`
 }
 
@@ -2527,14 +2701,17 @@ func (o DiagnosticSettingLogOutput) ToDiagnosticSettingLogOutputWithContext(ctx 
 	return o
 }
 
+// The name of a Diagnostic Log Category for this Resource.
 func (o DiagnosticSettingLogOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v DiagnosticSettingLog) string { return v.Category }).(pulumi.StringOutput)
 }
 
+// Is this Diagnostic Log enabled? Defaults to `true`.
 func (o DiagnosticSettingLogOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingLog) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `retentionPolicy` block as defined below.
 func (o DiagnosticSettingLogOutput) RetentionPolicy() DiagnosticSettingLogRetentionPolicyOutput {
 	return o.ApplyT(func(v DiagnosticSettingLog) DiagnosticSettingLogRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingLogRetentionPolicyOutput)
 }
@@ -2560,7 +2737,9 @@ func (o DiagnosticSettingLogArrayOutput) Index(i pulumi.IntInput) DiagnosticSett
 }
 
 type DiagnosticSettingLogRetentionPolicy struct {
-	Days    *int `pulumi:"days"`
+	// The number of days for which this Retention Policy should apply.
+	Days *int `pulumi:"days"`
+	// Is this Retention Policy enabled?
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2572,8 +2751,10 @@ type DiagnosticSettingLogRetentionPolicyInput interface {
 }
 
 type DiagnosticSettingLogRetentionPolicyArgs struct {
-	Days    pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	// The number of days for which this Retention Policy should apply.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Is this Retention Policy enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
 func (DiagnosticSettingLogRetentionPolicyArgs) ElementType() reflect.Type {
@@ -2602,17 +2783,22 @@ func (o DiagnosticSettingLogRetentionPolicyOutput) ToDiagnosticSettingLogRetenti
 	return o
 }
 
+// The number of days for which this Retention Policy should apply.
 func (o DiagnosticSettingLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+// Is this Retention Policy enabled?
 func (o DiagnosticSettingLogRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DiagnosticSettingLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type DiagnosticSettingMetric struct {
-	Category        string                                 `pulumi:"category"`
-	Enabled         *bool                                  `pulumi:"enabled"`
+	// The name of a Diagnostic Metric Category for this Resource.
+	Category string `pulumi:"category"`
+	// Is this Diagnostic Metric enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -2624,8 +2810,11 @@ type DiagnosticSettingMetricInput interface {
 }
 
 type DiagnosticSettingMetricArgs struct {
-	Category        pulumi.StringInput                          `pulumi:"category"`
-	Enabled         pulumi.BoolPtrInput                         `pulumi:"enabled"`
+	// The name of a Diagnostic Metric Category for this Resource.
+	Category pulumi.StringInput `pulumi:"category"`
+	// Is this Diagnostic Metric enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A `retentionPolicy` block as defined below.
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicyInput `pulumi:"retentionPolicy"`
 }
 
@@ -2676,14 +2865,17 @@ func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutputWithContex
 	return o
 }
 
+// The name of a Diagnostic Metric Category for this Resource.
 func (o DiagnosticSettingMetricOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) string { return v.Category }).(pulumi.StringOutput)
 }
 
+// Is this Diagnostic Metric enabled? Defaults to `true`.
 func (o DiagnosticSettingMetricOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `retentionPolicy` block as defined below.
 func (o DiagnosticSettingMetricOutput) RetentionPolicy() DiagnosticSettingMetricRetentionPolicyOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) DiagnosticSettingMetricRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingMetricRetentionPolicyOutput)
 }
@@ -2709,7 +2901,9 @@ func (o DiagnosticSettingMetricArrayOutput) Index(i pulumi.IntInput) DiagnosticS
 }
 
 type DiagnosticSettingMetricRetentionPolicy struct {
-	Days    *int `pulumi:"days"`
+	// The number of days for which this Retention Policy should apply.
+	Days *int `pulumi:"days"`
+	// Is this Retention Policy enabled?
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2721,8 +2915,10 @@ type DiagnosticSettingMetricRetentionPolicyInput interface {
 }
 
 type DiagnosticSettingMetricRetentionPolicyArgs struct {
-	Days    pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	// The number of days for which this Retention Policy should apply.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Is this Retention Policy enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
 func (DiagnosticSettingMetricRetentionPolicyArgs) ElementType() reflect.Type {
@@ -2751,16 +2947,20 @@ func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricR
 	return o
 }
 
+// The number of days for which this Retention Policy should apply.
 func (o DiagnosticSettingMetricRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+// Is this Retention Policy enabled?
 func (o DiagnosticSettingMetricRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type LogProfileRetentionPolicy struct {
-	Days    *int `pulumi:"days"`
+	// The number of days for the retention policy. Defaults to 0.
+	Days *int `pulumi:"days"`
+	// A boolean value to indicate whether the retention policy is enabled.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2772,8 +2972,10 @@ type LogProfileRetentionPolicyInput interface {
 }
 
 type LogProfileRetentionPolicyArgs struct {
-	Days    pulumi.IntPtrInput `pulumi:"days"`
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	// The number of days for the retention policy. Defaults to 0.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// A boolean value to indicate whether the retention policy is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
 func (LogProfileRetentionPolicyArgs) ElementType() reflect.Type {
@@ -2844,10 +3046,13 @@ func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutputWit
 		return &v
 	}).(LogProfileRetentionPolicyPtrOutput)
 }
+
+// The number of days for the retention policy. Defaults to 0.
 func (o LogProfileRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+// A boolean value to indicate whether the retention policy is enabled.
 func (o LogProfileRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2870,16 +3075,20 @@ func (o LogProfileRetentionPolicyPtrOutput) Elem() LogProfileRetentionPolicyOutp
 	return o.ApplyT(func(v *LogProfileRetentionPolicy) LogProfileRetentionPolicy { return *v }).(LogProfileRetentionPolicyOutput)
 }
 
+// The number of days for the retention policy. Defaults to 0.
 func (o LogProfileRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+// A boolean value to indicate whether the retention policy is enabled.
 func (o LogProfileRetentionPolicyPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 type MetricAlertAction struct {
-	ActionGroupId     string            `pulumi:"actionGroupId"`
+	// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+	ActionGroupId string `pulumi:"actionGroupId"`
+	// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -2891,7 +3100,9 @@ type MetricAlertActionInput interface {
 }
 
 type MetricAlertActionArgs struct {
-	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
+	// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
+	// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -2942,10 +3153,12 @@ func (o MetricAlertActionOutput) ToMetricAlertActionOutputWithContext(ctx contex
 	return o
 }
 
+// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
 func (o MetricAlertActionOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertAction) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
+// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 func (o MetricAlertActionOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlertAction) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -2971,12 +3184,18 @@ func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertAction
 }
 
 type MetricAlertCriteria struct {
-	Aggregation     string                         `pulumi:"aggregation"`
-	Dimensions      []MetricAlertCriteriaDimension `pulumi:"dimensions"`
-	MetricName      string                         `pulumi:"metricName"`
-	MetricNamespace string                         `pulumi:"metricNamespace"`
-	Operator        string                         `pulumi:"operator"`
-	Threshold       float64                        `pulumi:"threshold"`
+	// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+	Aggregation string `pulumi:"aggregation"`
+	// One or more `dimension` blocks as defined below.
+	Dimensions []MetricAlertCriteriaDimension `pulumi:"dimensions"`
+	// One of the metric names to be monitored.
+	MetricName string `pulumi:"metricName"`
+	// One of the metric namespaces to be monitored.
+	MetricNamespace string `pulumi:"metricNamespace"`
+	// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// The criteria threshold value that activates the alert.
+	Threshold float64 `pulumi:"threshold"`
 }
 
 type MetricAlertCriteriaInput interface {
@@ -2987,12 +3206,18 @@ type MetricAlertCriteriaInput interface {
 }
 
 type MetricAlertCriteriaArgs struct {
-	Aggregation     pulumi.StringInput                     `pulumi:"aggregation"`
-	Dimensions      MetricAlertCriteriaDimensionArrayInput `pulumi:"dimensions"`
-	MetricName      pulumi.StringInput                     `pulumi:"metricName"`
-	MetricNamespace pulumi.StringInput                     `pulumi:"metricNamespace"`
-	Operator        pulumi.StringInput                     `pulumi:"operator"`
-	Threshold       pulumi.Float64Input                    `pulumi:"threshold"`
+	// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// One or more `dimension` blocks as defined below.
+	Dimensions MetricAlertCriteriaDimensionArrayInput `pulumi:"dimensions"`
+	// One of the metric names to be monitored.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// One of the metric namespaces to be monitored.
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// The criteria threshold value that activates the alert.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
 }
 
 func (MetricAlertCriteriaArgs) ElementType() reflect.Type {
@@ -3042,26 +3267,32 @@ func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutputWithContext(ctx co
 	return o
 }
 
+// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
 func (o MetricAlertCriteriaOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
+// One or more `dimension` blocks as defined below.
 func (o MetricAlertCriteriaOutput) Dimensions() MetricAlertCriteriaDimensionArrayOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) []MetricAlertCriteriaDimension { return v.Dimensions }).(MetricAlertCriteriaDimensionArrayOutput)
 }
 
+// One of the metric names to be monitored.
 func (o MetricAlertCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
+// One of the metric namespaces to be monitored.
 func (o MetricAlertCriteriaOutput) MetricNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
+// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 func (o MetricAlertCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// The criteria threshold value that activates the alert.
 func (o MetricAlertCriteriaOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricAlertCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
@@ -3087,10 +3318,12 @@ func (o MetricAlertCriteriaArrayOutput) Index(i pulumi.IntInput) MetricAlertCrit
 }
 
 type MetricAlertCriteriaDimension struct {
-	// The name of the Metric Alert. Changing this forces a new resource to be created.
-	Name     string   `pulumi:"name"`
-	Operator string   `pulumi:"operator"`
-	Values   []string `pulumi:"values"`
+	// One of the dimension names.
+	Name string `pulumi:"name"`
+	// The dimension operator. Possible values are `Include` and `Exclude`.
+	Operator string `pulumi:"operator"`
+	// The list of dimension values.
+	Values []string `pulumi:"values"`
 }
 
 type MetricAlertCriteriaDimensionInput interface {
@@ -3101,10 +3334,12 @@ type MetricAlertCriteriaDimensionInput interface {
 }
 
 type MetricAlertCriteriaDimensionArgs struct {
-	// The name of the Metric Alert. Changing this forces a new resource to be created.
-	Name     pulumi.StringInput      `pulumi:"name"`
-	Operator pulumi.StringInput      `pulumi:"operator"`
-	Values   pulumi.StringArrayInput `pulumi:"values"`
+	// One of the dimension names.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The dimension operator. Possible values are `Include` and `Exclude`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// The list of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (MetricAlertCriteriaDimensionArgs) ElementType() reflect.Type {
@@ -3154,15 +3389,17 @@ func (o MetricAlertCriteriaDimensionOutput) ToMetricAlertCriteriaDimensionOutput
 	return o
 }
 
-// The name of the Metric Alert. Changing this forces a new resource to be created.
+// One of the dimension names.
 func (o MetricAlertCriteriaDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The dimension operator. Possible values are `Include` and `Exclude`.
 func (o MetricAlertCriteriaDimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// The list of dimension values.
 func (o MetricAlertCriteriaDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricAlertCriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3475,7 +3712,7 @@ type ScheduledQueryRulesAlertTriggerMetricTrigger struct {
 	MetricTriggerType string `pulumi:"metricTriggerType"`
 	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
 	Operator string `pulumi:"operator"`
-	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 	Threshold float64 `pulumi:"threshold"`
 }
 
@@ -3491,7 +3728,7 @@ type ScheduledQueryRulesAlertTriggerMetricTriggerArgs struct {
 	MetricTriggerType pulumi.StringInput `pulumi:"metricTriggerType"`
 	// Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+	// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 }
 
@@ -3576,7 +3813,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) Operator() pulumi.St
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
@@ -3614,7 +3851,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Operator() pulumi
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
+// The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
@@ -5091,6 +5328,536 @@ func (o GetLogProfileRetentionPolicyArrayOutput) Index(i pulumi.IntInput) GetLog
 	}).(GetLogProfileRetentionPolicyOutput)
 }
 
+type GetScheduledQueryRulesAlertAction struct {
+	// List of action group reference resource IDs.
+	ActionGroups []string `pulumi:"actionGroups"`
+	// Custom payload to be sent for all webhook URI in Azure action group.
+	CustomWebhookPayload string `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email IDs in Azure action group.
+	EmailSubject string `pulumi:"emailSubject"`
+}
+
+type GetScheduledQueryRulesAlertActionInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertActionOutput() GetScheduledQueryRulesAlertActionOutput
+	ToGetScheduledQueryRulesAlertActionOutputWithContext(context.Context) GetScheduledQueryRulesAlertActionOutput
+}
+
+type GetScheduledQueryRulesAlertActionArgs struct {
+	// List of action group reference resource IDs.
+	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
+	// Custom payload to be sent for all webhook URI in Azure action group.
+	CustomWebhookPayload pulumi.StringInput `pulumi:"customWebhookPayload"`
+	// Custom subject override for all email IDs in Azure action group.
+	EmailSubject pulumi.StringInput `pulumi:"emailSubject"`
+}
+
+func (GetScheduledQueryRulesAlertActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertActionArgs) ToGetScheduledQueryRulesAlertActionOutput() GetScheduledQueryRulesAlertActionOutput {
+	return i.ToGetScheduledQueryRulesAlertActionOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertActionArgs) ToGetScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertActionOutput)
+}
+
+type GetScheduledQueryRulesAlertActionArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertActionArrayOutput() GetScheduledQueryRulesAlertActionArrayOutput
+	ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(context.Context) GetScheduledQueryRulesAlertActionArrayOutput
+}
+
+type GetScheduledQueryRulesAlertActionArray []GetScheduledQueryRulesAlertActionInput
+
+func (GetScheduledQueryRulesAlertActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertActionArray) ToGetScheduledQueryRulesAlertActionArrayOutput() GetScheduledQueryRulesAlertActionArrayOutput {
+	return i.ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertActionArray) ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertActionArrayOutput)
+}
+
+type GetScheduledQueryRulesAlertActionOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertActionOutput) ToGetScheduledQueryRulesAlertActionOutput() GetScheduledQueryRulesAlertActionOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertActionOutput) ToGetScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionOutput {
+	return o
+}
+
+// List of action group reference resource IDs.
+func (o GetScheduledQueryRulesAlertActionOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertAction) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
+}
+
+// Custom payload to be sent for all webhook URI in Azure action group.
+func (o GetScheduledQueryRulesAlertActionOutput) CustomWebhookPayload() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertAction) string { return v.CustomWebhookPayload }).(pulumi.StringOutput)
+}
+
+// Custom subject override for all email IDs in Azure action group.
+func (o GetScheduledQueryRulesAlertActionOutput) EmailSubject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertAction) string { return v.EmailSubject }).(pulumi.StringOutput)
+}
+
+type GetScheduledQueryRulesAlertActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertAction)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertActionArrayOutput) ToGetScheduledQueryRulesAlertActionArrayOutput() GetScheduledQueryRulesAlertActionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertActionArrayOutput) ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertActionArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScheduledQueryRulesAlertAction {
+		return vs[0].([]GetScheduledQueryRulesAlertAction)[vs[1].(int)]
+	}).(GetScheduledQueryRulesAlertActionOutput)
+}
+
+type GetScheduledQueryRulesAlertTrigger struct {
+	MetricTriggers []GetScheduledQueryRulesAlertTriggerMetricTrigger `pulumi:"metricTriggers"`
+	// Evaluation operation for rule.
+	Operator string `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+type GetScheduledQueryRulesAlertTriggerInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerOutput() GetScheduledQueryRulesAlertTriggerOutput
+	ToGetScheduledQueryRulesAlertTriggerOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerArgs struct {
+	MetricTriggers GetScheduledQueryRulesAlertTriggerMetricTriggerArrayInput `pulumi:"metricTriggers"`
+	// Evaluation operation for rule.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (GetScheduledQueryRulesAlertTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArgs) ToGetScheduledQueryRulesAlertTriggerOutput() GetScheduledQueryRulesAlertTriggerOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArgs) ToGetScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerArrayOutput
+	ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerArrayOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerArray []GetScheduledQueryRulesAlertTriggerInput
+
+func (GetScheduledQueryRulesAlertTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArray) ToGetScheduledQueryRulesAlertTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerArray) ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerArrayOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerOutput) ToGetScheduledQueryRulesAlertTriggerOutput() GetScheduledQueryRulesAlertTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerOutput) ToGetScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerOutput) MetricTriggers() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertTrigger) []GetScheduledQueryRulesAlertTriggerMetricTrigger {
+		return v.MetricTriggers
+	}).(GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput)
+}
+
+// Evaluation operation for rule.
+func (o GetScheduledQueryRulesAlertTriggerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertTrigger) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.
+func (o GetScheduledQueryRulesAlertTriggerOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type GetScheduledQueryRulesAlertTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScheduledQueryRulesAlertTrigger {
+		return vs[0].([]GetScheduledQueryRulesAlertTrigger)[vs[1].(int)]
+	}).(GetScheduledQueryRulesAlertTriggerOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTrigger struct {
+	MetricColumn      string `pulumi:"metricColumn"`
+	MetricTriggerType string `pulumi:"metricTriggerType"`
+	// Evaluation operation for rule.
+	Operator string `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerOutput
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArgs struct {
+	MetricColumn      pulumi.StringInput `pulumi:"metricColumn"`
+	MetricTriggerType pulumi.StringInput `pulumi:"metricTriggerType"`
+	// Evaluation operation for rule.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Result or count threshold based on which rule should be triggered.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerMetricTriggerOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput
+	ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArray []GetScheduledQueryRulesAlertTriggerMetricTriggerInput
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return i.ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricColumn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricColumn }).(pulumi.StringOutput)
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricTriggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricTriggerType }).(pulumi.StringOutput)
+}
+
+// Evaluation operation for rule.
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Result or count threshold based on which rule should be triggered.
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v GetScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesAlertTriggerMetricTrigger)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScheduledQueryRulesAlertTriggerMetricTrigger {
+		return vs[0].([]GetScheduledQueryRulesAlertTriggerMetricTrigger)[vs[1].(int)]
+	}).(GetScheduledQueryRulesAlertTriggerMetricTriggerOutput)
+}
+
+type GetScheduledQueryRulesLogCriteria struct {
+	// A `dimension` block as defined below.
+	Dimensions []GetScheduledQueryRulesLogCriteriaDimension `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName string `pulumi:"metricName"`
+}
+
+type GetScheduledQueryRulesLogCriteriaInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaOutput() GetScheduledQueryRulesLogCriteriaOutput
+	ToGetScheduledQueryRulesLogCriteriaOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaArgs struct {
+	// A `dimension` block as defined below.
+	Dimensions GetScheduledQueryRulesLogCriteriaDimensionArrayInput `pulumi:"dimensions"`
+	// Name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+}
+
+func (GetScheduledQueryRulesLogCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArgs) ToGetScheduledQueryRulesLogCriteriaOutput() GetScheduledQueryRulesLogCriteriaOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArgs) ToGetScheduledQueryRulesLogCriteriaOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaArrayOutput() GetScheduledQueryRulesLogCriteriaArrayOutput
+	ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaArrayOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaArray []GetScheduledQueryRulesLogCriteriaInput
+
+func (GetScheduledQueryRulesLogCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArray) ToGetScheduledQueryRulesLogCriteriaArrayOutput() GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaArray) ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaArrayOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesLogCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaOutput) ToGetScheduledQueryRulesLogCriteriaOutput() GetScheduledQueryRulesLogCriteriaOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaOutput) ToGetScheduledQueryRulesLogCriteriaOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaOutput {
+	return o
+}
+
+// A `dimension` block as defined below.
+func (o GetScheduledQueryRulesLogCriteriaOutput) Dimensions() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesLogCriteria) []GetScheduledQueryRulesLogCriteriaDimension {
+		return v.Dimensions
+	}).(GetScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+}
+
+// Name of the metric.
+func (o GetScheduledQueryRulesLogCriteriaOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesLogCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteria)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaArrayOutput) ToGetScheduledQueryRulesLogCriteriaArrayOutput() GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaArrayOutput) ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesLogCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScheduledQueryRulesLogCriteria {
+		return vs[0].([]GetScheduledQueryRulesLogCriteria)[vs[1].(int)]
+	}).(GetScheduledQueryRulesLogCriteriaOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimension struct {
+	// Specifies the name of the scheduled query rule.
+	Name string `pulumi:"name"`
+	// Operator for dimension values.
+	Operator string `pulumi:"operator"`
+	// List of dimension values.
+	Values []string `pulumi:"values"`
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaDimensionOutput() GetScheduledQueryRulesLogCriteriaDimensionOutput
+	ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaDimensionOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArgs struct {
+	// Specifies the name of the scheduled query rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operator for dimension values.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetScheduledQueryRulesLogCriteriaDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArgs) ToGetScheduledQueryRulesLogCriteriaDimensionOutput() GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArgs) ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaDimensionOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutput() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput
+	ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(context.Context) GetScheduledQueryRulesLogCriteriaDimensionArrayOutput
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArray []GetScheduledQueryRulesLogCriteriaDimensionInput
+
+func (GetScheduledQueryRulesLogCriteriaDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArray) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutput() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return i.ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetScheduledQueryRulesLogCriteriaDimensionArray) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesLogCriteriaDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) ToGetScheduledQueryRulesLogCriteriaDimensionOutput() GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return o
+}
+
+// Specifies the name of the scheduled query rule.
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesLogCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operator for dimension values.
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesLogCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of dimension values.
+func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetScheduledQueryRulesLogCriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetScheduledQueryRulesLogCriteriaDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetScheduledQueryRulesLogCriteriaDimension)(nil)).Elem()
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutput() GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesLogCriteriaDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetScheduledQueryRulesLogCriteriaDimension {
+		return vs[0].([]GetScheduledQueryRulesLogCriteriaDimension)[vs[1].(int)]
+	}).(GetScheduledQueryRulesLogCriteriaDimensionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionGroupArmRoleReceiverOutput{})
 	pulumi.RegisterOutputType(ActionGroupArmRoleReceiverArrayOutput{})
@@ -5179,4 +5946,14 @@ func init() {
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertActionOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertActionArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerMetricTriggerOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaDimensionOutput{})
+	pulumi.RegisterOutputType(GetScheduledQueryRulesLogCriteriaDimensionArrayOutput{})
 }

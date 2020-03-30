@@ -42,7 +42,7 @@ type Slot struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	Logs     SlotLogsOutput      `pulumi:"logs"`
-	// The name of the Connection String.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -114,7 +114,7 @@ type slotState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string   `pulumi:"location"`
 	Logs     *SlotLogs `pulumi:"logs"`
-	// The name of the Connection String.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -150,7 +150,7 @@ type SlotState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	Logs     SlotLogsPtrInput
-	// The name of the Connection String.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type slotArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string   `pulumi:"location"`
 	Logs     *SlotLogs `pulumi:"logs"`
-	// The name of the Connection String.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -221,7 +221,7 @@ type SlotArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	Logs     SlotLogsPtrInput
-	// The name of the Connection String.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName pulumi.StringInput

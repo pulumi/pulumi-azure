@@ -14,19 +14,19 @@ class Factory(pulumi.CustomResource):
     """
     A `github_configuration` block as defined below.
 
-      * `account_name` (`str`)
-      * `branchName` (`str`)
-      * `gitUrl` (`str`)
-      * `repositoryName` (`str`)
-      * `rootFolder` (`str`)
+      * `account_name` (`str`) - Specifies the GitHub account name.
+      * `branchName` (`str`) - Specifies the branch of the repository to get code from.
+      * `gitUrl` (`str`) - Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+      * `repositoryName` (`str`) - Specifies the name of the git repository.
+      * `rootFolder` (`str`) - Specifies the root folder within the repository. Set to `/` for the top level.
     """
     identity: pulumi.Output[dict]
     """
     An `identity` block as defined below.
 
       * `principal_id` (`str`) - The ID of the Principal (Client) in Azure Active Directory
-      * `tenant_id` (`str`) - The ID of the Azure Active Directory Tenant.
-      * `type` (`str`)
+      * `tenant_id` (`str`) - Specifies the Tenant ID associated with the VSTS account.
+      * `type` (`str`) - Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
     """
     location: pulumi.Output[str]
     """
@@ -48,12 +48,12 @@ class Factory(pulumi.CustomResource):
     """
     A `vsts_configuration` block as defined below.
 
-      * `account_name` (`str`)
-      * `branchName` (`str`)
-      * `projectName` (`str`)
-      * `repositoryName` (`str`)
-      * `rootFolder` (`str`)
-      * `tenant_id` (`str`) - The ID of the Azure Active Directory Tenant.
+      * `account_name` (`str`) - Specifies the VSTS account name.
+      * `branchName` (`str`) - Specifies the branch of the repository to get code from.
+      * `projectName` (`str`) - Specifies the name of the VSTS project.
+      * `repositoryName` (`str`) - Specifies the name of the git repository.
+      * `rootFolder` (`str`) - Specifies the root folder within the repository. Set to `/` for the top level.
+      * `tenant_id` (`str`) - Specifies the Tenant ID associated with the VSTS account.
     """
     def __init__(__self__, resource_name, opts=None, github_configuration=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, vsts_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -73,26 +73,26 @@ class Factory(pulumi.CustomResource):
 
         The **github_configuration** object supports the following:
 
-          * `account_name` (`pulumi.Input[str]`)
-          * `branchName` (`pulumi.Input[str]`)
-          * `gitUrl` (`pulumi.Input[str]`)
-          * `repositoryName` (`pulumi.Input[str]`)
-          * `rootFolder` (`pulumi.Input[str]`)
+          * `account_name` (`pulumi.Input[str]`) - Specifies the GitHub account name.
+          * `branchName` (`pulumi.Input[str]`) - Specifies the branch of the repository to get code from.
+          * `gitUrl` (`pulumi.Input[str]`) - Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+          * `repositoryName` (`pulumi.Input[str]`) - Specifies the name of the git repository.
+          * `rootFolder` (`pulumi.Input[str]`) - Specifies the root folder within the repository. Set to `/` for the top level.
 
         The **identity** object supports the following:
 
           * `principal_id` (`pulumi.Input[str]`) - The ID of the Principal (Client) in Azure Active Directory
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Azure Active Directory Tenant.
-          * `type` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`) - Specifies the Tenant ID associated with the VSTS account.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
 
         The **vsts_configuration** object supports the following:
 
-          * `account_name` (`pulumi.Input[str]`)
-          * `branchName` (`pulumi.Input[str]`)
-          * `projectName` (`pulumi.Input[str]`)
-          * `repositoryName` (`pulumi.Input[str]`)
-          * `rootFolder` (`pulumi.Input[str]`)
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Azure Active Directory Tenant.
+          * `account_name` (`pulumi.Input[str]`) - Specifies the VSTS account name.
+          * `branchName` (`pulumi.Input[str]`) - Specifies the branch of the repository to get code from.
+          * `projectName` (`pulumi.Input[str]`) - Specifies the name of the VSTS project.
+          * `repositoryName` (`pulumi.Input[str]`) - Specifies the name of the git repository.
+          * `rootFolder` (`pulumi.Input[str]`) - Specifies the root folder within the repository. Set to `/` for the top level.
+          * `tenant_id` (`pulumi.Input[str]`) - Specifies the Tenant ID associated with the VSTS account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,26 +145,26 @@ class Factory(pulumi.CustomResource):
 
         The **github_configuration** object supports the following:
 
-          * `account_name` (`pulumi.Input[str]`)
-          * `branchName` (`pulumi.Input[str]`)
-          * `gitUrl` (`pulumi.Input[str]`)
-          * `repositoryName` (`pulumi.Input[str]`)
-          * `rootFolder` (`pulumi.Input[str]`)
+          * `account_name` (`pulumi.Input[str]`) - Specifies the GitHub account name.
+          * `branchName` (`pulumi.Input[str]`) - Specifies the branch of the repository to get code from.
+          * `gitUrl` (`pulumi.Input[str]`) - Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+          * `repositoryName` (`pulumi.Input[str]`) - Specifies the name of the git repository.
+          * `rootFolder` (`pulumi.Input[str]`) - Specifies the root folder within the repository. Set to `/` for the top level.
 
         The **identity** object supports the following:
 
           * `principal_id` (`pulumi.Input[str]`) - The ID of the Principal (Client) in Azure Active Directory
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Azure Active Directory Tenant.
-          * `type` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`) - Specifies the Tenant ID associated with the VSTS account.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
 
         The **vsts_configuration** object supports the following:
 
-          * `account_name` (`pulumi.Input[str]`)
-          * `branchName` (`pulumi.Input[str]`)
-          * `projectName` (`pulumi.Input[str]`)
-          * `repositoryName` (`pulumi.Input[str]`)
-          * `rootFolder` (`pulumi.Input[str]`)
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Azure Active Directory Tenant.
+          * `account_name` (`pulumi.Input[str]`) - Specifies the VSTS account name.
+          * `branchName` (`pulumi.Input[str]`) - Specifies the branch of the repository to get code from.
+          * `projectName` (`pulumi.Input[str]`) - Specifies the name of the VSTS project.
+          * `repositoryName` (`pulumi.Input[str]`) - Specifies the name of the git repository.
+          * `rootFolder` (`pulumi.Input[str]`) - Specifies the root folder within the repository. Set to `/` for the top level.
+          * `tenant_id` (`pulumi.Input[str]`) - Specifies the Tenant ID associated with the VSTS account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

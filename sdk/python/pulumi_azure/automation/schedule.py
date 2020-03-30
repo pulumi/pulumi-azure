@@ -38,8 +38,8 @@ class Schedule(pulumi.CustomResource):
     """
     List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
 
-      * `day` (`str`)
-      * `occurrence` (`float`)
+      * `day` (`str`) - Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+      * `occurrence` (`float`) - Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
     """
     name: pulumi.Output[str]
     """
@@ -84,8 +84,8 @@ class Schedule(pulumi.CustomResource):
 
         The **monthly_occurrences** object supports the following:
 
-          * `day` (`pulumi.Input[str]`)
-          * `occurrence` (`pulumi.Input[float]`)
+          * `day` (`pulumi.Input[str]`) - Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+          * `occurrence` (`pulumi.Input[float]`) - Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -152,8 +152,8 @@ class Schedule(pulumi.CustomResource):
 
         The **monthly_occurrences** object supports the following:
 
-          * `day` (`pulumi.Input[str]`)
-          * `occurrence` (`pulumi.Input[float]`)
+          * `day` (`pulumi.Input[str]`) - Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+          * `occurrence` (`pulumi.Input[float]`) - Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

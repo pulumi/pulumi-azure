@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the frontend ip configuration.
+        /// Specifies the name of the Load Balancer.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the frontend ip configuration.
+        /// Specifies the name of the Load Balancer.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the frontend ip configuration.
+        /// Specifies the name of the Load Balancer.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

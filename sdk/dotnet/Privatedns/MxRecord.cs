@@ -214,9 +214,15 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class MxRecordRecordsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FQDN of the exchange to MX record points to.
+        /// </summary>
         [Input("exchange", required: true)]
         public Input<string> Exchange { get; set; } = null!;
 
+        /// <summary>
+        /// The preference of the MX record.
+        /// </summary>
         [Input("preference", required: true)]
         public Input<int> Preference { get; set; } = null!;
 
@@ -227,9 +233,15 @@ namespace Pulumi.Azure.PrivateDns
 
     public sealed class MxRecordRecordsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FQDN of the exchange to MX record points to.
+        /// </summary>
         [Input("exchange", required: true)]
         public Input<string> Exchange { get; set; } = null!;
 
+        /// <summary>
+        /// The preference of the MX record.
+        /// </summary>
         [Input("preference", required: true)]
         public Input<int> Preference { get; set; } = null!;
 
@@ -245,7 +257,13 @@ namespace Pulumi.Azure.PrivateDns
     [OutputType]
     public sealed class MxRecordRecords
     {
+        /// <summary>
+        /// The FQDN of the exchange to MX record points to.
+        /// </summary>
         public readonly string Exchange;
+        /// <summary>
+        /// The preference of the MX record.
+        /// </summary>
         public readonly int Preference;
 
         [OutputConstructor]

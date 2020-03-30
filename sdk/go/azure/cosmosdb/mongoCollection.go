@@ -27,8 +27,9 @@ type MongoCollection struct {
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey   pulumi.StringPtrOutput `pulumi:"shardKey"`
-	Throughput pulumi.IntOutput       `pulumi:"throughput"`
+	ShardKey pulumi.StringPtrOutput `pulumi:"shardKey"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
 // NewMongoCollection registers a new resource with the given unique name, arguments, and options.
@@ -78,8 +79,9 @@ type mongoCollectionState struct {
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey   *string `pulumi:"shardKey"`
-	Throughput *int    `pulumi:"throughput"`
+	ShardKey *string `pulumi:"shardKey"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput *int `pulumi:"throughput"`
 }
 
 type MongoCollectionState struct {
@@ -93,7 +95,8 @@ type MongoCollectionState struct {
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey   pulumi.StringPtrInput
+	ShardKey pulumi.StringPtrInput
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
 }
 
@@ -112,8 +115,9 @@ type mongoCollectionArgs struct {
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey   *string `pulumi:"shardKey"`
-	Throughput *int    `pulumi:"throughput"`
+	ShardKey *string `pulumi:"shardKey"`
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput *int `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a MongoCollection resource.
@@ -128,7 +132,8 @@ type MongoCollectionArgs struct {
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey   pulumi.StringPtrInput
+	ShardKey pulumi.StringPtrInput
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
 }
 

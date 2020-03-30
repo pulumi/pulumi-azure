@@ -16,18 +16,19 @@ class Service(pulumi.CustomResource):
     An `authentication_configuration` block as defined below.
 
       * `audience` (`str`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-      * `authority` (`str`)
+      * `authority` (`str`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+        Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
       * `smartProxyEnabled` (`bool`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
     """
     cors_configuration: pulumi.Output[dict]
     """
     A `cors_configuration` block as defined below.
 
-      * `allowCredentials` (`bool`)
-      * `allowedHeaders` (`list`)
-      * `allowedMethods` (`list`)
-      * `allowedOrigins` (`list`)
-      * `maxAgeInSeconds` (`float`)
+      * `allowCredentials` (`bool`) - If credentials are allowed via CORS.
+      * `allowedHeaders` (`list`) - A set of headers to be allowed via CORS.
+      * `allowedMethods` (`list`) - The methods to be allowed via CORS.
+      * `allowedOrigins` (`list`) - A set of origins to be allowed via CORS.
+      * `maxAgeInSeconds` (`float`) - The max age to be allowed via CORS.
     """
     cosmosdb_throughput: pulumi.Output[float]
     """
@@ -73,16 +74,17 @@ class Service(pulumi.CustomResource):
         The **authentication_configuration** object supports the following:
 
           * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`)
+          * `authority` (`pulumi.Input[str]`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+            Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
           * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
 
         The **cors_configuration** object supports the following:
 
-          * `allowCredentials` (`pulumi.Input[bool]`)
-          * `allowedHeaders` (`pulumi.Input[list]`)
-          * `allowedMethods` (`pulumi.Input[list]`)
-          * `allowedOrigins` (`pulumi.Input[list]`)
-          * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `allowCredentials` (`pulumi.Input[bool]`) - If credentials are allowed via CORS.
+          * `allowedHeaders` (`pulumi.Input[list]`) - A set of headers to be allowed via CORS.
+          * `allowedMethods` (`pulumi.Input[list]`) - The methods to be allowed via CORS.
+          * `allowedOrigins` (`pulumi.Input[list]`) - A set of origins to be allowed via CORS.
+          * `maxAgeInSeconds` (`pulumi.Input[float]`) - The max age to be allowed via CORS.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -141,16 +143,17 @@ class Service(pulumi.CustomResource):
         The **authentication_configuration** object supports the following:
 
           * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`)
+          * `authority` (`pulumi.Input[str]`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+            Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
           * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
 
         The **cors_configuration** object supports the following:
 
-          * `allowCredentials` (`pulumi.Input[bool]`)
-          * `allowedHeaders` (`pulumi.Input[list]`)
-          * `allowedMethods` (`pulumi.Input[list]`)
-          * `allowedOrigins` (`pulumi.Input[list]`)
-          * `maxAgeInSeconds` (`pulumi.Input[float]`)
+          * `allowCredentials` (`pulumi.Input[bool]`) - If credentials are allowed via CORS.
+          * `allowedHeaders` (`pulumi.Input[list]`) - A set of headers to be allowed via CORS.
+          * `allowedMethods` (`pulumi.Input[list]`) - The methods to be allowed via CORS.
+          * `allowedOrigins` (`pulumi.Input[list]`) - A set of origins to be allowed via CORS.
+          * `maxAgeInSeconds` (`pulumi.Input[float]`) - The max age to be allowed via CORS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

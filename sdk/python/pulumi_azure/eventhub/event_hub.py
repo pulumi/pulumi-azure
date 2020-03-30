@@ -14,17 +14,17 @@ class EventHub(pulumi.CustomResource):
     """
     A `capture_description` block as defined below.
 
-      * `destination` (`dict`)
-        * `archiveNameFormat` (`str`)
-        * `blobContainerName` (`str`)
-        * `name` (`str`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-        * `storage_account_id` (`str`)
+      * `destination` (`dict`) - A `destination` block as defined below.
+        * `archiveNameFormat` (`str`) - The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        * `blobContainerName` (`str`) - The name of the Container within the Blob Storage Account where messages should be archived.
+        * `name` (`str`) - The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+        * `storage_account_id` (`str`) - The ID of the Blob Storage Account where messages should be archived.
 
-      * `enabled` (`bool`)
-      * `encoding` (`str`)
-      * `interval_in_seconds` (`float`)
-      * `sizeLimitInBytes` (`float`)
-      * `skipEmptyArchives` (`bool`)
+      * `enabled` (`bool`) - Specifies if the Capture Description is Enabled.
+      * `encoding` (`str`) - Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
+      * `interval_in_seconds` (`float`) - Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+      * `sizeLimitInBytes` (`float`) - Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+      * `skipEmptyArchives` (`bool`) - Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
     """
     message_retention: pulumi.Output[float]
     """
@@ -67,17 +67,17 @@ class EventHub(pulumi.CustomResource):
 
         The **capture_description** object supports the following:
 
-          * `destination` (`pulumi.Input[dict]`)
-            * `archiveNameFormat` (`pulumi.Input[str]`)
-            * `blobContainerName` (`pulumi.Input[str]`)
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-            * `storage_account_id` (`pulumi.Input[str]`)
+          * `destination` (`pulumi.Input[dict]`) - A `destination` block as defined below.
+            * `archiveNameFormat` (`pulumi.Input[str]`) - The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+            * `blobContainerName` (`pulumi.Input[str]`) - The name of the Container within the Blob Storage Account where messages should be archived.
+            * `name` (`pulumi.Input[str]`) - The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+            * `storage_account_id` (`pulumi.Input[str]`) - The ID of the Blob Storage Account where messages should be archived.
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `encoding` (`pulumi.Input[str]`)
-          * `interval_in_seconds` (`pulumi.Input[float]`)
-          * `sizeLimitInBytes` (`pulumi.Input[float]`)
-          * `skipEmptyArchives` (`pulumi.Input[bool]`)
+          * `enabled` (`pulumi.Input[bool]`) - Specifies if the Capture Description is Enabled.
+          * `encoding` (`pulumi.Input[str]`) - Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
+          * `interval_in_seconds` (`pulumi.Input[float]`) - Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+          * `sizeLimitInBytes` (`pulumi.Input[float]`) - Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+          * `skipEmptyArchives` (`pulumi.Input[bool]`) - Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -136,17 +136,17 @@ class EventHub(pulumi.CustomResource):
 
         The **capture_description** object supports the following:
 
-          * `destination` (`pulumi.Input[dict]`)
-            * `archiveNameFormat` (`pulumi.Input[str]`)
-            * `blobContainerName` (`pulumi.Input[str]`)
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-            * `storage_account_id` (`pulumi.Input[str]`)
+          * `destination` (`pulumi.Input[dict]`) - A `destination` block as defined below.
+            * `archiveNameFormat` (`pulumi.Input[str]`) - The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+            * `blobContainerName` (`pulumi.Input[str]`) - The name of the Container within the Blob Storage Account where messages should be archived.
+            * `name` (`pulumi.Input[str]`) - The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+            * `storage_account_id` (`pulumi.Input[str]`) - The ID of the Blob Storage Account where messages should be archived.
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `encoding` (`pulumi.Input[str]`)
-          * `interval_in_seconds` (`pulumi.Input[float]`)
-          * `sizeLimitInBytes` (`pulumi.Input[float]`)
-          * `skipEmptyArchives` (`pulumi.Input[bool]`)
+          * `enabled` (`pulumi.Input[bool]`) - Specifies if the Capture Description is Enabled.
+          * `encoding` (`pulumi.Input[str]`) - Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
+          * `interval_in_seconds` (`pulumi.Input[float]`) - Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+          * `sizeLimitInBytes` (`pulumi.Input[float]`) - Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+          * `skipEmptyArchives` (`pulumi.Input[bool]`) - Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

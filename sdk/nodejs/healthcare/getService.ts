@@ -30,6 +30,9 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getService.
  */
 export interface GetServiceArgs {
+    /**
+     * The Azure Region where the Service is located.
+     */
     readonly location: string;
     /**
      * Specifies the name of the Healthcare Service.

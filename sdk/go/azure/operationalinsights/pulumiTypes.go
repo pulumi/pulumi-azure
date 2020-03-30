@@ -12,10 +12,13 @@ import (
 )
 
 type AnalyticsSolutionPlan struct {
-	Name          *string `pulumi:"name"`
-	Product       string  `pulumi:"product"`
+	Name *string `pulumi:"name"`
+	// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+	Product string `pulumi:"product"`
+	// A promotion code to be used with the solution.
 	PromotionCode *string `pulumi:"promotionCode"`
-	Publisher     string  `pulumi:"publisher"`
+	// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
+	Publisher string `pulumi:"publisher"`
 }
 
 type AnalyticsSolutionPlanInput interface {
@@ -26,10 +29,13 @@ type AnalyticsSolutionPlanInput interface {
 }
 
 type AnalyticsSolutionPlanArgs struct {
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Product       pulumi.StringInput    `pulumi:"product"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+	Product pulumi.StringInput `pulumi:"product"`
+	// A promotion code to be used with the solution.
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	Publisher     pulumi.StringInput    `pulumi:"publisher"`
+	// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
 func (AnalyticsSolutionPlanArgs) ElementType() reflect.Type {
@@ -104,14 +110,17 @@ func (o AnalyticsSolutionPlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// A promotion code to be used with the solution.
 func (o AnalyticsSolutionPlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
+// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -138,14 +147,17 @@ func (o AnalyticsSolutionPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanPtrOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// A promotion code to be used with the solution.
 func (o AnalyticsSolutionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
+// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanPtrOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }

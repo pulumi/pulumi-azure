@@ -25,9 +25,10 @@ type GetPublicIPArgs struct {
 	// Specifies the name of the public IP address.
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
-	Zones             []string          `pulumi:"zones"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assigned to the resource.
+	Tags  map[string]string `pulumi:"tags"`
+	Zones []string          `pulumi:"zones"`
 }
 
 // A collection of values returned by getPublicIP.

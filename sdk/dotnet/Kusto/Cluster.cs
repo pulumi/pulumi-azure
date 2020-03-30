@@ -241,11 +241,14 @@ namespace Pulumi.Azure.Kusto
 
     public sealed class ClusterSkuArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+        /// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -257,11 +260,14 @@ namespace Pulumi.Azure.Kusto
 
     public sealed class ClusterSkuGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
+        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+        /// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -278,9 +284,12 @@ namespace Pulumi.Azure.Kusto
     [OutputType]
     public sealed class ClusterSku
     {
+        /// <summary>
+        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
+        /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+        /// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
         /// </summary>
         public readonly string Name;
 

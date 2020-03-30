@@ -34,13 +34,13 @@ class NetworkInterface(pulumi.CustomResource):
     """
     One or more `ip_configuration` blocks as defined below.
 
-      * `name` (`str`) - The name of the Network Interface. Changing this forces a new resource to be created.
-      * `primary` (`bool`)
-      * `private_ip_address` (`str`) - The first private IP address of the network interface.
-      * `privateIpAddressAllocation` (`str`)
-      * `privateIpAddressVersion` (`str`)
-      * `publicIpAddressId` (`str`)
-      * `subnet_id` (`str`)
+      * `name` (`str`) - A name used for this IP Configuration.
+      * `primary` (`bool`) - Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+      * `private_ip_address` (`str`) - The Static IP Address which should be used.
+      * `privateIpAddressAllocation` (`str`) - The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+      * `privateIpAddressVersion` (`str`) - The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+      * `publicIpAddressId` (`str`) - Reference to a Public IP Address to associate with this NIC
+      * `subnet_id` (`str`) - The ID of the Subnet where this Network Interface should be located in.
     """
     location: pulumi.Output[str]
     """
@@ -56,7 +56,7 @@ class NetworkInterface(pulumi.CustomResource):
     """
     private_ip_address: pulumi.Output[str]
     """
-    The first private IP address of the network interface.
+    The Static IP Address which should be used.
     """
     private_ip_addresses: pulumi.Output[list]
     """
@@ -94,13 +94,13 @@ class NetworkInterface(pulumi.CustomResource):
 
         The **ip_configurations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Network Interface. Changing this forces a new resource to be created.
-          * `primary` (`pulumi.Input[bool]`)
-          * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
-          * `privateIpAddressVersion` (`pulumi.Input[str]`)
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name used for this IP Configuration.
+          * `primary` (`pulumi.Input[bool]`) - Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+          * `private_ip_address` (`pulumi.Input[str]`) - The Static IP Address which should be used.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+          * `privateIpAddressVersion` (`pulumi.Input[str]`) - The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this NIC
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet where this Network Interface should be located in.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -161,7 +161,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] private_ip_address: The first private IP address of the network interface.
+        :param pulumi.Input[str] private_ip_address: The Static IP Address which should be used.
         :param pulumi.Input[list] private_ip_addresses: The private IP addresses of the network interface.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -169,13 +169,13 @@ class NetworkInterface(pulumi.CustomResource):
 
         The **ip_configurations** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Network Interface. Changing this forces a new resource to be created.
-          * `primary` (`pulumi.Input[bool]`)
-          * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
-          * `privateIpAddressVersion` (`pulumi.Input[str]`)
-          * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnet_id` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name used for this IP Configuration.
+          * `primary` (`pulumi.Input[bool]`) - Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+          * `private_ip_address` (`pulumi.Input[str]`) - The Static IP Address which should be used.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+          * `privateIpAddressVersion` (`pulumi.Input[str]`) - The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this NIC
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet where this Network Interface should be located in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

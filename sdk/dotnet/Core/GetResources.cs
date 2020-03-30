@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Core
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
         /// </summary>
+        [Obsolete("Use GetResources.InvokeAsync() instead")]
         public static Task<GetResourcesResult> GetResources(GetResourcesArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("azure:core/getResources:getResources", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetResources
+    {
+        /// <summary>
+        /// Use this data source to access information about existing resources.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
+        /// </summary>
+        public static Task<GetResourcesResult> InvokeAsync(GetResourcesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("azure:core/getResources:getResources", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

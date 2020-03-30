@@ -27,7 +27,7 @@ type NetworkSecurityGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+	// A list of objects representing security rules, as defined below.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayOutput `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -70,7 +70,7 @@ type networkSecurityGroupState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+	// A list of objects representing security rules, as defined below.
 	SecurityRules []NetworkSecurityGroupSecurityRule `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -83,7 +83,7 @@ type NetworkSecurityGroupState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+	// A list of objects representing security rules, as defined below.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -100,7 +100,7 @@ type networkSecurityGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+	// A list of objects representing security rules, as defined below.
 	SecurityRules []NetworkSecurityGroupSecurityRule `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -114,7 +114,7 @@ type NetworkSecurityGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+	// A list of objects representing security rules, as defined below.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

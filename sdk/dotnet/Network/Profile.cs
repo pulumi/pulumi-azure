@@ -201,6 +201,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("ipConfigurations", required: true)]
         private InputList<ProfileContainerNetworkInterfaceIpConfigurationsArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// One or more `ip_configuration` blocks as documented below.
+        /// </summary>
         public InputList<ProfileContainerNetworkInterfaceIpConfigurationsArgs> IpConfigurations
         {
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<ProfileContainerNetworkInterfaceIpConfigurationsArgs>());
@@ -208,7 +212,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -222,6 +226,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("ipConfigurations", required: true)]
         private InputList<ProfileContainerNetworkInterfaceIpConfigurationsGetArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// One or more `ip_configuration` blocks as documented below.
+        /// </summary>
         public InputList<ProfileContainerNetworkInterfaceIpConfigurationsGetArgs> IpConfigurations
         {
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<ProfileContainerNetworkInterfaceIpConfigurationsGetArgs>());
@@ -229,7 +237,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -242,11 +250,14 @@ namespace Pulumi.Azure.Network
     public sealed class ProfileContainerNetworkInterfaceIpConfigurationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Reference to the subnet associated with the IP Configuration.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -258,11 +269,14 @@ namespace Pulumi.Azure.Network
     public sealed class ProfileContainerNetworkInterfaceIpConfigurationsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Reference to the subnet associated with the IP Configuration.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -278,9 +292,12 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class ProfileContainerNetworkInterface
     {
+        /// <summary>
+        /// One or more `ip_configuration` blocks as documented below.
+        /// </summary>
         public readonly ImmutableArray<ProfileContainerNetworkInterfaceIpConfigurations> IpConfigurations;
         /// <summary>
-        /// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the IP Configuration.
         /// </summary>
         public readonly string Name;
 
@@ -298,9 +315,12 @@ namespace Pulumi.Azure.Network
     public sealed class ProfileContainerNetworkInterfaceIpConfigurations
     {
         /// <summary>
-        /// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+        /// Specifies the name of the IP Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Reference to the subnet associated with the IP Configuration.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

@@ -57,6 +57,12 @@ func NewNamespace(ctx *pulumi.Context,
 	if args == nil {
 		args = &NamespaceArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/namespace:Namespace"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Namespace
 	err := ctx.RegisterResource("azure:servicebus/namespace:Namespace", name, args, &resource, opts...)
 	if err != nil {

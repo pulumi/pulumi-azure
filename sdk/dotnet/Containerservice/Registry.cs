@@ -12,9 +12,6 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages an Azure Container Registry.
     /// 
-    /// &gt; **Note:** All arguments including the access key will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
     /// </summary>
     public partial class Registry : Pulumi.CustomResource

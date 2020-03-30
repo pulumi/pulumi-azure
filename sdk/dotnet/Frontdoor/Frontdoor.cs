@@ -377,6 +377,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolHealthProbesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is this health probe enabled? Dafaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -386,21 +389,33 @@ namespace Pulumi.Azure.FrontDoor
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The number of seconds between each Health Probe. Defaults to `120`.
+        /// </summary>
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Health Probe.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The path to use for the Health Probe. Default is `/`.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+        /// </summary>
         [Input("probeMethod")]
         public Input<string>? ProbeMethod { get; set; }
 
+        /// <summary>
+        /// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
@@ -411,6 +426,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolHealthProbesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is this health probe enabled? Dafaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -420,21 +438,33 @@ namespace Pulumi.Azure.FrontDoor
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The number of seconds between each Health Probe. Defaults to `120`.
+        /// </summary>
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Health Probe.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The path to use for the Health Probe. Default is `/`.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+        /// </summary>
         [Input("probeMethod")]
         public Input<string>? ProbeMethod { get; set; }
 
+        /// <summary>
+        /// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
@@ -445,6 +475,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolLoadBalancingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
+        /// </summary>
         [Input("additionalLatencyMilliseconds")]
         public Input<int>? AdditionalLatencyMilliseconds { get; set; }
 
@@ -455,14 +488,20 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Load Balancer.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The number of samples to consider for load balancing decisions. Defaults to `4`.
+        /// </summary>
         [Input("sampleSize")]
         public Input<int>? SampleSize { get; set; }
 
+        /// <summary>
+        /// The number of samples within the sample period that must succeed. Defaults to `2`.
+        /// </summary>
         [Input("successfulSamplesRequired")]
         public Input<int>? SuccessfulSamplesRequired { get; set; }
 
@@ -473,6 +512,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolLoadBalancingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
+        /// </summary>
         [Input("additionalLatencyMilliseconds")]
         public Input<int>? AdditionalLatencyMilliseconds { get; set; }
 
@@ -483,14 +525,20 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Load Balancer.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The number of samples to consider for load balancing decisions. Defaults to `4`.
+        /// </summary>
         [Input("sampleSize")]
         public Input<int>? SampleSize { get; set; }
 
+        /// <summary>
+        /// The number of samples within the sample period that must succeed. Defaults to `2`.
+        /// </summary>
         [Input("successfulSamplesRequired")]
         public Input<int>? SuccessfulSamplesRequired { get; set; }
 
@@ -503,12 +551,19 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("backends", required: true)]
         private InputList<FrontdoorBackendPoolsBackendsArgs>? _backends;
+
+        /// <summary>
+        /// A `backend` block as defined below.
+        /// </summary>
         public InputList<FrontdoorBackendPoolsBackendsArgs> Backends
         {
             get => _backends ?? (_backends = new InputList<FrontdoorBackendPoolsBackendsArgs>());
             set => _backends = value;
         }
 
+        /// <summary>
+        /// Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
+        /// </summary>
         [Input("healthProbeName", required: true)]
         public Input<string> HealthProbeName { get; set; } = null!;
 
@@ -518,11 +573,14 @@ namespace Pulumi.Azure.FrontDoor
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+        /// </summary>
         [Input("loadBalancingName", required: true)]
         public Input<string> LoadBalancingName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Backend Pool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -534,24 +592,45 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolsBackendsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Location of the backend (IP address or FQDN)
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The value to use as the host header sent to the backend.
+        /// </summary>
         [Input("hostHeader", required: true)]
         public Input<string> HostHeader { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP TCP port number. Possible values are between `1` - `65535`.
+        /// </summary>
         [Input("httpPort", required: true)]
         public Input<int> HttpPort { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTPS TCP port number. Possible values are between `1` - `65535`.
+        /// </summary>
         [Input("httpsPort", required: true)]
         public Input<int> HttpsPort { get; set; } = null!;
 
+        /// <summary>
+        /// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// Weight of this endpoint for load balancing purposes. Defaults to `50`.
+        /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }
 
@@ -562,24 +641,45 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorBackendPoolsBackendsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Location of the backend (IP address or FQDN)
+        /// </summary>
         [Input("address", required: true)]
         public Input<string> Address { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The value to use as the host header sent to the backend.
+        /// </summary>
         [Input("hostHeader", required: true)]
         public Input<string> HostHeader { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP TCP port number. Possible values are between `1` - `65535`.
+        /// </summary>
         [Input("httpPort", required: true)]
         public Input<int> HttpPort { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTPS TCP port number. Possible values are between `1` - `65535`.
+        /// </summary>
         [Input("httpsPort", required: true)]
         public Input<int> HttpsPort { get; set; } = null!;
 
+        /// <summary>
+        /// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// Weight of this endpoint for load balancing purposes. Defaults to `50`.
+        /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }
 
@@ -592,12 +692,19 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("backends", required: true)]
         private InputList<FrontdoorBackendPoolsBackendsGetArgs>? _backends;
+
+        /// <summary>
+        /// A `backend` block as defined below.
+        /// </summary>
         public InputList<FrontdoorBackendPoolsBackendsGetArgs> Backends
         {
             get => _backends ?? (_backends = new InputList<FrontdoorBackendPoolsBackendsGetArgs>());
             set => _backends = value;
         }
 
+        /// <summary>
+        /// Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
+        /// </summary>
         [Input("healthProbeName", required: true)]
         public Input<string> HealthProbeName { get; set; } = null!;
 
@@ -607,11 +714,14 @@ namespace Pulumi.Azure.FrontDoor
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+        /// </summary>
         [Input("loadBalancingName", required: true)]
         public Input<string> LoadBalancingName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Backend Pool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -623,12 +733,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorFrontendEndpointsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `custom_https_configuration` block as defined below.
+        /// </summary>
         [Input("customHttpsConfiguration")]
         public Input<FrontdoorFrontendEndpointsCustomHttpsConfigurationArgs>? CustomHttpsConfiguration { get; set; }
 
+        /// <summary>
+        /// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+        /// </summary>
         [Input("customHttpsProvisioningEnabled", required: true)]
         public Input<bool> CustomHttpsProvisioningEnabled { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
@@ -639,19 +758,25 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the `frontend_endpoint`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+        /// </summary>
         [Input("sessionAffinityEnabled")]
         public Input<bool>? SessionAffinityEnabled { get; set; }
 
+        /// <summary>
+        /// The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+        /// </summary>
         [Input("sessionAffinityTtlSeconds")]
         public Input<int>? SessionAffinityTtlSeconds { get; set; }
 
         /// <summary>
-        /// (Optional) The `id` of the `web_application_firewall_policy_link` to use for this Frontend Endpoint."
+        /// Defines the Web Application Firewall policy `ID` for each host.
         /// </summary>
         [Input("webApplicationFirewallPolicyLinkId")]
         public Input<string>? WebApplicationFirewallPolicyLinkId { get; set; }
@@ -663,15 +788,27 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorFrontendEndpointsCustomHttpsConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Key Vault secret representing the full certificate PFX.
+        /// </summary>
         [Input("azureKeyVaultCertificateSecretName")]
         public Input<string>? AzureKeyVaultCertificateSecretName { get; set; }
 
+        /// <summary>
+        /// The version of the Key Vault secret representing the full certificate PFX.
+        /// </summary>
         [Input("azureKeyVaultCertificateSecretVersion")]
         public Input<string>? AzureKeyVaultCertificateSecretVersion { get; set; }
 
+        /// <summary>
+        /// The ID of the Key Vault containing the SSL certificate.
+        /// </summary>
         [Input("azureKeyVaultCertificateVaultId")]
         public Input<string>? AzureKeyVaultCertificateVaultId { get; set; }
 
+        /// <summary>
+        /// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+        /// </summary>
         [Input("certificateSource")]
         public Input<string>? CertificateSource { get; set; }
 
@@ -700,15 +837,27 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorFrontendEndpointsCustomHttpsConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Key Vault secret representing the full certificate PFX.
+        /// </summary>
         [Input("azureKeyVaultCertificateSecretName")]
         public Input<string>? AzureKeyVaultCertificateSecretName { get; set; }
 
+        /// <summary>
+        /// The version of the Key Vault secret representing the full certificate PFX.
+        /// </summary>
         [Input("azureKeyVaultCertificateSecretVersion")]
         public Input<string>? AzureKeyVaultCertificateSecretVersion { get; set; }
 
+        /// <summary>
+        /// The ID of the Key Vault containing the SSL certificate.
+        /// </summary>
         [Input("azureKeyVaultCertificateVaultId")]
         public Input<string>? AzureKeyVaultCertificateVaultId { get; set; }
 
+        /// <summary>
+        /// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+        /// </summary>
         [Input("certificateSource")]
         public Input<string>? CertificateSource { get; set; }
 
@@ -737,12 +886,21 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorFrontendEndpointsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `custom_https_configuration` block as defined below.
+        /// </summary>
         [Input("customHttpsConfiguration")]
         public Input<FrontdoorFrontendEndpointsCustomHttpsConfigurationGetArgs>? CustomHttpsConfiguration { get; set; }
 
+        /// <summary>
+        /// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+        /// </summary>
         [Input("customHttpsProvisioningEnabled", required: true)]
         public Input<bool> CustomHttpsProvisioningEnabled { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name.
+        /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
@@ -753,19 +911,25 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the `frontend_endpoint`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+        /// </summary>
         [Input("sessionAffinityEnabled")]
         public Input<bool>? SessionAffinityEnabled { get; set; }
 
+        /// <summary>
+        /// The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+        /// </summary>
         [Input("sessionAffinityTtlSeconds")]
         public Input<int>? SessionAffinityTtlSeconds { get; set; }
 
         /// <summary>
-        /// (Optional) The `id` of the `web_application_firewall_policy_link` to use for this Frontend Endpoint."
+        /// Defines the Web Application Firewall policy `ID` for each host.
         /// </summary>
         [Input("webApplicationFirewallPolicyLinkId")]
         public Input<string>? WebApplicationFirewallPolicyLinkId { get; set; }
@@ -779,20 +943,34 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("acceptedProtocols", required: true)]
         private InputList<string>? _acceptedProtocols;
+
+        /// <summary>
+        /// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        /// </summary>
         public InputList<string> AcceptedProtocols
         {
             get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<string>());
             set => _acceptedProtocols = value;
         }
 
+        /// <summary>
+        /// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// A `forwarding_configuration` block as defined below.
+        /// </summary>
         [Input("forwardingConfiguration")]
         public Input<FrontdoorRoutingRulesForwardingConfigurationArgs>? ForwardingConfiguration { get; set; }
 
         [Input("frontendEndpoints", required: true)]
         private InputList<string>? _frontendEndpoints;
+
+        /// <summary>
+        /// The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        /// </summary>
         public InputList<string> FrontendEndpoints
         {
             get => _frontendEndpoints ?? (_frontendEndpoints = new InputList<string>());
@@ -806,19 +984,26 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Routing Rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("patternsToMatches", required: true)]
         private InputList<string>? _patternsToMatches;
+
+        /// <summary>
+        /// The route patterns for the Backend Routing Rule. Defaults to `/*`.
+        /// </summary>
         public InputList<string> PatternsToMatches
         {
             get => _patternsToMatches ?? (_patternsToMatches = new InputList<string>());
             set => _patternsToMatches = value;
         }
 
+        /// <summary>
+        /// A `redirect_configuration` block as defined below.
+        /// </summary>
         [Input("redirectConfiguration")]
         public Input<FrontdoorRoutingRulesRedirectConfigurationArgs>? RedirectConfiguration { get; set; }
 
@@ -829,21 +1014,39 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorRoutingRulesForwardingConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the Backend Pool to forward the incoming traffic to.
+        /// </summary>
         [Input("backendPoolName", required: true)]
         public Input<string> BackendPoolName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+        /// </summary>
         [Input("cacheEnabled")]
         public Input<bool>? CacheEnabled { get; set; }
 
+        /// <summary>
+        /// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        /// </summary>
         [Input("cacheQueryParameterStripDirective")]
         public Input<string>? CacheQueryParameterStripDirective { get; set; }
 
+        /// <summary>
+        /// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+        /// </summary>
         [Input("cacheUseDynamicCompression")]
         public Input<bool>? CacheUseDynamicCompression { get; set; }
 
+        /// <summary>
+        /// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+        /// </summary>
         [Input("customForwardingPath")]
         public Input<string>? CustomForwardingPath { get; set; }
 
+        /// <summary>
+        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
+        /// </summary>
         [Input("forwardingProtocol")]
         public Input<string>? ForwardingProtocol { get; set; }
 
@@ -854,21 +1057,39 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorRoutingRulesForwardingConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the Backend Pool to forward the incoming traffic to.
+        /// </summary>
         [Input("backendPoolName", required: true)]
         public Input<string> BackendPoolName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+        /// </summary>
         [Input("cacheEnabled")]
         public Input<bool>? CacheEnabled { get; set; }
 
+        /// <summary>
+        /// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        /// </summary>
         [Input("cacheQueryParameterStripDirective")]
         public Input<string>? CacheQueryParameterStripDirective { get; set; }
 
+        /// <summary>
+        /// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+        /// </summary>
         [Input("cacheUseDynamicCompression")]
         public Input<bool>? CacheUseDynamicCompression { get; set; }
 
+        /// <summary>
+        /// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+        /// </summary>
         [Input("customForwardingPath")]
         public Input<string>? CustomForwardingPath { get; set; }
 
+        /// <summary>
+        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
+        /// </summary>
         [Input("forwardingProtocol")]
         public Input<string>? ForwardingProtocol { get; set; }
 
@@ -881,20 +1102,34 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("acceptedProtocols", required: true)]
         private InputList<string>? _acceptedProtocols;
+
+        /// <summary>
+        /// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        /// </summary>
         public InputList<string> AcceptedProtocols
         {
             get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<string>());
             set => _acceptedProtocols = value;
         }
 
+        /// <summary>
+        /// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// A `forwarding_configuration` block as defined below.
+        /// </summary>
         [Input("forwardingConfiguration")]
         public Input<FrontdoorRoutingRulesForwardingConfigurationGetArgs>? ForwardingConfiguration { get; set; }
 
         [Input("frontendEndpoints", required: true)]
         private InputList<string>? _frontendEndpoints;
+
+        /// <summary>
+        /// The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        /// </summary>
         public InputList<string> FrontendEndpoints
         {
             get => _frontendEndpoints ?? (_frontendEndpoints = new InputList<string>());
@@ -908,19 +1143,26 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Routing Rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("patternsToMatches", required: true)]
         private InputList<string>? _patternsToMatches;
+
+        /// <summary>
+        /// The route patterns for the Backend Routing Rule. Defaults to `/*`.
+        /// </summary>
         public InputList<string> PatternsToMatches
         {
             get => _patternsToMatches ?? (_patternsToMatches = new InputList<string>());
             set => _patternsToMatches = value;
         }
 
+        /// <summary>
+        /// A `redirect_configuration` block as defined below.
+        /// </summary>
         [Input("redirectConfiguration")]
         public Input<FrontdoorRoutingRulesRedirectConfigurationGetArgs>? RedirectConfiguration { get; set; }
 
@@ -931,21 +1173,39 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorRoutingRulesRedirectConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+        /// </summary>
         [Input("customFragment")]
         public Input<string>? CustomFragment { get; set; }
 
+        /// <summary>
+        /// Set this to change the URL for the redirection.
+        /// </summary>
         [Input("customHost")]
         public Input<string>? CustomHost { get; set; }
 
+        /// <summary>
+        /// The path to retain as per the incoming request, or update in the URL for the redirection.
+        /// </summary>
         [Input("customPath")]
         public Input<string>? CustomPath { get; set; }
 
+        /// <summary>
+        /// Replace any existing query string from the incoming request URL.
+        /// </summary>
         [Input("customQueryString")]
         public Input<string>? CustomQueryString { get; set; }
 
+        /// <summary>
+        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+        /// </summary>
         [Input("redirectProtocol", required: true)]
         public Input<string> RedirectProtocol { get; set; } = null!;
 
+        /// <summary>
+        /// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+        /// </summary>
         [Input("redirectType", required: true)]
         public Input<string> RedirectType { get; set; } = null!;
 
@@ -956,21 +1216,39 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FrontdoorRoutingRulesRedirectConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+        /// </summary>
         [Input("customFragment")]
         public Input<string>? CustomFragment { get; set; }
 
+        /// <summary>
+        /// Set this to change the URL for the redirection.
+        /// </summary>
         [Input("customHost")]
         public Input<string>? CustomHost { get; set; }
 
+        /// <summary>
+        /// The path to retain as per the incoming request, or update in the URL for the redirection.
+        /// </summary>
         [Input("customPath")]
         public Input<string>? CustomPath { get; set; }
 
+        /// <summary>
+        /// Replace any existing query string from the incoming request URL.
+        /// </summary>
         [Input("customQueryString")]
         public Input<string>? CustomQueryString { get; set; }
 
+        /// <summary>
+        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+        /// </summary>
         [Input("redirectProtocol", required: true)]
         public Input<string> RedirectProtocol { get; set; } = null!;
 
+        /// <summary>
+        /// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+        /// </summary>
         [Input("redirectType", required: true)]
         public Input<string> RedirectType { get; set; } = null!;
 
@@ -986,18 +1264,33 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorBackendPoolHealthProbes
     {
+        /// <summary>
+        /// Is this health probe enabled? Dafaults to `true`.
+        /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The number of seconds between each Health Probe. Defaults to `120`.
+        /// </summary>
         public readonly int? IntervalInSeconds;
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Health Probe.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The path to use for the Health Probe. Default is `/`.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+        /// </summary>
         public readonly string? ProbeMethod;
+        /// <summary>
+        /// Protocol scheme to use for the Health Probe. Defaults to `Http`.
+        /// </summary>
         public readonly string? Protocol;
 
         [OutputConstructor]
@@ -1023,16 +1316,25 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorBackendPoolLoadBalancings
     {
+        /// <summary>
+        /// The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
+        /// </summary>
         public readonly int? AdditionalLatencyMilliseconds;
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Load Balancer.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The number of samples to consider for load balancing decisions. Defaults to `4`.
+        /// </summary>
         public readonly int? SampleSize;
+        /// <summary>
+        /// The number of samples within the sample period that must succeed. Defaults to `2`.
+        /// </summary>
         public readonly int? SuccessfulSamplesRequired;
 
         [OutputConstructor]
@@ -1054,15 +1356,24 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorBackendPools
     {
+        /// <summary>
+        /// A `backend` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<FrontdoorBackendPoolsBackends> Backends;
+        /// <summary>
+        /// Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
+        /// </summary>
         public readonly string HealthProbeName;
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+        /// </summary>
         public readonly string LoadBalancingName;
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Backend Pool.
         /// </summary>
         public readonly string Name;
 
@@ -1085,12 +1396,33 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorBackendPoolsBackends
     {
+        /// <summary>
+        /// Location of the backend (IP address or FQDN)
+        /// </summary>
         public readonly string Address;
+        /// <summary>
+        /// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// The value to use as the host header sent to the backend.
+        /// </summary>
         public readonly string HostHeader;
+        /// <summary>
+        /// The HTTP TCP port number. Possible values are between `1` - `65535`.
+        /// </summary>
         public readonly int HttpPort;
+        /// <summary>
+        /// The HTTPS TCP port number. Possible values are between `1` - `65535`.
+        /// </summary>
         public readonly int HttpsPort;
+        /// <summary>
+        /// Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+        /// </summary>
         public readonly int? Priority;
+        /// <summary>
+        /// Weight of this endpoint for load balancing purposes. Defaults to `50`.
+        /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]
@@ -1116,21 +1448,36 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorFrontendEndpoints
     {
+        /// <summary>
+        /// A `custom_https_configuration` block as defined below.
+        /// </summary>
         public readonly FrontdoorFrontendEndpointsCustomHttpsConfiguration? CustomHttpsConfiguration;
+        /// <summary>
+        /// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+        /// </summary>
         public readonly bool CustomHttpsProvisioningEnabled;
+        /// <summary>
+        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name.
+        /// </summary>
         public readonly string HostName;
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the `frontend_endpoint`.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+        /// </summary>
         public readonly bool? SessionAffinityEnabled;
+        /// <summary>
+        /// The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+        /// </summary>
         public readonly int? SessionAffinityTtlSeconds;
         /// <summary>
-        /// (Optional) The `id` of the `web_application_firewall_policy_link` to use for this Frontend Endpoint."
+        /// Defines the Web Application Firewall policy `ID` for each host.
         /// </summary>
         public readonly string? WebApplicationFirewallPolicyLinkId;
 
@@ -1159,9 +1506,21 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorFrontendEndpointsCustomHttpsConfiguration
     {
+        /// <summary>
+        /// The name of the Key Vault secret representing the full certificate PFX.
+        /// </summary>
         public readonly string? AzureKeyVaultCertificateSecretName;
+        /// <summary>
+        /// The version of the Key Vault secret representing the full certificate PFX.
+        /// </summary>
         public readonly string? AzureKeyVaultCertificateSecretVersion;
+        /// <summary>
+        /// The ID of the Key Vault containing the SSL certificate.
+        /// </summary>
         public readonly string? AzureKeyVaultCertificateVaultId;
+        /// <summary>
+        /// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+        /// </summary>
         public readonly string? CertificateSource;
         /// <summary>
         /// Minimum client TLS version supported.
@@ -1199,19 +1558,37 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorRoutingRules
     {
+        /// <summary>
+        /// Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        /// </summary>
         public readonly ImmutableArray<string> AcceptedProtocols;
+        /// <summary>
+        /// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A `forwarding_configuration` block as defined below.
+        /// </summary>
         public readonly FrontdoorRoutingRulesForwardingConfiguration? ForwardingConfiguration;
+        /// <summary>
+        /// The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        /// </summary>
         public readonly ImmutableArray<string> FrontendEndpoints;
         /// <summary>
         /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+        /// Specifies the name of the Routing Rule.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The route patterns for the Backend Routing Rule. Defaults to `/*`.
+        /// </summary>
         public readonly ImmutableArray<string> PatternsToMatches;
+        /// <summary>
+        /// A `redirect_configuration` block as defined below.
+        /// </summary>
         public readonly FrontdoorRoutingRulesRedirectConfiguration? RedirectConfiguration;
 
         [OutputConstructor]
@@ -1239,11 +1616,29 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorRoutingRulesForwardingConfiguration
     {
+        /// <summary>
+        /// Specifies the name of the Backend Pool to forward the incoming traffic to.
+        /// </summary>
         public readonly string BackendPoolName;
+        /// <summary>
+        /// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
+        /// </summary>
         public readonly bool? CacheEnabled;
+        /// <summary>
+        /// Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+        /// </summary>
         public readonly string? CacheQueryParameterStripDirective;
+        /// <summary>
+        /// Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
+        /// </summary>
         public readonly bool? CacheUseDynamicCompression;
+        /// <summary>
+        /// Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+        /// </summary>
         public readonly string? CustomForwardingPath;
+        /// <summary>
+        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
+        /// </summary>
         public readonly string? ForwardingProtocol;
 
         [OutputConstructor]
@@ -1267,11 +1662,29 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FrontdoorRoutingRulesRedirectConfiguration
     {
+        /// <summary>
+        /// The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+        /// </summary>
         public readonly string? CustomFragment;
+        /// <summary>
+        /// Set this to change the URL for the redirection.
+        /// </summary>
         public readonly string? CustomHost;
+        /// <summary>
+        /// The path to retain as per the incoming request, or update in the URL for the redirection.
+        /// </summary>
         public readonly string? CustomPath;
+        /// <summary>
+        /// Replace any existing query string from the incoming request URL.
+        /// </summary>
         public readonly string? CustomQueryString;
+        /// <summary>
+        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+        /// </summary>
         public readonly string RedirectProtocol;
+        /// <summary>
+        /// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+        /// </summary>
         public readonly string RedirectType;
 
         [OutputConstructor]

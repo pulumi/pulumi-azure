@@ -22,10 +22,10 @@ class SrvRecord(pulumi.CustomResource):
     """
     A list of values that make up the SRV record. Each `record` block supports fields documented below.
 
-      * `port` (`float`)
-      * `priority` (`float`)
-      * `target` (`str`)
-      * `weight` (`float`)
+      * `port` (`float`) - Port the service is listening on.
+      * `priority` (`float`) - Priority of the SRV record.
+      * `target` (`str`) - FQDN of the service.
+      * `weight` (`float`) - Weight of the SRV record.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -60,10 +60,10 @@ class SrvRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `port` (`pulumi.Input[float]`)
-          * `priority` (`pulumi.Input[float]`)
-          * `target` (`pulumi.Input[str]`)
-          * `weight` (`pulumi.Input[float]`)
+          * `port` (`pulumi.Input[float]`) - Port the service is listening on.
+          * `priority` (`pulumi.Input[float]`) - Priority of the SRV record.
+          * `target` (`pulumi.Input[str]`) - FQDN of the service.
+          * `weight` (`pulumi.Input[float]`) - Weight of the SRV record.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,10 +122,10 @@ class SrvRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `port` (`pulumi.Input[float]`)
-          * `priority` (`pulumi.Input[float]`)
-          * `target` (`pulumi.Input[str]`)
-          * `weight` (`pulumi.Input[float]`)
+          * `port` (`pulumi.Input[float]`) - Port the service is listening on.
+          * `priority` (`pulumi.Input[float]`) - Priority of the SRV record.
+          * `target` (`pulumi.Input[str]`) - FQDN of the service.
+          * `weight` (`pulumi.Input[float]`) - Weight of the SRV record.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

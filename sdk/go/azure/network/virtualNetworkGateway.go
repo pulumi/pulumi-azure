@@ -43,8 +43,7 @@ type VirtualNetworkGateway struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -136,8 +135,7 @@ type virtualNetworkGatewayState struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -190,8 +188,7 @@ type VirtualNetworkGatewayState struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -248,8 +245,7 @@ type virtualNetworkGatewayArgs struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -303,8 +299,7 @@ type VirtualNetworkGatewayArgs struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Virtual Network Gateway. Changing the name
-	// forces a new resource to be created.
+	// A user-defined name of the revoked certificate.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces

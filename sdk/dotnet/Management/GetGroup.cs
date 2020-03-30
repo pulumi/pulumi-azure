@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Management
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
         /// </summary>
+        [Obsolete("Use GetGroup.InvokeAsync() instead")]
         public static Task<GetGroupResult> GetGroup(GetGroupArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:management/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetGroup
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Management Group.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
+        /// </summary>
+        public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:management/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

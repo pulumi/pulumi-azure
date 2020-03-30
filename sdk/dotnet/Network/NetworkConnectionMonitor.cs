@@ -253,12 +253,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkConnectionMonitorDestinationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP address or domain name to monitor connectivity to.
+        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
+        /// <summary>
+        /// The port on the destination to monitor connectivity to.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Machine to monitor connectivity to.
+        /// </summary>
         [Input("virtualMachineId")]
         public Input<string>? VirtualMachineId { get; set; }
 
@@ -269,12 +278,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkConnectionMonitorDestinationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP address or domain name to monitor connectivity to.
+        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
+        /// <summary>
+        /// The port on the destination to monitor connectivity to.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Machine to monitor connectivity to.
+        /// </summary>
         [Input("virtualMachineId")]
         public Input<string>? VirtualMachineId { get; set; }
 
@@ -285,9 +303,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkConnectionMonitorSourceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The port on the destination to monitor connectivity to.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The ID of the Virtual Machine to monitor connectivity to.
+        /// </summary>
         [Input("virtualMachineId", required: true)]
         public Input<string> VirtualMachineId { get; set; } = null!;
 
@@ -298,9 +322,15 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkConnectionMonitorSourceGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The port on the destination to monitor connectivity to.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The ID of the Virtual Machine to monitor connectivity to.
+        /// </summary>
         [Input("virtualMachineId", required: true)]
         public Input<string> VirtualMachineId { get; set; } = null!;
 
@@ -316,8 +346,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class NetworkConnectionMonitorDestination
     {
+        /// <summary>
+        /// IP address or domain name to monitor connectivity to.
+        /// </summary>
         public readonly string? Address;
+        /// <summary>
+        /// The port on the destination to monitor connectivity to.
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// The ID of the Virtual Machine to monitor connectivity to.
+        /// </summary>
         public readonly string? VirtualMachineId;
 
         [OutputConstructor]
@@ -335,7 +374,13 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class NetworkConnectionMonitorSource
     {
+        /// <summary>
+        /// The port on the destination to monitor connectivity to.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The ID of the Virtual Machine to monitor connectivity to.
+        /// </summary>
         public readonly string VirtualMachineId;
 
         [OutputConstructor]

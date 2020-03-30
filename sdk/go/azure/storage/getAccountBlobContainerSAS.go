@@ -25,8 +25,9 @@ func GetAccountBlobContainerSAS(ctx *pulumi.Context, args *GetAccountBlobContain
 // A collection of arguments for invoking getAccountBlobContainerSAS.
 type GetAccountBlobContainerSASArgs struct {
 	// The `Cache-Control` response header that is sent when this SAS token is used.
-	CacheControl     *string `pulumi:"cacheControl"`
-	ConnectionString string  `pulumi:"connectionString"`
+	CacheControl *string `pulumi:"cacheControl"`
+	// The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `storage.Account` resource.
+	ConnectionString string `pulumi:"connectionString"`
 	// Name of the container.
 	ContainerName string `pulumi:"containerName"`
 	// The `Content-Disposition` response header that is sent when this SAS token is used.

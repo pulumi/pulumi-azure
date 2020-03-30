@@ -22,9 +22,9 @@ class CaaRecord(pulumi.CustomResource):
     """
     A list of values that make up the CAA record. Each `record` block supports fields documented below.
 
-      * `flags` (`float`)
-      * `tag` (`str`)
-      * `value` (`str`)
+      * `flags` (`float`) - Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+      * `tag` (`str`) - A property tag, options are issue, issuewild and iodef.
+      * `value` (`str`) - A property value such as a registrar domain.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -59,9 +59,9 @@ class CaaRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `flags` (`pulumi.Input[float]`)
-          * `tag` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `flags` (`pulumi.Input[float]`) - Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+          * `tag` (`pulumi.Input[str]`) - A property tag, options are issue, issuewild and iodef.
+          * `value` (`pulumi.Input[str]`) - A property value such as a registrar domain.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,9 +120,9 @@ class CaaRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `flags` (`pulumi.Input[float]`)
-          * `tag` (`pulumi.Input[str]`)
-          * `value` (`pulumi.Input[str]`)
+          * `flags` (`pulumi.Input[float]`) - Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+          * `tag` (`pulumi.Input[str]`) - A property tag, options are issue, issuewild and iodef.
+          * `value` (`pulumi.Input[str]`) - A property value such as a registrar domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

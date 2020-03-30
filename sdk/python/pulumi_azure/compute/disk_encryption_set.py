@@ -16,7 +16,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
       * `principal_id` (`str`) - The (Client) ID of the Service Principal.
       * `tenant_id` (`str`) - The ID of the Tenant the Service Principal is assigned in.
-      * `type` (`str`)
+      * `type` (`str`) - The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
     """
     key_vault_key_id: pulumi.Output[str]
     """
@@ -40,7 +40,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, identity=None, key_vault_key_id=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a DiskEncryptionSet resource with the given unique name, props, and options.
+        Manages a Disk Encryption Set.
+
+        > **NOTE**: Disk Encryption Sets are in Public Preview and at this time is only available in `Canada Central`, `North Europe` and `West Central US` regions - [more information can be found in the preview documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption).
+
+        > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] identity: A `identity` block defined below.
@@ -54,7 +61,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
           * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +118,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The (Client) ID of the Service Principal.
           * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -12,10 +12,14 @@ import (
 )
 
 type LinuxVirtualMachineGalleryImageReference struct {
-	Offer     string `pulumi:"offer"`
+	// The Offer of the Gallery Image. Changing this forces a new resource to be created.
+	Offer string `pulumi:"offer"`
+	// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	Sku       string `pulumi:"sku"`
-	Version   string `pulumi:"version"`
+	// The SKU of the Gallery Image. Changing this forces a new resource to be created.
+	Sku string `pulumi:"sku"`
+	// The Version of the Gallery Image. Changing this forces a new resource to be created.
+	Version string `pulumi:"version"`
 }
 
 type LinuxVirtualMachineGalleryImageReferenceInput interface {
@@ -26,10 +30,14 @@ type LinuxVirtualMachineGalleryImageReferenceInput interface {
 }
 
 type LinuxVirtualMachineGalleryImageReferenceArgs struct {
-	Offer     pulumi.StringInput `pulumi:"offer"`
+	// The Offer of the Gallery Image. Changing this forces a new resource to be created.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku       pulumi.StringInput `pulumi:"sku"`
-	Version   pulumi.StringInput `pulumi:"version"`
+	// The SKU of the Gallery Image. Changing this forces a new resource to be created.
+	Sku pulumi.StringInput `pulumi:"sku"`
+	// The Version of the Gallery Image. Changing this forces a new resource to be created.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (LinuxVirtualMachineGalleryImageReferenceArgs) ElementType() reflect.Type {
@@ -100,18 +108,23 @@ func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGal
 		return &v
 	}).(LinuxVirtualMachineGalleryImageReferencePtrOutput)
 }
+
+// The Offer of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferenceOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// The SKU of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferenceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Version of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -134,27 +147,33 @@ func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Elem() LinuxVirtualMa
 	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) LinuxVirtualMachineGalleryImageReference { return *v }).(LinuxVirtualMachineGalleryImageReferenceOutput)
 }
 
+// The Offer of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// The SKU of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Version of the Gallery Image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type LinuxVirtualMachineInboundNatRule struct {
+	// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
 	BackendPort int `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
-	FrontendPort *int   `pulumi:"frontendPort"`
-	Protocol     string `pulumi:"protocol"`
+	FrontendPort *int `pulumi:"frontendPort"`
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	Protocol string `pulumi:"protocol"`
 }
 
 type LinuxVirtualMachineInboundNatRuleInput interface {
@@ -165,10 +184,12 @@ type LinuxVirtualMachineInboundNatRuleInput interface {
 }
 
 type LinuxVirtualMachineInboundNatRuleArgs struct {
+	// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
 	FrontendPort pulumi.IntPtrInput `pulumi:"frontendPort"`
-	Protocol     pulumi.StringInput `pulumi:"protocol"`
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (LinuxVirtualMachineInboundNatRuleArgs) ElementType() reflect.Type {
@@ -218,6 +239,7 @@ func (o LinuxVirtualMachineInboundNatRuleOutput) ToLinuxVirtualMachineInboundNat
 	return o
 }
 
+// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineInboundNatRuleOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineInboundNatRule) int { return v.BackendPort }).(pulumi.IntOutput)
 }
@@ -227,6 +249,7 @@ func (o LinuxVirtualMachineInboundNatRuleOutput) FrontendPort() pulumi.IntPtrOut
 	return o.ApplyT(func(v LinuxVirtualMachineInboundNatRule) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
 }
 
+// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineInboundNatRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineInboundNatRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -617,7 +640,7 @@ func (o ScheduleNotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutp
 }
 
 type ScheduleWeeklyRecurrence struct {
-	// The time each day when the schedule takes effect.
+	// The time when the schedule takes effect.
 	Time string `pulumi:"time"`
 	// A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	WeekDays []string `pulumi:"weekDays"`
@@ -631,7 +654,7 @@ type ScheduleWeeklyRecurrenceInput interface {
 }
 
 type ScheduleWeeklyRecurrenceArgs struct {
-	// The time each day when the schedule takes effect.
+	// The time when the schedule takes effect.
 	Time pulumi.StringInput `pulumi:"time"`
 	// A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
@@ -706,7 +729,7 @@ func (o ScheduleWeeklyRecurrenceOutput) ToScheduleWeeklyRecurrencePtrOutputWithC
 	}).(ScheduleWeeklyRecurrencePtrOutput)
 }
 
-// The time each day when the schedule takes effect.
+// The time when the schedule takes effect.
 func (o ScheduleWeeklyRecurrenceOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleWeeklyRecurrence) string { return v.Time }).(pulumi.StringOutput)
 }
@@ -734,7 +757,7 @@ func (o ScheduleWeeklyRecurrencePtrOutput) Elem() ScheduleWeeklyRecurrenceOutput
 	return o.ApplyT(func(v *ScheduleWeeklyRecurrence) ScheduleWeeklyRecurrence { return *v }).(ScheduleWeeklyRecurrenceOutput)
 }
 
-// The time each day when the schedule takes effect.
+// The time when the schedule takes effect.
 func (o ScheduleWeeklyRecurrencePtrOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleWeeklyRecurrence) string { return v.Time }).(pulumi.StringOutput)
 }
@@ -746,9 +769,11 @@ func (o ScheduleWeeklyRecurrencePtrOutput) WeekDays() pulumi.StringArrayOutput {
 
 type VirtualNetworkSubnet struct {
 	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-	Name                        *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
 	UseInVirtualMachineCreation *string `pulumi:"useInVirtualMachineCreation"`
-	UsePublicIpAddress          *string `pulumi:"usePublicIpAddress"`
+	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+	UsePublicIpAddress *string `pulumi:"usePublicIpAddress"`
 }
 
 type VirtualNetworkSubnetInput interface {
@@ -760,9 +785,11 @@ type VirtualNetworkSubnetInput interface {
 
 type VirtualNetworkSubnetArgs struct {
 	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-	Name                        pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
 	UseInVirtualMachineCreation pulumi.StringPtrInput `pulumi:"useInVirtualMachineCreation"`
-	UsePublicIpAddress          pulumi.StringPtrInput `pulumi:"usePublicIpAddress"`
+	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+	UsePublicIpAddress pulumi.StringPtrInput `pulumi:"usePublicIpAddress"`
 }
 
 func (VirtualNetworkSubnetArgs) ElementType() reflect.Type {
@@ -839,10 +866,12 @@ func (o VirtualNetworkSubnetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
 func (o VirtualNetworkSubnetOutput) UseInVirtualMachineCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UseInVirtualMachineCreation }).(pulumi.StringPtrOutput)
 }
 
+// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
 func (o VirtualNetworkSubnetOutput) UsePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UsePublicIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -870,19 +899,25 @@ func (o VirtualNetworkSubnetPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
 func (o VirtualNetworkSubnetPtrOutput) UseInVirtualMachineCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UseInVirtualMachineCreation }).(pulumi.StringPtrOutput)
 }
 
+// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
 func (o VirtualNetworkSubnetPtrOutput) UsePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UsePublicIpAddress }).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineGalleryImageReference struct {
-	Offer     string `pulumi:"offer"`
+	// The Offer of the Gallery Image. Changing this forces a new resource to be created.
+	Offer string `pulumi:"offer"`
+	// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	Sku       string `pulumi:"sku"`
-	Version   string `pulumi:"version"`
+	// The SKU of the Gallery Image. Changing this forces a new resource to be created.
+	Sku string `pulumi:"sku"`
+	// The Version of the Gallery Image. Changing this forces a new resource to be created.
+	Version string `pulumi:"version"`
 }
 
 type WindowsVirtualMachineGalleryImageReferenceInput interface {
@@ -893,10 +928,14 @@ type WindowsVirtualMachineGalleryImageReferenceInput interface {
 }
 
 type WindowsVirtualMachineGalleryImageReferenceArgs struct {
-	Offer     pulumi.StringInput `pulumi:"offer"`
+	// The Offer of the Gallery Image. Changing this forces a new resource to be created.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku       pulumi.StringInput `pulumi:"sku"`
-	Version   pulumi.StringInput `pulumi:"version"`
+	// The SKU of the Gallery Image. Changing this forces a new resource to be created.
+	Sku pulumi.StringInput `pulumi:"sku"`
+	// The Version of the Gallery Image. Changing this forces a new resource to be created.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (WindowsVirtualMachineGalleryImageReferenceArgs) ElementType() reflect.Type {
@@ -967,18 +1006,23 @@ func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachin
 		return &v
 	}).(WindowsVirtualMachineGalleryImageReferencePtrOutput)
 }
+
+// The Offer of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferenceOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// The SKU of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferenceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Version of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1003,27 +1047,33 @@ func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Elem() WindowsVirtu
 	}).(WindowsVirtualMachineGalleryImageReferenceOutput)
 }
 
+// The Offer of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// The SKU of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Version of the Gallery Image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type WindowsVirtualMachineInboundNatRule struct {
+	// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
 	BackendPort int `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
-	FrontendPort *int   `pulumi:"frontendPort"`
-	Protocol     string `pulumi:"protocol"`
+	FrontendPort *int `pulumi:"frontendPort"`
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	Protocol string `pulumi:"protocol"`
 }
 
 type WindowsVirtualMachineInboundNatRuleInput interface {
@@ -1034,10 +1084,12 @@ type WindowsVirtualMachineInboundNatRuleInput interface {
 }
 
 type WindowsVirtualMachineInboundNatRuleArgs struct {
+	// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
 	FrontendPort pulumi.IntPtrInput `pulumi:"frontendPort"`
-	Protocol     pulumi.StringInput `pulumi:"protocol"`
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (WindowsVirtualMachineInboundNatRuleArgs) ElementType() reflect.Type {
@@ -1087,6 +1139,7 @@ func (o WindowsVirtualMachineInboundNatRuleOutput) ToWindowsVirtualMachineInboun
 	return o
 }
 
+// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineInboundNatRuleOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineInboundNatRule) int { return v.BackendPort }).(pulumi.IntOutput)
 }
@@ -1096,6 +1149,7 @@ func (o WindowsVirtualMachineInboundNatRuleOutput) FrontendPort() pulumi.IntPtrO
 	return o.ApplyT(func(v WindowsVirtualMachineInboundNatRule) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
 }
 
+// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineInboundNatRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineInboundNatRule) string { return v.Protocol }).(pulumi.StringOutput)
 }

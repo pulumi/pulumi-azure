@@ -18,8 +18,8 @@ class Account(pulumi.CustomResource):
     """
     A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 
-      * `id` (`str`) - The ID of the Batch Account.
-      * `url` (`str`)
+      * `id` (`str`) - The Azure identifier of the Azure KeyVault to use.
+      * `url` (`str`) - The HTTPS URL of the Azure KeyVault to use.
     """
     location: pulumi.Output[str]
     """
@@ -71,8 +71,8 @@ class Account(pulumi.CustomResource):
 
         The **key_vault_reference** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - The ID of the Batch Account.
-          * `url` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - The Azure identifier of the Azure KeyVault to use.
+          * `url` (`pulumi.Input[str]`) - The HTTPS URL of the Azure KeyVault to use.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,8 +131,8 @@ class Account(pulumi.CustomResource):
 
         The **key_vault_reference** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - The ID of the Batch Account.
-          * `url` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - The Azure identifier of the Azure KeyVault to use.
+          * `url` (`pulumi.Input[str]`) - The HTTPS URL of the Azure KeyVault to use.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

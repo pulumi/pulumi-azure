@@ -35,7 +35,7 @@ type KubernetesClusterNodePool struct {
 	MinCount pulumi.IntPtrOutput `pulumi:"minCount"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
@@ -103,7 +103,7 @@ type kubernetesClusterNodePoolState struct {
 	MinCount *int `pulumi:"minCount"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
@@ -138,7 +138,7 @@ type KubernetesClusterNodePoolState struct {
 	MinCount pulumi.IntPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput
@@ -177,7 +177,7 @@ type kubernetesClusterNodePoolArgs struct {
 	MinCount *int `pulumi:"minCount"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
@@ -213,7 +213,7 @@ type KubernetesClusterNodePoolArgs struct {
 	MinCount pulumi.IntPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
 	NodeLabels pulumi.StringMapInput

@@ -154,15 +154,15 @@ func (o DomainInputMappingDefaultValuesPtrOutput) Subject() pulumi.StringPtrOutp
 }
 
 type DomainInputMappingFields struct {
-	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	DataVersion *string `pulumi:"dataVersion"`
 	// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	EventTime *string `pulumi:"eventTime"`
-	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	EventType *string `pulumi:"eventType"`
 	// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	Id *string `pulumi:"id"`
-	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	Subject *string `pulumi:"subject"`
 	// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	Topic *string `pulumi:"topic"`
@@ -176,15 +176,15 @@ type DomainInputMappingFieldsInput interface {
 }
 
 type DomainInputMappingFieldsArgs struct {
-	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	DataVersion pulumi.StringPtrInput `pulumi:"dataVersion"`
 	// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	EventTime pulumi.StringPtrInput `pulumi:"eventTime"`
-	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	EventType pulumi.StringPtrInput `pulumi:"eventType"`
 	// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
 	// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 	Topic pulumi.StringPtrInput `pulumi:"topic"`
@@ -259,7 +259,7 @@ func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsPtrOutputWithC
 	}).(DomainInputMappingFieldsPtrOutput)
 }
 
-// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) DataVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
 }
@@ -269,7 +269,7 @@ func (o DomainInputMappingFieldsOutput) EventTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) EventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
@@ -279,7 +279,7 @@ func (o DomainInputMappingFieldsOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
@@ -307,7 +307,7 @@ func (o DomainInputMappingFieldsPtrOutput) Elem() DomainInputMappingFieldsOutput
 	return o.ApplyT(func(v *DomainInputMappingFields) DomainInputMappingFields { return *v }).(DomainInputMappingFieldsOutput)
 }
 
-// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) DataVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
 }
@@ -317,7 +317,7 @@ func (o DomainInputMappingFieldsPtrOutput) EventTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) EventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
@@ -327,7 +327,7 @@ func (o DomainInputMappingFieldsPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
@@ -828,7 +828,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobC
 type EventSubscriptionStorageQueueEndpoint struct {
 	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
 	QueueName string `pulumi:"queueName"`
-	// Specifies the id of the storage account id where the storage blob is located.
+	// Specifies the id of the storage account id where the storage queue is located.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -842,7 +842,7 @@ type EventSubscriptionStorageQueueEndpointInput interface {
 type EventSubscriptionStorageQueueEndpointArgs struct {
 	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
 	QueueName pulumi.StringInput `pulumi:"queueName"`
-	// Specifies the id of the storage account id where the storage blob is located.
+	// Specifies the id of the storage account id where the storage queue is located.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -920,7 +920,7 @@ func (o EventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOu
 	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located.
+// Specifies the id of the storage account id where the storage queue is located.
 func (o EventSubscriptionStorageQueueEndpointOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -948,7 +948,7 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.Strin
 	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located.
+// Specifies the id of the storage account id where the storage queue is located.
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }

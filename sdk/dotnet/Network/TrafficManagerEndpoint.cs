@@ -446,12 +446,14 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerEndpointCustomHeadersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Traffic Manager endpoint. Changing this forces a
-        /// new resource to be created.
+        /// The name of the custom header.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -463,12 +465,14 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerEndpointCustomHeadersGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Traffic Manager endpoint. Changing this forces a
-        /// new resource to be created.
+        /// The name of the custom header.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -479,12 +483,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class TrafficManagerEndpointSubnetsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The First IP....
+        /// </summary>
         [Input("first", required: true)]
         public Input<string> First { get; set; } = null!;
 
+        /// <summary>
+        /// The Last IP...
+        /// </summary>
         [Input("last")]
         public Input<string>? Last { get; set; }
 
+        /// <summary>
+        /// The Scope...
+        /// </summary>
         [Input("scope")]
         public Input<int>? Scope { get; set; }
 
@@ -495,12 +508,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class TrafficManagerEndpointSubnetsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The First IP....
+        /// </summary>
         [Input("first", required: true)]
         public Input<string> First { get; set; } = null!;
 
+        /// <summary>
+        /// The Last IP...
+        /// </summary>
         [Input("last")]
         public Input<string>? Last { get; set; }
 
+        /// <summary>
+        /// The Scope...
+        /// </summary>
         [Input("scope")]
         public Input<int>? Scope { get; set; }
 
@@ -517,10 +539,12 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerEndpointCustomHeaders
     {
         /// <summary>
-        /// The name of the Traffic Manager endpoint. Changing this forces a
-        /// new resource to be created.
+        /// The name of the custom header.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]
@@ -536,8 +560,17 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class TrafficManagerEndpointSubnets
     {
+        /// <summary>
+        /// The First IP....
+        /// </summary>
         public readonly string First;
+        /// <summary>
+        /// The Last IP...
+        /// </summary>
         public readonly string? Last;
+        /// <summary>
+        /// The Scope...
+        /// </summary>
         public readonly int? Scope;
 
         [OutputConstructor]

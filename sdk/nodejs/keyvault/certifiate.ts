@@ -55,7 +55,7 @@ export class Certifiate extends pulumi.CustomResource {
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
-     * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+     * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface CertifiateState {
      */
     readonly keyVaultId?: pulumi.Input<string>;
     /**
-     * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+     * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface CertifiateArgs {
      */
     readonly keyVaultId: pulumi.Input<string>;
     /**
-     * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+     * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

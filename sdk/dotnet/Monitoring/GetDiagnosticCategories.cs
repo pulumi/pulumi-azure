@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDiagnosticCategories.InvokeAsync() instead")]
         public static Task<GetDiagnosticCategoriesResult> GetDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDiagnosticCategories
+    {
+        /// <summary>
+        /// Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
+        /// </summary>
+        public static Task<GetDiagnosticCategoriesResult> InvokeAsync(GetDiagnosticCategoriesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

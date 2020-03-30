@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/disk_encryption_set.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDiskEncryptionSet.InvokeAsync() instead")]
         public static Task<GetDiskEncryptionSetResult> GetDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDiskEncryptionSet
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Disk Encryption Set.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/disk_encryption_set.html.markdown.
+        /// </summary>
+        public static Task<GetDiskEncryptionSetResult> InvokeAsync(GetDiskEncryptionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDiskEncryptionSetResult>("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -69,8 +69,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -226,8 +225,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -350,8 +348,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -420,12 +417,25 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkGatewayBgpSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Autonomous System Number (ASN) to use as part of the BGP.
+        /// </summary>
         [Input("asn")]
         public Input<int>? Asn { get; set; }
 
+        /// <summary>
+        /// The weight added to routes which have been learned
+        /// through BGP peering. Valid values can be between `0` and `100`.
+        /// </summary>
         [Input("peerWeight")]
         public Input<int>? PeerWeight { get; set; }
 
+        /// <summary>
+        /// The BGP peer IP address of the virtual network
+        /// gateway. This address is needed to configure the created gateway as a BGP Peer
+        /// on the on-premises VPN devices. The IP address must be part of the subnet of
+        /// the Virtual Network Gateway. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("peeringAddress")]
         public Input<string>? PeeringAddress { get; set; }
 
@@ -436,12 +446,25 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkGatewayBgpSettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Autonomous System Number (ASN) to use as part of the BGP.
+        /// </summary>
         [Input("asn")]
         public Input<int>? Asn { get; set; }
 
+        /// <summary>
+        /// The weight added to routes which have been learned
+        /// through BGP peering. Valid values can be between `0` and `100`.
+        /// </summary>
         [Input("peerWeight")]
         public Input<int>? PeerWeight { get; set; }
 
+        /// <summary>
+        /// The BGP peer IP address of the virtual network
+        /// gateway. This address is needed to configure the created gateway as a BGP Peer
+        /// on the on-premises VPN devices. The IP address must be part of the subnet of
+        /// the Virtual Network Gateway. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("peeringAddress")]
         public Input<string>? PeeringAddress { get; set; }
 
@@ -453,18 +476,32 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayIpConfigurationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Defines how the private IP address
+        /// of the gateways virtual interface is assigned. Valid options are `Static` or
+        /// `Dynamic`. Defaults to `Dynamic`.
+        /// </summary>
         [Input("privateIpAddressAllocation")]
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
+        /// <summary>
+        /// The ID of the public ip address to associate
+        /// with the Virtual Network Gateway.
+        /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
 
+        /// <summary>
+        /// The ID of the gateway subnet of a virtual network in
+        /// which the virtual network gateway will be created. It is mandatory that
+        /// the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+        /// network can contain at most a single Virtual Network Gateway.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -476,18 +513,32 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayIpConfigurationsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Defines how the private IP address
+        /// of the gateways virtual interface is assigned. Valid options are `Static` or
+        /// `Dynamic`. Defaults to `Dynamic`.
+        /// </summary>
         [Input("privateIpAddressAllocation")]
         public Input<string>? PrivateIpAddressAllocation { get; set; }
 
+        /// <summary>
+        /// The ID of the public ip address to associate
+        /// with the Virtual Network Gateway.
+        /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
 
+        /// <summary>
+        /// The ID of the gateway subnet of a virtual network in
+        /// which the virtual network gateway will be created. It is mandatory that
+        /// the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+        /// network can contain at most a single Virtual Network Gateway.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -500,20 +551,40 @@ namespace Pulumi.Azure.Network
     {
         [Input("addressSpaces", required: true)]
         private InputList<string>? _addressSpaces;
+
+        /// <summary>
+        /// The address space out of which ip addresses for
+        /// vpn clients will be taken. You can provide more than one address space, e.g.
+        /// in CIDR notation.
+        /// </summary>
         public InputList<string> AddressSpaces
         {
             get => _addressSpaces ?? (_addressSpaces = new InputList<string>());
             set => _addressSpaces = value;
         }
 
+        /// <summary>
+        /// The address of the Radius server.
+        /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        /// </summary>
         [Input("radiusServerAddress")]
         public Input<string>? RadiusServerAddress { get; set; }
 
+        /// <summary>
+        /// The secret used by the Radius server.
+        /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        /// </summary>
         [Input("radiusServerSecret")]
         public Input<string>? RadiusServerSecret { get; set; }
 
         [Input("revokedCertificates")]
         private InputList<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs>? _revokedCertificates;
+
+        /// <summary>
+        /// One or more `revoked_certificate` blocks which
+        /// are defined below.
+        /// This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        /// </summary>
         public InputList<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs> RevokedCertificates
         {
             get => _revokedCertificates ?? (_revokedCertificates = new InputList<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs>());
@@ -522,6 +593,13 @@ namespace Pulumi.Azure.Network
 
         [Input("rootCertificates")]
         private InputList<VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs>? _rootCertificates;
+
+        /// <summary>
+        /// One or more `root_certificate` blocks which are
+        /// defined below. These root certificates are used to sign the client certificate
+        /// used by the VPN clients to connect to the gateway.
+        /// This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        /// </summary>
         public InputList<VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs> RootCertificates
         {
             get => _rootCertificates ?? (_rootCertificates = new InputList<VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs>());
@@ -530,6 +608,11 @@ namespace Pulumi.Azure.Network
 
         [Input("vpnClientProtocols")]
         private InputList<string>? _vpnClientProtocols;
+
+        /// <summary>
+        /// List of the protocols supported by the vpn client.
+        /// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+        /// </summary>
         public InputList<string> VpnClientProtocols
         {
             get => _vpnClientProtocols ?? (_vpnClientProtocols = new InputList<string>());
@@ -545,20 +628,40 @@ namespace Pulumi.Azure.Network
     {
         [Input("addressSpaces", required: true)]
         private InputList<string>? _addressSpaces;
+
+        /// <summary>
+        /// The address space out of which ip addresses for
+        /// vpn clients will be taken. You can provide more than one address space, e.g.
+        /// in CIDR notation.
+        /// </summary>
         public InputList<string> AddressSpaces
         {
             get => _addressSpaces ?? (_addressSpaces = new InputList<string>());
             set => _addressSpaces = value;
         }
 
+        /// <summary>
+        /// The address of the Radius server.
+        /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        /// </summary>
         [Input("radiusServerAddress")]
         public Input<string>? RadiusServerAddress { get; set; }
 
+        /// <summary>
+        /// The secret used by the Radius server.
+        /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        /// </summary>
         [Input("radiusServerSecret")]
         public Input<string>? RadiusServerSecret { get; set; }
 
         [Input("revokedCertificates")]
         private InputList<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesGetArgs>? _revokedCertificates;
+
+        /// <summary>
+        /// One or more `revoked_certificate` blocks which
+        /// are defined below.
+        /// This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        /// </summary>
         public InputList<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesGetArgs> RevokedCertificates
         {
             get => _revokedCertificates ?? (_revokedCertificates = new InputList<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesGetArgs>());
@@ -567,6 +670,13 @@ namespace Pulumi.Azure.Network
 
         [Input("rootCertificates")]
         private InputList<VirtualNetworkGatewayVpnClientConfigurationRootCertificatesGetArgs>? _rootCertificates;
+
+        /// <summary>
+        /// One or more `root_certificate` blocks which are
+        /// defined below. These root certificates are used to sign the client certificate
+        /// used by the VPN clients to connect to the gateway.
+        /// This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        /// </summary>
         public InputList<VirtualNetworkGatewayVpnClientConfigurationRootCertificatesGetArgs> RootCertificates
         {
             get => _rootCertificates ?? (_rootCertificates = new InputList<VirtualNetworkGatewayVpnClientConfigurationRootCertificatesGetArgs>());
@@ -575,6 +685,11 @@ namespace Pulumi.Azure.Network
 
         [Input("vpnClientProtocols")]
         private InputList<string>? _vpnClientProtocols;
+
+        /// <summary>
+        /// List of the protocols supported by the vpn client.
+        /// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+        /// </summary>
         public InputList<string> VpnClientProtocols
         {
             get => _vpnClientProtocols ?? (_vpnClientProtocols = new InputList<string>());
@@ -589,8 +704,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -606,8 +720,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -623,12 +736,15 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The SHA1 thumbprint of the certificate to be
+        /// revoked.
+        /// </summary>
         [Input("publicCertData", required: true)]
         public Input<string> PublicCertData { get; set; } = null!;
 
@@ -640,12 +756,15 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The SHA1 thumbprint of the certificate to be
+        /// revoked.
+        /// </summary>
         [Input("publicCertData", required: true)]
         public Input<string> PublicCertData { get; set; } = null!;
 
@@ -661,8 +780,21 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VirtualNetworkGatewayBgpSettings
     {
+        /// <summary>
+        /// The Autonomous System Number (ASN) to use as part of the BGP.
+        /// </summary>
         public readonly int? Asn;
+        /// <summary>
+        /// The weight added to routes which have been learned
+        /// through BGP peering. Valid values can be between `0` and `100`.
+        /// </summary>
         public readonly int? PeerWeight;
+        /// <summary>
+        /// The BGP peer IP address of the virtual network
+        /// gateway. This address is needed to configure the created gateway as a BGP Peer
+        /// on the on-premises VPN devices. The IP address must be part of the subnet of
+        /// the Virtual Network Gateway. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string PeeringAddress;
 
         [OutputConstructor]
@@ -681,12 +813,26 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayIpConfigurations
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Defines how the private IP address
+        /// of the gateways virtual interface is assigned. Valid options are `Static` or
+        /// `Dynamic`. Defaults to `Dynamic`.
+        /// </summary>
         public readonly string? PrivateIpAddressAllocation;
+        /// <summary>
+        /// The ID of the public ip address to associate
+        /// with the Virtual Network Gateway.
+        /// </summary>
         public readonly string? PublicIpAddressId;
+        /// <summary>
+        /// The ID of the gateway subnet of a virtual network in
+        /// which the virtual network gateway will be created. It is mandatory that
+        /// the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+        /// network can contain at most a single Virtual Network Gateway.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]
@@ -706,11 +852,39 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class VirtualNetworkGatewayVpnClientConfiguration
     {
+        /// <summary>
+        /// The address space out of which ip addresses for
+        /// vpn clients will be taken. You can provide more than one address space, e.g.
+        /// in CIDR notation.
+        /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
+        /// <summary>
+        /// The address of the Radius server.
+        /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        /// </summary>
         public readonly string? RadiusServerAddress;
+        /// <summary>
+        /// The secret used by the Radius server.
+        /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        /// </summary>
         public readonly string? RadiusServerSecret;
+        /// <summary>
+        /// One or more `revoked_certificate` blocks which
+        /// are defined below.
+        /// This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        /// </summary>
         public readonly ImmutableArray<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates> RevokedCertificates;
+        /// <summary>
+        /// One or more `root_certificate` blocks which are
+        /// defined below. These root certificates are used to sign the client certificate
+        /// used by the VPN clients to connect to the gateway.
+        /// This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        /// </summary>
         public readonly ImmutableArray<VirtualNetworkGatewayVpnClientConfigurationRootCertificates> RootCertificates;
+        /// <summary>
+        /// List of the protocols supported by the vpn client.
+        /// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+        /// </summary>
         public readonly ImmutableArray<string> VpnClientProtocols;
 
         [OutputConstructor]
@@ -735,8 +909,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         public readonly string Name;
         public readonly string Thumbprint;
@@ -755,10 +928,13 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificates
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing the name
-        /// forces a new resource to be created.
+        /// A user-defined name of the revoked certificate.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The SHA1 thumbprint of the certificate to be
+        /// revoked.
+        /// </summary>
         public readonly string PublicCertData;
 
         [OutputConstructor]

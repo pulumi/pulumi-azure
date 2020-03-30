@@ -22,12 +22,16 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPool.
 type LookupPoolArgs struct {
-	AccountName          string                       `pulumi:"accountName"`
-	Certificates         []GetPoolCertificate         `pulumi:"certificates"`
+	// The name of the Batch account.
+	AccountName string `pulumi:"accountName"`
+	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+	Certificates []GetPoolCertificate `pulumi:"certificates"`
+	// The name of the endpoint.
 	Name                 string                       `pulumi:"name"`
 	NetworkConfiguration *GetPoolNetworkConfiguration `pulumi:"networkConfiguration"`
 	ResourceGroupName    string                       `pulumi:"resourceGroupName"`
-	StartTask            *GetPoolStartTask            `pulumi:"startTask"`
+	// A `startTask` block that describes the start task settings for the Batch pool.
+	StartTask *GetPoolStartTask `pulumi:"startTask"`
 }
 
 // A collection of values returned by getPool.

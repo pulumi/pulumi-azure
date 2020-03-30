@@ -14,23 +14,23 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `addon_profile` block as defined below.
 
-      * `aciConnectorLinux` (`dict`)
-        * `enabled` (`bool`)
-        * `subnetName` (`str`)
+      * `aciConnectorLinux` (`dict`) - A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+        * `enabled` (`bool`) - Is the virtual node addon enabled?
+        * `subnetName` (`str`) - The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
 
-      * `azurePolicy` (`dict`)
-        * `enabled` (`bool`)
+      * `azurePolicy` (`dict`) - A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+        * `enabled` (`bool`) - Is the Azure Policy for Kubernetes Add On enabled?
 
       * `httpApplicationRouting` (`dict`) - A `http_application_routing` block as defined below.
-        * `enabled` (`bool`)
+        * `enabled` (`bool`) - Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
         * `httpApplicationRoutingZoneName` (`str`) - The Zone Name of the HTTP Application Routing.
 
-      * `kubeDashboard` (`dict`)
-        * `enabled` (`bool`)
+      * `kubeDashboard` (`dict`) - A `kube_dashboard` block as defined below.
+        * `enabled` (`bool`) - Is the Kubernetes Dashboard enabled?
 
-      * `omsAgent` (`dict`)
-        * `enabled` (`bool`)
-        * `log_analytics_workspace_id` (`str`)
+      * `omsAgent` (`dict`) - A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+        * `enabled` (`bool`) - Is the OMS Agent Enabled?
+        * `log_analytics_workspace_id` (`str`) - The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
     """
     api_server_authorized_ip_ranges: pulumi.Output[list]
     """
@@ -40,21 +40,21 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `default_node_pool` block as defined below.
 
-      * `availability_zones` (`list`)
-      * `enable_auto_scaling` (`bool`)
-      * `enable_node_public_ip` (`bool`)
-      * `max_count` (`float`)
-      * `max_pods` (`float`)
-      * `min_count` (`float`)
-      * `name` (`str`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-      * `node_count` (`float`)
-      * `node_labels` (`dict`)
-      * `node_taints` (`list`)
-      * `os_disk_size_gb` (`float`)
+      * `availability_zones` (`list`) - A list of Availability Zones across which the Node Pool should be spread.
+      * `enable_auto_scaling` (`bool`) - Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+      * `enable_node_public_ip` (`bool`) - Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+      * `max_count` (`float`) - The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+      * `max_pods` (`float`) - The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+      * `min_count` (`float`) - The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+      * `name` (`str`) - The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+      * `node_count` (`float`) - The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+      * `node_labels` (`dict`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+      * `node_taints` (`list`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+      * `os_disk_size_gb` (`float`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
       * `tags` (`dict`) - A mapping of tags to assign to the resource.
-      * `type` (`str`)
-      * `vm_size` (`str`)
-      * `vnet_subnet_id` (`str`)
+      * `type` (`str`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+      * `vm_size` (`str`) - The size of the Virtual Machine, such as `Standard_DS2_v2`.
+      * `vnet_subnet_id` (`str`) - The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
     """
     dns_prefix: pulumi.Output[str]
     """
@@ -73,8 +73,8 @@ class KubernetesCluster(pulumi.CustomResource):
     A `identity` block as defined below. Changing this forces a new resource to be created.
 
       * `principal_id` (`str`) - The principal id of the system assigned identity which is used by master components.
-      * `tenant_id` (`str`) - The tenant id of the system assigned identity which is used by master components.
-      * `type` (`str`)
+      * `tenant_id` (`str`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+      * `type` (`str`) - The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
     """
     kube_admin_config_raw: pulumi.Output[str]
     """
@@ -114,9 +114,9 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `linux_profile` block as defined below.
 
-      * `admin_username` (`str`)
-      * `ssh_key` (`dict`)
-        * `keyData` (`str`)
+      * `admin_username` (`str`) - The Admin Username for the Cluster. Changing this forces a new resource to be created.
+      * `ssh_key` (`dict`) - An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+        * `keyData` (`str`) - The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
     """
     location: pulumi.Output[str]
     """
@@ -130,19 +130,19 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `network_profile` block as defined below.
 
-      * `dnsServiceIp` (`str`)
-      * `dockerBridgeCidr` (`str`)
-      * `loadBalancerProfile` (`dict`)
+      * `dnsServiceIp` (`str`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+      * `dockerBridgeCidr` (`str`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+      * `loadBalancerProfile` (`dict`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         * `effectiveOutboundIps` (`list`) - The outcome (resource IDs) of the specified arguments.
-        * `managedOutboundIpCount` (`float`)
-        * `outboundIpAddressIds` (`list`)
-        * `outboundIpPrefixIds` (`list`)
+        * `managedOutboundIpCount` (`float`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+        * `outboundIpAddressIds` (`list`) - The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+        * `outboundIpPrefixIds` (`list`) - The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 
-      * `loadBalancerSku` (`str`)
-      * `networkPlugin` (`str`)
-      * `networkPolicy` (`str`)
-      * `podCidr` (`str`)
-      * `serviceCidr` (`str`)
+      * `loadBalancerSku` (`str`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+      * `networkPlugin` (`str`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+      * `networkPolicy` (`str`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+      * `podCidr` (`str`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+      * `serviceCidr` (`str`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
     """
     node_resource_group: pulumi.Output[str]
     """
@@ -161,20 +161,20 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `role_based_access_control` block.
 
-      * `azure_active_directory` (`dict`)
-        * `clientAppId` (`str`)
-        * `serverAppId` (`str`)
-        * `serverAppSecret` (`str`)
-        * `tenant_id` (`str`) - The tenant id of the system assigned identity which is used by master components.
+      * `azure_active_directory` (`dict`) - An `azure_active_directory` block.
+        * `clientAppId` (`str`) - The Client ID of an Azure Active Directory Application.
+        * `serverAppId` (`str`) - The Server ID of an Azure Active Directory Application.
+        * `serverAppSecret` (`str`) - The Server Secret of an Azure Active Directory Application.
+        * `tenant_id` (`str`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 
-      * `enabled` (`bool`)
+      * `enabled` (`bool`) - Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
     """
     service_principal: pulumi.Output[dict]
     """
     A `service_principal` block as documented below.
 
-      * `client_id` (`str`)
-      * `client_secret` (`str`)
+      * `client_id` (`str`) - The Client ID for the Service Principal.
+      * `client_secret` (`str`) - The Client Secret for the Service Principal.
     """
     tags: pulumi.Output[dict]
     """
@@ -184,14 +184,12 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `windows_profile` block as defined below.
 
-      * `admin_password` (`str`)
-      * `admin_username` (`str`)
+      * `admin_password` (`str`) - The Admin Password for Windows VMs.
+      * `admin_username` (`str`) - The Admin Username for Windows VMs.
     """
     def __init__(__self__, resource_name, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
-
-        > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
 
@@ -217,89 +215,89 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **addon_profile** object supports the following:
 
-          * `aciConnectorLinux` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `subnetName` (`pulumi.Input[str]`)
+          * `aciConnectorLinux` (`pulumi.Input[dict]`) - A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+            * `enabled` (`pulumi.Input[bool]`) - Is the virtual node addon enabled?
+            * `subnetName` (`pulumi.Input[str]`) - The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
 
-          * `azurePolicy` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `azurePolicy` (`pulumi.Input[dict]`) - A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+            * `enabled` (`pulumi.Input[bool]`) - Is the Azure Policy for Kubernetes Add On enabled?
 
           * `httpApplicationRouting` (`pulumi.Input[dict]`) - A `http_application_routing` block as defined below.
-            * `enabled` (`pulumi.Input[bool]`)
+            * `enabled` (`pulumi.Input[bool]`) - Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
             * `httpApplicationRoutingZoneName` (`pulumi.Input[str]`) - The Zone Name of the HTTP Application Routing.
 
-          * `kubeDashboard` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `kubeDashboard` (`pulumi.Input[dict]`) - A `kube_dashboard` block as defined below.
+            * `enabled` (`pulumi.Input[bool]`) - Is the Kubernetes Dashboard enabled?
 
-          * `omsAgent` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `log_analytics_workspace_id` (`pulumi.Input[str]`)
+          * `omsAgent` (`pulumi.Input[dict]`) - A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+            * `enabled` (`pulumi.Input[bool]`) - Is the OMS Agent Enabled?
+            * `log_analytics_workspace_id` (`pulumi.Input[str]`) - The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 
         The **default_node_pool** object supports the following:
 
-          * `availability_zones` (`pulumi.Input[list]`)
-          * `enable_auto_scaling` (`pulumi.Input[bool]`)
-          * `enable_node_public_ip` (`pulumi.Input[bool]`)
-          * `max_count` (`pulumi.Input[float]`)
-          * `max_pods` (`pulumi.Input[float]`)
-          * `min_count` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-          * `node_count` (`pulumi.Input[float]`)
-          * `node_labels` (`pulumi.Input[dict]`)
-          * `node_taints` (`pulumi.Input[list]`)
-          * `os_disk_size_gb` (`pulumi.Input[float]`)
+          * `availability_zones` (`pulumi.Input[list]`) - A list of Availability Zones across which the Node Pool should be spread.
+          * `enable_auto_scaling` (`pulumi.Input[bool]`) - Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+          * `enable_node_public_ip` (`pulumi.Input[bool]`) - Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+          * `max_count` (`pulumi.Input[float]`) - The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+          * `max_pods` (`pulumi.Input[float]`) - The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+          * `min_count` (`pulumi.Input[float]`) - The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+          * `name` (`pulumi.Input[str]`) - The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+          * `node_count` (`pulumi.Input[float]`) - The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+          * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+          * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+          * `os_disk_size_gb` (`pulumi.Input[float]`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
-          * `type` (`pulumi.Input[str]`)
-          * `vm_size` (`pulumi.Input[str]`)
-          * `vnet_subnet_id` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+          * `vm_size` (`pulumi.Input[str]`) - The size of the Virtual Machine, such as `Standard_DS2_v2`.
+          * `vnet_subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 
         The **identity** object supports the following:
 
           * `principal_id` (`pulumi.Input[str]`) - The principal id of the system assigned identity which is used by master components.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity which is used by master components.
-          * `type` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+          * `type` (`pulumi.Input[str]`) - The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
 
         The **linux_profile** object supports the following:
 
-          * `admin_username` (`pulumi.Input[str]`)
-          * `ssh_key` (`pulumi.Input[dict]`)
-            * `keyData` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`) - The Admin Username for the Cluster. Changing this forces a new resource to be created.
+          * `ssh_key` (`pulumi.Input[dict]`) - An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+            * `keyData` (`pulumi.Input[str]`) - The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 
         The **network_profile** object supports the following:
 
-          * `dnsServiceIp` (`pulumi.Input[str]`)
-          * `dockerBridgeCidr` (`pulumi.Input[str]`)
-          * `loadBalancerProfile` (`pulumi.Input[dict]`)
+          * `dnsServiceIp` (`pulumi.Input[str]`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `loadBalancerProfile` (`pulumi.Input[dict]`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
             * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
-            * `managedOutboundIpCount` (`pulumi.Input[float]`)
-            * `outboundIpAddressIds` (`pulumi.Input[list]`)
-            * `outboundIpPrefixIds` (`pulumi.Input[list]`)
+            * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+            * `outboundIpAddressIds` (`pulumi.Input[list]`) - The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+            * `outboundIpPrefixIds` (`pulumi.Input[list]`) - The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 
-          * `loadBalancerSku` (`pulumi.Input[str]`)
-          * `networkPlugin` (`pulumi.Input[str]`)
-          * `networkPolicy` (`pulumi.Input[str]`)
-          * `podCidr` (`pulumi.Input[str]`)
-          * `serviceCidr` (`pulumi.Input[str]`)
+          * `loadBalancerSku` (`pulumi.Input[str]`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+          * `networkPlugin` (`pulumi.Input[str]`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+          * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+          * `podCidr` (`pulumi.Input[str]`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+          * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
 
         The **role_based_access_control** object supports the following:
 
-          * `azure_active_directory` (`pulumi.Input[dict]`)
-            * `clientAppId` (`pulumi.Input[str]`)
-            * `serverAppId` (`pulumi.Input[str]`)
-            * `serverAppSecret` (`pulumi.Input[str]`)
-            * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity which is used by master components.
+          * `azure_active_directory` (`pulumi.Input[dict]`) - An `azure_active_directory` block.
+            * `clientAppId` (`pulumi.Input[str]`) - The Client ID of an Azure Active Directory Application.
+            * `serverAppId` (`pulumi.Input[str]`) - The Server ID of an Azure Active Directory Application.
+            * `serverAppSecret` (`pulumi.Input[str]`) - The Server Secret of an Azure Active Directory Application.
+            * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 
-          * `enabled` (`pulumi.Input[bool]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
 
         The **service_principal** object supports the following:
 
-          * `client_id` (`pulumi.Input[str]`)
-          * `client_secret` (`pulumi.Input[str]`)
+          * `client_id` (`pulumi.Input[str]`) - The Client ID for the Service Principal.
+          * `client_secret` (`pulumi.Input[str]`) - The Client Secret for the Service Principal.
 
         The **windows_profile** object supports the following:
 
-          * `admin_password` (`pulumi.Input[str]`)
-          * `admin_username` (`pulumi.Input[str]`)
+          * `admin_password` (`pulumi.Input[str]`) - The Admin Password for Windows VMs.
+          * `admin_username` (`pulumi.Input[str]`) - The Admin Username for Windows VMs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -391,47 +389,47 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **addon_profile** object supports the following:
 
-          * `aciConnectorLinux` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `subnetName` (`pulumi.Input[str]`)
+          * `aciConnectorLinux` (`pulumi.Input[dict]`) - A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
+            * `enabled` (`pulumi.Input[bool]`) - Is the virtual node addon enabled?
+            * `subnetName` (`pulumi.Input[str]`) - The subnet name for the virtual nodes to run. This is required when `aci_connector_linux` `enabled` argument is set to `true`.
 
-          * `azurePolicy` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `azurePolicy` (`pulumi.Input[dict]`) - A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
+            * `enabled` (`pulumi.Input[bool]`) - Is the Azure Policy for Kubernetes Add On enabled?
 
           * `httpApplicationRouting` (`pulumi.Input[dict]`) - A `http_application_routing` block as defined below.
-            * `enabled` (`pulumi.Input[bool]`)
+            * `enabled` (`pulumi.Input[bool]`) - Is HTTP Application Routing Enabled? Changing this forces a new resource to be created.
             * `httpApplicationRoutingZoneName` (`pulumi.Input[str]`) - The Zone Name of the HTTP Application Routing.
 
-          * `kubeDashboard` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
+          * `kubeDashboard` (`pulumi.Input[dict]`) - A `kube_dashboard` block as defined below.
+            * `enabled` (`pulumi.Input[bool]`) - Is the Kubernetes Dashboard enabled?
 
-          * `omsAgent` (`pulumi.Input[dict]`)
-            * `enabled` (`pulumi.Input[bool]`)
-            * `log_analytics_workspace_id` (`pulumi.Input[str]`)
+          * `omsAgent` (`pulumi.Input[dict]`) - A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
+            * `enabled` (`pulumi.Input[bool]`) - Is the OMS Agent Enabled?
+            * `log_analytics_workspace_id` (`pulumi.Input[str]`) - The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 
         The **default_node_pool** object supports the following:
 
-          * `availability_zones` (`pulumi.Input[list]`)
-          * `enable_auto_scaling` (`pulumi.Input[bool]`)
-          * `enable_node_public_ip` (`pulumi.Input[bool]`)
-          * `max_count` (`pulumi.Input[float]`)
-          * `max_pods` (`pulumi.Input[float]`)
-          * `min_count` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-          * `node_count` (`pulumi.Input[float]`)
-          * `node_labels` (`pulumi.Input[dict]`)
-          * `node_taints` (`pulumi.Input[list]`)
-          * `os_disk_size_gb` (`pulumi.Input[float]`)
+          * `availability_zones` (`pulumi.Input[list]`) - A list of Availability Zones across which the Node Pool should be spread.
+          * `enable_auto_scaling` (`pulumi.Input[bool]`) - Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+          * `enable_node_public_ip` (`pulumi.Input[bool]`) - Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+          * `max_count` (`pulumi.Input[float]`) - The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+          * `max_pods` (`pulumi.Input[float]`) - The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+          * `min_count` (`pulumi.Input[float]`) - The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+          * `name` (`pulumi.Input[str]`) - The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+          * `node_count` (`pulumi.Input[float]`) - The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+          * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+          * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+          * `os_disk_size_gb` (`pulumi.Input[float]`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
-          * `type` (`pulumi.Input[str]`)
-          * `vm_size` (`pulumi.Input[str]`)
-          * `vnet_subnet_id` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+          * `vm_size` (`pulumi.Input[str]`) - The size of the Virtual Machine, such as `Standard_DS2_v2`.
+          * `vnet_subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 
         The **identity** object supports the following:
 
           * `principal_id` (`pulumi.Input[str]`) - The principal id of the system assigned identity which is used by master components.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity which is used by master components.
-          * `type` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+          * `type` (`pulumi.Input[str]`) - The type of identity used for the managed cluster. At this time the only supported value is `SystemAssigned`.
 
         The **kube_admin_configs** object supports the following:
 
@@ -453,45 +451,45 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **linux_profile** object supports the following:
 
-          * `admin_username` (`pulumi.Input[str]`)
-          * `ssh_key` (`pulumi.Input[dict]`)
-            * `keyData` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`) - The Admin Username for the Cluster. Changing this forces a new resource to be created.
+          * `ssh_key` (`pulumi.Input[dict]`) - An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+            * `keyData` (`pulumi.Input[str]`) - The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
 
         The **network_profile** object supports the following:
 
-          * `dnsServiceIp` (`pulumi.Input[str]`)
-          * `dockerBridgeCidr` (`pulumi.Input[str]`)
-          * `loadBalancerProfile` (`pulumi.Input[dict]`)
+          * `dnsServiceIp` (`pulumi.Input[str]`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `loadBalancerProfile` (`pulumi.Input[dict]`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
             * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
-            * `managedOutboundIpCount` (`pulumi.Input[float]`)
-            * `outboundIpAddressIds` (`pulumi.Input[list]`)
-            * `outboundIpPrefixIds` (`pulumi.Input[list]`)
+            * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+            * `outboundIpAddressIds` (`pulumi.Input[list]`) - The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+            * `outboundIpPrefixIds` (`pulumi.Input[list]`) - The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 
-          * `loadBalancerSku` (`pulumi.Input[str]`)
-          * `networkPlugin` (`pulumi.Input[str]`)
-          * `networkPolicy` (`pulumi.Input[str]`)
-          * `podCidr` (`pulumi.Input[str]`)
-          * `serviceCidr` (`pulumi.Input[str]`)
+          * `loadBalancerSku` (`pulumi.Input[str]`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
+          * `networkPlugin` (`pulumi.Input[str]`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
+          * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+          * `podCidr` (`pulumi.Input[str]`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
+          * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
 
         The **role_based_access_control** object supports the following:
 
-          * `azure_active_directory` (`pulumi.Input[dict]`)
-            * `clientAppId` (`pulumi.Input[str]`)
-            * `serverAppId` (`pulumi.Input[str]`)
-            * `serverAppSecret` (`pulumi.Input[str]`)
-            * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the system assigned identity which is used by master components.
+          * `azure_active_directory` (`pulumi.Input[dict]`) - An `azure_active_directory` block.
+            * `clientAppId` (`pulumi.Input[str]`) - The Client ID of an Azure Active Directory Application.
+            * `serverAppId` (`pulumi.Input[str]`) - The Server ID of an Azure Active Directory Application.
+            * `serverAppSecret` (`pulumi.Input[str]`) - The Server Secret of an Azure Active Directory Application.
+            * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 
-          * `enabled` (`pulumi.Input[bool]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is Role Based Access Control Enabled? Changing this forces a new resource to be created.
 
         The **service_principal** object supports the following:
 
-          * `client_id` (`pulumi.Input[str]`)
-          * `client_secret` (`pulumi.Input[str]`)
+          * `client_id` (`pulumi.Input[str]`) - The Client ID for the Service Principal.
+          * `client_secret` (`pulumi.Input[str]`) - The Client Secret for the Service Principal.
 
         The **windows_profile** object supports the following:
 
-          * `admin_password` (`pulumi.Input[str]`)
-          * `admin_username` (`pulumi.Input[str]`)
+          * `admin_password` (`pulumi.Input[str]`) - The Admin Password for Windows VMs.
+          * `admin_username` (`pulumi.Input[str]`) - The Admin Username for Windows VMs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

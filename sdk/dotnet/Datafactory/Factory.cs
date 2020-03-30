@@ -217,18 +217,33 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class FactoryGithubConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the GitHub account name.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the branch of the repository to get code from.
+        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+        /// </summary>
         [Input("gitUrl", required: true)]
         public Input<string> GitUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the git repository.
+        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// </summary>
         [Input("rootFolder", required: true)]
         public Input<string> RootFolder { get; set; } = null!;
 
@@ -239,18 +254,33 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class FactoryGithubConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the GitHub account name.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the branch of the repository to get code from.
+        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+        /// </summary>
         [Input("gitUrl", required: true)]
         public Input<string> GitUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the git repository.
+        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// </summary>
         [Input("rootFolder", required: true)]
         public Input<string> RootFolder { get; set; } = null!;
 
@@ -268,11 +298,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// Specifies the Tenant ID associated with the VSTS account.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -290,11 +323,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// Specifies the Tenant ID associated with the VSTS account.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -305,23 +341,38 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class FactoryVstsConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the VSTS account name.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the branch of the repository to get code from.
+        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the VSTS project.
+        /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the git repository.
+        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// </summary>
         [Input("rootFolder", required: true)]
         public Input<string> RootFolder { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// Specifies the Tenant ID associated with the VSTS account.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
@@ -333,23 +384,38 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class FactoryVstsConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the VSTS account name.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the branch of the repository to get code from.
+        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the VSTS project.
+        /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the git repository.
+        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// </summary>
         [Input("rootFolder", required: true)]
         public Input<string> RootFolder { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// Specifies the Tenant ID associated with the VSTS account.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
@@ -366,10 +432,25 @@ namespace Pulumi.Azure.DataFactory
     [OutputType]
     public sealed class FactoryGithubConfiguration
     {
+        /// <summary>
+        /// Specifies the GitHub account name.
+        /// </summary>
         public readonly string AccountName;
+        /// <summary>
+        /// Specifies the branch of the repository to get code from.
+        /// </summary>
         public readonly string BranchName;
+        /// <summary>
+        /// Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
+        /// </summary>
         public readonly string GitUrl;
+        /// <summary>
+        /// Specifies the name of the git repository.
+        /// </summary>
         public readonly string RepositoryName;
+        /// <summary>
+        /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// </summary>
         public readonly string RootFolder;
 
         [OutputConstructor]
@@ -396,9 +477,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// Specifies the Tenant ID associated with the VSTS account.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -416,13 +500,28 @@ namespace Pulumi.Azure.DataFactory
     [OutputType]
     public sealed class FactoryVstsConfiguration
     {
+        /// <summary>
+        /// Specifies the VSTS account name.
+        /// </summary>
         public readonly string AccountName;
+        /// <summary>
+        /// Specifies the branch of the repository to get code from.
+        /// </summary>
         public readonly string BranchName;
+        /// <summary>
+        /// Specifies the name of the VSTS project.
+        /// </summary>
         public readonly string ProjectName;
+        /// <summary>
+        /// Specifies the name of the git repository.
+        /// </summary>
         public readonly string RepositoryName;
+        /// <summary>
+        /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// </summary>
         public readonly string RootFolder;
         /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
+        /// Specifies the Tenant ID associated with the VSTS account.
         /// </summary>
         public readonly string TenantId;
 

@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Proximity
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
         /// </summary>
+        [Obsolete("Use GetPlacementGroup.InvokeAsync() instead")]
         public static Task<GetPlacementGroupResult> GetPlacementGroup(GetPlacementGroupArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetPlacementGroup
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Proximity Placement Group.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
+        /// </summary>
+        public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

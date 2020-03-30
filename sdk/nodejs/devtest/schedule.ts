@@ -58,7 +58,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+     * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
@@ -164,7 +164,7 @@ export interface ScheduleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+     * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
     readonly status?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface ScheduleArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+     * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
     readonly status?: pulumi.Input<string>;
     /**

@@ -14,7 +14,7 @@ class PolicyFileShare(pulumi.CustomResource):
     """
     Configures the Policy backup frequency and times as documented in the `backup` block below.
 
-      * `frequency` (`str`)
+      * `frequency` (`str`) - Sets the backup frequency. Currently, only `Daily` is supported
       * `time` (`str`)
     """
     name: pulumi.Output[str]
@@ -33,7 +33,7 @@ class PolicyFileShare(pulumi.CustomResource):
     """
     Configures the policy daily retention as documented in the `retention_daily` block below.
 
-      * `count` (`float`)
+      * `count` (`float`) - The number of daily backups to keep. Must be between `1` and `180` (inclusive)
     """
     timezone: pulumi.Output[str]
     """
@@ -58,12 +58,12 @@ class PolicyFileShare(pulumi.CustomResource):
 
         The **backup** object supports the following:
 
-          * `frequency` (`pulumi.Input[str]`)
+          * `frequency` (`pulumi.Input[str]`) - Sets the backup frequency. Currently, only `Daily` is supported
           * `time` (`pulumi.Input[str]`)
 
         The **retention_daily** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
+          * `count` (`pulumi.Input[float]`) - The number of daily backups to keep. Must be between `1` and `180` (inclusive)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,12 +120,12 @@ class PolicyFileShare(pulumi.CustomResource):
 
         The **backup** object supports the following:
 
-          * `frequency` (`pulumi.Input[str]`)
+          * `frequency` (`pulumi.Input[str]`) - Sets the backup frequency. Currently, only `Daily` is supported
           * `time` (`pulumi.Input[str]`)
 
         The **retention_daily** object supports the following:
 
-          * `count` (`pulumi.Input[float]`)
+          * `count` (`pulumi.Input[float]`) - The number of daily backups to keep. Must be between `1` and `180` (inclusive)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

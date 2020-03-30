@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Automation
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
         /// </summary>
+        [Obsolete("Use GetAccount.InvokeAsync() instead")]
         public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAccount
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Account.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
+        /// </summary>
+        public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

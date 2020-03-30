@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Sql
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
         /// </summary>
+        [Obsolete("Use GetDatabase.InvokeAsync() instead")]
         public static Task<GetDatabaseResult> GetDatabase(GetDatabaseArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetDatabase
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
+        /// </summary>
+        public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -42,6 +53,10 @@ namespace Pulumi.Azure.Sql
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());

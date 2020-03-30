@@ -17,8 +17,6 @@ import (
 //
 // > **Note:** The `compute.ScaleSet` resource has been superseded by the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources. The existing `compute.ScaleSet` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
 //
-// > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
 type ScaleSet struct {
 	pulumi.CustomResourceState
@@ -38,7 +36,7 @@ type ScaleSet struct {
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A collection of network profile block as documented below.
 	NetworkProfiles ScaleSetNetworkProfileArrayOutput `pulumi:"networkProfiles"`
@@ -64,7 +62,7 @@ type ScaleSet struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
-	// Specifies the SKU of the image used to create the virtual machines.
+	// A sku block as documented below.
 	Sku ScaleSetSkuOutput `pulumi:"sku"`
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayOutput `pulumi:"storageProfileDataDisks"`
@@ -141,7 +139,7 @@ type scaleSetState struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A collection of network profile block as documented below.
 	NetworkProfiles []ScaleSetNetworkProfile `pulumi:"networkProfiles"`
@@ -167,7 +165,7 @@ type scaleSetState struct {
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// Specifies the SKU of the image used to create the virtual machines.
+	// A sku block as documented below.
 	Sku *ScaleSetSku `pulumi:"sku"`
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
@@ -199,7 +197,7 @@ type ScaleSetState struct {
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A collection of network profile block as documented below.
 	NetworkProfiles ScaleSetNetworkProfileArrayInput
@@ -225,7 +223,7 @@ type ScaleSetState struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// Specifies the SKU of the image used to create the virtual machines.
+	// A sku block as documented below.
 	Sku ScaleSetSkuPtrInput
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput
@@ -261,7 +259,7 @@ type scaleSetArgs struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A collection of network profile block as documented below.
 	NetworkProfiles []ScaleSetNetworkProfile `pulumi:"networkProfiles"`
@@ -287,7 +285,7 @@ type scaleSetArgs struct {
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// Specifies the SKU of the image used to create the virtual machines.
+	// A sku block as documented below.
 	Sku ScaleSetSku `pulumi:"sku"`
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
@@ -320,7 +318,7 @@ type ScaleSetArgs struct {
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A collection of network profile block as documented below.
 	NetworkProfiles ScaleSetNetworkProfileArrayInput
@@ -346,7 +344,7 @@ type ScaleSetArgs struct {
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// Specifies the SKU of the image used to create the virtual machines.
+	// A sku block as documented below.
 	Sku ScaleSetSkuInput
 	// A storage profile data disk block as documented below
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput

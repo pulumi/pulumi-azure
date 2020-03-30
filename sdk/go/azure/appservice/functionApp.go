@@ -27,6 +27,8 @@ type FunctionApp struct {
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -41,7 +43,7 @@ type FunctionApp struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
@@ -110,6 +112,8 @@ type functionAppState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppConnectionString `pulumi:"connectionStrings"`
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -124,7 +128,7 @@ type functionAppState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType *string `pulumi:"osType"`
@@ -157,6 +161,8 @@ type FunctionAppState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayInput
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringPtrInput
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -171,7 +177,7 @@ type FunctionAppState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrInput
@@ -208,6 +214,8 @@ type functionAppArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppConnectionString `pulumi:"connectionStrings"`
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
@@ -218,7 +226,7 @@ type functionAppArgs struct {
 	Identity *FunctionAppIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType *string `pulumi:"osType"`
@@ -246,6 +254,8 @@ type FunctionAppArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayInput
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
 	// Is the Function App enabled?
@@ -256,7 +266,7 @@ type FunctionAppArgs struct {
 	Identity FunctionAppIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Connection String.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrInput

@@ -14,36 +14,36 @@ class VpnServerConfiguration(pulumi.CustomResource):
     """
     A `azure_active_directory_authentication` block as defined below.
 
-      * `audience` (`str`)
-      * `issuer` (`str`)
-      * `tenant` (`str`)
+      * `audience` (`str`) - The Audience which should be used for authentication.
+      * `issuer` (`str`) - The Issuer which should be used for authentication.
+      * `tenant` (`str`) - The Tenant which should be used for authentication.
     """
     client_revoked_certificates: pulumi.Output[list]
     """
     One or more `client_revoked_certificate` blocks as defined below.
 
-      * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-      * `thumbprint` (`str`)
+      * `name` (`str`) - A name used to uniquely identify this certificate.
+      * `thumbprint` (`str`) - The Thumbprint of the Certificate.
     """
     client_root_certificates: pulumi.Output[list]
     """
     One or more `client_root_certificate` blocks as defined below.
 
-      * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-      * `publicCertData` (`str`)
+      * `name` (`str`) - A name used to uniquely identify this certificate.
+      * `publicCertData` (`str`) - The Public Key Data associated with the Certificate.
     """
     ipsec_policy: pulumi.Output[dict]
     """
     A `ipsec_policy` block as defined below.
 
-      * `dhGroup` (`str`)
-      * `ikeEncryption` (`str`)
-      * `ikeIntegrity` (`str`)
-      * `ipsecEncryption` (`str`)
-      * `ipsecIntegrity` (`str`)
-      * `pfsGroup` (`str`)
-      * `saDataSizeKilobytes` (`float`)
-      * `saLifetimeSeconds` (`float`)
+      * `dhGroup` (`str`) - The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+      * `ikeEncryption` (`str`) - The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+      * `ikeIntegrity` (`str`) - The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+      * `ipsecEncryption` (`str`) - The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+      * `ipsecIntegrity` (`str`) - The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+      * `pfsGroup` (`str`) - The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+      * `saDataSizeKilobytes` (`float`) - The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+      * `saLifetimeSeconds` (`float`) - The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
     """
     location: pulumi.Output[str]
     """
@@ -57,15 +57,15 @@ class VpnServerConfiguration(pulumi.CustomResource):
     """
     A `radius_server` block as defined below.
 
-      * `address` (`str`)
-      * `client_root_certificates` (`list`) - One or more `client_root_certificate` blocks as defined below.
-        * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-        * `thumbprint` (`str`)
+      * `address` (`str`) - The Address of the Radius Server.
+      * `client_root_certificates` (`list`) - One or more `client_root_certificate` blocks as defined above.
+        * `name` (`str`) - A name used to uniquely identify this certificate.
+        * `thumbprint` (`str`) - The Thumbprint of the Certificate.
 
-      * `secret` (`str`)
-      * `serverRootCertificates` (`list`)
-        * `name` (`str`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-        * `publicCertData` (`str`)
+      * `secret` (`str`) - The Secret used to communicate with the Radius Server.
+      * `serverRootCertificates` (`list`) - One or more `server_root_certificate` blocks as defined below.
+        * `name` (`str`) - A name used to uniquely identify this certificate.
+        * `publicCertData` (`str`) - The Public Key Data associated with the Certificate.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -105,42 +105,42 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
         The **azure_active_directory_authentications** object supports the following:
 
-          * `audience` (`pulumi.Input[str]`)
-          * `issuer` (`pulumi.Input[str]`)
-          * `tenant` (`pulumi.Input[str]`)
+          * `audience` (`pulumi.Input[str]`) - The Audience which should be used for authentication.
+          * `issuer` (`pulumi.Input[str]`) - The Issuer which should be used for authentication.
+          * `tenant` (`pulumi.Input[str]`) - The Tenant which should be used for authentication.
 
         The **client_revoked_certificates** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-          * `thumbprint` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+          * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
 
         The **client_root_certificates** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-          * `publicCertData` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+          * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
 
         The **ipsec_policy** object supports the following:
 
-          * `dhGroup` (`pulumi.Input[str]`)
-          * `ikeEncryption` (`pulumi.Input[str]`)
-          * `ikeIntegrity` (`pulumi.Input[str]`)
-          * `ipsecEncryption` (`pulumi.Input[str]`)
-          * `ipsecIntegrity` (`pulumi.Input[str]`)
-          * `pfsGroup` (`pulumi.Input[str]`)
-          * `saDataSizeKilobytes` (`pulumi.Input[float]`)
-          * `saLifetimeSeconds` (`pulumi.Input[float]`)
+          * `dhGroup` (`pulumi.Input[str]`) - The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+          * `ikeEncryption` (`pulumi.Input[str]`) - The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+          * `ikeIntegrity` (`pulumi.Input[str]`) - The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+          * `ipsecEncryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+          * `ipsecIntegrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+          * `pfsGroup` (`pulumi.Input[str]`) - The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+          * `saDataSizeKilobytes` (`pulumi.Input[float]`) - The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+          * `saLifetimeSeconds` (`pulumi.Input[float]`) - The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
 
         The **radius_server** object supports the following:
 
-          * `address` (`pulumi.Input[str]`)
-          * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-            * `thumbprint` (`pulumi.Input[str]`)
+          * `address` (`pulumi.Input[str]`) - The Address of the Radius Server.
+          * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined above.
+            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+            * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
 
-          * `secret` (`pulumi.Input[str]`)
-          * `serverRootCertificates` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-            * `publicCertData` (`pulumi.Input[str]`)
+          * `secret` (`pulumi.Input[str]`) - The Secret used to communicate with the Radius Server.
+          * `serverRootCertificates` (`pulumi.Input[list]`) - One or more `server_root_certificate` blocks as defined below.
+            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+            * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -203,42 +203,42 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
         The **azure_active_directory_authentications** object supports the following:
 
-          * `audience` (`pulumi.Input[str]`)
-          * `issuer` (`pulumi.Input[str]`)
-          * `tenant` (`pulumi.Input[str]`)
+          * `audience` (`pulumi.Input[str]`) - The Audience which should be used for authentication.
+          * `issuer` (`pulumi.Input[str]`) - The Issuer which should be used for authentication.
+          * `tenant` (`pulumi.Input[str]`) - The Tenant which should be used for authentication.
 
         The **client_revoked_certificates** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-          * `thumbprint` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+          * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
 
         The **client_root_certificates** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-          * `publicCertData` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+          * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
 
         The **ipsec_policy** object supports the following:
 
-          * `dhGroup` (`pulumi.Input[str]`)
-          * `ikeEncryption` (`pulumi.Input[str]`)
-          * `ikeIntegrity` (`pulumi.Input[str]`)
-          * `ipsecEncryption` (`pulumi.Input[str]`)
-          * `ipsecIntegrity` (`pulumi.Input[str]`)
-          * `pfsGroup` (`pulumi.Input[str]`)
-          * `saDataSizeKilobytes` (`pulumi.Input[float]`)
-          * `saLifetimeSeconds` (`pulumi.Input[float]`)
+          * `dhGroup` (`pulumi.Input[str]`) - The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+          * `ikeEncryption` (`pulumi.Input[str]`) - The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+          * `ikeIntegrity` (`pulumi.Input[str]`) - The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+          * `ipsecEncryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+          * `ipsecIntegrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+          * `pfsGroup` (`pulumi.Input[str]`) - The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+          * `saDataSizeKilobytes` (`pulumi.Input[float]`) - The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+          * `saLifetimeSeconds` (`pulumi.Input[float]`) - The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
 
         The **radius_server** object supports the following:
 
-          * `address` (`pulumi.Input[str]`)
-          * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-            * `thumbprint` (`pulumi.Input[str]`)
+          * `address` (`pulumi.Input[str]`) - The Address of the Radius Server.
+          * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined above.
+            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+            * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
 
-          * `secret` (`pulumi.Input[str]`)
-          * `serverRootCertificates` (`pulumi.Input[list]`)
-            * `name` (`pulumi.Input[str]`) - The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-            * `publicCertData` (`pulumi.Input[str]`)
+          * `secret` (`pulumi.Input[str]`) - The Secret used to communicate with the Radius Server.
+          * `serverRootCertificates` (`pulumi.Input[list]`) - One or more `server_root_certificate` blocks as defined below.
+            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
+            * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

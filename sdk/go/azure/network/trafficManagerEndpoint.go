@@ -87,6 +87,12 @@ func NewTrafficManagerEndpoint(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficManagerEndpointArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:trafficmanager/endpoint:Endpoint"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TrafficManagerEndpoint
 	err := ctx.RegisterResource("azure:network/trafficManagerEndpoint:TrafficManagerEndpoint", name, args, &resource, opts...)
 	if err != nil {

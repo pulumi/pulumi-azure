@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
+    /// <summary>
+    /// Manages a Disk Encryption Set.
+    /// 
+    /// &gt; **NOTE**: Disk Encryption Sets are in Public Preview and at this time is only available in `Canada Central`, `North Europe` and `West Central US` regions - [more information can be found in the preview documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption).
+    /// 
+    /// &gt; **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete &amp; Purge Protection enabled - which are not yet supported by this provider.
+    /// 
+    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
+    /// </summary>
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -206,6 +215,9 @@ namespace Pulumi.Azure.Compute
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -228,6 +240,9 @@ namespace Pulumi.Azure.Compute
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -251,6 +266,9 @@ namespace Pulumi.Azure.Compute
         /// The ID of the Tenant the Service Principal is assigned in.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

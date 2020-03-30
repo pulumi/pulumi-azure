@@ -397,12 +397,21 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `disk_encryption_key` block as defined above.
+        /// </summary>
         [Input("diskEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs>? DiskEncryptionKey { get; set; }
 
+        /// <summary>
+        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `key_encryption_key` block as defined below.
+        /// </summary>
         [Input("keyEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs>? KeyEncryptionKey { get; set; }
 
@@ -413,9 +422,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+        /// </summary>
         [Input("secretUrl", required: true)]
         public Input<string> SecretUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the source Key Vault.
+        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -426,9 +441,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKeyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+        /// </summary>
         [Input("secretUrl", required: true)]
         public Input<string> SecretUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the source Key Vault.
+        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -439,12 +460,21 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `disk_encryption_key` block as defined above.
+        /// </summary>
         [Input("diskEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsDiskEncryptionKeyGetArgs>? DiskEncryptionKey { get; set; }
 
+        /// <summary>
+        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// A `key_encryption_key` block as defined below.
+        /// </summary>
         [Input("keyEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsKeyEncryptionKeyGetArgs>? KeyEncryptionKey { get; set; }
 
@@ -455,9 +485,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+        /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the source Key Vault.
+        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -468,9 +504,15 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsKeyEncryptionKeyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+        /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the source Key Vault.
+        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -486,8 +528,17 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class ManagedDiskEncryptionSettings
     {
+        /// <summary>
+        /// A `disk_encryption_key` block as defined above.
+        /// </summary>
         public readonly ManagedDiskEncryptionSettingsDiskEncryptionKey? DiskEncryptionKey;
+        /// <summary>
+        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// A `key_encryption_key` block as defined below.
+        /// </summary>
         public readonly ManagedDiskEncryptionSettingsKeyEncryptionKey? KeyEncryptionKey;
 
         [OutputConstructor]
@@ -505,7 +556,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKey
     {
+        /// <summary>
+        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+        /// </summary>
         public readonly string SecretUrl;
+        /// <summary>
+        /// The ID of the source Key Vault.
+        /// </summary>
         public readonly string SourceVaultId;
 
         [OutputConstructor]
@@ -521,7 +578,13 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class ManagedDiskEncryptionSettingsKeyEncryptionKey
     {
+        /// <summary>
+        /// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+        /// </summary>
         public readonly string KeyUrl;
+        /// <summary>
+        /// The ID of the source Key Vault.
+        /// </summary>
         public readonly string SourceVaultId;
 
         [OutputConstructor]

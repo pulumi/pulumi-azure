@@ -26,10 +26,10 @@ class Definition(pulumi.CustomResource):
     """
     A `permissions` block as defined below.
 
-      * `actions` (`list`)
-      * `dataActions` (`list`)
-      * `notActions` (`list`)
-      * `notDataActions` (`list`)
+      * `actions` (`list`) - One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+      * `dataActions` (`list`) - One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+      * `notActions` (`list`) - One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+      * `notDataActions` (`list`) - One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
     """
     role_definition_id: pulumi.Output[str]
     """
@@ -56,10 +56,10 @@ class Definition(pulumi.CustomResource):
 
         The **permissions** object supports the following:
 
-          * `actions` (`pulumi.Input[list]`)
-          * `dataActions` (`pulumi.Input[list]`)
-          * `notActions` (`pulumi.Input[list]`)
-          * `notDataActions` (`pulumi.Input[list]`)
+          * `actions` (`pulumi.Input[list]`) - One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+          * `dataActions` (`pulumi.Input[list]`) - One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+          * `notActions` (`pulumi.Input[list]`) - One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+          * `notDataActions` (`pulumi.Input[list]`) - One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,10 +114,10 @@ class Definition(pulumi.CustomResource):
 
         The **permissions** object supports the following:
 
-          * `actions` (`pulumi.Input[list]`)
-          * `dataActions` (`pulumi.Input[list]`)
-          * `notActions` (`pulumi.Input[list]`)
-          * `notDataActions` (`pulumi.Input[list]`)
+          * `actions` (`pulumi.Input[list]`) - One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+          * `dataActions` (`pulumi.Input[list]`) - One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+          * `notActions` (`pulumi.Input[list]`) - One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+          * `notDataActions` (`pulumi.Input[list]`) - One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

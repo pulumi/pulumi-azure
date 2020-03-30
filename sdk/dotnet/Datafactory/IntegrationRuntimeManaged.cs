@@ -304,15 +304,27 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class IntegrationRuntimeManagedCatalogInfoArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Administrator login name for the SQL Server.
+        /// </summary>
         [Input("administratorLogin", required: true)]
         public Input<string> AdministratorLogin { get; set; } = null!;
 
+        /// <summary>
+        /// Administrator login password for the SQL Server.
+        /// </summary>
         [Input("administratorPassword", required: true)]
         public Input<string> AdministratorPassword { get; set; } = null!;
 
+        /// <summary>
+        /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        /// </summary>
         [Input("pricingTier")]
         public Input<string>? PricingTier { get; set; }
 
+        /// <summary>
+        /// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+        /// </summary>
         [Input("serverEndpoint", required: true)]
         public Input<string> ServerEndpoint { get; set; } = null!;
 
@@ -323,15 +335,27 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class IntegrationRuntimeManagedCatalogInfoGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Administrator login name for the SQL Server.
+        /// </summary>
         [Input("administratorLogin", required: true)]
         public Input<string> AdministratorLogin { get; set; } = null!;
 
+        /// <summary>
+        /// Administrator login password for the SQL Server.
+        /// </summary>
         [Input("administratorPassword", required: true)]
         public Input<string> AdministratorPassword { get; set; } = null!;
 
+        /// <summary>
+        /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        /// </summary>
         [Input("pricingTier")]
         public Input<string>? PricingTier { get; set; }
 
+        /// <summary>
+        /// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+        /// </summary>
         [Input("serverEndpoint", required: true)]
         public Input<string> ServerEndpoint { get; set; } = null!;
 
@@ -342,9 +366,15 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class IntegrationRuntimeManagedCustomSetupScriptArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        /// </summary>
         [Input("blobContainerUri", required: true)]
         public Input<string> BlobContainerUri { get; set; } = null!;
 
+        /// <summary>
+        /// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        /// </summary>
         [Input("sasToken", required: true)]
         public Input<string> SasToken { get; set; } = null!;
 
@@ -355,9 +385,15 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class IntegrationRuntimeManagedCustomSetupScriptGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        /// </summary>
         [Input("blobContainerUri", required: true)]
         public Input<string> BlobContainerUri { get; set; } = null!;
 
+        /// <summary>
+        /// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        /// </summary>
         [Input("sasToken", required: true)]
         public Input<string> SasToken { get; set; } = null!;
 
@@ -368,9 +404,15 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class IntegrationRuntimeManagedVnetIntegrationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+        /// </summary>
         [Input("subnetName", required: true)]
         public Input<string> SubnetName { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+        /// </summary>
         [Input("vnetId", required: true)]
         public Input<string> VnetId { get; set; } = null!;
 
@@ -381,9 +423,15 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class IntegrationRuntimeManagedVnetIntegrationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+        /// </summary>
         [Input("subnetName", required: true)]
         public Input<string> SubnetName { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+        /// </summary>
         [Input("vnetId", required: true)]
         public Input<string> VnetId { get; set; } = null!;
 
@@ -399,9 +447,21 @@ namespace Pulumi.Azure.DataFactory
     [OutputType]
     public sealed class IntegrationRuntimeManagedCatalogInfo
     {
+        /// <summary>
+        /// Administrator login name for the SQL Server.
+        /// </summary>
         public readonly string AdministratorLogin;
+        /// <summary>
+        /// Administrator login password for the SQL Server.
+        /// </summary>
         public readonly string AdministratorPassword;
+        /// <summary>
+        /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        /// </summary>
         public readonly string? PricingTier;
+        /// <summary>
+        /// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+        /// </summary>
         public readonly string ServerEndpoint;
 
         [OutputConstructor]
@@ -421,7 +481,13 @@ namespace Pulumi.Azure.DataFactory
     [OutputType]
     public sealed class IntegrationRuntimeManagedCustomSetupScript
     {
+        /// <summary>
+        /// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        /// </summary>
         public readonly string BlobContainerUri;
+        /// <summary>
+        /// A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        /// </summary>
         public readonly string SasToken;
 
         [OutputConstructor]
@@ -437,7 +503,13 @@ namespace Pulumi.Azure.DataFactory
     [OutputType]
     public sealed class IntegrationRuntimeManagedVnetIntegration
     {
+        /// <summary>
+        /// Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+        /// </summary>
         public readonly string SubnetName;
+        /// <summary>
+        /// ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+        /// </summary>
         public readonly string VnetId;
 
         [OutputConstructor]

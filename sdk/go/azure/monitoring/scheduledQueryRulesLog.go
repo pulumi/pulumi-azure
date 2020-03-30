@@ -27,7 +27,7 @@ type ScheduledQueryRulesLog struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled  pulumi.BoolPtrOutput `pulumi:"enabled"`
 	Location pulumi.StringOutput  `pulumi:"location"`
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
@@ -81,7 +81,7 @@ type scheduledQueryRulesLogState struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled  *bool   `pulumi:"enabled"`
 	Location *string `pulumi:"location"`
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName *string           `pulumi:"resourceGroupName"`
@@ -99,7 +99,7 @@ type ScheduledQueryRulesLogState struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled  pulumi.BoolPtrInput
 	Location pulumi.StringPtrInput
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringPtrInput
@@ -121,7 +121,7 @@ type scheduledQueryRulesLogArgs struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled  *bool   `pulumi:"enabled"`
 	Location *string `pulumi:"location"`
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
@@ -140,7 +140,7 @@ type ScheduledQueryRulesLogArgs struct {
 	// Whether this scheduled query rule is enabled.  Default is `true`.
 	Enabled  pulumi.BoolPtrInput
 	Location pulumi.StringPtrInput
-	// Name of the dimension.
+	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringInput

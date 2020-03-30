@@ -12,9 +12,12 @@ import (
 )
 
 type EndpointGeoFilter struct {
-	Action       string   `pulumi:"action"`
+	// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+	Action string `pulumi:"action"`
+	// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
 	CountryCodes []string `pulumi:"countryCodes"`
-	RelativePath string   `pulumi:"relativePath"`
+	// The relative path applicable to geo filter.
+	RelativePath string `pulumi:"relativePath"`
 }
 
 type EndpointGeoFilterInput interface {
@@ -25,9 +28,12 @@ type EndpointGeoFilterInput interface {
 }
 
 type EndpointGeoFilterArgs struct {
-	Action       pulumi.StringInput      `pulumi:"action"`
+	// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	RelativePath pulumi.StringInput      `pulumi:"relativePath"`
+	// The relative path applicable to geo filter.
+	RelativePath pulumi.StringInput `pulumi:"relativePath"`
 }
 
 func (EndpointGeoFilterArgs) ElementType() reflect.Type {
@@ -77,14 +83,17 @@ func (o EndpointGeoFilterOutput) ToEndpointGeoFilterOutputWithContext(ctx contex
 	return o
 }
 
+// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
 func (o EndpointGeoFilterOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointGeoFilter) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
 func (o EndpointGeoFilterOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointGeoFilter) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
+// The relative path applicable to geo filter.
 func (o EndpointGeoFilterOutput) RelativePath() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointGeoFilter) string { return v.RelativePath }).(pulumi.StringOutput)
 }
@@ -110,10 +119,13 @@ func (o EndpointGeoFilterArrayOutput) Index(i pulumi.IntInput) EndpointGeoFilter
 }
 
 type EndpointOrigin struct {
-	HostName  string `pulumi:"hostName"`
-	HttpPort  *int   `pulumi:"httpPort"`
-	HttpsPort *int   `pulumi:"httpsPort"`
-	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+	HostName string `pulumi:"hostName"`
+	// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+	HttpPort *int `pulumi:"httpPort"`
+	// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+	HttpsPort *int `pulumi:"httpsPort"`
+	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
 
@@ -125,10 +137,13 @@ type EndpointOriginInput interface {
 }
 
 type EndpointOriginArgs struct {
-	HostName  pulumi.StringInput `pulumi:"hostName"`
-	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
+	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -179,19 +194,22 @@ func (o EndpointOriginOutput) ToEndpointOriginOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
 func (o EndpointOriginOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointOrigin) string { return v.HostName }).(pulumi.StringOutput)
 }
 
+// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
 func (o EndpointOriginOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
+// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
 func (o EndpointOriginOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
 func (o EndpointOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointOrigin) string { return v.Name }).(pulumi.StringOutput)
 }

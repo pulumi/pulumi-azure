@@ -93,6 +93,7 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
 
 
     :param str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.
+    :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `storage.Account` resource.
     :param str container_name: Name of the container.
     :param str content_disposition: The `Content-Disposition` response header that is sent when this SAS token is used.
     :param str content_encoding: The `Content-Encoding` response header that is sent when this SAS token is used.
@@ -106,12 +107,12 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
 
     The **permissions** object supports the following:
 
-      * `add` (`bool`)
-      * `create` (`bool`)
-      * `delete` (`bool`)
-      * `list` (`bool`)
-      * `read` (`bool`)
-      * `write` (`bool`)
+      * `add` (`bool`) - Should Add permissions be enabled for this SAS?
+      * `create` (`bool`) - Should Create permissions be enabled for this SAS?
+      * `delete` (`bool`) - Should Delete permissions be enabled for this SAS?
+      * `list` (`bool`) - Should List permissions be enabled for this SAS?
+      * `read` (`bool`) - Should Read permissions be enabled for this SAS?
+      * `write` (`bool`) - Should Write permissions be enabled for this SAS?
     """
     __args__ = dict()
 

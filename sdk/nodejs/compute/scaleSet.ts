@@ -12,8 +12,6 @@ import * as utilities from "../utilities";
  * ## Disclaimers
  * 
  * > **Note:** The `azure.compute.ScaleSet` resource has been superseded by the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources. The existing `azure.compute.ScaleSet` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
- * 
- * > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
  */
@@ -74,7 +72,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the image from the marketplace.
+     * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -126,7 +124,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the SKU of the image used to create the virtual machines.
+     * A sku block as documented below.
      */
     public readonly sku!: pulumi.Output<outputs.compute.ScaleSetSku>;
     /**
@@ -288,7 +286,7 @@ export interface ScaleSetState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the image from the marketplace.
+     * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -340,7 +338,7 @@ export interface ScaleSetState {
      */
     readonly singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * Specifies the SKU of the image used to create the virtual machines.
+     * A sku block as documented below.
      */
     readonly sku?: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**
@@ -403,7 +401,7 @@ export interface ScaleSetArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the image from the marketplace.
+     * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -455,7 +453,7 @@ export interface ScaleSetArgs {
      */
     readonly singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * Specifies the SKU of the image used to create the virtual machines.
+     * A sku block as documented below.
      */
     readonly sku: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**

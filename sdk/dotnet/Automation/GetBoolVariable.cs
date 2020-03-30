@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Automation
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
         /// </summary>
+        [Obsolete("Use GetBoolVariable.InvokeAsync() instead")]
         public static Task<GetBoolVariableResult> GetBoolVariable(GetBoolVariableArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetBoolVariable
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Automation Bool Variable.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
+        /// </summary>
+        public static Task<GetBoolVariableResult> InvokeAsync(GetBoolVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

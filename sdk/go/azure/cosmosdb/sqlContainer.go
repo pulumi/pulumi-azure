@@ -29,7 +29,8 @@ type SqlContainer struct {
 	PartitionKeyPath pulumi.StringPtrOutput `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
+	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput pulumi.IntOutput `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayOutput `pulumi:"uniqueKeys"`
 }
@@ -83,7 +84,8 @@ type sqlContainerState struct {
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	Throughput        *int    `pulumi:"throughput"`
+	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput *int `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []SqlContainerUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -101,7 +103,8 @@ type SqlContainerState struct {
 	PartitionKeyPath pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Throughput        pulumi.IntPtrInput
+	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayInput
 }
@@ -123,7 +126,8 @@ type sqlContainerArgs struct {
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput        *int   `pulumi:"throughput"`
+	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput *int `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []SqlContainerUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -142,7 +146,8 @@ type SqlContainerArgs struct {
 	PartitionKeyPath pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Throughput        pulumi.IntPtrInput
+	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+	Throughput pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayInput
 }

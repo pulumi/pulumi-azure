@@ -256,6 +256,9 @@ namespace Pulumi.Azure.Policy
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -278,6 +281,9 @@ namespace Pulumi.Azure.Policy
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -301,6 +307,9 @@ namespace Pulumi.Azure.Policy
         /// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

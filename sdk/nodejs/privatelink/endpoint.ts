@@ -47,7 +47,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+     * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export interface EndpointState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+     * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -143,7 +143,7 @@ export interface EndpointArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+     * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

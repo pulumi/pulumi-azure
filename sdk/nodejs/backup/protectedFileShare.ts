@@ -6,6 +6,63 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
+ * 
+ * > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
+ * 
+ * > **NOTE** Azure Backup for Azure File Shares does not support Soft Delete at this time. Deleting this resource will also delete all associated backup data. Please exercise caution. Consider using [`protect`](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to guard against accidental deletion.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {
+ *     location: "West US",
+ * });
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
+ *     sku: "Standard",
+ * });
+ * const sa = new azure.storage.Account("sa", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
+ * });
+ * const exampleShare = new azure.storage.Share("example", {
+ *     storageAccountName: sa.name,
+ * });
+ * const protectionContainer = new azure.backup.ContainerStorageAccount("protection-container", {
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: rg.name,
+ *     storageAccountId: sa.id,
+ * });
+ * const examplePolicyFileShare = new azure.backup.PolicyFileShare("example", {
+ *     backup: {
+ *         frequency: "Daily",
+ *         time: "23:00",
+ *     },
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: rg.name,
+ *     retentionDaily: {
+ *         count: 10,
+ *     },
+ * });
+ * const share1 = new azure.backup.ProtectedFileShare("share1", {
+ *     backupPolicyId: examplePolicyFileShare.id,
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: rg.name,
+ *     sourceFileShareName: exampleShare.name,
+ *     sourceStorageAccountId: protection_container.storageAccountId,
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_file_share.markdown.
+ */
 export class ProtectedFileShare extends pulumi.CustomResource {
     /**
      * Get an existing ProtectedFileShare resource's state with the given name, ID, and optional extra

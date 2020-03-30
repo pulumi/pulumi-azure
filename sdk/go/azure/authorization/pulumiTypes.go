@@ -12,9 +12,13 @@ import (
 )
 
 type RoleDefinitionPermission struct {
-	Actions        []string `pulumi:"actions"`
-	DataActions    []string `pulumi:"dataActions"`
-	NotActions     []string `pulumi:"notActions"`
+	// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+	Actions []string `pulumi:"actions"`
+	// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+	DataActions []string `pulumi:"dataActions"`
+	// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+	NotActions []string `pulumi:"notActions"`
+	// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	NotDataActions []string `pulumi:"notDataActions"`
 }
 
@@ -26,9 +30,13 @@ type RoleDefinitionPermissionInput interface {
 }
 
 type RoleDefinitionPermissionArgs struct {
-	Actions        pulumi.StringArrayInput `pulumi:"actions"`
-	DataActions    pulumi.StringArrayInput `pulumi:"dataActions"`
-	NotActions     pulumi.StringArrayInput `pulumi:"notActions"`
+	// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
+	// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
 
@@ -79,18 +87,22 @@ func (o RoleDefinitionPermissionOutput) ToRoleDefinitionPermissionOutputWithCont
 	return o
 }
 
+// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o RoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o RoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
+// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o RoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }
 
+// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
 func (o RoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
 }

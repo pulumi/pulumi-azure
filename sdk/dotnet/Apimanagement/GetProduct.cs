@@ -16,7 +16,18 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
         /// </summary>
+        [Obsolete("Use GetProduct.InvokeAsync() instead")]
         public static Task<GetProductResult> GetProduct(GetProductArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetProduct
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing API Management Product.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
+        /// </summary>
+        public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

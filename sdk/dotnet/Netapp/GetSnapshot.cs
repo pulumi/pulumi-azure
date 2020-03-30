@@ -16,7 +16,18 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
         public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSnapshot
+    {
+        /// <summary>
+        /// Uses this data source to access information about an existing NetApp Snapshot.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
+        /// </summary>
+        public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

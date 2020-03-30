@@ -189,6 +189,9 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyFileShareBackupArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the backup frequency. Currently, only `Daily` is supported
+        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
@@ -202,6 +205,9 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyFileShareBackupGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets the backup frequency. Currently, only `Daily` is supported
+        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
@@ -215,6 +221,9 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyFileShareRetentionDailyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of daily backups to keep. Must be between `1` and `180` (inclusive)
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
@@ -225,6 +234,9 @@ namespace Pulumi.Azure.Backup
 
     public sealed class PolicyFileShareRetentionDailyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of daily backups to keep. Must be between `1` and `180` (inclusive)
+        /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
 
@@ -240,6 +252,9 @@ namespace Pulumi.Azure.Backup
     [OutputType]
     public sealed class PolicyFileShareBackup
     {
+        /// <summary>
+        /// Sets the backup frequency. Currently, only `Daily` is supported
+        /// </summary>
         public readonly string Frequency;
         public readonly string Time;
 
@@ -256,6 +271,9 @@ namespace Pulumi.Azure.Backup
     [OutputType]
     public sealed class PolicyFileShareRetentionDaily
     {
+        /// <summary>
+        /// The number of daily backups to keep. Must be between `1` and `180` (inclusive)
+        /// </summary>
         public readonly int Count;
 
         [OutputConstructor]

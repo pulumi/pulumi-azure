@@ -304,7 +304,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class DomainInputMappingFieldsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataVersion")]
         public Input<string>? DataVersion { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? EventTime { get; set; }
 
         /// <summary>
-        /// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventType")]
         public Input<string>? EventType { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class DomainInputMappingFieldsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataVersion")]
         public Input<string>? DataVersion { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? EventTime { get; set; }
 
         /// <summary>
-        /// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventType")]
         public Input<string>? EventType { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class DomainInputMappingFields
     {
         /// <summary>
-        /// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? DataVersion;
         /// <summary>
@@ -431,7 +431,7 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string? EventTime;
         /// <summary>
-        /// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? EventType;
         /// <summary>
@@ -439,7 +439,7 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        /// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Subject;
         /// <summary>

@@ -35,7 +35,7 @@ type NetworkInterface struct {
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
 	// The name of the Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The first private IP address of the network interface.
+	// The Static IP Address which should be used.
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// The private IP addresses of the network interface.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
@@ -99,7 +99,7 @@ type networkInterfaceState struct {
 	MacAddress *string `pulumi:"macAddress"`
 	// The name of the Network Interface. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The first private IP address of the network interface.
+	// The Static IP Address which should be used.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The private IP addresses of the network interface.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
@@ -130,7 +130,7 @@ type NetworkInterfaceState struct {
 	MacAddress pulumi.StringPtrInput
 	// The name of the Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The first private IP address of the network interface.
+	// The Static IP Address which should be used.
 	PrivateIpAddress pulumi.StringPtrInput
 	// The private IP addresses of the network interface.
 	PrivateIpAddresses pulumi.StringArrayInput

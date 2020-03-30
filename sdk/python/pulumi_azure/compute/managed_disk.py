@@ -34,14 +34,14 @@ class ManagedDisk(pulumi.CustomResource):
     """
     A `encryption_settings` block as defined below.
 
-      * `diskEncryptionKey` (`dict`)
-        * `secretUrl` (`str`)
-        * `sourceVaultId` (`str`)
+      * `diskEncryptionKey` (`dict`) - A `disk_encryption_key` block as defined above.
+        * `secretUrl` (`str`) - The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        * `sourceVaultId` (`str`) - The ID of the source Key Vault.
 
-      * `enabled` (`bool`)
-      * `keyEncryptionKey` (`dict`)
-        * `keyUrl` (`str`)
-        * `sourceVaultId` (`str`)
+      * `enabled` (`bool`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+      * `keyEncryptionKey` (`dict`) - A `key_encryption_key` block as defined below.
+        * `keyUrl` (`str`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+        * `sourceVaultId` (`str`) - The ID of the source Key Vault.
     """
     image_reference_id: pulumi.Output[str]
     """
@@ -115,14 +115,14 @@ class ManagedDisk(pulumi.CustomResource):
 
         The **encryption_settings** object supports the following:
 
-          * `diskEncryptionKey` (`pulumi.Input[dict]`)
-            * `secretUrl` (`pulumi.Input[str]`)
-            * `sourceVaultId` (`pulumi.Input[str]`)
+          * `diskEncryptionKey` (`pulumi.Input[dict]`) - A `disk_encryption_key` block as defined above.
+            * `secretUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The ID of the source Key Vault.
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `keyEncryptionKey` (`pulumi.Input[dict]`)
-            * `keyUrl` (`pulumi.Input[str]`)
-            * `sourceVaultId` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+          * `keyEncryptionKey` (`pulumi.Input[dict]`) - A `key_encryption_key` block as defined below.
+            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The ID of the source Key Vault.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -199,14 +199,14 @@ class ManagedDisk(pulumi.CustomResource):
 
         The **encryption_settings** object supports the following:
 
-          * `diskEncryptionKey` (`pulumi.Input[dict]`)
-            * `secretUrl` (`pulumi.Input[str]`)
-            * `sourceVaultId` (`pulumi.Input[str]`)
+          * `diskEncryptionKey` (`pulumi.Input[dict]`) - A `disk_encryption_key` block as defined above.
+            * `secretUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The ID of the source Key Vault.
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `keyEncryptionKey` (`pulumi.Input[dict]`)
-            * `keyUrl` (`pulumi.Input[str]`)
-            * `sourceVaultId` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+          * `keyEncryptionKey` (`pulumi.Input[dict]`) - A `key_encryption_key` block as defined below.
+            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The ID of the source Key Vault.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -23,15 +23,15 @@ type ConfigurationStore struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An `accessKey` block as defined below containing the primary read access key.
+	// A `primaryReadKey` block as defined below containing the primary read access key.
 	PrimaryReadKeys ConfigurationStorePrimaryReadKeyArrayOutput `pulumi:"primaryReadKeys"`
-	// An `accessKey` block as defined below containing the primary write access key.
+	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayOutput `pulumi:"primaryWriteKeys"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// An `accessKey` block as defined below containing the secondary read access key.
+	// A `secondaryReadKey` block as defined below containing the secondary read access key.
 	SecondaryReadKeys ConfigurationStoreSecondaryReadKeyArrayOutput `pulumi:"secondaryReadKeys"`
-	// An `accessKey` block as defined below containing the secondary write access key.
+	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayOutput `pulumi:"secondaryWriteKeys"`
 	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
@@ -76,15 +76,15 @@ type configurationStoreState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// An `accessKey` block as defined below containing the primary read access key.
+	// A `primaryReadKey` block as defined below containing the primary read access key.
 	PrimaryReadKeys []ConfigurationStorePrimaryReadKey `pulumi:"primaryReadKeys"`
-	// An `accessKey` block as defined below containing the primary write access key.
+	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys []ConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// An `accessKey` block as defined below containing the secondary read access key.
+	// A `secondaryReadKey` block as defined below containing the secondary read access key.
 	SecondaryReadKeys []ConfigurationStoreSecondaryReadKey `pulumi:"secondaryReadKeys"`
-	// An `accessKey` block as defined below containing the secondary write access key.
+	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys []ConfigurationStoreSecondaryWriteKey `pulumi:"secondaryWriteKeys"`
 	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
 	Sku *string `pulumi:"sku"`
@@ -99,15 +99,15 @@ type ConfigurationStoreState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// An `accessKey` block as defined below containing the primary read access key.
+	// A `primaryReadKey` block as defined below containing the primary read access key.
 	PrimaryReadKeys ConfigurationStorePrimaryReadKeyArrayInput
-	// An `accessKey` block as defined below containing the primary write access key.
+	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayInput
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// An `accessKey` block as defined below containing the secondary read access key.
+	// A `secondaryReadKey` block as defined below containing the secondary read access key.
 	SecondaryReadKeys ConfigurationStoreSecondaryReadKeyArrayInput
-	// An `accessKey` block as defined below containing the secondary write access key.
+	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayInput
 	// The SKU name of the the App Configuration. Possible values are `free` and `standard`.
 	Sku pulumi.StringPtrInput

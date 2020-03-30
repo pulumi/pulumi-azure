@@ -22,8 +22,8 @@ class MxRecord(pulumi.CustomResource):
     """
     A list of values that make up the MX record. Each `record` block supports fields documented below.
 
-      * `exchange` (`str`)
-      * `preference` (`str`)
+      * `exchange` (`str`) - The mail server responsible for the domain covered by the MX record.
+      * `preference` (`str`) - String representing the "preference” value of the MX records. Records with lower preference value take priority.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -58,8 +58,8 @@ class MxRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `exchange` (`pulumi.Input[str]`)
-          * `preference` (`pulumi.Input[str]`)
+          * `exchange` (`pulumi.Input[str]`) - The mail server responsible for the domain covered by the MX record.
+          * `preference` (`pulumi.Input[str]`) - String representing the "preference” value of the MX records. Records with lower preference value take priority.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,8 +118,8 @@ class MxRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `exchange` (`pulumi.Input[str]`)
-          * `preference` (`pulumi.Input[str]`)
+          * `exchange` (`pulumi.Input[str]`) - The mail server responsible for the domain covered by the MX record.
+          * `preference` (`pulumi.Input[str]`) - String representing the "preference” value of the MX records. Records with lower preference value take priority.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

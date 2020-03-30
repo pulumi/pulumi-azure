@@ -6,6 +6,17 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Linux Virtual Machine Scale Set.
+ * 
+ * ## Disclaimers
+ * 
+ * > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+ * 
+ * > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine_scale_set.html.markdown.
+ */
 export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Get an existing LinuxVirtualMachineScaleSet resource's state with the given name, ID, and optional extra
@@ -139,6 +150,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly rollingUpgradePolicy!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
+     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     */
+    public readonly scaleInPolicy!: pulumi.Output<string | undefined>;
+    /**
      * One or more `secret` blocks as defined below.
      */
     public readonly secrets!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetSecret[] | undefined>;
@@ -162,6 +177,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A `terminateNotification` block as defined below.
+     */
+    public readonly terminateNotification!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetTerminateNotification>;
     /**
      * The Unique ID for this Linux Virtual Machine Scale Set.
      */
@@ -218,12 +237,14 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
+            inputs["scaleInPolicy"] = state ? state.scaleInPolicy : undefined;
             inputs["secrets"] = state ? state.secrets : undefined;
             inputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             inputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["terminateNotification"] = state ? state.terminateNotification : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
             inputs["zoneBalance"] = state ? state.zoneBalance : undefined;
@@ -275,12 +296,14 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
+            inputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             inputs["secrets"] = args ? args.secrets : undefined;
             inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["terminateNotification"] = args ? args.terminateNotification : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -407,6 +430,10 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     readonly rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
+     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     */
+    readonly scaleInPolicy?: pulumi.Input<string>;
+    /**
      * One or more `secret` blocks as defined below.
      */
     readonly secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[]>;
@@ -430,6 +457,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `terminateNotification` block as defined below.
+     */
+    readonly terminateNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminateNotification>;
     /**
      * The Unique ID for this Linux Virtual Machine Scale Set.
      */
@@ -558,6 +589,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     readonly rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
+     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     */
+    readonly scaleInPolicy?: pulumi.Input<string>;
+    /**
      * One or more `secret` blocks as defined below.
      */
     readonly secrets?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecret>[]>;
@@ -581,6 +616,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `terminateNotification` block as defined below.
+     */
+    readonly terminateNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetTerminateNotification>;
     /**
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */

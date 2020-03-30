@@ -12,9 +12,6 @@ namespace Pulumi.Azure.Sql
     /// <summary>
     /// Manages a SQL Azure Database Server.
     /// 
-    /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-    /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
     /// </summary>
     public partial class SqlServer : Pulumi.CustomResource
@@ -342,6 +339,9 @@ namespace Pulumi.Azure.Sql
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -364,6 +364,9 @@ namespace Pulumi.Azure.Sql
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -421,6 +424,9 @@ namespace Pulumi.Azure.Sql
         /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -12,14 +12,21 @@ import (
 )
 
 type IoTHubEndpoint struct {
-	BatchFrequencyInSeconds *int    `pulumi:"batchFrequencyInSeconds"`
-	ConnectionString        string  `pulumi:"connectionString"`
-	ContainerName           *string `pulumi:"containerName"`
-	Encoding                *string `pulumi:"encoding"`
-	FileNameFormat          *string `pulumi:"fileNameFormat"`
-	MaxChunkSizeInBytes     *int    `pulumi:"maxChunkSizeInBytes"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
+	// The connection string for the endpoint.
+	ConnectionString string `pulumi:"connectionString"`
+	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	ContainerName *string `pulumi:"containerName"`
+	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	Encoding *string `pulumi:"encoding"`
+	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	FileNameFormat *string `pulumi:"fileNameFormat"`
+	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name string `pulumi:"name"`
+	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type string `pulumi:"type"`
 }
 
@@ -31,14 +38,21 @@ type IoTHubEndpointInput interface {
 }
 
 type IoTHubEndpointArgs struct {
-	BatchFrequencyInSeconds pulumi.IntPtrInput    `pulumi:"batchFrequencyInSeconds"`
-	ConnectionString        pulumi.StringInput    `pulumi:"connectionString"`
-	ContainerName           pulumi.StringPtrInput `pulumi:"containerName"`
-	Encoding                pulumi.StringPtrInput `pulumi:"encoding"`
-	FileNameFormat          pulumi.StringPtrInput `pulumi:"fileNameFormat"`
-	MaxChunkSizeInBytes     pulumi.IntPtrInput    `pulumi:"maxChunkSizeInBytes"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	BatchFrequencyInSeconds pulumi.IntPtrInput `pulumi:"batchFrequencyInSeconds"`
+	// The connection string for the endpoint.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
+	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -89,35 +103,42 @@ func (o IoTHubEndpointOutput) ToIoTHubEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) BatchFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *int { return v.BatchFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The connection string for the endpoint.
 func (o IoTHubEndpointOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
+// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
+// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
+// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.FileNameFormat }).(pulumi.StringPtrOutput)
 }
 
+// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
 func (o IoTHubEndpointOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *int { return v.MaxChunkSizeInBytes }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 func (o IoTHubEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 func (o IoTHubEndpointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -143,10 +164,14 @@ func (o IoTHubEndpointArrayOutput) Index(i pulumi.IntInput) IoTHubEndpointOutput
 }
 
 type IoTHubFallbackRoute struct {
-	Condition     *string  `pulumi:"condition"`
-	Enabled       *bool    `pulumi:"enabled"`
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	Condition *string `pulumi:"condition"`
+	// Used to specify whether the fallback route is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames []string `pulumi:"endpointNames"`
-	Source        *string  `pulumi:"source"`
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+	Source *string `pulumi:"source"`
 }
 
 type IoTHubFallbackRouteInput interface {
@@ -157,10 +182,14 @@ type IoTHubFallbackRouteInput interface {
 }
 
 type IoTHubFallbackRouteArgs struct {
-	Condition     pulumi.StringPtrInput   `pulumi:"condition"`
-	Enabled       pulumi.BoolPtrInput     `pulumi:"enabled"`
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	Condition pulumi.StringPtrInput `pulumi:"condition"`
+	// Used to specify whether the fallback route is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	Source        pulumi.StringPtrInput   `pulumi:"source"`
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
+	Source pulumi.StringPtrInput `pulumi:"source"`
 }
 
 func (IoTHubFallbackRouteArgs) ElementType() reflect.Type {
@@ -231,18 +260,23 @@ func (o IoTHubFallbackRouteOutput) ToIoTHubFallbackRoutePtrOutputWithContext(ctx
 		return &v
 	}).(IoTHubFallbackRoutePtrOutput)
 }
+
+// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 func (o IoTHubFallbackRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
+// Used to specify whether the fallback route is enabled.
 func (o IoTHubFallbackRouteOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 func (o IoTHubFallbackRouteOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 func (o IoTHubFallbackRouteOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -265,30 +299,41 @@ func (o IoTHubFallbackRoutePtrOutput) Elem() IoTHubFallbackRouteOutput {
 	return o.ApplyT(func(v *IoTHubFallbackRoute) IoTHubFallbackRoute { return *v }).(IoTHubFallbackRouteOutput)
 }
 
+// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 func (o IoTHubFallbackRoutePtrOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
+// Used to specify whether the fallback route is enabled.
 func (o IoTHubFallbackRoutePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 func (o IoTHubFallbackRoutePtrOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 func (o IoTHubFallbackRoutePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
 type IoTHubFileUpload struct {
-	ConnectionString string  `pulumi:"connectionString"`
-	ContainerName    string  `pulumi:"containerName"`
-	DefaultTtl       *string `pulumi:"defaultTtl"`
-	LockDuration     *string `pulumi:"lockDuration"`
-	MaxDeliveryCount *int    `pulumi:"maxDeliveryCount"`
-	Notifications    *bool   `pulumi:"notifications"`
-	SasTtl           *string `pulumi:"sasTtl"`
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString string `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName string `pulumi:"containerName"`
+	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+	DefaultTtl *string `pulumi:"defaultTtl"`
+	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+	LockDuration *string `pulumi:"lockDuration"`
+	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+	Notifications *bool `pulumi:"notifications"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+	SasTtl *string `pulumi:"sasTtl"`
 }
 
 type IoTHubFileUploadInput interface {
@@ -299,13 +344,20 @@ type IoTHubFileUploadInput interface {
 }
 
 type IoTHubFileUploadArgs struct {
-	ConnectionString pulumi.StringInput    `pulumi:"connectionString"`
-	ContainerName    pulumi.StringInput    `pulumi:"containerName"`
-	DefaultTtl       pulumi.StringPtrInput `pulumi:"defaultTtl"`
-	LockDuration     pulumi.StringPtrInput `pulumi:"lockDuration"`
-	MaxDeliveryCount pulumi.IntPtrInput    `pulumi:"maxDeliveryCount"`
-	Notifications    pulumi.BoolPtrInput   `pulumi:"notifications"`
-	SasTtl           pulumi.StringPtrInput `pulumi:"sasTtl"`
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+	DefaultTtl pulumi.StringPtrInput `pulumi:"defaultTtl"`
+	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+	LockDuration pulumi.StringPtrInput `pulumi:"lockDuration"`
+	// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+	Notifications pulumi.BoolPtrInput `pulumi:"notifications"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
+	SasTtl pulumi.StringPtrInput `pulumi:"sasTtl"`
 }
 
 func (IoTHubFileUploadArgs) ElementType() reflect.Type {
@@ -376,30 +428,38 @@ func (o IoTHubFileUploadOutput) ToIoTHubFileUploadPtrOutputWithContext(ctx conte
 		return &v
 	}).(IoTHubFileUploadPtrOutput)
 }
+
+// The connection string for the Azure Storage account to which files are uploaded.
 func (o IoTHubFileUploadOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
+// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 func (o IoTHubFileUploadOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
 func (o IoTHubFileUploadOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.DefaultTtl }).(pulumi.StringPtrOutput)
 }
 
+// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
 func (o IoTHubFileUploadOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
 }
 
+// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
 func (o IoTHubFileUploadOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
+// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
 func (o IoTHubFileUploadOutput) Notifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *bool { return v.Notifications }).(pulumi.BoolPtrOutput)
 }
 
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
 func (o IoTHubFileUploadOutput) SasTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.SasTtl }).(pulumi.StringPtrOutput)
 }
@@ -422,38 +482,47 @@ func (o IoTHubFileUploadPtrOutput) Elem() IoTHubFileUploadOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) IoTHubFileUpload { return *v }).(IoTHubFileUploadOutput)
 }
 
+// The connection string for the Azure Storage account to which files are uploaded.
 func (o IoTHubFileUploadPtrOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
+// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 func (o IoTHubFileUploadPtrOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
+// The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
 func (o IoTHubFileUploadPtrOutput) DefaultTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.DefaultTtl }).(pulumi.StringPtrOutput)
 }
 
+// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
 func (o IoTHubFileUploadPtrOutput) LockDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
 }
 
+// The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
 func (o IoTHubFileUploadPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
+// Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
 func (o IoTHubFileUploadPtrOutput) Notifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *bool { return v.Notifications }).(pulumi.BoolPtrOutput)
 }
 
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
 func (o IoTHubFileUploadPtrOutput) SasTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.SasTtl }).(pulumi.StringPtrOutput)
 }
 
 type IoTHubIpFilterRule struct {
+	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
 	Action string `pulumi:"action"`
+	// The IP address range in CIDR notation for the rule.
 	IpMask string `pulumi:"ipMask"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+	// The name of the filter.
 	Name string `pulumi:"name"`
 }
 
@@ -465,9 +534,11 @@ type IoTHubIpFilterRuleInput interface {
 }
 
 type IoTHubIpFilterRuleArgs struct {
+	// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
 	Action pulumi.StringInput `pulumi:"action"`
+	// The IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+	// The name of the filter.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -518,15 +589,17 @@ func (o IoTHubIpFilterRuleOutput) ToIoTHubIpFilterRuleOutputWithContext(ctx cont
 	return o
 }
 
+// The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
 func (o IoTHubIpFilterRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// The IP address range in CIDR notation for the rule.
 func (o IoTHubIpFilterRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubIpFilterRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+// The name of the filter.
 func (o IoTHubIpFilterRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubIpFilterRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -552,11 +625,15 @@ func (o IoTHubIpFilterRuleArrayOutput) Index(i pulumi.IntInput) IoTHubIpFilterRu
 }
 
 type IoTHubRoute struct {
-	Condition     *string  `pulumi:"condition"`
-	Enabled       bool     `pulumi:"enabled"`
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	Condition *string `pulumi:"condition"`
+	// Used to specify whether a route is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The list of endpoints to which messages that satisfy the condition are routed.
 	EndpointNames []string `pulumi:"endpointNames"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-	Name   string `pulumi:"name"`
+	// The name of the route.
+	Name string `pulumi:"name"`
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 	Source string `pulumi:"source"`
 }
 
@@ -568,11 +645,15 @@ type IoTHubRouteInput interface {
 }
 
 type IoTHubRouteArgs struct {
-	Condition     pulumi.StringPtrInput   `pulumi:"condition"`
-	Enabled       pulumi.BoolInput        `pulumi:"enabled"`
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	Condition pulumi.StringPtrInput `pulumi:"condition"`
+	// Used to specify whether a route is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The list of endpoints to which messages that satisfy the condition are routed.
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-	Name   pulumi.StringInput `pulumi:"name"`
+	// The name of the route.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -623,23 +704,27 @@ func (o IoTHubRouteOutput) ToIoTHubRouteOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 func (o IoTHubRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
+// Used to specify whether a route is enabled.
 func (o IoTHubRouteOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v IoTHubRoute) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The list of endpoints to which messages that satisfy the condition are routed.
 func (o IoTHubRouteOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IoTHubRoute) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+// The name of the route.
 func (o IoTHubRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubRoute) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 func (o IoTHubRouteOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubRoute) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -781,8 +866,9 @@ func (o IoTHubSharedAccessPolicyArrayOutput) Index(i pulumi.IntInput) IoTHubShar
 }
 
 type IoTHubSku struct {
+	// The number of provisioned IoT Hub units.
 	Capacity int `pulumi:"capacity"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 	Name string `pulumi:"name"`
 }
 
@@ -794,8 +880,9 @@ type IoTHubSkuInput interface {
 }
 
 type IoTHubSkuArgs struct {
+	// The number of provisioned IoT Hub units.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -867,11 +954,13 @@ func (o IoTHubSkuOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) Io
 		return &v
 	}).(IoTHubSkuPtrOutput)
 }
+
+// The number of provisioned IoT Hub units.
 func (o IoTHubSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IoTHubSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 func (o IoTHubSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -894,21 +983,25 @@ func (o IoTHubSkuPtrOutput) Elem() IoTHubSkuOutput {
 	return o.ApplyT(func(v *IoTHubSku) IoTHubSku { return *v }).(IoTHubSkuOutput)
 }
 
+// The number of provisioned IoT Hub units.
 func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IoTHubSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 func (o IoTHubSkuPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type IotHubDpsLinkedHub struct {
-	AllocationWeight      *int    `pulumi:"allocationWeight"`
-	ApplyAllocationPolicy *bool   `pulumi:"applyAllocationPolicy"`
-	ConnectionString      string  `pulumi:"connectionString"`
-	Hostname              *string `pulumi:"hostname"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// The weight applied to the IoT Hub. Defaults to 0.
+	AllocationWeight      *int  `pulumi:"allocationWeight"`
+	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
+	// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+	ConnectionString string `pulumi:"connectionString"`
+	// The IoT Hub hostname.
+	Hostname *string `pulumi:"hostname"`
+	// The location of the IoT hub. Changing this forces a new resource.
 	Location string `pulumi:"location"`
 }
 
@@ -920,11 +1013,14 @@ type IotHubDpsLinkedHubInput interface {
 }
 
 type IotHubDpsLinkedHubArgs struct {
-	AllocationWeight      pulumi.IntPtrInput    `pulumi:"allocationWeight"`
-	ApplyAllocationPolicy pulumi.BoolPtrInput   `pulumi:"applyAllocationPolicy"`
-	ConnectionString      pulumi.StringInput    `pulumi:"connectionString"`
-	Hostname              pulumi.StringPtrInput `pulumi:"hostname"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	// The weight applied to the IoT Hub. Defaults to 0.
+	AllocationWeight      pulumi.IntPtrInput  `pulumi:"allocationWeight"`
+	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
+	// The connection string to connect to the IoT Hub. Changing this forces a new resource.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The IoT Hub hostname.
+	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
+	// The location of the IoT hub. Changing this forces a new resource.
 	Location pulumi.StringInput `pulumi:"location"`
 }
 
@@ -975,6 +1071,7 @@ func (o IotHubDpsLinkedHubOutput) ToIotHubDpsLinkedHubOutputWithContext(ctx cont
 	return o
 }
 
+// The weight applied to the IoT Hub. Defaults to 0.
 func (o IotHubDpsLinkedHubOutput) AllocationWeight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
 }
@@ -983,15 +1080,17 @@ func (o IotHubDpsLinkedHubOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }
 
+// The connection string to connect to the IoT Hub. Changing this forces a new resource.
 func (o IotHubDpsLinkedHubOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
+// The IoT Hub hostname.
 func (o IotHubDpsLinkedHubOutput) Hostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *string { return v.Hostname }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+// The location of the IoT hub. Changing this forces a new resource.
 func (o IotHubDpsLinkedHubOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -1017,8 +1116,9 @@ func (o IotHubDpsLinkedHubArrayOutput) Index(i pulumi.IntInput) IotHubDpsLinkedH
 }
 
 type IotHubDpsSku struct {
+	// The number of provisioned IoT Device Provisioning Service units.
 	Capacity int `pulumi:"capacity"`
-	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 	Name string `pulumi:"name"`
 }
 
@@ -1030,8 +1130,9 @@ type IotHubDpsSkuInput interface {
 }
 
 type IotHubDpsSkuArgs struct {
+	// The number of provisioned IoT Device Provisioning Service units.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1103,11 +1204,13 @@ func (o IotHubDpsSkuOutput) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Conte
 		return &v
 	}).(IotHubDpsSkuPtrOutput)
 }
+
+// The number of provisioned IoT Device Provisioning Service units.
 func (o IotHubDpsSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IotHubDpsSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 func (o IotHubDpsSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1130,11 +1233,12 @@ func (o IotHubDpsSkuPtrOutput) Elem() IotHubDpsSkuOutput {
 	return o.ApplyT(func(v *IotHubDpsSku) IotHubDpsSku { return *v }).(IotHubDpsSkuOutput)
 }
 
+// The number of provisioned IoT Device Provisioning Service units.
 func (o IotHubDpsSkuPtrOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IotHubDpsSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsSku) string { return v.Name }).(pulumi.StringOutput)
 }

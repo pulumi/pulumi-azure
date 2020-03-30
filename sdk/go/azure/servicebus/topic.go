@@ -75,6 +75,12 @@ func NewTopic(ctx *pulumi.Context,
 	if args == nil {
 		args = &TopicArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/topic:Topic"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Topic
 	err := ctx.RegisterResource("azure:servicebus/topic:Topic", name, args, &resource, opts...)
 	if err != nil {

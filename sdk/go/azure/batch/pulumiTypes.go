@@ -12,8 +12,9 @@ import (
 )
 
 type AccountKeyVaultReference struct {
-	// The ID of the Batch Account.
-	Id  string `pulumi:"id"`
+	// The Azure identifier of the Azure KeyVault to use.
+	Id string `pulumi:"id"`
+	// The HTTPS URL of the Azure KeyVault to use.
 	Url string `pulumi:"url"`
 }
 
@@ -25,8 +26,9 @@ type AccountKeyVaultReferenceInput interface {
 }
 
 type AccountKeyVaultReferenceArgs struct {
-	// The ID of the Batch Account.
-	Id  pulumi.StringInput `pulumi:"id"`
+	// The Azure identifier of the Azure KeyVault to use.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The HTTPS URL of the Azure KeyVault to use.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -99,11 +101,12 @@ func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferencePtrOutputWithC
 	}).(AccountKeyVaultReferencePtrOutput)
 }
 
-// The ID of the Batch Account.
+// The Azure identifier of the Azure KeyVault to use.
 func (o AccountKeyVaultReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The HTTPS URL of the Azure KeyVault to use.
 func (o AccountKeyVaultReferenceOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -126,18 +129,21 @@ func (o AccountKeyVaultReferencePtrOutput) Elem() AccountKeyVaultReferenceOutput
 	return o.ApplyT(func(v *AccountKeyVaultReference) AccountKeyVaultReference { return *v }).(AccountKeyVaultReferenceOutput)
 }
 
-// The ID of the Batch Account.
+// The Azure identifier of the Azure KeyVault to use.
 func (o AccountKeyVaultReferencePtrOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The HTTPS URL of the Azure KeyVault to use.
 func (o AccountKeyVaultReferencePtrOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
 }
 
 type PoolAutoScale struct {
+	// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
 	EvaluationInterval *string `pulumi:"evaluationInterval"`
-	Formula            string  `pulumi:"formula"`
+	// The autoscale formula that needs to be used for scaling the Batch pool.
+	Formula string `pulumi:"formula"`
 }
 
 type PoolAutoScaleInput interface {
@@ -148,8 +154,10 @@ type PoolAutoScaleInput interface {
 }
 
 type PoolAutoScaleArgs struct {
+	// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
 	EvaluationInterval pulumi.StringPtrInput `pulumi:"evaluationInterval"`
-	Formula            pulumi.StringInput    `pulumi:"formula"`
+	// The autoscale formula that needs to be used for scaling the Batch pool.
+	Formula pulumi.StringInput `pulumi:"formula"`
 }
 
 func (PoolAutoScaleArgs) ElementType() reflect.Type {
@@ -220,10 +228,13 @@ func (o PoolAutoScaleOutput) ToPoolAutoScalePtrOutputWithContext(ctx context.Con
 		return &v
 	}).(PoolAutoScalePtrOutput)
 }
+
+// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
 func (o PoolAutoScaleOutput) EvaluationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
 }
 
+// The autoscale formula that needs to be used for scaling the Batch pool.
 func (o PoolAutoScaleOutput) Formula() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
 }
@@ -246,20 +257,25 @@ func (o PoolAutoScalePtrOutput) Elem() PoolAutoScaleOutput {
 	return o.ApplyT(func(v *PoolAutoScale) PoolAutoScale { return *v }).(PoolAutoScaleOutput)
 }
 
+// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
 func (o PoolAutoScalePtrOutput) EvaluationInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
 }
 
+// The autoscale formula that needs to be used for scaling the Batch pool.
 func (o PoolAutoScalePtrOutput) Formula() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
 }
 
 type PoolCertificate struct {
-	// The ID of the Batch Pool.
-	Id            string   `pulumi:"id"`
-	StoreLocation string   `pulumi:"storeLocation"`
-	StoreName     *string  `pulumi:"storeName"`
-	Visibilities  []string `pulumi:"visibilities"`
+	// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+	Id string `pulumi:"id"`
+	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+	StoreLocation string `pulumi:"storeLocation"`
+	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+	StoreName *string `pulumi:"storeName"`
+	// Which user accounts on the compute node should have access to the private data of the certificate.
+	Visibilities []string `pulumi:"visibilities"`
 }
 
 type PoolCertificateInput interface {
@@ -270,11 +286,14 @@ type PoolCertificateInput interface {
 }
 
 type PoolCertificateArgs struct {
-	// The ID of the Batch Pool.
-	Id            pulumi.StringInput      `pulumi:"id"`
-	StoreLocation pulumi.StringInput      `pulumi:"storeLocation"`
-	StoreName     pulumi.StringPtrInput   `pulumi:"storeName"`
-	Visibilities  pulumi.StringArrayInput `pulumi:"visibilities"`
+	// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
+	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
+	// Which user accounts on the compute node should have access to the private data of the certificate.
+	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
 }
 
 func (PoolCertificateArgs) ElementType() reflect.Type {
@@ -324,19 +343,22 @@ func (o PoolCertificateOutput) ToPoolCertificateOutputWithContext(ctx context.Co
 	return o
 }
 
-// The ID of the Batch Pool.
+// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
 func (o PoolCertificateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolCertificate) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
 func (o PoolCertificateOutput) StoreLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
 
+// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
 func (o PoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
 
+// Which user accounts on the compute node should have access to the private data of the certificate.
 func (o PoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
 }
@@ -362,8 +384,10 @@ func (o PoolCertificateArrayOutput) Index(i pulumi.IntInput) PoolCertificateOutp
 }
 
 type PoolContainerConfiguration struct {
+	// Additional container registries from which container images can be pulled by the pool's VMs.
 	ContainerRegistries []PoolContainerConfigurationContainerRegistry `pulumi:"containerRegistries"`
-	Type                *string                                       `pulumi:"type"`
+	// The type of container configuration. Possible value is `DockerCompatible`.
+	Type *string `pulumi:"type"`
 }
 
 type PoolContainerConfigurationInput interface {
@@ -374,8 +398,10 @@ type PoolContainerConfigurationInput interface {
 }
 
 type PoolContainerConfigurationArgs struct {
+	// Additional container registries from which container images can be pulled by the pool's VMs.
 	ContainerRegistries PoolContainerConfigurationContainerRegistryArrayInput `pulumi:"containerRegistries"`
-	Type                pulumi.StringPtrInput                                 `pulumi:"type"`
+	// The type of container configuration. Possible value is `DockerCompatible`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PoolContainerConfigurationArgs) ElementType() reflect.Type {
@@ -446,12 +472,15 @@ func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationPtrOutputW
 		return &v
 	}).(PoolContainerConfigurationPtrOutput)
 }
+
+// Additional container registries from which container images can be pulled by the pool's VMs.
 func (o PoolContainerConfigurationOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
 		return v.ContainerRegistries
 	}).(PoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
+// The type of container configuration. Possible value is `DockerCompatible`.
 func (o PoolContainerConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -474,20 +503,25 @@ func (o PoolContainerConfigurationPtrOutput) Elem() PoolContainerConfigurationOu
 	return o.ApplyT(func(v *PoolContainerConfiguration) PoolContainerConfiguration { return *v }).(PoolContainerConfigurationOutput)
 }
 
+// Additional container registries from which container images can be pulled by the pool's VMs.
 func (o PoolContainerConfigurationPtrOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
 		return v.ContainerRegistries
 	}).(PoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
+// The type of container configuration. Possible value is `DockerCompatible`.
 func (o PoolContainerConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type PoolContainerConfigurationContainerRegistry struct {
-	Password       string `pulumi:"password"`
+	// The password to log into the registry server. Changing this forces a new resource to be created.
+	Password string `pulumi:"password"`
+	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer string `pulumi:"registryServer"`
-	UserName       string `pulumi:"userName"`
+	// The user name to log into the registry server. Changing this forces a new resource to be created.
+	UserName string `pulumi:"userName"`
 }
 
 type PoolContainerConfigurationContainerRegistryInput interface {
@@ -498,9 +532,12 @@ type PoolContainerConfigurationContainerRegistryInput interface {
 }
 
 type PoolContainerConfigurationContainerRegistryArgs struct {
-	Password       pulumi.StringInput `pulumi:"password"`
+	// The password to log into the registry server. Changing this forces a new resource to be created.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
-	UserName       pulumi.StringInput `pulumi:"userName"`
+	// The user name to log into the registry server. Changing this forces a new resource to be created.
+	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
 func (PoolContainerConfigurationContainerRegistryArgs) ElementType() reflect.Type {
@@ -550,14 +587,17 @@ func (o PoolContainerConfigurationContainerRegistryOutput) ToPoolContainerConfig
 	return o
 }
 
+// The password to log into the registry server. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }
 
+// The user name to log into the registry server. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationContainerRegistryOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -583,9 +623,12 @@ func (o PoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.I
 }
 
 type PoolFixedScale struct {
-	ResizeTimeout          *string `pulumi:"resizeTimeout"`
-	TargetDedicatedNodes   *int    `pulumi:"targetDedicatedNodes"`
-	TargetLowPriorityNodes *int    `pulumi:"targetLowPriorityNodes"`
+	// The timeout for resize operations. Defaults to `PT15M`.
+	ResizeTimeout *string `pulumi:"resizeTimeout"`
+	// The number of nodes in the Batch pool. Defaults to `1`.
+	TargetDedicatedNodes *int `pulumi:"targetDedicatedNodes"`
+	// The number of low priority nodes in the Batch pool. Defaults to `0`.
+	TargetLowPriorityNodes *int `pulumi:"targetLowPriorityNodes"`
 }
 
 type PoolFixedScaleInput interface {
@@ -596,9 +639,12 @@ type PoolFixedScaleInput interface {
 }
 
 type PoolFixedScaleArgs struct {
-	ResizeTimeout          pulumi.StringPtrInput `pulumi:"resizeTimeout"`
-	TargetDedicatedNodes   pulumi.IntPtrInput    `pulumi:"targetDedicatedNodes"`
-	TargetLowPriorityNodes pulumi.IntPtrInput    `pulumi:"targetLowPriorityNodes"`
+	// The timeout for resize operations. Defaults to `PT15M`.
+	ResizeTimeout pulumi.StringPtrInput `pulumi:"resizeTimeout"`
+	// The number of nodes in the Batch pool. Defaults to `1`.
+	TargetDedicatedNodes pulumi.IntPtrInput `pulumi:"targetDedicatedNodes"`
+	// The number of low priority nodes in the Batch pool. Defaults to `0`.
+	TargetLowPriorityNodes pulumi.IntPtrInput `pulumi:"targetLowPriorityNodes"`
 }
 
 func (PoolFixedScaleArgs) ElementType() reflect.Type {
@@ -669,14 +715,18 @@ func (o PoolFixedScaleOutput) ToPoolFixedScalePtrOutputWithContext(ctx context.C
 		return &v
 	}).(PoolFixedScalePtrOutput)
 }
+
+// The timeout for resize operations. Defaults to `PT15M`.
 func (o PoolFixedScaleOutput) ResizeTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
 }
 
+// The number of nodes in the Batch pool. Defaults to `1`.
 func (o PoolFixedScaleOutput) TargetDedicatedNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetDedicatedNodes }).(pulumi.IntPtrOutput)
 }
 
+// The number of low priority nodes in the Batch pool. Defaults to `0`.
 func (o PoolFixedScaleOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetLowPriorityNodes }).(pulumi.IntPtrOutput)
 }
@@ -699,22 +749,28 @@ func (o PoolFixedScalePtrOutput) Elem() PoolFixedScaleOutput {
 	return o.ApplyT(func(v *PoolFixedScale) PoolFixedScale { return *v }).(PoolFixedScaleOutput)
 }
 
+// The timeout for resize operations. Defaults to `PT15M`.
 func (o PoolFixedScalePtrOutput) ResizeTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
 }
 
+// The number of nodes in the Batch pool. Defaults to `1`.
 func (o PoolFixedScalePtrOutput) TargetDedicatedNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetDedicatedNodes }).(pulumi.IntPtrOutput)
 }
 
+// The number of low priority nodes in the Batch pool. Defaults to `0`.
 func (o PoolFixedScalePtrOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetLowPriorityNodes }).(pulumi.IntPtrOutput)
 }
 
 type PoolNetworkConfiguration struct {
+	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations []PoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
-	PublicIps              []string                                        `pulumi:"publicIps"`
-	SubnetId               string                                          `pulumi:"subnetId"`
+	// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+	PublicIps []string `pulumi:"publicIps"`
+	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 type PoolNetworkConfigurationInput interface {
@@ -725,9 +781,12 @@ type PoolNetworkConfigurationInput interface {
 }
 
 type PoolNetworkConfigurationArgs struct {
+	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations PoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
-	PublicIps              pulumi.StringArrayInput                                 `pulumi:"publicIps"`
-	SubnetId               pulumi.StringInput                                      `pulumi:"subnetId"`
+	// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
+	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (PoolNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -798,16 +857,20 @@ func (o PoolNetworkConfigurationOutput) ToPoolNetworkConfigurationPtrOutputWithC
 		return &v
 	}).(PoolNetworkConfigurationPtrOutput)
 }
+
+// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
 		return v.EndpointConfigurations
 	}).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
+// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }
 
+// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -830,27 +893,34 @@ func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput
 	return o.ApplyT(func(v *PoolNetworkConfiguration) PoolNetworkConfiguration { return *v }).(PoolNetworkConfigurationOutput)
 }
 
+// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationPtrOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
 		return v.EndpointConfigurations
 	}).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
+// A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationPtrOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }
 
+// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationPtrOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 type PoolNetworkConfigurationEndpointConfiguration struct {
-	BackendPort       int    `pulumi:"backendPort"`
+	// The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
+	BackendPort int `pulumi:"backendPort"`
+	// The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
 	FrontendPortRange string `pulumi:"frontendPortRange"`
-	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-	Name                      string                                                                  `pulumi:"name"`
+	// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
 	NetworkSecurityGroupRules []PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
-	Protocol                  string                                                                  `pulumi:"protocol"`
+	// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
+	Protocol string `pulumi:"protocol"`
 }
 
 type PoolNetworkConfigurationEndpointConfigurationInput interface {
@@ -861,12 +931,16 @@ type PoolNetworkConfigurationEndpointConfigurationInput interface {
 }
 
 type PoolNetworkConfigurationEndpointConfigurationArgs struct {
-	BackendPort       pulumi.IntInput    `pulumi:"backendPort"`
+	// The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
 	FrontendPortRange pulumi.StringInput `pulumi:"frontendPortRange"`
-	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-	Name                      pulumi.StringInput                                                              `pulumi:"name"`
+	// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
 	NetworkSecurityGroupRules PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
-	Protocol                  pulumi.StringInput                                                              `pulumi:"protocol"`
+	// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (PoolNetworkConfigurationEndpointConfigurationArgs) ElementType() reflect.Type {
@@ -916,25 +990,29 @@ func (o PoolNetworkConfigurationEndpointConfigurationOutput) ToPoolNetworkConfig
 	return o
 }
 
+// The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) int { return v.BackendPort }).(pulumi.IntOutput)
 }
 
+// The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) FrontendPortRange() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) string { return v.FrontendPortRange }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+// The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the networkSecurityGroupRules block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) NetworkSecurityGroupRules() PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) []PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
 		return v.NetworkSecurityGroupRules
 	}).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
 
+// The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfiguration) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -960,8 +1038,11 @@ func (o PoolNetworkConfigurationEndpointConfigurationArrayOutput) Index(i pulumi
 }
 
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule struct {
-	Access              string `pulumi:"access"`
-	Priority            int    `pulumi:"priority"`
+	// The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
+	Access string `pulumi:"access"`
+	// The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
+	Priority int `pulumi:"priority"`
+	// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
 }
 
@@ -973,8 +1054,11 @@ type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput 
 }
 
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs struct {
-	Access              pulumi.StringInput `pulumi:"access"`
-	Priority            pulumi.IntInput    `pulumi:"priority"`
+	// The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
+	Access pulumi.StringInput `pulumi:"access"`
+	// The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
 	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
 }
 
@@ -1025,14 +1109,17 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOut
 	return o
 }
 
+// The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) Access() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string { return v.Access }).(pulumi.StringOutput)
 }
 
+// The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) SourceAddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string {
 		return v.SourceAddressPrefix
@@ -1060,12 +1147,18 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArr
 }
 
 type PoolStartTask struct {
-	CommandLine       string                      `pulumi:"commandLine"`
-	Environment       map[string]string           `pulumi:"environment"`
-	MaxTaskRetryCount *int                        `pulumi:"maxTaskRetryCount"`
-	ResourceFiles     []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
-	UserIdentity      PoolStartTaskUserIdentity   `pulumi:"userIdentity"`
-	WaitForSuccess    *bool                       `pulumi:"waitForSuccess"`
+	// The command line executed by the start task.
+	CommandLine string `pulumi:"commandLine"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	Environment map[string]string `pulumi:"environment"`
+	// The number of retry count. Defaults to `1`.
+	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
+	// A `userIdentity` block that describes the user identity under which the start task runs.
+	UserIdentity PoolStartTaskUserIdentity `pulumi:"userIdentity"`
+	// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+	WaitForSuccess *bool `pulumi:"waitForSuccess"`
 }
 
 type PoolStartTaskInput interface {
@@ -1076,12 +1169,18 @@ type PoolStartTaskInput interface {
 }
 
 type PoolStartTaskArgs struct {
-	CommandLine       pulumi.StringInput                  `pulumi:"commandLine"`
-	Environment       pulumi.StringMapInput               `pulumi:"environment"`
-	MaxTaskRetryCount pulumi.IntPtrInput                  `pulumi:"maxTaskRetryCount"`
-	ResourceFiles     PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
-	UserIdentity      PoolStartTaskUserIdentityInput      `pulumi:"userIdentity"`
-	WaitForSuccess    pulumi.BoolPtrInput                 `pulumi:"waitForSuccess"`
+	// The command line executed by the start task.
+	CommandLine pulumi.StringInput `pulumi:"commandLine"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// The number of retry count. Defaults to `1`.
+	MaxTaskRetryCount pulumi.IntPtrInput `pulumi:"maxTaskRetryCount"`
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
+	// A `userIdentity` block that describes the user identity under which the start task runs.
+	UserIdentity PoolStartTaskUserIdentityInput `pulumi:"userIdentity"`
+	// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+	WaitForSuccess pulumi.BoolPtrInput `pulumi:"waitForSuccess"`
 }
 
 func (PoolStartTaskArgs) ElementType() reflect.Type {
@@ -1152,26 +1251,33 @@ func (o PoolStartTaskOutput) ToPoolStartTaskPtrOutputWithContext(ctx context.Con
 		return &v
 	}).(PoolStartTaskPtrOutput)
 }
+
+// The command line executed by the start task.
 func (o PoolStartTaskOutput) CommandLine() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
 }
 
+// A map of strings (key,value) that represents the environment variables to set in the start task.
 func (o PoolStartTaskOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
+// The number of retry count. Defaults to `1`.
 func (o PoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
 }
 
+// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
 }
 
+// A `userIdentity` block that describes the user identity under which the start task runs.
 func (o PoolStartTaskOutput) UserIdentity() PoolStartTaskUserIdentityOutput {
 	return o.ApplyT(func(v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
 }
 
+// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
 func (o PoolStartTaskOutput) WaitForSuccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
 }
@@ -1194,37 +1300,49 @@ func (o PoolStartTaskPtrOutput) Elem() PoolStartTaskOutput {
 	return o.ApplyT(func(v *PoolStartTask) PoolStartTask { return *v }).(PoolStartTaskOutput)
 }
 
+// The command line executed by the start task.
 func (o PoolStartTaskPtrOutput) CommandLine() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
 }
 
+// A map of strings (key,value) that represents the environment variables to set in the start task.
 func (o PoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
+// The number of retry count. Defaults to `1`.
 func (o PoolStartTaskPtrOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
 }
 
+// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o PoolStartTaskPtrOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
 }
 
+// A `userIdentity` block that describes the user identity under which the start task runs.
 func (o PoolStartTaskPtrOutput) UserIdentity() PoolStartTaskUserIdentityOutput {
 	return o.ApplyT(func(v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
 }
 
+// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
 func (o PoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
 }
 
 type PoolStartTaskResourceFile struct {
+	// The storage container name in the auto storage account.
 	AutoStorageContainerName *string `pulumi:"autoStorageContainerName"`
-	BlobPrefix               *string `pulumi:"blobPrefix"`
-	FileMode                 *string `pulumi:"fileMode"`
-	FilePath                 *string `pulumi:"filePath"`
-	HttpUrl                  *string `pulumi:"httpUrl"`
-	StorageContainerUrl      *string `pulumi:"storageContainerUrl"`
+	// The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+	BlobPrefix *string `pulumi:"blobPrefix"`
+	// The file permission mode represented as a string in octal format (e.g. `"0644"`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+	FileMode *string `pulumi:"fileMode"`
+	// The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
+	FilePath *string `pulumi:"filePath"`
+	// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	HttpUrl *string `pulumi:"httpUrl"`
+	// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
 }
 
 type PoolStartTaskResourceFileInput interface {
@@ -1235,12 +1353,18 @@ type PoolStartTaskResourceFileInput interface {
 }
 
 type PoolStartTaskResourceFileArgs struct {
+	// The storage container name in the auto storage account.
 	AutoStorageContainerName pulumi.StringPtrInput `pulumi:"autoStorageContainerName"`
-	BlobPrefix               pulumi.StringPtrInput `pulumi:"blobPrefix"`
-	FileMode                 pulumi.StringPtrInput `pulumi:"fileMode"`
-	FilePath                 pulumi.StringPtrInput `pulumi:"filePath"`
-	HttpUrl                  pulumi.StringPtrInput `pulumi:"httpUrl"`
-	StorageContainerUrl      pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
+	// The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
+	BlobPrefix pulumi.StringPtrInput `pulumi:"blobPrefix"`
+	// The file permission mode represented as a string in octal format (e.g. `"0644"`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
+	FileMode pulumi.StringPtrInput `pulumi:"fileMode"`
+	// The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
+	FilePath pulumi.StringPtrInput `pulumi:"filePath"`
+	// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	HttpUrl pulumi.StringPtrInput `pulumi:"httpUrl"`
+	// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+	StorageContainerUrl pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
 }
 
 func (PoolStartTaskResourceFileArgs) ElementType() reflect.Type {
@@ -1290,26 +1414,32 @@ func (o PoolStartTaskResourceFileOutput) ToPoolStartTaskResourceFileOutputWithCo
 	return o
 }
 
+// The storage container name in the auto storage account.
 func (o PoolStartTaskResourceFileOutput) AutoStorageContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.AutoStorageContainerName }).(pulumi.StringPtrOutput)
 }
 
+// The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `autoStorageContainerName` or `storageContainerUrl` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
 func (o PoolStartTaskResourceFileOutput) BlobPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.BlobPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The file permission mode represented as a string in octal format (e.g. `"0644"`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resourceFile` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
 func (o PoolStartTaskResourceFileOutput) FileMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.FileMode }).(pulumi.StringPtrOutput)
 }
 
+// The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified, `filePath` is optional and is the directory to download the files to. In the case where `filePath` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
 func (o PoolStartTaskResourceFileOutput) FilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.FilePath }).(pulumi.StringPtrOutput)
 }
 
+// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
 func (o PoolStartTaskResourceFileOutput) HttpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.HttpUrl }).(pulumi.StringPtrOutput)
 }
 
+// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
 func (o PoolStartTaskResourceFileOutput) StorageContainerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.StorageContainerUrl }).(pulumi.StringPtrOutput)
 }
@@ -1335,8 +1465,10 @@ func (o PoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) PoolStart
 }
 
 type PoolStartTaskUserIdentity struct {
+	// A `autoUser` block that describes the user identity under which the start task runs.
 	AutoUser *PoolStartTaskUserIdentityAutoUser `pulumi:"autoUser"`
-	UserName *string                            `pulumi:"userName"`
+	// The username to be used by the Batch pool start task.
+	UserName *string `pulumi:"userName"`
 }
 
 type PoolStartTaskUserIdentityInput interface {
@@ -1347,8 +1479,10 @@ type PoolStartTaskUserIdentityInput interface {
 }
 
 type PoolStartTaskUserIdentityArgs struct {
+	// A `autoUser` block that describes the user identity under which the start task runs.
 	AutoUser PoolStartTaskUserIdentityAutoUserPtrInput `pulumi:"autoUser"`
-	UserName pulumi.StringPtrInput                     `pulumi:"userName"`
+	// The username to be used by the Batch pool start task.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
 func (PoolStartTaskUserIdentityArgs) ElementType() reflect.Type {
@@ -1377,17 +1511,21 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityOutputWithCo
 	return o
 }
 
+// A `autoUser` block that describes the user identity under which the start task runs.
 func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser { return v.AutoUser }).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
 
+// The username to be used by the Batch pool start task.
 func (o PoolStartTaskUserIdentityOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentity) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 type PoolStartTaskUserIdentityAutoUser struct {
+	// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
 	ElevationLevel *string `pulumi:"elevationLevel"`
-	Scope          *string `pulumi:"scope"`
+	// The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
+	Scope *string `pulumi:"scope"`
 }
 
 type PoolStartTaskUserIdentityAutoUserInput interface {
@@ -1398,8 +1536,10 @@ type PoolStartTaskUserIdentityAutoUserInput interface {
 }
 
 type PoolStartTaskUserIdentityAutoUserArgs struct {
+	// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
 	ElevationLevel pulumi.StringPtrInput `pulumi:"elevationLevel"`
-	Scope          pulumi.StringPtrInput `pulumi:"scope"`
+	// The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
 }
 
 func (PoolStartTaskUserIdentityAutoUserArgs) ElementType() reflect.Type {
@@ -1470,10 +1610,13 @@ func (o PoolStartTaskUserIdentityAutoUserOutput) ToPoolStartTaskUserIdentityAuto
 		return &v
 	}).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
+
+// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
 func (o PoolStartTaskUserIdentityAutoUserOutput) ElevationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
 }
 
+// The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
 func (o PoolStartTaskUserIdentityAutoUserOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -1496,21 +1639,28 @@ func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Elem() PoolStartTaskUserIden
 	return o.ApplyT(func(v *PoolStartTaskUserIdentityAutoUser) PoolStartTaskUserIdentityAutoUser { return *v }).(PoolStartTaskUserIdentityAutoUserOutput)
 }
 
+// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ElevationLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
 }
 
+// The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 type PoolStorageImageReference struct {
-	// The ID of the Batch Pool.
-	Id        *string `pulumi:"id"`
-	Offer     *string `pulumi:"offer"`
+	// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+	// ---
+	Id *string `pulumi:"id"`
+	// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	Offer *string `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
-	Sku       *string `pulumi:"sku"`
-	Version   *string `pulumi:"version"`
+	// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	Sku *string `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	Version *string `pulumi:"version"`
 }
 
 type PoolStorageImageReferenceInput interface {
@@ -1521,12 +1671,17 @@ type PoolStorageImageReferenceInput interface {
 }
 
 type PoolStorageImageReferenceArgs struct {
-	// The ID of the Batch Pool.
-	Id        pulumi.StringPtrInput `pulumi:"id"`
-	Offer     pulumi.StringPtrInput `pulumi:"offer"`
+	// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+	// ---
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	Sku       pulumi.StringPtrInput `pulumi:"sku"`
-	Version   pulumi.StringPtrInput `pulumi:"version"`
+	// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PoolStorageImageReferenceArgs) ElementType() reflect.Type {
@@ -1598,23 +1753,28 @@ func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutputWit
 	}).(PoolStorageImageReferencePtrOutput)
 }
 
-// The ID of the Batch Pool.
+// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+// ---
 func (o PoolStorageImageReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferenceOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferenceOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferenceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1637,23 +1797,28 @@ func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutp
 	return o.ApplyT(func(v *PoolStorageImageReference) PoolStorageImageReference { return *v }).(PoolStorageImageReferenceOutput)
 }
 
-// The ID of the Batch Pool.
+// Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
+// ---
 func (o PoolStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

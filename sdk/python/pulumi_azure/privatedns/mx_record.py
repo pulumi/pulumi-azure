@@ -22,8 +22,8 @@ class MxRecord(pulumi.CustomResource):
     """
     One or more `record` blocks as defined below.
 
-      * `exchange` (`str`)
-      * `preference` (`float`)
+      * `exchange` (`str`) - The FQDN of the exchange to MX record points to.
+      * `preference` (`float`) - The preference of the MX record.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -54,8 +54,8 @@ class MxRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `exchange` (`pulumi.Input[str]`)
-          * `preference` (`pulumi.Input[float]`)
+          * `exchange` (`pulumi.Input[str]`) - The FQDN of the exchange to MX record points to.
+          * `preference` (`pulumi.Input[float]`) - The preference of the MX record.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,8 +113,8 @@ class MxRecord(pulumi.CustomResource):
 
         The **records** object supports the following:
 
-          * `exchange` (`pulumi.Input[str]`)
-          * `preference` (`pulumi.Input[float]`)
+          * `exchange` (`pulumi.Input[str]`) - The FQDN of the exchange to MX record points to.
+          * `preference` (`pulumi.Input[float]`) - The preference of the MX record.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

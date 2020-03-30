@@ -50,9 +50,9 @@ class DatasetPostgresql(pulumi.CustomResource):
     """
     A `schema_column` block as defined below.
 
-      * `description` (`str`) - The description for the Data Factory Dataset PostgreSQL.
-      * `name` (`str`) - Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-      * `type` (`str`)
+      * `description` (`str`) - The description of the column.
+      * `name` (`str`) - The name of the column.
+      * `type` (`str`) - Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     """
     table_name: pulumi.Output[str]
     """
@@ -80,9 +80,9 @@ class DatasetPostgresql(pulumi.CustomResource):
 
         The **schema_columns** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - The description for the Data Factory Dataset PostgreSQL.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-          * `type` (`pulumi.Input[str]`)
+          * `description` (`pulumi.Input[str]`) - The description of the column.
+          * `name` (`pulumi.Input[str]`) - The name of the column.
+          * `type` (`pulumi.Input[str]`) - Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,9 +147,9 @@ class DatasetPostgresql(pulumi.CustomResource):
 
         The **schema_columns** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - The description for the Data Factory Dataset PostgreSQL.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-          * `type` (`pulumi.Input[str]`)
+          * `description` (`pulumi.Input[str]`) - The description of the column.
+          * `name` (`pulumi.Input[str]`) - The name of the column.
+          * `type` (`pulumi.Input[str]`) - Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

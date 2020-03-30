@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Redis
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
         /// </summary>
+        [Obsolete("Use GetCache.InvokeAsync() instead")]
         public static Task<GetCacheResult> GetCache(GetCacheArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetCache
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Redis Cache
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
+        /// </summary>
+        public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

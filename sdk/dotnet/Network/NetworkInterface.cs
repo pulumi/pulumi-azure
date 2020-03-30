@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The first private IP address of the network interface.
+        /// The Static IP Address which should be used.
         /// </summary>
         [Output("privateIpAddress")]
         public Output<string> PrivateIpAddress { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The first private IP address of the network interface.
+        /// The Static IP Address which should be used.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
@@ -350,29 +350,44 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceIpConfigurationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Network Interface. Changing this forces a new resource to be created.
+        /// A name used for this IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
         /// <summary>
-        /// The first private IP address of the network interface.
+        /// The Static IP Address which should be used.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// </summary>
         [Input("privateIpAddressAllocation", required: true)]
         public Input<string> PrivateIpAddressAllocation { get; set; } = null!;
 
+        /// <summary>
+        /// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         [Input("privateIpAddressVersion")]
         public Input<string>? PrivateIpAddressVersion { get; set; }
 
+        /// <summary>
+        /// Reference to a Public IP Address to associate with this NIC
+        /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
 
+        /// <summary>
+        /// The ID of the Subnet where this Network Interface should be located in.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -384,29 +399,44 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceIpConfigurationsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Network Interface. Changing this forces a new resource to be created.
+        /// A name used for this IP Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
         /// <summary>
-        /// The first private IP address of the network interface.
+        /// The Static IP Address which should be used.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// </summary>
         [Input("privateIpAddressAllocation", required: true)]
         public Input<string> PrivateIpAddressAllocation { get; set; } = null!;
 
+        /// <summary>
+        /// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         [Input("privateIpAddressVersion")]
         public Input<string>? PrivateIpAddressVersion { get; set; }
 
+        /// <summary>
+        /// Reference to a Public IP Address to associate with this NIC
+        /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
 
+        /// <summary>
+        /// The ID of the Subnet where this Network Interface should be located in.
+        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -423,17 +453,32 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceIpConfigurations
     {
         /// <summary>
-        /// The name of the Network Interface. Changing this forces a new resource to be created.
+        /// A name used for this IP Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+        /// </summary>
         public readonly bool Primary;
         /// <summary>
-        /// The first private IP address of the network interface.
+        /// The Static IP Address which should be used.
         /// </summary>
         public readonly string PrivateIpAddress;
+        /// <summary>
+        /// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// </summary>
         public readonly string PrivateIpAddressAllocation;
+        /// <summary>
+        /// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         public readonly string? PrivateIpAddressVersion;
+        /// <summary>
+        /// Reference to a Public IP Address to associate with this NIC
+        /// </summary>
         public readonly string? PublicIpAddressId;
+        /// <summary>
+        /// The ID of the Subnet where this Network Interface should be located in.
+        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

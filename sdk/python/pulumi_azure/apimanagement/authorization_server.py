@@ -112,8 +112,8 @@ class AuthorizationServer(pulumi.CustomResource):
 
         The **token_body_parameters** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of this Authorization Server. Changing this forces a new resource to be created.
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The Name of the Parameter.
+          * `value` (`pulumi.Input[str]`) - The Value of the Parameter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -203,8 +203,8 @@ class AuthorizationServer(pulumi.CustomResource):
 
         The **token_body_parameters** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of this Authorization Server. Changing this forces a new resource to be created.
-          * `value` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - The Name of the Parameter.
+          * `value` (`pulumi.Input[str]`) - The Value of the Parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

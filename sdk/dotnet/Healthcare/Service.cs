@@ -260,6 +260,10 @@ namespace Pulumi.Azure.Healthcare
         [Input("audience")]
         public Input<string>? Audience { get; set; }
 
+        /// <summary>
+        /// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+        /// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
+        /// </summary>
         [Input("authority")]
         public Input<string>? Authority { get; set; }
 
@@ -282,6 +286,10 @@ namespace Pulumi.Azure.Healthcare
         [Input("audience")]
         public Input<string>? Audience { get; set; }
 
+        /// <summary>
+        /// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+        /// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
+        /// </summary>
         [Input("authority")]
         public Input<string>? Authority { get; set; }
 
@@ -298,11 +306,18 @@ namespace Pulumi.Azure.Healthcare
 
     public sealed class ServiceCorsConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If credentials are allowed via CORS.
+        /// </summary>
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
 
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// A set of headers to be allowed via CORS.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -311,6 +326,10 @@ namespace Pulumi.Azure.Healthcare
 
         [Input("allowedMethods")]
         private InputList<string>? _allowedMethods;
+
+        /// <summary>
+        /// The methods to be allowed via CORS.
+        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -319,12 +338,19 @@ namespace Pulumi.Azure.Healthcare
 
         [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A set of origins to be allowed via CORS.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
             set => _allowedOrigins = value;
         }
 
+        /// <summary>
+        /// The max age to be allowed via CORS.
+        /// </summary>
         [Input("maxAgeInSeconds")]
         public Input<int>? MaxAgeInSeconds { get; set; }
 
@@ -335,11 +361,18 @@ namespace Pulumi.Azure.Healthcare
 
     public sealed class ServiceCorsConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If credentials are allowed via CORS.
+        /// </summary>
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
 
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// A set of headers to be allowed via CORS.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -348,6 +381,10 @@ namespace Pulumi.Azure.Healthcare
 
         [Input("allowedMethods")]
         private InputList<string>? _allowedMethods;
+
+        /// <summary>
+        /// The methods to be allowed via CORS.
+        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -356,12 +393,19 @@ namespace Pulumi.Azure.Healthcare
 
         [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A set of origins to be allowed via CORS.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
             set => _allowedOrigins = value;
         }
 
+        /// <summary>
+        /// The max age to be allowed via CORS.
+        /// </summary>
         [Input("maxAgeInSeconds")]
         public Input<int>? MaxAgeInSeconds { get; set; }
 
@@ -381,6 +425,10 @@ namespace Pulumi.Azure.Healthcare
         /// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
         /// </summary>
         public readonly string? Audience;
+        /// <summary>
+        /// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+        /// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
+        /// </summary>
         public readonly string? Authority;
         /// <summary>
         /// Enables the 'SMART on FHIR' option for mobile and web implementations.
@@ -402,10 +450,25 @@ namespace Pulumi.Azure.Healthcare
     [OutputType]
     public sealed class ServiceCorsConfiguration
     {
+        /// <summary>
+        /// If credentials are allowed via CORS.
+        /// </summary>
         public readonly bool? AllowCredentials;
+        /// <summary>
+        /// A set of headers to be allowed via CORS.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
+        /// <summary>
+        /// The methods to be allowed via CORS.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
+        /// <summary>
+        /// A set of origins to be allowed via CORS.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
+        /// <summary>
+        /// The max age to be allowed via CORS.
+        /// </summary>
         public readonly int? MaxAgeInSeconds;
 
         [OutputConstructor]

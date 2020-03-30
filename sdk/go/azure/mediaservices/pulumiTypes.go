@@ -12,9 +12,10 @@ import (
 )
 
 type AccountStorageAccount struct {
-	// The ID of the Media Services Account.
-	Id        string `pulumi:"id"`
-	IsPrimary *bool  `pulumi:"isPrimary"`
+	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+	Id string `pulumi:"id"`
+	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+	IsPrimary *bool `pulumi:"isPrimary"`
 }
 
 type AccountStorageAccountInput interface {
@@ -25,8 +26,9 @@ type AccountStorageAccountInput interface {
 }
 
 type AccountStorageAccountArgs struct {
-	// The ID of the Media Services Account.
-	Id        pulumi.StringInput  `pulumi:"id"`
+	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 }
 
@@ -77,11 +79,12 @@ func (o AccountStorageAccountOutput) ToAccountStorageAccountOutputWithContext(ct
 	return o
 }
 
-// The ID of the Media Services Account.
+// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 func (o AccountStorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountStorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
 func (o AccountStorageAccountOutput) IsPrimary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountStorageAccount) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }

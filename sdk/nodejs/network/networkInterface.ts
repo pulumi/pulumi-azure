@@ -75,7 +75,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The first private IP address of the network interface.
+     * The Static IP Address which should be used.
      */
     public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
     /**
@@ -196,7 +196,7 @@ export interface NetworkInterfaceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The first private IP address of the network interface.
+     * The Static IP Address which should be used.
      */
     readonly privateIpAddress?: pulumi.Input<string>;
     /**

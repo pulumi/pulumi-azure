@@ -38,8 +38,8 @@ class Cluster(pulumi.CustomResource):
     """
     A `sku` block as defined below.
 
-      * `capacity` (`float`)
-      * `name` (`str`) - The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+      * `capacity` (`float`) - Specifies the node count for the cluster. Boundaries depend on the sku name.
+      * `name` (`str`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
     """
     tags: pulumi.Output[dict]
     """
@@ -67,8 +67,8 @@ class Cluster(pulumi.CustomResource):
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - Specifies the node count for the cluster. Boundaries depend on the sku name.
+          * `name` (`pulumi.Input[str]`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,8 +127,8 @@ class Cluster(pulumi.CustomResource):
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - Specifies the node count for the cluster. Boundaries depend on the sku name.
+          * `name` (`pulumi.Input[str]`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

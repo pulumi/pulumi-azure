@@ -2064,13 +2064,19 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 }
 
 type KeyVaultAccessPolicy struct {
-	ApplicationId          *string  `pulumi:"applicationId"`
+	// The object ID of an Application in Azure Active Directory.
+	ApplicationId *string `pulumi:"applicationId"`
+	// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
 	CertificatePermissions []string `pulumi:"certificatePermissions"`
-	KeyPermissions         []string `pulumi:"keyPermissions"`
-	ObjectId               string   `pulumi:"objectId"`
-	SecretPermissions      []string `pulumi:"secretPermissions"`
-	StoragePermissions     []string `pulumi:"storagePermissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+	// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+	KeyPermissions []string `pulumi:"keyPermissions"`
+	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+	ObjectId string `pulumi:"objectId"`
+	// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	SecretPermissions []string `pulumi:"secretPermissions"`
+	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+	StoragePermissions []string `pulumi:"storagePermissions"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
 	TenantId string `pulumi:"tenantId"`
 }
 
@@ -2082,13 +2088,19 @@ type KeyVaultAccessPolicyInput interface {
 }
 
 type KeyVaultAccessPolicyArgs struct {
-	ApplicationId          pulumi.StringPtrInput   `pulumi:"applicationId"`
+	// The object ID of an Application in Azure Active Directory.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
 	CertificatePermissions pulumi.StringArrayInput `pulumi:"certificatePermissions"`
-	KeyPermissions         pulumi.StringArrayInput `pulumi:"keyPermissions"`
-	ObjectId               pulumi.StringInput      `pulumi:"objectId"`
-	SecretPermissions      pulumi.StringArrayInput `pulumi:"secretPermissions"`
-	StoragePermissions     pulumi.StringArrayInput `pulumi:"storagePermissions"`
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+	// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+	KeyPermissions pulumi.StringArrayInput `pulumi:"keyPermissions"`
+	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	SecretPermissions pulumi.StringArrayInput `pulumi:"secretPermissions"`
+	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+	StoragePermissions pulumi.StringArrayInput `pulumi:"storagePermissions"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
@@ -2139,31 +2151,37 @@ func (o KeyVaultAccessPolicyOutput) ToKeyVaultAccessPolicyOutputWithContext(ctx 
 	return o
 }
 
+// The object ID of an Application in Azure Active Directory.
 func (o KeyVaultAccessPolicyOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
 func (o KeyVaultAccessPolicyOutput) CertificatePermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.CertificatePermissions }).(pulumi.StringArrayOutput)
 }
 
+// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 func (o KeyVaultAccessPolicyOutput) KeyPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.KeyPermissions }).(pulumi.StringArrayOutput)
 }
 
+// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 func (o KeyVaultAccessPolicyOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
+// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 func (o KeyVaultAccessPolicyOutput) SecretPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.SecretPermissions }).(pulumi.StringArrayOutput)
 }
 
+// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
 func (o KeyVaultAccessPolicyOutput) StoragePermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.StoragePermissions }).(pulumi.StringArrayOutput)
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenantId` used above.
 func (o KeyVaultAccessPolicyOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -2189,9 +2207,13 @@ func (o KeyVaultAccessPolicyArrayOutput) Index(i pulumi.IntInput) KeyVaultAccess
 }
 
 type KeyVaultNetworkAcls struct {
-	Bypass                  string   `pulumi:"bypass"`
-	DefaultAction           string   `pulumi:"defaultAction"`
-	IpRules                 []string `pulumi:"ipRules"`
+	// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+	Bypass string `pulumi:"bypass"`
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+	DefaultAction string `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+	IpRules []string `pulumi:"ipRules"`
+	// One or more Subnet ID's which should be able to access this Key Vault.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -2203,9 +2225,13 @@ type KeyVaultNetworkAclsInput interface {
 }
 
 type KeyVaultNetworkAclsArgs struct {
-	Bypass                  pulumi.StringInput      `pulumi:"bypass"`
-	DefaultAction           pulumi.StringInput      `pulumi:"defaultAction"`
-	IpRules                 pulumi.StringArrayInput `pulumi:"ipRules"`
+	// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+	Bypass pulumi.StringInput `pulumi:"bypass"`
+	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	// One or more Subnet ID's which should be able to access this Key Vault.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -2277,18 +2303,23 @@ func (o KeyVaultNetworkAclsOutput) ToKeyVaultNetworkAclsPtrOutputWithContext(ctx
 		return &v
 	}).(KeyVaultNetworkAclsPtrOutput)
 }
+
+// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
 func (o KeyVaultNetworkAclsOutput) Bypass() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) string { return v.Bypass }).(pulumi.StringOutput)
 }
 
+// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
 func (o KeyVaultNetworkAclsOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
+// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
 func (o KeyVaultNetworkAclsOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
+// One or more Subnet ID's which should be able to access this Key Vault.
 func (o KeyVaultNetworkAclsOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -2311,18 +2342,22 @@ func (o KeyVaultNetworkAclsPtrOutput) Elem() KeyVaultNetworkAclsOutput {
 	return o.ApplyT(func(v *KeyVaultNetworkAcls) KeyVaultNetworkAcls { return *v }).(KeyVaultNetworkAclsOutput)
 }
 
+// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
 func (o KeyVaultNetworkAclsPtrOutput) Bypass() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) string { return v.Bypass }).(pulumi.StringOutput)
 }
 
+// The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
 func (o KeyVaultNetworkAclsPtrOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
+// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
 func (o KeyVaultNetworkAclsPtrOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
+// One or more Subnet ID's which should be able to access this Key Vault.
 func (o KeyVaultNetworkAclsPtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }

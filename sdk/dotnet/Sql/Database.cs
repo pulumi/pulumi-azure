@@ -56,6 +56,12 @@ namespace Pulumi.Azure.Sql
         public Output<string> Encryption { get; private set; } = null!;
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Output("extendedAuditingPolicy")]
+        public Output<Outputs.DatabaseExtendedAuditingPolicy?> ExtendedAuditingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// A Database Import block as documented below. `create_mode` must be set to `Default`.
         /// </summary>
         [Output("import")]
@@ -220,6 +226,12 @@ namespace Pulumi.Azure.Sql
         public Input<string>? ElasticPoolName { get; set; }
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Input("extendedAuditingPolicy")]
+        public Input<Inputs.DatabaseExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
+
+        /// <summary>
         /// A Database Import block as documented below. `create_mode` must be set to `Default`.
         /// </summary>
         [Input("import")]
@@ -366,6 +378,12 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Encryption { get; set; }
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Input("extendedAuditingPolicy")]
+        public Input<Inputs.DatabaseExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
+
+        /// <summary>
         /// A Database Import block as documented below. `create_mode` must be set to `Default`.
         /// </summary>
         [Input("import")]
@@ -472,6 +490,68 @@ namespace Pulumi.Azure.Sql
 
     namespace Inputs
     {
+
+    public sealed class DatabaseExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the number of days to retain logs for in the storage account.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
+        /// Specifies the access key to use for the auditing storage account.
+        /// </summary>
+        [Input("storageAccountAccessKey", required: true)]
+        public Input<string> StorageAccountAccessKey { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        /// </summary>
+        [Input("storageAccountAccessKeyIsSecondary")]
+        public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
+
+        /// <summary>
+        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// </summary>
+        [Input("storageEndpoint", required: true)]
+        public Input<string> StorageEndpoint { get; set; } = null!;
+
+        public DatabaseExtendedAuditingPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class DatabaseExtendedAuditingPolicyGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the number of days to retain logs for in the storage account.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
+        /// Specifies the access key to use for the auditing storage account.
+        /// </summary>
+        [Input("storageAccountAccessKey", required: true)]
+        public Input<string> StorageAccountAccessKey { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        /// </summary>
+        [Input("storageAccountAccessKeyIsSecondary")]
+        public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
+
+        /// <summary>
+        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// </summary>
+        [Input("storageEndpoint", required: true)]
+        public Input<string> StorageEndpoint { get; set; } = null!;
+
+        public DatabaseExtendedAuditingPolicyGetArgs()
+        {
+        }
+    }
 
     public sealed class DatabaseImportArgs : Pulumi.ResourceArgs
     {
@@ -708,6 +788,40 @@ namespace Pulumi.Azure.Sql
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class DatabaseExtendedAuditingPolicy
+    {
+        /// <summary>
+        /// Specifies the number of days to retain logs for in the storage account.
+        /// </summary>
+        public readonly int? RetentionInDays;
+        /// <summary>
+        /// Specifies the access key to use for the auditing storage account.
+        /// </summary>
+        public readonly string StorageAccountAccessKey;
+        /// <summary>
+        /// Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        /// </summary>
+        public readonly bool? StorageAccountAccessKeyIsSecondary;
+        /// <summary>
+        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+        /// </summary>
+        public readonly string StorageEndpoint;
+
+        [OutputConstructor]
+        private DatabaseExtendedAuditingPolicy(
+            int? retentionInDays,
+            string storageAccountAccessKey,
+            bool? storageAccountAccessKeyIsSecondary,
+            string storageEndpoint)
+        {
+            RetentionInDays = retentionInDays;
+            StorageAccountAccessKey = storageAccountAccessKey;
+            StorageAccountAccessKeyIsSecondary = storageAccountAccessKeyIsSecondary;
+            StorageEndpoint = storageEndpoint;
+        }
+    }
 
     [OutputType]
     public sealed class DatabaseImport

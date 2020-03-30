@@ -44,6 +44,12 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &ConsumerGroupArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ConsumerGroup
 	err := ctx.RegisterResource("azure:eventhub/consumerGroup:ConsumerGroup", name, args, &resource, opts...)
 	if err != nil {

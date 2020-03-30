@@ -22,7 +22,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     """
     A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
 
-      * `advertisedPublicPrefixes` (`list`)
+      * `advertisedPublicPrefixes` (`list`) - A list of Advertised Public Prefixes
     """
     peer_asn: pulumi.Output[float]
     """
@@ -82,7 +82,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         The **microsoft_peering_config** object supports the following:
 
-          * `advertisedPublicPrefixes` (`pulumi.Input[list]`)
+          * `advertisedPublicPrefixes` (`pulumi.Input[list]`) - A list of Advertised Public Prefixes
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -156,7 +156,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         The **microsoft_peering_config** object supports the following:
 
-          * `advertisedPublicPrefixes` (`pulumi.Input[list]`)
+          * `advertisedPublicPrefixes` (`pulumi.Input[list]`) - A list of Advertised Public Prefixes
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

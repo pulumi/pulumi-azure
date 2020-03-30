@@ -16,7 +16,18 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
         /// </summary>
+        [Obsolete("Use GetAuthorizationRule.InvokeAsync() instead")]
         public static Task<GetAuthorizationRuleResult> GetAuthorizationRule(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetAuthorizationRule
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
+        /// </summary>
+        public static Task<GetAuthorizationRuleResult> InvokeAsync(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -14,7 +14,7 @@ class VirtualMachine(pulumi.CustomResource):
     """
     A `additional_capabilities` block.
 
-      * `ultraSsdEnabled` (`bool`)
+      * `ultraSsdEnabled` (`bool`) - Should Ultra SSD disk be enabled for this Virtual Machine?
     """
     availability_set_id: pulumi.Output[str]
     """
@@ -24,8 +24,8 @@ class VirtualMachine(pulumi.CustomResource):
     """
     A `boot_diagnostics` block.
 
-      * `enabled` (`bool`)
-      * `storageUri` (`str`)
+      * `enabled` (`bool`) - Should Boot Diagnostics be enabled for this Virtual Machine?
+      * `storageUri` (`str`) - The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
     """
     delete_data_disks_on_termination: pulumi.Output[bool]
     """
@@ -39,9 +39,9 @@ class VirtualMachine(pulumi.CustomResource):
     """
     A `identity` block.
 
-      * `identityIds` (`list`)
+      * `identityIds` (`list`) - Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
-      * `type` (`str`)
+      * `type` (`str`) - The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
     """
     license_type: pulumi.Output[str]
     """
@@ -63,53 +63,53 @@ class VirtualMachine(pulumi.CustomResource):
     """
     An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
 
-      * `admin_password` (`str`)
-      * `admin_username` (`str`)
-      * `computer_name` (`str`)
-      * `custom_data` (`str`)
+      * `admin_password` (`str`) - The password associated with the local administrator account.
+      * `admin_username` (`str`) - Specifies the name of the local administrator account.
+      * `computer_name` (`str`) - Specifies the name of the Virtual Machine.
+      * `custom_data` (`str`) - Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
     """
     os_profile_linux_config: pulumi.Output[dict]
     """
     A `os_profile_linux_config` block.
 
-      * `disable_password_authentication` (`bool`)
-      * `sshKeys` (`list`)
-        * `keyData` (`str`)
-        * `path` (`str`)
+      * `disable_password_authentication` (`bool`) - Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+      * `sshKeys` (`list`) - One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        * `keyData` (`str`) - The Public SSH Key which should be written to the `path` defined above.
+        * `path` (`str`) - The path of the destination file on the virtual machine
     """
     os_profile_secrets: pulumi.Output[list]
     """
     One or more `os_profile_secrets` blocks.
 
-      * `sourceVaultId` (`str`)
-      * `vaultCertificates` (`list`)
-        * `certificateStore` (`str`)
-        * `certificateUrl` (`str`)
+      * `sourceVaultId` (`str`) - Specifies the ID of the Key Vault to use.
+      * `vaultCertificates` (`list`) - One or more `vault_certificates` blocks.
+        * `certificateStore` (`str`) - Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+        * `certificateUrl` (`str`) - The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
     """
     os_profile_windows_config: pulumi.Output[dict]
     """
     A `os_profile_windows_config` block.
 
-      * `additionalUnattendConfigs` (`list`)
-        * `component` (`str`)
-        * `content` (`str`)
-        * `pass` (`str`)
-        * `settingName` (`str`)
+      * `additionalUnattendConfigs` (`list`) - A `additional_unattend_config` block.
+        * `component` (`str`) - Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+        * `content` (`str`) - Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+        * `pass` (`str`) - Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+        * `settingName` (`str`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 
-      * `enableAutomaticUpgrades` (`bool`)
-      * `provision_vm_agent` (`bool`)
-      * `timezone` (`str`)
-      * `winrms` (`list`)
-        * `certificateUrl` (`str`)
-        * `protocol` (`str`)
+      * `enableAutomaticUpgrades` (`bool`) - Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+      * `provision_vm_agent` (`bool`) - Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+      * `timezone` (`str`) - Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+      * `winrms` (`list`) - One or more `winrm` block.
+        * `certificateUrl` (`str`) - The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+        * `protocol` (`str`) - Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
     """
     plan: pulumi.Output[dict]
     """
     A `plan` block.
 
-      * `name` (`str`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-      * `product` (`str`)
-      * `publisher` (`str`)
+      * `name` (`str`) - Specifies the name of the image from the marketplace.
+      * `product` (`str`) - Specifies the product of the image from the marketplace.
+      * `publisher` (`str`) - Specifies the publisher of the image.
     """
     primary_network_interface_id: pulumi.Output[str]
     """
@@ -127,40 +127,40 @@ class VirtualMachine(pulumi.CustomResource):
     """
     One or more `storage_data_disk` blocks.
 
-      * `caching` (`str`)
-      * `create_option` (`str`)
-      * `disk_size_gb` (`float`)
-      * `lun` (`float`)
-      * `managed_disk_id` (`str`)
-      * `managedDiskType` (`str`)
-      * `name` (`str`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-      * `vhdUri` (`str`)
-      * `write_accelerator_enabled` (`bool`)
+      * `caching` (`str`) - Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+      * `create_option` (`str`) - Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+      * `disk_size_gb` (`float`) - Specifies the size of the data disk in gigabytes.
+      * `lun` (`float`) - Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+      * `managed_disk_id` (`str`) - Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+      * `managedDiskType` (`str`) - Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+      * `name` (`str`) - The name of the Data Disk.
+      * `vhdUri` (`str`) - Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+      * `write_accelerator_enabled` (`bool`) - Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
     """
     storage_image_reference: pulumi.Output[dict]
     """
     A `storage_image_reference` block.
 
-      * `id` (`str`) - The ID of the Virtual Machine.
-      * `offer` (`str`)
-      * `publisher` (`str`)
-      * `sku` (`str`)
-      * `version` (`str`)
+      * `id` (`str`) - Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
+      * `offer` (`str`) - Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
+      * `publisher` (`str`) - Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
+      * `sku` (`str`) - Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
+      * `version` (`str`) - Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
     """
     storage_os_disk: pulumi.Output[dict]
     """
     A `storage_os_disk` block.
 
-      * `caching` (`str`)
-      * `create_option` (`str`)
-      * `disk_size_gb` (`float`)
-      * `imageUri` (`str`)
-      * `managed_disk_id` (`str`)
-      * `managedDiskType` (`str`)
-      * `name` (`str`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-      * `os_type` (`str`)
-      * `vhdUri` (`str`)
-      * `write_accelerator_enabled` (`bool`)
+      * `caching` (`str`) - Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+      * `create_option` (`str`) - Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
+      * `disk_size_gb` (`float`) - Specifies the size of the OS Disk in gigabytes.
+      * `imageUri` (`str`) - Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+      * `managed_disk_id` (`str`) - Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+      * `managedDiskType` (`str`) - Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+      * `name` (`str`) - Specifies the name of the OS Disk.
+      * `os_type` (`str`) - Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
+      * `vhdUri` (`str`) - Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+      * `write_accelerator_enabled` (`bool`) - Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
     """
     tags: pulumi.Output[dict]
     """
@@ -215,93 +215,93 @@ class VirtualMachine(pulumi.CustomResource):
 
         The **additional_capabilities** object supports the following:
 
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should Ultra SSD disk be enabled for this Virtual Machine?
 
         The **boot_diagnostics** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `storageUri` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Should Boot Diagnostics be enabled for this Virtual Machine?
+          * `storageUri` (`pulumi.Input[str]`) - The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 
         The **os_profile** object supports the following:
 
-          * `admin_password` (`pulumi.Input[str]`)
-          * `admin_username` (`pulumi.Input[str]`)
-          * `computer_name` (`pulumi.Input[str]`)
-          * `custom_data` (`pulumi.Input[str]`)
+          * `admin_password` (`pulumi.Input[str]`) - The password associated with the local administrator account.
+          * `admin_username` (`pulumi.Input[str]`) - Specifies the name of the local administrator account.
+          * `computer_name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine.
+          * `custom_data` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 
         The **os_profile_linux_config** object supports the following:
 
-          * `disable_password_authentication` (`pulumi.Input[bool]`)
-          * `sshKeys` (`pulumi.Input[list]`)
-            * `keyData` (`pulumi.Input[str]`)
-            * `path` (`pulumi.Input[str]`)
+          * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+          * `sshKeys` (`pulumi.Input[list]`) - One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+            * `keyData` (`pulumi.Input[str]`) - The Public SSH Key which should be written to the `path` defined above.
+            * `path` (`pulumi.Input[str]`) - The path of the destination file on the virtual machine
 
         The **os_profile_secrets** object supports the following:
 
-          * `sourceVaultId` (`pulumi.Input[str]`)
-          * `vaultCertificates` (`pulumi.Input[list]`)
-            * `certificateStore` (`pulumi.Input[str]`)
-            * `certificateUrl` (`pulumi.Input[str]`)
+          * `sourceVaultId` (`pulumi.Input[str]`) - Specifies the ID of the Key Vault to use.
+          * `vaultCertificates` (`pulumi.Input[list]`) - One or more `vault_certificates` blocks.
+            * `certificateStore` (`pulumi.Input[str]`) - Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+            * `certificateUrl` (`pulumi.Input[str]`) - The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
 
         The **os_profile_windows_config** object supports the following:
 
-          * `additionalUnattendConfigs` (`pulumi.Input[list]`)
-            * `component` (`pulumi.Input[str]`)
-            * `content` (`pulumi.Input[str]`)
-            * `pass` (`pulumi.Input[str]`)
-            * `settingName` (`pulumi.Input[str]`)
+          * `additionalUnattendConfigs` (`pulumi.Input[list]`) - A `additional_unattend_config` block.
+            * `component` (`pulumi.Input[str]`) - Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+            * `content` (`pulumi.Input[str]`) - Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+            * `pass` (`pulumi.Input[str]`) - Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+            * `settingName` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 
-          * `enableAutomaticUpgrades` (`pulumi.Input[bool]`)
-          * `provision_vm_agent` (`pulumi.Input[bool]`)
-          * `timezone` (`pulumi.Input[str]`)
-          * `winrms` (`pulumi.Input[list]`)
-            * `certificateUrl` (`pulumi.Input[str]`)
-            * `protocol` (`pulumi.Input[str]`)
+          * `enableAutomaticUpgrades` (`pulumi.Input[bool]`) - Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+          * `provision_vm_agent` (`pulumi.Input[bool]`) - Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+          * `timezone` (`pulumi.Input[str]`) - Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+          * `winrms` (`pulumi.Input[list]`) - One or more `winrm` block.
+            * `certificateUrl` (`pulumi.Input[str]`) - The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
 
         The **plan** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-          * `product` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
+          * `product` (`pulumi.Input[str]`) - Specifies the product of the image from the marketplace.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image.
 
         The **storage_data_disks** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `create_option` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `lun` (`pulumi.Input[float]`)
-          * `managed_disk_id` (`pulumi.Input[str]`)
-          * `managedDiskType` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-          * `vhdUri` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+          * `create_option` (`pulumi.Input[str]`) - Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+          * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of the data disk in gigabytes.
+          * `lun` (`pulumi.Input[float]`) - Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+          * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+          * `name` (`pulumi.Input[str]`) - The name of the Data Disk.
+          * `vhdUri` (`pulumi.Input[str]`) - Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 
         The **storage_image_reference** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - The ID of the Virtual Machine.
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
 
         The **storage_os_disk** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `create_option` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `imageUri` (`pulumi.Input[str]`)
-          * `managed_disk_id` (`pulumi.Input[str]`)
-          * `managedDiskType` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-          * `os_type` (`pulumi.Input[str]`)
-          * `vhdUri` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+          * `create_option` (`pulumi.Input[str]`) - Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
+          * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of the OS Disk in gigabytes.
+          * `imageUri` (`pulumi.Input[str]`) - Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+          * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the OS Disk.
+          * `os_type` (`pulumi.Input[str]`) - Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
+          * `vhdUri` (`pulumi.Input[str]`) - Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -394,93 +394,93 @@ class VirtualMachine(pulumi.CustomResource):
 
         The **additional_capabilities** object supports the following:
 
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should Ultra SSD disk be enabled for this Virtual Machine?
 
         The **boot_diagnostics** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`)
-          * `storageUri` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Should Boot Diagnostics be enabled for this Virtual Machine?
+          * `storageUri` (`pulumi.Input[str]`) - The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 
         The **os_profile** object supports the following:
 
-          * `admin_password` (`pulumi.Input[str]`)
-          * `admin_username` (`pulumi.Input[str]`)
-          * `computer_name` (`pulumi.Input[str]`)
-          * `custom_data` (`pulumi.Input[str]`)
+          * `admin_password` (`pulumi.Input[str]`) - The password associated with the local administrator account.
+          * `admin_username` (`pulumi.Input[str]`) - Specifies the name of the local administrator account.
+          * `computer_name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine.
+          * `custom_data` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
 
         The **os_profile_linux_config** object supports the following:
 
-          * `disable_password_authentication` (`pulumi.Input[bool]`)
-          * `sshKeys` (`pulumi.Input[list]`)
-            * `keyData` (`pulumi.Input[str]`)
-            * `path` (`pulumi.Input[str]`)
+          * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+          * `sshKeys` (`pulumi.Input[list]`) - One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+            * `keyData` (`pulumi.Input[str]`) - The Public SSH Key which should be written to the `path` defined above.
+            * `path` (`pulumi.Input[str]`) - The path of the destination file on the virtual machine
 
         The **os_profile_secrets** object supports the following:
 
-          * `sourceVaultId` (`pulumi.Input[str]`)
-          * `vaultCertificates` (`pulumi.Input[list]`)
-            * `certificateStore` (`pulumi.Input[str]`)
-            * `certificateUrl` (`pulumi.Input[str]`)
+          * `sourceVaultId` (`pulumi.Input[str]`) - Specifies the ID of the Key Vault to use.
+          * `vaultCertificates` (`pulumi.Input[list]`) - One or more `vault_certificates` blocks.
+            * `certificateStore` (`pulumi.Input[str]`) - Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+            * `certificateUrl` (`pulumi.Input[str]`) - The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
 
         The **os_profile_windows_config** object supports the following:
 
-          * `additionalUnattendConfigs` (`pulumi.Input[list]`)
-            * `component` (`pulumi.Input[str]`)
-            * `content` (`pulumi.Input[str]`)
-            * `pass` (`pulumi.Input[str]`)
-            * `settingName` (`pulumi.Input[str]`)
+          * `additionalUnattendConfigs` (`pulumi.Input[list]`) - A `additional_unattend_config` block.
+            * `component` (`pulumi.Input[str]`) - Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+            * `content` (`pulumi.Input[str]`) - Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+            * `pass` (`pulumi.Input[str]`) - Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+            * `settingName` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
 
-          * `enableAutomaticUpgrades` (`pulumi.Input[bool]`)
-          * `provision_vm_agent` (`pulumi.Input[bool]`)
-          * `timezone` (`pulumi.Input[str]`)
-          * `winrms` (`pulumi.Input[list]`)
-            * `certificateUrl` (`pulumi.Input[str]`)
-            * `protocol` (`pulumi.Input[str]`)
+          * `enableAutomaticUpgrades` (`pulumi.Input[bool]`) - Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+          * `provision_vm_agent` (`pulumi.Input[bool]`) - Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+          * `timezone` (`pulumi.Input[str]`) - Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+          * `winrms` (`pulumi.Input[list]`) - One or more `winrm` block.
+            * `certificateUrl` (`pulumi.Input[str]`) - The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
 
         The **plan** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-          * `product` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
+          * `product` (`pulumi.Input[str]`) - Specifies the product of the image from the marketplace.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image.
 
         The **storage_data_disks** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `create_option` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `lun` (`pulumi.Input[float]`)
-          * `managed_disk_id` (`pulumi.Input[str]`)
-          * `managedDiskType` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-          * `vhdUri` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+          * `create_option` (`pulumi.Input[str]`) - Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+          * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of the data disk in gigabytes.
+          * `lun` (`pulumi.Input[float]`) - Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+          * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+          * `name` (`pulumi.Input[str]`) - The name of the Data Disk.
+          * `vhdUri` (`pulumi.Input[str]`) - Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 
         The **storage_image_reference** object supports the following:
 
-          * `id` (`pulumi.Input[str]`) - The ID of the Virtual Machine.
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
 
         The **storage_os_disk** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `create_option` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `imageUri` (`pulumi.Input[str]`)
-          * `managed_disk_id` (`pulumi.Input[str]`)
-          * `managedDiskType` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-          * `os_type` (`pulumi.Input[str]`)
-          * `vhdUri` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+          * `create_option` (`pulumi.Input[str]`) - Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
+          * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of the OS Disk in gigabytes.
+          * `imageUri` (`pulumi.Input[str]`) - Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+          * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the OS Disk.
+          * `os_type` (`pulumi.Input[str]`) - Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
+          * `vhdUri` (`pulumi.Input[str]`) - Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

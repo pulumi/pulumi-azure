@@ -12,11 +12,16 @@ import (
 )
 
 type HubApnsCredential struct {
+	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 	ApplicationMode string `pulumi:"applicationMode"`
-	BundleId        string `pulumi:"bundleId"`
-	KeyId           string `pulumi:"keyId"`
-	TeamId          string `pulumi:"teamId"`
-	Token           string `pulumi:"token"`
+	// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+	BundleId string `pulumi:"bundleId"`
+	// The Apple Push Notifications Service (APNS) Key.
+	KeyId string `pulumi:"keyId"`
+	// The ID of the team the Token.
+	TeamId string `pulumi:"teamId"`
+	// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+	Token string `pulumi:"token"`
 }
 
 type HubApnsCredentialInput interface {
@@ -27,11 +32,16 @@ type HubApnsCredentialInput interface {
 }
 
 type HubApnsCredentialArgs struct {
+	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 	ApplicationMode pulumi.StringInput `pulumi:"applicationMode"`
-	BundleId        pulumi.StringInput `pulumi:"bundleId"`
-	KeyId           pulumi.StringInput `pulumi:"keyId"`
-	TeamId          pulumi.StringInput `pulumi:"teamId"`
-	Token           pulumi.StringInput `pulumi:"token"`
+	// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+	BundleId pulumi.StringInput `pulumi:"bundleId"`
+	// The Apple Push Notifications Service (APNS) Key.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// The ID of the team the Token.
+	TeamId pulumi.StringInput `pulumi:"teamId"`
+	// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (HubApnsCredentialArgs) ElementType() reflect.Type {
@@ -102,22 +112,28 @@ func (o HubApnsCredentialOutput) ToHubApnsCredentialPtrOutputWithContext(ctx con
 		return &v
 	}).(HubApnsCredentialPtrOutput)
 }
+
+// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 func (o HubApnsCredentialOutput) ApplicationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.ApplicationMode }).(pulumi.StringOutput)
 }
 
+// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
 func (o HubApnsCredentialOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.BundleId }).(pulumi.StringOutput)
 }
 
+// The Apple Push Notifications Service (APNS) Key.
 func (o HubApnsCredentialOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.KeyId }).(pulumi.StringOutput)
 }
 
+// The ID of the team the Token.
 func (o HubApnsCredentialOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.TeamId }).(pulumi.StringOutput)
 }
 
+// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
 func (o HubApnsCredentialOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -140,27 +156,33 @@ func (o HubApnsCredentialPtrOutput) Elem() HubApnsCredentialOutput {
 	return o.ApplyT(func(v *HubApnsCredential) HubApnsCredential { return *v }).(HubApnsCredentialOutput)
 }
 
+// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 func (o HubApnsCredentialPtrOutput) ApplicationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.ApplicationMode }).(pulumi.StringOutput)
 }
 
+// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
 func (o HubApnsCredentialPtrOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.BundleId }).(pulumi.StringOutput)
 }
 
+// The Apple Push Notifications Service (APNS) Key.
 func (o HubApnsCredentialPtrOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.KeyId }).(pulumi.StringOutput)
 }
 
+// The ID of the team the Token.
 func (o HubApnsCredentialPtrOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.TeamId }).(pulumi.StringOutput)
 }
 
+// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
 func (o HubApnsCredentialPtrOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.Token }).(pulumi.StringOutput)
 }
 
 type HubGcmCredential struct {
+	// The API Key associated with the Google Cloud Messaging service.
 	ApiKey string `pulumi:"apiKey"`
 }
 
@@ -172,6 +194,7 @@ type HubGcmCredentialInput interface {
 }
 
 type HubGcmCredentialArgs struct {
+	// The API Key associated with the Google Cloud Messaging service.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 }
 
@@ -243,6 +266,8 @@ func (o HubGcmCredentialOutput) ToHubGcmCredentialPtrOutputWithContext(ctx conte
 		return &v
 	}).(HubGcmCredentialPtrOutput)
 }
+
+// The API Key associated with the Google Cloud Messaging service.
 func (o HubGcmCredentialOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v HubGcmCredential) string { return v.ApiKey }).(pulumi.StringOutput)
 }
@@ -265,6 +290,7 @@ func (o HubGcmCredentialPtrOutput) Elem() HubGcmCredentialOutput {
 	return o.ApplyT(func(v *HubGcmCredential) HubGcmCredential { return *v }).(HubGcmCredentialOutput)
 }
 
+// The API Key associated with the Google Cloud Messaging service.
 func (o HubGcmCredentialPtrOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v HubGcmCredential) string { return v.ApiKey }).(pulumi.StringOutput)
 }

@@ -12,6 +12,7 @@ import (
 )
 
 type ServiceCor struct {
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 }
 
@@ -23,6 +24,7 @@ type ServiceCorInput interface {
 }
 
 type ServiceCorArgs struct {
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 }
 
@@ -73,6 +75,7 @@ func (o ServiceCorOutput) ToServiceCorOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o ServiceCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -98,7 +101,9 @@ func (o ServiceCorArrayOutput) Index(i pulumi.IntInput) ServiceCorOutput {
 }
 
 type ServiceFeature struct {
-	Flag  string `pulumi:"flag"`
+	// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+	Flag string `pulumi:"flag"`
+	// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 	Value string `pulumi:"value"`
 }
 
@@ -110,7 +115,9 @@ type ServiceFeatureInput interface {
 }
 
 type ServiceFeatureArgs struct {
-	Flag  pulumi.StringInput `pulumi:"flag"`
+	// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+	Flag pulumi.StringInput `pulumi:"flag"`
+	// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -161,10 +168,12 @@ func (o ServiceFeatureOutput) ToServiceFeatureOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
 func (o ServiceFeatureOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceFeature) string { return v.Flag }).(pulumi.StringOutput)
 }
 
+// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 func (o ServiceFeatureOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceFeature) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -190,8 +199,9 @@ func (o ServiceFeatureArrayOutput) Index(i pulumi.IntInput) ServiceFeatureOutput
 }
 
 type ServiceSku struct {
+	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 	Capacity int `pulumi:"capacity"`
-	// The name of the SignalR service. Changing this forces a new resource to be created.
+	// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
 	Name string `pulumi:"name"`
 }
 
@@ -203,8 +213,9 @@ type ServiceSkuInput interface {
 }
 
 type ServiceSkuArgs struct {
+	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of the SignalR service. Changing this forces a new resource to be created.
+	// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -276,11 +287,13 @@ func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) 
 		return &v
 	}).(ServiceSkuPtrOutput)
 }
+
+// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of the SignalR service. Changing this forces a new resource to be created.
+// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
 func (o ServiceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -303,11 +316,12 @@ func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
 	return o.ApplyT(func(v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
 }
 
+// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
 func (o ServiceSkuPtrOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of the SignalR service. Changing this forces a new resource to be created.
+// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
 func (o ServiceSkuPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
 }

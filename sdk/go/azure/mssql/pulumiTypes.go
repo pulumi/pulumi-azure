@@ -12,6 +12,7 @@ import (
 )
 
 type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult struct {
+	// A list representing a result of the baseline.
 	Results []string `pulumi:"results"`
 }
 
@@ -23,6 +24,7 @@ type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultInput interface {
 }
 
 type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs struct {
+	// A list representing a result of the baseline.
 	Results pulumi.StringArrayInput `pulumi:"results"`
 }
 
@@ -73,6 +75,7 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) ToDatab
 	return o
 }
 
+// A list representing a result of the baseline.
 func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) Results() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult) []string { return v.Results }).(pulumi.StringArrayOutput)
 }

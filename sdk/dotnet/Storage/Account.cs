@@ -768,12 +768,19 @@ namespace Pulumi.Azure.Storage
     {
         [Input("corsRules")]
         private InputList<AccountBlobPropertiesCorsRulesArgs>? _corsRules;
+
+        /// <summary>
+        /// A `cors_rule` block as defined below.
+        /// </summary>
         public InputList<AccountBlobPropertiesCorsRulesArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<AccountBlobPropertiesCorsRulesArgs>());
             set => _corsRules = value;
         }
 
+        /// <summary>
+        /// A `delete_retention_policy` block as defined below.
+        /// </summary>
         [Input("deleteRetentionPolicy")]
         public Input<AccountBlobPropertiesDeleteRetentionPolicyArgs>? DeleteRetentionPolicy { get; set; }
 
@@ -786,6 +793,10 @@ namespace Pulumi.Azure.Storage
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// A list of headers that are allowed to be a part of the cross-origin request.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -794,6 +805,11 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
+
+        /// <summary>
+        /// A list of http headers that are allowed to be executed by the origin. Valid options are
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -802,6 +818,10 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origin domains that will be allowed by CORS.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -810,12 +830,19 @@ namespace Pulumi.Azure.Storage
 
         [Input("exposedHeaders", required: true)]
         private InputList<string>? _exposedHeaders;
+
+        /// <summary>
+        /// A list of response headers that are exposed to CORS clients.
+        /// </summary>
         public InputList<string> ExposedHeaders
         {
             get => _exposedHeaders ?? (_exposedHeaders = new InputList<string>());
             set => _exposedHeaders = value;
         }
 
+        /// <summary>
+        /// The number of seconds the client should cache a preflight response.
+        /// </summary>
         [Input("maxAgeInSeconds", required: true)]
         public Input<int> MaxAgeInSeconds { get; set; } = null!;
 
@@ -828,6 +855,10 @@ namespace Pulumi.Azure.Storage
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// A list of headers that are allowed to be a part of the cross-origin request.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -836,6 +867,11 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
+
+        /// <summary>
+        /// A list of http headers that are allowed to be executed by the origin. Valid options are
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -844,6 +880,10 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origin domains that will be allowed by CORS.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -852,12 +892,19 @@ namespace Pulumi.Azure.Storage
 
         [Input("exposedHeaders", required: true)]
         private InputList<string>? _exposedHeaders;
+
+        /// <summary>
+        /// A list of response headers that are exposed to CORS clients.
+        /// </summary>
         public InputList<string> ExposedHeaders
         {
             get => _exposedHeaders ?? (_exposedHeaders = new InputList<string>());
             set => _exposedHeaders = value;
         }
 
+        /// <summary>
+        /// The number of seconds the client should cache a preflight response.
+        /// </summary>
         [Input("maxAgeInSeconds", required: true)]
         public Input<int> MaxAgeInSeconds { get; set; } = null!;
 
@@ -868,6 +915,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountBlobPropertiesDeleteRetentionPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
@@ -878,6 +928,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountBlobPropertiesDeleteRetentionPolicyGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
@@ -890,12 +943,19 @@ namespace Pulumi.Azure.Storage
     {
         [Input("corsRules")]
         private InputList<AccountBlobPropertiesCorsRulesGetArgs>? _corsRules;
+
+        /// <summary>
+        /// A `cors_rule` block as defined below.
+        /// </summary>
         public InputList<AccountBlobPropertiesCorsRulesGetArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<AccountBlobPropertiesCorsRulesGetArgs>());
             set => _corsRules = value;
         }
 
+        /// <summary>
+        /// A `delete_retention_policy` block as defined below.
+        /// </summary>
         [Input("deleteRetentionPolicy")]
         public Input<AccountBlobPropertiesDeleteRetentionPolicyGetArgs>? DeleteRetentionPolicy { get; set; }
 
@@ -907,11 +967,14 @@ namespace Pulumi.Azure.Storage
     public sealed class AccountCustomDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        /// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Should the Custom Domain Name be validated by using indirect CNAME validation?
+        /// </summary>
         [Input("useSubdomain")]
         public Input<bool>? UseSubdomain { get; set; }
 
@@ -923,11 +986,14 @@ namespace Pulumi.Azure.Storage
     public sealed class AccountCustomDomainGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        /// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Should the Custom Domain Name be validated by using indirect CNAME validation?
+        /// </summary>
         [Input("useSubdomain")]
         public Input<bool>? UseSubdomain { get; set; }
 
@@ -950,6 +1016,9 @@ namespace Pulumi.Azure.Storage
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -972,6 +1041,9 @@ namespace Pulumi.Azure.Storage
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        /// <summary>
+        /// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -984,17 +1056,29 @@ namespace Pulumi.Azure.Storage
     {
         [Input("bypasses")]
         private InputList<string>? _bypasses;
+
+        /// <summary>
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+        /// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// </summary>
         public InputList<string> Bypasses
         {
             get => _bypasses ?? (_bypasses = new InputList<string>());
             set => _bypasses = value;
         }
 
+        /// <summary>
+        /// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<string>? _ipRules;
+
+        /// <summary>
+        /// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        /// </summary>
         public InputList<string> IpRules
         {
             get => _ipRules ?? (_ipRules = new InputList<string>());
@@ -1003,6 +1087,10 @@ namespace Pulumi.Azure.Storage
 
         [Input("virtualNetworkSubnetIds")]
         private InputList<string>? _virtualNetworkSubnetIds;
+
+        /// <summary>
+        /// A list of resource ids for subnets.
+        /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {
             get => _virtualNetworkSubnetIds ?? (_virtualNetworkSubnetIds = new InputList<string>());
@@ -1018,17 +1106,29 @@ namespace Pulumi.Azure.Storage
     {
         [Input("bypasses")]
         private InputList<string>? _bypasses;
+
+        /// <summary>
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+        /// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// </summary>
         public InputList<string> Bypasses
         {
             get => _bypasses ?? (_bypasses = new InputList<string>());
             set => _bypasses = value;
         }
 
+        /// <summary>
+        /// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<string>? _ipRules;
+
+        /// <summary>
+        /// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        /// </summary>
         public InputList<string> IpRules
         {
             get => _ipRules ?? (_ipRules = new InputList<string>());
@@ -1037,6 +1137,10 @@ namespace Pulumi.Azure.Storage
 
         [Input("virtualNetworkSubnetIds")]
         private InputList<string>? _virtualNetworkSubnetIds;
+
+        /// <summary>
+        /// A list of resource ids for subnets.
+        /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {
             get => _virtualNetworkSubnetIds ?? (_virtualNetworkSubnetIds = new InputList<string>());
@@ -1052,18 +1156,31 @@ namespace Pulumi.Azure.Storage
     {
         [Input("corsRules")]
         private InputList<AccountQueuePropertiesCorsRulesArgs>? _corsRules;
+
+        /// <summary>
+        /// A `cors_rule` block as defined above.
+        /// </summary>
         public InputList<AccountQueuePropertiesCorsRulesArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<AccountQueuePropertiesCorsRulesArgs>());
             set => _corsRules = value;
         }
 
+        /// <summary>
+        /// A `hour_metrics` block as defined below.
+        /// </summary>
         [Input("hourMetrics")]
         public Input<AccountQueuePropertiesHourMetricsArgs>? HourMetrics { get; set; }
 
+        /// <summary>
+        /// A `logging` block as defined below.
+        /// </summary>
         [Input("logging")]
         public Input<AccountQueuePropertiesLoggingArgs>? Logging { get; set; }
 
+        /// <summary>
+        /// A `minute_metrics` block as defined below.
+        /// </summary>
         [Input("minuteMetrics")]
         public Input<AccountQueuePropertiesMinuteMetricsArgs>? MinuteMetrics { get; set; }
 
@@ -1076,6 +1193,10 @@ namespace Pulumi.Azure.Storage
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// A list of headers that are allowed to be a part of the cross-origin request.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -1084,6 +1205,11 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
+
+        /// <summary>
+        /// A list of http headers that are allowed to be executed by the origin. Valid options are
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -1092,6 +1218,10 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origin domains that will be allowed by CORS.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -1100,12 +1230,19 @@ namespace Pulumi.Azure.Storage
 
         [Input("exposedHeaders", required: true)]
         private InputList<string>? _exposedHeaders;
+
+        /// <summary>
+        /// A list of response headers that are exposed to CORS clients.
+        /// </summary>
         public InputList<string> ExposedHeaders
         {
             get => _exposedHeaders ?? (_exposedHeaders = new InputList<string>());
             set => _exposedHeaders = value;
         }
 
+        /// <summary>
+        /// The number of seconds the client should cache a preflight response.
+        /// </summary>
         [Input("maxAgeInSeconds", required: true)]
         public Input<int> MaxAgeInSeconds { get; set; } = null!;
 
@@ -1118,6 +1255,10 @@ namespace Pulumi.Azure.Storage
     {
         [Input("allowedHeaders", required: true)]
         private InputList<string>? _allowedHeaders;
+
+        /// <summary>
+        /// A list of headers that are allowed to be a part of the cross-origin request.
+        /// </summary>
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
@@ -1126,6 +1267,11 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
+
+        /// <summary>
+        /// A list of http headers that are allowed to be executed by the origin. Valid options are
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
@@ -1134,6 +1280,10 @@ namespace Pulumi.Azure.Storage
 
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
+
+        /// <summary>
+        /// A list of origin domains that will be allowed by CORS.
+        /// </summary>
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -1142,12 +1292,19 @@ namespace Pulumi.Azure.Storage
 
         [Input("exposedHeaders", required: true)]
         private InputList<string>? _exposedHeaders;
+
+        /// <summary>
+        /// A list of response headers that are exposed to CORS clients.
+        /// </summary>
         public InputList<string> ExposedHeaders
         {
             get => _exposedHeaders ?? (_exposedHeaders = new InputList<string>());
             set => _exposedHeaders = value;
         }
 
+        /// <summary>
+        /// The number of seconds the client should cache a preflight response.
+        /// </summary>
         [Input("maxAgeInSeconds", required: true)]
         public Input<int> MaxAgeInSeconds { get; set; } = null!;
 
@@ -1160,18 +1317,31 @@ namespace Pulumi.Azure.Storage
     {
         [Input("corsRules")]
         private InputList<AccountQueuePropertiesCorsRulesGetArgs>? _corsRules;
+
+        /// <summary>
+        /// A `cors_rule` block as defined above.
+        /// </summary>
         public InputList<AccountQueuePropertiesCorsRulesGetArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<AccountQueuePropertiesCorsRulesGetArgs>());
             set => _corsRules = value;
         }
 
+        /// <summary>
+        /// A `hour_metrics` block as defined below.
+        /// </summary>
         [Input("hourMetrics")]
         public Input<AccountQueuePropertiesHourMetricsGetArgs>? HourMetrics { get; set; }
 
+        /// <summary>
+        /// A `logging` block as defined below.
+        /// </summary>
         [Input("logging")]
         public Input<AccountQueuePropertiesLoggingGetArgs>? Logging { get; set; }
 
+        /// <summary>
+        /// A `minute_metrics` block as defined below.
+        /// </summary>
         [Input("minuteMetrics")]
         public Input<AccountQueuePropertiesMinuteMetricsGetArgs>? MinuteMetrics { get; set; }
 
@@ -1182,15 +1352,27 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesHourMetricsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether metrics should generate summary statistics for called API operations.
+        /// </summary>
         [Input("includeApis")]
         public Input<bool>? IncludeApis { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -1201,15 +1383,27 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesHourMetricsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether metrics should generate summary statistics for called API operations.
+        /// </summary>
         [Input("includeApis")]
         public Input<bool>? IncludeApis { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -1220,18 +1414,33 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesLoggingArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+        /// </summary>
         [Input("delete", required: true)]
         public Input<bool> Delete { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether all read requests should be logged. Changing this forces a new resource.
+        /// </summary>
         [Input("read", required: true)]
         public Input<bool> Read { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether all write requests should be logged. Changing this forces a new resource.
+        /// </summary>
         [Input("write", required: true)]
         public Input<bool> Write { get; set; } = null!;
 
@@ -1242,18 +1451,33 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesLoggingGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+        /// </summary>
         [Input("delete", required: true)]
         public Input<bool> Delete { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether all read requests should be logged. Changing this forces a new resource.
+        /// </summary>
         [Input("read", required: true)]
         public Input<bool> Read { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether all write requests should be logged. Changing this forces a new resource.
+        /// </summary>
         [Input("write", required: true)]
         public Input<bool> Write { get; set; } = null!;
 
@@ -1264,15 +1488,27 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesMinuteMetricsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether metrics should generate summary statistics for called API operations.
+        /// </summary>
         [Input("includeApis")]
         public Input<bool>? IncludeApis { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -1283,15 +1519,27 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesMinuteMetricsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether metrics should generate summary statistics for called API operations.
+        /// </summary>
         [Input("includeApis")]
         public Input<bool>? IncludeApis { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         [Input("retentionPolicyDays")]
         public Input<int>? RetentionPolicyDays { get; set; }
 
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
@@ -1302,9 +1550,15 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountStaticWebsiteArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+        /// </summary>
         [Input("error404Document")]
         public Input<string>? Error404Document { get; set; }
 
+        /// <summary>
+        /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
+        /// </summary>
         [Input("indexDocument")]
         public Input<string>? IndexDocument { get; set; }
 
@@ -1315,9 +1569,15 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountStaticWebsiteGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+        /// </summary>
         [Input("error404Document")]
         public Input<string>? Error404Document { get; set; }
 
+        /// <summary>
+        /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
+        /// </summary>
         [Input("indexDocument")]
         public Input<string>? IndexDocument { get; set; }
 
@@ -1333,7 +1593,13 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountBlobProperties
     {
+        /// <summary>
+        /// A `cors_rule` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<AccountBlobPropertiesCorsRules> CorsRules;
+        /// <summary>
+        /// A `delete_retention_policy` block as defined below.
+        /// </summary>
         public readonly AccountBlobPropertiesDeleteRetentionPolicy? DeleteRetentionPolicy;
 
         [OutputConstructor]
@@ -1349,10 +1615,26 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountBlobPropertiesCorsRules
     {
+        /// <summary>
+        /// A list of headers that are allowed to be a part of the cross-origin request.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
+        /// <summary>
+        /// A list of http headers that are allowed to be executed by the origin. Valid options are
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
+        /// <summary>
+        /// A list of origin domains that will be allowed by CORS.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
+        /// <summary>
+        /// A list of response headers that are exposed to CORS clients.
+        /// </summary>
         public readonly ImmutableArray<string> ExposedHeaders;
+        /// <summary>
+        /// The number of seconds the client should cache a preflight response.
+        /// </summary>
         public readonly int MaxAgeInSeconds;
 
         [OutputConstructor]
@@ -1374,6 +1656,9 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountBlobPropertiesDeleteRetentionPolicy
     {
+        /// <summary>
+        /// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        /// </summary>
         public readonly int? Days;
 
         [OutputConstructor]
@@ -1387,9 +1672,12 @@ namespace Pulumi.Azure.Storage
     public sealed class AccountCustomDomain
     {
         /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        /// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Should the Custom Domain Name be validated by using indirect CNAME validation?
+        /// </summary>
         public readonly bool? UseSubdomain;
 
         [OutputConstructor]
@@ -1413,6 +1701,9 @@ namespace Pulumi.Azure.Storage
         /// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
@@ -1430,9 +1721,22 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountNetworkRules
     {
+        /// <summary>
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+        /// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// </summary>
         public readonly ImmutableArray<string> Bypasses;
+        /// <summary>
+        /// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+        /// </summary>
         public readonly string DefaultAction;
+        /// <summary>
+        /// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        /// </summary>
         public readonly ImmutableArray<string> IpRules;
+        /// <summary>
+        /// A list of resource ids for subnets.
+        /// </summary>
         public readonly ImmutableArray<string> VirtualNetworkSubnetIds;
 
         [OutputConstructor]
@@ -1452,9 +1756,21 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountQueueProperties
     {
+        /// <summary>
+        /// A `cors_rule` block as defined above.
+        /// </summary>
         public readonly ImmutableArray<AccountQueuePropertiesCorsRules> CorsRules;
+        /// <summary>
+        /// A `hour_metrics` block as defined below.
+        /// </summary>
         public readonly AccountQueuePropertiesHourMetrics? HourMetrics;
+        /// <summary>
+        /// A `logging` block as defined below.
+        /// </summary>
         public readonly AccountQueuePropertiesLogging? Logging;
+        /// <summary>
+        /// A `minute_metrics` block as defined below.
+        /// </summary>
         public readonly AccountQueuePropertiesMinuteMetrics? MinuteMetrics;
 
         [OutputConstructor]
@@ -1474,10 +1790,26 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountQueuePropertiesCorsRules
     {
+        /// <summary>
+        /// A list of headers that are allowed to be a part of the cross-origin request.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
+        /// <summary>
+        /// A list of http headers that are allowed to be executed by the origin. Valid options are
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
+        /// <summary>
+        /// A list of origin domains that will be allowed by CORS.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
+        /// <summary>
+        /// A list of response headers that are exposed to CORS clients.
+        /// </summary>
         public readonly ImmutableArray<string> ExposedHeaders;
+        /// <summary>
+        /// The number of seconds the client should cache a preflight response.
+        /// </summary>
         public readonly int MaxAgeInSeconds;
 
         [OutputConstructor]
@@ -1499,9 +1831,21 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountQueuePropertiesHourMetrics
     {
+        /// <summary>
+        /// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Indicates whether metrics should generate summary statistics for called API operations.
+        /// </summary>
         public readonly bool? IncludeApis;
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         public readonly int? RetentionPolicyDays;
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
@@ -1521,10 +1865,25 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountQueuePropertiesLogging
     {
+        /// <summary>
+        /// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+        /// </summary>
         public readonly bool Delete;
+        /// <summary>
+        /// Indicates whether all read requests should be logged. Changing this forces a new resource.
+        /// </summary>
         public readonly bool Read;
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         public readonly int? RetentionPolicyDays;
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// Indicates whether all write requests should be logged. Changing this forces a new resource.
+        /// </summary>
         public readonly bool Write;
 
         [OutputConstructor]
@@ -1546,9 +1905,21 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountQueuePropertiesMinuteMetrics
     {
+        /// <summary>
+        /// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Indicates whether metrics should generate summary statistics for called API operations.
+        /// </summary>
         public readonly bool? IncludeApis;
+        /// <summary>
+        /// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+        /// </summary>
         public readonly int? RetentionPolicyDays;
+        /// <summary>
+        /// The version of storage analytics to configure. Changing this forces a new resource.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
@@ -1568,7 +1939,13 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountStaticWebsite
     {
+        /// <summary>
+        /// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+        /// </summary>
         public readonly string? Error404Document;
+        /// <summary>
+        /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
+        /// </summary>
         public readonly string? IndexDocument;
 
         [OutputConstructor]

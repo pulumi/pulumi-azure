@@ -14,14 +14,14 @@ class IoTHub(pulumi.CustomResource):
     """
     An `endpoint` block as defined below.
 
-      * `batch_frequency_in_seconds` (`float`)
-      * `connection_string` (`str`)
-      * `container_name` (`str`)
-      * `encoding` (`str`)
-      * `file_name_format` (`str`)
-      * `max_chunk_size_in_bytes` (`float`)
-      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-      * `type` (`str`)
+      * `batch_frequency_in_seconds` (`float`) - Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+      * `connection_string` (`str`) - The connection string for the endpoint.
+      * `container_name` (`str`) - The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+      * `encoding` (`str`) - Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+      * `file_name_format` (`str`) - File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+      * `max_chunk_size_in_bytes` (`float`) - Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+      * `name` (`str`) - The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+      * `type` (`str`) - The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
     """
     event_hub_events_endpoint: pulumi.Output[str]
     """
@@ -51,22 +51,22 @@ class IoTHub(pulumi.CustomResource):
     """
     A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 
-      * `condition` (`str`)
-      * `enabled` (`bool`)
-      * `endpoint_names` (`list`)
-      * `source` (`str`)
+      * `condition` (`str`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+      * `enabled` (`bool`) - Used to specify whether the fallback route is enabled.
+      * `endpoint_names` (`list`) - The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+      * `source` (`str`) - The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
     """
     file_upload: pulumi.Output[dict]
     """
     A `file_upload` block as defined below.
 
-      * `connection_string` (`str`)
-      * `container_name` (`str`)
-      * `default_ttl` (`str`)
-      * `lock_duration` (`str`)
-      * `max_delivery_count` (`float`)
-      * `notifications` (`bool`)
-      * `sasTtl` (`str`)
+      * `connection_string` (`str`) - The connection string for the Azure Storage account to which files are uploaded.
+      * `container_name` (`str`) - The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
+      * `default_ttl` (`str`) - The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+      * `lock_duration` (`str`) - The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+      * `max_delivery_count` (`float`) - The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+      * `notifications` (`bool`) - Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+      * `sasTtl` (`str`) - The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
     """
     hostname: pulumi.Output[str]
     """
@@ -76,9 +76,9 @@ class IoTHub(pulumi.CustomResource):
     """
     One or more `ip_filter_rule` blocks as defined below.
 
-      * `action` (`str`)
-      * `ipMask` (`str`)
-      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+      * `action` (`str`) - The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+      * `ipMask` (`str`) - The IP address range in CIDR notation for the rule.
+      * `name` (`str`) - The name of the filter.
     """
     location: pulumi.Output[str]
     """
@@ -96,11 +96,11 @@ class IoTHub(pulumi.CustomResource):
     """
     A `route` block as defined below.
 
-      * `condition` (`str`)
-      * `enabled` (`bool`)
-      * `endpoint_names` (`list`)
-      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-      * `source` (`str`)
+      * `condition` (`str`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+      * `enabled` (`bool`) - Used to specify whether a route is enabled.
+      * `endpoint_names` (`list`) - The list of endpoints to which messages that satisfy the condition are routed.
+      * `name` (`str`) - The name of the route.
+      * `source` (`str`) - The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
     """
     shared_access_policies: pulumi.Output[list]
     """
@@ -115,14 +115,17 @@ class IoTHub(pulumi.CustomResource):
     """
     A `sku` block as defined below.
 
-      * `capacity` (`float`)
-      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+      * `capacity` (`float`) - The number of provisioned IoT Hub units.
+      * `name` (`str`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
     """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
     type: pulumi.Output[str]
+    """
+    The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+    """
     def __init__(__self__, resource_name, opts=None, endpoints=None, event_hub_partition_count=None, event_hub_retention_in_days=None, fallback_route=None, file_upload=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an IotHub
@@ -152,50 +155,50 @@ class IoTHub(pulumi.CustomResource):
 
         The **endpoints** object supports the following:
 
-          * `batch_frequency_in_seconds` (`pulumi.Input[float]`)
-          * `connection_string` (`pulumi.Input[str]`)
-          * `container_name` (`pulumi.Input[str]`)
-          * `encoding` (`pulumi.Input[str]`)
-          * `file_name_format` (`pulumi.Input[str]`)
-          * `max_chunk_size_in_bytes` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-          * `type` (`pulumi.Input[str]`)
+          * `batch_frequency_in_seconds` (`pulumi.Input[float]`) - Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `connection_string` (`pulumi.Input[str]`) - The connection string for the endpoint.
+          * `container_name` (`pulumi.Input[str]`) - The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `encoding` (`pulumi.Input[str]`) - Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `file_name_format` (`pulumi.Input[str]`) - File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `max_chunk_size_in_bytes` (`pulumi.Input[float]`) - Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `name` (`pulumi.Input[str]`) - The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+          * `type` (`pulumi.Input[str]`) - The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 
         The **fallback_route** object supports the following:
 
-          * `condition` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `endpoint_names` (`pulumi.Input[list]`)
-          * `source` (`pulumi.Input[str]`)
+          * `condition` (`pulumi.Input[str]`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+          * `enabled` (`pulumi.Input[bool]`) - Used to specify whether the fallback route is enabled.
+          * `endpoint_names` (`pulumi.Input[list]`) - The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+          * `source` (`pulumi.Input[str]`) - The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 
         The **file_upload** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`)
-          * `container_name` (`pulumi.Input[str]`)
-          * `default_ttl` (`pulumi.Input[str]`)
-          * `lock_duration` (`pulumi.Input[str]`)
-          * `max_delivery_count` (`pulumi.Input[float]`)
-          * `notifications` (`pulumi.Input[bool]`)
-          * `sasTtl` (`pulumi.Input[str]`)
+          * `connection_string` (`pulumi.Input[str]`) - The connection string for the Azure Storage account to which files are uploaded.
+          * `container_name` (`pulumi.Input[str]`) - The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
+          * `default_ttl` (`pulumi.Input[str]`) - The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+          * `lock_duration` (`pulumi.Input[str]`) - The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+          * `max_delivery_count` (`pulumi.Input[float]`) - The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+          * `notifications` (`pulumi.Input[bool]`) - Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+          * `sasTtl` (`pulumi.Input[str]`) - The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
 
         The **ip_filter_rules** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `ipMask` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `action` (`pulumi.Input[str]`) - The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+          * `ipMask` (`pulumi.Input[str]`) - The IP address range in CIDR notation for the rule.
+          * `name` (`pulumi.Input[str]`) - The name of the filter.
 
         The **routes** object supports the following:
 
-          * `condition` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `endpoint_names` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-          * `source` (`pulumi.Input[str]`)
+          * `condition` (`pulumi.Input[str]`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+          * `enabled` (`pulumi.Input[bool]`) - Used to specify whether a route is enabled.
+          * `endpoint_names` (`pulumi.Input[list]`) - The list of endpoints to which messages that satisfy the condition are routed.
+          * `name` (`pulumi.Input[str]`) - The name of the route.
+          * `source` (`pulumi.Input[str]`) - The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - The number of provisioned IoT Hub units.
+          * `name` (`pulumi.Input[str]`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -270,48 +273,49 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[list] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 
         The **endpoints** object supports the following:
 
-          * `batch_frequency_in_seconds` (`pulumi.Input[float]`)
-          * `connection_string` (`pulumi.Input[str]`)
-          * `container_name` (`pulumi.Input[str]`)
-          * `encoding` (`pulumi.Input[str]`)
-          * `file_name_format` (`pulumi.Input[str]`)
-          * `max_chunk_size_in_bytes` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-          * `type` (`pulumi.Input[str]`)
+          * `batch_frequency_in_seconds` (`pulumi.Input[float]`) - Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `connection_string` (`pulumi.Input[str]`) - The connection string for the endpoint.
+          * `container_name` (`pulumi.Input[str]`) - The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `encoding` (`pulumi.Input[str]`) - Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `file_name_format` (`pulumi.Input[str]`) - File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `max_chunk_size_in_bytes` (`pulumi.Input[float]`) - Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+          * `name` (`pulumi.Input[str]`) - The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+          * `type` (`pulumi.Input[str]`) - The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 
         The **fallback_route** object supports the following:
 
-          * `condition` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `endpoint_names` (`pulumi.Input[list]`)
-          * `source` (`pulumi.Input[str]`)
+          * `condition` (`pulumi.Input[str]`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+          * `enabled` (`pulumi.Input[bool]`) - Used to specify whether the fallback route is enabled.
+          * `endpoint_names` (`pulumi.Input[list]`) - The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+          * `source` (`pulumi.Input[str]`) - The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 
         The **file_upload** object supports the following:
 
-          * `connection_string` (`pulumi.Input[str]`)
-          * `container_name` (`pulumi.Input[str]`)
-          * `default_ttl` (`pulumi.Input[str]`)
-          * `lock_duration` (`pulumi.Input[str]`)
-          * `max_delivery_count` (`pulumi.Input[float]`)
-          * `notifications` (`pulumi.Input[bool]`)
-          * `sasTtl` (`pulumi.Input[str]`)
+          * `connection_string` (`pulumi.Input[str]`) - The connection string for the Azure Storage account to which files are uploaded.
+          * `container_name` (`pulumi.Input[str]`) - The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
+          * `default_ttl` (`pulumi.Input[str]`) - The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
+          * `lock_duration` (`pulumi.Input[str]`) - The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
+          * `max_delivery_count` (`pulumi.Input[float]`) - The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+          * `notifications` (`pulumi.Input[bool]`) - Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
+          * `sasTtl` (`pulumi.Input[str]`) - The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
 
         The **ip_filter_rules** object supports the following:
 
-          * `action` (`pulumi.Input[str]`)
-          * `ipMask` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `action` (`pulumi.Input[str]`) - The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
+          * `ipMask` (`pulumi.Input[str]`) - The IP address range in CIDR notation for the rule.
+          * `name` (`pulumi.Input[str]`) - The name of the filter.
 
         The **routes** object supports the following:
 
-          * `condition` (`pulumi.Input[str]`)
-          * `enabled` (`pulumi.Input[bool]`)
-          * `endpoint_names` (`pulumi.Input[list]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-          * `source` (`pulumi.Input[str]`)
+          * `condition` (`pulumi.Input[str]`) - The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+          * `enabled` (`pulumi.Input[bool]`) - Used to specify whether a route is enabled.
+          * `endpoint_names` (`pulumi.Input[list]`) - The list of endpoints to which messages that satisfy the condition are routed.
+          * `name` (`pulumi.Input[str]`) - The name of the route.
+          * `source` (`pulumi.Input[str]`) - The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 
         The **shared_access_policies** object supports the following:
 
@@ -322,8 +326,8 @@ class IoTHub(pulumi.CustomResource):
 
         The **sku** object supports the following:
 
-          * `capacity` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `capacity` (`pulumi.Input[float]`) - The number of provisioned IoT Hub units.
+          * `name` (`pulumi.Input[str]`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

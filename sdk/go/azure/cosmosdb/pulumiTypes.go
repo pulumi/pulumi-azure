@@ -12,7 +12,7 @@ import (
 )
 
 type AccountCapability struct {
-	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
 
@@ -24,7 +24,7 @@ type AccountCapabilityInput interface {
 }
 
 type AccountCapabilityArgs struct {
-	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -75,7 +75,7 @@ func (o AccountCapabilityOutput) ToAccountCapabilityOutputWithContext(ctx contex
 	return o
 }
 
-// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 func (o AccountCapabilityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCapability) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -448,9 +448,12 @@ func (o AccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) AccountVi
 }
 
 type GremlinGraphConflictResolutionPolicy struct {
-	ConflictResolutionPath      *string `pulumi:"conflictResolutionPath"`
+	// The conflict resolution path in the case of LastWriterWins mode.
+	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of custom mode.
 	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
-	Mode                        string  `pulumi:"mode"`
+	// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+	Mode string `pulumi:"mode"`
 }
 
 type GremlinGraphConflictResolutionPolicyInput interface {
@@ -461,9 +464,12 @@ type GremlinGraphConflictResolutionPolicyInput interface {
 }
 
 type GremlinGraphConflictResolutionPolicyArgs struct {
-	ConflictResolutionPath      pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
+	// The conflict resolution path in the case of LastWriterWins mode.
+	ConflictResolutionPath pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of custom mode.
 	ConflictResolutionProcedure pulumi.StringPtrInput `pulumi:"conflictResolutionProcedure"`
-	Mode                        pulumi.StringInput    `pulumi:"mode"`
+	// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
 func (GremlinGraphConflictResolutionPolicyArgs) ElementType() reflect.Type {
@@ -513,14 +519,17 @@ func (o GremlinGraphConflictResolutionPolicyOutput) ToGremlinGraphConflictResolu
 	return o
 }
 
+// The conflict resolution path in the case of LastWriterWins mode.
 func (o GremlinGraphConflictResolutionPolicyOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GremlinGraphConflictResolutionPolicy) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
 }
 
+// The procedure to resolve conflicts in the case of custom mode.
 func (o GremlinGraphConflictResolutionPolicyOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GremlinGraphConflictResolutionPolicy) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
 }
 
+// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
 func (o GremlinGraphConflictResolutionPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphConflictResolutionPolicy) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -546,10 +555,14 @@ func (o GremlinGraphConflictResolutionPolicyArrayOutput) Index(i pulumi.IntInput
 }
 
 type GremlinGraphIndexPolicy struct {
-	Automatic     *bool    `pulumi:"automatic"`
+	// Indicates if the indexing policy is automatic. Defaults to `true`.
+	Automatic *bool `pulumi:"automatic"`
+	// List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 	ExcludedPaths []string `pulumi:"excludedPaths"`
+	// List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 	IncludedPaths []string `pulumi:"includedPaths"`
-	IndexingMode  string   `pulumi:"indexingMode"`
+	// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+	IndexingMode string `pulumi:"indexingMode"`
 }
 
 type GremlinGraphIndexPolicyInput interface {
@@ -560,10 +573,14 @@ type GremlinGraphIndexPolicyInput interface {
 }
 
 type GremlinGraphIndexPolicyArgs struct {
-	Automatic     pulumi.BoolPtrInput     `pulumi:"automatic"`
+	// Indicates if the indexing policy is automatic. Defaults to `true`.
+	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
+	// List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
+	// List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
-	IndexingMode  pulumi.StringInput      `pulumi:"indexingMode"`
+	// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
+	IndexingMode pulumi.StringInput `pulumi:"indexingMode"`
 }
 
 func (GremlinGraphIndexPolicyArgs) ElementType() reflect.Type {
@@ -613,18 +630,22 @@ func (o GremlinGraphIndexPolicyOutput) ToGremlinGraphIndexPolicyOutputWithContex
 	return o
 }
 
+// Indicates if the indexing policy is automatic. Defaults to `true`.
 func (o GremlinGraphIndexPolicyOutput) Automatic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
 }
 
+// List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 func (o GremlinGraphIndexPolicyOutput) ExcludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
 }
 
+// List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 func (o GremlinGraphIndexPolicyOutput) IncludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) []string { return v.IncludedPaths }).(pulumi.StringArrayOutput)
 }
 
+// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
 func (o GremlinGraphIndexPolicyOutput) IndexingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) string { return v.IndexingMode }).(pulumi.StringOutput)
 }
@@ -650,6 +671,7 @@ func (o GremlinGraphIndexPolicyArrayOutput) Index(i pulumi.IntInput) GremlinGrap
 }
 
 type GremlinGraphUniqueKey struct {
+	// A list of paths to use for this unique key.
 	Paths []string `pulumi:"paths"`
 }
 
@@ -661,6 +683,7 @@ type GremlinGraphUniqueKeyInput interface {
 }
 
 type GremlinGraphUniqueKeyArgs struct {
+	// A list of paths to use for this unique key.
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
@@ -711,6 +734,7 @@ func (o GremlinGraphUniqueKeyOutput) ToGremlinGraphUniqueKeyOutputWithContext(ct
 	return o
 }
 
+// A list of paths to use for this unique key.
 func (o GremlinGraphUniqueKeyOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GremlinGraphUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
@@ -736,6 +760,7 @@ func (o GremlinGraphUniqueKeyArrayOutput) Index(i pulumi.IntInput) GremlinGraphU
 }
 
 type SqlContainerUniqueKey struct {
+	// A list of paths to use for this unique key.
 	Paths []string `pulumi:"paths"`
 }
 
@@ -747,6 +772,7 @@ type SqlContainerUniqueKeyInput interface {
 }
 
 type SqlContainerUniqueKeyArgs struct {
+	// A list of paths to use for this unique key.
 	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
@@ -797,6 +823,7 @@ func (o SqlContainerUniqueKeyOutput) ToSqlContainerUniqueKeyOutputWithContext(ct
 	return o
 }
 
+// A list of paths to use for this unique key.
 func (o SqlContainerUniqueKeyOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SqlContainerUniqueKey) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }

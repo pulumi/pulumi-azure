@@ -44,14 +44,24 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     Only a single policy can be defined for a connection. For details on
     custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 
-      * `dhGroup` (`str`)
-      * `ikeEncryption` (`str`)
-      * `ikeIntegrity` (`str`)
-      * `ipsecEncryption` (`str`)
-      * `ipsecIntegrity` (`str`)
-      * `pfsGroup` (`str`)
-      * `saDatasize` (`float`)
-      * `saLifetime` (`float`)
+      * `dhGroup` (`str`) - The DH group used in IKE phase 1 for initial SA. Valid
+        options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
+        `ECP256`, `ECP384`, or `None`.
+      * `ikeEncryption` (`str`) - The IKE encryption algorithm. Valid
+        options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+      * `ikeIntegrity` (`str`) - The IKE integrity algorithm. Valid
+        options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+      * `ipsecEncryption` (`str`) - The IPSec encryption algorithm. Valid
+        options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+      * `ipsecIntegrity` (`str`) - The IPSec integrity algorithm. Valid
+        options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+      * `pfsGroup` (`str`) - The DH group used in IKE phase 2 for new child SA.
+        Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+        or `None`.
+      * `saDatasize` (`float`) - The IPSec SA payload size in KB. Must be at least
+        `1024` KB. Defaults to `102400000` KB.
+      * `saLifetime` (`float`) - The IPSec SA lifetime in seconds. Must be at least
+        `300` seconds. Defaults to `27000` seconds.
     """
     local_network_gateway_id: pulumi.Output[str]
     """
@@ -169,14 +179,24 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         The **ipsec_policy** object supports the following:
 
-          * `dhGroup` (`pulumi.Input[str]`)
-          * `ikeEncryption` (`pulumi.Input[str]`)
-          * `ikeIntegrity` (`pulumi.Input[str]`)
-          * `ipsecEncryption` (`pulumi.Input[str]`)
-          * `ipsecIntegrity` (`pulumi.Input[str]`)
-          * `pfsGroup` (`pulumi.Input[str]`)
-          * `saDatasize` (`pulumi.Input[float]`)
-          * `saLifetime` (`pulumi.Input[float]`)
+          * `dhGroup` (`pulumi.Input[str]`) - The DH group used in IKE phase 1 for initial SA. Valid
+            options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
+            `ECP256`, `ECP384`, or `None`.
+          * `ikeEncryption` (`pulumi.Input[str]`) - The IKE encryption algorithm. Valid
+            options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+          * `ikeIntegrity` (`pulumi.Input[str]`) - The IKE integrity algorithm. Valid
+            options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+          * `ipsecEncryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm. Valid
+            options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+          * `ipsecIntegrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm. Valid
+            options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+          * `pfsGroup` (`pulumi.Input[str]`) - The DH group used in IKE phase 2 for new child SA.
+            Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+            or `None`.
+          * `saDatasize` (`pulumi.Input[float]`) - The IPSec SA payload size in KB. Must be at least
+            `1024` KB. Defaults to `102400000` KB.
+          * `saLifetime` (`pulumi.Input[float]`) - The IPSec SA lifetime in seconds. Must be at least
+            `300` seconds. Defaults to `27000` seconds.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -280,14 +300,24 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         The **ipsec_policy** object supports the following:
 
-          * `dhGroup` (`pulumi.Input[str]`)
-          * `ikeEncryption` (`pulumi.Input[str]`)
-          * `ikeIntegrity` (`pulumi.Input[str]`)
-          * `ipsecEncryption` (`pulumi.Input[str]`)
-          * `ipsecIntegrity` (`pulumi.Input[str]`)
-          * `pfsGroup` (`pulumi.Input[str]`)
-          * `saDatasize` (`pulumi.Input[float]`)
-          * `saLifetime` (`pulumi.Input[float]`)
+          * `dhGroup` (`pulumi.Input[str]`) - The DH group used in IKE phase 1 for initial SA. Valid
+            options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
+            `ECP256`, `ECP384`, or `None`.
+          * `ikeEncryption` (`pulumi.Input[str]`) - The IKE encryption algorithm. Valid
+            options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+          * `ikeIntegrity` (`pulumi.Input[str]`) - The IKE integrity algorithm. Valid
+            options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+          * `ipsecEncryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm. Valid
+            options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+          * `ipsecIntegrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm. Valid
+            options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+          * `pfsGroup` (`pulumi.Input[str]`) - The DH group used in IKE phase 2 for new child SA.
+            Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+            or `None`.
+          * `saDatasize` (`pulumi.Input[float]`) - The IPSec SA payload size in KB. Must be at least
+            `1024` KB. Defaults to `102400000` KB.
+          * `saLifetime` (`pulumi.Input[float]`) - The IPSec SA lifetime in seconds. Must be at least
+            `300` seconds. Defaults to `27000` seconds.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

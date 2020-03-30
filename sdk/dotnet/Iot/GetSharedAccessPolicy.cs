@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Iot
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
         /// </summary>
+        [Obsolete("Use GetSharedAccessPolicy.InvokeAsync() instead")]
         public static Task<GetSharedAccessPolicyResult> GetSharedAccessPolicy(GetSharedAccessPolicyArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetSharedAccessPolicy
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing IotHub Shared Access Policy
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
+        /// </summary>
+        public static Task<GetSharedAccessPolicyResult> InvokeAsync(GetSharedAccessPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -12,7 +12,9 @@ import (
 )
 
 type AccountBlobProperties struct {
-	CorsRules             []AccountBlobPropertiesCorsRule             `pulumi:"corsRules"`
+	// A `corsRule` block as defined below.
+	CorsRules []AccountBlobPropertiesCorsRule `pulumi:"corsRules"`
+	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 }
 
@@ -24,7 +26,9 @@ type AccountBlobPropertiesInput interface {
 }
 
 type AccountBlobPropertiesArgs struct {
-	CorsRules             AccountBlobPropertiesCorsRuleArrayInput            `pulumi:"corsRules"`
+	// A `corsRule` block as defined below.
+	CorsRules AccountBlobPropertiesCorsRuleArrayInput `pulumi:"corsRules"`
+	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
 }
 
@@ -96,10 +100,13 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext
 		return &v
 	}).(AccountBlobPropertiesPtrOutput)
 }
+
+// A `corsRule` block as defined below.
 func (o AccountBlobPropertiesOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
 	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
+// A `deleteRetentionPolicy` block as defined below.
 func (o AccountBlobPropertiesOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
 		return v.DeleteRetentionPolicy
@@ -124,10 +131,12 @@ func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) AccountBlobProperties { return *v }).(AccountBlobPropertiesOutput)
 }
 
+// A `corsRule` block as defined below.
 func (o AccountBlobPropertiesPtrOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
 	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
+// A `deleteRetentionPolicy` block as defined below.
 func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
 		return v.DeleteRetentionPolicy
@@ -135,11 +144,17 @@ func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPrope
 }
 
 type AccountBlobPropertiesCorsRule struct {
-	AllowedHeaders  []string `pulumi:"allowedHeaders"`
-	AllowedMethods  []string `pulumi:"allowedMethods"`
-	AllowedOrigins  []string `pulumi:"allowedOrigins"`
-	ExposedHeaders  []string `pulumi:"exposedHeaders"`
-	MaxAgeInSeconds int      `pulumi:"maxAgeInSeconds"`
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
 }
 
 type AccountBlobPropertiesCorsRuleInput interface {
@@ -150,11 +165,17 @@ type AccountBlobPropertiesCorsRuleInput interface {
 }
 
 type AccountBlobPropertiesCorsRuleArgs struct {
-	AllowedHeaders  pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	AllowedMethods  pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	AllowedOrigins  pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	ExposedHeaders  pulumi.StringArrayInput `pulumi:"exposedHeaders"`
-	MaxAgeInSeconds pulumi.IntInput         `pulumi:"maxAgeInSeconds"`
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
 }
 
 func (AccountBlobPropertiesCorsRuleArgs) ElementType() reflect.Type {
@@ -204,22 +225,28 @@ func (o AccountBlobPropertiesCorsRuleOutput) ToAccountBlobPropertiesCorsRuleOutp
 	return o
 }
 
+// A list of headers that are allowed to be a part of the cross-origin request.
 func (o AccountBlobPropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
+// A list of http headers that are allowed to be executed by the origin. Valid options are
+// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
 func (o AccountBlobPropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
+// A list of origin domains that will be allowed by CORS.
 func (o AccountBlobPropertiesCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// A list of response headers that are exposed to CORS clients.
 func (o AccountBlobPropertiesCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
 }
 
+// The number of seconds the client should cache a preflight response.
 func (o AccountBlobPropertiesCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
 }
@@ -245,6 +272,7 @@ func (o AccountBlobPropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) Accou
 }
 
 type AccountBlobPropertiesDeleteRetentionPolicy struct {
+	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 	Days *int `pulumi:"days"`
 }
 
@@ -256,6 +284,7 @@ type AccountBlobPropertiesDeleteRetentionPolicyInput interface {
 }
 
 type AccountBlobPropertiesDeleteRetentionPolicyArgs struct {
+	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -327,6 +356,8 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) ToAccountBlobPropertie
 		return &v
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
+
+// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -351,14 +382,16 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Elem() AccountBlobP
 	}).(AccountBlobPropertiesDeleteRetentionPolicyOutput)
 }
 
+// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
 type AccountCustomDomain struct {
-	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	Name         string `pulumi:"name"`
-	UseSubdomain *bool  `pulumi:"useSubdomain"`
+	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+	Name string `pulumi:"name"`
+	// Should the Custom Domain Name be validated by using indirect CNAME validation?
+	UseSubdomain *bool `pulumi:"useSubdomain"`
 }
 
 type AccountCustomDomainInput interface {
@@ -369,8 +402,9 @@ type AccountCustomDomainInput interface {
 }
 
 type AccountCustomDomainArgs struct {
-	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	Name         pulumi.StringInput  `pulumi:"name"`
+	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Should the Custom Domain Name be validated by using indirect CNAME validation?
 	UseSubdomain pulumi.BoolPtrInput `pulumi:"useSubdomain"`
 }
 
@@ -443,11 +477,12 @@ func (o AccountCustomDomainOutput) ToAccountCustomDomainPtrOutputWithContext(ctx
 	}).(AccountCustomDomainPtrOutput)
 }
 
-// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 func (o AccountCustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Should the Custom Domain Name be validated by using indirect CNAME validation?
 func (o AccountCustomDomainOutput) UseSubdomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
 }
@@ -470,11 +505,12 @@ func (o AccountCustomDomainPtrOutput) Elem() AccountCustomDomainOutput {
 	return o.ApplyT(func(v *AccountCustomDomain) AccountCustomDomain { return *v }).(AccountCustomDomainOutput)
 }
 
-// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 func (o AccountCustomDomainPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Should the Custom Domain Name be validated by using indirect CNAME validation?
 func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
 }
@@ -484,7 +520,8 @@ type AccountIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId *string `pulumi:"tenantId"`
-	Type     string  `pulumi:"type"`
+	// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+	Type string `pulumi:"type"`
 }
 
 type AccountIdentityInput interface {
@@ -499,7 +536,8 @@ type AccountIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	Type     pulumi.StringInput    `pulumi:"type"`
+	// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AccountIdentityArgs) ElementType() reflect.Type {
@@ -581,6 +619,7 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -613,14 +652,20 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
 func (o AccountIdentityPtrOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AccountNetworkRulesType struct {
-	Bypasses                []string `pulumi:"bypasses"`
-	DefaultAction           string   `pulumi:"defaultAction"`
-	IpRules                 []string `pulumi:"ipRules"`
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+	// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	Bypasses []string `pulumi:"bypasses"`
+	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+	DefaultAction string `pulumi:"defaultAction"`
+	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	IpRules []string `pulumi:"ipRules"`
+	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -632,9 +677,14 @@ type AccountNetworkRulesTypeInput interface {
 }
 
 type AccountNetworkRulesTypeArgs struct {
-	Bypasses                pulumi.StringArrayInput `pulumi:"bypasses"`
-	DefaultAction           pulumi.StringInput      `pulumi:"defaultAction"`
-	IpRules                 pulumi.StringArrayInput `pulumi:"ipRules"`
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+	// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	Bypasses pulumi.StringArrayInput `pulumi:"bypasses"`
+	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
 }
 
@@ -706,18 +756,24 @@ func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutputWithCon
 		return &v
 	}).(AccountNetworkRulesTypePtrOutput)
 }
+
+// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 func (o AccountNetworkRulesTypeOutput) Bypasses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 func (o AccountNetworkRulesTypeOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
+// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
+// A list of resource ids for subnets.
 func (o AccountNetworkRulesTypeOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -740,26 +796,35 @@ func (o AccountNetworkRulesTypePtrOutput) Elem() AccountNetworkRulesTypeOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) AccountNetworkRulesType { return *v }).(AccountNetworkRulesTypeOutput)
 }
 
+// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+// any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 func (o AccountNetworkRulesTypePtrOutput) Bypasses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 func (o AccountNetworkRulesTypePtrOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
+// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
+// A list of resource ids for subnets.
 func (o AccountNetworkRulesTypePtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
 
 type AccountQueueProperties struct {
-	CorsRules     []AccountQueuePropertiesCorsRule     `pulumi:"corsRules"`
-	HourMetrics   *AccountQueuePropertiesHourMetrics   `pulumi:"hourMetrics"`
-	Logging       *AccountQueuePropertiesLogging       `pulumi:"logging"`
+	// A `corsRule` block as defined above.
+	CorsRules []AccountQueuePropertiesCorsRule `pulumi:"corsRules"`
+	// A `hourMetrics` block as defined below.
+	HourMetrics *AccountQueuePropertiesHourMetrics `pulumi:"hourMetrics"`
+	// A `logging` block as defined below.
+	Logging *AccountQueuePropertiesLogging `pulumi:"logging"`
+	// A `minuteMetrics` block as defined below.
 	MinuteMetrics *AccountQueuePropertiesMinuteMetrics `pulumi:"minuteMetrics"`
 }
 
@@ -771,9 +836,13 @@ type AccountQueuePropertiesInput interface {
 }
 
 type AccountQueuePropertiesArgs struct {
-	CorsRules     AccountQueuePropertiesCorsRuleArrayInput    `pulumi:"corsRules"`
-	HourMetrics   AccountQueuePropertiesHourMetricsPtrInput   `pulumi:"hourMetrics"`
-	Logging       AccountQueuePropertiesLoggingPtrInput       `pulumi:"logging"`
+	// A `corsRule` block as defined above.
+	CorsRules AccountQueuePropertiesCorsRuleArrayInput `pulumi:"corsRules"`
+	// A `hourMetrics` block as defined below.
+	HourMetrics AccountQueuePropertiesHourMetricsPtrInput `pulumi:"hourMetrics"`
+	// A `logging` block as defined below.
+	Logging AccountQueuePropertiesLoggingPtrInput `pulumi:"logging"`
+	// A `minuteMetrics` block as defined below.
 	MinuteMetrics AccountQueuePropertiesMinuteMetricsPtrInput `pulumi:"minuteMetrics"`
 }
 
@@ -845,18 +914,23 @@ func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesPtrOutputWithConte
 		return &v
 	}).(AccountQueuePropertiesPtrOutput)
 }
+
+// A `corsRule` block as defined above.
 func (o AccountQueuePropertiesOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
 	return o.ApplyT(func(v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
+// A `hourMetrics` block as defined below.
 func (o AccountQueuePropertiesOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
 	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
+// A `logging` block as defined below.
 func (o AccountQueuePropertiesOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
 	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
+// A `minuteMetrics` block as defined below.
 func (o AccountQueuePropertiesOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
 	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
@@ -879,28 +953,38 @@ func (o AccountQueuePropertiesPtrOutput) Elem() AccountQueuePropertiesOutput {
 	return o.ApplyT(func(v *AccountQueueProperties) AccountQueueProperties { return *v }).(AccountQueuePropertiesOutput)
 }
 
+// A `corsRule` block as defined above.
 func (o AccountQueuePropertiesPtrOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
 	return o.ApplyT(func(v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
+// A `hourMetrics` block as defined below.
 func (o AccountQueuePropertiesPtrOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
 	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
+// A `logging` block as defined below.
 func (o AccountQueuePropertiesPtrOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
 	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
+// A `minuteMetrics` block as defined below.
 func (o AccountQueuePropertiesPtrOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
 	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
 type AccountQueuePropertiesCorsRule struct {
-	AllowedHeaders  []string `pulumi:"allowedHeaders"`
-	AllowedMethods  []string `pulumi:"allowedMethods"`
-	AllowedOrigins  []string `pulumi:"allowedOrigins"`
-	ExposedHeaders  []string `pulumi:"exposedHeaders"`
-	MaxAgeInSeconds int      `pulumi:"maxAgeInSeconds"`
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
 }
 
 type AccountQueuePropertiesCorsRuleInput interface {
@@ -911,11 +995,17 @@ type AccountQueuePropertiesCorsRuleInput interface {
 }
 
 type AccountQueuePropertiesCorsRuleArgs struct {
-	AllowedHeaders  pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	AllowedMethods  pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	AllowedOrigins  pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	ExposedHeaders  pulumi.StringArrayInput `pulumi:"exposedHeaders"`
-	MaxAgeInSeconds pulumi.IntInput         `pulumi:"maxAgeInSeconds"`
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
 }
 
 func (AccountQueuePropertiesCorsRuleArgs) ElementType() reflect.Type {
@@ -965,22 +1055,28 @@ func (o AccountQueuePropertiesCorsRuleOutput) ToAccountQueuePropertiesCorsRuleOu
 	return o
 }
 
+// A list of headers that are allowed to be a part of the cross-origin request.
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
+// A list of http headers that are allowed to be executed by the origin. Valid options are
+// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
+// A list of origin domains that will be allowed by CORS.
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
+// A list of response headers that are exposed to CORS clients.
 func (o AccountQueuePropertiesCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
 }
 
+// The number of seconds the client should cache a preflight response.
 func (o AccountQueuePropertiesCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
 }
@@ -1006,10 +1102,14 @@ func (o AccountQueuePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) Acco
 }
 
 type AccountQueuePropertiesHourMetrics struct {
-	Enabled             bool   `pulumi:"enabled"`
-	IncludeApis         *bool  `pulumi:"includeApis"`
-	RetentionPolicyDays *int   `pulumi:"retentionPolicyDays"`
-	Version             string `pulumi:"version"`
+	// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+	Enabled bool `pulumi:"enabled"`
+	// Indicates whether metrics should generate summary statistics for called API operations.
+	IncludeApis *bool `pulumi:"includeApis"`
+	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
+	// The version of storage analytics to configure. Changing this forces a new resource.
+	Version string `pulumi:"version"`
 }
 
 type AccountQueuePropertiesHourMetricsInput interface {
@@ -1020,10 +1120,14 @@ type AccountQueuePropertiesHourMetricsInput interface {
 }
 
 type AccountQueuePropertiesHourMetricsArgs struct {
-	Enabled             pulumi.BoolInput    `pulumi:"enabled"`
-	IncludeApis         pulumi.BoolPtrInput `pulumi:"includeApis"`
-	RetentionPolicyDays pulumi.IntPtrInput  `pulumi:"retentionPolicyDays"`
-	Version             pulumi.StringInput  `pulumi:"version"`
+	// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Indicates whether metrics should generate summary statistics for called API operations.
+	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
+	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
+	// The version of storage analytics to configure. Changing this forces a new resource.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (AccountQueuePropertiesHourMetricsArgs) ElementType() reflect.Type {
@@ -1094,18 +1198,23 @@ func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMet
 		return &v
 	}).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
+
+// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
 func (o AccountQueuePropertiesHourMetricsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesHourMetricsOutput) IncludeApis() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesHourMetricsOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
+// The version of storage analytics to configure. Changing this forces a new resource.
 func (o AccountQueuePropertiesHourMetricsOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1128,28 +1237,37 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) Elem() AccountQueuePropertie
 	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) AccountQueuePropertiesHourMetrics { return *v }).(AccountQueuePropertiesHourMetricsOutput)
 }
 
+// Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) IncludeApis() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
+// The version of storage analytics to configure. Changing this forces a new resource.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type AccountQueuePropertiesLogging struct {
-	Delete              bool   `pulumi:"delete"`
-	Read                bool   `pulumi:"read"`
-	RetentionPolicyDays *int   `pulumi:"retentionPolicyDays"`
-	Version             string `pulumi:"version"`
-	Write               bool   `pulumi:"write"`
+	// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+	Delete bool `pulumi:"delete"`
+	// Indicates whether all read requests should be logged. Changing this forces a new resource.
+	Read bool `pulumi:"read"`
+	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
+	// The version of storage analytics to configure. Changing this forces a new resource.
+	Version string `pulumi:"version"`
+	// Indicates whether all write requests should be logged. Changing this forces a new resource.
+	Write bool `pulumi:"write"`
 }
 
 type AccountQueuePropertiesLoggingInput interface {
@@ -1160,11 +1278,16 @@ type AccountQueuePropertiesLoggingInput interface {
 }
 
 type AccountQueuePropertiesLoggingArgs struct {
-	Delete              pulumi.BoolInput   `pulumi:"delete"`
-	Read                pulumi.BoolInput   `pulumi:"read"`
+	// Indicates whether all delete requests should be logged. Changing this forces a new resource.
+	Delete pulumi.BoolInput `pulumi:"delete"`
+	// Indicates whether all read requests should be logged. Changing this forces a new resource.
+	Read pulumi.BoolInput `pulumi:"read"`
+	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
 	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
-	Version             pulumi.StringInput `pulumi:"version"`
-	Write               pulumi.BoolInput   `pulumi:"write"`
+	// The version of storage analytics to configure. Changing this forces a new resource.
+	Version pulumi.StringInput `pulumi:"version"`
+	// Indicates whether all write requests should be logged. Changing this forces a new resource.
+	Write pulumi.BoolInput `pulumi:"write"`
 }
 
 func (AccountQueuePropertiesLoggingArgs) ElementType() reflect.Type {
@@ -1235,22 +1358,28 @@ func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrO
 		return &v
 	}).(AccountQueuePropertiesLoggingPtrOutput)
 }
+
+// Indicates whether all delete requests should be logged. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
+// Indicates whether all read requests should be logged. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
+// Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
+// The version of storage analytics to configure. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
 }
 
+// Indicates whether all write requests should be logged. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingOutput) Write() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
 }
@@ -1273,31 +1402,40 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLog
 	return o.ApplyT(func(v *AccountQueuePropertiesLogging) AccountQueuePropertiesLogging { return *v }).(AccountQueuePropertiesLoggingOutput)
 }
 
+// Indicates whether all delete requests should be logged. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
+// Indicates whether all read requests should be logged. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
+// Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
+// The version of storage analytics to configure. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingPtrOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
 }
 
+// Indicates whether all write requests should be logged. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingPtrOutput) Write() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
 }
 
 type AccountQueuePropertiesMinuteMetrics struct {
-	Enabled             bool   `pulumi:"enabled"`
-	IncludeApis         *bool  `pulumi:"includeApis"`
-	RetentionPolicyDays *int   `pulumi:"retentionPolicyDays"`
-	Version             string `pulumi:"version"`
+	// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+	Enabled bool `pulumi:"enabled"`
+	// Indicates whether metrics should generate summary statistics for called API operations.
+	IncludeApis *bool `pulumi:"includeApis"`
+	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
+	// The version of storage analytics to configure. Changing this forces a new resource.
+	Version string `pulumi:"version"`
 }
 
 type AccountQueuePropertiesMinuteMetricsInput interface {
@@ -1308,10 +1446,14 @@ type AccountQueuePropertiesMinuteMetricsInput interface {
 }
 
 type AccountQueuePropertiesMinuteMetricsArgs struct {
-	Enabled             pulumi.BoolInput    `pulumi:"enabled"`
-	IncludeApis         pulumi.BoolPtrInput `pulumi:"includeApis"`
-	RetentionPolicyDays pulumi.IntPtrInput  `pulumi:"retentionPolicyDays"`
-	Version             pulumi.StringInput  `pulumi:"version"`
+	// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Indicates whether metrics should generate summary statistics for called API operations.
+	IncludeApis pulumi.BoolPtrInput `pulumi:"includeApis"`
+	// Specifies the number of days that logs will be retained. Changing this forces a new resource.
+	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
+	// The version of storage analytics to configure. Changing this forces a new resource.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (AccountQueuePropertiesMinuteMetricsArgs) ElementType() reflect.Type {
@@ -1382,18 +1524,23 @@ func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinut
 		return &v
 	}).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
+
+// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
 func (o AccountQueuePropertiesMinuteMetricsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesMinuteMetricsOutput) IncludeApis() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesMinuteMetricsOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
+// The version of storage analytics to configure. Changing this forces a new resource.
 func (o AccountQueuePropertiesMinuteMetricsOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1416,25 +1563,31 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Elem() AccountQueuePropert
 	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) AccountQueuePropertiesMinuteMetrics { return *v }).(AccountQueuePropertiesMinuteMetricsOutput)
 }
 
+// Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) IncludeApis() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
 }
 
+// The version of storage analytics to configure. Changing this forces a new resource.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type AccountStaticWebsite struct {
+	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document *string `pulumi:"error404Document"`
-	IndexDocument    *string `pulumi:"indexDocument"`
+	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
+	IndexDocument *string `pulumi:"indexDocument"`
 }
 
 type AccountStaticWebsiteInput interface {
@@ -1445,8 +1598,10 @@ type AccountStaticWebsiteInput interface {
 }
 
 type AccountStaticWebsiteArgs struct {
+	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document pulumi.StringPtrInput `pulumi:"error404Document"`
-	IndexDocument    pulumi.StringPtrInput `pulumi:"indexDocument"`
+	// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
+	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
 }
 
 func (AccountStaticWebsiteArgs) ElementType() reflect.Type {
@@ -1517,10 +1672,13 @@ func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutputWithContext(c
 		return &v
 	}).(AccountStaticWebsitePtrOutput)
 }
+
+// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 func (o AccountStaticWebsiteOutput) Error404Document() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
 }
 
+// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
 func (o AccountStaticWebsiteOutput) IndexDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
 }
@@ -1543,10 +1701,12 @@ func (o AccountStaticWebsitePtrOutput) Elem() AccountStaticWebsiteOutput {
 	return o.ApplyT(func(v *AccountStaticWebsite) AccountStaticWebsite { return *v }).(AccountStaticWebsiteOutput)
 }
 
+// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 func (o AccountStaticWebsitePtrOutput) Error404Document() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
 }
 
+// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
 func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
 }
@@ -2121,8 +2281,9 @@ func (o ManagementPolicyRuleFiltersPtrOutput) PrefixMatches() pulumi.StringArray
 }
 
 type ShareAcl struct {
+	// An `accessPolicy` block as defined below.
 	AccessPolicies []ShareAclAccessPolicy `pulumi:"accessPolicies"`
-	// The ID of the File Share.
+	// The ID which should be used for this Shared Identifier.
 	Id string `pulumi:"id"`
 }
 
@@ -2134,8 +2295,9 @@ type ShareAclInput interface {
 }
 
 type ShareAclArgs struct {
+	// An `accessPolicy` block as defined below.
 	AccessPolicies ShareAclAccessPolicyArrayInput `pulumi:"accessPolicies"`
-	// The ID of the File Share.
+	// The ID which should be used for this Shared Identifier.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -2186,11 +2348,12 @@ func (o ShareAclOutput) ToShareAclOutputWithContext(ctx context.Context) ShareAc
 	return o
 }
 
+// An `accessPolicy` block as defined below.
 func (o ShareAclOutput) AccessPolicies() ShareAclAccessPolicyArrayOutput {
 	return o.ApplyT(func(v ShareAcl) []ShareAclAccessPolicy { return v.AccessPolicies }).(ShareAclAccessPolicyArrayOutput)
 }
 
-// The ID of the File Share.
+// The ID which should be used for this Shared Identifier.
 func (o ShareAclOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAcl) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -2216,9 +2379,12 @@ func (o ShareAclArrayOutput) Index(i pulumi.IntInput) ShareAclOutput {
 }
 
 type ShareAclAccessPolicy struct {
-	Expiry      string `pulumi:"expiry"`
+	// The ISO8061 UTC time at which this Access Policy should be valid until.
+	Expiry string `pulumi:"expiry"`
+	// The permissions which should associated with this Shared Identifier.
 	Permissions string `pulumi:"permissions"`
-	Start       string `pulumi:"start"`
+	// The ISO8061 UTC time at which this Access Policy should be valid from.
+	Start string `pulumi:"start"`
 }
 
 type ShareAclAccessPolicyInput interface {
@@ -2229,9 +2395,12 @@ type ShareAclAccessPolicyInput interface {
 }
 
 type ShareAclAccessPolicyArgs struct {
-	Expiry      pulumi.StringInput `pulumi:"expiry"`
+	// The ISO8061 UTC time at which this Access Policy should be valid until.
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	// The permissions which should associated with this Shared Identifier.
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	Start       pulumi.StringInput `pulumi:"start"`
+	// The ISO8061 UTC time at which this Access Policy should be valid from.
+	Start pulumi.StringInput `pulumi:"start"`
 }
 
 func (ShareAclAccessPolicyArgs) ElementType() reflect.Type {
@@ -2281,14 +2450,17 @@ func (o ShareAclAccessPolicyOutput) ToShareAclAccessPolicyOutputWithContext(ctx 
 	return o
 }
 
+// The ISO8061 UTC time at which this Access Policy should be valid until.
 func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
+// The permissions which should associated with this Shared Identifier.
 func (o ShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
+// The ISO8061 UTC time at which this Access Policy should be valid from.
 func (o ShareAclAccessPolicyOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
 }
@@ -2314,8 +2486,9 @@ func (o ShareAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) ShareAclAccess
 }
 
 type TableAcl struct {
+	// An `accessPolicy` block as defined below.
 	AccessPolicies []TableAclAccessPolicy `pulumi:"accessPolicies"`
-	// The ID of the Table within the Storage Account.
+	// The ID which should be used for this Shared Identifier.
 	Id string `pulumi:"id"`
 }
 
@@ -2327,8 +2500,9 @@ type TableAclInput interface {
 }
 
 type TableAclArgs struct {
+	// An `accessPolicy` block as defined below.
 	AccessPolicies TableAclAccessPolicyArrayInput `pulumi:"accessPolicies"`
-	// The ID of the Table within the Storage Account.
+	// The ID which should be used for this Shared Identifier.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -2379,11 +2553,12 @@ func (o TableAclOutput) ToTableAclOutputWithContext(ctx context.Context) TableAc
 	return o
 }
 
+// An `accessPolicy` block as defined below.
 func (o TableAclOutput) AccessPolicies() TableAclAccessPolicyArrayOutput {
 	return o.ApplyT(func(v TableAcl) []TableAclAccessPolicy { return v.AccessPolicies }).(TableAclAccessPolicyArrayOutput)
 }
 
-// The ID of the Table within the Storage Account.
+// The ID which should be used for this Shared Identifier.
 func (o TableAclOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAcl) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -2409,9 +2584,12 @@ func (o TableAclArrayOutput) Index(i pulumi.IntInput) TableAclOutput {
 }
 
 type TableAclAccessPolicy struct {
-	Expiry      string `pulumi:"expiry"`
+	// The ISO8061 UTC time at which this Access Policy should be valid until.
+	Expiry string `pulumi:"expiry"`
+	// The permissions which should associated with this Shared Identifier.
 	Permissions string `pulumi:"permissions"`
-	Start       string `pulumi:"start"`
+	// The ISO8061 UTC time at which this Access Policy should be valid from.
+	Start string `pulumi:"start"`
 }
 
 type TableAclAccessPolicyInput interface {
@@ -2422,9 +2600,12 @@ type TableAclAccessPolicyInput interface {
 }
 
 type TableAclAccessPolicyArgs struct {
-	Expiry      pulumi.StringInput `pulumi:"expiry"`
+	// The ISO8061 UTC time at which this Access Policy should be valid until.
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	// The permissions which should associated with this Shared Identifier.
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	Start       pulumi.StringInput `pulumi:"start"`
+	// The ISO8061 UTC time at which this Access Policy should be valid from.
+	Start pulumi.StringInput `pulumi:"start"`
 }
 
 func (TableAclAccessPolicyArgs) ElementType() reflect.Type {
@@ -2474,14 +2655,17 @@ func (o TableAclAccessPolicyOutput) ToTableAclAccessPolicyOutputWithContext(ctx 
 	return o
 }
 
+// The ISO8061 UTC time at which this Access Policy should be valid until.
 func (o TableAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
+// The permissions which should associated with this Shared Identifier.
 func (o TableAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
+// The ISO8061 UTC time at which this Access Policy should be valid from.
 func (o TableAclAccessPolicyOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
 }
@@ -2507,12 +2691,18 @@ func (o TableAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) TableAclAccess
 }
 
 type GetAccountBlobContainerSASPermissions struct {
-	Add    bool `pulumi:"add"`
+	// Should Add permissions be enabled for this SAS?
+	Add bool `pulumi:"add"`
+	// Should Create permissions be enabled for this SAS?
 	Create bool `pulumi:"create"`
+	// Should Delete permissions be enabled for this SAS?
 	Delete bool `pulumi:"delete"`
-	List   bool `pulumi:"list"`
-	Read   bool `pulumi:"read"`
-	Write  bool `pulumi:"write"`
+	// Should List permissions be enabled for this SAS?
+	List bool `pulumi:"list"`
+	// Should Read permissions be enabled for this SAS?
+	Read bool `pulumi:"read"`
+	// Should Write permissions be enabled for this SAS?
+	Write bool `pulumi:"write"`
 }
 
 type GetAccountBlobContainerSASPermissionsInput interface {
@@ -2523,12 +2713,18 @@ type GetAccountBlobContainerSASPermissionsInput interface {
 }
 
 type GetAccountBlobContainerSASPermissionsArgs struct {
-	Add    pulumi.BoolInput `pulumi:"add"`
+	// Should Add permissions be enabled for this SAS?
+	Add pulumi.BoolInput `pulumi:"add"`
+	// Should Create permissions be enabled for this SAS?
 	Create pulumi.BoolInput `pulumi:"create"`
+	// Should Delete permissions be enabled for this SAS?
 	Delete pulumi.BoolInput `pulumi:"delete"`
-	List   pulumi.BoolInput `pulumi:"list"`
-	Read   pulumi.BoolInput `pulumi:"read"`
-	Write  pulumi.BoolInput `pulumi:"write"`
+	// Should List permissions be enabled for this SAS?
+	List pulumi.BoolInput `pulumi:"list"`
+	// Should Read permissions be enabled for this SAS?
+	Read pulumi.BoolInput `pulumi:"read"`
+	// Should Write permissions be enabled for this SAS?
+	Write pulumi.BoolInput `pulumi:"write"`
 }
 
 func (GetAccountBlobContainerSASPermissionsArgs) ElementType() reflect.Type {
@@ -2557,26 +2753,32 @@ func (o GetAccountBlobContainerSASPermissionsOutput) ToGetAccountBlobContainerSA
 	return o
 }
 
+// Should Add permissions be enabled for this SAS?
 func (o GetAccountBlobContainerSASPermissionsOutput) Add() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
 }
 
+// Should Create permissions be enabled for this SAS?
 func (o GetAccountBlobContainerSASPermissionsOutput) Create() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
 }
 
+// Should Delete permissions be enabled for this SAS?
 func (o GetAccountBlobContainerSASPermissionsOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
+// Should List permissions be enabled for this SAS?
 func (o GetAccountBlobContainerSASPermissionsOutput) List() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
 }
 
+// Should Read permissions be enabled for this SAS?
 func (o GetAccountBlobContainerSASPermissionsOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
+// Should Write permissions be enabled for this SAS?
 func (o GetAccountBlobContainerSASPermissionsOutput) Write() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
 }
@@ -2671,14 +2873,22 @@ func (o GetAccountCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAccountCu
 }
 
 type GetAccountSASPermissions struct {
-	Add     bool `pulumi:"add"`
-	Create  bool `pulumi:"create"`
-	Delete  bool `pulumi:"delete"`
-	List    bool `pulumi:"list"`
+	// Should Add permissions be enabled for this SAS?
+	Add bool `pulumi:"add"`
+	// Should Create permissions be enabled for this SAS?
+	Create bool `pulumi:"create"`
+	// Should Delete permissions be enabled for this SAS?
+	Delete bool `pulumi:"delete"`
+	// Should List permissions be enabled for this SAS?
+	List bool `pulumi:"list"`
+	// Should Process permissions be enabled for this SAS?
 	Process bool `pulumi:"process"`
-	Read    bool `pulumi:"read"`
-	Update  bool `pulumi:"update"`
-	Write   bool `pulumi:"write"`
+	// Should Read permissions be enabled for this SAS?
+	Read bool `pulumi:"read"`
+	// Should Update permissions be enabled for this SAS?
+	Update bool `pulumi:"update"`
+	// Should Write permissions be enabled for this SAS?
+	Write bool `pulumi:"write"`
 }
 
 type GetAccountSASPermissionsInput interface {
@@ -2689,14 +2899,22 @@ type GetAccountSASPermissionsInput interface {
 }
 
 type GetAccountSASPermissionsArgs struct {
-	Add     pulumi.BoolInput `pulumi:"add"`
-	Create  pulumi.BoolInput `pulumi:"create"`
-	Delete  pulumi.BoolInput `pulumi:"delete"`
-	List    pulumi.BoolInput `pulumi:"list"`
+	// Should Add permissions be enabled for this SAS?
+	Add pulumi.BoolInput `pulumi:"add"`
+	// Should Create permissions be enabled for this SAS?
+	Create pulumi.BoolInput `pulumi:"create"`
+	// Should Delete permissions be enabled for this SAS?
+	Delete pulumi.BoolInput `pulumi:"delete"`
+	// Should List permissions be enabled for this SAS?
+	List pulumi.BoolInput `pulumi:"list"`
+	// Should Process permissions be enabled for this SAS?
 	Process pulumi.BoolInput `pulumi:"process"`
-	Read    pulumi.BoolInput `pulumi:"read"`
-	Update  pulumi.BoolInput `pulumi:"update"`
-	Write   pulumi.BoolInput `pulumi:"write"`
+	// Should Read permissions be enabled for this SAS?
+	Read pulumi.BoolInput `pulumi:"read"`
+	// Should Update permissions be enabled for this SAS?
+	Update pulumi.BoolInput `pulumi:"update"`
+	// Should Write permissions be enabled for this SAS?
+	Write pulumi.BoolInput `pulumi:"write"`
 }
 
 func (GetAccountSASPermissionsArgs) ElementType() reflect.Type {
@@ -2725,42 +2943,53 @@ func (o GetAccountSASPermissionsOutput) ToGetAccountSASPermissionsOutputWithCont
 	return o
 }
 
+// Should Add permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Add() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Add }).(pulumi.BoolOutput)
 }
 
+// Should Create permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Create() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Create }).(pulumi.BoolOutput)
 }
 
+// Should Delete permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
+// Should List permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) List() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
 }
 
+// Should Process permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Process() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Process }).(pulumi.BoolOutput)
 }
 
+// Should Read permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }
 
+// Should Update permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Update() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Update }).(pulumi.BoolOutput)
 }
 
+// Should Write permissions be enabled for this SAS?
 func (o GetAccountSASPermissionsOutput) Write() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASPermissions) bool { return v.Write }).(pulumi.BoolOutput)
 }
 
 type GetAccountSASResourceTypes struct {
+	// Should permission be granted to the container?
 	Container bool `pulumi:"container"`
-	Object    bool `pulumi:"object"`
-	Service   bool `pulumi:"service"`
+	// Should permission be granted only to a specific object?
+	Object bool `pulumi:"object"`
+	// Should permission be granted to the entire service?
+	Service bool `pulumi:"service"`
 }
 
 type GetAccountSASResourceTypesInput interface {
@@ -2771,9 +3000,12 @@ type GetAccountSASResourceTypesInput interface {
 }
 
 type GetAccountSASResourceTypesArgs struct {
+	// Should permission be granted to the container?
 	Container pulumi.BoolInput `pulumi:"container"`
-	Object    pulumi.BoolInput `pulumi:"object"`
-	Service   pulumi.BoolInput `pulumi:"service"`
+	// Should permission be granted only to a specific object?
+	Object pulumi.BoolInput `pulumi:"object"`
+	// Should permission be granted to the entire service?
+	Service pulumi.BoolInput `pulumi:"service"`
 }
 
 func (GetAccountSASResourceTypesArgs) ElementType() reflect.Type {
@@ -2802,22 +3034,29 @@ func (o GetAccountSASResourceTypesOutput) ToGetAccountSASResourceTypesOutputWith
 	return o
 }
 
+// Should permission be granted to the container?
 func (o GetAccountSASResourceTypesOutput) Container() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASResourceTypes) bool { return v.Container }).(pulumi.BoolOutput)
 }
 
+// Should permission be granted only to a specific object?
 func (o GetAccountSASResourceTypesOutput) Object() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASResourceTypes) bool { return v.Object }).(pulumi.BoolOutput)
 }
 
+// Should permission be granted to the entire service?
 func (o GetAccountSASResourceTypesOutput) Service() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASResourceTypes) bool { return v.Service }).(pulumi.BoolOutput)
 }
 
 type GetAccountSASServices struct {
-	Blob  bool `pulumi:"blob"`
-	File  bool `pulumi:"file"`
+	// Should permission be granted to `blob` services within this storage account?
+	Blob bool `pulumi:"blob"`
+	// Should permission be granted to `file` services within this storage account?
+	File bool `pulumi:"file"`
+	// Should permission be granted to `queue` services within this storage account?
 	Queue bool `pulumi:"queue"`
+	// Should permission be granted to `table` services within this storage account?
 	Table bool `pulumi:"table"`
 }
 
@@ -2829,9 +3068,13 @@ type GetAccountSASServicesInput interface {
 }
 
 type GetAccountSASServicesArgs struct {
-	Blob  pulumi.BoolInput `pulumi:"blob"`
-	File  pulumi.BoolInput `pulumi:"file"`
+	// Should permission be granted to `blob` services within this storage account?
+	Blob pulumi.BoolInput `pulumi:"blob"`
+	// Should permission be granted to `file` services within this storage account?
+	File pulumi.BoolInput `pulumi:"file"`
+	// Should permission be granted to `queue` services within this storage account?
 	Queue pulumi.BoolInput `pulumi:"queue"`
+	// Should permission be granted to `table` services within this storage account?
 	Table pulumi.BoolInput `pulumi:"table"`
 }
 
@@ -2861,18 +3104,22 @@ func (o GetAccountSASServicesOutput) ToGetAccountSASServicesOutputWithContext(ct
 	return o
 }
 
+// Should permission be granted to `blob` services within this storage account?
 func (o GetAccountSASServicesOutput) Blob() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASServices) bool { return v.Blob }).(pulumi.BoolOutput)
 }
 
+// Should permission be granted to `file` services within this storage account?
 func (o GetAccountSASServicesOutput) File() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASServices) bool { return v.File }).(pulumi.BoolOutput)
 }
 
+// Should permission be granted to `queue` services within this storage account?
 func (o GetAccountSASServicesOutput) Queue() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASServices) bool { return v.Queue }).(pulumi.BoolOutput)
 }
 
+// Should permission be granted to `table` services within this storage account?
 func (o GetAccountSASServicesOutput) Table() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASServices) bool { return v.Table }).(pulumi.BoolOutput)
 }

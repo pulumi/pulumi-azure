@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
         /// </summary>
+        [Obsolete("Use GetManagedDisk.InvokeAsync() instead")]
         public static Task<GetManagedDiskResult> GetManagedDisk(GetManagedDiskArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetManagedDisk
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Managed Disk.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
+        /// </summary>
+        public static Task<GetManagedDiskResult> InvokeAsync(GetManagedDiskArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
@@ -36,6 +47,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -44,6 +59,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("zones")]
         private List<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones where the Managed Disk exists.
+        /// </summary>
         public List<string> Zones
         {
             get => _zones ?? (_zones = new List<string>());

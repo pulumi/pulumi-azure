@@ -25,8 +25,9 @@ type GetNetworkDdosProtectionPlanArgs struct {
 	// The name of the Network DDoS Protection Plan.
 	Name string `pulumi:"name"`
 	// The name of the resource group where the Network DDoS Protection Plan exists.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkDdosProtectionPlan.

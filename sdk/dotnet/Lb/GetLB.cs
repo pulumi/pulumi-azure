@@ -16,7 +16,18 @@ namespace Pulumi.Azure.Lb
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
         /// </summary>
+        [Obsolete("Use GetLB.InvokeAsync() instead")]
         public static Task<GetLBResult> GetLB(GetLBArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetLB
+    {
+        /// <summary>
+        /// Use this data source to access information about an existing Load Balancer
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
+        /// </summary>
+        public static Task<GetLBResult> InvokeAsync(GetLBArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 

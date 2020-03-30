@@ -506,8 +506,10 @@ func (o RunBookPublishContentLinkHashPtrOutput) Value() pulumi.StringOutput {
 }
 
 type ScheduleMonthlyOccurrence struct {
-	Day        string `pulumi:"day"`
-	Occurrence int    `pulumi:"occurrence"`
+	// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+	Day string `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+	Occurrence int `pulumi:"occurrence"`
 }
 
 type ScheduleMonthlyOccurrenceInput interface {
@@ -518,8 +520,10 @@ type ScheduleMonthlyOccurrenceInput interface {
 }
 
 type ScheduleMonthlyOccurrenceArgs struct {
-	Day        pulumi.StringInput `pulumi:"day"`
-	Occurrence pulumi.IntInput    `pulumi:"occurrence"`
+	// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+	Day pulumi.StringInput `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+	Occurrence pulumi.IntInput `pulumi:"occurrence"`
 }
 
 func (ScheduleMonthlyOccurrenceArgs) ElementType() reflect.Type {
@@ -569,10 +573,12 @@ func (o ScheduleMonthlyOccurrenceOutput) ToScheduleMonthlyOccurrenceOutputWithCo
 	return o
 }
 
+// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
 func (o ScheduleMonthlyOccurrenceOutput) Day() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleMonthlyOccurrence) string { return v.Day }).(pulumi.StringOutput)
 }
 
+// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
 func (o ScheduleMonthlyOccurrenceOutput) Occurrence() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleMonthlyOccurrence) int { return v.Occurrence }).(pulumi.IntOutput)
 }

@@ -53,6 +53,12 @@ func NewTrafficManagerProfile(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficManagerProfileArgs{}
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:trafficmanager/profile:Profile"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource TrafficManagerProfile
 	err := ctx.RegisterResource("azure:network/trafficManagerProfile:TrafficManagerProfile", name, args, &resource, opts...)
 	if err != nil {

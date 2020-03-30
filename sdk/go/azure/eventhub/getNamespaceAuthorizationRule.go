@@ -23,7 +23,8 @@ func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespace
 // A collection of arguments for invoking getNamespaceAuthorizationRule.
 type LookupNamespaceAuthorizationRuleArgs struct {
 	// The name of the EventHub Authorization Rule resource.
-	Name          string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The name of the EventHub Namespace.
 	NamespaceName string `pulumi:"namespaceName"`
 	// The name of the resource group in which the EventHub Namespace exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`

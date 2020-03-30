@@ -254,11 +254,14 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountKeyVaultReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Batch Account.
+        /// The Azure identifier of the Azure KeyVault to use.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTPS URL of the Azure KeyVault to use.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -270,11 +273,14 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountKeyVaultReferenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Batch Account.
+        /// The Azure identifier of the Azure KeyVault to use.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTPS URL of the Azure KeyVault to use.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -291,9 +297,12 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountKeyVaultReference
     {
         /// <summary>
-        /// The ID of the Batch Account.
+        /// The Azure identifier of the Azure KeyVault to use.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The HTTPS URL of the Azure KeyVault to use.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

@@ -305,11 +305,18 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubNamespaceNetworkRulesetsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<EventHubNamespaceNetworkRulesetsIpRulesArgs>? _ipRules;
+
+        /// <summary>
+        /// One or more `ip_rule` blocks as defined below.
+        /// </summary>
         public InputList<EventHubNamespaceNetworkRulesetsIpRulesArgs> IpRules
         {
             get => _ipRules ?? (_ipRules = new InputList<EventHubNamespaceNetworkRulesetsIpRulesArgs>());
@@ -318,6 +325,10 @@ namespace Pulumi.Azure.EventHub
 
         [Input("virtualNetworkRules")]
         private InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs>? _virtualNetworkRules;
+
+        /// <summary>
+        /// One or more `virtual_network_rule` blocks as defined below.
+        /// </summary>
         public InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs> VirtualNetworkRules
         {
             get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs>());
@@ -331,11 +342,18 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubNamespaceNetworkRulesetsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<EventHubNamespaceNetworkRulesetsIpRulesGetArgs>? _ipRules;
+
+        /// <summary>
+        /// One or more `ip_rule` blocks as defined below.
+        /// </summary>
         public InputList<EventHubNamespaceNetworkRulesetsIpRulesGetArgs> IpRules
         {
             get => _ipRules ?? (_ipRules = new InputList<EventHubNamespaceNetworkRulesetsIpRulesGetArgs>());
@@ -344,6 +362,10 @@ namespace Pulumi.Azure.EventHub
 
         [Input("virtualNetworkRules")]
         private InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesGetArgs>? _virtualNetworkRules;
+
+        /// <summary>
+        /// One or more `virtual_network_rule` blocks as defined below.
+        /// </summary>
         public InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesGetArgs> VirtualNetworkRules
         {
             get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesGetArgs>());
@@ -357,9 +379,15 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubNamespaceNetworkRulesetsIpRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to take when the rule is  matched. Possible values are `Allow`.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// The ip mask to match on.
+        /// </summary>
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;
 
@@ -370,9 +398,15 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubNamespaceNetworkRulesetsIpRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action to take when the rule is  matched. Possible values are `Allow`.
+        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
+        /// <summary>
+        /// The ip mask to match on.
+        /// </summary>
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;
 
@@ -383,9 +417,15 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Are missing virtual network service endpoints ignored? Defaults to `false`.
+        /// </summary>
         [Input("ignoreMissingVirtualNetworkServiceEndpoint")]
         public Input<bool>? IgnoreMissingVirtualNetworkServiceEndpoint { get; set; }
 
+        /// <summary>
+        /// The id of the subnet to match on.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -396,9 +436,15 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventHubNamespaceNetworkRulesetsVirtualNetworkRulesGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Are missing virtual network service endpoints ignored? Defaults to `false`.
+        /// </summary>
         [Input("ignoreMissingVirtualNetworkServiceEndpoint")]
         public Input<bool>? IgnoreMissingVirtualNetworkServiceEndpoint { get; set; }
 
+        /// <summary>
+        /// The id of the subnet to match on.
+        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
@@ -414,8 +460,17 @@ namespace Pulumi.Azure.EventHub
     [OutputType]
     public sealed class EventHubNamespaceNetworkRulesets
     {
+        /// <summary>
+        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+        /// </summary>
         public readonly string DefaultAction;
+        /// <summary>
+        /// One or more `ip_rule` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<EventHubNamespaceNetworkRulesetsIpRules> IpRules;
+        /// <summary>
+        /// One or more `virtual_network_rule` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<EventHubNamespaceNetworkRulesetsVirtualNetworkRules> VirtualNetworkRules;
 
         [OutputConstructor]
@@ -433,7 +488,13 @@ namespace Pulumi.Azure.EventHub
     [OutputType]
     public sealed class EventHubNamespaceNetworkRulesetsIpRules
     {
+        /// <summary>
+        /// The action to take when the rule is  matched. Possible values are `Allow`.
+        /// </summary>
         public readonly string? Action;
+        /// <summary>
+        /// The ip mask to match on.
+        /// </summary>
         public readonly string IpMask;
 
         [OutputConstructor]
@@ -449,7 +510,13 @@ namespace Pulumi.Azure.EventHub
     [OutputType]
     public sealed class EventHubNamespaceNetworkRulesetsVirtualNetworkRules
     {
+        /// <summary>
+        /// Are missing virtual network service endpoints ignored? Defaults to `false`.
+        /// </summary>
         public readonly bool? IgnoreMissingVirtualNetworkServiceEndpoint;
+        /// <summary>
+        /// The id of the subnet to match on.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

@@ -14,14 +14,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     A `additional_capabilities` block as defined below.
 
-      * `ultraSsdEnabled` (`bool`)
+      * `ultraSsdEnabled` (`bool`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
     """
     additional_unattend_contents: pulumi.Output[list]
     """
     One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
 
-      * `content` (`str`)
-      * `setting` (`str`)
+      * `content` (`str`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+      * `setting` (`str`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
     """
     admin_password: pulumi.Output[str]
     """
@@ -43,7 +43,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     A `boot_diagnostics` block as defined below.
 
-      * `storageAccountUri` (`str`)
+      * `storageAccountUri` (`str`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
     """
     computer_name: pulumi.Output[str]
     """
@@ -69,9 +69,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     An `identity` block as defined below.
 
-      * `identityIds` (`list`)
+      * `identityIds` (`list`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
       * `principal_id` (`str`) - The ID of the System Managed Service Principal.
-      * `type` (`str`)
+      * `type` (`str`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
     license_type: pulumi.Output[str]
     """
@@ -97,23 +97,23 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     A `os_disk` block as defined below.
 
-      * `caching` (`str`)
-      * `diffDiskSettings` (`dict`)
-        * `option` (`str`)
+      * `caching` (`str`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+      * `diffDiskSettings` (`dict`) - A `diff_disk_settings` block as defined above.
+        * `option` (`str`) - Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 
-      * `disk_encryption_set_id` (`str`)
-      * `disk_size_gb` (`float`)
-      * `name` (`str`) - The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-      * `storage_account_type` (`str`)
-      * `write_accelerator_enabled` (`bool`)
+      * `disk_encryption_set_id` (`str`) - The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+      * `disk_size_gb` (`float`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+      * `name` (`str`) - The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+      * `storage_account_type` (`str`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+      * `write_accelerator_enabled` (`bool`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
     """
     plan: pulumi.Output[dict]
     """
     A `plan` block as defined below. Changing this forces a new resource to be created.
 
-      * `name` (`str`) - The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-      * `product` (`str`)
-      * `publisher` (`str`)
+      * `name` (`str`) - Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+      * `product` (`str`) - Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+      * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
     """
     priority: pulumi.Output[str]
     private_ip_address: pulumi.Output[str]
@@ -148,11 +148,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     One or more `secret` blocks as defined below.
 
-      * `certificates` (`list`)
-        * `store` (`str`)
-        * `url` (`str`)
+      * `certificates` (`list`) - One or more `certificate` blocks as defined above.
+        * `store` (`str`) - The certificate store on the Virtual Machine where the certificate should be added.
+        * `url` (`str`) - The Secret URL of a Key Vault Certificate.
 
-      * `key_vault_id` (`str`)
+      * `key_vault_id` (`str`) - The ID of the Key Vault from which all Secrets should be sourced.
     """
     size: pulumi.Output[str]
     """
@@ -167,7 +167,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
       * `offer` (`str`)
-      * `publisher` (`str`)
+      * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
       * `sku` (`str`)
       * `version` (`str`)
     """
@@ -187,7 +187,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     One or more `winrm_listener` blocks as defined below.
 
-      * `certificateUrl` (`str`)
+      * `certificateUrl` (`str`) - The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
       * `protocol` (`str`)
     """
     zone: pulumi.Output[str]
@@ -196,7 +196,20 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, winrm_listeners=None, zone=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a WindowsVirtualMachine resource with the given unique name, props, and options.
+        Manages a Windows Virtual Machine.
+
+        ## Disclaimers
+
+        > **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` configuration within the Provider configuration block.
+
+        > **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.VirtualMachine` resource instead.
+
+        > **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `compute.VirtualMachine` resource instead.
+
+        > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block as defined below.
@@ -233,59 +246,59 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **additional_capabilities** object supports the following:
 
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 
         The **additional_unattend_contents** object supports the following:
 
-          * `content` (`pulumi.Input[str]`)
-          * `setting` (`pulumi.Input[str]`)
+          * `content` (`pulumi.Input[str]`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+          * `setting` (`pulumi.Input[str]`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 
         The **boot_diagnostics** object supports the following:
 
-          * `storageAccountUri` (`pulumi.Input[str]`)
+          * `storageAccountUri` (`pulumi.Input[str]`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `diffDiskSettings` (`pulumi.Input[dict]`)
-            * `option` (`pulumi.Input[str]`)
+          * `caching` (`pulumi.Input[str]`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `diffDiskSettings` (`pulumi.Input[dict]`) - A `diff_disk_settings` block as defined above.
+            * `option` (`pulumi.Input[str]`) - Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 
-          * `disk_encryption_set_id` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-          * `storage_account_type` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+          * `disk_size_gb` (`pulumi.Input[float]`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+          * `name` (`pulumi.Input[str]`) - The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 
         The **plan** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-          * `product` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+          * `product` (`pulumi.Input[str]`) - Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 
         The **secrets** object supports the following:
 
-          * `certificates` (`pulumi.Input[list]`)
-            * `store` (`pulumi.Input[str]`)
-            * `url` (`pulumi.Input[str]`)
+          * `certificates` (`pulumi.Input[list]`) - One or more `certificate` blocks as defined above.
+            * `store` (`pulumi.Input[str]`) - The certificate store on the Virtual Machine where the certificate should be added.
+            * `url` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate.
 
-          * `key_vault_id` (`pulumi.Input[str]`)
+          * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault from which all Secrets should be sourced.
 
         The **source_image_reference** object supports the following:
 
           * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
 
         The **winrm_listeners** object supports the following:
 
-          * `certificateUrl` (`pulumi.Input[str]`)
+          * `certificateUrl` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
           * `protocol` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
@@ -408,59 +421,59 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **additional_capabilities** object supports the following:
 
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
 
         The **additional_unattend_contents** object supports the following:
 
-          * `content` (`pulumi.Input[str]`)
-          * `setting` (`pulumi.Input[str]`)
+          * `content` (`pulumi.Input[str]`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+          * `setting` (`pulumi.Input[str]`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
 
         The **boot_diagnostics** object supports the following:
 
-          * `storageAccountUri` (`pulumi.Input[str]`)
+          * `storageAccountUri` (`pulumi.Input[str]`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 
         The **identity** object supports the following:
 
-          * `identityIds` (`pulumi.Input[list]`)
+          * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
-          * `type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
 
-          * `caching` (`pulumi.Input[str]`)
-          * `diffDiskSettings` (`pulumi.Input[dict]`)
-            * `option` (`pulumi.Input[str]`)
+          * `caching` (`pulumi.Input[str]`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `diffDiskSettings` (`pulumi.Input[dict]`) - A `diff_disk_settings` block as defined above.
+            * `option` (`pulumi.Input[str]`) - Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
 
-          * `disk_encryption_set_id` (`pulumi.Input[str]`)
-          * `disk_size_gb` (`pulumi.Input[float]`)
-          * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-          * `storage_account_type` (`pulumi.Input[str]`)
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`)
+          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
+          * `disk_size_gb` (`pulumi.Input[float]`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+          * `name` (`pulumi.Input[str]`) - The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
+          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 
         The **plan** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-          * `product` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+          * `product` (`pulumi.Input[str]`) - Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 
         The **secrets** object supports the following:
 
-          * `certificates` (`pulumi.Input[list]`)
-            * `store` (`pulumi.Input[str]`)
-            * `url` (`pulumi.Input[str]`)
+          * `certificates` (`pulumi.Input[list]`) - One or more `certificate` blocks as defined above.
+            * `store` (`pulumi.Input[str]`) - The certificate store on the Virtual Machine where the certificate should be added.
+            * `url` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate.
 
-          * `key_vault_id` (`pulumi.Input[str]`)
+          * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault from which all Secrets should be sourced.
 
         The **source_image_reference** object supports the following:
 
           * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
           * `sku` (`pulumi.Input[str]`)
           * `version` (`pulumi.Input[str]`)
 
         The **winrm_listeners** object supports the following:
 
-          * `certificateUrl` (`pulumi.Input[str]`)
+          * `certificateUrl` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
           * `protocol` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

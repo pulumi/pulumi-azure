@@ -12,9 +12,9 @@ import (
 )
 
 type EndpointCustomHeader struct {
-	// The name of the Traffic Manager endpoint. Changing this forces a
-	// new resource to be created.
-	Name  string `pulumi:"name"`
+	// The name of the custom header.
+	Name string `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
 	Value string `pulumi:"value"`
 }
 
@@ -26,9 +26,9 @@ type EndpointCustomHeaderInput interface {
 }
 
 type EndpointCustomHeaderArgs struct {
-	// The name of the Traffic Manager endpoint. Changing this forces a
-	// new resource to be created.
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the custom header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -79,12 +79,12 @@ func (o EndpointCustomHeaderOutput) ToEndpointCustomHeaderOutputWithContext(ctx 
 	return o
 }
 
-// The name of the Traffic Manager endpoint. Changing this forces a
-// new resource to be created.
+// The name of the custom header.
 func (o EndpointCustomHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value of custom header. Applicable for Http and Https protocol.
 func (o EndpointCustomHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointCustomHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -110,9 +110,12 @@ func (o EndpointCustomHeaderArrayOutput) Index(i pulumi.IntInput) EndpointCustom
 }
 
 type EndpointSubnet struct {
-	First string  `pulumi:"first"`
-	Last  *string `pulumi:"last"`
-	Scope *int    `pulumi:"scope"`
+	// The First IP....
+	First string `pulumi:"first"`
+	// The Last IP...
+	Last *string `pulumi:"last"`
+	// The Scope...
+	Scope *int `pulumi:"scope"`
 }
 
 type EndpointSubnetInput interface {
@@ -123,9 +126,12 @@ type EndpointSubnetInput interface {
 }
 
 type EndpointSubnetArgs struct {
-	First pulumi.StringInput    `pulumi:"first"`
-	Last  pulumi.StringPtrInput `pulumi:"last"`
-	Scope pulumi.IntPtrInput    `pulumi:"scope"`
+	// The First IP....
+	First pulumi.StringInput `pulumi:"first"`
+	// The Last IP...
+	Last pulumi.StringPtrInput `pulumi:"last"`
+	// The Scope...
+	Scope pulumi.IntPtrInput `pulumi:"scope"`
 }
 
 func (EndpointSubnetArgs) ElementType() reflect.Type {
@@ -175,14 +181,17 @@ func (o EndpointSubnetOutput) ToEndpointSubnetOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The First IP....
 func (o EndpointSubnetOutput) First() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointSubnet) string { return v.First }).(pulumi.StringOutput)
 }
 
+// The Last IP...
 func (o EndpointSubnetOutput) Last() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointSubnet) *string { return v.Last }).(pulumi.StringPtrOutput)
 }
 
+// The Scope...
 func (o EndpointSubnetOutput) Scope() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointSubnet) *int { return v.Scope }).(pulumi.IntPtrOutput)
 }
@@ -208,8 +217,10 @@ func (o EndpointSubnetArrayOutput) Index(i pulumi.IntInput) EndpointSubnetOutput
 }
 
 type ProfileDnsConfig struct {
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
 	RelativeName string `pulumi:"relativeName"`
-	Ttl          int    `pulumi:"ttl"`
+	// The TTL value of the Profile used by Local DNS resolvers and clients.
+	Ttl int `pulumi:"ttl"`
 }
 
 type ProfileDnsConfigInput interface {
@@ -220,8 +231,10 @@ type ProfileDnsConfigInput interface {
 }
 
 type ProfileDnsConfigArgs struct {
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
 	RelativeName pulumi.StringInput `pulumi:"relativeName"`
-	Ttl          pulumi.IntInput    `pulumi:"ttl"`
+	// The TTL value of the Profile used by Local DNS resolvers and clients.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 }
 
 func (ProfileDnsConfigArgs) ElementType() reflect.Type {
@@ -292,10 +305,13 @@ func (o ProfileDnsConfigOutput) ToProfileDnsConfigPtrOutputWithContext(ctx conte
 		return &v
 	}).(ProfileDnsConfigPtrOutput)
 }
+
+// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
 func (o ProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
 }
 
+// The TTL value of the Profile used by Local DNS resolvers and clients.
 func (o ProfileDnsConfigOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
 }
@@ -318,22 +334,31 @@ func (o ProfileDnsConfigPtrOutput) Elem() ProfileDnsConfigOutput {
 	return o.ApplyT(func(v *ProfileDnsConfig) ProfileDnsConfig { return *v }).(ProfileDnsConfigOutput)
 }
 
+// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
 func (o ProfileDnsConfigPtrOutput) RelativeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
 }
 
+// The TTL value of the Profile used by Local DNS resolvers and clients.
 func (o ProfileDnsConfigPtrOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
 }
 
 type ProfileMonitorConfig struct {
-	ExpectedStatusCodeRanges  []string `pulumi:"expectedStatusCodeRanges"`
-	IntervalInSeconds         *int     `pulumi:"intervalInSeconds"`
-	Path                      *string  `pulumi:"path"`
-	Port                      int      `pulumi:"port"`
-	Protocol                  string   `pulumi:"protocol"`
-	TimeoutInSeconds          *int     `pulumi:"timeoutInSeconds"`
-	ToleratedNumberOfFailures *int     `pulumi:"toleratedNumberOfFailures"`
+	// A list of status code ranges in the format of `100-101`.
+	ExpectedStatusCodeRanges []string `pulumi:"expectedStatusCodeRanges"`
+	// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+	Path *string `pulumi:"path"`
+	// The port number used by the monitoring checks.
+	Port int `pulumi:"port"`
+	// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+	Protocol string `pulumi:"protocol"`
+	// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+	ToleratedNumberOfFailures *int `pulumi:"toleratedNumberOfFailures"`
 }
 
 type ProfileMonitorConfigInput interface {
@@ -344,13 +369,20 @@ type ProfileMonitorConfigInput interface {
 }
 
 type ProfileMonitorConfigArgs struct {
-	ExpectedStatusCodeRanges  pulumi.StringArrayInput `pulumi:"expectedStatusCodeRanges"`
-	IntervalInSeconds         pulumi.IntPtrInput      `pulumi:"intervalInSeconds"`
-	Path                      pulumi.StringPtrInput   `pulumi:"path"`
-	Port                      pulumi.IntInput         `pulumi:"port"`
-	Protocol                  pulumi.StringInput      `pulumi:"protocol"`
-	TimeoutInSeconds          pulumi.IntPtrInput      `pulumi:"timeoutInSeconds"`
-	ToleratedNumberOfFailures pulumi.IntPtrInput      `pulumi:"toleratedNumberOfFailures"`
+	// A list of status code ranges in the format of `100-101`.
+	ExpectedStatusCodeRanges pulumi.StringArrayInput `pulumi:"expectedStatusCodeRanges"`
+	// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port number used by the monitoring checks.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+	ToleratedNumberOfFailures pulumi.IntPtrInput `pulumi:"toleratedNumberOfFailures"`
 }
 
 func (ProfileMonitorConfigArgs) ElementType() reflect.Type {
@@ -421,30 +453,38 @@ func (o ProfileMonitorConfigOutput) ToProfileMonitorConfigPtrOutputWithContext(c
 		return &v
 	}).(ProfileMonitorConfigPtrOutput)
 }
+
+// A list of status code ranges in the format of `100-101`.
 func (o ProfileMonitorConfigOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
 }
 
+// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
 func (o ProfileMonitorConfigOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
 func (o ProfileMonitorConfigOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number used by the monitoring checks.
 func (o ProfileMonitorConfigOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
 func (o ProfileMonitorConfigOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
 func (o ProfileMonitorConfigOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
 func (o ProfileMonitorConfigOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
 }
@@ -467,30 +507,37 @@ func (o ProfileMonitorConfigPtrOutput) Elem() ProfileMonitorConfigOutput {
 	return o.ApplyT(func(v *ProfileMonitorConfig) ProfileMonitorConfig { return *v }).(ProfileMonitorConfigOutput)
 }
 
+// A list of status code ranges in the format of `100-101`.
 func (o ProfileMonitorConfigPtrOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
 }
 
+// The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
 func (o ProfileMonitorConfigPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
 func (o ProfileMonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The port number used by the monitoring checks.
 func (o ProfileMonitorConfigPtrOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
 func (o ProfileMonitorConfigPtrOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
 func (o ProfileMonitorConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
 func (o ProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
 }

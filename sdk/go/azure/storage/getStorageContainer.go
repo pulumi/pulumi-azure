@@ -22,6 +22,7 @@ func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opt
 
 // A collection of arguments for invoking getStorageContainer.
 type GetStorageContainerArgs struct {
+	// A mapping of MetaData for this Container.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container.
 	Name string `pulumi:"name"`

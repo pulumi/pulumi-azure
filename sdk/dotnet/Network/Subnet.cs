@@ -252,11 +252,14 @@ namespace Pulumi.Azure.Network
     public sealed class SubnetDelegationsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the subnet. Changing this forces a new resource to be created.
+        /// A name for this delegation.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `service_delegation` block as defined below.
+        /// </summary>
         [Input("serviceDelegation", required: true)]
         public Input<SubnetDelegationsServiceDelegationArgs> ServiceDelegation { get; set; } = null!;
 
@@ -268,11 +271,14 @@ namespace Pulumi.Azure.Network
     public sealed class SubnetDelegationsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the subnet. Changing this forces a new resource to be created.
+        /// A name for this delegation.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// A `service_delegation` block as defined below.
+        /// </summary>
         [Input("serviceDelegation", required: true)]
         public Input<SubnetDelegationsServiceDelegationGetArgs> ServiceDelegation { get; set; } = null!;
 
@@ -285,6 +291,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("actions")]
         private InputList<string>? _actions;
+
+        /// <summary>
+        /// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
@@ -292,7 +302,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The name of the subnet. Changing this forces a new resource to be created.
+        /// The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -306,6 +316,10 @@ namespace Pulumi.Azure.Network
     {
         [Input("actions")]
         private InputList<string>? _actions;
+
+        /// <summary>
+        /// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
@@ -313,7 +327,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The name of the subnet. Changing this forces a new resource to be created.
+        /// The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -331,9 +345,12 @@ namespace Pulumi.Azure.Network
     public sealed class SubnetDelegations
     {
         /// <summary>
-        /// The name of the subnet. Changing this forces a new resource to be created.
+        /// A name for this delegation.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A `service_delegation` block as defined below.
+        /// </summary>
         public readonly SubnetDelegationsServiceDelegation ServiceDelegation;
 
         [OutputConstructor]
@@ -349,9 +366,12 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class SubnetDelegationsServiceDelegation
     {
+        /// <summary>
+        /// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+        /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
-        /// The name of the subnet. Changing this forces a new resource to be created.
+        /// The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
         /// </summary>
         public readonly string Name;
 

@@ -25,9 +25,11 @@ type LookupManagedDiskArgs struct {
 	// Specifies the name of the Managed Disk.
 	Name string `pulumi:"name"`
 	// Specifies the name of the Resource Group where this Managed Disk exists.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
-	Zones             []string          `pulumi:"zones"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones where the Managed Disk exists.
+	Zones []string `pulumi:"zones"`
 }
 
 // A collection of values returned by getManagedDisk.

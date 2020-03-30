@@ -9,6 +9,8 @@ export * from "./diagnosticSetting";
 export * from "./getActionGroup";
 export * from "./getDiagnosticCategories";
 export * from "./getLogProfile";
+export * from "./getScheduledQueryRulesAlert";
+export * from "./getScheduledQueryRulesLog";
 export * from "./logProfile";
 export * from "./metricAlert";
 export * from "./scheduledQueryRulesAlert";

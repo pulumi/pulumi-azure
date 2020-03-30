@@ -22,6 +22,7 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
+	// The Azure Region where the Service is located.
 	Location string `pulumi:"location"`
 	// Specifies the name of the Healthcare Service.
 	Name string `pulumi:"name"`
