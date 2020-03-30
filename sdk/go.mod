@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-azure/sdk
+module github.com/pulumi/pulumi-azure/sdk/v2
 
 go 1.13
 
