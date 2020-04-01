@@ -39,10 +39,10 @@ class Database(pulumi.CustomResource):
     """
     A `extended_auditing_policy` block as defined below.
 
-      * `retention_in_days` (`float`) - Specifies the number of days to retain logs for in the storage account.
-      * `storage_account_access_key` (`str`) - Specifies the access key to use for the auditing storage account.
-      * `storageAccountAccessKeyIsSecondary` (`bool`) - Specifies whether `storage_account_access_key` value is the storage's secondary key.
-      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+      * `retention_in_days` (`float`)
+      * `storage_account_access_key` (`str`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+      * `storageAccountAccessKeyIsSecondary` (`bool`)
+      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
     """
     import_: pulumi.Output[dict]
     """
@@ -155,10 +155,10 @@ class Database(pulumi.CustomResource):
 
         The **extended_auditing_policy** object supports the following:
 
-          * `retention_in_days` (`pulumi.Input[float]`) - Specifies the number of days to retain logs for in the storage account.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the access key to use for the auditing storage account.
-          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`) - Specifies whether `storage_account_access_key` value is the storage's secondary key.
-          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+          * `retention_in_days` (`pulumi.Input[float]`)
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`)
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 
         The **import_** object supports the following:
 
@@ -267,10 +267,10 @@ class Database(pulumi.CustomResource):
 
         The **extended_auditing_policy** object supports the following:
 
-          * `retention_in_days` (`pulumi.Input[float]`) - Specifies the number of days to retain logs for in the storage account.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the access key to use for the auditing storage account.
-          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`) - Specifies whether `storage_account_access_key` value is the storage's secondary key.
-          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+          * `retention_in_days` (`pulumi.Input[float]`)
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`)
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 
         The **import_** object supports the following:
 

@@ -23,7 +23,7 @@ class ApplicationGateway(pulumi.CustomResource):
     A `autoscale_configuration` block as defined below.
 
       * `maxCapacity` (`float`) - Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
-      * `minCapacity` (`float`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+      * `min_capacity` (`float`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
     """
     backend_address_pools: pulumi.Output[list]
     """
@@ -353,7 +353,7 @@ class ApplicationGateway(pulumi.CustomResource):
         The **autoscale_configuration** object supports the following:
 
           * `maxCapacity` (`pulumi.Input[float]`) - Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
-          * `minCapacity` (`pulumi.Input[float]`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+          * `min_capacity` (`pulumi.Input[float]`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
 
         The **backend_address_pools** object supports the following:
 
@@ -691,7 +691,7 @@ class ApplicationGateway(pulumi.CustomResource):
         The **autoscale_configuration** object supports the following:
 
           * `maxCapacity` (`pulumi.Input[float]`) - Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
-          * `minCapacity` (`pulumi.Input[float]`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+          * `min_capacity` (`pulumi.Input[float]`) - Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
 
         The **backend_address_pools** object supports the following:
 

@@ -43,7 +43,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
-     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
     public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
     /**
@@ -55,7 +55,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly diskMbpsReadWrite!: pulumi.Output<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
     /**
@@ -185,7 +185,7 @@ export interface ManagedDiskState {
      */
     readonly createOption?: pulumi.Input<string>;
     /**
-     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
     readonly diskEncryptionSetId?: pulumi.Input<string>;
     /**
@@ -197,7 +197,7 @@ export interface ManagedDiskState {
      */
     readonly diskMbpsReadWrite?: pulumi.Input<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
     /**
@@ -259,7 +259,7 @@ export interface ManagedDiskArgs {
      */
     readonly createOption: pulumi.Input<string>;
     /**
-     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
     readonly diskEncryptionSetId?: pulumi.Input<string>;
     /**
@@ -271,7 +271,7 @@ export interface ManagedDiskArgs {
      */
     readonly diskMbpsReadWrite?: pulumi.Input<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
     /**

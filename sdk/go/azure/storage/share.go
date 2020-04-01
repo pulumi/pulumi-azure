@@ -25,6 +25,8 @@ type Share struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
 	Quota pulumi.IntPtrOutput `pulumi:"quota"`
+	// The Resource Manager ID of this File Share.
+	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// Specifies the storage account in which to create the share.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
@@ -71,6 +73,8 @@ type shareState struct {
 	Name *string `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
 	Quota *int `pulumi:"quota"`
+	// The Resource Manager ID of this File Share.
+	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// Specifies the storage account in which to create the share.
 	// Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -87,6 +91,8 @@ type ShareState struct {
 	Name pulumi.StringPtrInput
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
 	Quota pulumi.IntPtrInput
+	// The Resource Manager ID of this File Share.
+	ResourceManagerId pulumi.StringPtrInput
 	// Specifies the storage account in which to create the share.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput

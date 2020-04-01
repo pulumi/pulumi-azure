@@ -51,7 +51,7 @@ export interface GetStorageContainerArgs {
      */
     readonly name: string;
     /**
-     * The name of the Storage Account where the Container was created.
+     * The name of the Storage Account where the Container exists.
      */
     readonly storageAccountName: string;
 }
@@ -77,6 +77,10 @@ export interface GetStorageContainerResult {
      */
     readonly metadata: {[key: string]: string};
     readonly name: string;
+    /**
+     * The Resource Manager ID of this Storage Container.
+     */
+    readonly resourceManagerId: string;
     readonly storageAccountName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

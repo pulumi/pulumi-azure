@@ -13,7 +13,7 @@ import (
 
 // Manages a Private Link Service.
 //
-// > **NOTE** Private Link is currently in Public Preview.
+// > **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_link_service.html.markdown.
 type LinkService struct {

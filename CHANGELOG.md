@@ -6,6 +6,13 @@ _(none)_
 
 ---
 
+## 2.3.1 (2020-03-30)
+* Bump consumable git modules to v2 as per [go documentation](https://github.com/golang/go/wiki/Modules#releasing-modules-v2-or-higher)
+
+## 2.3.0 (2020-03-30)
+* Upgrade to v2.3.0 of the AzureRM Terraform Provider
+* Upgrade to pulumi-terraform-bridge v1.8.4
+
 ## 2.2.0 (2020-03-24)
 * Rename resource `containerService.Webook` to `containerService.Webhook`
 * Upgrade to v2.2.0 of the AzureRM Terraform Provider

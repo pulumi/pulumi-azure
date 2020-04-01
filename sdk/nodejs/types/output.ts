@@ -5408,6 +5408,39 @@ export namespace containerservice {
 }
 
 export namespace core {
+    export interface CustomProviderAction {
+        /**
+         * Specifies the endpoint of the action. 
+         */
+        endpoint: string;
+        /**
+         * Specifies the name of the action. 
+         */
+        name: string;
+    }
+
+    export interface CustomProviderResourceType {
+        /**
+         * Specifies the endpoint of the route definition. 
+         */
+        endpoint: string;
+        /**
+         * Specifies the name of the route definition. 
+         */
+        name: string;
+        /**
+         * The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`. 
+         */
+        routingType?: string;
+    }
+
+    export interface CustomProviderValidation {
+        /**
+         * The endpoint where the validation specification is located. 
+         */
+        specification: string;
+    }
+
     export interface GetResourcesResource {
         /**
          * The ID of this Resource.
@@ -8406,6 +8439,9 @@ export namespace iot {
          * The weight applied to the IoT Hub. Defaults to 0.
          */
         allocationWeight?: number;
+        /**
+         * Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
+         */
         applyAllocationPolicy?: boolean;
         /**
          * The connection string to connect to the IoT Hub. Changing this forces a new resource.
@@ -8898,6 +8934,23 @@ export namespace lb {
          * The name of the Frontend IP Configuration.
          */
         name: string;
+    }
+}
+
+export namespace machinelearning {
+    export interface WorkspaceIdentity {
+        /**
+         * The (Client) ID of the Service Principal.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
     }
 }
 
@@ -9852,6 +9905,40 @@ export namespace mssql {
          * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
          */
         enabled?: boolean;
+    }
+
+    export interface VirtualMachineAutoPatching {
+        /**
+         * The day of week to apply the patch on.
+         */
+        dayOfWeek: string;
+        /**
+         * The size of the Maintenance Window in minutes.
+         */
+        maintenanceWindowDurationInMinutes: number;
+        /**
+         * The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+         */
+        maintenanceWindowStartingHour: number;
+    }
+
+    export interface VirtualMachineKeyVaultCredential {
+        /**
+         * The azure Key Vault url. Changing this forces a new resource to be created.
+         */
+        keyVaultUrl: string;
+        /**
+         * The credential name.
+         */
+        name: string;
+        /**
+         * The service principal name to access key vault. Changing this forces a new resource to be created.
+         */
+        servicePrincipalName: string;
+        /**
+         * The service principal name secret to access key vault. Changing this forces a new resource to be created.
+         */
+        servicePrincipalSecret: string;
     }
 }
 
@@ -11553,6 +11640,10 @@ export namespace network {
 
     export interface TrafficManagerProfileMonitorConfig {
         /**
+         * One or more `customHeader` blocks as defined below.
+         */
+        customHeaders?: outputs.network.TrafficManagerProfileMonitorConfigCustomHeader[];
+        /**
          * A list of status code ranges in the format of `100-101`.
          */
         expectedStatusCodeRanges?: string[];
@@ -11580,6 +11671,17 @@ export namespace network {
          * The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
          */
         toleratedNumberOfFailures?: number;
+    }
+
+    export interface TrafficManagerProfileMonitorConfigCustomHeader {
+        /**
+         * The name of the custom header.
+         */
+        name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: string;
     }
 
     export interface VirtualHubRoute {
@@ -12430,6 +12532,15 @@ export namespace servicefabric {
         certificateIssuerThumbprint?: string;
     }
 
+    export interface ClusterClientCertificateCommonName {
+        commonName: string;
+        /**
+         * Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+         */
+        isAdmin: boolean;
+        issuerThumbprint?: string;
+    }
+
     export interface ClusterClientCertificateThumbprint {
         /**
          * Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
@@ -12618,20 +12729,14 @@ export namespace siterecovery {
 
 export namespace sql {
     export interface DatabaseExtendedAuditingPolicy {
-        /**
-         * Specifies the number of days to retain logs for in the storage account.
-         */
         retentionInDays?: number;
         /**
-         * Specifies the access key to use for the auditing storage account.
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
          */
         storageAccountAccessKey: string;
-        /**
-         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-         */
         storageAccountAccessKeyIsSecondary?: boolean;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
          */
         storageEndpoint: string;
     }
@@ -13463,6 +13568,10 @@ export namespace trafficmanager {
 
     export interface ProfileMonitorConfig {
         /**
+         * One or more `customHeader` blocks as defined below.
+         */
+        customHeaders?: outputs.trafficmanager.ProfileMonitorConfigCustomHeader[];
+        /**
          * A list of status code ranges in the format of `100-101`.
          */
         expectedStatusCodeRanges?: string[];
@@ -13490,6 +13599,17 @@ export namespace trafficmanager {
          * The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
          */
         toleratedNumberOfFailures?: number;
+    }
+
+    export interface ProfileMonitorConfigCustomHeader {
+        /**
+         * The name of the custom header.
+         */
+        name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: string;
     }
 }
 

@@ -267,6 +267,18 @@ namespace Pulumi.Azure.TrafficManager
 
     public sealed class ProfileMonitorConfigArgs : Pulumi.ResourceArgs
     {
+        [Input("customHeaders")]
+        private InputList<ProfileMonitorConfigCustomHeadersArgs>? _customHeaders;
+
+        /// <summary>
+        /// One or more `custom_header` blocks as defined below.
+        /// </summary>
+        public InputList<ProfileMonitorConfigCustomHeadersArgs> CustomHeaders
+        {
+            get => _customHeaders ?? (_customHeaders = new InputList<ProfileMonitorConfigCustomHeadersArgs>());
+            set => _customHeaders = value;
+        }
+
         [Input("expectedStatusCodeRanges")]
         private InputList<string>? _expectedStatusCodeRanges;
 
@@ -320,8 +332,58 @@ namespace Pulumi.Azure.TrafficManager
         }
     }
 
+    public sealed class ProfileMonitorConfigCustomHeadersArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The name of the custom header.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
+
+        public ProfileMonitorConfigCustomHeadersArgs()
+        {
+        }
+    }
+
+    public sealed class ProfileMonitorConfigCustomHeadersGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The name of the custom header.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
+
+        public ProfileMonitorConfigCustomHeadersGetArgs()
+        {
+        }
+    }
+
     public sealed class ProfileMonitorConfigGetArgs : Pulumi.ResourceArgs
     {
+        [Input("customHeaders")]
+        private InputList<ProfileMonitorConfigCustomHeadersGetArgs>? _customHeaders;
+
+        /// <summary>
+        /// One or more `custom_header` blocks as defined below.
+        /// </summary>
+        public InputList<ProfileMonitorConfigCustomHeadersGetArgs> CustomHeaders
+        {
+            get => _customHeaders ?? (_customHeaders = new InputList<ProfileMonitorConfigCustomHeadersGetArgs>());
+            set => _customHeaders = value;
+        }
+
         [Input("expectedStatusCodeRanges")]
         private InputList<string>? _expectedStatusCodeRanges;
 
@@ -405,6 +467,10 @@ namespace Pulumi.Azure.TrafficManager
     public sealed class ProfileMonitorConfig
     {
         /// <summary>
+        /// One or more `custom_header` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<ProfileMonitorConfigCustomHeaders> CustomHeaders;
+        /// <summary>
         /// A list of status code ranges in the format of `100-101`.
         /// </summary>
         public readonly ImmutableArray<string> ExpectedStatusCodeRanges;
@@ -435,6 +501,7 @@ namespace Pulumi.Azure.TrafficManager
 
         [OutputConstructor]
         private ProfileMonitorConfig(
+            ImmutableArray<ProfileMonitorConfigCustomHeaders> customHeaders,
             ImmutableArray<string> expectedStatusCodeRanges,
             int? intervalInSeconds,
             string? path,
@@ -443,6 +510,7 @@ namespace Pulumi.Azure.TrafficManager
             int? timeoutInSeconds,
             int? toleratedNumberOfFailures)
         {
+            CustomHeaders = customHeaders;
             ExpectedStatusCodeRanges = expectedStatusCodeRanges;
             IntervalInSeconds = intervalInSeconds;
             Path = path;
@@ -450,6 +518,28 @@ namespace Pulumi.Azure.TrafficManager
             Protocol = protocol;
             TimeoutInSeconds = timeoutInSeconds;
             ToleratedNumberOfFailures = toleratedNumberOfFailures;
+        }
+    }
+
+    [OutputType]
+    public sealed class ProfileMonitorConfigCustomHeaders
+    {
+        /// <summary>
+        /// The name of the custom header.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// The value of custom header. Applicable for Http and Https protocol.
+        /// </summary>
+        public readonly string Value;
+
+        [OutputConstructor]
+        private ProfileMonitorConfigCustomHeaders(
+            string name,
+            string value)
+        {
+            Name = name;
+            Value = value;
         }
     }
     }

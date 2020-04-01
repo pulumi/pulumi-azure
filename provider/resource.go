@@ -20,18 +20,16 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/pulumi/pulumi/sdk/go/common/resource"
-
 	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/pulumi/pulumi-azure/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
+	"github.com/pulumi/pulumi/sdk/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/go/common/util/contract"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
-
-	"github.com/pulumi/pulumi-azure/provider/pkg/version"
 )
 
 const (
@@ -84,6 +82,7 @@ const (
 	azureMariaDB             = "MariaDB"             // MariaDB
 	azureEventGrid           = "EventGrid"           // Event Grid
 	azureEventHub            = "EventHub"            // Event Hub
+	azureMachineLearning     = "MachineLearning"     // Machine Learning Resources
 	azureManagement          = "Management"          // Management Resources
 	azureMaps                = "Maps"                // Maps
 	azureMarketPlace         = "Marketplace"         // Marketplace
@@ -554,6 +553,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_template_deployment": {Tok: azureResource(azureCore, "TemplateDeployment")},
+			"azurerm_custom_provider":     {Tok: azureResource(azureCore, "CustomProvider")},
 
 			// CDN
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
@@ -832,6 +832,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server_security_alert_policy": {
 				Tok: azureResource(azureMSSQL, "ServerSecurityAlertPolicy"),
 			},
+			"azurerm_mssql_database":        {Tok: azureResource(azureMSSQL, "Database")},
+			"azurerm_mssql_virtual_machine": {Tok: azureResource(azureMSSQL, "VirtualMachine")},
 
 			// MySQL
 			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
@@ -851,6 +853,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_assignment":     {Tok: azureResource(azurePolicy, "Assignment")},
 			"azurerm_policy_definition":     {Tok: azureResource(azurePolicy, "Definition")},
 			"azurerm_policy_set_definition": {Tok: azureResource(azurePolicy, "PolicySetDefinition")},
+			"azurerm_policy_remediation":    {Tok: azureResource(azurePolicy, "Remediation")},
 
 			// Private Dns
 			"azurerm_private_dns_a_record":     {Tok: azureResource(azurePrivateDNS, "ARecord")},
@@ -1238,13 +1241,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iotcentral_application": {Tok: azureResource(azureIotCentral, "Application")},
 
 			// HPC
-			"azurerm_hpc_cache": {Tok: azureResource(azureHpc, "Cache")},
+			"azurerm_hpc_cache":             {Tok: azureResource(azureHpc, "Cache")},
+			"azurerm_hpc_cache_blob_target": {Tok: azureResource(azureHpc, "CacheBlobTarget")},
 
 			// Mixed Reality
 			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
 
 			// PowerBI
 			"azurerm_powerbi_embedded": {Tok: azureResource(azurePowerBi, "Embedded")},
+
+			// Machine Learning
+			"azurerm_machine_learning_workspace": {Tok: azureResource(azureMachineLearning, "Workspace")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1324,6 +1331,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureDataSource(azureMonitoring, "getScheduledQueryRulesLog"),
 			},
 			"azurerm_mssql_elasticpool": {Tok: azureDataSource(azureMSSQL, "getElasticPool")},
+			"azurerm_mssql_database":    {Tok: azureDataSource(azureMSSQL, "getDatabase")},
 			"azurerm_dns_zone":          {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
@@ -1371,6 +1379,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subnet":                       {Tok: azureDataSource(azureNetwork, "getSubnet")},
 			"azurerm_route_table":                  {Tok: azureDataSource(azureNetwork, "getRouteTable")},
 			"azurerm_network_ddos_protection_plan": {Tok: azureDataSource(azureNetwork, "getNetworkDdosProtectionPlan")},
+			"azurerm_network_service_tags":         {Tok: azureDataSource(azureNetwork, "getServiceTags")},
 			"azurerm_express_route_circuit": {
 				Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1437,7 +1446,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_topic_authorization_rule": {
 				Tok: azureDataSource(azureServiceBus, "getTopicAuthorizationRule"),
 			},
-			"azurerm_app_configuration": {Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore")},
+			"azurerm_app_configuration": {
+				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
+			},
+			"azurerm_machine_learning_workspace": {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			AsyncDataSources: true,

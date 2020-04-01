@@ -18,6 +18,10 @@ class Cache(pulumi.CustomResource):
     """
     Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
     """
+    mount_addresses: pulumi.Output[list]
+    """
+    A list of IP Addresses where the HPC Cache can be mounted.
+    """
     name: pulumi.Output[str]
     """
     The name of the HPC Cache. Changing this forces a new resource to be created.
@@ -82,6 +86,7 @@ class Cache(pulumi.CustomResource):
             if subnet_id is None:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
+            __props__['mount_addresses'] = None
         super(Cache, __self__).__init__(
             'azure:hpc/cache:Cache',
             resource_name,
@@ -89,7 +94,7 @@ class Cache(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cache_size_in_gb=None, location=None, name=None, resource_group_name=None, sku_name=None, subnet_id=None):
+    def get(resource_name, id, opts=None, cache_size_in_gb=None, location=None, mount_addresses=None, name=None, resource_group_name=None, sku_name=None, subnet_id=None):
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -99,6 +104,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
@@ -110,6 +116,7 @@ class Cache(pulumi.CustomResource):
 
         __props__["cache_size_in_gb"] = cache_size_in_gb
         __props__["location"] = location
+        __props__["mount_addresses"] = mount_addresses
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["sku_name"] = sku_name

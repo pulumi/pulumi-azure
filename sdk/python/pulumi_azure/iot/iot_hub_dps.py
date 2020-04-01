@@ -27,7 +27,7 @@ class IotHubDps(pulumi.CustomResource):
     A `linked_hub` block as defined below.
 
       * `allocationWeight` (`float`) - The weight applied to the IoT Hub. Defaults to 0.
-      * `applyAllocationPolicy` (`bool`)
+      * `applyAllocationPolicy` (`bool`) - Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
       * `connection_string` (`str`) - The connection string to connect to the IoT Hub. Changing this forces a new resource.
       * `hostname` (`str`) - The IoT Hub hostname.
       * `location` (`str`) - The location of the IoT hub. Changing this forces a new resource.
@@ -77,7 +77,7 @@ class IotHubDps(pulumi.CustomResource):
         The **linked_hubs** object supports the following:
 
           * `allocationWeight` (`pulumi.Input[float]`) - The weight applied to the IoT Hub. Defaults to 0.
-          * `applyAllocationPolicy` (`pulumi.Input[bool]`)
+          * `applyAllocationPolicy` (`pulumi.Input[bool]`) - Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
           * `connection_string` (`pulumi.Input[str]`) - The connection string to connect to the IoT Hub. Changing this forces a new resource.
           * `hostname` (`pulumi.Input[str]`) - The IoT Hub hostname.
           * `location` (`pulumi.Input[str]`) - The location of the IoT hub. Changing this forces a new resource.
@@ -147,7 +147,7 @@ class IotHubDps(pulumi.CustomResource):
         The **linked_hubs** object supports the following:
 
           * `allocationWeight` (`pulumi.Input[float]`) - The weight applied to the IoT Hub. Defaults to 0.
-          * `applyAllocationPolicy` (`pulumi.Input[bool]`)
+          * `applyAllocationPolicy` (`pulumi.Input[bool]`) - Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
           * `connection_string` (`pulumi.Input[str]`) - The connection string to connect to the IoT Hub. Changing this forces a new resource.
           * `hostname` (`pulumi.Input[str]`) - The IoT Hub hostname.
           * `location` (`pulumi.Input[str]`) - The location of the IoT hub. Changing this forces a new resource.
