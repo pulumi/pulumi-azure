@@ -14,7 +14,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/pulumi/pulumi/pkg/testing/integration"
+	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
 func TestAccMinimal(t *testing.T) {
@@ -254,7 +254,7 @@ func TestAccCosmosDb(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "cosmosdb"),
+			Dir: path.Join(getCwd(t), "cosmosdb"),
 			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 

@@ -21,7 +21,7 @@ import (
 
 	azure "github.com/pulumi/pulumi-azure/provider/v2"
 	"github.com/pulumi/pulumi-azure/provider/v2/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 )
 
 // The AzureRM Terraform Provider has a setting named ARM_PROVIDER_STRICT, the bulk
