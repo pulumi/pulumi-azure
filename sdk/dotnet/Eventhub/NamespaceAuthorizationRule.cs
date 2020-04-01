@@ -12,6 +12,8 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule.html.markdown.
     /// </summary>
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource

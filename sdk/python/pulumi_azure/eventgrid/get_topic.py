@@ -69,6 +69,8 @@ def get_topic(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an existing EventGrid Topic
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventgrid_topic.html.markdown.
 
 

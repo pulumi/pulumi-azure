@@ -38,6 +38,8 @@ class AnalyticsAccount(pulumi.CustomResource):
         """
         Manages an Azure Data Lake Analytics Account.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_account.html.markdown.
 
         :param str resource_name: The name of the resource.

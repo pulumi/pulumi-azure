@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a backend within an API Management Service.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_backend.html.markdown.
     /// </summary>
     public partial class Backend : Pulumi.CustomResource

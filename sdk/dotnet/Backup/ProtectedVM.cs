@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Backup
     /// <summary>
     /// Manages Azure Backup for an Azure VM
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_vm.markdown.
     /// </summary>
     public partial class ProtectedVM : Pulumi.CustomResource

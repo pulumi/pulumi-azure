@@ -14,6 +14,8 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// Use this data source to access information about an existing Azure SignalR service.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/signalr_service.html.markdown.
         /// </summary>
         [Obsolete("Use GetService.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.SignalR
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure SignalR service.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/signalr_service.html.markdown.
         /// </summary>

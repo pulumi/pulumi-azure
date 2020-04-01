@@ -30,6 +30,8 @@ class CustomerManagedKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a Storage Account.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_customer_managed_key.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Google Identity Provider.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_google.html.markdown.
     /// </summary>
     public partial class IdentityProviderGoogle : Pulumi.CustomResource

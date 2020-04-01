@@ -54,6 +54,8 @@ class StreamInputIotHub(pulumi.CustomResource):
         """
         Manages a Stream Analytics Stream Input IoTHub.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_iothub.html.markdown.
 
         :param str resource_name: The name of the resource.

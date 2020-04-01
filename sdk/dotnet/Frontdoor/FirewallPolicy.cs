@@ -12,6 +12,8 @@ namespace Pulumi.Azure.FrontDoor
     /// <summary>
     /// Manages an Azure Front Door Web Application Firewall Policy instance.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor_firewall_policy.html.markdown.
     /// </summary>
     public partial class FirewallPolicy : Pulumi.CustomResource

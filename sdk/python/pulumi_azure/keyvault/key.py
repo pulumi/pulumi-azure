@@ -70,6 +70,8 @@ class Key(pulumi.CustomResource):
         """
         Manages a Key Vault Key.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_autoscale_setting.html.markdown.
     /// </summary>
     public partial class AutoscaleSetting : Pulumi.CustomResource

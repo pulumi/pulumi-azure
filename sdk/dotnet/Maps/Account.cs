@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Maps
     /// <summary>
     /// Manages an Azure Maps Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/maps_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource

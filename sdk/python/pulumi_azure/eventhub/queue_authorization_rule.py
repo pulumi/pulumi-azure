@@ -58,6 +58,8 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule.html.markdown.
 
         :param str resource_name: The name of the resource.

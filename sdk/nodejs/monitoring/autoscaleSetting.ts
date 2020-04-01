@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
  * 
+ * 
  * ## Example Usage (repeating on weekends)
  * 
  * ```typescript

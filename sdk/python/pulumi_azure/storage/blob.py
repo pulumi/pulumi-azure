@@ -68,6 +68,8 @@ class Blob(pulumi.CustomResource):
         """
         Manages a Blob within a Storage Container.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
 
         :param str resource_name: The name of the resource.

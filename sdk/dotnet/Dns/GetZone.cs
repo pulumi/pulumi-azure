@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// Use this data source to access information about an existing DNS Zone.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
         /// </summary>
         [Obsolete("Use GetZone.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Dns
     {
         /// <summary>
         /// Use this data source to access information about an existing DNS Zone.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
         /// </summary>

@@ -14,6 +14,8 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// &gt; **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_virtual_network_rule.html.markdown.
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource

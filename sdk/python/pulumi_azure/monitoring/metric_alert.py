@@ -76,6 +76,8 @@ class MetricAlert(pulumi.CustomResource):
         """
         Manages a Metric Alert within Azure Monitor.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
 
         :param str resource_name: The name of the resource.

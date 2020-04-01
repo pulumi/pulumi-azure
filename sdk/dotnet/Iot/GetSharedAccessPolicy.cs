@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Use this data source to access information about an existing IotHub Shared Access Policy
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
         /// </summary>
         [Obsolete("Use GetSharedAccessPolicy.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Iot
     {
         /// <summary>
         /// Use this data source to access information about an existing IotHub Shared Access Policy
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
         /// </summary>

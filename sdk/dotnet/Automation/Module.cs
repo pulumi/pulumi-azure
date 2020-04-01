@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a Automation Module.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
     /// </summary>
     public partial class Module : Pulumi.CustomResource

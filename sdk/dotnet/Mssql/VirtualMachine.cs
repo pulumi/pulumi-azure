@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a Microsoft SQL Virtual Machine
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_virtual_machine.html.markdown.
     /// </summary>
     public partial class VirtualMachine : Pulumi.CustomResource

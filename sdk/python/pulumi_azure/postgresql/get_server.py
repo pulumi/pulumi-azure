@@ -75,6 +75,8 @@ def get_server(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing PostgreSQL Azure Database Server.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
 
 

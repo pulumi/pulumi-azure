@@ -12,6 +12,9 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a Logger within an API Management Service.
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
     /// </summary>
     public partial class Logger : Pulumi.CustomResource

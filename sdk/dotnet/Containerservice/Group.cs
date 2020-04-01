@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages as an Azure Container Group instance.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_group.html.markdown.
     /// </summary>
     public partial class Group : Pulumi.CustomResource

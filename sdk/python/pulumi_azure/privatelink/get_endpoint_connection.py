@@ -56,6 +56,8 @@ def get_endpoint_connection(name=None,resource_group_name=None,opts=None):
 
     > **NOTE** Private Endpoint is currently in Public Preview.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_endpoint_connection.html.markdown.
 
 

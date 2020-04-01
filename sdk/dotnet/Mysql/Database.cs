@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MySql
     /// <summary>
     /// Manages a MySQL Database within a MySQL Server
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_database.html.markdown.
     /// </summary>
     public partial class Database : Pulumi.CustomResource

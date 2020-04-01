@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Image.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
  */

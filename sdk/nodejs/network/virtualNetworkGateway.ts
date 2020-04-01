@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
  * 
  * > **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
  */

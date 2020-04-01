@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Linked Service (connection) between PostgreSQL and Azure Data Factory.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_postgresql.html.markdown.
  */

@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about a Platform Image.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
         /// </summary>
         [Obsolete("Use GetPlatformImage.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about a Platform Image.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
         /// </summary>

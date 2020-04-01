@@ -14,6 +14,8 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// &gt; **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
     /// </summary>
     public partial class Topic : Pulumi.CustomResource

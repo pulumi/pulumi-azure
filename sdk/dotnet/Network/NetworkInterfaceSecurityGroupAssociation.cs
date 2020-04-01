@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages the association between a Network Interface and a Network Security Group.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_security_group_association.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceSecurityGroupAssociation : Pulumi.CustomResource

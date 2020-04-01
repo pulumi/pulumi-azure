@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Sql
         /// <summary>
         /// Use this data source to access information about an existing SQL Azure Database.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
         /// </summary>
         [Obsolete("Use GetDatabase.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// Use this data source to access information about an existing SQL Azure Database.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
         /// </summary>

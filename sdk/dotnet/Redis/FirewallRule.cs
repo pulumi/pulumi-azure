@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Firewall Rule associated with a Redis Cache.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_firewall_rule.html.markdown.
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource

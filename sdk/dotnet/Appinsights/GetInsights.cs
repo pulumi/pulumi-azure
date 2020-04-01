@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Use this data source to access information about an existing Application Insights component.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
         /// </summary>
         [Obsolete("Use GetInsights.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.AppInsights
     {
         /// <summary>
         /// Use this data source to access information about an existing Application Insights component.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
         /// </summary>

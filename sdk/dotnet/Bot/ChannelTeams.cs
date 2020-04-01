@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; **Note** A bot can only have a single MS Teams Channel associated with it.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_ms_teams.markdown.
     /// </summary>
     public partial class ChannelTeams : Pulumi.CustomResource

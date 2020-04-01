@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MediaServices
     /// <summary>
     /// Manages a Media Services Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource

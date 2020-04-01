@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Environment.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_environment.html.markdown.
     /// </summary>
     public partial class Environment : Pulumi.CustomResource

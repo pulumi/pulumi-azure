@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Dedicated Host within a Dedicated Host Group.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host.html.markdown.
  */

@@ -12,6 +12,9 @@ namespace Pulumi.Azure.DevTest
     /// <summary>
     /// Manages automated startup and shutdown schedules for Azure Dev Test Lab.
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ServiceBus
     /// <summary>
     /// Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
     /// </summary>
     public partial class TopicAuthorizationRule : Pulumi.CustomResource

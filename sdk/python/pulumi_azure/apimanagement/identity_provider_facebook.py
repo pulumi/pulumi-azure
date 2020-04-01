@@ -30,6 +30,8 @@ class IdentityProviderFacebook(pulumi.CustomResource):
         """
         Manages an API Management Facebook Identity Provider.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_facebook.html.markdown.
 
         :param str resource_name: The name of the resource.

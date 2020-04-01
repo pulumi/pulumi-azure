@@ -47,6 +47,8 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
     """
     Use this data source to access information about all the Subscriptions currently available.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
 
 

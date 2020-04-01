@@ -14,6 +14,8 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// &gt; **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_link_service.html.markdown.
     /// </summary>
     public partial class LinkService : Pulumi.CustomResource

@@ -16,6 +16,8 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// &gt; **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.markdown.
     /// </summary>
     public partial class SubscriptionPricing : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a ServiceBus Queue.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
     /// </summary>
     public partial class Queue : Pulumi.CustomResource

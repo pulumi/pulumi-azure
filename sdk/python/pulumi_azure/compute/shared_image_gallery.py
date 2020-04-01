@@ -38,6 +38,8 @@ class SharedImageGallery(pulumi.CustomResource):
         """
         Manages a Shared Image Gallery.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_gallery.html.markdown.
 
         :param str resource_name: The name of the resource.

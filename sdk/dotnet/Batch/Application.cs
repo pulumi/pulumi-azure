@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Batch
     /// <summary>
     /// Manages Azure Batch Application instance.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
     /// </summary>
     public partial class Application : Pulumi.CustomResource

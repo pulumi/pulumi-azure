@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Cognitive
     /// <summary>
     /// Manages a Cognitive Services Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cognitive_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource

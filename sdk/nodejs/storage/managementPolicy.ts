@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Storage Account Management Policy.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
  */

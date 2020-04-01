@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management Service Diagnostic.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_diagnostic.html.markdown.
     /// </summary>
     public partial class Diagnostic : Pulumi.CustomResource

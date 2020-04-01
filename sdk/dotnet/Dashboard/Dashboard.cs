@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Dashboard
     /// <summary>
     /// Manages a shared dashboard in the Azure Portal.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dashboard.html.markdown.
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource

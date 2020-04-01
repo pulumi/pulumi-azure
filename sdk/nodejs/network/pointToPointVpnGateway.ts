@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Point-to-Site VPN Gateway.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/point_to_site_vpn_gateway.html.markdown.
  */

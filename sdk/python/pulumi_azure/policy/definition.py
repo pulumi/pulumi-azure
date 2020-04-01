@@ -62,6 +62,8 @@ class Definition(pulumi.CustomResource):
 
         Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_definition.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Custom Trigger within a Logic App Workflow
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_custom.html.markdown.
     /// </summary>
     public partial class TriggerCustom : Pulumi.CustomResource

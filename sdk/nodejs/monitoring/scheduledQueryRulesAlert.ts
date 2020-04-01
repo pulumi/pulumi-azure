@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_scheduled_query_rules_alert.html.markdown.
  */

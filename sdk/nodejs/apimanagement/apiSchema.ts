@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Schema within an API Management Service.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_schema.html.markdown.
  */

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.SecurityCenter
     /// <summary>
     /// Manages a resources Advanced Threat Protection setting.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
     /// </summary>
     public partial class AdvancedThreatProtection : Pulumi.CustomResource

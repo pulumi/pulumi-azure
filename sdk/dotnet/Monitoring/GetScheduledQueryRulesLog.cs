@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
         /// </summary>
         [Obsolete("Use GetScheduledQueryRulesLog.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Monitoring
     {
         /// <summary>
         /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
         /// </summary>

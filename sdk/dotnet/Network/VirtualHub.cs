@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Virtual Hub within a Virtual WAN.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub.html.markdown.
     /// </summary>
     public partial class VirtualHub : Pulumi.CustomResource

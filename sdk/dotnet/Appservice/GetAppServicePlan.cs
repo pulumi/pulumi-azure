@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
         /// </summary>
         [Obsolete("Use GetAppServicePlan.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
         /// </summary>

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an ExpressRoute circuit.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
     /// </summary>
     public partial class ExpressRouteCircuit : Pulumi.CustomResource

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Management Group.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */

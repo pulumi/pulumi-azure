@@ -14,6 +14,8 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// Use this data source to access information about an existing Stream Analytics Job.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
         /// </summary>
         [Obsolete("Use GetJob.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.StreamAnalytics
     {
         /// <summary>
         /// Use this data source to access information about an existing Stream Analytics Job.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
         /// </summary>

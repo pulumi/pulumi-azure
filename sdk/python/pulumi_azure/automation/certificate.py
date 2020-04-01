@@ -39,6 +39,8 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an Automation Certificate.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
 
         :param str resource_name: The name of the resource.

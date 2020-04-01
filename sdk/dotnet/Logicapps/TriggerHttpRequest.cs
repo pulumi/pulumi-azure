@@ -12,6 +12,8 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a HTTP Request Trigger within a Logic App Workflow
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_http_request.html.markdown.
     /// </summary>
     public partial class TriggerHttpRequest : Pulumi.CustomResource

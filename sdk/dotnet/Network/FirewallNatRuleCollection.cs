@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a NAT Rule Collection within an Azure Firewall.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_nat_rule_collection.html.markdown.
     /// </summary>
     public partial class FirewallNatRuleCollection : Pulumi.CustomResource

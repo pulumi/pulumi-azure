@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
         /// </summary>
         [Obsolete("Use GetSharedImageVersion.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
         /// </summary>

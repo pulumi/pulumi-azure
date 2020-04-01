@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MariaDB
     /// <summary>
     /// Manages a MariaDB Database within a MariaDB Server
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_database.html.markdown.
     /// </summary>
     public partial class Database : Pulumi.CustomResource

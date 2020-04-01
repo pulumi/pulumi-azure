@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Healthcare
     /// <summary>
     /// Manages a Healthcare Service.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/healthcare_service.html.markdown.
     /// </summary>
     public partial class Service : Pulumi.CustomResource

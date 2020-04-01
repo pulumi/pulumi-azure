@@ -61,6 +61,8 @@ def get_resources(name=None,required_tags=None,resource_group_name=None,type=Non
     """
     Use this data source to access information about existing resources.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
 
 

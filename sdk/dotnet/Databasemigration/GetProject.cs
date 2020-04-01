@@ -14,6 +14,8 @@ namespace Pulumi.Azure.DatabaseMigration
         /// <summary>
         /// Use this data source to access information about an existing Database Migration Project.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_project.html.markdown.
         /// </summary>
         [Obsolete("Use GetProject.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.DatabaseMigration
     {
         /// <summary>
         /// Use this data source to access information about an existing Database Migration Project.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_project.html.markdown.
         /// </summary>

@@ -104,6 +104,8 @@ def get_maria_db_server(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing MariaDB Server.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
 
 

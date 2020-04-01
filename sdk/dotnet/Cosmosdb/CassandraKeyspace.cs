@@ -12,6 +12,8 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Cassandra KeySpace within a Cosmos DB Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown.
     /// </summary>
     public partial class CassandraKeyspace : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Sql
     /// <summary>
     /// Allows you to manage an Azure SQL Firewall Rule
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_firewall_rule.html.markdown.
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource

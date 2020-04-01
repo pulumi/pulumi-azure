@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Marketplace
     /// <summary>
     /// Allows accepting the Legal Terms for a Marketplace Image.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
     /// </summary>
     public partial class Agreement : Pulumi.CustomResource

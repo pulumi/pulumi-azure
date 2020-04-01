@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Connection for a Virtual Hub.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub_connection.html.markdown.
  */

@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Use this data source to access the properties of a Log Profile.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
         /// </summary>
         [Obsolete("Use GetLogProfile.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Monitoring
     {
         /// <summary>
         /// Use this data source to access the properties of a Log Profile.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
         /// </summary>

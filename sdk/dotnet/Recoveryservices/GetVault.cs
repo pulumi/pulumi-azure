@@ -14,6 +14,8 @@ namespace Pulumi.Azure.RecoveryServices
         /// <summary>
         /// Use this data source to access information about an existing Recovery Services Vault.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.markdown.
         /// </summary>
         [Obsolete("Use GetVault.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.RecoveryServices
     {
         /// <summary>
         /// Use this data source to access information about an existing Recovery Services Vault.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.markdown.
         /// </summary>

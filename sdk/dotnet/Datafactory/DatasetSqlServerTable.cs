@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a SQL Server Table Dataset inside a Azure Data Factory.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_sql_server_table.html.markdown.
     /// </summary>
     public partial class DatasetSqlServerTable : Pulumi.CustomResource

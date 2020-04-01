@@ -14,6 +14,8 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// Use this data source to access information about an existing Logic App Workflow.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
         /// </summary>
         [Obsolete("Use GetWorkflow.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.LogicApps
     {
         /// <summary>
         /// Use this data source to access information about an existing Logic App Workflow.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
         /// </summary>

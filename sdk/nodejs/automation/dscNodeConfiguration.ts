@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation DSC Node Configuration.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_nodeconfiguration.html.markdown.
  */

@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Use this data source to access information about a Function App.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
         /// </summary>
         [Obsolete("Use GetFunctionApp.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// Use this data source to access information about a Function App.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
         /// </summary>

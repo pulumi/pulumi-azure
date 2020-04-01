@@ -68,6 +68,8 @@ def get_log_profile(name=None,opts=None):
     """
     Use this data source to access the properties of a Log Profile.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
 
 

@@ -14,6 +14,8 @@ namespace Pulumi.Azure.MariaDB
         /// <summary>
         /// Use this data source to access information about an existing MariaDB Server.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
         /// </summary>
         [Obsolete("Use GetMariaDbServer.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.MariaDB
     {
         /// <summary>
         /// Use this data source to access information about an existing MariaDB Server.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
         /// </summary>

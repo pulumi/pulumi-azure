@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Authorization
     /// <summary>
     /// Manages a user assigned identity.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.markdown.
     /// </summary>
     public partial class UserAssignedIdentity : Pulumi.CustomResource

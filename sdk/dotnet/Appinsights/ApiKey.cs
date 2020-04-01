@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppInsights
     /// <summary>
     /// Manages an Application Insights API key.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
     /// </summary>
     public partial class ApiKey : Pulumi.CustomResource

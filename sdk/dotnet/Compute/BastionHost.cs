@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
     /// </summary>
     public partial class BastionHost : Pulumi.CustomResource

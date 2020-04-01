@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages an Azure Custom Provider.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/custom_provider.html.markdown.
     /// </summary>
     public partial class CustomProvider : Pulumi.CustomResource

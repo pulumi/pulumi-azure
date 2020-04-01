@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Azure Web Application Firewall Policy instance.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
  */

@@ -14,6 +14,8 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
         /// </summary>
         [Obsolete("Use GetAnalyticsWorkspace.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.OperationalInsights
     {
         /// <summary>
         /// Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
         /// </summary>

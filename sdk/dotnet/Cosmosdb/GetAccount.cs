@@ -14,6 +14,8 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
         /// </summary>
         [Obsolete("Use GetAccount.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.CosmosDB
     {
         /// <summary>
         /// Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
         /// </summary>

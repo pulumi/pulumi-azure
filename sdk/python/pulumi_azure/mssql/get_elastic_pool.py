@@ -93,6 +93,8 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
     """
     Use this data source to access information about an existing SQL elastic pool.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
 
 

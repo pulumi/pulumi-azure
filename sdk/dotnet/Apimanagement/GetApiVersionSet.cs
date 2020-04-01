@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Uses this data source to access information about an API Version Set within an API Management Service.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
         /// </summary>
         [Obsolete("Use GetApiVersionSet.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.ApiManagement
     {
         /// <summary>
         /// Uses this data source to access information about an API Version Set within an API Management Service.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
         /// </summary>

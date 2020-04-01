@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppInsights
     /// <summary>
     /// Manages an Application Insights component.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
     /// </summary>
     public partial class Insights : Pulumi.CustomResource

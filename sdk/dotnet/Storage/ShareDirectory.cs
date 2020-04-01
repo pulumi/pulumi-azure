@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Directory within an Azure Storage File Share.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share_directory.html.markdown.
     /// </summary>
     public partial class ShareDirectory : Pulumi.CustomResource

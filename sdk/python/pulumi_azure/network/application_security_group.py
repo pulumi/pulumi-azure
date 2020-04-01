@@ -30,6 +30,8 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         """
         Manages an Application Security Group.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_security_group.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -89,6 +89,8 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
 
         :param str resource_name: The name of the resource.

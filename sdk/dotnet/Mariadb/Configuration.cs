@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MariaDB
     /// <summary>
     /// Sets a MariaDB Configuration value on a MariaDB Server.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_configuration.html.markdown.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource

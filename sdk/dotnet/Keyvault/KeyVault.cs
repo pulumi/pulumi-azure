@@ -18,6 +18,8 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
     /// </summary>
     public partial class KeyVault : Pulumi.CustomResource

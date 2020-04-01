@@ -54,6 +54,8 @@ class EventhubDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_eventhub_data_connection.html.markdown.
 
         :param str resource_name: The name of the resource.

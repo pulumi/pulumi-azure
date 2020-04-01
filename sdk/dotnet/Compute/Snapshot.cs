@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Disk Snapshot.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource

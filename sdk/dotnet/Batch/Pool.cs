@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Batch
     /// <summary>
     /// Manages an Azure Batch pool.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
     /// </summary>
     public partial class Pool : Pulumi.CustomResource

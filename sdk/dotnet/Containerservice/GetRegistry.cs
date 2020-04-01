@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Container Registry.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.markdown.
         /// </summary>
         [Obsolete("Use GetRegistry.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to access information about an existing Container Registry.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.markdown.
         /// </summary>

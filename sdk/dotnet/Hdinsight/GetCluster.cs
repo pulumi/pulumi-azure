@@ -14,6 +14,8 @@ namespace Pulumi.Azure.HDInsight
         /// <summary>
         /// Use this data source to access information about an existing HDInsight Cluster.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
         /// </summary>
         [Obsolete("Use GetCluster.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.HDInsight
     {
         /// <summary>
         /// Use this data source to access information about an existing HDInsight Cluster.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
         /// </summary>

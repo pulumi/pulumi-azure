@@ -12,6 +12,8 @@ namespace Pulumi.Azure.RecoveryServices
     /// <summary>
     /// Manages an Recovery Services Vault.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_vault.markdown.
     /// </summary>
     public partial class Vault : Pulumi.CustomResource

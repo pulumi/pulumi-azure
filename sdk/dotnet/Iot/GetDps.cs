@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
         /// </summary>
         [Obsolete("Use GetDps.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Iot
     {
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
         /// </summary>

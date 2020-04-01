@@ -122,6 +122,7 @@ class Cache(pulumi.CustomResource):
         """
         Manages a Redis Cache.
 
+
         ## Default Redis Configuration Values
 
         | Redis Value                     | Basic        | Standard     | Premium      |

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure App Configuration.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_configuration.html.markdown.
  */

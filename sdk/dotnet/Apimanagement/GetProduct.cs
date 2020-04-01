@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Use this data source to access information about an existing API Management Product.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
         /// </summary>
         [Obsolete("Use GetProduct.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.ApiManagement
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management Product.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
         /// </summary>

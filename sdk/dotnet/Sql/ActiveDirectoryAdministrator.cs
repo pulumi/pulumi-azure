@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Sql
     /// <summary>
     /// Allows you to set a user or group as the AD administrator for an Azure SQL server
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.markdown.
     /// </summary>
     public partial class ActiveDirectoryAdministrator : Pulumi.CustomResource

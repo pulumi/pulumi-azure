@@ -30,6 +30,8 @@ class CassandraKeyspace(pulumi.CustomResource):
         """
         Manages a Cassandra KeySpace within a Cosmos DB Account.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Microsoft Identity Provider.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_microsoft.html.markdown.
  */

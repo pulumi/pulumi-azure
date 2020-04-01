@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_packet_capture.html.markdown.
     /// </summary>
     public partial class NetworkPacketCapture : Pulumi.CustomResource

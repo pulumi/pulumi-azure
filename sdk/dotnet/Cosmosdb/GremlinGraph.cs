@@ -12,6 +12,8 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a Gremlin Graph within a Cosmos DB Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_graph.html.markdown.
     /// </summary>
     public partial class GremlinGraph : Pulumi.CustomResource

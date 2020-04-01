@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
         /// </summary>
         [Obsolete("Use GetKubernetesServiceVersions.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
         /// </summary>

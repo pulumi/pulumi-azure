@@ -30,6 +30,8 @@ class IotHubCertificate(pulumi.CustomResource):
         """
         Manages an IotHub Device Provisioning Service Certificate. 
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_certificate.html.markdown.
 
         :param str resource_name: The name of the resource.

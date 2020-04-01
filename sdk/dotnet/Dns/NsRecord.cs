@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Dns
     /// <summary>
     /// Enables you to manage DNS NS Records within Azure DNS.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ns_record.html.markdown.
     /// </summary>
     public partial class NsRecord : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DevTest
     /// <summary>
     /// Manages a Windows Virtual Machine within a Dev Test Lab.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
     /// </summary>
     public partial class WindowsVirtualMachine : Pulumi.CustomResource

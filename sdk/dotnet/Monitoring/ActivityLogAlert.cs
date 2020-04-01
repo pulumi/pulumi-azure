@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Activity Log Alert within Azure Monitor.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
     /// </summary>
     public partial class ActivityLogAlert : Pulumi.CustomResource

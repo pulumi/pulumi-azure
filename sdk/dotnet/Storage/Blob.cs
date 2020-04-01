@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Blob within a Storage Container.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
     /// </summary>
     public partial class Blob : Pulumi.CustomResource

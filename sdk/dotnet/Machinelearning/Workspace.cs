@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MachineLearning
     /// <summary>
     /// Manages a Azure Machine Learning Workspace
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/machine_learning_workspace.html.markdown.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Lb
     /// <summary>
     /// Manages a Load Balancer Resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
     /// </summary>
     public partial class LoadBalancer : Pulumi.CustomResource

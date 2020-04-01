@@ -32,6 +32,8 @@ class Contact(pulumi.CustomResource):
 
         > **NOTE:** Owner access permission is required.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.markdown.
 
         :param str resource_name: The name of the resource.

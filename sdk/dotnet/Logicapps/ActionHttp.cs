@@ -12,6 +12,8 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages an HTTP Action within a Logic App Workflow
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_http.html.markdown.
     /// </summary>
     public partial class ActionHttp : Pulumi.CustomResource

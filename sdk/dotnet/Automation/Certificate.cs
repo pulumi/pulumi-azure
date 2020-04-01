@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages an Automation Certificate.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource

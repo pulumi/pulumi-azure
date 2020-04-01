@@ -54,6 +54,8 @@ class Connection(pulumi.CustomResource):
         """
         Manages a Bot Connection.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_connection.markdown.
 
         :param str resource_name: The name of the resource.

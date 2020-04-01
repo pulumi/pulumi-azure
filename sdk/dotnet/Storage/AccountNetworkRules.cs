@@ -18,6 +18,8 @@ namespace Pulumi.Azure.Storage
     /// 
     /// &gt; **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_network_rules.html.markdown.
     /// </summary>
     public partial class AccountNetworkRules : Pulumi.CustomResource

@@ -68,6 +68,8 @@ def get_dedicated_host_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dedicated Host Group.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host_group.html.markdown.
 
 

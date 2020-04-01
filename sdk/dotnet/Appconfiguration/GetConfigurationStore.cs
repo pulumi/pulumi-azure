@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// Use this data source to access information about an existing App Configuration.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
         /// </summary>
         [Obsolete("Use GetConfigurationStore.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.AppConfiguration
     {
         /// <summary>
         /// Use this data source to access information about an existing App Configuration.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
         /// </summary>

@@ -12,6 +12,9 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Management API Operation Policy
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation_policy.html.markdown.
     /// </summary>
     public partial class ApiOperationPolicy : Pulumi.CustomResource

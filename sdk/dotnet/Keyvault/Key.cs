@@ -12,6 +12,8 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Key.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
     /// </summary>
     public partial class Key : Pulumi.CustomResource

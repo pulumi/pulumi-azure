@@ -46,6 +46,8 @@ class CaaRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS CAA Records within Azure DNS.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_caa_record.html.markdown.
 
         :param str resource_name: The name of the resource.

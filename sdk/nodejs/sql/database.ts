@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Database
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
  */

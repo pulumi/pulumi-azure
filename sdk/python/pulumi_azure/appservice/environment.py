@@ -40,6 +40,8 @@ class Environment(pulumi.CustomResource):
         """
         Manages an App Service Environment.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_environment.html.markdown.
 
         :param str resource_name: The name of the resource.

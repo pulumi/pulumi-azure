@@ -12,6 +12,8 @@ namespace Pulumi.Azure.HDInsight
     /// <summary>
     /// Manages a HDInsight RServer Cluster.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_rserver_cluster.html.markdown.
     /// </summary>
     public partial class RServerCluster : Pulumi.CustomResource

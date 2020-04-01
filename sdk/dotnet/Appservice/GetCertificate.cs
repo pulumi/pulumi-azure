@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Use this data source to access information about an App Service Certificate.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
         /// </summary>
         [Obsolete("Use GetCertificate.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// Use this data source to access information about an App Service Certificate.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
         /// </summary>

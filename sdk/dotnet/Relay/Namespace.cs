@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Relay
     /// <summary>
     /// Manages an Azure Relay Namespace.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource

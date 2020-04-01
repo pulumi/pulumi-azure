@@ -65,6 +65,9 @@ def get_date_time_variable(automation_account_name=None,name=None,resource_group
     """
     Use this data source to access information about an existing Automation Datetime Variable.
 
+
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
 
 

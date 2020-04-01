@@ -51,6 +51,8 @@ class Assignment(pulumi.CustomResource):
         """
         Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
 
         :param str resource_name: The name of the resource.

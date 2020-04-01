@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation : Pulumi.CustomResource

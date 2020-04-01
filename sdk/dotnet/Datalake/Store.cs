@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataLake
     /// <summary>
     /// Manages an Azure Data Lake Store.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store.html.markdown.
     /// </summary>
     public partial class Store : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppConfiguration
     /// <summary>
     /// Manages an Azure App Configuration.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_configuration.html.markdown.
     /// </summary>
     public partial class ConfigurationStore : Pulumi.CustomResource

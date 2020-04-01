@@ -105,8 +105,8 @@ PULUMI_BIN          := $(PULUMI_ROOT)/bin
 PULUMI_NODE_MODULES := $(PULUMI_ROOT)/node_modules
 PULUMI_NUGET        := $(PULUMI_ROOT)/nuget
 
-GO_TEST_FAST = go test -short -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
-GO_TEST = go test -v -count=1 -cover -timeout 2h -parallel ${TESTPARALLELISM}
+GO_TEST_FAST = go test -short -v -count=1 -timeout 2h -parallel ${TESTPARALLELISM}
+GO_TEST = go test -v -count=1 -timeout 2h -parallel ${TESTPARALLELISM}
 GOPROXY = 'https://proxy.golang.org'
 
 .PHONY: default all ensure only_build only_test build lint install test_all core

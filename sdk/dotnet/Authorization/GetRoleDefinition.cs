@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// Use this data source to access information about an existing Role Definition.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
         /// </summary>
         [Obsolete("Use GetRoleDefinition.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Authorization
     {
         /// <summary>
         /// Use this data source to access information about an existing Role Definition.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
         /// </summary>

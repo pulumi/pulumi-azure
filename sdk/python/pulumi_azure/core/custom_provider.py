@@ -51,6 +51,8 @@ class CustomProvider(pulumi.CustomResource):
         """
         Manages an Azure Custom Provider.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/custom_provider.html.markdown.
 
         :param str resource_name: The name of the resource.

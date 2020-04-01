@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Maps
         /// <summary>
         /// Use this data source to access information about an existing Azure Maps Account.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maps_account.html.markdown.
         /// </summary>
         [Obsolete("Use GetAccount.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Maps
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Maps Account.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maps_account.html.markdown.
         /// </summary>

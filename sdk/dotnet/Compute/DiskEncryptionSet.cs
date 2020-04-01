@@ -16,6 +16,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete &amp; Purge Protection enabled - which are not yet supported by this provider.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
     /// </summary>
     public partial class DiskEncryptionSet : Pulumi.CustomResource

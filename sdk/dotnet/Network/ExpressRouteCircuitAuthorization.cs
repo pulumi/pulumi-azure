@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an ExpressRoute Circuit Authorization.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
     /// </summary>
     public partial class ExpressRouteCircuitAuthorization : Pulumi.CustomResource

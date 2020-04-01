@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Batch account.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
  */

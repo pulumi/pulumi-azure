@@ -14,6 +14,8 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
         /// </summary>
         [Obsolete("Use GetConsumeGroup.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.EventHub
     {
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
         /// </summary>

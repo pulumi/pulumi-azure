@@ -12,6 +12,8 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a ServiceBus Subscription.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
     /// </summary>
     public partial class Subscription : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Web App.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_web_app.markdown.
     /// </summary>
     public partial class WebApp : Pulumi.CustomResource

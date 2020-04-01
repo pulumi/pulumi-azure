@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Lb
     /// 
     /// &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_probe.html.markdown.
     /// </summary>
     public partial class Probe : Pulumi.CustomResource

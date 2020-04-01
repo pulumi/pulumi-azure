@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Bot Channels Registration.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.markdown.
     /// </summary>
     public partial class ChannelsRegistration : Pulumi.CustomResource

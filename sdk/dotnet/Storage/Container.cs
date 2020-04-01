@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Container within an Azure Storage Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
     /// </summary>
     public partial class Container : Pulumi.CustomResource

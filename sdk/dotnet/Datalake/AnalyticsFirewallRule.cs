@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataLake
     /// <summary>
     /// Manages a Azure Data Lake Analytics Firewall Rule.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_firewall_rule.html.markdown.
     /// </summary>
     public partial class AnalyticsFirewallRule : Pulumi.CustomResource

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manage a Dedicated Host Group.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host_group.html.markdown.
     /// </summary>
     public partial class DedicatedHostGroup : Pulumi.CustomResource

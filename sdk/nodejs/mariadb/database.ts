@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a MariaDB Database within a MariaDB Server
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_database.html.markdown.
  */

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataBricks
     /// <summary>
     /// Manages a Databricks Workspace
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/databricks_workspace.html.markdown.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource

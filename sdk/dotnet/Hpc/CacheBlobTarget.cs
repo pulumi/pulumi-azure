@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Hpc
     /// <summary>
     /// Manages a Blob Target within a HPC Cache.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hpc_cache_blob_target.html.markdown.
     /// </summary>
     public partial class CacheBlobTarget : Pulumi.CustomResource

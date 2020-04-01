@@ -58,6 +58,8 @@ class ChannelsRegistration(pulumi.CustomResource):
         """
         Manages a Bot Channels Registration.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.markdown.
 
         :param str resource_name: The name of the resource.

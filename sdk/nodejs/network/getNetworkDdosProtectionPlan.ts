@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
  */

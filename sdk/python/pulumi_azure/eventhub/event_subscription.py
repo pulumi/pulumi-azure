@@ -85,6 +85,8 @@ class EventSubscription(pulumi.CustomResource):
         """
         Manages an EventGrid Event Subscription
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
 
         :param str resource_name: The name of the resource.

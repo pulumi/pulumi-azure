@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a string variable in Azure Automation
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_string.html.markdown.
     /// </summary>
     public partial class StringVariable : Pulumi.CustomResource

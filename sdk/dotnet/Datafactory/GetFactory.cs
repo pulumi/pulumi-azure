@@ -14,6 +14,8 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// Use this data source to access information about an existing Azure Data Factory (Version 2).
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_factory.html.markdown.
         /// </summary>
         [Obsolete("Use GetFactory.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Data Factory (Version 2).
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_factory.html.markdown.
         /// </summary>

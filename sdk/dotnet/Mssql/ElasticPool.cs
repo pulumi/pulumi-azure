@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource

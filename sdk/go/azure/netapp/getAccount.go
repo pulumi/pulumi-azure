@@ -5,7 +5,7 @@
 package netapp
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Uses this data source to access information about an existing NetApp Account.

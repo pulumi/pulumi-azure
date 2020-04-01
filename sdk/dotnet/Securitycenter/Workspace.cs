@@ -16,6 +16,8 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     /// &gt; **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.markdown.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource

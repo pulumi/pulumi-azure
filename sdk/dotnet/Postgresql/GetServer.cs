@@ -14,6 +14,8 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
         /// </summary>
         [Obsolete("Use GetServer.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.PostgreSql
     {
         /// <summary>
         /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
         /// </summary>

@@ -39,6 +39,8 @@ class MongoCollection(pulumi.CustomResource):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
 
         :param str resource_name: The name of the resource.

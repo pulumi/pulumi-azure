@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages an Application Rule Collection within an Azure Firewall.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_application_rule_collection.html.markdown.
     /// </summary>
     public partial class FirewallApplicationRuleCollection : Pulumi.CustomResource

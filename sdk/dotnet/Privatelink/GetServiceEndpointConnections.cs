@@ -16,6 +16,8 @@ namespace Pulumi.Azure.PrivateLink
         /// 
         /// &gt; **NOTE** Private Link is currently in Public Preview.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
         /// </summary>
         [Obsolete("Use GetServiceEndpointConnections.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Azure.PrivateLink
         /// Use this data source to access endpoint connection information about an existing Private Link Service.
         /// 
         /// &gt; **NOTE** Private Link is currently in Public Preview.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
         /// </summary>

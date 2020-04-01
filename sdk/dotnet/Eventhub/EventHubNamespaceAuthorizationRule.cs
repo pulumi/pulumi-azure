@@ -12,6 +12,8 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages an Authorization Rule for an Event Hub Namespace.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_authorization_rule.html.markdown.
     /// </summary>
     public partial class EventHubNamespaceAuthorizationRule : Pulumi.CustomResource

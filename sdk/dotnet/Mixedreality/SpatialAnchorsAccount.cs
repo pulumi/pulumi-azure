@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MixedReality
     /// <summary>
     /// Manages an Azure Spatial Anchors Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/spatial_anchors_account.html.markdown.
     /// </summary>
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource

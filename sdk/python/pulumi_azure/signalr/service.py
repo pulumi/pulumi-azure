@@ -82,6 +82,8 @@ class Service(pulumi.CustomResource):
         """
         Manages an Azure SignalR service.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
 
         :param str resource_name: The name of the resource.

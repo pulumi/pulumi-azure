@@ -51,6 +51,8 @@ def get_service_tags(location=None,location_filter=None,service=None,opts=None):
     """
     Use this data source to access information about Service Tags.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_service_tags.html.markdown.
 
 

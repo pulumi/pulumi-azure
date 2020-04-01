@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/proximity_placement_group.html.markdown.
  */

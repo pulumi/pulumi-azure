@@ -17,6 +17,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
     /// </summary>
     public partial class Extension : Pulumi.CustomResource

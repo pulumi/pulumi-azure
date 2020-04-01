@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
         /// </summary>
         [Obsolete("Use GetVirtualNetwork.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
         /// </summary>

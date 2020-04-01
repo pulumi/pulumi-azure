@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
         /// </summary>
         [Obsolete("Use GetPolicyVM.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Backup
     {
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
         /// </summary>

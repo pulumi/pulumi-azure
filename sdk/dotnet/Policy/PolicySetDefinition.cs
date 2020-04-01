@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Policy
     /// 
     /// &gt; **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_set_definition.html.markdown.
     /// </summary>
     public partial class PolicySetDefinition : Pulumi.CustomResource

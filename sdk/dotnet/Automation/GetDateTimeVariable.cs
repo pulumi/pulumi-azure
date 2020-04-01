@@ -14,6 +14,9 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
         /// 
+        /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
         /// </summary>
         [Obsolete("Use GetDateTimeVariable.InvokeAsync() instead")]
@@ -24,6 +27,9 @@ namespace Pulumi.Azure.Automation
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
+        /// 
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
         /// </summary>

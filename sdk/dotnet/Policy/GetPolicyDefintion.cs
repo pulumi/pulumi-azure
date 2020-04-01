@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
         /// </summary>
         [Obsolete("Use GetPolicyDefintion.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Policy
     {
         /// <summary>
         /// Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
         /// </summary>

@@ -30,6 +30,8 @@ class ProductApi(pulumi.CustomResource):
         """
         Manages an API Management API Assignment to a Product.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_api.html.markdown.
 
         :param str resource_name: The name of the resource.

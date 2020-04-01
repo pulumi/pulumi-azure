@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
     /// </summary>
     public partial class LinkedServiceDataLakeStorageGen2 : Pulumi.CustomResource

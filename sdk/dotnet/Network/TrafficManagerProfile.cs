@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Traffic Manager Profile to which multiple endpoints can be attached.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
     /// </summary>
     public partial class TrafficManagerProfile : Pulumi.CustomResource

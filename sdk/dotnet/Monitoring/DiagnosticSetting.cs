@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages a Diagnostic Setting for an existing Resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
     /// </summary>
     public partial class DiagnosticSetting : Pulumi.CustomResource

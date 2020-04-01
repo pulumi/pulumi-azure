@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Policy
     /// <summary>
     /// Manages an Azure Policy Remediation at the specified Scope.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_remediation.html.markdown.
     /// </summary>
     public partial class Remediation : Pulumi.CustomResource

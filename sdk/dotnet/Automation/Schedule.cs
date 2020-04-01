@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a Automation Schedule.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource

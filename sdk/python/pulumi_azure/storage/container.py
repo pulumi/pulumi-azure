@@ -42,6 +42,8 @@ class Container(pulumi.CustomResource):
         """
         Manages a Container within an Azure Storage Account.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
 
         :param str resource_name: The name of the resource.

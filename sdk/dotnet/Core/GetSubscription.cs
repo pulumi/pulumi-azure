@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// Use this data source to access information about an existing Subscription.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
         /// </summary>
         [Obsolete("Use GetSubscription.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about an existing Subscription.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
         /// </summary>

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Waf
     /// <summary>
     /// Manages a Azure Web Application Firewall Policy instance.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
     /// </summary>
     public partial class Policy : Pulumi.CustomResource

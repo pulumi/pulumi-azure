@@ -72,6 +72,8 @@ def get_dps_shared_access_policy(iothub_dps_name=None,name=None,resource_group_n
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
 
 

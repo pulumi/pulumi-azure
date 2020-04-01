@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about Service Tags.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_service_tags.html.markdown.
         /// </summary>
         [Obsolete("Use GetServiceTags.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about Service Tags.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_service_tags.html.markdown.
         /// </summary>

@@ -122,6 +122,8 @@ class ActionGroup(pulumi.CustomResource):
         """
         Manages an Action Group within Azure Monitor.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
 
         :param str resource_name: The name of the resource.

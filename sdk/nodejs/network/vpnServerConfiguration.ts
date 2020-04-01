@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a VPN Server Configuration.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_server_configuration.html.markdown.
  */

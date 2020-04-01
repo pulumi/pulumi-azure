@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network
     /// 
     /// &gt; **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
     /// </summary>
     public partial class VirtualNetworkGateway : Pulumi.CustomResource

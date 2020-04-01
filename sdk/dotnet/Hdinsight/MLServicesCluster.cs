@@ -12,6 +12,8 @@ namespace Pulumi.Azure.HDInsight
     /// <summary>
     /// Manages a HDInsight ML Services Cluster.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_ml_services_cluster.html.markdown.
     /// </summary>
     public partial class MLServicesCluster : Pulumi.CustomResource

@@ -36,6 +36,8 @@ class Module(pulumi.CustomResource):
         """
         Manages a Automation Module.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
 
         :param str resource_name: The name of the resource.

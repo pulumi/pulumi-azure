@@ -12,6 +12,8 @@ namespace Pulumi.Azure.SiteRecovery
     /// <summary>
     /// Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_network_mapping.html.markdown.
     /// </summary>
     public partial class NetworkMapping : Pulumi.CustomResource

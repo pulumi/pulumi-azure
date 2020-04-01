@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Manages a DateTime variable in Azure Automation
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_datetime.html.markdown.
     /// </summary>
     public partial class DateTimeVariable : Pulumi.CustomResource

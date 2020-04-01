@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** Only one `azure.storage.AccountNetworkRules` can be tied to an `azure.storage.Account`. Spurious changes will occur if more than `azure.storage.AccountNetworkRules` is tied to the same `azure.storage.Account`.
  * 
  * > **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_network_rules.html.markdown.
  */

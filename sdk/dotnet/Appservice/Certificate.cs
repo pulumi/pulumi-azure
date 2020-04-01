@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service certificate.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource

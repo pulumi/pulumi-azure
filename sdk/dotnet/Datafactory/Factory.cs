@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages an Azure Data Factory (Version 2).
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory.html.markdown.
     /// </summary>
     public partial class Factory : Pulumi.CustomResource

@@ -86,6 +86,8 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
     """
     Use this data source to access information about an existing Image.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
 
 

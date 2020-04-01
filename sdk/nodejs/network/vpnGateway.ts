@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_gateway.html.markdown.
  */

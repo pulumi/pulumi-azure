@@ -12,6 +12,8 @@ namespace Pulumi.Azure.EventGrid
     /// <summary>
     /// Manages an EventGrid Domain
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
     /// </summary>
     public partial class Domain : Pulumi.CustomResource

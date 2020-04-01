@@ -16,6 +16,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `azure.compute.VirtualMachine` resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_data_disk_attachment.html.markdown.
     /// </summary>
     public partial class DataDiskAttachment : Pulumi.CustomResource

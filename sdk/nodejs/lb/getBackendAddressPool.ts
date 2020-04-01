@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Load Balancer's Backend Address Pool.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
  */

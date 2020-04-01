@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a CDN Profile to create a collection of CDN Endpoints.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_profile.html.markdown.
     /// </summary>
     public partial class Profile : Pulumi.CustomResource

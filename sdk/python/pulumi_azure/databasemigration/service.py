@@ -40,6 +40,8 @@ class Service(pulumi.CustomResource):
 
         > **NOTE:** Destroying a Database Migration Service will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provide.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_service.html.markdown.
 
         :param str resource_name: The name of the resource.

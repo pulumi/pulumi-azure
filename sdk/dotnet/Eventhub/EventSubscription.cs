@@ -12,6 +12,8 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages an EventGrid Event Subscription
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
     /// </summary>
     public partial class EventSubscription : Pulumi.CustomResource

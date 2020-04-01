@@ -48,6 +48,8 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         """
         Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_scheduled_query_rules_log.html.markdown.
 
         :param str resource_name: The name of the resource.

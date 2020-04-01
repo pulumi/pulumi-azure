@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * Manages a ServiceBus Topic.
  * 
  * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
  */

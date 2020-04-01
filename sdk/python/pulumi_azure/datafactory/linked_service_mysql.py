@@ -50,6 +50,8 @@ class LinkedServiceMysql(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between MySQL and Azure Data Factory.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_mysql.html.markdown.
 
         :param str resource_name: The name of the resource.

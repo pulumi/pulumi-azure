@@ -14,6 +14,8 @@ namespace Pulumi.Azure.DatabaseMigration
     /// 
     /// &gt; **NOTE:** Destroying a Database Migration Service will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provide.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_service.html.markdown.
     /// </summary>
     public partial class Service : Pulumi.CustomResource

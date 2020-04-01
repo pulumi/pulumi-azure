@@ -142,6 +142,8 @@ def get_app_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Service.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service.html.markdown.
 
 

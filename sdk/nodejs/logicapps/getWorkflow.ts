@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Logic App Workflow.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
  */

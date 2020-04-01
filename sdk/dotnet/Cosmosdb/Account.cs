@@ -12,6 +12,8 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a CosmosDB (formally DocumentDB) Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource

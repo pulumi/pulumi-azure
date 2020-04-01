@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network Gateway Connection.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
         /// </summary>
         [Obsolete("Use GetGatewayConnection.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network Gateway Connection.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
         /// </summary>

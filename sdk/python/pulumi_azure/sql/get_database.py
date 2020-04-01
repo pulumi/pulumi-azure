@@ -109,6 +109,8 @@ def get_database(name=None,resource_group_name=None,server_name=None,tags=None,o
     """
     Use this data source to access information about an existing SQL Azure Database.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
 
 

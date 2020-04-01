@@ -12,6 +12,8 @@ namespace Pulumi.Azure.OperationalInsights
     /// <summary>
     /// Manages a Log Analytics (formally Operational Insights) Workspace.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_workspace.html.markdown.
     /// </summary>
     public partial class AnalyticsWorkspace : Pulumi.CustomResource

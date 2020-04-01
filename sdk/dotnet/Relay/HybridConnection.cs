@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Relay
     /// <summary>
     /// Manages an Azure Relay Hybrid Connection.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_hybrid_connection.html.markdown.
     /// </summary>
     public partial class HybridConnection : Pulumi.CustomResource

@@ -16,6 +16,8 @@ namespace Pulumi.Azure.Storage
         /// 
         /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
         /// </summary>
         [Obsolete("Use GetAccountBlobContainerSAS.InvokeAsync() instead")]
@@ -28,6 +30,8 @@ namespace Pulumi.Azure.Storage
         /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
         /// 
         /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
         /// </summary>

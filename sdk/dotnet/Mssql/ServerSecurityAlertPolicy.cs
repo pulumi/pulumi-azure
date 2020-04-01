@@ -14,6 +14,8 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// &gt; **NOTE** Security Alert Policy is currently only available for MS SQL databases.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_server_security_alert_policy.html.markdown.
     /// </summary>
     public partial class ServerSecurityAlertPolicy : Pulumi.CustomResource

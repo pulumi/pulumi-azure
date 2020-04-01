@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * Manages an EventGrid Topic
  * 
  * > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
  */

@@ -66,6 +66,8 @@ class Job(pulumi.CustomResource):
         """
         Manages a Stream Analytics Job.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_job.html.markdown.
 
         :param str resource_name: The name of the resource.

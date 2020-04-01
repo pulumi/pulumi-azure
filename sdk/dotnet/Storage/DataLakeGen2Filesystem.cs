@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Storage
     /// 
     /// &gt; **NOTE:** This Resource requires using Azure Active Directory to connect to Azure Storage, which in turn requires the `Storage` specific roles - which are not granted by default.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_data_lake_gen2_filesystem.html.markdown.
     /// </summary>
     public partial class DataLakeGen2Filesystem : Pulumi.CustomResource

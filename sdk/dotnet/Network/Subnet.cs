@@ -16,6 +16,8 @@ namespace Pulumi.Azure.Network
     /// provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
     /// At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
     /// </summary>
     public partial class Subnet : Pulumi.CustomResource

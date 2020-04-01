@@ -72,6 +72,8 @@ def get_shared_access_policy(iothub_name=None,name=None,resource_group_name=None
     """
     Use this data source to access information about an existing IotHub Shared Access Policy
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
 
 

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Recurrence Trigger within a Logic App Workflow
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
  */

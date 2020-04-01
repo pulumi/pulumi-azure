@@ -8,11 +8,12 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages a virtual network peering which allows resources to access other
 // resources in the linked virtual network.
+//
 //
 // ## Note
 //

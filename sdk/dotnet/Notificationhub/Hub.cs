@@ -12,6 +12,8 @@ namespace Pulumi.Azure.NotificationHub
     /// <summary>
     /// Manages a Notification Hub within a Notification Hub Namespace.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
     /// </summary>
     public partial class Hub : Pulumi.CustomResource

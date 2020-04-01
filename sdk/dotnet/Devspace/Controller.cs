@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DevSpace
     /// <summary>
     /// Manages a DevSpace Controller.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
     /// </summary>
     public partial class Controller : Pulumi.CustomResource

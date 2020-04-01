@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about Service Tags.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_service_tags.html.markdown.
  */
-export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> & GetServiceTagsResult {
+export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +20,11 @@ export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceTagsResult> = pulumi.runtime.invoke("azure:network/getServiceTags:getServiceTags", {
+    return pulumi.runtime.invoke("azure:network/getServiceTags:getServiceTags", {
         "location": args.location,
         "locationFilter": args.locationFilter,
         "service": args.service,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -55,6 +55,8 @@ class Policy(pulumi.CustomResource):
         """
         Manages a Azure Web Application Firewall Policy instance.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
 
         :param str resource_name: The name of the resource.

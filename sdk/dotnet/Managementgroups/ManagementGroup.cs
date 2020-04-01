@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ManagementGroups
     /// <summary>
     /// Manages a Management Group.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
     /// </summary>
     public partial class ManagementGroup : Pulumi.CustomResource

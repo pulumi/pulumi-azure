@@ -14,6 +14,8 @@ namespace Pulumi.Azure.DevTest
         /// <summary>
         /// Use this data source to access information about an existing Dev Test Lab.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
         /// </summary>
         [Obsolete("Use GetLab.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.DevTest
     {
         /// <summary>
         /// Use this data source to access information about an existing Dev Test Lab.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
         /// </summary>

@@ -53,6 +53,8 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_cluster.html.markdown.
 
         :param str resource_name: The name of the resource.

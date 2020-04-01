@@ -12,6 +12,8 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group.html.markdown.
     /// </summary>
     public partial class ConsumerGroup : Pulumi.CustomResource

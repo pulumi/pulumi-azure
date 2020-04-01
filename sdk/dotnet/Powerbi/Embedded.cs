@@ -12,6 +12,8 @@ namespace Pulumi.Azure.PowerBI
     /// <summary>
     /// Manages a PowerBI Embedded.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/powerbi_embedded.html.markdown.
     /// </summary>
     public partial class Embedded : Pulumi.CustomResource

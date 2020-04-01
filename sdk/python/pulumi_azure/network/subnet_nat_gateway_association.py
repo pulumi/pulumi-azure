@@ -22,6 +22,8 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
         """
         Associates a NAT Gateway with a Subnet within a Virtual Network.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_nat_gateway_association.html.markdown.
 
         :param str resource_name: The name of the resource.

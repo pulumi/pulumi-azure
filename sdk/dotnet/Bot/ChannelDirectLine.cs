@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Directline integration for a Bot Channel
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_directline.markdown.
     /// </summary>
     public partial class ChannelDirectLine : Pulumi.CustomResource

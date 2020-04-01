@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
         /// </summary>
         [Obsolete("Use GetKubernetesCluster.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.ContainerService
     {
         /// <summary>
         /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
         /// </summary>

@@ -28,6 +28,8 @@ class SourceCodeToken(pulumi.CustomResource):
 
         > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_source_control_token.html.markdown.
 
         :param str resource_name: The name of the resource.

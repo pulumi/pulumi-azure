@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Shared Image within a Shared Image Gallery.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
     /// </summary>
     public partial class SharedImage : Pulumi.CustomResource

@@ -43,6 +43,8 @@ class AnalyticsSolution(pulumi.CustomResource):
         """
         Manages a Log Analytics (formally Operational Insights) Solution.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
 
         :param str resource_name: The name of the resource.

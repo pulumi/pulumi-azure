@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// Use this data source to access the configuration of the AzureRM provider.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/client_config.html.markdown.
         /// </summary>
         [Obsolete("Use GetClientConfig.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access the configuration of the AzureRM provider.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/client_config.html.markdown.
         /// </summary>

@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// Use this data source to access information about existing resources.
         /// 
+        /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
         /// </summary>
         [Obsolete("Use GetResources.InvokeAsync() instead")]
@@ -24,6 +26,8 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about existing resources.
+        /// 
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
         /// </summary>

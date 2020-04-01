@@ -14,6 +14,8 @@ namespace Pulumi.Azure.MySql
     /// 
     /// &gt; **NOTE:** MySQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/mysql/concepts-data-access-and-security-vnet)
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_virtual_network_rule.html.markdown.
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource

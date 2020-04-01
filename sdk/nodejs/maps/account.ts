@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Maps Account.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/maps_account.html.markdown.
  */

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Consumer Group within an IotHub
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
  */

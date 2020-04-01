@@ -5,10 +5,12 @@
 package datalake
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Use this data source to access information about an existing Data Lake Store.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
 func LookupStore(ctx *pulumi.Context, args *LookupStoreArgs, opts ...pulumi.InvokeOption) (*LookupStoreResult, error) {

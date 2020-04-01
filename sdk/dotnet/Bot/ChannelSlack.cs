@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; **Note** A bot can only have a single Slack Channel associated with it.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_slack.markdown.
     /// </summary>
     public partial class ChannelSlack : Pulumi.CustomResource

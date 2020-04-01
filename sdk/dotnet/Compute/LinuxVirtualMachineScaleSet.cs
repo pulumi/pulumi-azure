@@ -18,6 +18,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine_scale_set.html.markdown.
     /// </summary>
     public partial class LinuxVirtualMachineScaleSet : Pulumi.CustomResource

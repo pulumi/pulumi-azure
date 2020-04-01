@@ -34,6 +34,8 @@ class Database(pulumi.CustomResource):
         """
         Manages a MySQL Database within a MySQL Server
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_database.html.markdown.
 
         :param str resource_name: The name of the resource.

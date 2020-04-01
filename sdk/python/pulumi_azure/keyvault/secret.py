@@ -46,6 +46,8 @@ class Secret(pulumi.CustomResource):
         """
         Manages a Key Vault Secret.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_secret.html.markdown.
 
         :param str resource_name: The name of the resource.

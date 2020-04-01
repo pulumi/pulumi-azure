@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ServiceBus
     /// <summary>
     /// Manages a ServiceBus Namespace.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource

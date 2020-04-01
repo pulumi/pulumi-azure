@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Associates a Network Security Group with a Subnet within a Virtual Network.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
     /// </summary>
     public partial class SubnetNetworkSecurityGroupAssociation : Pulumi.CustomResource

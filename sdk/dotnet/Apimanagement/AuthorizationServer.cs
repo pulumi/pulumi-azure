@@ -12,6 +12,9 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an Authorization Server within an API Management Service.
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
     /// </summary>
     public partial class AuthorizationServer : Pulumi.CustomResource

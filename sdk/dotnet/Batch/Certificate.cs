@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Batch
     /// <summary>
     /// Manages a certificate in an Azure Batch account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource

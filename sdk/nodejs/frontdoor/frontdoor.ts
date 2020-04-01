@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * * Use Front Door to improve application scale and availability with instant multi-region failover
  * * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
  * * Use Front Door for application layer security and DDoS protection for your application.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor.html.markdown.
  */

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule.html.markdown.
  */

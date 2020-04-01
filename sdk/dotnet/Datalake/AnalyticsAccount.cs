@@ -12,6 +12,8 @@ namespace Pulumi.Azure.DataLake
     /// <summary>
     /// Manages an Azure Data Lake Analytics Account.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_account.html.markdown.
     /// </summary>
     public partial class AnalyticsAccount : Pulumi.CustomResource

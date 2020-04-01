@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AnalysisServices
     /// <summary>
     /// Manages an Analysis Services Server.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/analysis_services_server.html.markdown.
     /// </summary>
     public partial class Server : Pulumi.CustomResource

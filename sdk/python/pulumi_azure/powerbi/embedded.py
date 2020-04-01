@@ -38,6 +38,8 @@ class Embedded(pulumi.CustomResource):
         """
         Manages a PowerBI Embedded.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/powerbi_embedded.html.markdown.
 
         :param str resource_name: The name of the resource.

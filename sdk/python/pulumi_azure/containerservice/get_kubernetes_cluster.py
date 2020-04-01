@@ -183,6 +183,8 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
 
 

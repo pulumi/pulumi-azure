@@ -12,6 +12,8 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
     /// </summary>
     public partial class FunctionJavaScriptUDF : Pulumi.CustomResource

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Manages the Pricing Tier for Azure Security Center in the current subscription.
@@ -16,6 +16,8 @@ import (
 // > **NOTE:** This resource requires the `Owner` permission on the Subscription.
 //
 // > **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.markdown.
 type SubscriptionPricing struct {

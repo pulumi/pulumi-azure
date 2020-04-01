@@ -62,6 +62,8 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -59,6 +59,8 @@ def get_consume_group(eventhub_name=None,name=None,namespace_name=None,resource_
     """
     Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
 
 

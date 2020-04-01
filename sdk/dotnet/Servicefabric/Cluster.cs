@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ServiceFabric
     /// <summary>
     /// Manages a Service Fabric Cluster.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource

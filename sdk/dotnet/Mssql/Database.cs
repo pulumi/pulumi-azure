@@ -12,6 +12,8 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a MS SQL Database.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_database.html.markdown.
     /// </summary>
     public partial class Database : Pulumi.CustomResource

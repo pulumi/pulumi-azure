@@ -96,6 +96,8 @@ def get_configuration_store(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Configuration.
 
+
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
 
 

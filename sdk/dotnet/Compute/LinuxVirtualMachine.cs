@@ -22,6 +22,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
     /// </summary>
     public partial class LinuxVirtualMachine : Pulumi.CustomResource
