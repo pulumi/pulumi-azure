@@ -1,12 +1,12 @@
-module github.com/pulumi/pulumi-azure/provider/v2
+module github.com/pulumi/pulumi-azure/provider/v3
 
 go 1.13
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
 	github.com/hashicorp/terraform-plugin-sdk v1.8.0
-	github.com/pulumi/pulumi-terraform-bridge/v2 v2.0.0-20200401150337-988a6fbec9f1
-	github.com/pulumi/pulumi/sdk/v2 v2.0.0-beta.2
+	github.com/pulumi/pulumi-terraform-bridge/v2 v2.0.0-20200402101519-95d9d3e2b896
+	github.com/pulumi/pulumi/sdk/v2 v2.0.0-beta.2.0.20200402101052-1dbf088db686
 	github.com/terraform-providers/terraform-provider-azurerm v1.44.0
 )
 

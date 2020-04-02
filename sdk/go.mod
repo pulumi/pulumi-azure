@@ -1,10 +1,8 @@
-module github.com/pulumi/pulumi-azure/sdk/v2
+module github.com/pulumi/pulumi-azure/sdk/v3
 
 go 1.13
 
 require (
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/sdk/v2 v2.0.0-beta.2
+	github.com/pulumi/pulumi/sdk/v2 v2.0.0-beta.2.0.20200402101052-1dbf088db686
 )
-
-replace github.com/pulumi/pulumi-azure/sdk/v2 => ../sdk

@@ -53,10 +53,10 @@ generate_schema:: tfgen
 
 provider:: generate_schema
 	go generate ${PROJECT}/provider/cmd/${PROVIDER}
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${PROVIDER}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${PROVIDER}
 
 tfgen::
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${TFGEN}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${TFGEN}
 
 install_plugins::
 	[ -x "$(shell which pulumi)" ] || curl -fsSL https://get.pulumi.com | sh -s -- --version "2.0.0-beta.2"
