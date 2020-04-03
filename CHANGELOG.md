@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 2.4.1 (2020-04-03)
+* Fix the release version of the azure binary
+
 ## 2.4.0 (2020-04-03)
 * Upgrade to v2.4.0 of the AzureRM Terraform Provider
 
