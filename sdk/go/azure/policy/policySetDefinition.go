@@ -26,7 +26,7 @@ type PolicySetDefinition struct {
 	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
 	// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
-	Metadata pulumi.StringPtrOutput `pulumi:"metadata"`
+	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The name of the policy set definition. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.

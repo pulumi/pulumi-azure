@@ -47,6 +47,7 @@ const (
 	azureAPIManagement       = "ApiManagement"       // API Management
 	azureAppConfiguration    = "AppConfiguration"    // App Configuration
 	azureAppInsights         = "AppInsights"         // AppInsights
+	azureAppPlatform         = "AppPlatform"         // AppPlatform
 	azureAppService          = "AppService"          // App Service
 	azureAutomation          = "Automation"          // Automation
 	azureAuthorization       = "Authorization"       // Authorization
@@ -83,6 +84,7 @@ const (
 	azureEventGrid           = "EventGrid"           // Event Grid
 	azureEventHub            = "EventHub"            // Event Hub
 	azureMachineLearning     = "MachineLearning"     // Machine Learning Resources
+	azureManagedApplication  = "ManagedApplication"  // ManagedApplication
 	azureManagement          = "Management"          // Management Resources
 	azureMaps                = "Maps"                // Maps
 	azureMarketPlace         = "Marketplace"         // Marketplace
@@ -458,6 +460,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_app_service_environment": {Tok: azureResource(azureAppService, "Environment")},
 
+			// AppPlatform
+			"azurerm_spring_cloud_service": {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
+
 			// Automation
 			"azurerm_automation_account":               {Tok: azureResource(azureAutomation, "Account")},
 			"azurerm_automation_credential":            {Tok: azureResource(azureAutomation, "Credential")},
@@ -761,6 +766,12 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Log Analytics
 			"azurerm_log_analytics_linked_service": {Tok: azureResource(azureLogAnalytics, "LinkedService")},
+			"azurerm_log_analytics_datasource_windows_event": {
+				Tok: azureResource(azureLogAnalytics, "DataSourceWindowsEvent"),
+			},
+			"azurerm_log_analytics_datasource_windows_performance_counter": {
+				Tok: azureResource(azureLogAnalytics, "DataSourceWindowsPerformanceCounter"),
+			},
 
 			// Logic Apps
 			"azurerm_logic_app_action_custom":        {Tok: azureResource(azureLogicApps, "ActionCustom")},
@@ -1243,6 +1254,7 @@ func Provider() tfbridge.ProviderInfo {
 			// HPC
 			"azurerm_hpc_cache":             {Tok: azureResource(azureHpc, "Cache")},
 			"azurerm_hpc_cache_blob_target": {Tok: azureResource(azureHpc, "CacheBlobTarget")},
+			"azurerm_hpc_cache_nfs_target":  {Tok: azureResource(azureHpc, "CacheNfsTarget")},
 
 			// Mixed Reality
 			"azurerm_spatial_anchors_account": {Tok: azureResource(azureMixedReality, "SpatialAnchorsAccount")},
@@ -1252,6 +1264,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Machine Learning
 			"azurerm_machine_learning_workspace": {Tok: azureResource(azureMachineLearning, "Workspace")},
+
+			// Managed Applications
+			"azurerm_managed_application_definition": {Tok: azureResource(azureManagedApplication, "Definition")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1449,7 +1464,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
 			},
-			"azurerm_machine_learning_workspace": {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
+			"azurerm_machine_learning_workspace":     {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
+			"azurerm_managed_application_definition": {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

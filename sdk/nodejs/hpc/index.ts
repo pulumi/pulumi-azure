@@ -4,3 +4,4 @@
 // Export members:
 export * from "./cache";
 export * from "./cacheBlobTarget";
+export * from "./cacheNfsTarget";

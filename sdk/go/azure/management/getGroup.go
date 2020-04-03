@@ -22,8 +22,10 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// Specifies the UUID of this Management Group.
-	GroupId string `pulumi:"groupId"`
+	// Specifies the name or UUID of this Management Group.
+	GroupId *string `pulumi:"groupId"`
+	// Specifies the name or UUID of this Management Group.
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getGroup.
@@ -32,7 +34,8 @@ type LookupGroupResult struct {
 	DisplayName string `pulumi:"displayName"`
 	GroupId     string `pulumi:"groupId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
 	// The ID of any Parent Management Group.
 	ParentManagementGroupId string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription ID's which are assigned to the Management Group.

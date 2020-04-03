@@ -13,7 +13,7 @@ class GetManagementGroupResult:
     """
     A collection of values returned by getManagementGroup.
     """
-    def __init__(__self__, display_name=None, group_id=None, id=None, parent_management_group_id=None, subscription_ids=None):
+    def __init__(__self__, display_name=None, group_id=None, id=None, name=None, parent_management_group_id=None, subscription_ids=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
@@ -29,6 +29,9 @@ class GetManagementGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        __self__.name = name
         if parent_management_group_id and not isinstance(parent_management_group_id, str):
             raise TypeError("Expected argument 'parent_management_group_id' to be a str")
         __self__.parent_management_group_id = parent_management_group_id
@@ -50,22 +53,25 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
             display_name=self.display_name,
             group_id=self.group_id,
             id=self.id,
+            name=self.name,
             parent_management_group_id=self.parent_management_group_id,
             subscription_ids=self.subscription_ids)
 
-def get_management_group(group_id=None,opts=None):
+def get_management_group(group_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
 
 
-    :param str group_id: Specifies the UUID of this Management Group.
+    :param str group_id: Specifies the name or UUID of this Management Group.
+    :param str name: Specifies the name or UUID of this Management Group.
     """
     __args__ = dict()
 
 
     __args__['groupId'] = group_id
+    __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -76,5 +82,6 @@ def get_management_group(group_id=None,opts=None):
         display_name=__ret__.get('displayName'),
         group_id=__ret__.get('groupId'),
         id=__ret__.get('id'),
+        name=__ret__.get('name'),
         parent_management_group_id=__ret__.get('parentManagementGroupId'),
         subscription_ids=__ret__.get('subscriptionIds'))

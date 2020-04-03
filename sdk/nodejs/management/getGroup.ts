@@ -9,7 +9,8 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
-export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> & GetGroupResult {
+export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> & GetGroupResult {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -19,6 +20,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     }
     const promise: Promise<GetGroupResult> = pulumi.runtime.invoke("azure:management/getGroup:getGroup", {
         "groupId": args.groupId,
+        "name": args.name,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -29,9 +31,15 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetGroupArgs {
     /**
-     * Specifies the UUID of this Management Group.
+     * Specifies the name or UUID of this Management Group.
+     * 
+     * @deprecated Deprecated in favor of `name`
      */
-    readonly groupId: string;
+    readonly groupId?: string;
+    /**
+     * Specifies the name or UUID of this Management Group.
+     */
+    readonly name?: string;
 }
 
 /**
@@ -43,6 +51,7 @@ export interface GetGroupResult {
      */
     readonly displayName: string;
     readonly groupId: string;
+    readonly name: string;
     /**
      * The ID of any Parent Management Group.
      */
