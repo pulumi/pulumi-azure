@@ -459,8 +459,8 @@ github.com/pulumi/pulumi/sdk v0.0.0-20200321193742-f095e64d0f8e/go.mod h1:ZCVEM4
 github.com/pulumi/pulumi/sdk v0.0.0-20200325225746-80f1989600a3/go.mod h1:0jjygtqEwLnjNEL3zIn3ynjT/37ZJ42DZE6k2+2NAUM=
 github.com/pulumi/pulumi/sdk v1.13.1 h1:BX0ttL/g5ofKxkK2VY/gp8SdBxJi4eIyIG34JRn9ENU=
 github.com/pulumi/pulumi/sdk v1.13.1/go.mod h1:0jjygtqEwLnjNEL3zIn3ynjT/37ZJ42DZE6k2+2NAUM=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200327162321-6f32325d9570 h1:ycZPEOX1/qzLJfvIGeMPXhjqC+ffuUk/aIuiOPdFHRs=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200327162321-6f32325d9570/go.mod h1:70RIV2TiLcKkRGe4v2Qb+IEM/Cn3uRLoRETV+g01B9I=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200403111243-59bcb0f93f11 h1:YdT3mnGJjt0ZU68RCtuwrx2/fhiAIghz+gN/Rud0EaE=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200403111243-59bcb0f93f11/go.mod h1:70RIV2TiLcKkRGe4v2Qb+IEM/Cn3uRLoRETV+g01B9I=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54/go.mod h1:1NF/j951kWm+ZnRXpOkBqweImgwhlzFVwTA4A0V7TEU=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
