@@ -748,6 +748,126 @@ export namespace appconfiguration {
     }
 }
 
+export namespace appplatform {
+    export interface SpringCloudServiceConfigServerGitSetting {
+        /**
+         * A `httpBasicAuth` block as defined below.
+         */
+        httpBasicAuth?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSettingHttpBasicAuth>;
+        /**
+         * The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * One or more `repository` blocks as defined below.
+         */
+        repositories?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSettingRepository>[]>;
+        /**
+         * An array of strings used to search subdirectories of the Git repository.
+         */
+        searchPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `sshAuth` block as defined below.
+         */
+        sshAuth?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSettingSshAuth>;
+        /**
+         * The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudServiceConfigServerGitSettingHttpBasicAuth {
+        /**
+         * The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudServiceConfigServerGitSettingRepository {
+        /**
+         * A `httpBasicAuth` block as defined below.
+         */
+        httpBasicAuth?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth>;
+        /**
+         * The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * A name to identify on the Git repository, required only if repos exists.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+         */
+        patterns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings used to search subdirectories of the Git repository.
+         */
+        searchPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `sshAuth` block as defined below.
+         */
+        sshAuth?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSettingRepositorySshAuth>;
+        /**
+         * The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
+        /**
+         * The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
+        /**
+         * The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
+         */
+        hostKey?: pulumi.Input<string>;
+        /**
+         * The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
+         */
+        hostKeyAlgorithm?: pulumi.Input<string>;
+        /**
+         * The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+         */
+        privateKey: pulumi.Input<string>;
+        /**
+         * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+         */
+        strictHostKeyCheckingEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SpringCloudServiceConfigServerGitSettingSshAuth {
+        /**
+         * The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
+         */
+        hostKey?: pulumi.Input<string>;
+        /**
+         * The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
+         */
+        hostKeyAlgorithm?: pulumi.Input<string>;
+        /**
+         * The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+         */
+        privateKey: pulumi.Input<string>;
+        /**
+         * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+         */
+        strictHostKeyCheckingEnabled?: pulumi.Input<boolean>;
+    }
+}
+
 export namespace appservice {
     export interface AppServiceAuthSettings {
         /**
@@ -7243,6 +7363,23 @@ export namespace healthcare {
     }
 }
 
+export namespace hpc {
+    export interface CacheNfsTargetNamespaceJunction {
+        /**
+         * The client-facing file path of this NFS target within the HPC Cache NFS Target.
+         */
+        namespacePath: pulumi.Input<string>;
+        /**
+         * The NFS export of this NFS target within the HPC Cache NFS Target.
+         */
+        nfsExport: pulumi.Input<string>;
+        /**
+         * The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `""`, in which case the whole `nfsExport` is exported.
+         */
+        targetPath?: pulumi.Input<string>;
+    }
+}
+
 export namespace iot {
     export interface IoTHubEndpoint {
         /**
@@ -7771,12 +7908,21 @@ export namespace lb {
          * The id of the Frontend IP Configuration.
          */
         id?: pulumi.Input<string>;
+        /**
+         * The list of IDs of inbound rules that use this frontend IP.
+         */
         inboundNatRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of IDs of load balancing rules that use this frontend IP.
+         */
         loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Specifies the name of the frontend ip configuration.
          */
         name: pulumi.Input<string>;
+        /**
+         * The list of IDs outbound rules that use this frontend IP.
+         */
         outboundRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
@@ -7834,6 +7980,19 @@ export namespace machinelearning {
          * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace managedapplication {
+    export interface DefinitionAuthorization {
+        /**
+         * Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+         */
+        roleDefinitionId: pulumi.Input<string>;
+        /**
+         * Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
+         */
+        servicePrincipalId: pulumi.Input<string>;
     }
 }
 

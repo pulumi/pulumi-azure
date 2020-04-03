@@ -249,6 +249,10 @@ namespace Pulumi.Azure.Lb
 
         [Input("inboundNatRules")]
         private InputList<string>? _inboundNatRules;
+
+        /// <summary>
+        /// The list of IDs of inbound rules that use this frontend IP.
+        /// </summary>
         public InputList<string> InboundNatRules
         {
             get => _inboundNatRules ?? (_inboundNatRules = new InputList<string>());
@@ -257,6 +261,10 @@ namespace Pulumi.Azure.Lb
 
         [Input("loadBalancerRules")]
         private InputList<string>? _loadBalancerRules;
+
+        /// <summary>
+        /// The list of IDs of load balancing rules that use this frontend IP.
+        /// </summary>
         public InputList<string> LoadBalancerRules
         {
             get => _loadBalancerRules ?? (_loadBalancerRules = new InputList<string>());
@@ -271,6 +279,10 @@ namespace Pulumi.Azure.Lb
 
         [Input("outboundRules")]
         private InputList<string>? _outboundRules;
+
+        /// <summary>
+        /// The list of IDs outbound rules that use this frontend IP.
+        /// </summary>
         public InputList<string> OutboundRules
         {
             get => _outboundRules ?? (_outboundRules = new InputList<string>());
@@ -334,6 +346,10 @@ namespace Pulumi.Azure.Lb
 
         [Input("inboundNatRules")]
         private InputList<string>? _inboundNatRules;
+
+        /// <summary>
+        /// The list of IDs of inbound rules that use this frontend IP.
+        /// </summary>
         public InputList<string> InboundNatRules
         {
             get => _inboundNatRules ?? (_inboundNatRules = new InputList<string>());
@@ -342,6 +358,10 @@ namespace Pulumi.Azure.Lb
 
         [Input("loadBalancerRules")]
         private InputList<string>? _loadBalancerRules;
+
+        /// <summary>
+        /// The list of IDs of load balancing rules that use this frontend IP.
+        /// </summary>
         public InputList<string> LoadBalancerRules
         {
             get => _loadBalancerRules ?? (_loadBalancerRules = new InputList<string>());
@@ -356,6 +376,10 @@ namespace Pulumi.Azure.Lb
 
         [Input("outboundRules")]
         private InputList<string>? _outboundRules;
+
+        /// <summary>
+        /// The list of IDs outbound rules that use this frontend IP.
+        /// </summary>
         public InputList<string> OutboundRules
         {
             get => _outboundRules ?? (_outboundRules = new InputList<string>());
@@ -420,12 +444,21 @@ namespace Pulumi.Azure.Lb
         /// The id of the Frontend IP Configuration.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The list of IDs of inbound rules that use this frontend IP.
+        /// </summary>
         public readonly ImmutableArray<string> InboundNatRules;
+        /// <summary>
+        /// The list of IDs of load balancing rules that use this frontend IP.
+        /// </summary>
         public readonly ImmutableArray<string> LoadBalancerRules;
         /// <summary>
         /// Specifies the name of the frontend ip configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The list of IDs outbound rules that use this frontend IP.
+        /// </summary>
         public readonly ImmutableArray<string> OutboundRules;
         /// <summary>
         /// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.

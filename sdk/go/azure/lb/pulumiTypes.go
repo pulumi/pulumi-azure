@@ -13,11 +13,14 @@ import (
 
 type LoadBalancerFrontendIpConfiguration struct {
 	// The id of the Frontend IP Configuration.
-	Id                *string  `pulumi:"id"`
-	InboundNatRules   []string `pulumi:"inboundNatRules"`
+	Id *string `pulumi:"id"`
+	// The list of IDs of inbound rules that use this frontend IP.
+	InboundNatRules []string `pulumi:"inboundNatRules"`
+	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
 	// Specifies the name of the frontend ip configuration.
-	Name          string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules []string `pulumi:"outboundRules"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -44,11 +47,14 @@ type LoadBalancerFrontendIpConfigurationInput interface {
 
 type LoadBalancerFrontendIpConfigurationArgs struct {
 	// The id of the Frontend IP Configuration.
-	Id                pulumi.StringPtrInput   `pulumi:"id"`
-	InboundNatRules   pulumi.StringArrayInput `pulumi:"inboundNatRules"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The list of IDs of inbound rules that use this frontend IP.
+	InboundNatRules pulumi.StringArrayInput `pulumi:"inboundNatRules"`
+	// The list of IDs of load balancing rules that use this frontend IP.
 	LoadBalancerRules pulumi.StringArrayInput `pulumi:"loadBalancerRules"`
 	// Specifies the name of the frontend ip configuration.
-	Name          pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The list of IDs outbound rules that use this frontend IP.
 	OutboundRules pulumi.StringArrayInput `pulumi:"outboundRules"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
@@ -118,10 +124,12 @@ func (o LoadBalancerFrontendIpConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The list of IDs of inbound rules that use this frontend IP.
 func (o LoadBalancerFrontendIpConfigurationOutput) InboundNatRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.InboundNatRules }).(pulumi.StringArrayOutput)
 }
 
+// The list of IDs of load balancing rules that use this frontend IP.
 func (o LoadBalancerFrontendIpConfigurationOutput) LoadBalancerRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
 }
@@ -131,6 +139,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The list of IDs outbound rules that use this frontend IP.
 func (o LoadBalancerFrontendIpConfigurationOutput) OutboundRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.OutboundRules }).(pulumi.StringArrayOutput)
 }

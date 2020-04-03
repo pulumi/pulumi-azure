@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Policy
         /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
         /// </summary>
         [Output("metadata")]
-        public Output<string?> Metadata { get; private set; } = null!;
+        public Output<string> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the policy set definition. Changing this forces a new resource to be created.
