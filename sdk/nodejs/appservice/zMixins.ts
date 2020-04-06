@@ -109,6 +109,11 @@ interface FunctionAppArgsBase {
     readonly appSettings?: pulumi.Input<{ [key: string]: any; }>;
 
     /**
+     * A `authSettings` block as defined below.
+     */
+    readonly authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
+
+    /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
     readonly clientAffinityEnabled?: pulumi.Input<boolean>;
@@ -128,6 +133,11 @@ interface FunctionAppArgsBase {
      * provided, the root container of the storage account will be used.
      */
     readonly container?: storageForTypesOnly.Container;
+
+    /**
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     */
+    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
 
     /**
      * Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -169,6 +179,11 @@ interface FunctionAppArgsBase {
      * defaults to `~12`.
      */
     readonly nodeVersion?: pulumi.Input<string>;
+
+    /**
+     * A string indicating the Operating System type for this function app. 
+     */
+    readonly osType?: pulumi.Input<string>;
 
     /**
      * The App Service Plan within which to create this Function App. Changing this forces a new
