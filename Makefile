@@ -63,8 +63,9 @@ install_plugins::
 	pulumi plugin install resource random 0.2.0
 
 lint::
-	#GOGC=25 golangci-lint run
-	#nm "$(shell which pulumi-resource-azure)" | grep github.com/pulumi/pulumi-azure/vendor/github.com/terraform-providers/terraform-provider-azurerm/azurerm.requireResourcesToBeImported
+	for DIR in "provider" "sdk" ; do \
+		pushd $$DIR && golangci-lint run -c ../.golangci.yml --timeout 5m && popd ; \
+	done
 
 install:: tfgen provider 
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"

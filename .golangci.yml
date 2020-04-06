@@ -1,6 +1,6 @@
 run:
-  deadline: 5m
-
+  skip-files:
+    - 'schema.go'
 linters:
   enable-all: false
   enable:
