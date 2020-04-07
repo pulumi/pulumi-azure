@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Storage
                 .Tuple(account.Name, account.PrimaryConnectionString, blob.StorageContainerName, blob.Name)
                 .Apply(async ((string accountName, string connectionString, string containerName, string blobName) v) =>
                 {                    
-                    var sas = await Invokes.GetAccountBlobContainerSAS(
+                    var sas = await GetAccountBlobContainerSAS.InvokeAsync(
                         new GetAccountBlobContainerSASArgs
                         {
                             ConnectionString = v.connectionString,
