@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add several properties to ArchiveFunctionApp.
+  ([#514](https://github.com/pulumi/pulumi-azure/pull/514))
 
 ---
 
