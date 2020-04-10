@@ -5279,7 +5279,7 @@ export namespace containerservice {
          */
         osDiskSizeGb: number;
         /**
-         * A mapping of tags to assign to the resource.
+         * A mapping of tags to assign to the Node Pool.
          */
         tags?: {[key: string]: string};
         /**
@@ -5405,9 +5405,13 @@ export namespace containerservice {
          */
         networkPlugin: string;
         /**
-         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
          */
         networkPolicy: string;
+        /**
+         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+         */
+        outboundType?: string;
         /**
          * The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
          */
@@ -12338,6 +12342,13 @@ export namespace privatedns {
          * The Weight of the SRV record.
          */
         weight: number;
+    }
+
+    export interface TxtRecordRecord {
+        /**
+         * The value of the TXT record. Max length: 1024 characters
+         */
+        value: string;
     }
 }
 

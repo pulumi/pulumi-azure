@@ -303,6 +303,12 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_DISABLE_TERRAFORM_PARTNER_ID"},
 				},
 			},
+			"storage_use_azuread": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"ARM_STORAGE_USE_AZUREAD"},
+				},
+			},
 		},
 		ExtraConfig: map[string]*tfbridge.ConfigInfo{
 			azureLocation: {
@@ -887,6 +893,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_private_dns_mx_record": {
 				Tok: azureResource(azurePrivateDNS, "MxRecord"),
+			},
+			"azurerm_private_dns_txt_record": {
+				Tok: azureResource(azurePrivateDNS, "TxtRecord"),
 			},
 
 			// SQL

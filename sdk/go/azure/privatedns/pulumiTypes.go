@@ -350,6 +350,95 @@ func (o SRVRecordRecordArrayOutput) Index(i pulumi.IntInput) SRVRecordRecordOutp
 	}).(SRVRecordRecordOutput)
 }
 
+type TxtRecordRecord struct {
+	// The value of the TXT record. Max length: 1024 characters
+	Value string `pulumi:"value"`
+}
+
+type TxtRecordRecordInput interface {
+	pulumi.Input
+
+	ToTxtRecordRecordOutput() TxtRecordRecordOutput
+	ToTxtRecordRecordOutputWithContext(context.Context) TxtRecordRecordOutput
+}
+
+type TxtRecordRecordArgs struct {
+	// The value of the TXT record. Max length: 1024 characters
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TxtRecordRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtRecordRecord)(nil)).Elem()
+}
+
+func (i TxtRecordRecordArgs) ToTxtRecordRecordOutput() TxtRecordRecordOutput {
+	return i.ToTxtRecordRecordOutputWithContext(context.Background())
+}
+
+func (i TxtRecordRecordArgs) ToTxtRecordRecordOutputWithContext(ctx context.Context) TxtRecordRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordRecordOutput)
+}
+
+type TxtRecordRecordArrayInput interface {
+	pulumi.Input
+
+	ToTxtRecordRecordArrayOutput() TxtRecordRecordArrayOutput
+	ToTxtRecordRecordArrayOutputWithContext(context.Context) TxtRecordRecordArrayOutput
+}
+
+type TxtRecordRecordArray []TxtRecordRecordInput
+
+func (TxtRecordRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TxtRecordRecord)(nil)).Elem()
+}
+
+func (i TxtRecordRecordArray) ToTxtRecordRecordArrayOutput() TxtRecordRecordArrayOutput {
+	return i.ToTxtRecordRecordArrayOutputWithContext(context.Background())
+}
+
+func (i TxtRecordRecordArray) ToTxtRecordRecordArrayOutputWithContext(ctx context.Context) TxtRecordRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordRecordArrayOutput)
+}
+
+type TxtRecordRecordOutput struct{ *pulumi.OutputState }
+
+func (TxtRecordRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtRecordRecord)(nil)).Elem()
+}
+
+func (o TxtRecordRecordOutput) ToTxtRecordRecordOutput() TxtRecordRecordOutput {
+	return o
+}
+
+func (o TxtRecordRecordOutput) ToTxtRecordRecordOutputWithContext(ctx context.Context) TxtRecordRecordOutput {
+	return o
+}
+
+// The value of the TXT record. Max length: 1024 characters
+func (o TxtRecordRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TxtRecordRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TxtRecordRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (TxtRecordRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TxtRecordRecord)(nil)).Elem()
+}
+
+func (o TxtRecordRecordArrayOutput) ToTxtRecordRecordArrayOutput() TxtRecordRecordArrayOutput {
+	return o
+}
+
+func (o TxtRecordRecordArrayOutput) ToTxtRecordRecordArrayOutputWithContext(ctx context.Context) TxtRecordRecordArrayOutput {
+	return o
+}
+
+func (o TxtRecordRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TxtRecordRecord {
+		return vs[0].([]TxtRecordRecord)[vs[1].(int)]
+	}).(TxtRecordRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkServiceNatIpConfigurationOutput{})
 	pulumi.RegisterOutputType(LinkServiceNatIpConfigurationArrayOutput{})
@@ -357,4 +446,6 @@ func init() {
 	pulumi.RegisterOutputType(MxRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(SRVRecordRecordOutput{})
 	pulumi.RegisterOutputType(SRVRecordRecordArrayOutput{})
+	pulumi.RegisterOutputType(TxtRecordRecordOutput{})
+	pulumi.RegisterOutputType(TxtRecordRecordArrayOutput{})
 }

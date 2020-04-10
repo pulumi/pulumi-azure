@@ -56,14 +56,14 @@ type KubernetesCluster struct {
 	PrivateLinkEnabled pulumi.BoolPtrOutput `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `roleBasedAccessControl` block.
+	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlOutput `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
-	ServicePrincipal KubernetesClusterServicePrincipalOutput `pulumi:"servicePrincipal"`
+	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
-	WindowsProfile KubernetesClusterWindowsProfilePtrOutput `pulumi:"windowsProfile"`
+	WindowsProfile KubernetesClusterWindowsProfileOutput `pulumi:"windowsProfile"`
 }
 
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
@@ -77,9 +77,6 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServicePrincipal == nil {
-		return nil, errors.New("missing required argument 'ServicePrincipal'")
 	}
 	if args == nil {
 		args = &KubernetesClusterArgs{}
@@ -145,7 +142,7 @@ type kubernetesClusterState struct {
 	PrivateLinkEnabled *bool   `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `roleBasedAccessControl` block.
+	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
@@ -195,7 +192,7 @@ type KubernetesClusterState struct {
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `roleBasedAccessControl` block.
+	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
@@ -237,10 +234,10 @@ type kubernetesClusterArgs struct {
 	PrivateLinkEnabled *bool   `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `roleBasedAccessControl` block.
+	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
-	ServicePrincipal KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
+	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
@@ -276,10 +273,10 @@ type KubernetesClusterArgs struct {
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `roleBasedAccessControl` block.
+	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// A `servicePrincipal` block as documented below.
-	ServicePrincipal KubernetesClusterServicePrincipalInput
+	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.

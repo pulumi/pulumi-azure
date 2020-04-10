@@ -4,6 +4,11 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Add several properties to ArchiveFunctionApp.
   ([#514](https://github.com/pulumi/pulumi-azure/pull/514))
+* Upgrade to v2.5.0 of the AzureRM Terraform Provider
+  ** PLEASE NOTE:** 
+  Unfortunately, there are some breaking changes inrespect to 
+  `azurerm_kubernetes_cluster`. Due to a breaking change in the Azure AKS API,
+  Mixed Mode Authentication clusters are no longer supported
 
 ---
 

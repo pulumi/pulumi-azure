@@ -165,6 +165,7 @@ namespace Pulumi.Azure
             PartnerId = Utilities.GetEnv("ARM_PARTNER_ID") ?? "";
             SkipCredentialsValidation = Utilities.GetEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") ?? false;
             SkipProviderRegistration = Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
+            StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";
             TenantId = Utilities.GetEnv("AZURE_TENANT_ID", "ARM_TENANT_ID") ?? "";
             UseMsi = Utilities.GetEnvBoolean("ARM_USE_MSI") ?? false;

@@ -4490,7 +4490,7 @@ export namespace containerservice {
          */
         osDiskSizeGb?: pulumi.Input<number>;
         /**
-         * A mapping of tags to assign to the resource.
+         * A mapping of tags to assign to the Node Pool.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -4616,9 +4616,13 @@ export namespace containerservice {
          */
         networkPlugin: pulumi.Input<string>;
         /**
-         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+         * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
          */
         networkPolicy?: pulumi.Input<string>;
+        /**
+         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+         */
+        outboundType?: pulumi.Input<string>;
         /**
          * The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
          */
@@ -10553,6 +10557,13 @@ export namespace privatedns {
          * The Weight of the SRV record.
          */
         weight: pulumi.Input<number>;
+    }
+
+    export interface TxtRecordRecord {
+        /**
+         * The value of the TXT record. Max length: 1024 characters
+         */
+        value: pulumi.Input<string>;
     }
 }
 
