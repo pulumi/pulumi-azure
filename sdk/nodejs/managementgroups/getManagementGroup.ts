@@ -20,6 +20,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
     }
     return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
         "groupId": args.groupId,
+        "name": args.name,
     }, opts);
 }
 
@@ -28,9 +29,15 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
  */
 export interface GetManagementGroupArgs {
     /**
-     * Specifies the UUID of this Management Group.
+     * Specifies the name or UUID of this Management Group.
+     * 
+     * @deprecated Deprecated in favor of `name`
      */
-    readonly groupId: string;
+    readonly groupId?: string;
+    /**
+     * Specifies the name or UUID of this Management Group.
+     */
+    readonly name?: string;
 }
 
 /**
@@ -42,6 +49,7 @@ export interface GetManagementGroupResult {
      */
     readonly displayName: string;
     readonly groupId: string;
+    readonly name: string;
     /**
      * The ID of any Parent Management Group.
      */

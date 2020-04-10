@@ -56,6 +56,9 @@ func NewProvider(ctx *pulumi.Context,
 	if args.SkipProviderRegistration == nil {
 		args.SkipProviderRegistration = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool))
 	}
+	if args.StorageUseAzuread == nil {
+		args.StorageUseAzuread = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_STORAGE_USE_AZUREAD").(bool))
+	}
 	if args.SubscriptionId == nil {
 		args.SubscriptionId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string))
 	}

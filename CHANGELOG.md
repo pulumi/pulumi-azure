@@ -2,9 +2,21 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add several properties to ArchiveFunctionApp.
+  ([#514](https://github.com/pulumi/pulumi-azure/pull/514))
+* Upgrade to v2.5.0 of the AzureRM Terraform Provider
+  ** PLEASE NOTE:** 
+  Unfortunately, there are some breaking changes inrespect to 
+  `azurerm_kubernetes_cluster`. Due to a breaking change in the Azure AKS API,
+  Mixed Mode Authentication clusters are no longer supported
 
 ---
+
+## 2.4.1 (2020-04-03)
+* Fix the release version of the azure binary
+
+## 2.4.0 (2020-04-03)
+* Upgrade to v2.4.0 of the AzureRM Terraform Provider
 
 ## 2.3.1 (2020-03-30)
 * Bump consumable git modules to v2 as per [go documentation](https://github.com/golang/go/wiki/Modules#releasing-modules-v2-or-higher)

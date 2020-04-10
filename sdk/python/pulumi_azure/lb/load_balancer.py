@@ -15,10 +15,10 @@ class LoadBalancer(pulumi.CustomResource):
     One or multiple `frontend_ip_configuration` blocks as documented below.
 
       * `id` (`str`) - The id of the Frontend IP Configuration.
-      * `inbound_nat_rules` (`list`)
-      * `load_balancer_rules` (`list`)
+      * `inbound_nat_rules` (`list`) - The list of IDs of inbound rules that use this frontend IP.
+      * `load_balancer_rules` (`list`) - The list of IDs of load balancing rules that use this frontend IP.
       * `name` (`str`) - Specifies the name of the frontend ip configuration.
-      * `outboundRules` (`list`)
+      * `outboundRules` (`list`) - The list of IDs outbound rules that use this frontend IP.
       * `private_ip_address` (`str`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
       * `privateIpAddressAllocation` (`str`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
       * `privateIpAddressVersion` (`str`) - The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
@@ -75,10 +75,10 @@ class LoadBalancer(pulumi.CustomResource):
         The **frontend_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The id of the Frontend IP Configuration.
-          * `inbound_nat_rules` (`pulumi.Input[list]`)
-          * `load_balancer_rules` (`pulumi.Input[list]`)
+          * `inbound_nat_rules` (`pulumi.Input[list]`) - The list of IDs of inbound rules that use this frontend IP.
+          * `load_balancer_rules` (`pulumi.Input[list]`) - The list of IDs of load balancing rules that use this frontend IP.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the frontend ip configuration.
-          * `outboundRules` (`pulumi.Input[list]`)
+          * `outboundRules` (`pulumi.Input[list]`) - The list of IDs outbound rules that use this frontend IP.
           * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
           * `privateIpAddressVersion` (`pulumi.Input[str]`) - The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
@@ -141,10 +141,10 @@ class LoadBalancer(pulumi.CustomResource):
         The **frontend_ip_configurations** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The id of the Frontend IP Configuration.
-          * `inbound_nat_rules` (`pulumi.Input[list]`)
-          * `load_balancer_rules` (`pulumi.Input[list]`)
+          * `inbound_nat_rules` (`pulumi.Input[list]`) - The list of IDs of inbound rules that use this frontend IP.
+          * `load_balancer_rules` (`pulumi.Input[list]`) - The list of IDs of load balancing rules that use this frontend IP.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the frontend ip configuration.
-          * `outboundRules` (`pulumi.Input[list]`)
+          * `outboundRules` (`pulumi.Input[list]`) - The list of IDs outbound rules that use this frontend IP.
           * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
           * `privateIpAddressVersion` (`pulumi.Input[str]`) - The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.

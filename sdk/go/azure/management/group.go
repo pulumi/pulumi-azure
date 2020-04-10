@@ -18,10 +18,12 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId pulumi.StringOutput `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
@@ -62,10 +64,12 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
 	DisplayName *string `pulumi:"displayName"`
-	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	GroupId *string `pulumi:"groupId"`
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
@@ -73,10 +77,12 @@ type groupState struct {
 }
 
 type GroupState struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
 	DisplayName pulumi.StringPtrInput
-	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	GroupId pulumi.StringPtrInput
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId pulumi.StringPtrInput
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
@@ -88,10 +94,12 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
 	DisplayName *string `pulumi:"displayName"`
-	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	GroupId *string `pulumi:"groupId"`
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
@@ -100,10 +108,12 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
 	DisplayName pulumi.StringPtrInput
-	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	GroupId pulumi.StringPtrInput
+	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId pulumi.StringPtrInput
 	// A list of Subscription GUIDs which should be assigned to the Management Group.

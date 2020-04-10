@@ -77,7 +77,7 @@ namespace Pulumi.Azure
         /// <summary>
         /// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         /// </summary>
-        public static bool? StorageUseAzuread { get; set; } = __config.GetBoolean("storageUseAzuread");
+        public static bool? StorageUseAzuread { get; set; } = __config.GetBoolean("storageUseAzuread") ?? Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
 
         /// <summary>
         /// The Subscription ID which should be used.

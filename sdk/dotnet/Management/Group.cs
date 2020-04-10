@@ -19,16 +19,22 @@ namespace Pulumi.Azure.Management
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+        /// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Parent Management Group. Changing this forces a new resource to be created.
@@ -89,16 +95,22 @@ namespace Pulumi.Azure.Management
     public sealed class GroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+        /// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The ID of the Parent Management Group. Changing this forces a new resource to be created.
@@ -126,16 +138,22 @@ namespace Pulumi.Azure.Management
     public sealed class GroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+        /// A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The ID of the Parent Management Group. Changing this forces a new resource to be created.

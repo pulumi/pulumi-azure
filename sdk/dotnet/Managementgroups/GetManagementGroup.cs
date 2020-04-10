@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
         /// </summary>
         [Obsolete("Use GetManagementGroup.InvokeAsync() instead")]
-        public static Task<GetManagementGroupResult> GetManagementGroup(GetManagementGroupArgs args, InvokeOptions? options = null)
+        public static Task<GetManagementGroupResult> GetManagementGroup(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
     public static class GetManagementGroup
@@ -31,17 +31,23 @@ namespace Pulumi.Azure.ManagementGroups
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
         /// </summary>
-        public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
+        public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetManagementGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the UUID of this Management Group.
+        /// Specifies the name or UUID of this Management Group.
         /// </summary>
-        [Input("groupId", required: true)]
-        public string GroupId { get; set; } = null!;
+        [Input("groupId")]
+        public string? GroupId { get; set; }
+
+        /// <summary>
+        /// Specifies the name or UUID of this Management Group.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         public GetManagementGroupArgs()
         {
@@ -56,6 +62,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// </summary>
         public readonly string DisplayName;
         public readonly string GroupId;
+        public readonly string Name;
         /// <summary>
         /// The ID of any Parent Management Group.
         /// </summary>
@@ -73,12 +80,14 @@ namespace Pulumi.Azure.ManagementGroups
         private GetManagementGroupResult(
             string displayName,
             string groupId,
+            string name,
             string parentManagementGroupId,
             ImmutableArray<string> subscriptionIds,
             string id)
         {
             DisplayName = displayName;
             GroupId = groupId;
+            Name = name;
             ParentManagementGroupId = parentManagementGroupId;
             SubscriptionIds = subscriptionIds;
             Id = id;

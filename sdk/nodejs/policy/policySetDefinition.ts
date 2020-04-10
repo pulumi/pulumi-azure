@@ -91,7 +91,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */
-    public readonly metadata!: pulumi.Output<string | undefined>;
+    public readonly metadata!: pulumi.Output<string>;
     /**
      * The name of the policy set definition. Changing this forces a new resource to be created.
      */

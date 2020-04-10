@@ -51,7 +51,7 @@ class KubernetesCluster(pulumi.CustomResource):
       * `node_labels` (`dict`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
       * `node_taints` (`list`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
       * `os_disk_size_gb` (`float`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-      * `tags` (`dict`) - A mapping of tags to assign to the resource.
+      * `tags` (`dict`) - A mapping of tags to assign to the Node Pool.
       * `type` (`str`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
       * `vm_size` (`str`) - The size of the Virtual Machine, such as `Standard_DS2_v2`.
       * `vnet_subnet_id` (`str`) - The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
@@ -140,7 +140,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
       * `loadBalancerSku` (`str`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
       * `networkPlugin` (`str`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
-      * `networkPolicy` (`str`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+      * `networkPolicy` (`str`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+      * `outboundType` (`str`) - The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
       * `podCidr` (`str`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
       * `serviceCidr` (`str`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
     """
@@ -159,7 +160,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     role_based_access_control: pulumi.Output[dict]
     """
-    A `role_based_access_control` block.
+    A `role_based_access_control` block. Changing this forces a new resource to be created.
 
       * `azure_active_directory` (`dict`) - An `azure_active_directory` block.
         * `clientAppId` (`str`) - The Client ID of an Azure Active Directory Application.
@@ -210,7 +211,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block.
+        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
@@ -248,7 +249,7 @@ class KubernetesCluster(pulumi.CustomResource):
           * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
           * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
           * `os_disk_size_gb` (`pulumi.Input[float]`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
+          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the Node Pool.
           * `type` (`pulumi.Input[str]`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
           * `vm_size` (`pulumi.Input[str]`) - The size of the Virtual Machine, such as `Standard_DS2_v2`.
           * `vnet_subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
@@ -277,7 +278,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
           * `loadBalancerSku` (`pulumi.Input[str]`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
           * `networkPlugin` (`pulumi.Input[str]`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
-          * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+          * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+          * `outboundType` (`pulumi.Input[str]`) - The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
           * `podCidr` (`pulumi.Input[str]`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
           * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
 
@@ -339,8 +341,6 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['role_based_access_control'] = role_based_access_control
-            if service_principal is None:
-                raise TypeError("Missing required property 'service_principal'")
             __props__['service_principal'] = service_principal
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
@@ -384,7 +384,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block.
+        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
@@ -422,7 +422,7 @@ class KubernetesCluster(pulumi.CustomResource):
           * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
           * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
           * `os_disk_size_gb` (`pulumi.Input[float]`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the resource.
+          * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the Node Pool.
           * `type` (`pulumi.Input[str]`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
           * `vm_size` (`pulumi.Input[str]`) - The size of the Virtual Machine, such as `Standard_DS2_v2`.
           * `vnet_subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
@@ -469,7 +469,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
           * `loadBalancerSku` (`pulumi.Input[str]`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
           * `networkPlugin` (`pulumi.Input[str]`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
-          * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+          * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+          * `outboundType` (`pulumi.Input[str]`) - The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
           * `podCidr` (`pulumi.Input[str]`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
           * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
 

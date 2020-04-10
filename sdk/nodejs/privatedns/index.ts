@@ -9,5 +9,6 @@ export * from "./linkService";
 export * from "./mxRecord";
 export * from "./pTRRecord";
 export * from "./sRVRecord";
+export * from "./txtRecord";
 export * from "./zone";
 export * from "./zoneVirtualNetworkLink";
