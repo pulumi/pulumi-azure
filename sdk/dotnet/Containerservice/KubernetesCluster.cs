@@ -134,7 +134,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `role_based_access_control` block.
+        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
         /// </summary>
         [Output("roleBasedAccessControl")]
         public Output<Outputs.KubernetesClusterRoleBasedAccessControl> RoleBasedAccessControl { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.ContainerService
         /// A `service_principal` block as documented below.
         /// </summary>
         [Output("servicePrincipal")]
-        public Output<Outputs.KubernetesClusterServicePrincipal> ServicePrincipal { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.ContainerService
         /// A `windows_profile` block as defined below.
         /// </summary>
         [Output("windowsProfile")]
-        public Output<Outputs.KubernetesClusterWindowsProfile?> WindowsProfile { get; private set; } = null!;
+        public Output<Outputs.KubernetesClusterWindowsProfile> WindowsProfile { get; private set; } = null!;
 
 
         /// <summary>
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `role_based_access_control` block.
+        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
         /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlArgs>? RoleBasedAccessControl { get; set; }
@@ -299,8 +299,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `service_principal` block as documented below.
         /// </summary>
-        [Input("servicePrincipal", required: true)]
-        public Input<Inputs.KubernetesClusterServicePrincipalArgs> ServicePrincipal { get; set; } = null!;
+        [Input("servicePrincipal")]
+        public Input<Inputs.KubernetesClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `role_based_access_control` block.
+        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
         /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlGetArgs>? RoleBasedAccessControl { get; set; }
@@ -830,7 +830,7 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the Node Pool.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -951,7 +951,7 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the Node Pool.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1215,10 +1215,16 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> NetworkPlugin { get; set; } = null!;
 
         /// <summary>
-        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
+
+        /// <summary>
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+        /// </summary>
+        [Input("outboundType")]
+        public Input<string>? OutboundType { get; set; }
 
         /// <summary>
         /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
@@ -1270,10 +1276,16 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> NetworkPlugin { get; set; } = null!;
 
         /// <summary>
-        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
+
+        /// <summary>
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+        /// </summary>
+        [Input("outboundType")]
+        public Input<string>? OutboundType { get; set; }
 
         /// <summary>
         /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
@@ -1754,7 +1766,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly int OsDiskSizeGb;
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the Node Pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -1987,9 +1999,13 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string NetworkPlugin;
         /// <summary>
-        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created. 
+        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string NetworkPolicy;
+        /// <summary>
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
+        /// </summary>
+        public readonly string? OutboundType;
         /// <summary>
         /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
         /// </summary>
@@ -2007,6 +2023,7 @@ namespace Pulumi.Azure.ContainerService
             string? loadBalancerSku,
             string networkPlugin,
             string networkPolicy,
+            string? outboundType,
             string podCidr,
             string serviceCidr)
         {
@@ -2016,6 +2033,7 @@ namespace Pulumi.Azure.ContainerService
             LoadBalancerSku = loadBalancerSku;
             NetworkPlugin = networkPlugin;
             NetworkPolicy = networkPolicy;
+            OutboundType = outboundType;
             PodCidr = podCidr;
             ServiceCidr = serviceCidr;
         }

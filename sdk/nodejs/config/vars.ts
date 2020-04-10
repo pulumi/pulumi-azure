@@ -60,7 +60,7 @@ export let skipProviderRegistration: boolean | undefined = __config.getObject<bo
 /**
  * Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
  */
-export let storageUseAzuread: boolean | undefined = __config.getObject<boolean>("storageUseAzuread");
+export let storageUseAzuread: boolean | undefined = __config.getObject<boolean>("storageUseAzuread") || (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false);
 /**
  * The Subscription ID which should be used.
  */

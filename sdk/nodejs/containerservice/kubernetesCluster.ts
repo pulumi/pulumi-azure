@@ -116,13 +116,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `roleBasedAccessControl` block.
+     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
      */
     public readonly roleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
      * A `servicePrincipal` block as documented below.
      */
-    public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal>;
+    public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -130,7 +130,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `windowsProfile` block as defined below.
      */
-    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile | undefined>;
+    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile>;
 
     /**
      * Create a KubernetesCluster resource with the given unique name, arguments, and options.
@@ -178,9 +178,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.servicePrincipal === undefined) {
-                throw new Error("Missing required property 'servicePrincipal'");
             }
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
             inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
@@ -300,7 +297,7 @@ export interface KubernetesClusterState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `roleBasedAccessControl` block.
+     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
      */
     readonly roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
@@ -375,13 +372,13 @@ export interface KubernetesClusterArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `roleBasedAccessControl` block.
+     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
      */
     readonly roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
      * A `servicePrincipal` block as documented below.
      */
-    readonly servicePrincipal: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
+    readonly servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -104,6 +104,8 @@ class Provider(pulumi.ProviderResource):
             if skip_provider_registration is None:
                 skip_provider_registration = (utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
             __props__['skip_provider_registration'] = pulumi.Output.from_input(skip_provider_registration).apply(json.dumps) if skip_provider_registration is not None else None
+            if storage_use_azuread is None:
+                storage_use_azuread = (utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
             __props__['storage_use_azuread'] = pulumi.Output.from_input(storage_use_azuread).apply(json.dumps) if storage_use_azuread is not None else None
             if subscription_id is None:
                 subscription_id = (utilities.get_env('ARM_SUBSCRIPTION_ID') or '')

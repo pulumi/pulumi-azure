@@ -77,7 +77,7 @@ Should the AzureRM Provider skip registering all of the Resource Providers that 
 registered?
 """
 
-storage_use_azuread = __config__.get('storageUseAzuread')
+storage_use_azuread = __config__.get('storageUseAzuread') or (utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
 """
 Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
 """

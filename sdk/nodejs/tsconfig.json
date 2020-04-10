@@ -542,6 +542,7 @@
         "privatedns/mxRecord.ts",
         "privatedns/pTRRecord.ts",
         "privatedns/sRVRecord.ts",
+        "privatedns/txtRecord.ts",
         "privatedns/zone.ts",
         "privatedns/zoneVirtualNetworkLink.ts",
         "privatelink/endpoint.ts",
