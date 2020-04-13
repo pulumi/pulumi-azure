@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNetworkDdosProtectionPlan.InvokeAsync() instead")]
-        public static Task<GetNetworkDdosProtectionPlanResult> GetNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNetworkDdosProtectionPlan
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkDdosProtectionPlanResult> InvokeAsync(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? new GetNetworkDdosProtectionPlanArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNetworkDdosProtectionPlanArgs : Pulumi.InvokeArgs
     {
@@ -66,9 +53,14 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetNetworkDdosProtectionPlanResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Specifies the supported Azure location where the resource exists.
         /// </summary>
@@ -83,26 +75,27 @@ namespace Pulumi.Azure.Network
         /// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
         /// </summary>
         public readonly ImmutableArray<string> VirtualNetworkIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNetworkDdosProtectionPlanResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string>? tags,
-            ImmutableArray<string> virtualNetworkIds,
-            string id)
+
+            ImmutableArray<string> virtualNetworkIds)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             VirtualNetworkIds = virtualNetworkIds;
-            Id = id;
         }
     }
 }

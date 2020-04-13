@@ -53,8 +53,6 @@ class CustomProvider(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/custom_provider.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.

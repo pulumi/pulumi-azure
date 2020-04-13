@@ -13,10 +13,6 @@ namespace Pulumi.Azure.PostgreSql
     /// Manages a PostgreSQL Virtual Network Rule.
     /// 
     /// &gt; **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_virtual_network_rule.html.markdown.
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
@@ -59,7 +55,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:postgresql/virtualNetworkRule:VirtualNetworkRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:postgresql/virtualNetworkRule:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

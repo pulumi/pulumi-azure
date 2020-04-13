@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Iot
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDpsSharedAccessPolicy.InvokeAsync() instead")]
-        public static Task<GetDpsSharedAccessPolicyResult> GetDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDpsSharedAccessPolicy
     {
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDpsSharedAccessPolicyResult> InvokeAsync(GetDpsSharedAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? new GetDpsSharedAccessPolicyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDpsSharedAccessPolicyArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.Iot
         }
     }
 
+
     [OutputType]
     public sealed class GetDpsSharedAccessPolicyResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string IothubDpsName;
         public readonly string Name;
         /// <summary>
@@ -82,22 +74,26 @@ namespace Pulumi.Azure.Iot
         /// The secondary key used to create the authentication token.
         /// </summary>
         public readonly string SecondaryKey;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDpsSharedAccessPolicyResult(
+            string id,
+
             string iothubDpsName,
+
             string name,
+
             string primaryConnectionString,
+
             string primaryKey,
+
             string resourceGroupName,
+
             string secondaryConnectionString,
-            string secondaryKey,
-            string id)
+
+            string secondaryKey)
         {
+            Id = id;
             IothubDpsName = iothubDpsName;
             Name = name;
             PrimaryConnectionString = primaryConnectionString;
@@ -105,7 +101,6 @@ namespace Pulumi.Azure.Iot
             ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryKey = secondaryKey;
-            Id = id;
         }
     }
 }

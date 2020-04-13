@@ -11,10 +11,6 @@ namespace Pulumi.Azure.MediaServices
 {
     /// <summary>
     /// Manages a Media Services Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {
@@ -40,7 +36,7 @@ namespace Pulumi.Azure.MediaServices
         /// One or more `storage_account` blocks as defined below.
         /// </summary>
         [Output("storageAccounts")]
-        public Output<ImmutableArray<Outputs.AccountStorageAccounts>> StorageAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AccountStorageAccount>> StorageAccounts { get; private set; } = null!;
 
 
         /// <summary>
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.MediaServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure:mediaservices/account:Account", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mediaservices/account:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -107,14 +103,14 @@ namespace Pulumi.Azure.MediaServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("storageAccounts", required: true)]
-        private InputList<Inputs.AccountStorageAccountsArgs>? _storageAccounts;
+        private InputList<Inputs.AccountStorageAccountArgs>? _storageAccounts;
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.AccountStorageAccountsArgs> StorageAccounts
+        public InputList<Inputs.AccountStorageAccountArgs> StorageAccounts
         {
-            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.AccountStorageAccountsArgs>());
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.AccountStorageAccountArgs>());
             set => _storageAccounts = value;
         }
 
@@ -144,87 +140,19 @@ namespace Pulumi.Azure.MediaServices
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("storageAccounts")]
-        private InputList<Inputs.AccountStorageAccountsGetArgs>? _storageAccounts;
+        private InputList<Inputs.AccountStorageAccountGetArgs>? _storageAccounts;
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.AccountStorageAccountsGetArgs> StorageAccounts
+        public InputList<Inputs.AccountStorageAccountGetArgs> StorageAccounts
         {
-            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.AccountStorageAccountsGetArgs>());
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.AccountStorageAccountGetArgs>());
             set => _storageAccounts = value;
         }
 
         public AccountState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AccountStorageAccountsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
-        /// </summary>
-        [Input("isPrimary")]
-        public Input<bool>? IsPrimary { get; set; }
-
-        public AccountStorageAccountsArgs()
-        {
-        }
-    }
-
-    public sealed class AccountStorageAccountsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
-        /// </summary>
-        [Input("isPrimary")]
-        public Input<bool>? IsPrimary { get; set; }
-
-        public AccountStorageAccountsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AccountStorageAccounts
-    {
-        /// <summary>
-        /// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
-        /// </summary>
-        public readonly bool? IsPrimary;
-
-        [OutputConstructor]
-        private AccountStorageAccounts(
-            string id,
-            bool? isPrimary)
-        {
-            Id = id;
-            IsPrimary = isPrimary;
-        }
-    }
     }
 }

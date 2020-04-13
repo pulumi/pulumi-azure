@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DataLake
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Data Lake Store.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetStore.InvokeAsync() instead")]
-        public static Task<GetStoreResult> GetStore(GetStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetStore
     {
         /// <summary>
         /// Use this data source to access information about an existing Data Lake Store.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStoreResult> InvokeAsync(GetStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStoreResult>("azure:datalake/getStore:getStore", args ?? new GetStoreArgs(), options.WithVersion());
     }
+
 
     public sealed class GetStoreArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.DataLake
         }
     }
 
+
     [OutputType]
     public sealed class GetStoreResult
     {
@@ -73,6 +61,10 @@ namespace Pulumi.Azure.DataLake
         /// the state of the firewall, such as `Enabled` or `Disabled`.
         /// </summary>
         public readonly string FirewallState;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
@@ -84,34 +76,39 @@ namespace Pulumi.Azure.DataLake
         /// Current monthly commitment tier for the account.
         /// </summary>
         public readonly string Tier;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetStoreResult(
             string encryptionState,
+
             string encryptionType,
+
             string firewallAllowAzureIps,
+
             string firewallState,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            string tier,
-            string id)
+
+            string tier)
         {
             EncryptionState = encryptionState;
             EncryptionType = encryptionType;
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallState = firewallState;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             Tier = tier;
-            Id = id;
         }
     }
 }

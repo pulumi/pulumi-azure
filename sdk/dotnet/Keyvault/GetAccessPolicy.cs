@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.KeyVault
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about the permissions from the Management Key Vault Templates.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccessPolicy.InvokeAsync() instead")]
-        public static Task<GetAccessPolicyResult> GetAccessPolicy(GetAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccessPolicy
     {
         /// <summary>
         /// Use this data source to access information about the permissions from the Management Key Vault Templates.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccessPolicyArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +37,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
+
     [OutputType]
     public sealed class GetAccessPolicyResult
     {
@@ -57,6 +45,10 @@ namespace Pulumi.Azure.KeyVault
         /// the certificate permissions for the access policy
         /// </summary>
         public readonly ImmutableArray<string> CertificatePermissions;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// the key permissions for the access policy
         /// </summary>
@@ -66,24 +58,24 @@ namespace Pulumi.Azure.KeyVault
         /// the secret permissions for the access policy
         /// </summary>
         public readonly ImmutableArray<string> SecretPermissions;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccessPolicyResult(
             ImmutableArray<string> certificatePermissions,
+
+            string id,
+
             ImmutableArray<string> keyPermissions,
+
             string name,
-            ImmutableArray<string> secretPermissions,
-            string id)
+
+            ImmutableArray<string> secretPermissions)
         {
             CertificatePermissions = certificatePermissions;
+            Id = id;
             KeyPermissions = keyPermissions;
             Name = name;
             SecretPermissions = secretPermissions;
-            Id = id;
         }
     }
 }

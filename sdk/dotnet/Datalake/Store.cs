@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataLake
 {
     /// <summary>
     /// Manages an Azure Data Lake Store.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store.html.markdown.
     /// </summary>
     public partial class Store : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.DataLake
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Store(string name, StoreArgs args, CustomResourceOptions? options = null)
-            : base("azure:datalake/store:Store", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datalake/store:Store", name, args ?? new StoreArgs(), MakeResourceOptions(options, ""))
         {
         }
 

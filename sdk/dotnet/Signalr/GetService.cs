@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.SignalR
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Azure SignalR service.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/signalr_service.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetService.InvokeAsync() instead")]
-        public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:signalr/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetService
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure SignalR service.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/signalr_service.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:signalr/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:signalr/getService:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.SignalR
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.SignalR
         /// The FQDN of the SignalR service.
         /// </summary>
         public readonly string Hostname;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The publicly accessible IP of the SignalR service.
         /// </summary>
@@ -96,28 +88,37 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         public readonly int ServerPort;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceResult(
             string hostname,
+
+            string id,
+
             string ipAddress,
+
             string location,
+
             string name,
+
             string primaryAccessKey,
+
             string primaryConnectionString,
+
             int publicPort,
+
             string resourceGroupName,
+
             string secondaryAccessKey,
+
             string secondaryConnectionString,
+
             int serverPort,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             Hostname = hostname;
+            Id = id;
             IpAddress = ipAddress;
             Location = location;
             Name = name;
@@ -129,7 +130,6 @@ namespace Pulumi.Azure.SignalR
             SecondaryConnectionString = secondaryConnectionString;
             ServerPort = serverPort;
             Tags = tags;
-            Id = id;
         }
     }
 }

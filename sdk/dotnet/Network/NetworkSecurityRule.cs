@@ -15,10 +15,6 @@ namespace Pulumi.Azure.Network
     /// &gt; **NOTE on Network Security Groups and Network Security Rules:** This provider currently
     /// provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
     /// At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_rule.html.markdown.
     /// </summary>
     public partial class NetworkSecurityRule : Pulumi.CustomResource
     {
@@ -139,7 +135,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkSecurityRule(string name, NetworkSecurityRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkSecurityRule:NetworkSecurityRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkSecurityRule:NetworkSecurityRule", name, args ?? new NetworkSecurityRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

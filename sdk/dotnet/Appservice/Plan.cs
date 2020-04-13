@@ -11,8 +11,6 @@ namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// Manages an App Service Plan component.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_plan.html.markdown.
     /// </summary>
     public partial class Plan : Pulumi.CustomResource
     {
@@ -94,7 +92,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Plan(string name, PlanArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/plan:Plan", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:appservice/plan:Plan", name, args ?? new PlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -285,91 +283,5 @@ namespace Pulumi.Azure.AppService
         public PlanState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class PlanSkuArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the number of workers associated with this App Service Plan.
-        /// </summary>
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// Specifies the plan's instance size.
-        /// </summary>
-        [Input("size", required: true)]
-        public Input<string> Size { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the plan's pricing tier.
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public PlanSkuArgs()
-        {
-        }
-    }
-
-    public sealed class PlanSkuGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the number of workers associated with this App Service Plan.
-        /// </summary>
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// Specifies the plan's instance size.
-        /// </summary>
-        [Input("size", required: true)]
-        public Input<string> Size { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the plan's pricing tier.
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public PlanSkuGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class PlanSku
-    {
-        /// <summary>
-        /// Specifies the number of workers associated with this App Service Plan.
-        /// </summary>
-        public readonly int Capacity;
-        /// <summary>
-        /// Specifies the plan's instance size.
-        /// </summary>
-        public readonly string Size;
-        /// <summary>
-        /// Specifies the plan's pricing tier.
-        /// </summary>
-        public readonly string Tier;
-
-        [OutputConstructor]
-        private PlanSku(
-            int capacity,
-            string size,
-            string tier)
-        {
-            Capacity = capacity;
-            Size = size;
-            Tier = tier;
-        }
-    }
     }
 }

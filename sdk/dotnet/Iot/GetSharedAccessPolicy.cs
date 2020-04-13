@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Iot
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing IotHub Shared Access Policy
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSharedAccessPolicy.InvokeAsync() instead")]
-        public static Task<GetSharedAccessPolicyResult> GetSharedAccessPolicy(GetSharedAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSharedAccessPolicy
     {
         /// <summary>
         /// Use this data source to access information about an existing IotHub Shared Access Policy
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedAccessPolicyResult> InvokeAsync(GetSharedAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedAccessPolicyResult>("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args ?? new GetSharedAccessPolicyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSharedAccessPolicyArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.Iot
         }
     }
 
+
     [OutputType]
     public sealed class GetSharedAccessPolicyResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string IothubName;
         public readonly string Name;
         /// <summary>
@@ -82,22 +74,26 @@ namespace Pulumi.Azure.Iot
         /// The secondary key used to create the authentication token.
         /// </summary>
         public readonly string SecondaryKey;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSharedAccessPolicyResult(
+            string id,
+
             string iothubName,
+
             string name,
+
             string primaryConnectionString,
+
             string primaryKey,
+
             string resourceGroupName,
+
             string secondaryConnectionString,
-            string secondaryKey,
-            string id)
+
+            string secondaryKey)
         {
+            Id = id;
             IothubName = iothubName;
             Name = name;
             PrimaryConnectionString = primaryConnectionString;
@@ -105,7 +101,6 @@ namespace Pulumi.Azure.Iot
             ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryKey = secondaryKey;
-            Id = id;
         }
     }
 }

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.MSSql
 {
     /// <summary>
     /// Manages a Microsoft SQL Virtual Machine
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_virtual_machine.html.markdown.
     /// </summary>
     public partial class VirtualMachine : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.MSSql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachine(string name, VirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure:mssql/virtualMachine:VirtualMachine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mssql/virtualMachine:VirtualMachine", name, args ?? new VirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -266,187 +262,5 @@ namespace Pulumi.Azure.MSSql
         public VirtualMachineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VirtualMachineAutoPatchingArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The day of week to apply the patch on.
-        /// </summary>
-        [Input("dayOfWeek", required: true)]
-        public Input<string> DayOfWeek { get; set; } = null!;
-
-        /// <summary>
-        /// The size of the Maintenance Window in minutes.
-        /// </summary>
-        [Input("maintenanceWindowDurationInMinutes", required: true)]
-        public Input<int> MaintenanceWindowDurationInMinutes { get; set; } = null!;
-
-        /// <summary>
-        /// The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-        /// </summary>
-        [Input("maintenanceWindowStartingHour", required: true)]
-        public Input<int> MaintenanceWindowStartingHour { get; set; } = null!;
-
-        public VirtualMachineAutoPatchingArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualMachineAutoPatchingGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The day of week to apply the patch on.
-        /// </summary>
-        [Input("dayOfWeek", required: true)]
-        public Input<string> DayOfWeek { get; set; } = null!;
-
-        /// <summary>
-        /// The size of the Maintenance Window in minutes.
-        /// </summary>
-        [Input("maintenanceWindowDurationInMinutes", required: true)]
-        public Input<int> MaintenanceWindowDurationInMinutes { get; set; } = null!;
-
-        /// <summary>
-        /// The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-        /// </summary>
-        [Input("maintenanceWindowStartingHour", required: true)]
-        public Input<int> MaintenanceWindowStartingHour { get; set; } = null!;
-
-        public VirtualMachineAutoPatchingGetArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualMachineKeyVaultCredentialArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The azure Key Vault url. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("keyVaultUrl", required: true)]
-        public Input<string> KeyVaultUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The credential name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The service principal name to access key vault. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("servicePrincipalName", required: true)]
-        public Input<string> ServicePrincipalName { get; set; } = null!;
-
-        /// <summary>
-        /// The service principal name secret to access key vault. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("servicePrincipalSecret", required: true)]
-        public Input<string> ServicePrincipalSecret { get; set; } = null!;
-
-        public VirtualMachineKeyVaultCredentialArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualMachineKeyVaultCredentialGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The azure Key Vault url. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("keyVaultUrl", required: true)]
-        public Input<string> KeyVaultUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The credential name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The service principal name to access key vault. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("servicePrincipalName", required: true)]
-        public Input<string> ServicePrincipalName { get; set; } = null!;
-
-        /// <summary>
-        /// The service principal name secret to access key vault. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("servicePrincipalSecret", required: true)]
-        public Input<string> ServicePrincipalSecret { get; set; } = null!;
-
-        public VirtualMachineKeyVaultCredentialGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VirtualMachineAutoPatching
-    {
-        /// <summary>
-        /// The day of week to apply the patch on.
-        /// </summary>
-        public readonly string DayOfWeek;
-        /// <summary>
-        /// The size of the Maintenance Window in minutes.
-        /// </summary>
-        public readonly int MaintenanceWindowDurationInMinutes;
-        /// <summary>
-        /// The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-        /// </summary>
-        public readonly int MaintenanceWindowStartingHour;
-
-        [OutputConstructor]
-        private VirtualMachineAutoPatching(
-            string dayOfWeek,
-            int maintenanceWindowDurationInMinutes,
-            int maintenanceWindowStartingHour)
-        {
-            DayOfWeek = dayOfWeek;
-            MaintenanceWindowDurationInMinutes = maintenanceWindowDurationInMinutes;
-            MaintenanceWindowStartingHour = maintenanceWindowStartingHour;
-        }
-    }
-
-    [OutputType]
-    public sealed class VirtualMachineKeyVaultCredential
-    {
-        /// <summary>
-        /// The azure Key Vault url. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string KeyVaultUrl;
-        /// <summary>
-        /// The credential name.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The service principal name to access key vault. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string ServicePrincipalName;
-        /// <summary>
-        /// The service principal name secret to access key vault. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string ServicePrincipalSecret;
-
-        [OutputConstructor]
-        private VirtualMachineKeyVaultCredential(
-            string keyVaultUrl,
-            string name,
-            string servicePrincipalName,
-            string servicePrincipalSecret)
-        {
-            KeyVaultUrl = keyVaultUrl;
-            Name = name;
-            ServicePrincipalName = servicePrincipalName;
-            ServicePrincipalSecret = servicePrincipalSecret;
-        }
-    }
     }
 }

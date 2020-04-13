@@ -11,10 +11,6 @@ namespace Pulumi.Azure.SignalR
 {
     /// <summary>
     /// Manages an Azure SignalR service.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {
@@ -22,13 +18,13 @@ namespace Pulumi.Azure.SignalR
         /// A `cors` block as documented below.
         /// </summary>
         [Output("cors")]
-        public Output<ImmutableArray<Outputs.ServiceCors>> Cors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceCor>> Cors { get; private set; } = null!;
 
         /// <summary>
         /// A `features` block as documented below.
         /// </summary>
         [Output("features")]
-        public Output<ImmutableArray<Outputs.ServiceFeatures>> Features { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceFeature>> Features { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN of the SignalR service.
@@ -117,7 +113,7 @@ namespace Pulumi.Azure.SignalR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure:signalr/service:Service", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:signalr/service:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -155,26 +151,26 @@ namespace Pulumi.Azure.SignalR
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         [Input("cors")]
-        private InputList<Inputs.ServiceCorsArgs>? _cors;
+        private InputList<Inputs.ServiceCorArgs>? _cors;
 
         /// <summary>
         /// A `cors` block as documented below.
         /// </summary>
-        public InputList<Inputs.ServiceCorsArgs> Cors
+        public InputList<Inputs.ServiceCorArgs> Cors
         {
-            get => _cors ?? (_cors = new InputList<Inputs.ServiceCorsArgs>());
+            get => _cors ?? (_cors = new InputList<Inputs.ServiceCorArgs>());
             set => _cors = value;
         }
 
         [Input("features")]
-        private InputList<Inputs.ServiceFeaturesArgs>? _features;
+        private InputList<Inputs.ServiceFeatureArgs>? _features;
 
         /// <summary>
         /// A `features` block as documented below.
         /// </summary>
-        public InputList<Inputs.ServiceFeaturesArgs> Features
+        public InputList<Inputs.ServiceFeatureArgs> Features
         {
-            get => _features ?? (_features = new InputList<Inputs.ServiceFeaturesArgs>());
+            get => _features ?? (_features = new InputList<Inputs.ServiceFeatureArgs>());
             set => _features = value;
         }
 
@@ -222,26 +218,26 @@ namespace Pulumi.Azure.SignalR
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
         [Input("cors")]
-        private InputList<Inputs.ServiceCorsGetArgs>? _cors;
+        private InputList<Inputs.ServiceCorGetArgs>? _cors;
 
         /// <summary>
         /// A `cors` block as documented below.
         /// </summary>
-        public InputList<Inputs.ServiceCorsGetArgs> Cors
+        public InputList<Inputs.ServiceCorGetArgs> Cors
         {
-            get => _cors ?? (_cors = new InputList<Inputs.ServiceCorsGetArgs>());
+            get => _cors ?? (_cors = new InputList<Inputs.ServiceCorGetArgs>());
             set => _cors = value;
         }
 
         [Input("features")]
-        private InputList<Inputs.ServiceFeaturesGetArgs>? _features;
+        private InputList<Inputs.ServiceFeatureGetArgs>? _features;
 
         /// <summary>
         /// A `features` block as documented below.
         /// </summary>
-        public InputList<Inputs.ServiceFeaturesGetArgs> Features
+        public InputList<Inputs.ServiceFeatureGetArgs> Features
         {
-            get => _features ?? (_features = new InputList<Inputs.ServiceFeaturesGetArgs>());
+            get => _features ?? (_features = new InputList<Inputs.ServiceFeatureGetArgs>());
             set => _features = value;
         }
 
@@ -332,186 +328,5 @@ namespace Pulumi.Azure.SignalR
         public ServiceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServiceCorsArgs : Pulumi.ResourceArgs
-    {
-        [Input("allowedOrigins", required: true)]
-        private InputList<string>? _allowedOrigins;
-
-        /// <summary>
-        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
-        /// </summary>
-        public InputList<string> AllowedOrigins
-        {
-            get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
-            set => _allowedOrigins = value;
-        }
-
-        public ServiceCorsArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceCorsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("allowedOrigins", required: true)]
-        private InputList<string>? _allowedOrigins;
-
-        /// <summary>
-        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
-        /// </summary>
-        public InputList<string> AllowedOrigins
-        {
-            get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
-            set => _allowedOrigins = value;
-        }
-
-        public ServiceCorsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceFeaturesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
-        /// </summary>
-        [Input("flag", required: true)]
-        public Input<string> Flag { get; set; } = null!;
-
-        /// <summary>
-        /// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ServiceFeaturesArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceFeaturesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
-        /// </summary>
-        [Input("flag", required: true)]
-        public Input<string> Flag { get; set; } = null!;
-
-        /// <summary>
-        /// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ServiceFeaturesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceSkuArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ServiceSkuArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceSkuGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ServiceSkuGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServiceCors
-    {
-        /// <summary>
-        /// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
-        /// </summary>
-        public readonly ImmutableArray<string> AllowedOrigins;
-
-        [OutputConstructor]
-        private ServiceCors(ImmutableArray<string> allowedOrigins)
-        {
-            AllowedOrigins = allowedOrigins;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceFeatures
-    {
-        /// <summary>
-        /// The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
-        /// </summary>
-        public readonly string Flag;
-        /// <summary>
-        /// A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ServiceFeatures(
-            string flag,
-            string value)
-        {
-            Flag = flag;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceSku
-    {
-        /// <summary>
-        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
-        /// </summary>
-        public readonly int Capacity;
-        /// <summary>
-        /// Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ServiceSku(
-            int capacity,
-            string name)
-        {
-            Capacity = capacity;
-            Name = name;
-        }
-    }
     }
 }

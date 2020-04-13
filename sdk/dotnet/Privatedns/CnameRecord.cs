@@ -11,10 +11,6 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS CNAME Records within Azure Private DNS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_cname_record.html.markdown.
     /// </summary>
     public partial class CnameRecord : Pulumi.CustomResource
     {
@@ -66,7 +62,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CnameRecord(string name, CnameRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatedns/cnameRecord:CnameRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:privatedns/cnameRecord:CnameRecord", name, args ?? new CnameRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 

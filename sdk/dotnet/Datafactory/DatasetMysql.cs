@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages a MySQL Dataset inside a Azure Data Factory.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
     /// </summary>
     public partial class DatasetMysql : Pulumi.CustomResource
     {
@@ -76,7 +72,7 @@ namespace Pulumi.Azure.DataFactory
         /// A `schema_column` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
-        public Output<ImmutableArray<Outputs.DatasetMysqlSchemaColumns>> SchemaColumns { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DatasetMysqlSchemaColumn>> SchemaColumns { get; private set; } = null!;
 
         /// <summary>
         /// The table name of the Data Factory Dataset MySQL.
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatasetMysql(string name, DatasetMysqlArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/datasetMysql:DatasetMysql", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/datasetMysql:DatasetMysql", name, args ?? new DatasetMysqlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -203,14 +199,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("schemaColumns")]
-        private InputList<Inputs.DatasetMysqlSchemaColumnsArgs>? _schemaColumns;
+        private InputList<Inputs.DatasetMysqlSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
         /// A `schema_column` block as defined below.
         /// </summary>
-        public InputList<Inputs.DatasetMysqlSchemaColumnsArgs> SchemaColumns
+        public InputList<Inputs.DatasetMysqlSchemaColumnArgs> SchemaColumns
         {
-            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetMysqlSchemaColumnsArgs>());
+            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetMysqlSchemaColumnArgs>());
             set => _schemaColumns = value;
         }
 
@@ -300,14 +296,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("schemaColumns")]
-        private InputList<Inputs.DatasetMysqlSchemaColumnsGetArgs>? _schemaColumns;
+        private InputList<Inputs.DatasetMysqlSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
         /// A `schema_column` block as defined below.
         /// </summary>
-        public InputList<Inputs.DatasetMysqlSchemaColumnsGetArgs> SchemaColumns
+        public InputList<Inputs.DatasetMysqlSchemaColumnGetArgs> SchemaColumns
         {
-            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetMysqlSchemaColumnsGetArgs>());
+            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetMysqlSchemaColumnGetArgs>());
             set => _schemaColumns = value;
         }
 
@@ -320,91 +316,5 @@ namespace Pulumi.Azure.DataFactory
         public DatasetMysqlState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DatasetMysqlSchemaColumnsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DatasetMysqlSchemaColumnsArgs()
-        {
-        }
-    }
-
-    public sealed class DatasetMysqlSchemaColumnsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DatasetMysqlSchemaColumnsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DatasetMysqlSchemaColumns
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private DatasetMysqlSchemaColumns(
-            string? description,
-            string name,
-            string? type)
-        {
-            Description = description;
-            Name = name;
-            Type = type;
-        }
-    }
     }
 }

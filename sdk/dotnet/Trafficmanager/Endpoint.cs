@@ -11,10 +11,6 @@ namespace Pulumi.Azure.TrafficManager
 {
     /// <summary>
     /// Manages a Traffic Manager Endpoint.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.TrafficManager
         /// One or more `custom_header` blocks as defined below
         /// </summary>
         [Output("customHeaders")]
-        public Output<ImmutableArray<Outputs.EndpointCustomHeaders>> CustomHeaders { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Azure location of the Endpoint,
@@ -94,7 +90,7 @@ namespace Pulumi.Azure.TrafficManager
         /// One or more `subnet` blocks as defined below
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.EndpointSubnets>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointSubnet>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN DNS name of the target. This argument must be
@@ -138,7 +134,7 @@ namespace Pulumi.Azure.TrafficManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure:trafficmanager/endpoint:Endpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:trafficmanager/endpoint:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -176,14 +172,14 @@ namespace Pulumi.Azure.TrafficManager
     public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
-        private InputList<Inputs.EndpointCustomHeadersArgs>? _customHeaders;
+        private InputList<Inputs.EndpointCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
         /// One or more `custom_header` blocks as defined below
         /// </summary>
-        public InputList<Inputs.EndpointCustomHeadersArgs> CustomHeaders
+        public InputList<Inputs.EndpointCustomHeaderArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointCustomHeadersArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointCustomHeaderArgs>());
             set => _customHeaders = value;
         }
 
@@ -257,14 +253,14 @@ namespace Pulumi.Azure.TrafficManager
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("subnets")]
-        private InputList<Inputs.EndpointSubnetsArgs>? _subnets;
+        private InputList<Inputs.EndpointSubnetArgs>? _subnets;
 
         /// <summary>
         /// One or more `subnet` blocks as defined below
         /// </summary>
-        public InputList<Inputs.EndpointSubnetsArgs> Subnets
+        public InputList<Inputs.EndpointSubnetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointSubnetsArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointSubnetArgs>());
             set => _subnets = value;
         }
 
@@ -309,14 +305,14 @@ namespace Pulumi.Azure.TrafficManager
     public sealed class EndpointState : Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
-        private InputList<Inputs.EndpointCustomHeadersGetArgs>? _customHeaders;
+        private InputList<Inputs.EndpointCustomHeaderGetArgs>? _customHeaders;
 
         /// <summary>
         /// One or more `custom_header` blocks as defined below
         /// </summary>
-        public InputList<Inputs.EndpointCustomHeadersGetArgs> CustomHeaders
+        public InputList<Inputs.EndpointCustomHeaderGetArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointCustomHeadersGetArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointCustomHeaderGetArgs>());
             set => _customHeaders = value;
         }
 
@@ -393,14 +389,14 @@ namespace Pulumi.Azure.TrafficManager
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("subnets")]
-        private InputList<Inputs.EndpointSubnetsGetArgs>? _subnets;
+        private InputList<Inputs.EndpointSubnetGetArgs>? _subnets;
 
         /// <summary>
         /// One or more `subnet` blocks as defined below
         /// </summary>
-        public InputList<Inputs.EndpointSubnetsGetArgs> Subnets
+        public InputList<Inputs.EndpointSubnetGetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointSubnetsGetArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointSubnetGetArgs>());
             set => _subnets = value;
         }
 
@@ -440,151 +436,5 @@ namespace Pulumi.Azure.TrafficManager
         public EndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointCustomHeadersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the custom header.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public EndpointCustomHeadersArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointCustomHeadersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the custom header.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public EndpointCustomHeadersGetArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointSubnetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The First IP....
-        /// </summary>
-        [Input("first", required: true)]
-        public Input<string> First { get; set; } = null!;
-
-        /// <summary>
-        /// The Last IP...
-        /// </summary>
-        [Input("last")]
-        public Input<string>? Last { get; set; }
-
-        /// <summary>
-        /// The Scope...
-        /// </summary>
-        [Input("scope")]
-        public Input<int>? Scope { get; set; }
-
-        public EndpointSubnetsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointSubnetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The First IP....
-        /// </summary>
-        [Input("first", required: true)]
-        public Input<string> First { get; set; } = null!;
-
-        /// <summary>
-        /// The Last IP...
-        /// </summary>
-        [Input("last")]
-        public Input<string>? Last { get; set; }
-
-        /// <summary>
-        /// The Scope...
-        /// </summary>
-        [Input("scope")]
-        public Input<int>? Scope { get; set; }
-
-        public EndpointSubnetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointCustomHeaders
-    {
-        /// <summary>
-        /// The name of the custom header.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private EndpointCustomHeaders(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class EndpointSubnets
-    {
-        /// <summary>
-        /// The First IP....
-        /// </summary>
-        public readonly string First;
-        /// <summary>
-        /// The Last IP...
-        /// </summary>
-        public readonly string? Last;
-        /// <summary>
-        /// The Scope...
-        /// </summary>
-        public readonly int? Scope;
-
-        [OutputConstructor]
-        private EndpointSubnets(
-            string first,
-            string? last,
-            int? scope)
-        {
-            First = first;
-            Last = last;
-            Scope = scope;
-        }
-    }
     }
 }

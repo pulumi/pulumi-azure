@@ -98,8 +98,6 @@ def get_registry(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.markdown.
-
 
     :param str name: The name of the Container Registry.
     :param str resource_group_name: The Name of the Resource Group where this Container Registry exists.

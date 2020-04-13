@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.NotificationHub
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetHub.InvokeAsync() instead")]
-        public static Task<GetHubResult> GetHub(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetHub
     {
         /// <summary>
         /// Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubArgs(), options.WithVersion());
     }
+
 
     public sealed class GetHubArgs : Pulumi.InvokeArgs
     {
@@ -60,17 +47,22 @@ namespace Pulumi.Azure.NotificationHub
         }
     }
 
+
     [OutputType]
     public sealed class GetHubResult
     {
         /// <summary>
         /// A `apns_credential` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetHubApnsCredentialsResult> ApnsCredentials;
+        public readonly ImmutableArray<Outputs.GetHubApnsCredentialResult> ApnsCredentials;
         /// <summary>
         /// A `gcm_credential` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetHubGcmCredentialsResult> GcmCredentials;
+        public readonly ImmutableArray<Outputs.GetHubGcmCredentialResult> GcmCredentials;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region in which this Notification Hub exists.
         /// </summary>
@@ -78,87 +70,30 @@ namespace Pulumi.Azure.NotificationHub
         public readonly string Name;
         public readonly string NamespaceName;
         public readonly string ResourceGroupName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetHubResult(
-            ImmutableArray<Outputs.GetHubApnsCredentialsResult> apnsCredentials,
-            ImmutableArray<Outputs.GetHubGcmCredentialsResult> gcmCredentials,
+            ImmutableArray<Outputs.GetHubApnsCredentialResult> apnsCredentials,
+
+            ImmutableArray<Outputs.GetHubGcmCredentialResult> gcmCredentials,
+
+            string id,
+
             string location,
+
             string name,
+
             string namespaceName,
-            string resourceGroupName,
-            string id)
+
+            string resourceGroupName)
         {
             ApnsCredentials = apnsCredentials;
             GcmCredentials = gcmCredentials;
+            Id = id;
             Location = location;
             Name = name;
             NamespaceName = namespaceName;
             ResourceGroupName = resourceGroupName;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetHubApnsCredentialsResult
-    {
-        /// <summary>
-        /// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-        /// </summary>
-        public readonly string ApplicationMode;
-        /// <summary>
-        /// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        /// </summary>
-        public readonly string BundleId;
-        /// <summary>
-        /// The Apple Push Notifications Service (APNS) Key.
-        /// </summary>
-        public readonly string KeyId;
-        /// <summary>
-        /// The ID of the team the Token.
-        /// </summary>
-        public readonly string TeamId;
-        /// <summary>
-        /// The Push Token associated with the Apple Developer Account.
-        /// </summary>
-        public readonly string Token;
-
-        [OutputConstructor]
-        private GetHubApnsCredentialsResult(
-            string applicationMode,
-            string bundleId,
-            string keyId,
-            string teamId,
-            string token)
-        {
-            ApplicationMode = applicationMode;
-            BundleId = bundleId;
-            KeyId = keyId;
-            TeamId = teamId;
-            Token = token;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetHubGcmCredentialsResult
-    {
-        /// <summary>
-        /// The API Key associated with the Google Cloud Messaging service.
-        /// </summary>
-        public readonly string ApiKey;
-
-        [OutputConstructor]
-        private GetHubGcmCredentialsResult(string apiKey)
-        {
-            ApiKey = apiKey;
-        }
-    }
     }
 }

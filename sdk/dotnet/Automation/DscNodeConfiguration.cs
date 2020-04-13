@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation DSC Node Configuration.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_nodeconfiguration.html.markdown.
     /// </summary>
     public partial class DscNodeConfiguration : Pulumi.CustomResource
     {
@@ -54,7 +50,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscNodeConfiguration(string name, DscNodeConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, args ?? new DscNodeConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

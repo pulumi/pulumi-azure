@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Iot
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing IotHub Device Provisioning Service.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDps.InvokeAsync() instead")]
-        public static Task<GetDpsResult> GetDps(GetDpsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDps
     {
         /// <summary>
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDpsResult> InvokeAsync(GetDpsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDpsResult>("azure:iot/getDps:getDps", args ?? new GetDpsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDpsArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +49,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
+
     [OutputType]
     public sealed class GetDpsResult
     {
@@ -73,6 +61,10 @@ namespace Pulumi.Azure.Iot
         /// The device endpoint of the IoT Device Provisioning Service.
         /// </summary>
         public readonly string DeviceProvisioningHostName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The unique identifier of the IoT Device Provisioning Service.
         /// </summary>
@@ -88,32 +80,36 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         public readonly string ServiceOperationsHostName;
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDpsResult(
             string allocationPolicy,
+
             string deviceProvisioningHostName,
+
+            string id,
+
             string idScope,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string serviceOperationsHostName,
-            ImmutableDictionary<string, string>? tags,
-            string id)
+
+            ImmutableDictionary<string, string>? tags)
         {
             AllocationPolicy = allocationPolicy;
             DeviceProvisioningHostName = deviceProvisioningHostName;
+            Id = id;
             IdScope = idScope;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             ServiceOperationsHostName = serviceOperationsHostName;
             Tags = tags;
-            Id = id;
         }
     }
 }

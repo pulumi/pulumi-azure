@@ -11,10 +11,6 @@ namespace Pulumi.Azure.PowerBI
 {
     /// <summary>
     /// Manages a PowerBI Embedded.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/powerbi_embedded.html.markdown.
     /// </summary>
     public partial class Embedded : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.PowerBI
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Embedded(string name, EmbeddedArgs args, CustomResourceOptions? options = null)
-            : base("azure:powerbi/embedded:Embedded", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:powerbi/embedded:Embedded", name, args ?? new EmbeddedArgs(), MakeResourceOptions(options, ""))
         {
         }
 

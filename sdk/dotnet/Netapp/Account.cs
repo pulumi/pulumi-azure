@@ -13,8 +13,6 @@ namespace Pulumi.Azure.NetApp
     /// Manages a NetApp Account.
     /// 
     /// &gt; **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {
@@ -57,7 +55,7 @@ namespace Pulumi.Azure.NetApp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure:netapp/account:Account", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:netapp/account:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -176,157 +174,5 @@ namespace Pulumi.Azure.NetApp
         public AccountState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AccountActiveDirectoryArgs : Pulumi.ResourceArgs
-    {
-        [Input("dnsServers", required: true)]
-        private InputList<string>? _dnsServers;
-
-        /// <summary>
-        /// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
-        /// </summary>
-        public InputList<string> DnsServers
-        {
-            get => _dnsServers ?? (_dnsServers = new InputList<string>());
-            set => _dnsServers = value;
-        }
-
-        /// <summary>
-        /// The name of the Active Directory domain.
-        /// </summary>
-        [Input("domain", required: true)]
-        public Input<string> Domain { get; set; } = null!;
-
-        /// <summary>
-        /// The Organizational Unit (OU) within the Active Directory Domain.
-        /// </summary>
-        [Input("organizationalUnit")]
-        public Input<string>? OrganizationalUnit { get; set; }
-
-        /// <summary>
-        /// The password associated with the `username`.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
-        /// </summary>
-        [Input("smbServerName", required: true)]
-        public Input<string> SmbServerName { get; set; } = null!;
-
-        /// <summary>
-        /// The Username of Active Directory Domain Administrator.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public AccountActiveDirectoryArgs()
-        {
-        }
-    }
-
-    public sealed class AccountActiveDirectoryGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dnsServers", required: true)]
-        private InputList<string>? _dnsServers;
-
-        /// <summary>
-        /// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
-        /// </summary>
-        public InputList<string> DnsServers
-        {
-            get => _dnsServers ?? (_dnsServers = new InputList<string>());
-            set => _dnsServers = value;
-        }
-
-        /// <summary>
-        /// The name of the Active Directory domain.
-        /// </summary>
-        [Input("domain", required: true)]
-        public Input<string> Domain { get; set; } = null!;
-
-        /// <summary>
-        /// The Organizational Unit (OU) within the Active Directory Domain.
-        /// </summary>
-        [Input("organizationalUnit")]
-        public Input<string>? OrganizationalUnit { get; set; }
-
-        /// <summary>
-        /// The password associated with the `username`.
-        /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
-
-        /// <summary>
-        /// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
-        /// </summary>
-        [Input("smbServerName", required: true)]
-        public Input<string> SmbServerName { get; set; } = null!;
-
-        /// <summary>
-        /// The Username of Active Directory Domain Administrator.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public AccountActiveDirectoryGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AccountActiveDirectory
-    {
-        /// <summary>
-        /// A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
-        /// </summary>
-        public readonly ImmutableArray<string> DnsServers;
-        /// <summary>
-        /// The name of the Active Directory domain.
-        /// </summary>
-        public readonly string Domain;
-        /// <summary>
-        /// The Organizational Unit (OU) within the Active Directory Domain.
-        /// </summary>
-        public readonly string? OrganizationalUnit;
-        /// <summary>
-        /// The password associated with the `username`.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
-        /// </summary>
-        public readonly string SmbServerName;
-        /// <summary>
-        /// The Username of Active Directory Domain Administrator.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private AccountActiveDirectory(
-            ImmutableArray<string> dnsServers,
-            string domain,
-            string? organizationalUnit,
-            string password,
-            string smbServerName,
-            string username)
-        {
-            DnsServers = dnsServers;
-            Domain = domain;
-            OrganizationalUnit = organizationalUnit;
-            Password = password;
-            SmbServerName = smbServerName;
-            Username = username;
-        }
-    }
     }
 }

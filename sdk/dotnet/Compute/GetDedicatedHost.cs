@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Dedicated Host.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDedicatedHost.InvokeAsync() instead")]
-        public static Task<GetDedicatedHostResult> GetDedicatedHost(GetDedicatedHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDedicatedHost
     {
         /// <summary>
         /// Use this data source to access information about an existing Dedicated Host.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure:compute/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDedicatedHostArgs : Pulumi.InvokeArgs
     {
@@ -60,10 +47,15 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetDedicatedHostResult
     {
         public readonly string DedicatedHostGroupName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The location where the Dedicated Host exists.
         /// </summary>
@@ -74,26 +66,27 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags assigned to the Dedicated Host.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDedicatedHostResult(
             string dedicatedHostGroupName,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             DedicatedHostGroupName = dedicatedHostGroupName;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS CAA Records within Azure DNS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_caa_record.html.markdown.
     /// </summary>
     public partial class CaaRecord : Pulumi.CustomResource
     {
@@ -34,7 +30,7 @@ namespace Pulumi.Azure.Dns
         /// A list of values that make up the CAA record. Each `record` block supports fields documented below.
         /// </summary>
         [Output("records")]
-        public Output<ImmutableArray<Outputs.CaaRecordRecords>> Records { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CaaRecordRecord>> Records { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CaaRecord(string name, CaaRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/caaRecord:CaaRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:dns/caaRecord:CaaRecord", name, args ?? new CaaRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -113,14 +109,14 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Name { get; set; }
 
         [Input("records", required: true)]
-        private InputList<Inputs.CaaRecordRecordsArgs>? _records;
+        private InputList<Inputs.CaaRecordRecordArgs>? _records;
 
         /// <summary>
         /// A list of values that make up the CAA record. Each `record` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.CaaRecordRecordsArgs> Records
+        public InputList<Inputs.CaaRecordRecordArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.CaaRecordRecordsArgs>());
+            get => _records ?? (_records = new InputList<Inputs.CaaRecordRecordArgs>());
             set => _records = value;
         }
 
@@ -174,14 +170,14 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Name { get; set; }
 
         [Input("records")]
-        private InputList<Inputs.CaaRecordRecordsGetArgs>? _records;
+        private InputList<Inputs.CaaRecordRecordGetArgs>? _records;
 
         /// <summary>
         /// A list of values that make up the CAA record. Each `record` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.CaaRecordRecordsGetArgs> Records
+        public InputList<Inputs.CaaRecordRecordGetArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.CaaRecordRecordsGetArgs>());
+            get => _records ?? (_records = new InputList<Inputs.CaaRecordRecordGetArgs>());
             set => _records = value;
         }
 
@@ -218,91 +214,5 @@ namespace Pulumi.Azure.Dns
         public CaaRecordState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CaaRecordRecordsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        /// </summary>
-        [Input("flags", required: true)]
-        public Input<int> Flags { get; set; } = null!;
-
-        /// <summary>
-        /// A property tag, options are issue, issuewild and iodef.
-        /// </summary>
-        [Input("tag", required: true)]
-        public Input<string> Tag { get; set; } = null!;
-
-        /// <summary>
-        /// A property value such as a registrar domain.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public CaaRecordRecordsArgs()
-        {
-        }
-    }
-
-    public sealed class CaaRecordRecordsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        /// </summary>
-        [Input("flags", required: true)]
-        public Input<int> Flags { get; set; } = null!;
-
-        /// <summary>
-        /// A property tag, options are issue, issuewild and iodef.
-        /// </summary>
-        [Input("tag", required: true)]
-        public Input<string> Tag { get; set; } = null!;
-
-        /// <summary>
-        /// A property value such as a registrar domain.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public CaaRecordRecordsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CaaRecordRecords
-    {
-        /// <summary>
-        /// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        /// </summary>
-        public readonly int Flags;
-        /// <summary>
-        /// A property tag, options are issue, issuewild and iodef.
-        /// </summary>
-        public readonly string Tag;
-        /// <summary>
-        /// A property value such as a registrar domain.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private CaaRecordRecords(
-            int flags,
-            string tag,
-            string value)
-        {
-            Flags = flags;
-            Tag = tag;
-            Value = value;
-        }
-    }
     }
 }

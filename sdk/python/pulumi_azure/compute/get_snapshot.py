@@ -86,8 +86,6 @@ def get_snapshot(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
-
 
     :param str name: Specifies the name of the Snapshot.
     :param str resource_group_name: Specifies the name of the resource group the Snapshot is located in.

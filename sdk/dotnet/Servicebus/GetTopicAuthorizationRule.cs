@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ServiceBus
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_topic_authorization_rule.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetTopicAuthorizationRule.InvokeAsync() instead")]
-        public static Task<GetTopicAuthorizationRuleResult> GetTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetTopicAuthorizationRule
     {
         /// <summary>
         /// Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_topic_authorization_rule.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTopicAuthorizationRuleResult> InvokeAsync(GetTopicAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicAuthorizationRuleResult>("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args ?? new GetTopicAuthorizationRuleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetTopicAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
@@ -66,9 +53,14 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
+
     [OutputType]
     public sealed class GetTopicAuthorizationRuleResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool Listen;
         public readonly bool Manage;
         public readonly string Name;
@@ -92,26 +84,34 @@ namespace Pulumi.Azure.ServiceBus
         public readonly string SecondaryKey;
         public readonly bool Send;
         public readonly string TopicName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetTopicAuthorizationRuleResult(
+            string id,
+
             bool listen,
+
             bool manage,
+
             string name,
+
             string namespaceName,
+
             string primaryConnectionString,
+
             string primaryKey,
+
             string resourceGroupName,
+
             string secondaryConnectionString,
+
             string secondaryKey,
+
             bool send,
-            string topicName,
-            string id)
+
+            string topicName)
         {
+            Id = id;
             Listen = listen;
             Manage = manage;
             Name = name;
@@ -123,7 +123,6 @@ namespace Pulumi.Azure.ServiceBus
             SecondaryKey = secondaryKey;
             Send = send;
             TopicName = topicName;
-            Id = id;
         }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ApiManagement
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Uses this data source to access information about an API Version Set within an API Management Service.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetApiVersionSet.InvokeAsync() instead")]
-        public static Task<GetApiVersionSetResult> GetApiVersionSet(GetApiVersionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetApiVersionSet
     {
         /// <summary>
         /// Uses this data source to access information about an API Version Set within an API Management Service.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithVersion());
     }
+
 
     public sealed class GetApiVersionSetArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
+
     [OutputType]
     public sealed class GetApiVersionSetResult
     {
@@ -72,6 +60,10 @@ namespace Pulumi.Azure.ApiManagement
         /// The display name of this API Version Set.
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -83,32 +75,36 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly string VersionQueryName;
         public readonly string VersioningScheme;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetApiVersionSetResult(
             string apiManagementName,
+
             string description,
+
             string displayName,
+
+            string id,
+
             string name,
+
             string resourceGroupName,
+
             string versionHeaderName,
+
             string versionQueryName,
-            string versioningScheme,
-            string id)
+
+            string versioningScheme)
         {
             ApiManagementName = apiManagementName;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;
             VersionHeaderName = versionHeaderName;
             VersionQueryName = versionQueryName;
             VersioningScheme = versioningScheme;
-            Id = id;
         }
     }
 }

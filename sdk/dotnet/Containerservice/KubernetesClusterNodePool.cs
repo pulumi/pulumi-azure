@@ -13,10 +13,6 @@ namespace Pulumi.Azure.ContainerService
     /// Manages a Node Pool within a Kubernetes Cluster
     /// 
     /// &gt; **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
     /// </summary>
     public partial class KubernetesClusterNodePool : Pulumi.CustomResource
     {
@@ -125,7 +121,7 @@ namespace Pulumi.Azure.ContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KubernetesClusterNodePool(string name, KubernetesClusterNodePoolArgs args, CustomResourceOptions? options = null)
-            : base("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, args ?? new KubernetesClusterNodePoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 

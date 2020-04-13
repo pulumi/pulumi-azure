@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Kusto
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kusto_cluster.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCluster.InvokeAsync() instead")]
-        public static Task<GetClusterResult> GetCluster(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCluster
     {
         /// <summary>
         /// Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kusto_cluster.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
+
 
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.Kusto
         /// The Kusto Cluster URI to be used for data ingestion.
         /// </summary>
         public readonly string DataIngestionUri;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
@@ -69,28 +61,30 @@ namespace Pulumi.Azure.Kusto
         /// The FQDN of the Azure Kusto Cluster.
         /// </summary>
         public readonly string Uri;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string dataIngestionUri,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            string uri,
-            string id)
+
+            string uri)
         {
             DataIngestionUri = dataIngestionUri;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             Uri = uri;
-            Id = id;
         }
     }
 }

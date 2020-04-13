@@ -36,8 +36,6 @@ class CacheBlobTarget(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hpc_cache_blob_target.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.

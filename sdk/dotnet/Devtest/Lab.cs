@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Dev Test Lab.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_lab.html.markdown.
     /// </summary>
     public partial class Lab : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Lab(string name, LabArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/lab:Lab", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:devtest/lab:Lab", name, args ?? new LabArgs(), MakeResourceOptions(options, ""))
         {
         }
 

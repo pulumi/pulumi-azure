@@ -11,10 +11,6 @@ namespace Pulumi.Azure.MySql
 {
     /// <summary>
     /// Manages a MySQL Server.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_server.html.markdown.
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.MySql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure:mysql/server:Server", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mysql/server:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -278,109 +274,5 @@ namespace Pulumi.Azure.MySql
         public ServerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServerStorageProfileArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-        /// </summary>
-        [Input("autoGrow")]
-        public Input<string>? AutoGrow { get; set; }
-
-        /// <summary>
-        /// Backup retention days for the server, supported values are between `7` and `35` days.
-        /// </summary>
-        [Input("backupRetentionDays")]
-        public Input<int>? BackupRetentionDays { get; set; }
-
-        /// <summary>
-        /// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-        /// </summary>
-        [Input("geoRedundantBackup")]
-        public Input<string>? GeoRedundantBackup { get; set; }
-
-        /// <summary>
-        /// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-        /// </summary>
-        [Input("storageMb", required: true)]
-        public Input<int> StorageMb { get; set; } = null!;
-
-        public ServerStorageProfileArgs()
-        {
-        }
-    }
-
-    public sealed class ServerStorageProfileGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-        /// </summary>
-        [Input("autoGrow")]
-        public Input<string>? AutoGrow { get; set; }
-
-        /// <summary>
-        /// Backup retention days for the server, supported values are between `7` and `35` days.
-        /// </summary>
-        [Input("backupRetentionDays")]
-        public Input<int>? BackupRetentionDays { get; set; }
-
-        /// <summary>
-        /// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-        /// </summary>
-        [Input("geoRedundantBackup")]
-        public Input<string>? GeoRedundantBackup { get; set; }
-
-        /// <summary>
-        /// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-        /// </summary>
-        [Input("storageMb", required: true)]
-        public Input<int> StorageMb { get; set; } = null!;
-
-        public ServerStorageProfileGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServerStorageProfile
-    {
-        /// <summary>
-        /// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-        /// </summary>
-        public readonly string? AutoGrow;
-        /// <summary>
-        /// Backup retention days for the server, supported values are between `7` and `35` days.
-        /// </summary>
-        public readonly int? BackupRetentionDays;
-        /// <summary>
-        /// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-        /// </summary>
-        public readonly string? GeoRedundantBackup;
-        /// <summary>
-        /// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-        /// </summary>
-        public readonly int StorageMb;
-
-        [OutputConstructor]
-        private ServerStorageProfile(
-            string? autoGrow,
-            int? backupRetentionDays,
-            string? geoRedundantBackup,
-            int storageMb)
-        {
-            AutoGrow = autoGrow;
-            BackupRetentionDays = backupRetentionDays;
-            GeoRedundantBackup = geoRedundantBackup;
-            StorageMb = storageMb;
-        }
-    }
     }
 }

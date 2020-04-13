@@ -65,7 +65,7 @@ class SpringCloudService(pulumi.CustomResource):
         """
         Manages an Azure Spring Cloud Service.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/spring_cloud_service.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

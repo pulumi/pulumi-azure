@@ -11,10 +11,6 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a Table within a Cosmos DB Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_table.html.markdown.
     /// </summary>
     public partial class Table : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Table(string name, TableArgs args, CustomResourceOptions? options = null)
-            : base("azure:cosmosdb/table:Table", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cosmosdb/table:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
 

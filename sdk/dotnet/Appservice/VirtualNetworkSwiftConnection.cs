@@ -11,10 +11,6 @@ namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_virtual_network_swift_connection.html.markdown.
     /// </summary>
     public partial class VirtualNetworkSwiftConnection : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkSwiftConnection(string name, VirtualNetworkSwiftConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, args ?? new VirtualNetworkSwiftConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

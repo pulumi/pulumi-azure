@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Management
 {
     /// <summary>
     /// Manages a Management Group.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.Management
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure:management/group:Group", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:management/group:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -70,7 +66,7 @@ namespace Pulumi.Azure.Management
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:managementgroups/managementGroup:ManagementGroup" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:managementgroups/managementGroup:ManagementGroup"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

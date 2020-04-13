@@ -129,8 +129,6 @@ def get_action_group(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
-
 
     :param str name: Specifies the name of the Action Group.
     :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.

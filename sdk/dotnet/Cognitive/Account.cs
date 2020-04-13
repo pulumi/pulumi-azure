@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Cognitive
 {
     /// <summary>
     /// Manages a Cognitive Services Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cognitive_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.Cognitive
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure:cognitive/account:Account", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cognitive/account:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 

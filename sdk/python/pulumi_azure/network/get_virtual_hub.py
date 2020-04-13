@@ -68,8 +68,6 @@ def get_virtual_hub(name=None,resource_group_name=None,opts=None):
     """
     Uses this data source to access information about an existing Virtual Hub.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
-
 
     :param str name: The name of the Virtual Hub.
     :param str resource_group_name: The Name of the Resource Group where the Virtual Hub exists.

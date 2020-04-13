@@ -64,8 +64,6 @@ class WebTest(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Batch
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Batch Account.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_account.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccount.InvokeAsync() instead")]
-        public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:batch/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccount
     {
         /// <summary>
         /// Use this data source to access information about an existing Batch Account.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_account.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:batch/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:batch/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Batch
         }
     }
 
+
     [OutputType]
     public sealed class GetAccountResult
     {
@@ -62,9 +50,13 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly string AccountEndpoint;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetAccountKeyVaultReferencesResult> KeyVaultReferences;
+        public readonly ImmutableArray<Outputs.GetAccountKeyVaultReferenceResult> KeyVaultReferences;
         /// <summary>
         /// The Azure Region in which this Batch account exists.
         /// </summary>
@@ -94,26 +86,33 @@ namespace Pulumi.Azure.Batch
         /// A map of tags assigned to the Batch account.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountResult(
             string accountEndpoint,
-            ImmutableArray<Outputs.GetAccountKeyVaultReferencesResult> keyVaultReferences,
+
+            string id,
+
+            ImmutableArray<Outputs.GetAccountKeyVaultReferenceResult> keyVaultReferences,
+
             string location,
+
             string name,
+
             string poolAllocationMode,
+
             string primaryAccessKey,
+
             string resourceGroupName,
+
             string secondaryAccessKey,
+
             string storageAccountId,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AccountEndpoint = accountEndpoint;
+            Id = id;
             KeyVaultReferences = keyVaultReferences;
             Location = location;
             Name = name;
@@ -123,33 +122,6 @@ namespace Pulumi.Azure.Batch
             SecondaryAccessKey = secondaryAccessKey;
             StorageAccountId = storageAccountId;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAccountKeyVaultReferencesResult
-    {
-        /// <summary>
-        /// The Azure identifier of the Azure KeyVault reference.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The HTTPS URL of the Azure KeyVault reference.
-        /// </summary>
-        public readonly string Url;
-
-        [OutputConstructor]
-        private GetAccountKeyVaultReferencesResult(
-            string id,
-            string url)
-        {
-            Id = id;
-            Url = url;
-        }
-    }
     }
 }

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Job.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_job.html.markdown.
     /// </summary>
     public partial class Job : Pulumi.CustomResource
     {
@@ -105,7 +101,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Job(string name, JobArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/job:Job", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/job:Job", name, args ?? new JobArgs(), MakeResourceOptions(options, ""))
         {
         }
 

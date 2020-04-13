@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.HDInsight
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing HDInsight Cluster.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCluster.InvokeAsync() instead")]
-        public static Task<GetClusterResult> GetCluster(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCluster
     {
         /// <summary>
         /// Use this data source to access information about an existing HDInsight Cluster.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
     }
+
 
     public sealed class GetClusterArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
+
     [OutputType]
     public sealed class GetClusterResult
     {
@@ -72,11 +60,15 @@ namespace Pulumi.Azure.HDInsight
         /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetClusterGatewaysResult> Gateways;
+        public readonly ImmutableArray<Outputs.GetClusterGatewayResult> Gateways;
         /// <summary>
         /// The HTTPS Endpoint for this HDInsight Cluster.
         /// </summary>
         public readonly string HttpsEndpoint;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
         /// </summary>
@@ -99,32 +91,41 @@ namespace Pulumi.Azure.HDInsight
         /// The SKU / Tier of this HDInsight Cluster.
         /// </summary>
         public readonly string Tier;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetClusterResult(
             string clusterVersion,
+
             ImmutableDictionary<string, string> componentVersions,
+
             string edgeSshEndpoint,
-            ImmutableArray<Outputs.GetClusterGatewaysResult> gateways,
+
+            ImmutableArray<Outputs.GetClusterGatewayResult> gateways,
+
             string httpsEndpoint,
+
+            string id,
+
             string kind,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string sshEndpoint,
+
             ImmutableDictionary<string, string> tags,
-            string tier,
-            string id)
+
+            string tier)
         {
             ClusterVersion = clusterVersion;
             ComponentVersions = componentVersions;
             EdgeSshEndpoint = edgeSshEndpoint;
             Gateways = gateways;
             HttpsEndpoint = httpsEndpoint;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;
@@ -132,39 +133,6 @@ namespace Pulumi.Azure.HDInsight
             SshEndpoint = sshEndpoint;
             Tags = tags;
             Tier = tier;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetClusterGatewaysResult
-    {
-        /// <summary>
-        /// Is the Ambari Portal enabled?
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// The password used for the Ambari Portal.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The username used for the Ambari Portal.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private GetClusterGatewaysResult(
-            bool enabled,
-            string password,
-            string username)
-        {
-            Enabled = enabled;
-            Password = password;
-            Username = username;
-        }
-    }
     }
 }

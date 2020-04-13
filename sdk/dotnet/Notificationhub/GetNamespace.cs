@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.NotificationHub
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Notification Hub Namespace.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNamespace.InvokeAsync() instead")]
-        public static Task<GetNamespaceResult> GetNamespace(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNamespace
     {
         /// <summary>
         /// Use this data source to access information about an existing Notification Hub Namespace.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:notificationhub/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.NotificationHub
         }
     }
 
+
     [OutputType]
     public sealed class GetNamespaceResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.NotificationHub
         /// Is this Notification Hub Namespace enabled?
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region in which this Notification Hub Namespace exists.
         /// </summary>
@@ -79,49 +71,33 @@ namespace Pulumi.Azure.NotificationHub
         /// A `sku` block as defined below.
         /// </summary>
         public readonly Outputs.GetNamespaceSkuResult Sku;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNamespaceResult(
             bool enabled,
+
+            string id,
+
             string location,
+
             string name,
+
             string namespaceType,
+
             string resourceGroupName,
+
             string servicebusEndpoint,
-            Outputs.GetNamespaceSkuResult sku,
-            string id)
+
+            Outputs.GetNamespaceSkuResult sku)
         {
             Enabled = enabled;
+            Id = id;
             Location = location;
             Name = name;
             NamespaceType = namespaceType;
             ResourceGroupName = resourceGroupName;
             ServicebusEndpoint = servicebusEndpoint;
             Sku = sku;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetNamespaceSkuResult
-    {
-        /// <summary>
-        /// Specifies the Name of the Notification Hub Namespace.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetNamespaceSkuResult(string name)
-        {
-            Name = name;
-        }
-    }
     }
 }

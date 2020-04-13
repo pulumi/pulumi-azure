@@ -11,10 +11,6 @@ namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages a Custom Action within a Logic App Workflow
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_custom.html.markdown.
     /// </summary>
     public partial class ActionCustom : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Azure.LogicApps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActionCustom(string name, ActionCustomArgs args, CustomResourceOptions? options = null)
-            : base("azure:logicapps/actionCustom:ActionCustom", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:logicapps/actionCustom:ActionCustom", name, args ?? new ActionCustomArgs(), MakeResourceOptions(options, ""))
         {
         }
 

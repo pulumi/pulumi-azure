@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ManagedApplication
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Uses this data source to access information about an existing Managed Application Definition.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_application_definition.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDefinition.InvokeAsync() instead")]
-        public static Task<GetDefinitionResult> GetDefinition(GetDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:managedapplication/getDefinition:getDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDefinition
     {
         /// <summary>
         /// Uses this data source to access information about an existing Managed Application Definition.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_application_definition.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefinitionResult> InvokeAsync(GetDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:managedapplication/getDefinition:getDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:managedapplication/getDefinition:getDefinition", args ?? new GetDefinitionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDefinitionArgs : Pulumi.InvokeArgs
     {
@@ -50,28 +41,32 @@ namespace Pulumi.Azure.ManagedApplication
         }
     }
 
+
     [OutputType]
     public sealed class GetDefinitionResult
     {
-        public readonly string Location;
-        public readonly string Name;
-        public readonly string ResourceGroupName;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Location;
+        public readonly string Name;
+        public readonly string ResourceGroupName;
 
         [OutputConstructor]
         private GetDefinitionResult(
+            string id,
+
             string location,
+
             string name,
-            string resourceGroupName,
-            string id)
+
+            string resourceGroupName)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
-            Id = id;
         }
     }
 }

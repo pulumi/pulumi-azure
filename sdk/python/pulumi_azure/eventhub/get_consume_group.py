@@ -61,8 +61,6 @@ def get_consume_group(eventhub_name=None,name=None,namespace_name=None,resource_
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
-
 
     :param str eventhub_name: Specifies the name of the EventHub.
     :param str name: Specifies the name of the EventHub Consumer Group resource.

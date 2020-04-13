@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DevTest
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Dev Test Lab.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLab.InvokeAsync() instead")]
-        public static Task<GetLabResult> GetLab(GetLabArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLab
     {
         /// <summary>
         /// Use this data source to access information about an existing Dev Test Lab.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure:devtest/getLab:getLab", args ?? new GetLabArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLabArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.DevTest
         }
     }
 
+
     [OutputType]
     public sealed class GetLabResult
     {
@@ -69,6 +57,10 @@ namespace Pulumi.Azure.DevTest
         /// The ID of the Default Storage Account for this Dev Test Lab.
         /// </summary>
         public readonly string DefaultStorageAccountId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The ID of the Key used for this Dev Test Lab.
         /// </summary>
@@ -95,29 +87,37 @@ namespace Pulumi.Azure.DevTest
         /// The unique immutable identifier of the Dev Test Lab.
         /// </summary>
         public readonly string UniqueIdentifier;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLabResult(
             string artifactsStorageAccountId,
+
             string defaultPremiumStorageAccountId,
+
             string defaultStorageAccountId,
+
+            string id,
+
             string keyVaultId,
+
             string location,
+
             string name,
+
             string premiumDataDiskStorageAccountId,
+
             string resourceGroupName,
+
             string storageType,
+
             ImmutableDictionary<string, string> tags,
-            string uniqueIdentifier,
-            string id)
+
+            string uniqueIdentifier)
         {
             ArtifactsStorageAccountId = artifactsStorageAccountId;
             DefaultPremiumStorageAccountId = defaultPremiumStorageAccountId;
             DefaultStorageAccountId = defaultStorageAccountId;
+            Id = id;
             KeyVaultId = keyVaultId;
             Location = location;
             Name = name;
@@ -126,7 +126,6 @@ namespace Pulumi.Azure.DevTest
             StorageType = storageType;
             Tags = tags;
             UniqueIdentifier = uniqueIdentifier;
-            Id = id;
         }
     }
 }

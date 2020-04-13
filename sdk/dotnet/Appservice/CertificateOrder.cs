@@ -11,10 +11,6 @@ namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// Manages an App Service Certificate Order.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
     /// </summary>
     public partial class CertificateOrder : Pulumi.CustomResource
     {
@@ -34,7 +30,7 @@ namespace Pulumi.Azure.AppService
         /// State of the Key Vault secret. A `certificates` block as defined below.
         /// </summary>
         [Output("certificates")]
-        public Output<ImmutableArray<Outputs.CertificateOrderCertificates>> Certificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CertificateOrderCertificate>> Certificates { get; private set; } = null!;
 
         /// <summary>
         /// Last CSR that was created for this order.
@@ -141,7 +137,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateOrder(string name, CertificateOrderArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/certificateOrder:CertificateOrder", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:appservice/certificateOrder:CertificateOrder", name, args ?? new CertificateOrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -270,14 +266,14 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? AutoRenew { get; set; }
 
         [Input("certificates")]
-        private InputList<Inputs.CertificateOrderCertificatesGetArgs>? _certificates;
+        private InputList<Inputs.CertificateOrderCertificateGetArgs>? _certificates;
 
         /// <summary>
         /// State of the Key Vault secret. A `certificates` block as defined below.
         /// </summary>
-        public InputList<Inputs.CertificateOrderCertificatesGetArgs> Certificates
+        public InputList<Inputs.CertificateOrderCertificateGetArgs> Certificates
         {
-            get => _certificates ?? (_certificates = new InputList<Inputs.CertificateOrderCertificatesGetArgs>());
+            get => _certificates ?? (_certificates = new InputList<Inputs.CertificateOrderCertificateGetArgs>());
             set => _certificates = value;
         }
 
@@ -386,78 +382,5 @@ namespace Pulumi.Azure.AppService
         public CertificateOrderState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CertificateOrderCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the App Service Certificate.
-        /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
-
-        /// <summary>
-        /// Key Vault resource Id.
-        /// </summary>
-        [Input("keyVaultId")]
-        public Input<string>? KeyVaultId { get; set; }
-
-        /// <summary>
-        /// Key Vault secret name.
-        /// </summary>
-        [Input("keyVaultSecretName")]
-        public Input<string>? KeyVaultSecretName { get; set; }
-
-        /// <summary>
-        /// Status of the Key Vault secret.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        public CertificateOrderCertificatesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CertificateOrderCertificates
-    {
-        /// <summary>
-        /// The name of the App Service Certificate.
-        /// </summary>
-        public readonly string CertificateName;
-        /// <summary>
-        /// Key Vault resource Id.
-        /// </summary>
-        public readonly string KeyVaultId;
-        /// <summary>
-        /// Key Vault secret name.
-        /// </summary>
-        public readonly string KeyVaultSecretName;
-        /// <summary>
-        /// Status of the Key Vault secret.
-        /// </summary>
-        public readonly string ProvisioningState;
-
-        [OutputConstructor]
-        private CertificateOrderCertificates(
-            string certificateName,
-            string keyVaultId,
-            string keyVaultSecretName,
-            string provisioningState)
-        {
-            CertificateName = certificateName;
-            KeyVaultId = keyVaultId;
-            KeyVaultSecretName = keyVaultSecretName;
-            ProvisioningState = provisioningState;
-        }
-    }
     }
 }

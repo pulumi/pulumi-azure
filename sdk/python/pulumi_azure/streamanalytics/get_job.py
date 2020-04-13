@@ -112,8 +112,6 @@ def get_job(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
-
 
     :param str name: Specifies the name of the Stream Analytics Job.
     :param str resource_group_name: Specifies the name of the resource group the Stream Analytics Job is located in.

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about Service Tags.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_service_tags.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetServiceTags.InvokeAsync() instead")]
-        public static Task<GetServiceTagsResult> GetServiceTags(GetServiceTagsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetServiceTags
     {
         /// <summary>
         /// Use this data source to access information about Service Tags.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_service_tags.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceTagsResult> InvokeAsync(GetServiceTagsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceTagsArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +47,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceTagsResult
     {
@@ -67,27 +55,31 @@ namespace Pulumi.Azure.Network
         /// List of address prefixes for the service type (and optionally a specific region).
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
-        public readonly string Location;
-        public readonly string? LocationFilter;
-        public readonly string Service;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Location;
+        public readonly string? LocationFilter;
+        public readonly string Service;
 
         [OutputConstructor]
         private GetServiceTagsResult(
             ImmutableArray<string> addressPrefixes,
+
+            string id,
+
             string location,
+
             string? locationFilter,
-            string service,
-            string id)
+
+            string service)
         {
             AddressPrefixes = addressPrefixes;
+            Id = id;
             Location = location;
             LocationFilter = locationFilter;
             Service = service;
-            Id = id;
         }
     }
 }

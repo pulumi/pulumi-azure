@@ -11,10 +11,6 @@ namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
     /// Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container_mapping.html.markdown.
     /// </summary>
     public partial class ProtectionContainerMapping : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionContainerMapping(string name, ProtectionContainerMappingArgs args, CustomResourceOptions? options = null)
-            : base("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping", name, args ?? new ProtectionContainerMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 

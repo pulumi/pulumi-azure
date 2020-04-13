@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
     /// </summary>
     public partial class FunctionJavaScriptUDF : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// One or more `input` blocks as defined below.
         /// </summary>
         [Output("inputs")]
-        public Output<ImmutableArray<Outputs.FunctionJavaScriptUDFInputs>> Inputs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FunctionJavaScriptUDFInput>> Inputs { get; private set; } = null!;
 
         /// <summary>
         /// The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FunctionJavaScriptUDF(string name, FunctionJavaScriptUDFArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, args ?? new FunctionJavaScriptUDFArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -101,14 +97,14 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class FunctionJavaScriptUDFArgs : Pulumi.ResourceArgs
     {
         [Input("inputs", required: true)]
-        private InputList<Inputs.FunctionJavaScriptUDFInputsArgs>? _inputs;
+        private InputList<Inputs.FunctionJavaScriptUDFInputArgs>? _inputs;
 
         /// <summary>
         /// One or more `input` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FunctionJavaScriptUDFInputsArgs> Inputs
+        public InputList<Inputs.FunctionJavaScriptUDFInputArgs> Inputs
         {
-            get => _inputs ?? (_inputs = new InputList<Inputs.FunctionJavaScriptUDFInputsArgs>());
+            get => _inputs ?? (_inputs = new InputList<Inputs.FunctionJavaScriptUDFInputArgs>());
             set => _inputs = value;
         }
 
@@ -150,14 +146,14 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class FunctionJavaScriptUDFState : Pulumi.ResourceArgs
     {
         [Input("inputs")]
-        private InputList<Inputs.FunctionJavaScriptUDFInputsGetArgs>? _inputs;
+        private InputList<Inputs.FunctionJavaScriptUDFInputGetArgs>? _inputs;
 
         /// <summary>
         /// One or more `input` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FunctionJavaScriptUDFInputsGetArgs> Inputs
+        public InputList<Inputs.FunctionJavaScriptUDFInputGetArgs> Inputs
         {
-            get => _inputs ?? (_inputs = new InputList<Inputs.FunctionJavaScriptUDFInputsGetArgs>());
+            get => _inputs ?? (_inputs = new InputList<Inputs.FunctionJavaScriptUDFInputGetArgs>());
             set => _inputs = value;
         }
 
@@ -194,95 +190,5 @@ namespace Pulumi.Azure.StreamAnalytics
         public FunctionJavaScriptUDFState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FunctionJavaScriptUDFInputsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FunctionJavaScriptUDFInputsArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionJavaScriptUDFInputsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FunctionJavaScriptUDFInputsGetArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionJavaScriptUDFOutputArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FunctionJavaScriptUDFOutputArgs()
-        {
-        }
-    }
-
-    public sealed class FunctionJavaScriptUDFOutputGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FunctionJavaScriptUDFOutputGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FunctionJavaScriptUDFInputs
-    {
-        /// <summary>
-        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private FunctionJavaScriptUDFInputs(string type)
-        {
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class FunctionJavaScriptUDFOutput
-    {
-        /// <summary>
-        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private FunctionJavaScriptUDFOutput(string type)
-        {
-            Type = type;
-        }
-    }
     }
 }

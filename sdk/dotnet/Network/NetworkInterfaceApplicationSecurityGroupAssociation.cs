@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages the association between a Network Interface and a Application Security Group.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceApplicationSecurityGroupAssociation : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceApplicationSecurityGroupAssociation(string name, NetworkInterfaceApplicationSecurityGroupAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, args ?? new NetworkInterfaceApplicationSecurityGroupAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

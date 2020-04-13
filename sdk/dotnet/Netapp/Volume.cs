@@ -11,8 +11,6 @@ namespace Pulumi.Azure.NetApp
 {
     /// <summary>
     /// Manages a NetApp Volume.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_volume.html.markdown.
     /// </summary>
     public partial class Volume : Pulumi.CustomResource
     {
@@ -26,7 +24,7 @@ namespace Pulumi.Azure.NetApp
         /// One or more `export_policy_rule` block defined below.
         /// </summary>
         [Output("exportPolicyRules")]
-        public Output<ImmutableArray<Outputs.VolumeExportPolicyRules>> ExportPolicyRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VolumeExportPolicyRule>> ExportPolicyRules { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -97,7 +95,7 @@ namespace Pulumi.Azure.NetApp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
-            : base("azure:netapp/volume:Volume", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:netapp/volume:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -141,14 +139,14 @@ namespace Pulumi.Azure.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         [Input("exportPolicyRules")]
-        private InputList<Inputs.VolumeExportPolicyRulesArgs>? _exportPolicyRules;
+        private InputList<Inputs.VolumeExportPolicyRuleArgs>? _exportPolicyRules;
 
         /// <summary>
         /// One or more `export_policy_rule` block defined below.
         /// </summary>
-        public InputList<Inputs.VolumeExportPolicyRulesArgs> ExportPolicyRules
+        public InputList<Inputs.VolumeExportPolicyRuleArgs> ExportPolicyRules
         {
-            get => _exportPolicyRules ?? (_exportPolicyRules = new InputList<Inputs.VolumeExportPolicyRulesArgs>());
+            get => _exportPolicyRules ?? (_exportPolicyRules = new InputList<Inputs.VolumeExportPolicyRuleArgs>());
             set => _exportPolicyRules = value;
         }
 
@@ -238,14 +236,14 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? AccountName { get; set; }
 
         [Input("exportPolicyRules")]
-        private InputList<Inputs.VolumeExportPolicyRulesGetArgs>? _exportPolicyRules;
+        private InputList<Inputs.VolumeExportPolicyRuleGetArgs>? _exportPolicyRules;
 
         /// <summary>
         /// One or more `export_policy_rule` block defined below.
         /// </summary>
-        public InputList<Inputs.VolumeExportPolicyRulesGetArgs> ExportPolicyRules
+        public InputList<Inputs.VolumeExportPolicyRuleGetArgs> ExportPolicyRules
         {
-            get => _exportPolicyRules ?? (_exportPolicyRules = new InputList<Inputs.VolumeExportPolicyRulesGetArgs>());
+            get => _exportPolicyRules ?? (_exportPolicyRules = new InputList<Inputs.VolumeExportPolicyRuleGetArgs>());
             set => _exportPolicyRules = value;
         }
 
@@ -324,193 +322,5 @@ namespace Pulumi.Azure.NetApp
         public VolumeState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VolumeExportPolicyRulesArgs : Pulumi.ResourceArgs
-    {
-        [Input("allowedClients", required: true)]
-        private InputList<string>? _allowedClients;
-
-        /// <summary>
-        /// A list of allowed clients IPv4 addresses.
-        /// </summary>
-        public InputList<string> AllowedClients
-        {
-            get => _allowedClients ?? (_allowedClients = new InputList<string>());
-            set => _allowedClients = value;
-        }
-
-        /// <summary>
-        /// Is the CIFS protocol allowed?
-        /// </summary>
-        [Input("cifsEnabled")]
-        public Input<bool>? CifsEnabled { get; set; }
-
-        /// <summary>
-        /// Is the NFSv3 protocol allowed?
-        /// </summary>
-        [Input("nfsv3Enabled")]
-        public Input<bool>? Nfsv3Enabled { get; set; }
-
-        /// <summary>
-        /// Is the NFSv4 protocol allowed?
-        /// </summary>
-        [Input("nfsv4Enabled")]
-        public Input<bool>? Nfsv4Enabled { get; set; }
-
-        /// <summary>
-        /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-        /// </summary>
-        [Input("protocolsEnabled")]
-        public Input<string>? ProtocolsEnabled { get; set; }
-
-        /// <summary>
-        /// The index number of the rule.
-        /// </summary>
-        [Input("ruleIndex", required: true)]
-        public Input<int> RuleIndex { get; set; } = null!;
-
-        /// <summary>
-        /// Is the file system on unix read only?
-        /// </summary>
-        [Input("unixReadOnly")]
-        public Input<bool>? UnixReadOnly { get; set; }
-
-        /// <summary>
-        /// Is the file system on unix read and write?
-        /// </summary>
-        [Input("unixReadWrite")]
-        public Input<bool>? UnixReadWrite { get; set; }
-
-        public VolumeExportPolicyRulesArgs()
-        {
-        }
-    }
-
-    public sealed class VolumeExportPolicyRulesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("allowedClients", required: true)]
-        private InputList<string>? _allowedClients;
-
-        /// <summary>
-        /// A list of allowed clients IPv4 addresses.
-        /// </summary>
-        public InputList<string> AllowedClients
-        {
-            get => _allowedClients ?? (_allowedClients = new InputList<string>());
-            set => _allowedClients = value;
-        }
-
-        /// <summary>
-        /// Is the CIFS protocol allowed?
-        /// </summary>
-        [Input("cifsEnabled")]
-        public Input<bool>? CifsEnabled { get; set; }
-
-        /// <summary>
-        /// Is the NFSv3 protocol allowed?
-        /// </summary>
-        [Input("nfsv3Enabled")]
-        public Input<bool>? Nfsv3Enabled { get; set; }
-
-        /// <summary>
-        /// Is the NFSv4 protocol allowed?
-        /// </summary>
-        [Input("nfsv4Enabled")]
-        public Input<bool>? Nfsv4Enabled { get; set; }
-
-        /// <summary>
-        /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-        /// </summary>
-        [Input("protocolsEnabled")]
-        public Input<string>? ProtocolsEnabled { get; set; }
-
-        /// <summary>
-        /// The index number of the rule.
-        /// </summary>
-        [Input("ruleIndex", required: true)]
-        public Input<int> RuleIndex { get; set; } = null!;
-
-        /// <summary>
-        /// Is the file system on unix read only?
-        /// </summary>
-        [Input("unixReadOnly")]
-        public Input<bool>? UnixReadOnly { get; set; }
-
-        /// <summary>
-        /// Is the file system on unix read and write?
-        /// </summary>
-        [Input("unixReadWrite")]
-        public Input<bool>? UnixReadWrite { get; set; }
-
-        public VolumeExportPolicyRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VolumeExportPolicyRules
-    {
-        /// <summary>
-        /// A list of allowed clients IPv4 addresses.
-        /// </summary>
-        public readonly ImmutableArray<string> AllowedClients;
-        /// <summary>
-        /// Is the CIFS protocol allowed?
-        /// </summary>
-        public readonly bool CifsEnabled;
-        /// <summary>
-        /// Is the NFSv3 protocol allowed?
-        /// </summary>
-        public readonly bool Nfsv3Enabled;
-        /// <summary>
-        /// Is the NFSv4 protocol allowed?
-        /// </summary>
-        public readonly bool Nfsv4Enabled;
-        /// <summary>
-        /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-        /// </summary>
-        public readonly string ProtocolsEnabled;
-        /// <summary>
-        /// The index number of the rule.
-        /// </summary>
-        public readonly int RuleIndex;
-        /// <summary>
-        /// Is the file system on unix read only?
-        /// </summary>
-        public readonly bool? UnixReadOnly;
-        /// <summary>
-        /// Is the file system on unix read and write?
-        /// </summary>
-        public readonly bool? UnixReadWrite;
-
-        [OutputConstructor]
-        private VolumeExportPolicyRules(
-            ImmutableArray<string> allowedClients,
-            bool cifsEnabled,
-            bool nfsv3Enabled,
-            bool nfsv4Enabled,
-            string protocolsEnabled,
-            int ruleIndex,
-            bool? unixReadOnly,
-            bool? unixReadWrite)
-        {
-            AllowedClients = allowedClients;
-            CifsEnabled = cifsEnabled;
-            Nfsv3Enabled = nfsv3Enabled;
-            Nfsv4Enabled = nfsv4Enabled;
-            ProtocolsEnabled = protocolsEnabled;
-            RuleIndex = ruleIndex;
-            UnixReadOnly = unixReadOnly;
-            UnixReadWrite = unixReadWrite;
-        }
-    }
     }
 }

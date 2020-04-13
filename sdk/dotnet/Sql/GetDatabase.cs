@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Sql
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing SQL Azure Database.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDatabase.InvokeAsync() instead")]
-        public static Task<GetDatabaseResult> GetDatabase(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDatabase
     {
         /// <summary>
         /// Use this data source to access information about an existing SQL Azure Database.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
@@ -72,6 +59,7 @@ namespace Pulumi.Azure.Sql
         }
     }
 
+
     [OutputType]
     public sealed class GetDatabaseResult
     {
@@ -96,6 +84,10 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         public readonly string FailoverGroupId;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the Resource Group in which the SQL Server exists.
         /// </summary>
         public readonly string Location;
@@ -119,38 +111,45 @@ namespace Pulumi.Azure.Sql
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDatabaseResult(
             string collation,
+
             string defaultSecondaryLocation,
+
             string edition,
+
             string elasticPoolName,
+
             string failoverGroupId,
+
+            string id,
+
             string location,
+
             string name,
+
             bool readScale,
+
             string resourceGroupName,
+
             string serverName,
-            ImmutableDictionary<string, string>? tags,
-            string id)
+
+            ImmutableDictionary<string, string>? tags)
         {
             Collation = collation;
             DefaultSecondaryLocation = defaultSecondaryLocation;
             Edition = edition;
             ElasticPoolName = elasticPoolName;
             FailoverGroupId = failoverGroupId;
+            Id = id;
             Location = location;
             Name = name;
             ReadScale = readScale;
             ResourceGroupName = resourceGroupName;
             ServerName = serverName;
             Tags = tags;
-            Id = id;
         }
     }
 }

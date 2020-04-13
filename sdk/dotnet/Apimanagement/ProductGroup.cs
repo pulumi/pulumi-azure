@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management Product Assignment to a Group.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_group.html.markdown.
     /// </summary>
     public partial class ProductGroup : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProductGroup(string name, ProductGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/productGroup:ProductGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/productGroup:ProductGroup", name, args ?? new ProductGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

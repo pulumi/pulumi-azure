@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
     /// </summary>
     public partial class TopicAuthorizationRule : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicAuthorizationRule(string name, TopicAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, args ?? new TopicAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

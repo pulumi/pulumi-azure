@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.RecoveryServices
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Recovery Services Vault.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.markdown.
-        /// </summary>
-        [Obsolete("Use GetVault.InvokeAsync() instead")]
-        public static Task<GetVaultResult> GetVault(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVault
     {
         /// <summary>
         /// Use this data source to access information about an existing Recovery Services Vault.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVaultArgs : Pulumi.InvokeArgs
     {
@@ -54,9 +41,14 @@ namespace Pulumi.Azure.RecoveryServices
         }
     }
 
+
     [OutputType]
     public sealed class GetVaultResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure location where the resource resides.
         /// </summary>
@@ -71,26 +63,27 @@ namespace Pulumi.Azure.RecoveryServices
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVaultResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string sku,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
-            Id = id;
         }
     }
 }

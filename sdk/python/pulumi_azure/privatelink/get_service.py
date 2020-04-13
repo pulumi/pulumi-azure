@@ -103,8 +103,6 @@ def get_service(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
-
 
     :param str name: The name of the private link service.
     :param str resource_group_name: The name of the resource group in which the private link service resides.

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Sql
 {
     /// <summary>
     /// Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_virtual_network_rule.html.markdown.
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:sql/virtualNetworkRule:VirtualNetworkRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:sql/virtualNetworkRule:VirtualNetworkRule", name, args ?? new VirtualNetworkRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

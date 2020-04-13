@@ -71,8 +71,6 @@ def get_topic(name=None,resource_group_name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventgrid_topic.html.markdown.
-
 
     :param str name: The name of the EventGrid Topic resource.
     :param str resource_group_name: The name of the resource group in which the EventGrid Topic exists.

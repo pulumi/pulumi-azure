@@ -14,10 +14,6 @@ namespace Pulumi.Azure.DataLake
     /// 
     /// &gt; **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
     /// taint the resource so the `azure.datalake.StoreFile` gets recreated with the new data.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
     /// </summary>
     public partial class StoreFile : Pulumi.CustomResource
     {
@@ -48,7 +44,7 @@ namespace Pulumi.Azure.DataLake
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StoreFile(string name, StoreFileArgs args, CustomResourceOptions? options = null)
-            : base("azure:datalake/storeFile:StoreFile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datalake/storeFile:StoreFile", name, args ?? new StoreFileArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
     /// </summary>
     public partial class LinkedServiceDataLakeStorageGen2 : Pulumi.CustomResource
     {
@@ -99,7 +95,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedServiceDataLakeStorageGen2(string name, LinkedServiceDataLakeStorageGen2Args args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, args ?? new LinkedServiceDataLakeStorageGen2Args(), MakeResourceOptions(options, ""))
         {
         }
 

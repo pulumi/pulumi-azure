@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Storage
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Storage Container.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetStorageContainer.InvokeAsync() instead")]
-        public static Task<GetStorageContainerResult> GetStorageContainer(GetStorageContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetStorageContainer
     {
         /// <summary>
         /// Use this data source to access information about an existing Storage Container.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageContainerResult>("azure:storage/getStorageContainer:getStorageContainer", args ?? new GetStorageContainerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetStorageContainerArgs : Pulumi.InvokeArgs
     {
@@ -66,6 +53,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
+
     [OutputType]
     public sealed class GetStorageContainerResult
     {
@@ -82,6 +70,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly bool HasLegalHold;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A mapping of MetaData for this Container.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
@@ -91,30 +83,33 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string ResourceManagerId;
         public readonly string StorageAccountName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetStorageContainerResult(
             string containerAccessType,
+
             bool hasImmutabilityPolicy,
+
             bool hasLegalHold,
+
+            string id,
+
             ImmutableDictionary<string, string> metadata,
+
             string name,
+
             string resourceManagerId,
-            string storageAccountName,
-            string id)
+
+            string storageAccountName)
         {
             ContainerAccessType = containerAccessType;
             HasImmutabilityPolicy = hasImmutabilityPolicy;
             HasLegalHold = hasLegalHold;
+            Id = id;
             Metadata = metadata;
             Name = name;
             ResourceManagerId = resourceManagerId;
             StorageAccountName = storageAccountName;
-            Id = id;
         }
     }
 }

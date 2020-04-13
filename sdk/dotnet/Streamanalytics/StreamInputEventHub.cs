@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Stream Input EventHub.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
     /// </summary>
     public partial class StreamInputEventHub : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamInputEventHub(string name, StreamInputEventHubArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", name, args ?? new StreamInputEventHubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -236,91 +232,5 @@ namespace Pulumi.Azure.StreamAnalytics
         public StreamInputEventHubState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class StreamInputEventHubSerializationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamInputEventHubSerializationArgs()
-        {
-        }
-    }
-
-    public sealed class StreamInputEventHubSerializationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamInputEventHubSerializationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class StreamInputEventHubSerialization
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        public readonly string? Encoding;
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        public readonly string? FieldDelimiter;
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private StreamInputEventHubSerialization(
-            string? encoding,
-            string? fieldDelimiter,
-            string type)
-        {
-            Encoding = encoding;
-            FieldDelimiter = fieldDelimiter;
-            Type = type;
-        }
-    }
     }
 }

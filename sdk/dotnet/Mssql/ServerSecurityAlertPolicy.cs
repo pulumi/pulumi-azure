@@ -13,10 +13,6 @@ namespace Pulumi.Azure.MSSql
     /// Manages a Security Alert Policy for a MSSQL Server.
     /// 
     /// &gt; **NOTE** Security Alert Policy is currently only available for MS SQL databases.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_server_security_alert_policy.html.markdown.
     /// </summary>
     public partial class ServerSecurityAlertPolicy : Pulumi.CustomResource
     {
@@ -83,7 +79,7 @@ namespace Pulumi.Azure.MSSql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerSecurityAlertPolicy(string name, ServerSecurityAlertPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, args ?? new ServerSecurityAlertPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

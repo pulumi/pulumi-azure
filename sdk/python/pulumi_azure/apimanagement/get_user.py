@@ -81,8 +81,6 @@ def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
-
 
     :param str api_management_name: The Name of the API Management Service in which this User exists.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.

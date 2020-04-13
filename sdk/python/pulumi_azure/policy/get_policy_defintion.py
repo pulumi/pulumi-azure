@@ -91,8 +91,6 @@ def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
-
 
     :param str display_name: Specifies the name of the Policy Definition.
     :param str management_group_id: Only retrieve Policy Definitions from this Management Group.

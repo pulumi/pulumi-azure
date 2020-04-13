@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.NetApp
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Uses this data source to access information about an existing NetApp Snapshot.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
-        public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSnapshot
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Snapshot.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
@@ -68,10 +56,15 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotResult
     {
         public readonly string AccountName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region where the NetApp Snapshot exists.
         /// </summary>
@@ -80,28 +73,30 @@ namespace Pulumi.Azure.NetApp
         public readonly string PoolName;
         public readonly string ResourceGroupName;
         public readonly string VolumeName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSnapshotResult(
             string accountName,
+
+            string id,
+
             string location,
+
             string name,
+
             string poolName,
+
             string resourceGroupName,
-            string volumeName,
-            string id)
+
+            string volumeName)
         {
             AccountName = accountName;
+            Id = id;
             Location = location;
             Name = name;
             PoolName = poolName;
             ResourceGroupName = resourceGroupName;
             VolumeName = volumeName;
-            Id = id;
         }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.KeyVault
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Key Vault Secret.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSecret.InvokeAsync() instead")]
-        public static Task<GetSecretResult> GetSecret(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSecret
     {
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Secret.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
+
     [OutputType]
     public sealed class GetSecretResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.KeyVault
         /// The content type for the Key Vault Secret.
         /// </summary>
         public readonly string ContentType;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string KeyVaultId;
         public readonly string Name;
         /// <summary>
@@ -75,28 +67,30 @@ namespace Pulumi.Azure.KeyVault
         /// The current version of the Key Vault Secret.
         /// </summary>
         public readonly string Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSecretResult(
             string contentType,
+
+            string id,
+
             string keyVaultId,
+
             string name,
+
             ImmutableDictionary<string, string> tags,
+
             string value,
-            string version,
-            string id)
+
+            string version)
         {
             ContentType = contentType;
+            Id = id;
             KeyVaultId = keyVaultId;
             Name = name;
             Tags = tags;
             Value = value;
             Version = version;
-            Id = id;
         }
     }
 }

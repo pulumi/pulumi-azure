@@ -11,10 +11,6 @@ namespace Pulumi.Azure.MixedReality
 {
     /// <summary>
     /// Manages an Azure Spatial Anchors Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/spatial_anchors_account.html.markdown.
     /// </summary>
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.MixedReality
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SpatialAnchorsAccount(string name, SpatialAnchorsAccountArgs args, CustomResourceOptions? options = null)
-            : base("azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount", name, args ?? new SpatialAnchorsAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 

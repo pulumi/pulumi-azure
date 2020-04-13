@@ -99,8 +99,6 @@ def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
-
 
     :param str name: Specifies the name of the certificate.
     :param str resource_group_name: The name of the resource group in which to create the certificate.

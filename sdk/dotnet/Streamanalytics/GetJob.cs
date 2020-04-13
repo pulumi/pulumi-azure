@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.StreamAnalytics
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Stream Analytics Job.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetJob.InvokeAsync() instead")]
-        public static Task<GetJobResult> GetJob(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetJob
     {
         /// <summary>
         /// Use this data source to access information about an existing Stream Analytics Job.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobArgs(), options.WithVersion());
     }
+
 
     public sealed class GetJobArgs : Pulumi.InvokeArgs
     {
@@ -53,6 +40,7 @@ namespace Pulumi.Azure.StreamAnalytics
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetJobResult
@@ -78,6 +66,10 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         public readonly string EventsOutOfOrderPolicy;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Job ID assigned by the Stream Analytics Job.
         /// </summary>
         public readonly string JobId;
@@ -99,32 +91,41 @@ namespace Pulumi.Azure.StreamAnalytics
         /// The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         /// </summary>
         public readonly string TransformationQuery;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetJobResult(
             string compatibilityLevel,
+
             string dataLocale,
+
             int eventsLateArrivalMaxDelayInSeconds,
+
             int eventsOutOfOrderMaxDelayInSeconds,
+
             string eventsOutOfOrderPolicy,
+
+            string id,
+
             string jobId,
+
             string location,
+
             string name,
+
             string outputErrorPolicy,
+
             string resourceGroupName,
+
             int streamingUnits,
-            string transformationQuery,
-            string id)
+
+            string transformationQuery)
         {
             CompatibilityLevel = compatibilityLevel;
             DataLocale = dataLocale;
             EventsLateArrivalMaxDelayInSeconds = eventsLateArrivalMaxDelayInSeconds;
             EventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
             EventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
+            Id = id;
             JobId = jobId;
             Location = location;
             Name = name;
@@ -132,7 +133,6 @@ namespace Pulumi.Azure.StreamAnalytics
             ResourceGroupName = resourceGroupName;
             StreamingUnits = streamingUnits;
             TransformationQuery = transformationQuery;
-            Id = id;
         }
     }
 }

@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.PrivateLink
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access endpoint connection information about an existing Private Link Service.
-        /// 
-        /// &gt; **NOTE** Private Link is currently in Public Preview.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetServiceEndpointConnections.InvokeAsync() instead")]
-        public static Task<GetServiceEndpointConnectionsResult> GetServiceEndpointConnections(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetServiceEndpointConnections
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Azure.PrivateLink
         /// 
         /// &gt; **NOTE** Private Link is currently in Public Preview.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceEndpointConnectionsResult> InvokeAsync(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceEndpointConnectionsArgs : Pulumi.InvokeArgs
     {
@@ -58,93 +43,43 @@ namespace Pulumi.Azure.PrivateLink
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceEndpointConnectionsResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
-        public readonly ImmutableArray<Outputs.GetServiceEndpointConnectionsPrivateEndpointConnectionsResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.GetServiceEndpointConnectionsPrivateEndpointConnectionResult> PrivateEndpointConnections;
         public readonly string ResourceGroupName;
         public readonly string ServiceId;
         /// <summary>
         /// The name of the private link service.
         /// </summary>
         public readonly string ServiceName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceEndpointConnectionsResult(
+            string id,
+
             string location,
-            ImmutableArray<Outputs.GetServiceEndpointConnectionsPrivateEndpointConnectionsResult> privateEndpointConnections,
+
+            ImmutableArray<Outputs.GetServiceEndpointConnectionsPrivateEndpointConnectionResult> privateEndpointConnections,
+
             string resourceGroupName,
+
             string serviceId,
-            string serviceName,
-            string id)
+
+            string serviceName)
         {
+            Id = id;
             Location = location;
             PrivateEndpointConnections = privateEndpointConnections;
             ResourceGroupName = resourceGroupName;
             ServiceId = serviceId;
             ServiceName = serviceName;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetServiceEndpointConnectionsPrivateEndpointConnectionsResult
-    {
-        /// <summary>
-        /// A message indicating if changes on the service provider require any updates or not.
-        /// </summary>
-        public readonly string ActionRequired;
-        /// <summary>
-        /// The resource id of the private link service connection between the private link service and the private link endpoint.
-        /// </summary>
-        public readonly string ConnectionId;
-        /// <summary>
-        /// The name of the connection between the private link service and the private link endpoint.
-        /// </summary>
-        public readonly string ConnectionName;
-        /// <summary>
-        /// The request for approval message or the reason for rejection message.
-        /// </summary>
-        public readonly string Description;
-        /// <summary>
-        /// The resource id of the private link endpoint.
-        /// </summary>
-        public readonly string PrivateEndpointId;
-        /// <summary>
-        /// The name of the private link endpoint.
-        /// </summary>
-        public readonly string PrivateEndpointName;
-        /// <summary>
-        /// Indicates the state of the connection between the private link service and the private link endpoint, possible values are `Pending`, `Approved` or `Rejected`.
-        /// </summary>
-        public readonly string Status;
-
-        [OutputConstructor]
-        private GetServiceEndpointConnectionsPrivateEndpointConnectionsResult(
-            string actionRequired,
-            string connectionId,
-            string connectionName,
-            string description,
-            string privateEndpointId,
-            string privateEndpointName,
-            string status)
-        {
-            ActionRequired = actionRequired;
-            ConnectionId = connectionId;
-            ConnectionName = connectionName;
-            Description = description;
-            PrivateEndpointId = privateEndpointId;
-            PrivateEndpointName = privateEndpointName;
-            Status = status;
-        }
-    }
     }
 }

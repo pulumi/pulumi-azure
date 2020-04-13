@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages a Version of a Shared Image within a Shared Image Gallery.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
     /// </summary>
     public partial class SharedImageVersion : Pulumi.CustomResource
     {
@@ -70,7 +66,7 @@ namespace Pulumi.Azure.Compute
         /// One or more `target_region` blocks as documented below.
         /// </summary>
         [Output("targetRegions")]
-        public Output<ImmutableArray<Outputs.SharedImageVersionTargetRegions>> TargetRegions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SharedImageVersionTargetRegion>> TargetRegions { get; private set; } = null!;
 
 
         /// <summary>
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SharedImageVersion(string name, SharedImageVersionArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/sharedImageVersion:SharedImageVersion", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/sharedImageVersion:SharedImageVersion", name, args ?? new SharedImageVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -173,14 +169,14 @@ namespace Pulumi.Azure.Compute
         }
 
         [Input("targetRegions", required: true)]
-        private InputList<Inputs.SharedImageVersionTargetRegionsArgs>? _targetRegions;
+        private InputList<Inputs.SharedImageVersionTargetRegionArgs>? _targetRegions;
 
         /// <summary>
         /// One or more `target_region` blocks as documented below.
         /// </summary>
-        public InputList<Inputs.SharedImageVersionTargetRegionsArgs> TargetRegions
+        public InputList<Inputs.SharedImageVersionTargetRegionArgs> TargetRegions
         {
-            get => _targetRegions ?? (_targetRegions = new InputList<Inputs.SharedImageVersionTargetRegionsArgs>());
+            get => _targetRegions ?? (_targetRegions = new InputList<Inputs.SharedImageVersionTargetRegionArgs>());
             set => _targetRegions = value;
         }
 
@@ -246,105 +242,19 @@ namespace Pulumi.Azure.Compute
         }
 
         [Input("targetRegions")]
-        private InputList<Inputs.SharedImageVersionTargetRegionsGetArgs>? _targetRegions;
+        private InputList<Inputs.SharedImageVersionTargetRegionGetArgs>? _targetRegions;
 
         /// <summary>
         /// One or more `target_region` blocks as documented below.
         /// </summary>
-        public InputList<Inputs.SharedImageVersionTargetRegionsGetArgs> TargetRegions
+        public InputList<Inputs.SharedImageVersionTargetRegionGetArgs> TargetRegions
         {
-            get => _targetRegions ?? (_targetRegions = new InputList<Inputs.SharedImageVersionTargetRegionsGetArgs>());
+            get => _targetRegions ?? (_targetRegions = new InputList<Inputs.SharedImageVersionTargetRegionGetArgs>());
             set => _targetRegions = value;
         }
 
         public SharedImageVersionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SharedImageVersionTargetRegionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Azure Region in which this Image Version should exist.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The number of replicas of the Image Version to be created per region.
-        /// </summary>
-        [Input("regionalReplicaCount", required: true)]
-        public Input<int> RegionalReplicaCount { get; set; } = null!;
-
-        /// <summary>
-        /// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
-        /// </summary>
-        [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
-
-        public SharedImageVersionTargetRegionsArgs()
-        {
-        }
-    }
-
-    public sealed class SharedImageVersionTargetRegionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Azure Region in which this Image Version should exist.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The number of replicas of the Image Version to be created per region.
-        /// </summary>
-        [Input("regionalReplicaCount", required: true)]
-        public Input<int> RegionalReplicaCount { get; set; } = null!;
-
-        /// <summary>
-        /// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
-        /// </summary>
-        [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
-
-        public SharedImageVersionTargetRegionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SharedImageVersionTargetRegions
-    {
-        /// <summary>
-        /// The Azure Region in which this Image Version should exist.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The number of replicas of the Image Version to be created per region.
-        /// </summary>
-        public readonly int RegionalReplicaCount;
-        /// <summary>
-        /// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
-        /// </summary>
-        public readonly string StorageAccountType;
-
-        [OutputConstructor]
-        private SharedImageVersionTargetRegions(
-            string name,
-            int regionalReplicaCount,
-            string storageAccountType)
-        {
-            Name = name;
-            RegionalReplicaCount = regionalReplicaCount;
-            StorageAccountType = storageAccountType;
-        }
-    }
     }
 }

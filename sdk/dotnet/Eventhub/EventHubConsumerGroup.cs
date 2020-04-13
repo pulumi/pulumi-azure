@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group.html.markdown.
     /// </summary>
     public partial class EventHubConsumerGroup : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventHubConsumerGroup(string name, EventHubConsumerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, args ?? new EventHubConsumerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

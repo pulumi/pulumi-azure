@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation : Pulumi.CustomResource
     {
@@ -45,7 +41,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(string name, NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, args ?? new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

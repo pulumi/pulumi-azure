@@ -49,8 +49,6 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
-
 
     :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
     :param str display_name_prefix: A case-insensitive prefix which can be used to filter on the `display_name` field

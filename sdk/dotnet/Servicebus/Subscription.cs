@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ServiceBus
 {
     /// <summary>
     /// Manages a ServiceBus Subscription.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
     /// </summary>
     public partial class Subscription : Pulumi.CustomResource
     {
@@ -105,7 +101,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Subscription(string name, SubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure:servicebus/subscription:Subscription", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:servicebus/subscription:Subscription", name, args ?? new SubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -118,7 +114,7 @@ namespace Pulumi.Azure.ServiceBus
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/subscription:Subscription" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/subscription:Subscription"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

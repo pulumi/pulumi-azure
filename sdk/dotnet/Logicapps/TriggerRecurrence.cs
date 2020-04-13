@@ -11,10 +11,6 @@ namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages a Recurrence Trigger within a Logic App Workflow
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
     /// </summary>
     public partial class TriggerRecurrence : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.LogicApps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TriggerRecurrence(string name, TriggerRecurrenceArgs args, CustomResourceOptions? options = null)
-            : base("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, args ?? new TriggerRecurrenceArgs(), MakeResourceOptions(options, ""))
         {
         }
 

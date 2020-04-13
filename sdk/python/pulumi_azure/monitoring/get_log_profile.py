@@ -70,8 +70,6 @@ def get_log_profile(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
-
 
     :param str name: Specifies the Name of the Log Profile.
     """

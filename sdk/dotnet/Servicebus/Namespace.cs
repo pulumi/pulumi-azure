@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ServiceBus
 {
     /// <summary>
     /// Manages a ServiceBus Namespace.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {
@@ -97,7 +93,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azure:servicebus/namespace:Namespace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:servicebus/namespace:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -110,7 +106,7 @@ namespace Pulumi.Azure.ServiceBus
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/namespace:Namespace" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/namespace:Namespace"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

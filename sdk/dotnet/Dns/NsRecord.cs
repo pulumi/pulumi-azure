@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS NS Records within Azure DNS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ns_record.html.markdown.
     /// </summary>
     public partial class NsRecord : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NsRecord(string name, NsRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/nsRecord:NsRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:dns/nsRecord:NsRecord", name, args ?? new NsRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 

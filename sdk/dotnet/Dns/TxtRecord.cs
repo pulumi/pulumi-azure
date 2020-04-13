@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS TXT Records within Azure DNS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_txt_record.html.markdown.
     /// </summary>
     public partial class TxtRecord : Pulumi.CustomResource
     {
@@ -34,7 +30,7 @@ namespace Pulumi.Azure.Dns
         /// A list of values that make up the txt record. Each `record` block supports fields documented below.
         /// </summary>
         [Output("records")]
-        public Output<ImmutableArray<Outputs.TxtRecordRecords>> Records { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TxtRecordRecord>> Records { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TxtRecord(string name, TxtRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/txtRecord:TxtRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:dns/txtRecord:TxtRecord", name, args ?? new TxtRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -113,14 +109,14 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Name { get; set; }
 
         [Input("records", required: true)]
-        private InputList<Inputs.TxtRecordRecordsArgs>? _records;
+        private InputList<Inputs.TxtRecordRecordArgs>? _records;
 
         /// <summary>
         /// A list of values that make up the txt record. Each `record` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.TxtRecordRecordsArgs> Records
+        public InputList<Inputs.TxtRecordRecordArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.TxtRecordRecordsArgs>());
+            get => _records ?? (_records = new InputList<Inputs.TxtRecordRecordArgs>());
             set => _records = value;
         }
 
@@ -174,14 +170,14 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Name { get; set; }
 
         [Input("records")]
-        private InputList<Inputs.TxtRecordRecordsGetArgs>? _records;
+        private InputList<Inputs.TxtRecordRecordGetArgs>? _records;
 
         /// <summary>
         /// A list of values that make up the txt record. Each `record` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.TxtRecordRecordsGetArgs> Records
+        public InputList<Inputs.TxtRecordRecordGetArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.TxtRecordRecordsGetArgs>());
+            get => _records ?? (_records = new InputList<Inputs.TxtRecordRecordGetArgs>());
             set => _records = value;
         }
 
@@ -218,54 +214,5 @@ namespace Pulumi.Azure.Dns
         public TxtRecordState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TxtRecordRecordsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The value of the record. Max length: 1024 characters
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public TxtRecordRecordsArgs()
-        {
-        }
-    }
-
-    public sealed class TxtRecordRecordsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The value of the record. Max length: 1024 characters
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public TxtRecordRecordsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TxtRecordRecords
-    {
-        /// <summary>
-        /// The value of the record. Max length: 1024 characters
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private TxtRecordRecords(string value)
-        {
-            Value = value;
-        }
-    }
     }
 }

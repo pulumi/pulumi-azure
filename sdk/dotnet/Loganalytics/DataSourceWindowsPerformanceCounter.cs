@@ -11,8 +11,6 @@ namespace Pulumi.Azure.LogAnalytics
 {
     /// <summary>
     /// Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_datasource_windows_performance_counter.html.markdown.
     /// </summary>
     public partial class DataSourceWindowsPerformanceCounter : Pulumi.CustomResource
     {
@@ -67,7 +65,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSourceWindowsPerformanceCounter(string name, DataSourceWindowsPerformanceCounterArgs args, CustomResourceOptions? options = null)
-            : base("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", name, args ?? new DataSourceWindowsPerformanceCounterArgs(), MakeResourceOptions(options, ""))
         {
         }
 

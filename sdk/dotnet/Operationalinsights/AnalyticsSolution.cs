@@ -11,10 +11,6 @@ namespace Pulumi.Azure.OperationalInsights
 {
     /// <summary>
     /// Manages a Log Analytics (formally Operational Insights) Solution.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
     /// </summary>
     public partial class AnalyticsSolution : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnalyticsSolution(string name, AnalyticsSolutionArgs args, CustomResourceOptions? options = null)
-            : base("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, args ?? new AnalyticsSolutionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -182,100 +178,5 @@ namespace Pulumi.Azure.OperationalInsights
         public AnalyticsSolutionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AnalyticsSolutionPlanArgs : Pulumi.ResourceArgs
-    {
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("product", required: true)]
-        public Input<string> Product { get; set; } = null!;
-
-        /// <summary>
-        /// A promotion code to be used with the solution.
-        /// </summary>
-        [Input("promotionCode")]
-        public Input<string>? PromotionCode { get; set; }
-
-        /// <summary>
-        /// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        public AnalyticsSolutionPlanArgs()
-        {
-        }
-    }
-
-    public sealed class AnalyticsSolutionPlanGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("product", required: true)]
-        public Input<string> Product { get; set; } = null!;
-
-        /// <summary>
-        /// A promotion code to be used with the solution.
-        /// </summary>
-        [Input("promotionCode")]
-        public Input<string>? PromotionCode { get; set; }
-
-        /// <summary>
-        /// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        public AnalyticsSolutionPlanGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AnalyticsSolutionPlan
-    {
-        public readonly string Name;
-        /// <summary>
-        /// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Product;
-        /// <summary>
-        /// A promotion code to be used with the solution.
-        /// </summary>
-        public readonly string? PromotionCode;
-        /// <summary>
-        /// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Publisher;
-
-        [OutputConstructor]
-        private AnalyticsSolutionPlan(
-            string name,
-            string product,
-            string? promotionCode,
-            string publisher)
-        {
-            Name = name;
-            Product = product;
-            PromotionCode = promotionCode;
-            Publisher = publisher;
-        }
-    }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Lb
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Load Balancer
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLB.InvokeAsync() instead")]
-        public static Task<GetLBResult> GetLB(GetLBArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLB
     {
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLBResult> InvokeAsync(GetLBArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLBArgs : Pulumi.InvokeArgs
     {
@@ -54,13 +41,18 @@ namespace Pulumi.Azure.Lb
         }
     }
 
+
     [OutputType]
     public sealed class GetLBResult
     {
         /// <summary>
         /// (Optional) A `frontend_ip_configuration` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetLBFrontendIpConfigurationsResult> FrontendIpConfigurations;
+        public readonly ImmutableArray<Outputs.GetLBFrontendIpConfigurationResult> FrontendIpConfigurations;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure location where the Load Balancer exists.
         /// </summary>
@@ -86,24 +78,29 @@ namespace Pulumi.Azure.Lb
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLBResult(
-            ImmutableArray<Outputs.GetLBFrontendIpConfigurationsResult> frontendIpConfigurations,
+            ImmutableArray<Outputs.GetLBFrontendIpConfigurationResult> frontendIpConfigurations,
+
+            string id,
+
             string location,
+
             string name,
+
             string privateIpAddress,
+
             ImmutableArray<string> privateIpAddresses,
+
             string resourceGroupName,
+
             string sku,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             FrontendIpConfigurations = frontendIpConfigurations;
+            Id = id;
             Location = location;
             Name = name;
             PrivateIpAddress = privateIpAddress;
@@ -111,69 +108,6 @@ namespace Pulumi.Azure.Lb
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetLBFrontendIpConfigurationsResult
-    {
-        /// <summary>
-        /// The id of the Frontend IP Configuration.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Specifies the name of the Load Balancer.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Private IP Address to assign to the Load Balancer.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// The allocation method for the Private IP Address used by this Load Balancer.
-        /// </summary>
-        public readonly string PrivateIpAddressAllocation;
-        /// <summary>
-        /// The Private IP Address Version, either `IPv4` or `IPv6`.
-        /// </summary>
-        public readonly string PrivateIpAddressVersion;
-        /// <summary>
-        /// The ID of a  Public IP Address which is associated with this Load Balancer.
-        /// </summary>
-        public readonly string PublicIpAddressId;
-        /// <summary>
-        /// The ID of the Subnet which is associated with the IP Configuration.
-        /// </summary>
-        public readonly string SubnetId;
-        /// <summary>
-        /// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
-        /// </summary>
-        public readonly ImmutableArray<string> Zones;
-
-        [OutputConstructor]
-        private GetLBFrontendIpConfigurationsResult(
-            string id,
-            string name,
-            string privateIpAddress,
-            string privateIpAddressAllocation,
-            string privateIpAddressVersion,
-            string publicIpAddressId,
-            string subnetId,
-            ImmutableArray<string> zones)
-        {
-            Id = id;
-            Name = name;
-            PrivateIpAddress = privateIpAddress;
-            PrivateIpAddressAllocation = privateIpAddressAllocation;
-            PrivateIpAddressVersion = privateIpAddressVersion;
-            PublicIpAddressId = publicIpAddressId;
-            SubnetId = subnetId;
-            Zones = zones;
-        }
-    }
     }
 }

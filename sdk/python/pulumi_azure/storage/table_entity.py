@@ -38,8 +38,6 @@ class TableEntity(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table_entity.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.

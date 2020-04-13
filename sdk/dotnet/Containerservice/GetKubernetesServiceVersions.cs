@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ContainerService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetKubernetesServiceVersions.InvokeAsync() instead")]
-        public static Task<GetKubernetesServiceVersionsResult> GetKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetKubernetesServiceVersions
     {
         /// <summary>
         /// Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKubernetesServiceVersionsResult> InvokeAsync(GetKubernetesServiceVersionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? new GetKubernetesServiceVersionsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetKubernetesServiceVersionsArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
+
     [OutputType]
     public sealed class GetKubernetesServiceVersionsResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? IncludePreview;
         /// <summary>
         /// The most recent version available. If `include_preview == false`, this is the most recent non-preview version available.
@@ -74,26 +66,27 @@ namespace Pulumi.Azure.ContainerService
         /// The list of all supported versions.
         /// </summary>
         public readonly ImmutableArray<string> Versions;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetKubernetesServiceVersionsResult(
+            string id,
+
             bool? includePreview,
+
             string latestVersion,
+
             string location,
+
             string? versionPrefix,
-            ImmutableArray<string> versions,
-            string id)
+
+            ImmutableArray<string> versions)
         {
+            Id = id;
             IncludePreview = includePreview;
             LatestVersion = latestVersion;
             Location = location;
             VersionPrefix = versionPrefix;
             Versions = versions;
-            Id = id;
         }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ApiManagement
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing API Management Group.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetGroup.InvokeAsync() instead")]
-        public static Task<GetGroupResult> GetGroup(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetGroup
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management Group.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetGroupArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
+
     [OutputType]
     public sealed class GetGroupResult
     {
@@ -76,36 +64,43 @@ namespace Pulumi.Azure.ApiManagement
         /// The identifier of the external Group.
         /// </summary>
         public readonly string ExternalId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The type of this API Management Group, such as `custom` or `external`.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetGroupResult(
             string apiManagementName,
+
             string description,
+
             string displayName,
+
             string externalId,
+
+            string id,
+
             string name,
+
             string resourceGroupName,
-            string type,
-            string id)
+
+            string type)
         {
             ApiManagementName = apiManagementName;
             Description = description;
             DisplayName = displayName;
             ExternalId = externalId;
+            Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Type = type;
-            Id = id;
         }
     }
 }

@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Automation
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Automation Bool Variable.
-        /// 
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetBoolVariable.InvokeAsync() instead")]
-        public static Task<GetBoolVariableResult> GetBoolVariable(GetBoolVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetBoolVariable
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation Bool Variable.
         /// 
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBoolVariableResult> InvokeAsync(GetBoolVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBoolVariableResult>("azure:automation/getBoolVariable:getBoolVariable", args ?? new GetBoolVariableArgs(), options.WithVersion());
     }
+
 
     public sealed class GetBoolVariableArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +48,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
+
     [OutputType]
     public sealed class GetBoolVariableResult
     {
@@ -74,34 +61,40 @@ namespace Pulumi.Azure.Automation
         /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
         /// </summary>
         public readonly bool Encrypted;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The value of the Automation Variable as a `boolean`.
         /// </summary>
         public readonly bool Value;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetBoolVariableResult(
             string automationAccountName,
+
             string description,
+
             bool encrypted,
+
+            string id,
+
             string name,
+
             string resourceGroupName,
-            bool value,
-            string id)
+
+            bool value)
         {
             AutomationAccountName = automationAccountName;
             Description = description;
             Encrypted = encrypted;
+            Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Value = value;
-            Id = id;
         }
     }
 }

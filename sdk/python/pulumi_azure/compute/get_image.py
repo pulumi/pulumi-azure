@@ -88,8 +88,6 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
-
 
     :param str name: The name of the Image.
     :param str name_regex: Regex pattern of the image to match.

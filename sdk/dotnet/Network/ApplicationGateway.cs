@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages an Application Gateway.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_gateway.html.markdown.
     /// </summary>
     public partial class ApplicationGateway : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.Network
         /// One or more `authentication_certificate` blocks as defined below.
         /// </summary>
         [Output("authenticationCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificates>> AuthenticationCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificate>> AuthenticationCertificates { get; private set; } = null!;
 
         /// <summary>
         /// A `autoscale_configuration` block as defined below.
@@ -34,19 +30,19 @@ namespace Pulumi.Azure.Network
         /// One or more `backend_address_pool` blocks as defined below.
         /// </summary>
         [Output("backendAddressPools")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPools>> BackendAddressPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPool>> BackendAddressPools { get; private set; } = null!;
 
         /// <summary>
         /// One or more `backend_http_settings` blocks as defined below.
         /// </summary>
         [Output("backendHttpSettings")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettings>> BackendHttpSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSetting>> BackendHttpSettings { get; private set; } = null!;
 
         /// <summary>
         /// One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
         [Output("customErrorConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorConfigurations>> CustomErrorConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorConfiguration>> CustomErrorConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
@@ -58,25 +54,25 @@ namespace Pulumi.Azure.Network
         /// One or more `frontend_ip_configuration` blocks as defined below.
         /// </summary>
         [Output("frontendIpConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIpConfigurations>> FrontendIpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// One or more `frontend_port` blocks as defined below.
         /// </summary>
         [Output("frontendPorts")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPorts>> FrontendPorts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPort>> FrontendPorts { get; private set; } = null!;
 
         /// <summary>
         /// One or more `gateway_ip_configuration` blocks as defined below.
         /// </summary>
         [Output("gatewayIpConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayGatewayIpConfigurations>> GatewayIpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayGatewayIpConfiguration>> GatewayIpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// One or more `http_listener` blocks as defined below.
         /// </summary>
         [Output("httpListeners")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListeners>> HttpListeners { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListener>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
         /// A `identity` block.
@@ -100,19 +96,19 @@ namespace Pulumi.Azure.Network
         /// One or more `probe` blocks as defined below.
         /// </summary>
         [Output("probes")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayProbes>> Probes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayProbe>> Probes { get; private set; } = null!;
 
         /// <summary>
         /// A `redirect_configuration` block as defined below.
         /// </summary>
         [Output("redirectConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRedirectConfigurations>> RedirectConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRedirectConfiguration>> RedirectConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// One or more `request_routing_rule` blocks as defined below.
         /// </summary>
         [Output("requestRoutingRules")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRules>> RequestRoutingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRule>> RequestRoutingRules { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -124,7 +120,7 @@ namespace Pulumi.Azure.Network
         /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         /// </summary>
         [Output("rewriteRuleSets")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSets>> RewriteRuleSets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSet>> RewriteRuleSets { get; private set; } = null!;
 
         /// <summary>
         /// A `sku` block as defined below.
@@ -136,13 +132,13 @@ namespace Pulumi.Azure.Network
         /// One or more `ssl_certificate` blocks as defined below.
         /// </summary>
         [Output("sslCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificates>> SslCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificate>> SslCertificates { get; private set; } = null!;
 
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
         [Output("sslPolicies")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewaySslPolicies>> SslPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewaySslPolicy>> SslPolicies { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -154,13 +150,13 @@ namespace Pulumi.Azure.Network
         /// One or more `trusted_root_certificate` blocks as defined below.
         /// </summary>
         [Output("trustedRootCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayTrustedRootCertificates>> TrustedRootCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayTrustedRootCertificate>> TrustedRootCertificates { get; private set; } = null!;
 
         /// <summary>
         /// One or more `url_path_map` blocks as defined below.
         /// </summary>
         [Output("urlPathMaps")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMaps>> UrlPathMaps { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMap>> UrlPathMaps { get; private set; } = null!;
 
         /// <summary>
         /// A `waf_configuration` block as defined below.
@@ -183,7 +179,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationGateway(string name, ApplicationGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/applicationGateway:ApplicationGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/applicationGateway:ApplicationGateway", name, args ?? new ApplicationGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -221,14 +217,14 @@ namespace Pulumi.Azure.Network
     public sealed class ApplicationGatewayArgs : Pulumi.ResourceArgs
     {
         [Input("authenticationCertificates")]
-        private InputList<Inputs.ApplicationGatewayAuthenticationCertificatesArgs>? _authenticationCertificates;
+        private InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>? _authenticationCertificates;
 
         /// <summary>
         /// One or more `authentication_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayAuthenticationCertificatesArgs> AuthenticationCertificates
+        public InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs> AuthenticationCertificates
         {
-            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.ApplicationGatewayAuthenticationCertificatesArgs>());
+            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>());
             set => _authenticationCertificates = value;
         }
 
@@ -239,38 +235,38 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.ApplicationGatewayAutoscaleConfigurationArgs>? AutoscaleConfiguration { get; set; }
 
         [Input("backendAddressPools", required: true)]
-        private InputList<Inputs.ApplicationGatewayBackendAddressPoolsArgs>? _backendAddressPools;
+        private InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>? _backendAddressPools;
 
         /// <summary>
         /// One or more `backend_address_pool` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayBackendAddressPoolsArgs> BackendAddressPools
+        public InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs> BackendAddressPools
         {
-            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.ApplicationGatewayBackendAddressPoolsArgs>());
+            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>());
             set => _backendAddressPools = value;
         }
 
         [Input("backendHttpSettings", required: true)]
-        private InputList<Inputs.ApplicationGatewayBackendHttpSettingsArgs>? _backendHttpSettings;
+        private InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs>? _backendHttpSettings;
 
         /// <summary>
         /// One or more `backend_http_settings` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayBackendHttpSettingsArgs> BackendHttpSettings
+        public InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs> BackendHttpSettings
         {
-            get => _backendHttpSettings ?? (_backendHttpSettings = new InputList<Inputs.ApplicationGatewayBackendHttpSettingsArgs>());
+            get => _backendHttpSettings ?? (_backendHttpSettings = new InputList<Inputs.ApplicationGatewayBackendHttpSettingArgs>());
             set => _backendHttpSettings = value;
         }
 
         [Input("customErrorConfigurations")]
-        private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsArgs>? _customErrorConfigurations;
+        private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs>? _customErrorConfigurations;
 
         /// <summary>
         /// One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsArgs> CustomErrorConfigurations
+        public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs> CustomErrorConfigurations
         {
-            get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsArgs>());
+            get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs>());
             set => _customErrorConfigurations = value;
         }
 
@@ -281,50 +277,50 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableHttp2 { get; set; }
 
         [Input("frontendIpConfigurations", required: true)]
-        private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationsArgs>? _frontendIpConfigurations;
+        private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
         /// One or more `frontend_ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayFrontendIpConfigurationsArgs> FrontendIpConfigurations
+        public InputList<Inputs.ApplicationGatewayFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
-            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.ApplicationGatewayFrontendIpConfigurationsArgs>());
+            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.ApplicationGatewayFrontendIpConfigurationArgs>());
             set => _frontendIpConfigurations = value;
         }
 
         [Input("frontendPorts", required: true)]
-        private InputList<Inputs.ApplicationGatewayFrontendPortsArgs>? _frontendPorts;
+        private InputList<Inputs.ApplicationGatewayFrontendPortArgs>? _frontendPorts;
 
         /// <summary>
         /// One or more `frontend_port` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayFrontendPortsArgs> FrontendPorts
+        public InputList<Inputs.ApplicationGatewayFrontendPortArgs> FrontendPorts
         {
-            get => _frontendPorts ?? (_frontendPorts = new InputList<Inputs.ApplicationGatewayFrontendPortsArgs>());
+            get => _frontendPorts ?? (_frontendPorts = new InputList<Inputs.ApplicationGatewayFrontendPortArgs>());
             set => _frontendPorts = value;
         }
 
         [Input("gatewayIpConfigurations", required: true)]
-        private InputList<Inputs.ApplicationGatewayGatewayIpConfigurationsArgs>? _gatewayIpConfigurations;
+        private InputList<Inputs.ApplicationGatewayGatewayIpConfigurationArgs>? _gatewayIpConfigurations;
 
         /// <summary>
         /// One or more `gateway_ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayGatewayIpConfigurationsArgs> GatewayIpConfigurations
+        public InputList<Inputs.ApplicationGatewayGatewayIpConfigurationArgs> GatewayIpConfigurations
         {
-            get => _gatewayIpConfigurations ?? (_gatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayGatewayIpConfigurationsArgs>());
+            get => _gatewayIpConfigurations ?? (_gatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayGatewayIpConfigurationArgs>());
             set => _gatewayIpConfigurations = value;
         }
 
         [Input("httpListeners", required: true)]
-        private InputList<Inputs.ApplicationGatewayHttpListenersArgs>? _httpListeners;
+        private InputList<Inputs.ApplicationGatewayHttpListenerArgs>? _httpListeners;
 
         /// <summary>
         /// One or more `http_listener` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayHttpListenersArgs> HttpListeners
+        public InputList<Inputs.ApplicationGatewayHttpListenerArgs> HttpListeners
         {
-            get => _httpListeners ?? (_httpListeners = new InputList<Inputs.ApplicationGatewayHttpListenersArgs>());
+            get => _httpListeners ?? (_httpListeners = new InputList<Inputs.ApplicationGatewayHttpListenerArgs>());
             set => _httpListeners = value;
         }
 
@@ -347,38 +343,38 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         [Input("probes")]
-        private InputList<Inputs.ApplicationGatewayProbesArgs>? _probes;
+        private InputList<Inputs.ApplicationGatewayProbeArgs>? _probes;
 
         /// <summary>
         /// One or more `probe` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayProbesArgs> Probes
+        public InputList<Inputs.ApplicationGatewayProbeArgs> Probes
         {
-            get => _probes ?? (_probes = new InputList<Inputs.ApplicationGatewayProbesArgs>());
+            get => _probes ?? (_probes = new InputList<Inputs.ApplicationGatewayProbeArgs>());
             set => _probes = value;
         }
 
         [Input("redirectConfigurations")]
-        private InputList<Inputs.ApplicationGatewayRedirectConfigurationsArgs>? _redirectConfigurations;
+        private InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs>? _redirectConfigurations;
 
         /// <summary>
         /// A `redirect_configuration` block as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayRedirectConfigurationsArgs> RedirectConfigurations
+        public InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs> RedirectConfigurations
         {
-            get => _redirectConfigurations ?? (_redirectConfigurations = new InputList<Inputs.ApplicationGatewayRedirectConfigurationsArgs>());
+            get => _redirectConfigurations ?? (_redirectConfigurations = new InputList<Inputs.ApplicationGatewayRedirectConfigurationArgs>());
             set => _redirectConfigurations = value;
         }
 
         [Input("requestRoutingRules", required: true)]
-        private InputList<Inputs.ApplicationGatewayRequestRoutingRulesArgs>? _requestRoutingRules;
+        private InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs>? _requestRoutingRules;
 
         /// <summary>
         /// One or more `request_routing_rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayRequestRoutingRulesArgs> RequestRoutingRules
+        public InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs> RequestRoutingRules
         {
-            get => _requestRoutingRules ?? (_requestRoutingRules = new InputList<Inputs.ApplicationGatewayRequestRoutingRulesArgs>());
+            get => _requestRoutingRules ?? (_requestRoutingRules = new InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs>());
             set => _requestRoutingRules = value;
         }
 
@@ -389,14 +385,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rewriteRuleSets")]
-        private InputList<Inputs.ApplicationGatewayRewriteRuleSetsArgs>? _rewriteRuleSets;
+        private InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs>? _rewriteRuleSets;
 
         /// <summary>
         /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayRewriteRuleSetsArgs> RewriteRuleSets
+        public InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs> RewriteRuleSets
         {
-            get => _rewriteRuleSets ?? (_rewriteRuleSets = new InputList<Inputs.ApplicationGatewayRewriteRuleSetsArgs>());
+            get => _rewriteRuleSets ?? (_rewriteRuleSets = new InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs>());
             set => _rewriteRuleSets = value;
         }
 
@@ -407,26 +403,26 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.ApplicationGatewaySkuArgs> Sku { get; set; } = null!;
 
         [Input("sslCertificates")]
-        private InputList<Inputs.ApplicationGatewaySslCertificatesArgs>? _sslCertificates;
+        private InputList<Inputs.ApplicationGatewaySslCertificateArgs>? _sslCertificates;
 
         /// <summary>
         /// One or more `ssl_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewaySslCertificatesArgs> SslCertificates
+        public InputList<Inputs.ApplicationGatewaySslCertificateArgs> SslCertificates
         {
-            get => _sslCertificates ?? (_sslCertificates = new InputList<Inputs.ApplicationGatewaySslCertificatesArgs>());
+            get => _sslCertificates ?? (_sslCertificates = new InputList<Inputs.ApplicationGatewaySslCertificateArgs>());
             set => _sslCertificates = value;
         }
 
         [Input("sslPolicies")]
-        private InputList<Inputs.ApplicationGatewaySslPoliciesArgs>? _sslPolicies;
+        private InputList<Inputs.ApplicationGatewaySslPolicyArgs>? _sslPolicies;
 
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewaySslPoliciesArgs> SslPolicies
+        public InputList<Inputs.ApplicationGatewaySslPolicyArgs> SslPolicies
         {
-            get => _sslPolicies ?? (_sslPolicies = new InputList<Inputs.ApplicationGatewaySslPoliciesArgs>());
+            get => _sslPolicies ?? (_sslPolicies = new InputList<Inputs.ApplicationGatewaySslPolicyArgs>());
             set => _sslPolicies = value;
         }
 
@@ -443,26 +439,26 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("trustedRootCertificates")]
-        private InputList<Inputs.ApplicationGatewayTrustedRootCertificatesArgs>? _trustedRootCertificates;
+        private InputList<Inputs.ApplicationGatewayTrustedRootCertificateArgs>? _trustedRootCertificates;
 
         /// <summary>
         /// One or more `trusted_root_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayTrustedRootCertificatesArgs> TrustedRootCertificates
+        public InputList<Inputs.ApplicationGatewayTrustedRootCertificateArgs> TrustedRootCertificates
         {
-            get => _trustedRootCertificates ?? (_trustedRootCertificates = new InputList<Inputs.ApplicationGatewayTrustedRootCertificatesArgs>());
+            get => _trustedRootCertificates ?? (_trustedRootCertificates = new InputList<Inputs.ApplicationGatewayTrustedRootCertificateArgs>());
             set => _trustedRootCertificates = value;
         }
 
         [Input("urlPathMaps")]
-        private InputList<Inputs.ApplicationGatewayUrlPathMapsArgs>? _urlPathMaps;
+        private InputList<Inputs.ApplicationGatewayUrlPathMapArgs>? _urlPathMaps;
 
         /// <summary>
         /// One or more `url_path_map` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayUrlPathMapsArgs> UrlPathMaps
+        public InputList<Inputs.ApplicationGatewayUrlPathMapArgs> UrlPathMaps
         {
-            get => _urlPathMaps ?? (_urlPathMaps = new InputList<Inputs.ApplicationGatewayUrlPathMapsArgs>());
+            get => _urlPathMaps ?? (_urlPathMaps = new InputList<Inputs.ApplicationGatewayUrlPathMapArgs>());
             set => _urlPathMaps = value;
         }
 
@@ -492,14 +488,14 @@ namespace Pulumi.Azure.Network
     public sealed class ApplicationGatewayState : Pulumi.ResourceArgs
     {
         [Input("authenticationCertificates")]
-        private InputList<Inputs.ApplicationGatewayAuthenticationCertificatesGetArgs>? _authenticationCertificates;
+        private InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs>? _authenticationCertificates;
 
         /// <summary>
         /// One or more `authentication_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayAuthenticationCertificatesGetArgs> AuthenticationCertificates
+        public InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs> AuthenticationCertificates
         {
-            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.ApplicationGatewayAuthenticationCertificatesGetArgs>());
+            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs>());
             set => _authenticationCertificates = value;
         }
 
@@ -510,38 +506,38 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.ApplicationGatewayAutoscaleConfigurationGetArgs>? AutoscaleConfiguration { get; set; }
 
         [Input("backendAddressPools")]
-        private InputList<Inputs.ApplicationGatewayBackendAddressPoolsGetArgs>? _backendAddressPools;
+        private InputList<Inputs.ApplicationGatewayBackendAddressPoolGetArgs>? _backendAddressPools;
 
         /// <summary>
         /// One or more `backend_address_pool` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayBackendAddressPoolsGetArgs> BackendAddressPools
+        public InputList<Inputs.ApplicationGatewayBackendAddressPoolGetArgs> BackendAddressPools
         {
-            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.ApplicationGatewayBackendAddressPoolsGetArgs>());
+            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.ApplicationGatewayBackendAddressPoolGetArgs>());
             set => _backendAddressPools = value;
         }
 
         [Input("backendHttpSettings")]
-        private InputList<Inputs.ApplicationGatewayBackendHttpSettingsGetArgs>? _backendHttpSettings;
+        private InputList<Inputs.ApplicationGatewayBackendHttpSettingGetArgs>? _backendHttpSettings;
 
         /// <summary>
         /// One or more `backend_http_settings` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayBackendHttpSettingsGetArgs> BackendHttpSettings
+        public InputList<Inputs.ApplicationGatewayBackendHttpSettingGetArgs> BackendHttpSettings
         {
-            get => _backendHttpSettings ?? (_backendHttpSettings = new InputList<Inputs.ApplicationGatewayBackendHttpSettingsGetArgs>());
+            get => _backendHttpSettings ?? (_backendHttpSettings = new InputList<Inputs.ApplicationGatewayBackendHttpSettingGetArgs>());
             set => _backendHttpSettings = value;
         }
 
         [Input("customErrorConfigurations")]
-        private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsGetArgs>? _customErrorConfigurations;
+        private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs>? _customErrorConfigurations;
 
         /// <summary>
         /// One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsGetArgs> CustomErrorConfigurations
+        public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs> CustomErrorConfigurations
         {
-            get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationsGetArgs>());
+            get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs>());
             set => _customErrorConfigurations = value;
         }
 
@@ -552,50 +548,50 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableHttp2 { get; set; }
 
         [Input("frontendIpConfigurations")]
-        private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationsGetArgs>? _frontendIpConfigurations;
+        private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
         /// <summary>
         /// One or more `frontend_ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayFrontendIpConfigurationsGetArgs> FrontendIpConfigurations
+        public InputList<Inputs.ApplicationGatewayFrontendIpConfigurationGetArgs> FrontendIpConfigurations
         {
-            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.ApplicationGatewayFrontendIpConfigurationsGetArgs>());
+            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.ApplicationGatewayFrontendIpConfigurationGetArgs>());
             set => _frontendIpConfigurations = value;
         }
 
         [Input("frontendPorts")]
-        private InputList<Inputs.ApplicationGatewayFrontendPortsGetArgs>? _frontendPorts;
+        private InputList<Inputs.ApplicationGatewayFrontendPortGetArgs>? _frontendPorts;
 
         /// <summary>
         /// One or more `frontend_port` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayFrontendPortsGetArgs> FrontendPorts
+        public InputList<Inputs.ApplicationGatewayFrontendPortGetArgs> FrontendPorts
         {
-            get => _frontendPorts ?? (_frontendPorts = new InputList<Inputs.ApplicationGatewayFrontendPortsGetArgs>());
+            get => _frontendPorts ?? (_frontendPorts = new InputList<Inputs.ApplicationGatewayFrontendPortGetArgs>());
             set => _frontendPorts = value;
         }
 
         [Input("gatewayIpConfigurations")]
-        private InputList<Inputs.ApplicationGatewayGatewayIpConfigurationsGetArgs>? _gatewayIpConfigurations;
+        private InputList<Inputs.ApplicationGatewayGatewayIpConfigurationGetArgs>? _gatewayIpConfigurations;
 
         /// <summary>
         /// One or more `gateway_ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayGatewayIpConfigurationsGetArgs> GatewayIpConfigurations
+        public InputList<Inputs.ApplicationGatewayGatewayIpConfigurationGetArgs> GatewayIpConfigurations
         {
-            get => _gatewayIpConfigurations ?? (_gatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayGatewayIpConfigurationsGetArgs>());
+            get => _gatewayIpConfigurations ?? (_gatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayGatewayIpConfigurationGetArgs>());
             set => _gatewayIpConfigurations = value;
         }
 
         [Input("httpListeners")]
-        private InputList<Inputs.ApplicationGatewayHttpListenersGetArgs>? _httpListeners;
+        private InputList<Inputs.ApplicationGatewayHttpListenerGetArgs>? _httpListeners;
 
         /// <summary>
         /// One or more `http_listener` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayHttpListenersGetArgs> HttpListeners
+        public InputList<Inputs.ApplicationGatewayHttpListenerGetArgs> HttpListeners
         {
-            get => _httpListeners ?? (_httpListeners = new InputList<Inputs.ApplicationGatewayHttpListenersGetArgs>());
+            get => _httpListeners ?? (_httpListeners = new InputList<Inputs.ApplicationGatewayHttpListenerGetArgs>());
             set => _httpListeners = value;
         }
 
@@ -618,38 +614,38 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         [Input("probes")]
-        private InputList<Inputs.ApplicationGatewayProbesGetArgs>? _probes;
+        private InputList<Inputs.ApplicationGatewayProbeGetArgs>? _probes;
 
         /// <summary>
         /// One or more `probe` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayProbesGetArgs> Probes
+        public InputList<Inputs.ApplicationGatewayProbeGetArgs> Probes
         {
-            get => _probes ?? (_probes = new InputList<Inputs.ApplicationGatewayProbesGetArgs>());
+            get => _probes ?? (_probes = new InputList<Inputs.ApplicationGatewayProbeGetArgs>());
             set => _probes = value;
         }
 
         [Input("redirectConfigurations")]
-        private InputList<Inputs.ApplicationGatewayRedirectConfigurationsGetArgs>? _redirectConfigurations;
+        private InputList<Inputs.ApplicationGatewayRedirectConfigurationGetArgs>? _redirectConfigurations;
 
         /// <summary>
         /// A `redirect_configuration` block as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayRedirectConfigurationsGetArgs> RedirectConfigurations
+        public InputList<Inputs.ApplicationGatewayRedirectConfigurationGetArgs> RedirectConfigurations
         {
-            get => _redirectConfigurations ?? (_redirectConfigurations = new InputList<Inputs.ApplicationGatewayRedirectConfigurationsGetArgs>());
+            get => _redirectConfigurations ?? (_redirectConfigurations = new InputList<Inputs.ApplicationGatewayRedirectConfigurationGetArgs>());
             set => _redirectConfigurations = value;
         }
 
         [Input("requestRoutingRules")]
-        private InputList<Inputs.ApplicationGatewayRequestRoutingRulesGetArgs>? _requestRoutingRules;
+        private InputList<Inputs.ApplicationGatewayRequestRoutingRuleGetArgs>? _requestRoutingRules;
 
         /// <summary>
         /// One or more `request_routing_rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayRequestRoutingRulesGetArgs> RequestRoutingRules
+        public InputList<Inputs.ApplicationGatewayRequestRoutingRuleGetArgs> RequestRoutingRules
         {
-            get => _requestRoutingRules ?? (_requestRoutingRules = new InputList<Inputs.ApplicationGatewayRequestRoutingRulesGetArgs>());
+            get => _requestRoutingRules ?? (_requestRoutingRules = new InputList<Inputs.ApplicationGatewayRequestRoutingRuleGetArgs>());
             set => _requestRoutingRules = value;
         }
 
@@ -660,14 +656,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("rewriteRuleSets")]
-        private InputList<Inputs.ApplicationGatewayRewriteRuleSetsGetArgs>? _rewriteRuleSets;
+        private InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs>? _rewriteRuleSets;
 
         /// <summary>
         /// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayRewriteRuleSetsGetArgs> RewriteRuleSets
+        public InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs> RewriteRuleSets
         {
-            get => _rewriteRuleSets ?? (_rewriteRuleSets = new InputList<Inputs.ApplicationGatewayRewriteRuleSetsGetArgs>());
+            get => _rewriteRuleSets ?? (_rewriteRuleSets = new InputList<Inputs.ApplicationGatewayRewriteRuleSetGetArgs>());
             set => _rewriteRuleSets = value;
         }
 
@@ -678,26 +674,26 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.ApplicationGatewaySkuGetArgs>? Sku { get; set; }
 
         [Input("sslCertificates")]
-        private InputList<Inputs.ApplicationGatewaySslCertificatesGetArgs>? _sslCertificates;
+        private InputList<Inputs.ApplicationGatewaySslCertificateGetArgs>? _sslCertificates;
 
         /// <summary>
         /// One or more `ssl_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewaySslCertificatesGetArgs> SslCertificates
+        public InputList<Inputs.ApplicationGatewaySslCertificateGetArgs> SslCertificates
         {
-            get => _sslCertificates ?? (_sslCertificates = new InputList<Inputs.ApplicationGatewaySslCertificatesGetArgs>());
+            get => _sslCertificates ?? (_sslCertificates = new InputList<Inputs.ApplicationGatewaySslCertificateGetArgs>());
             set => _sslCertificates = value;
         }
 
         [Input("sslPolicies")]
-        private InputList<Inputs.ApplicationGatewaySslPoliciesGetArgs>? _sslPolicies;
+        private InputList<Inputs.ApplicationGatewaySslPolicyGetArgs>? _sslPolicies;
 
         /// <summary>
         /// a `ssl policy` block as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewaySslPoliciesGetArgs> SslPolicies
+        public InputList<Inputs.ApplicationGatewaySslPolicyGetArgs> SslPolicies
         {
-            get => _sslPolicies ?? (_sslPolicies = new InputList<Inputs.ApplicationGatewaySslPoliciesGetArgs>());
+            get => _sslPolicies ?? (_sslPolicies = new InputList<Inputs.ApplicationGatewaySslPolicyGetArgs>());
             set => _sslPolicies = value;
         }
 
@@ -714,26 +710,26 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("trustedRootCertificates")]
-        private InputList<Inputs.ApplicationGatewayTrustedRootCertificatesGetArgs>? _trustedRootCertificates;
+        private InputList<Inputs.ApplicationGatewayTrustedRootCertificateGetArgs>? _trustedRootCertificates;
 
         /// <summary>
         /// One or more `trusted_root_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayTrustedRootCertificatesGetArgs> TrustedRootCertificates
+        public InputList<Inputs.ApplicationGatewayTrustedRootCertificateGetArgs> TrustedRootCertificates
         {
-            get => _trustedRootCertificates ?? (_trustedRootCertificates = new InputList<Inputs.ApplicationGatewayTrustedRootCertificatesGetArgs>());
+            get => _trustedRootCertificates ?? (_trustedRootCertificates = new InputList<Inputs.ApplicationGatewayTrustedRootCertificateGetArgs>());
             set => _trustedRootCertificates = value;
         }
 
         [Input("urlPathMaps")]
-        private InputList<Inputs.ApplicationGatewayUrlPathMapsGetArgs>? _urlPathMaps;
+        private InputList<Inputs.ApplicationGatewayUrlPathMapGetArgs>? _urlPathMaps;
 
         /// <summary>
         /// One or more `url_path_map` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ApplicationGatewayUrlPathMapsGetArgs> UrlPathMaps
+        public InputList<Inputs.ApplicationGatewayUrlPathMapGetArgs> UrlPathMaps
         {
-            get => _urlPathMaps ?? (_urlPathMaps = new InputList<Inputs.ApplicationGatewayUrlPathMapsGetArgs>());
+            get => _urlPathMaps ?? (_urlPathMaps = new InputList<Inputs.ApplicationGatewayUrlPathMapGetArgs>());
             set => _urlPathMaps = value;
         }
 
@@ -758,3916 +754,5 @@ namespace Pulumi.Azure.Network
         public ApplicationGatewayState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ApplicationGatewayAuthenticationCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The contents of the Authentication Certificate which should be used.
-        /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Authentication Certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayAuthenticationCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayAuthenticationCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The contents of the Authentication Certificate which should be used.
-        /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Authentication Certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayAuthenticationCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayAutoscaleConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
-        /// </summary>
-        [Input("maxCapacity")]
-        public Input<int>? MaxCapacity { get; set; }
-
-        /// <summary>
-        /// Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
-        /// </summary>
-        [Input("minCapacity", required: true)]
-        public Input<int> MinCapacity { get; set; } = null!;
-
-        public ApplicationGatewayAutoscaleConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayAutoscaleConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
-        /// </summary>
-        [Input("maxCapacity")]
-        public Input<int>? MaxCapacity { get; set; }
-
-        /// <summary>
-        /// Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
-        /// </summary>
-        [Input("minCapacity", required: true)]
-        public Input<int> MinCapacity { get; set; } = null!;
-
-        public ApplicationGatewayAutoscaleConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendAddressPoolsArgs : Pulumi.ResourceArgs
-    {
-        [Input("fqdns")]
-        private InputList<string>? _fqdns;
-
-        /// <summary>
-        /// A list of FQDN's which should be part of the Backend Address Pool.
-        /// </summary>
-        public InputList<string> Fqdns
-        {
-            get => _fqdns ?? (_fqdns = new InputList<string>());
-            set => _fqdns = value;
-        }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("ipAddresses")]
-        private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// A list of IP Addresses which should be part of the Backend Address Pool.
-        /// </summary>
-        public InputList<string> IpAddresses
-        {
-            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
-            set => _ipAddresses = value;
-        }
-
-        /// <summary>
-        /// The name of the Backend Address Pool.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayBackendAddressPoolsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendAddressPoolsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("fqdns")]
-        private InputList<string>? _fqdns;
-
-        /// <summary>
-        /// A list of FQDN's which should be part of the Backend Address Pool.
-        /// </summary>
-        public InputList<string> Fqdns
-        {
-            get => _fqdns ?? (_fqdns = new InputList<string>());
-            set => _fqdns = value;
-        }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("ipAddresses")]
-        private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// A list of IP Addresses which should be part of the Backend Address Pool.
-        /// </summary>
-        public InputList<string> IpAddresses
-        {
-            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
-            set => _ipAddresses = value;
-        }
-
-        /// <summary>
-        /// The name of the Backend Address Pool.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayBackendAddressPoolsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendHttpSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the affinity cookie.
-        /// </summary>
-        [Input("affinityCookieName")]
-        public Input<string>? AffinityCookieName { get; set; }
-
-        [Input("authenticationCertificates")]
-        private InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs>? _authenticationCertificates;
-
-        /// <summary>
-        /// One or more `authentication_certificate` blocks.
-        /// </summary>
-        public InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs> AuthenticationCertificates
-        {
-            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs>());
-            set => _authenticationCertificates = value;
-        }
-
-        /// <summary>
-        /// A `connection_draining` block as defined below.
-        /// </summary>
-        [Input("connectionDraining")]
-        public Input<ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs>? ConnectionDraining { get; set; }
-
-        /// <summary>
-        /// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
-        /// </summary>
-        [Input("cookieBasedAffinity", required: true)]
-        public Input<string> CookieBasedAffinity { get; set; } = null!;
-
-        /// <summary>
-        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
-        /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Backend HTTP Settings Collection.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Path which should be used as a prefix for all HTTP requests.
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
-        /// </summary>
-        [Input("pickHostNameFromBackendAddress")]
-        public Input<bool>? PickHostNameFromBackendAddress { get; set; }
-
-        /// <summary>
-        /// The port used for this Frontend Port.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated Probe.
-        /// </summary>
-        [Input("probeId")]
-        public Input<string>? ProbeId { get; set; }
-
-        /// <summary>
-        /// The name of an associated HTTP Probe.
-        /// </summary>
-        [Input("probeName")]
-        public Input<string>? ProbeName { get; set; }
-
-        /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
-        /// </summary>
-        [Input("requestTimeout")]
-        public Input<int>? RequestTimeout { get; set; }
-
-        [Input("trustedRootCertificateNames")]
-        private InputList<string>? _trustedRootCertificateNames;
-
-        /// <summary>
-        /// A list of `trusted_root_certificate` names.
-        /// </summary>
-        public InputList<string> TrustedRootCertificateNames
-        {
-            get => _trustedRootCertificateNames ?? (_trustedRootCertificateNames = new InputList<string>());
-            set => _trustedRootCertificateNames = value;
-        }
-
-        public ApplicationGatewayBackendHttpSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Authentication Certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Authentication Certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
-        /// </summary>
-        [Input("drainTimeoutSec", required: true)]
-        public Input<int> DrainTimeoutSec { get; set; } = null!;
-
-        /// <summary>
-        /// If connection draining is enabled or not.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendHttpSettingsConnectionDrainingGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
-        /// </summary>
-        [Input("drainTimeoutSec", required: true)]
-        public Input<int> DrainTimeoutSec { get; set; } = null!;
-
-        /// <summary>
-        /// If connection draining is enabled or not.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public ApplicationGatewayBackendHttpSettingsConnectionDrainingGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayBackendHttpSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the affinity cookie.
-        /// </summary>
-        [Input("affinityCookieName")]
-        public Input<string>? AffinityCookieName { get; set; }
-
-        [Input("authenticationCertificates")]
-        private InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesGetArgs>? _authenticationCertificates;
-
-        /// <summary>
-        /// One or more `authentication_certificate` blocks.
-        /// </summary>
-        public InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesGetArgs> AuthenticationCertificates
-        {
-            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesGetArgs>());
-            set => _authenticationCertificates = value;
-        }
-
-        /// <summary>
-        /// A `connection_draining` block as defined below.
-        /// </summary>
-        [Input("connectionDraining")]
-        public Input<ApplicationGatewayBackendHttpSettingsConnectionDrainingGetArgs>? ConnectionDraining { get; set; }
-
-        /// <summary>
-        /// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
-        /// </summary>
-        [Input("cookieBasedAffinity", required: true)]
-        public Input<string> CookieBasedAffinity { get; set; } = null!;
-
-        /// <summary>
-        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
-        /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Backend HTTP Settings Collection.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Path which should be used as a prefix for all HTTP requests.
-        /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
-
-        /// <summary>
-        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
-        /// </summary>
-        [Input("pickHostNameFromBackendAddress")]
-        public Input<bool>? PickHostNameFromBackendAddress { get; set; }
-
-        /// <summary>
-        /// The port used for this Frontend Port.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated Probe.
-        /// </summary>
-        [Input("probeId")]
-        public Input<string>? ProbeId { get; set; }
-
-        /// <summary>
-        /// The name of an associated HTTP Probe.
-        /// </summary>
-        [Input("probeName")]
-        public Input<string>? ProbeName { get; set; }
-
-        /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
-        /// </summary>
-        [Input("requestTimeout")]
-        public Input<int>? RequestTimeout { get; set; }
-
-        [Input("trustedRootCertificateNames")]
-        private InputList<string>? _trustedRootCertificateNames;
-
-        /// <summary>
-        /// A list of `trusted_root_certificate` names.
-        /// </summary>
-        public InputList<string> TrustedRootCertificateNames
-        {
-            get => _trustedRootCertificateNames ?? (_trustedRootCertificateNames = new InputList<string>());
-            set => _trustedRootCertificateNames = value;
-        }
-
-        public ApplicationGatewayBackendHttpSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayCustomErrorConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Error page URL of the application gateway customer error.
-        /// </summary>
-        [Input("customErrorPageUrl", required: true)]
-        public Input<string> CustomErrorPageUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
-        /// </summary>
-        [Input("statusCode", required: true)]
-        public Input<string> StatusCode { get; set; } = null!;
-
-        public ApplicationGatewayCustomErrorConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayCustomErrorConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Error page URL of the application gateway customer error.
-        /// </summary>
-        [Input("customErrorPageUrl", required: true)]
-        public Input<string> CustomErrorPageUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
-        /// </summary>
-        [Input("statusCode", required: true)]
-        public Input<string> StatusCode { get; set; } = null!;
-
-        public ApplicationGatewayCustomErrorConfigurationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayFrontendIpConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Frontend IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Private IP Address to use for the Application Gateway.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        /// </summary>
-        [Input("privateIpAddressAllocation")]
-        public Input<string>? PrivateIpAddressAllocation { get; set; }
-
-        /// <summary>
-        /// The ID of a Public IP Address which the Application Gateway should use.
-        /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
-
-        /// <summary>
-        /// The ID of the Subnet which the Application Gateway should be connected to.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ApplicationGatewayFrontendIpConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayFrontendIpConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Frontend IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Private IP Address to use for the Application Gateway.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        /// </summary>
-        [Input("privateIpAddressAllocation")]
-        public Input<string>? PrivateIpAddressAllocation { get; set; }
-
-        /// <summary>
-        /// The ID of a Public IP Address which the Application Gateway should use.
-        /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
-
-        /// <summary>
-        /// The ID of the Subnet which the Application Gateway should be connected to.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public ApplicationGatewayFrontendIpConfigurationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayFrontendPortsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Frontend Port.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The port used for this Frontend Port.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        public ApplicationGatewayFrontendPortsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayFrontendPortsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Frontend Port.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The port used for this Frontend Port.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        public ApplicationGatewayFrontendPortsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayGatewayIpConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of this Gateway IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of a Subnet.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ApplicationGatewayGatewayIpConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayGatewayIpConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of this Gateway IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of a Subnet.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ApplicationGatewayGatewayIpConfigurationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayHttpListenersArgs : Pulumi.ResourceArgs
-    {
-        [Input("customErrorConfigurations")]
-        private InputList<ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs>? _customErrorConfigurations;
-
-        /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
-        /// </summary>
-        public InputList<ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs> CustomErrorConfigurations
-        {
-            get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs>());
-            set => _customErrorConfigurations = value;
-        }
-
-        /// <summary>
-        /// The ID of the associated Frontend Configuration.
-        /// </summary>
-        [Input("frontendIpConfigurationId")]
-        public Input<string>? FrontendIpConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of the Frontend IP Configuration used for this HTTP Listener.
-        /// </summary>
-        [Input("frontendIpConfigurationName", required: true)]
-        public Input<string> FrontendIpConfigurationName { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated Frontend Port.
-        /// </summary>
-        [Input("frontendPortId")]
-        public Input<string>? FrontendPortId { get; set; }
-
-        /// <summary>
-        /// The Name of the Frontend Port use for this HTTP Listener.
-        /// </summary>
-        [Input("frontendPortName", required: true)]
-        public Input<string> FrontendPortName { get; set; } = null!;
-
-        /// <summary>
-        /// The Hostname which should be used for this HTTP Listener.
-        /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the HTTP Listener.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// Should Server Name Indication be Required? Defaults to `false`.
-        /// </summary>
-        [Input("requireSni")]
-        public Input<bool>? RequireSni { get; set; }
-
-        /// <summary>
-        /// The ID of the associated SSL Certificate.
-        /// </summary>
-        [Input("sslCertificateId")]
-        public Input<string>? SslCertificateId { get; set; }
-
-        /// <summary>
-        /// The name of the associated SSL Certificate which should be used for this HTTP Listener.
-        /// </summary>
-        [Input("sslCertificateName")]
-        public Input<string>? SslCertificateName { get; set; }
-
-        public ApplicationGatewayHttpListenersArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Error page URL of the application gateway customer error.
-        /// </summary>
-        [Input("customErrorPageUrl", required: true)]
-        public Input<string> CustomErrorPageUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
-        /// </summary>
-        [Input("statusCode", required: true)]
-        public Input<string> StatusCode { get; set; } = null!;
-
-        public ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayHttpListenersCustomErrorConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Error page URL of the application gateway customer error.
-        /// </summary>
-        [Input("customErrorPageUrl", required: true)]
-        public Input<string> CustomErrorPageUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
-        /// </summary>
-        [Input("statusCode", required: true)]
-        public Input<string> StatusCode { get; set; } = null!;
-
-        public ApplicationGatewayHttpListenersCustomErrorConfigurationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayHttpListenersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("customErrorConfigurations")]
-        private InputList<ApplicationGatewayHttpListenersCustomErrorConfigurationsGetArgs>? _customErrorConfigurations;
-
-        /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
-        /// </summary>
-        public InputList<ApplicationGatewayHttpListenersCustomErrorConfigurationsGetArgs> CustomErrorConfigurations
-        {
-            get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<ApplicationGatewayHttpListenersCustomErrorConfigurationsGetArgs>());
-            set => _customErrorConfigurations = value;
-        }
-
-        /// <summary>
-        /// The ID of the associated Frontend Configuration.
-        /// </summary>
-        [Input("frontendIpConfigurationId")]
-        public Input<string>? FrontendIpConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of the Frontend IP Configuration used for this HTTP Listener.
-        /// </summary>
-        [Input("frontendIpConfigurationName", required: true)]
-        public Input<string> FrontendIpConfigurationName { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated Frontend Port.
-        /// </summary>
-        [Input("frontendPortId")]
-        public Input<string>? FrontendPortId { get; set; }
-
-        /// <summary>
-        /// The Name of the Frontend Port use for this HTTP Listener.
-        /// </summary>
-        [Input("frontendPortName", required: true)]
-        public Input<string> FrontendPortName { get; set; } = null!;
-
-        /// <summary>
-        /// The Hostname which should be used for this HTTP Listener.
-        /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the HTTP Listener.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// Should Server Name Indication be Required? Defaults to `false`.
-        /// </summary>
-        [Input("requireSni")]
-        public Input<bool>? RequireSni { get; set; }
-
-        /// <summary>
-        /// The ID of the associated SSL Certificate.
-        /// </summary>
-        [Input("sslCertificateId")]
-        public Input<string>? SslCertificateId { get; set; }
-
-        /// <summary>
-        /// The name of the associated SSL Certificate which should be used for this HTTP Listener.
-        /// </summary>
-        [Input("sslCertificateName")]
-        public Input<string>? SslCertificateName { get; set; }
-
-        public ApplicationGatewayHttpListenersGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayIdentityArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-        /// </summary>
-        [Input("identityIds", required: true)]
-        public Input<string> IdentityIds { get; set; } = null!;
-
-        /// <summary>
-        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public ApplicationGatewayIdentityArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayIdentityGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-        /// </summary>
-        [Input("identityIds", required: true)]
-        public Input<string> IdentityIds { get; set; } = null!;
-
-        /// <summary>
-        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public ApplicationGatewayIdentityGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayProbesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
-        /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
-        /// </summary>
-        [Input("interval", required: true)]
-        public Input<int> Interval { get; set; } = null!;
-
-        /// <summary>
-        /// A `match` block as defined above.
-        /// </summary>
-        [Input("match")]
-        public Input<ApplicationGatewayProbesMatchArgs>? Match { get; set; }
-
-        /// <summary>
-        /// The minimum number of servers that are always marked as healthy. Defaults to `0`.
-        /// </summary>
-        [Input("minimumServers")]
-        public Input<int>? MinimumServers { get; set; }
-
-        /// <summary>
-        /// The Name of the Probe.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Path used for this Probe.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        /// <summary>
-        /// Whether the host header should be picked from the backend http settings. Defaults to `false`.
-        /// </summary>
-        [Input("pickHostNameFromBackendHttpSettings")]
-        public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
-
-        /// <summary>
-        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
-        /// </summary>
-        [Input("timeout", required: true)]
-        public Input<int> Timeout { get; set; } = null!;
-
-        /// <summary>
-        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
-        /// </summary>
-        [Input("unhealthyThreshold", required: true)]
-        public Input<int> UnhealthyThreshold { get; set; } = null!;
-
-        public ApplicationGatewayProbesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayProbesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
-        /// </summary>
-        [Input("host")]
-        public Input<string>? Host { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
-        /// </summary>
-        [Input("interval", required: true)]
-        public Input<int> Interval { get; set; } = null!;
-
-        /// <summary>
-        /// A `match` block as defined above.
-        /// </summary>
-        [Input("match")]
-        public Input<ApplicationGatewayProbesMatchGetArgs>? Match { get; set; }
-
-        /// <summary>
-        /// The minimum number of servers that are always marked as healthy. Defaults to `0`.
-        /// </summary>
-        [Input("minimumServers")]
-        public Input<int>? MinimumServers { get; set; }
-
-        /// <summary>
-        /// The Name of the Probe.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Path used for this Probe.
-        /// </summary>
-        [Input("path", required: true)]
-        public Input<string> Path { get; set; } = null!;
-
-        /// <summary>
-        /// Whether the host header should be picked from the backend http settings. Defaults to `false`.
-        /// </summary>
-        [Input("pickHostNameFromBackendHttpSettings")]
-        public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
-
-        /// <summary>
-        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
-        /// </summary>
-        [Input("timeout", required: true)]
-        public Input<int> Timeout { get; set; } = null!;
-
-        /// <summary>
-        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
-        /// </summary>
-        [Input("unhealthyThreshold", required: true)]
-        public Input<int> UnhealthyThreshold { get; set; } = null!;
-
-        public ApplicationGatewayProbesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayProbesMatchArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A snippet from the Response Body which must be present in the Response..
-        /// </summary>
-        [Input("body")]
-        public Input<string>? Body { get; set; }
-
-        [Input("statusCodes")]
-        private InputList<string>? _statusCodes;
-
-        /// <summary>
-        /// A list of allowed status codes for this Health Probe.
-        /// </summary>
-        public InputList<string> StatusCodes
-        {
-            get => _statusCodes ?? (_statusCodes = new InputList<string>());
-            set => _statusCodes = value;
-        }
-
-        public ApplicationGatewayProbesMatchArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayProbesMatchGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A snippet from the Response Body which must be present in the Response..
-        /// </summary>
-        [Input("body")]
-        public Input<string>? Body { get; set; }
-
-        [Input("statusCodes")]
-        private InputList<string>? _statusCodes;
-
-        /// <summary>
-        /// A list of allowed status codes for this Health Probe.
-        /// </summary>
-        public InputList<string> StatusCodes
-        {
-            get => _statusCodes ?? (_statusCodes = new InputList<string>());
-            set => _statusCodes = value;
-        }
-
-        public ApplicationGatewayProbesMatchGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRedirectConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Whether or not to include the path in the redirected Url. Defaults to `false`
-        /// </summary>
-        [Input("includePath")]
-        public Input<bool>? IncludePath { get; set; }
-
-        /// <summary>
-        /// Whether or not to include the query string in the redirected Url. Default to `false`
-        /// </summary>
-        [Input("includeQueryString")]
-        public Input<bool>? IncludeQueryString { get; set; }
-
-        /// <summary>
-        /// Unique name of the redirect configuration block
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
-        /// </summary>
-        [Input("redirectType", required: true)]
-        public Input<string> RedirectType { get; set; } = null!;
-
-        [Input("targetListenerId")]
-        public Input<string>? TargetListenerId { get; set; }
-
-        /// <summary>
-        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
-        /// </summary>
-        [Input("targetListenerName")]
-        public Input<string>? TargetListenerName { get; set; }
-
-        /// <summary>
-        /// The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
-        /// </summary>
-        [Input("targetUrl")]
-        public Input<string>? TargetUrl { get; set; }
-
-        public ApplicationGatewayRedirectConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRedirectConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Whether or not to include the path in the redirected Url. Defaults to `false`
-        /// </summary>
-        [Input("includePath")]
-        public Input<bool>? IncludePath { get; set; }
-
-        /// <summary>
-        /// Whether or not to include the query string in the redirected Url. Default to `false`
-        /// </summary>
-        [Input("includeQueryString")]
-        public Input<bool>? IncludeQueryString { get; set; }
-
-        /// <summary>
-        /// Unique name of the redirect configuration block
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
-        /// </summary>
-        [Input("redirectType", required: true)]
-        public Input<string> RedirectType { get; set; } = null!;
-
-        [Input("targetListenerId")]
-        public Input<string>? TargetListenerId { get; set; }
-
-        /// <summary>
-        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
-        /// </summary>
-        [Input("targetListenerName")]
-        public Input<string>? TargetListenerName { get; set; }
-
-        /// <summary>
-        /// The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
-        /// </summary>
-        [Input("targetUrl")]
-        public Input<string>? TargetUrl { get; set; }
-
-        public ApplicationGatewayRedirectConfigurationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRequestRoutingRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the associated Backend Address Pool.
-        /// </summary>
-        [Input("backendAddressPoolId")]
-        public Input<string>? BackendAddressPoolId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendAddressPoolName")]
-        public Input<string>? BackendAddressPoolName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Backend HTTP Settings Configuration.
-        /// </summary>
-        [Input("backendHttpSettingsId")]
-        public Input<string>? BackendHttpSettingsId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendHttpSettingsName")]
-        public Input<string>? BackendHttpSettingsName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated HTTP Listener.
-        /// </summary>
-        [Input("httpListenerId")]
-        public Input<string>? HttpListenerId { get; set; }
-
-        /// <summary>
-        /// The Name of the HTTP Listener which should be used for this Routing Rule.
-        /// </summary>
-        [Input("httpListenerName", required: true)]
-        public Input<string> HttpListenerName { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of this Request Routing Rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated Redirect Configuration.
-        /// </summary>
-        [Input("redirectConfigurationId")]
-        public Input<string>? RedirectConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
-        /// </summary>
-        [Input("redirectConfigurationName")]
-        public Input<string>? RedirectConfigurationName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Rewrite Rule Set.
-        /// </summary>
-        [Input("rewriteRuleSetId")]
-        public Input<string>? RewriteRuleSetId { get; set; }
-
-        /// <summary>
-        /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
-        /// </summary>
-        [Input("rewriteRuleSetName")]
-        public Input<string>? RewriteRuleSetName { get; set; }
-
-        /// <summary>
-        /// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
-        /// </summary>
-        [Input("ruleType", required: true)]
-        public Input<string> RuleType { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated URL Path Map.
-        /// </summary>
-        [Input("urlPathMapId")]
-        public Input<string>? UrlPathMapId { get; set; }
-
-        /// <summary>
-        /// The Name of the URL Path Map which should be associated with this Routing Rule.
-        /// </summary>
-        [Input("urlPathMapName")]
-        public Input<string>? UrlPathMapName { get; set; }
-
-        public ApplicationGatewayRequestRoutingRulesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRequestRoutingRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the associated Backend Address Pool.
-        /// </summary>
-        [Input("backendAddressPoolId")]
-        public Input<string>? BackendAddressPoolId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendAddressPoolName")]
-        public Input<string>? BackendAddressPoolName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Backend HTTP Settings Configuration.
-        /// </summary>
-        [Input("backendHttpSettingsId")]
-        public Input<string>? BackendHttpSettingsId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendHttpSettingsName")]
-        public Input<string>? BackendHttpSettingsName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated HTTP Listener.
-        /// </summary>
-        [Input("httpListenerId")]
-        public Input<string>? HttpListenerId { get; set; }
-
-        /// <summary>
-        /// The Name of the HTTP Listener which should be used for this Routing Rule.
-        /// </summary>
-        [Input("httpListenerName", required: true)]
-        public Input<string> HttpListenerName { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of this Request Routing Rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated Redirect Configuration.
-        /// </summary>
-        [Input("redirectConfigurationId")]
-        public Input<string>? RedirectConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
-        /// </summary>
-        [Input("redirectConfigurationName")]
-        public Input<string>? RedirectConfigurationName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Rewrite Rule Set.
-        /// </summary>
-        [Input("rewriteRuleSetId")]
-        public Input<string>? RewriteRuleSetId { get; set; }
-
-        /// <summary>
-        /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
-        /// </summary>
-        [Input("rewriteRuleSetName")]
-        public Input<string>? RewriteRuleSetName { get; set; }
-
-        /// <summary>
-        /// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
-        /// </summary>
-        [Input("ruleType", required: true)]
-        public Input<string> RuleType { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the associated URL Path Map.
-        /// </summary>
-        [Input("urlPathMapId")]
-        public Input<string>? UrlPathMapId { get; set; }
-
-        /// <summary>
-        /// The Name of the URL Path Map which should be associated with this Routing Rule.
-        /// </summary>
-        [Input("urlPathMapName")]
-        public Input<string>? UrlPathMapName { get; set; }
-
-        public ApplicationGatewayRequestRoutingRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Unique name of the rewrite rule set block
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("rewriteRules")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesArgs>? _rewriteRules;
-
-        /// <summary>
-        /// One or more `rewrite_rule` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesArgs> RewriteRules
-        {
-            get => _rewriteRules ?? (_rewriteRules = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesArgs>());
-            set => _rewriteRules = value;
-        }
-
-        public ApplicationGatewayRewriteRuleSetsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Unique name of the rewrite rule set block
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("rewriteRules")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs>? _rewriteRules;
-
-        /// <summary>
-        /// One or more `rewrite_rule` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs> RewriteRules
-        {
-            get => _rewriteRules ?? (_rewriteRules = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs>());
-            set => _rewriteRules = value;
-        }
-
-        public ApplicationGatewayRewriteRuleSetsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesArgs : Pulumi.ResourceArgs
-    {
-        [Input("conditions")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs>? _conditions;
-
-        /// <summary>
-        /// One or more `condition` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs>());
-            set => _conditions = value;
-        }
-
-        /// <summary>
-        /// Unique name of the rewrite rule block
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("requestHeaderConfigurations")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs>? _requestHeaderConfigurations;
-
-        /// <summary>
-        /// One or more `request_header_configuration` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs> RequestHeaderConfigurations
-        {
-            get => _requestHeaderConfigurations ?? (_requestHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs>());
-            set => _requestHeaderConfigurations = value;
-        }
-
-        [Input("responseHeaderConfigurations")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs>? _responseHeaderConfigurations;
-
-        /// <summary>
-        /// One or more `response_header_configuration` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs> ResponseHeaderConfigurations
-        {
-            get => _responseHeaderConfigurations ?? (_responseHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs>());
-            set => _responseHeaderConfigurations = value;
-        }
-
-        /// <summary>
-        /// Rule sequence of the rewrite rule that determines the order of execution in a set.
-        /// </summary>
-        [Input("ruleSequence", required: true)]
-        public Input<int> RuleSequence { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Perform a case in-sensitive comparison. Defaults to `false`
-        /// </summary>
-        [Input("ignoreCase")]
-        public Input<bool>? IgnoreCase { get; set; }
-
-        /// <summary>
-        /// Negate the result of the condition evaluation. Defaults to `false`
-        /// </summary>
-        [Input("negate")]
-        public Input<bool>? Negate { get; set; }
-
-        /// <summary>
-        /// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
-        /// </summary>
-        [Input("pattern", required: true)]
-        public Input<string> Pattern { get; set; } = null!;
-
-        /// <summary>
-        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
-        /// </summary>
-        [Input("variable", required: true)]
-        public Input<string> Variable { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Perform a case in-sensitive comparison. Defaults to `false`
-        /// </summary>
-        [Input("ignoreCase")]
-        public Input<bool>? IgnoreCase { get; set; }
-
-        /// <summary>
-        /// Negate the result of the condition evaluation. Defaults to `false`
-        /// </summary>
-        [Input("negate")]
-        public Input<bool>? Negate { get; set; }
-
-        /// <summary>
-        /// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
-        /// </summary>
-        [Input("pattern", required: true)]
-        public Input<string> Pattern { get; set; } = null!;
-
-        /// <summary>
-        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
-        /// </summary>
-        [Input("variable", required: true)]
-        public Input<string> Variable { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("conditions")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs>? _conditions;
-
-        /// <summary>
-        /// One or more `condition` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs> Conditions
-        {
-            get => _conditions ?? (_conditions = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsGetArgs>());
-            set => _conditions = value;
-        }
-
-        /// <summary>
-        /// Unique name of the rewrite rule block
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("requestHeaderConfigurations")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs>? _requestHeaderConfigurations;
-
-        /// <summary>
-        /// One or more `request_header_configuration` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs> RequestHeaderConfigurations
-        {
-            get => _requestHeaderConfigurations ?? (_requestHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs>());
-            set => _requestHeaderConfigurations = value;
-        }
-
-        [Input("responseHeaderConfigurations")]
-        private InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs>? _responseHeaderConfigurations;
-
-        /// <summary>
-        /// One or more `response_header_configuration` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs> ResponseHeaderConfigurations
-        {
-            get => _responseHeaderConfigurations ?? (_responseHeaderConfigurations = new InputList<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs>());
-            set => _responseHeaderConfigurations = value;
-        }
-
-        /// <summary>
-        /// Rule sequence of the rewrite rule that determines the order of execution in a set.
-        /// </summary>
-        [Input("ruleSequence", required: true)]
-        public Input<int> RuleSequence { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Header name of the header configuration.
-        /// </summary>
-        [Input("headerName", required: true)]
-        public Input<string> HeaderName { get; set; } = null!;
-
-        /// <summary>
-        /// Header value of the header configuration. To delete a request header set this property to an empty string.
-        /// </summary>
-        [Input("headerValue", required: true)]
-        public Input<string> HeaderValue { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Header name of the header configuration.
-        /// </summary>
-        [Input("headerName", required: true)]
-        public Input<string> HeaderName { get; set; } = null!;
-
-        /// <summary>
-        /// Header value of the header configuration. To delete a request header set this property to an empty string.
-        /// </summary>
-        [Input("headerValue", required: true)]
-        public Input<string> HeaderValue { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Header name of the header configuration.
-        /// </summary>
-        [Input("headerName", required: true)]
-        public Input<string> HeaderName { get; set; } = null!;
-
-        /// <summary>
-        /// Header value of the header configuration. To delete a response header set this property to an empty string.
-        /// </summary>
-        [Input("headerValue", required: true)]
-        public Input<string> HeaderValue { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Header name of the header configuration.
-        /// </summary>
-        [Input("headerName", required: true)]
-        public Input<string> HeaderName { get; set; } = null!;
-
-        /// <summary>
-        /// Header value of the header configuration. To delete a response header set this property to an empty string.
-        /// </summary>
-        [Input("headerValue", required: true)]
-        public Input<string> HeaderValue { get; set; } = null!;
-
-        public ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewaySkuArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
-        /// </summary>
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public ApplicationGatewaySkuArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewaySkuGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
-        /// </summary>
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public ApplicationGatewaySkuGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewaySslCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// PFX certificate. Required if `key_vault_secret_id` is not set.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
-        /// </summary>
-        [Input("keyVaultSecretId")]
-        public Input<string>? KeyVaultSecretId { get; set; }
-
-        /// <summary>
-        /// The Name of the SSL certificate that is unique within this Application Gateway
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Password for the pfx file specified in data.  Required if `data` is set.
-        /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        /// <summary>
-        /// The Public Certificate Data associated with the SSL Certificate.
-        /// </summary>
-        [Input("publicCertData")]
-        public Input<string>? PublicCertData { get; set; }
-
-        public ApplicationGatewaySslCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewaySslCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// PFX certificate. Required if `key_vault_secret_id` is not set.
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
-        /// </summary>
-        [Input("keyVaultSecretId")]
-        public Input<string>? KeyVaultSecretId { get; set; }
-
-        /// <summary>
-        /// The Name of the SSL certificate that is unique within this Application Gateway
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Password for the pfx file specified in data.  Required if `data` is set.
-        /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
-        /// <summary>
-        /// The Public Certificate Data associated with the SSL Certificate.
-        /// </summary>
-        [Input("publicCertData")]
-        public Input<string>? PublicCertData { get; set; }
-
-        public ApplicationGatewaySslCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewaySslPoliciesArgs : Pulumi.ResourceArgs
-    {
-        [Input("cipherSuites")]
-        private InputList<string>? _cipherSuites;
-
-        /// <summary>
-        /// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        /// </summary>
-        public InputList<string> CipherSuites
-        {
-            get => _cipherSuites ?? (_cipherSuites = new InputList<string>());
-            set => _cipherSuites = value;
-        }
-
-        [Input("disabledProtocols")]
-        private InputList<string>? _disabledProtocols;
-
-        /// <summary>
-        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        /// </summary>
-        public InputList<string> DisabledProtocols
-        {
-            get => _disabledProtocols ?? (_disabledProtocols = new InputList<string>());
-            set => _disabledProtocols = value;
-        }
-
-        /// <summary>
-        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        /// </summary>
-        [Input("minProtocolVersion")]
-        public Input<string>? MinProtocolVersion { get; set; }
-
-        /// <summary>
-        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        /// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
-        /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
-
-        /// <summary>
-        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
-        /// </summary>
-        [Input("policyType")]
-        public Input<string>? PolicyType { get; set; }
-
-        public ApplicationGatewaySslPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewaySslPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("cipherSuites")]
-        private InputList<string>? _cipherSuites;
-
-        /// <summary>
-        /// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        /// </summary>
-        public InputList<string> CipherSuites
-        {
-            get => _cipherSuites ?? (_cipherSuites = new InputList<string>());
-            set => _cipherSuites = value;
-        }
-
-        [Input("disabledProtocols")]
-        private InputList<string>? _disabledProtocols;
-
-        /// <summary>
-        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        /// </summary>
-        public InputList<string> DisabledProtocols
-        {
-            get => _disabledProtocols ?? (_disabledProtocols = new InputList<string>());
-            set => _disabledProtocols = value;
-        }
-
-        /// <summary>
-        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        /// </summary>
-        [Input("minProtocolVersion")]
-        public Input<string>? MinProtocolVersion { get; set; }
-
-        /// <summary>
-        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        /// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
-        /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
-
-        /// <summary>
-        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
-        /// </summary>
-        [Input("policyType")]
-        public Input<string>? PolicyType { get; set; }
-
-        public ApplicationGatewaySslPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayTrustedRootCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The contents of the Trusted Root Certificate which should be used.
-        /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the Trusted Root Certificate to use.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayTrustedRootCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayTrustedRootCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The contents of the Trusted Root Certificate which should be used.
-        /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the Trusted Root Certificate to use.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ApplicationGatewayTrustedRootCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayUrlPathMapsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Default Backend Address Pool.
-        /// </summary>
-        [Input("defaultBackendAddressPoolId")]
-        public Input<string>? DefaultBackendAddressPoolId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        /// </summary>
-        [Input("defaultBackendAddressPoolName")]
-        public Input<string>? DefaultBackendAddressPoolName { get; set; }
-
-        /// <summary>
-        /// The ID of the Default Backend HTTP Settings Collection.
-        /// </summary>
-        [Input("defaultBackendHttpSettingsId")]
-        public Input<string>? DefaultBackendHttpSettingsId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        /// </summary>
-        [Input("defaultBackendHttpSettingsName")]
-        public Input<string>? DefaultBackendHttpSettingsName { get; set; }
-
-        /// <summary>
-        /// The ID of the Default Redirect Configuration.
-        /// </summary>
-        [Input("defaultRedirectConfigurationId")]
-        public Input<string>? DefaultRedirectConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
-        /// </summary>
-        [Input("defaultRedirectConfigurationName")]
-        public Input<string>? DefaultRedirectConfigurationName { get; set; }
-
-        [Input("defaultRewriteRuleSetId")]
-        public Input<string>? DefaultRewriteRuleSetId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        /// </summary>
-        [Input("defaultRewriteRuleSetName")]
-        public Input<string>? DefaultRewriteRuleSetName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the URL Path Map.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("pathRules", required: true)]
-        private InputList<ApplicationGatewayUrlPathMapsPathRulesArgs>? _pathRules;
-
-        /// <summary>
-        /// One or more `path_rule` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayUrlPathMapsPathRulesArgs> PathRules
-        {
-            get => _pathRules ?? (_pathRules = new InputList<ApplicationGatewayUrlPathMapsPathRulesArgs>());
-            set => _pathRules = value;
-        }
-
-        public ApplicationGatewayUrlPathMapsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayUrlPathMapsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Default Backend Address Pool.
-        /// </summary>
-        [Input("defaultBackendAddressPoolId")]
-        public Input<string>? DefaultBackendAddressPoolId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        /// </summary>
-        [Input("defaultBackendAddressPoolName")]
-        public Input<string>? DefaultBackendAddressPoolName { get; set; }
-
-        /// <summary>
-        /// The ID of the Default Backend HTTP Settings Collection.
-        /// </summary>
-        [Input("defaultBackendHttpSettingsId")]
-        public Input<string>? DefaultBackendHttpSettingsId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        /// </summary>
-        [Input("defaultBackendHttpSettingsName")]
-        public Input<string>? DefaultBackendHttpSettingsName { get; set; }
-
-        /// <summary>
-        /// The ID of the Default Redirect Configuration.
-        /// </summary>
-        [Input("defaultRedirectConfigurationId")]
-        public Input<string>? DefaultRedirectConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
-        /// </summary>
-        [Input("defaultRedirectConfigurationName")]
-        public Input<string>? DefaultRedirectConfigurationName { get; set; }
-
-        [Input("defaultRewriteRuleSetId")]
-        public Input<string>? DefaultRewriteRuleSetId { get; set; }
-
-        /// <summary>
-        /// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        /// </summary>
-        [Input("defaultRewriteRuleSetName")]
-        public Input<string>? DefaultRewriteRuleSetName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the URL Path Map.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("pathRules", required: true)]
-        private InputList<ApplicationGatewayUrlPathMapsPathRulesGetArgs>? _pathRules;
-
-        /// <summary>
-        /// One or more `path_rule` blocks as defined above.
-        /// </summary>
-        public InputList<ApplicationGatewayUrlPathMapsPathRulesGetArgs> PathRules
-        {
-            get => _pathRules ?? (_pathRules = new InputList<ApplicationGatewayUrlPathMapsPathRulesGetArgs>());
-            set => _pathRules = value;
-        }
-
-        public ApplicationGatewayUrlPathMapsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayUrlPathMapsPathRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the associated Backend Address Pool.
-        /// </summary>
-        [Input("backendAddressPoolId")]
-        public Input<string>? BackendAddressPoolId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendAddressPoolName")]
-        public Input<string>? BackendAddressPoolName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Backend HTTP Settings Configuration.
-        /// </summary>
-        [Input("backendHttpSettingsId")]
-        public Input<string>? BackendHttpSettingsId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendHttpSettingsName")]
-        public Input<string>? BackendHttpSettingsName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the Path Rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("paths", required: true)]
-        private InputList<string>? _paths;
-
-        /// <summary>
-        /// A list of Paths used in this Path Rule.
-        /// </summary>
-        public InputList<string> Paths
-        {
-            get => _paths ?? (_paths = new InputList<string>());
-            set => _paths = value;
-        }
-
-        /// <summary>
-        /// The ID of the associated Redirect Configuration.
-        /// </summary>
-        [Input("redirectConfigurationId")]
-        public Input<string>? RedirectConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
-        /// </summary>
-        [Input("redirectConfigurationName")]
-        public Input<string>? RedirectConfigurationName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Rewrite Rule Set.
-        /// </summary>
-        [Input("rewriteRuleSetId")]
-        public Input<string>? RewriteRuleSetId { get; set; }
-
-        /// <summary>
-        /// The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        /// </summary>
-        [Input("rewriteRuleSetName")]
-        public Input<string>? RewriteRuleSetName { get; set; }
-
-        public ApplicationGatewayUrlPathMapsPathRulesArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayUrlPathMapsPathRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the associated Backend Address Pool.
-        /// </summary>
-        [Input("backendAddressPoolId")]
-        public Input<string>? BackendAddressPoolId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendAddressPoolName")]
-        public Input<string>? BackendAddressPoolName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Backend HTTP Settings Configuration.
-        /// </summary>
-        [Input("backendHttpSettingsId")]
-        public Input<string>? BackendHttpSettingsId { get; set; }
-
-        /// <summary>
-        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        [Input("backendHttpSettingsName")]
-        public Input<string>? BackendHttpSettingsName { get; set; }
-
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The Name of the Path Rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("paths", required: true)]
-        private InputList<string>? _paths;
-
-        /// <summary>
-        /// A list of Paths used in this Path Rule.
-        /// </summary>
-        public InputList<string> Paths
-        {
-            get => _paths ?? (_paths = new InputList<string>());
-            set => _paths = value;
-        }
-
-        /// <summary>
-        /// The ID of the associated Redirect Configuration.
-        /// </summary>
-        [Input("redirectConfigurationId")]
-        public Input<string>? RedirectConfigurationId { get; set; }
-
-        /// <summary>
-        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
-        /// </summary>
-        [Input("redirectConfigurationName")]
-        public Input<string>? RedirectConfigurationName { get; set; }
-
-        /// <summary>
-        /// The ID of the associated Rewrite Rule Set.
-        /// </summary>
-        [Input("rewriteRuleSetId")]
-        public Input<string>? RewriteRuleSetId { get; set; }
-
-        /// <summary>
-        /// The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        /// </summary>
-        [Input("rewriteRuleSetName")]
-        public Input<string>? RewriteRuleSetName { get; set; }
-
-        public ApplicationGatewayUrlPathMapsPathRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayWafConfigurationArgs : Pulumi.ResourceArgs
-    {
-        [Input("disabledRuleGroups")]
-        private InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs>? _disabledRuleGroups;
-
-        /// <summary>
-        /// one or more `disabled_rule_group` blocks as defined below.
-        /// </summary>
-        public InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs> DisabledRuleGroups
-        {
-            get => _disabledRuleGroups ?? (_disabledRuleGroups = new InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs>());
-            set => _disabledRuleGroups = value;
-        }
-
-        /// <summary>
-        /// Is the Web Application Firewall be enabled?
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        [Input("exclusions")]
-        private InputList<ApplicationGatewayWafConfigurationExclusionsArgs>? _exclusions;
-
-        /// <summary>
-        /// one or more `exclusion` blocks as defined below.
-        /// </summary>
-        public InputList<ApplicationGatewayWafConfigurationExclusionsArgs> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<ApplicationGatewayWafConfigurationExclusionsArgs>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
-        /// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
-        /// </summary>
-        [Input("fileUploadLimitMb")]
-        public Input<int>? FileUploadLimitMb { get; set; }
-
-        /// <summary>
-        /// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-        /// </summary>
-        [Input("firewallMode", required: true)]
-        public Input<string> FirewallMode { get; set; } = null!;
-
-        /// <summary>
-        /// The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
-        /// </summary>
-        [Input("maxRequestBodySizeKb")]
-        public Input<int>? MaxRequestBodySizeKb { get; set; }
-
-        /// <summary>
-        /// Is Request Body Inspection enabled?  Defaults to `true`.
-        /// </summary>
-        [Input("requestBodyCheck")]
-        public Input<bool>? RequestBodyCheck { get; set; }
-
-        /// <summary>
-        /// The Type of the Rule Set used for this Web Application Firewall.
-        /// </summary>
-        [Input("ruleSetType")]
-        public Input<string>? RuleSetType { get; set; }
-
-        /// <summary>
-        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
-        /// </summary>
-        [Input("ruleSetVersion", required: true)]
-        public Input<string> RuleSetVersion { get; set; } = null!;
-
-        public ApplicationGatewayWafConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
-        /// </summary>
-        [Input("ruleGroupName", required: true)]
-        public Input<string> RuleGroupName { get; set; } = null!;
-
-        [Input("rules")]
-        private InputList<int>? _rules;
-
-        /// <summary>
-        /// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
-        /// </summary>
-        public InputList<int> Rules
-        {
-            get => _rules ?? (_rules = new InputList<int>());
-            set => _rules = value;
-        }
-
-        public ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
-        /// </summary>
-        [Input("ruleGroupName", required: true)]
-        public Input<string> RuleGroupName { get; set; } = null!;
-
-        [Input("rules")]
-        private InputList<int>? _rules;
-
-        /// <summary>
-        /// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
-        /// </summary>
-        public InputList<int> Rules
-        {
-            get => _rules ?? (_rules = new InputList<int>());
-            set => _rules = value;
-        }
-
-        public ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayWafConfigurationExclusionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
-        /// </summary>
-        [Input("matchVariable", required: true)]
-        public Input<string> MatchVariable { get; set; } = null!;
-
-        /// <summary>
-        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
-        /// </summary>
-        [Input("selector")]
-        public Input<string>? Selector { get; set; }
-
-        /// <summary>
-        /// Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
-        /// </summary>
-        [Input("selectorMatchOperator")]
-        public Input<string>? SelectorMatchOperator { get; set; }
-
-        public ApplicationGatewayWafConfigurationExclusionsArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayWafConfigurationExclusionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
-        /// </summary>
-        [Input("matchVariable", required: true)]
-        public Input<string> MatchVariable { get; set; } = null!;
-
-        /// <summary>
-        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
-        /// </summary>
-        [Input("selector")]
-        public Input<string>? Selector { get; set; }
-
-        /// <summary>
-        /// Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
-        /// </summary>
-        [Input("selectorMatchOperator")]
-        public Input<string>? SelectorMatchOperator { get; set; }
-
-        public ApplicationGatewayWafConfigurationExclusionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ApplicationGatewayWafConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("disabledRuleGroups")]
-        private InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs>? _disabledRuleGroups;
-
-        /// <summary>
-        /// one or more `disabled_rule_group` blocks as defined below.
-        /// </summary>
-        public InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs> DisabledRuleGroups
-        {
-            get => _disabledRuleGroups ?? (_disabledRuleGroups = new InputList<ApplicationGatewayWafConfigurationDisabledRuleGroupsGetArgs>());
-            set => _disabledRuleGroups = value;
-        }
-
-        /// <summary>
-        /// Is the Web Application Firewall be enabled?
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        [Input("exclusions")]
-        private InputList<ApplicationGatewayWafConfigurationExclusionsGetArgs>? _exclusions;
-
-        /// <summary>
-        /// one or more `exclusion` blocks as defined below.
-        /// </summary>
-        public InputList<ApplicationGatewayWafConfigurationExclusionsGetArgs> Exclusions
-        {
-            get => _exclusions ?? (_exclusions = new InputList<ApplicationGatewayWafConfigurationExclusionsGetArgs>());
-            set => _exclusions = value;
-        }
-
-        /// <summary>
-        /// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
-        /// </summary>
-        [Input("fileUploadLimitMb")]
-        public Input<int>? FileUploadLimitMb { get; set; }
-
-        /// <summary>
-        /// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-        /// </summary>
-        [Input("firewallMode", required: true)]
-        public Input<string> FirewallMode { get; set; } = null!;
-
-        /// <summary>
-        /// The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
-        /// </summary>
-        [Input("maxRequestBodySizeKb")]
-        public Input<int>? MaxRequestBodySizeKb { get; set; }
-
-        /// <summary>
-        /// Is Request Body Inspection enabled?  Defaults to `true`.
-        /// </summary>
-        [Input("requestBodyCheck")]
-        public Input<bool>? RequestBodyCheck { get; set; }
-
-        /// <summary>
-        /// The Type of the Rule Set used for this Web Application Firewall.
-        /// </summary>
-        [Input("ruleSetType")]
-        public Input<string>? RuleSetType { get; set; }
-
-        /// <summary>
-        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
-        /// </summary>
-        [Input("ruleSetVersion", required: true)]
-        public Input<string> RuleSetVersion { get; set; } = null!;
-
-        public ApplicationGatewayWafConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ApplicationGatewayAuthenticationCertificates
-    {
-        /// <summary>
-        /// The contents of the Authentication Certificate which should be used.
-        /// </summary>
-        public readonly string Data;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Authentication Certificate.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ApplicationGatewayAuthenticationCertificates(
-            string data,
-            string id,
-            string name)
-        {
-            Data = data;
-            Id = id;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayAutoscaleConfiguration
-    {
-        /// <summary>
-        /// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
-        /// </summary>
-        public readonly int? MaxCapacity;
-        /// <summary>
-        /// Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
-        /// </summary>
-        public readonly int MinCapacity;
-
-        [OutputConstructor]
-        private ApplicationGatewayAutoscaleConfiguration(
-            int? maxCapacity,
-            int minCapacity)
-        {
-            MaxCapacity = maxCapacity;
-            MinCapacity = minCapacity;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayBackendAddressPools
-    {
-        /// <summary>
-        /// A list of FQDN's which should be part of the Backend Address Pool.
-        /// </summary>
-        public readonly ImmutableArray<string> Fqdns;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// A list of IP Addresses which should be part of the Backend Address Pool.
-        /// </summary>
-        public readonly ImmutableArray<string> IpAddresses;
-        /// <summary>
-        /// The name of the Backend Address Pool.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ApplicationGatewayBackendAddressPools(
-            ImmutableArray<string> fqdns,
-            string id,
-            ImmutableArray<string> ipAddresses,
-            string name)
-        {
-            Fqdns = fqdns;
-            Id = id;
-            IpAddresses = ipAddresses;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayBackendHttpSettings
-    {
-        /// <summary>
-        /// The name of the affinity cookie.
-        /// </summary>
-        public readonly string? AffinityCookieName;
-        /// <summary>
-        /// One or more `authentication_certificate` blocks.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayBackendHttpSettingsAuthenticationCertificates> AuthenticationCertificates;
-        /// <summary>
-        /// A `connection_draining` block as defined below.
-        /// </summary>
-        public readonly ApplicationGatewayBackendHttpSettingsConnectionDraining? ConnectionDraining;
-        /// <summary>
-        /// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
-        /// </summary>
-        public readonly string CookieBasedAffinity;
-        /// <summary>
-        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
-        /// </summary>
-        public readonly string? HostName;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Backend HTTP Settings Collection.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Path which should be used as a prefix for all HTTP requests.
-        /// </summary>
-        public readonly string? Path;
-        /// <summary>
-        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
-        /// </summary>
-        public readonly bool? PickHostNameFromBackendAddress;
-        /// <summary>
-        /// The port used for this Frontend Port.
-        /// </summary>
-        public readonly int Port;
-        /// <summary>
-        /// The ID of the associated Probe.
-        /// </summary>
-        public readonly string ProbeId;
-        /// <summary>
-        /// The name of an associated HTTP Probe.
-        /// </summary>
-        public readonly string? ProbeName;
-        /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// The request timeout in seconds, which must be between 1 and 86400 seconds.
-        /// </summary>
-        public readonly int? RequestTimeout;
-        /// <summary>
-        /// A list of `trusted_root_certificate` names.
-        /// </summary>
-        public readonly ImmutableArray<string> TrustedRootCertificateNames;
-
-        [OutputConstructor]
-        private ApplicationGatewayBackendHttpSettings(
-            string? affinityCookieName,
-            ImmutableArray<ApplicationGatewayBackendHttpSettingsAuthenticationCertificates> authenticationCertificates,
-            ApplicationGatewayBackendHttpSettingsConnectionDraining? connectionDraining,
-            string cookieBasedAffinity,
-            string? hostName,
-            string id,
-            string name,
-            string? path,
-            bool? pickHostNameFromBackendAddress,
-            int port,
-            string probeId,
-            string? probeName,
-            string protocol,
-            int? requestTimeout,
-            ImmutableArray<string> trustedRootCertificateNames)
-        {
-            AffinityCookieName = affinityCookieName;
-            AuthenticationCertificates = authenticationCertificates;
-            ConnectionDraining = connectionDraining;
-            CookieBasedAffinity = cookieBasedAffinity;
-            HostName = hostName;
-            Id = id;
-            Name = name;
-            Path = path;
-            PickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
-            Port = port;
-            ProbeId = probeId;
-            ProbeName = probeName;
-            Protocol = protocol;
-            RequestTimeout = requestTimeout;
-            TrustedRootCertificateNames = trustedRootCertificateNames;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayBackendHttpSettingsAuthenticationCertificates
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Authentication Certificate.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ApplicationGatewayBackendHttpSettingsAuthenticationCertificates(
-            string id,
-            string name)
-        {
-            Id = id;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayBackendHttpSettingsConnectionDraining
-    {
-        /// <summary>
-        /// The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
-        /// </summary>
-        public readonly int DrainTimeoutSec;
-        /// <summary>
-        /// If connection draining is enabled or not.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private ApplicationGatewayBackendHttpSettingsConnectionDraining(
-            int drainTimeoutSec,
-            bool enabled)
-        {
-            DrainTimeoutSec = drainTimeoutSec;
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayCustomErrorConfigurations
-    {
-        /// <summary>
-        /// Error page URL of the application gateway customer error.
-        /// </summary>
-        public readonly string CustomErrorPageUrl;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
-        /// </summary>
-        public readonly string StatusCode;
-
-        [OutputConstructor]
-        private ApplicationGatewayCustomErrorConfigurations(
-            string customErrorPageUrl,
-            string id,
-            string statusCode)
-        {
-            CustomErrorPageUrl = customErrorPageUrl;
-            Id = id;
-            StatusCode = statusCode;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayFrontendIpConfigurations
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Frontend IP Configuration.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Private IP Address to use for the Application Gateway.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        /// </summary>
-        public readonly string PrivateIpAddressAllocation;
-        /// <summary>
-        /// The ID of a Public IP Address which the Application Gateway should use.
-        /// </summary>
-        public readonly string PublicIpAddressId;
-        /// <summary>
-        /// The ID of the Subnet which the Application Gateway should be connected to.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private ApplicationGatewayFrontendIpConfigurations(
-            string id,
-            string name,
-            string privateIpAddress,
-            string privateIpAddressAllocation,
-            string publicIpAddressId,
-            string subnetId)
-        {
-            Id = id;
-            Name = name;
-            PrivateIpAddress = privateIpAddress;
-            PrivateIpAddressAllocation = privateIpAddressAllocation;
-            PublicIpAddressId = publicIpAddressId;
-            SubnetId = subnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayFrontendPorts
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Frontend Port.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The port used for this Frontend Port.
-        /// </summary>
-        public readonly int Port;
-
-        [OutputConstructor]
-        private ApplicationGatewayFrontendPorts(
-            string id,
-            string name,
-            int port)
-        {
-            Id = id;
-            Name = name;
-            Port = port;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayGatewayIpConfigurations
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Name of this Gateway IP Configuration.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The ID of a Subnet.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private ApplicationGatewayGatewayIpConfigurations(
-            string id,
-            string name,
-            string subnetId)
-        {
-            Id = id;
-            Name = name;
-            SubnetId = subnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayHttpListeners
-    {
-        /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayHttpListenersCustomErrorConfigurations> CustomErrorConfigurations;
-        /// <summary>
-        /// The ID of the associated Frontend Configuration.
-        /// </summary>
-        public readonly string FrontendIpConfigurationId;
-        /// <summary>
-        /// The Name of the Frontend IP Configuration used for this HTTP Listener.
-        /// </summary>
-        public readonly string FrontendIpConfigurationName;
-        /// <summary>
-        /// The ID of the associated Frontend Port.
-        /// </summary>
-        public readonly string FrontendPortId;
-        /// <summary>
-        /// The Name of the Frontend Port use for this HTTP Listener.
-        /// </summary>
-        public readonly string FrontendPortName;
-        /// <summary>
-        /// The Hostname which should be used for this HTTP Listener.
-        /// </summary>
-        public readonly string? HostName;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Name of the HTTP Listener.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// Should Server Name Indication be Required? Defaults to `false`.
-        /// </summary>
-        public readonly bool? RequireSni;
-        /// <summary>
-        /// The ID of the associated SSL Certificate.
-        /// </summary>
-        public readonly string SslCertificateId;
-        /// <summary>
-        /// The name of the associated SSL Certificate which should be used for this HTTP Listener.
-        /// </summary>
-        public readonly string? SslCertificateName;
-
-        [OutputConstructor]
-        private ApplicationGatewayHttpListeners(
-            ImmutableArray<ApplicationGatewayHttpListenersCustomErrorConfigurations> customErrorConfigurations,
-            string frontendIpConfigurationId,
-            string frontendIpConfigurationName,
-            string frontendPortId,
-            string frontendPortName,
-            string? hostName,
-            string id,
-            string name,
-            string protocol,
-            bool? requireSni,
-            string sslCertificateId,
-            string? sslCertificateName)
-        {
-            CustomErrorConfigurations = customErrorConfigurations;
-            FrontendIpConfigurationId = frontendIpConfigurationId;
-            FrontendIpConfigurationName = frontendIpConfigurationName;
-            FrontendPortId = frontendPortId;
-            FrontendPortName = frontendPortName;
-            HostName = hostName;
-            Id = id;
-            Name = name;
-            Protocol = protocol;
-            RequireSni = requireSni;
-            SslCertificateId = sslCertificateId;
-            SslCertificateName = sslCertificateName;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayHttpListenersCustomErrorConfigurations
-    {
-        /// <summary>
-        /// Error page URL of the application gateway customer error.
-        /// </summary>
-        public readonly string CustomErrorPageUrl;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
-        /// </summary>
-        public readonly string StatusCode;
-
-        [OutputConstructor]
-        private ApplicationGatewayHttpListenersCustomErrorConfigurations(
-            string customErrorPageUrl,
-            string id,
-            string statusCode)
-        {
-            CustomErrorPageUrl = customErrorPageUrl;
-            Id = id;
-            StatusCode = statusCode;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayIdentity
-    {
-        /// <summary>
-        /// Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-        /// </summary>
-        public readonly string IdentityIds;
-        /// <summary>
-        /// The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
-        /// </summary>
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private ApplicationGatewayIdentity(
-            string identityIds,
-            string? type)
-        {
-            IdentityIds = identityIds;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayProbes
-    {
-        /// <summary>
-        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
-        /// </summary>
-        public readonly string? Host;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
-        /// </summary>
-        public readonly int Interval;
-        /// <summary>
-        /// A `match` block as defined above.
-        /// </summary>
-        public readonly ApplicationGatewayProbesMatch Match;
-        /// <summary>
-        /// The minimum number of servers that are always marked as healthy. Defaults to `0`.
-        /// </summary>
-        public readonly int? MinimumServers;
-        /// <summary>
-        /// The Name of the Probe.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Path used for this Probe.
-        /// </summary>
-        public readonly string Path;
-        /// <summary>
-        /// Whether the host header should be picked from the backend http settings. Defaults to `false`.
-        /// </summary>
-        public readonly bool? PickHostNameFromBackendHttpSettings;
-        /// <summary>
-        /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
-        /// </summary>
-        public readonly int Timeout;
-        /// <summary>
-        /// The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
-        /// </summary>
-        public readonly int UnhealthyThreshold;
-
-        [OutputConstructor]
-        private ApplicationGatewayProbes(
-            string? host,
-            string id,
-            int interval,
-            ApplicationGatewayProbesMatch match,
-            int? minimumServers,
-            string name,
-            string path,
-            bool? pickHostNameFromBackendHttpSettings,
-            string protocol,
-            int timeout,
-            int unhealthyThreshold)
-        {
-            Host = host;
-            Id = id;
-            Interval = interval;
-            Match = match;
-            MinimumServers = minimumServers;
-            Name = name;
-            Path = path;
-            PickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
-            Protocol = protocol;
-            Timeout = timeout;
-            UnhealthyThreshold = unhealthyThreshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayProbesMatch
-    {
-        /// <summary>
-        /// A snippet from the Response Body which must be present in the Response..
-        /// </summary>
-        public readonly string? Body;
-        /// <summary>
-        /// A list of allowed status codes for this Health Probe.
-        /// </summary>
-        public readonly ImmutableArray<string> StatusCodes;
-
-        [OutputConstructor]
-        private ApplicationGatewayProbesMatch(
-            string? body,
-            ImmutableArray<string> statusCodes)
-        {
-            Body = body;
-            StatusCodes = statusCodes;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayRedirectConfigurations
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Whether or not to include the path in the redirected Url. Defaults to `false`
-        /// </summary>
-        public readonly bool? IncludePath;
-        /// <summary>
-        /// Whether or not to include the query string in the redirected Url. Default to `false`
-        /// </summary>
-        public readonly bool? IncludeQueryString;
-        /// <summary>
-        /// Unique name of the redirect configuration block
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
-        /// </summary>
-        public readonly string RedirectType;
-        public readonly string TargetListenerId;
-        /// <summary>
-        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
-        /// </summary>
-        public readonly string? TargetListenerName;
-        /// <summary>
-        /// The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
-        /// </summary>
-        public readonly string? TargetUrl;
-
-        [OutputConstructor]
-        private ApplicationGatewayRedirectConfigurations(
-            string id,
-            bool? includePath,
-            bool? includeQueryString,
-            string name,
-            string redirectType,
-            string targetListenerId,
-            string? targetListenerName,
-            string? targetUrl)
-        {
-            Id = id;
-            IncludePath = includePath;
-            IncludeQueryString = includeQueryString;
-            Name = name;
-            RedirectType = redirectType;
-            TargetListenerId = targetListenerId;
-            TargetListenerName = targetListenerName;
-            TargetUrl = targetUrl;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayRequestRoutingRules
-    {
-        /// <summary>
-        /// The ID of the associated Backend Address Pool.
-        /// </summary>
-        public readonly string BackendAddressPoolId;
-        /// <summary>
-        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        public readonly string? BackendAddressPoolName;
-        /// <summary>
-        /// The ID of the associated Backend HTTP Settings Configuration.
-        /// </summary>
-        public readonly string BackendHttpSettingsId;
-        /// <summary>
-        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        public readonly string? BackendHttpSettingsName;
-        /// <summary>
-        /// The ID of the associated HTTP Listener.
-        /// </summary>
-        public readonly string HttpListenerId;
-        /// <summary>
-        /// The Name of the HTTP Listener which should be used for this Routing Rule.
-        /// </summary>
-        public readonly string HttpListenerName;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Name of this Request Routing Rule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The ID of the associated Redirect Configuration.
-        /// </summary>
-        public readonly string RedirectConfigurationId;
-        /// <summary>
-        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
-        /// </summary>
-        public readonly string? RedirectConfigurationName;
-        /// <summary>
-        /// The ID of the associated Rewrite Rule Set.
-        /// </summary>
-        public readonly string RewriteRuleSetId;
-        /// <summary>
-        /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
-        /// </summary>
-        public readonly string? RewriteRuleSetName;
-        /// <summary>
-        /// The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
-        /// </summary>
-        public readonly string RuleType;
-        /// <summary>
-        /// The ID of the associated URL Path Map.
-        /// </summary>
-        public readonly string UrlPathMapId;
-        /// <summary>
-        /// The Name of the URL Path Map which should be associated with this Routing Rule.
-        /// </summary>
-        public readonly string? UrlPathMapName;
-
-        [OutputConstructor]
-        private ApplicationGatewayRequestRoutingRules(
-            string backendAddressPoolId,
-            string? backendAddressPoolName,
-            string backendHttpSettingsId,
-            string? backendHttpSettingsName,
-            string httpListenerId,
-            string httpListenerName,
-            string id,
-            string name,
-            string redirectConfigurationId,
-            string? redirectConfigurationName,
-            string rewriteRuleSetId,
-            string? rewriteRuleSetName,
-            string ruleType,
-            string urlPathMapId,
-            string? urlPathMapName)
-        {
-            BackendAddressPoolId = backendAddressPoolId;
-            BackendAddressPoolName = backendAddressPoolName;
-            BackendHttpSettingsId = backendHttpSettingsId;
-            BackendHttpSettingsName = backendHttpSettingsName;
-            HttpListenerId = httpListenerId;
-            HttpListenerName = httpListenerName;
-            Id = id;
-            Name = name;
-            RedirectConfigurationId = redirectConfigurationId;
-            RedirectConfigurationName = redirectConfigurationName;
-            RewriteRuleSetId = rewriteRuleSetId;
-            RewriteRuleSetName = rewriteRuleSetName;
-            RuleType = ruleType;
-            UrlPathMapId = urlPathMapId;
-            UrlPathMapName = urlPathMapName;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayRewriteRuleSets
-    {
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Unique name of the rewrite rule set block
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// One or more `rewrite_rule` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRules> RewriteRules;
-
-        [OutputConstructor]
-        private ApplicationGatewayRewriteRuleSets(
-            string id,
-            string name,
-            ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRules> rewriteRules)
-        {
-            Id = id;
-            Name = name;
-            RewriteRules = rewriteRules;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRules
-    {
-        /// <summary>
-        /// One or more `condition` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesConditions> Conditions;
-        /// <summary>
-        /// Unique name of the rewrite rule block
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// One or more `request_header_configuration` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations> RequestHeaderConfigurations;
-        /// <summary>
-        /// One or more `response_header_configuration` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations> ResponseHeaderConfigurations;
-        /// <summary>
-        /// Rule sequence of the rewrite rule that determines the order of execution in a set.
-        /// </summary>
-        public readonly int RuleSequence;
-
-        [OutputConstructor]
-        private ApplicationGatewayRewriteRuleSetsRewriteRules(
-            ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesConditions> conditions,
-            string name,
-            ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations> requestHeaderConfigurations,
-            ImmutableArray<ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations> responseHeaderConfigurations,
-            int ruleSequence)
-        {
-            Conditions = conditions;
-            Name = name;
-            RequestHeaderConfigurations = requestHeaderConfigurations;
-            ResponseHeaderConfigurations = responseHeaderConfigurations;
-            RuleSequence = ruleSequence;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesConditions
-    {
-        /// <summary>
-        /// Perform a case in-sensitive comparison. Defaults to `false`
-        /// </summary>
-        public readonly bool? IgnoreCase;
-        /// <summary>
-        /// Negate the result of the condition evaluation. Defaults to `false`
-        /// </summary>
-        public readonly bool? Negate;
-        /// <summary>
-        /// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
-        /// </summary>
-        public readonly string Pattern;
-        /// <summary>
-        /// The [variable](https://docs.microsoft.com/en-us/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
-        /// </summary>
-        public readonly string Variable;
-
-        [OutputConstructor]
-        private ApplicationGatewayRewriteRuleSetsRewriteRulesConditions(
-            bool? ignoreCase,
-            bool? negate,
-            string pattern,
-            string variable)
-        {
-            IgnoreCase = ignoreCase;
-            Negate = negate;
-            Pattern = pattern;
-            Variable = variable;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations
-    {
-        /// <summary>
-        /// Header name of the header configuration.
-        /// </summary>
-        public readonly string HeaderName;
-        /// <summary>
-        /// Header value of the header configuration. To delete a request header set this property to an empty string.
-        /// </summary>
-        public readonly string HeaderValue;
-
-        [OutputConstructor]
-        private ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations(
-            string headerName,
-            string headerValue)
-        {
-            HeaderName = headerName;
-            HeaderValue = headerValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations
-    {
-        /// <summary>
-        /// Header name of the header configuration.
-        /// </summary>
-        public readonly string HeaderName;
-        /// <summary>
-        /// Header value of the header configuration. To delete a response header set this property to an empty string.
-        /// </summary>
-        public readonly string HeaderValue;
-
-        [OutputConstructor]
-        private ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations(
-            string headerName,
-            string headerValue)
-        {
-            HeaderName = headerName;
-            HeaderValue = headerValue;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewaySku
-    {
-        /// <summary>
-        /// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
-        /// </summary>
-        public readonly int? Capacity;
-        /// <summary>
-        /// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-        /// </summary>
-        public readonly string Tier;
-
-        [OutputConstructor]
-        private ApplicationGatewaySku(
-            int? capacity,
-            string name,
-            string tier)
-        {
-            Capacity = capacity;
-            Name = name;
-            Tier = tier;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewaySslCertificates
-    {
-        /// <summary>
-        /// PFX certificate. Required if `key_vault_secret_id` is not set.
-        /// </summary>
-        public readonly string? Data;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
-        /// </summary>
-        public readonly string? KeyVaultSecretId;
-        /// <summary>
-        /// The Name of the SSL certificate that is unique within this Application Gateway
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Password for the pfx file specified in data.  Required if `data` is set.
-        /// </summary>
-        public readonly string? Password;
-        /// <summary>
-        /// The Public Certificate Data associated with the SSL Certificate.
-        /// </summary>
-        public readonly string PublicCertData;
-
-        [OutputConstructor]
-        private ApplicationGatewaySslCertificates(
-            string? data,
-            string id,
-            string? keyVaultSecretId,
-            string name,
-            string? password,
-            string publicCertData)
-        {
-            Data = data;
-            Id = id;
-            KeyVaultSecretId = keyVaultSecretId;
-            Name = name;
-            Password = password;
-            PublicCertData = publicCertData;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewaySslPolicies
-    {
-        /// <summary>
-        /// A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        /// </summary>
-        public readonly ImmutableArray<string> CipherSuites;
-        /// <summary>
-        /// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        /// </summary>
-        public readonly ImmutableArray<string> DisabledProtocols;
-        /// <summary>
-        /// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        /// </summary>
-        public readonly string? MinProtocolVersion;
-        /// <summary>
-        /// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
-        /// are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
-        /// </summary>
-        public readonly string? PolicyName;
-        /// <summary>
-        /// The Type of the Policy. Possible values are `Predefined` and `Custom`.
-        /// </summary>
-        public readonly string? PolicyType;
-
-        [OutputConstructor]
-        private ApplicationGatewaySslPolicies(
-            ImmutableArray<string> cipherSuites,
-            ImmutableArray<string> disabledProtocols,
-            string? minProtocolVersion,
-            string? policyName,
-            string? policyType)
-        {
-            CipherSuites = cipherSuites;
-            DisabledProtocols = disabledProtocols;
-            MinProtocolVersion = minProtocolVersion;
-            PolicyName = policyName;
-            PolicyType = policyType;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayTrustedRootCertificates
-    {
-        /// <summary>
-        /// The contents of the Trusted Root Certificate which should be used.
-        /// </summary>
-        public readonly string Data;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Name of the Trusted Root Certificate to use.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ApplicationGatewayTrustedRootCertificates(
-            string data,
-            string id,
-            string name)
-        {
-            Data = data;
-            Id = id;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayUrlPathMaps
-    {
-        /// <summary>
-        /// The ID of the Default Backend Address Pool.
-        /// </summary>
-        public readonly string DefaultBackendAddressPoolId;
-        /// <summary>
-        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        /// </summary>
-        public readonly string? DefaultBackendAddressPoolName;
-        /// <summary>
-        /// The ID of the Default Backend HTTP Settings Collection.
-        /// </summary>
-        public readonly string DefaultBackendHttpSettingsId;
-        /// <summary>
-        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
-        /// </summary>
-        public readonly string? DefaultBackendHttpSettingsName;
-        /// <summary>
-        /// The ID of the Default Redirect Configuration.
-        /// </summary>
-        public readonly string DefaultRedirectConfigurationId;
-        /// <summary>
-        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
-        /// </summary>
-        public readonly string? DefaultRedirectConfigurationName;
-        public readonly string DefaultRewriteRuleSetId;
-        /// <summary>
-        /// The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        /// </summary>
-        public readonly string? DefaultRewriteRuleSetName;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Name of the URL Path Map.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// One or more `path_rule` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayUrlPathMapsPathRules> PathRules;
-
-        [OutputConstructor]
-        private ApplicationGatewayUrlPathMaps(
-            string defaultBackendAddressPoolId,
-            string? defaultBackendAddressPoolName,
-            string defaultBackendHttpSettingsId,
-            string? defaultBackendHttpSettingsName,
-            string defaultRedirectConfigurationId,
-            string? defaultRedirectConfigurationName,
-            string defaultRewriteRuleSetId,
-            string? defaultRewriteRuleSetName,
-            string id,
-            string name,
-            ImmutableArray<ApplicationGatewayUrlPathMapsPathRules> pathRules)
-        {
-            DefaultBackendAddressPoolId = defaultBackendAddressPoolId;
-            DefaultBackendAddressPoolName = defaultBackendAddressPoolName;
-            DefaultBackendHttpSettingsId = defaultBackendHttpSettingsId;
-            DefaultBackendHttpSettingsName = defaultBackendHttpSettingsName;
-            DefaultRedirectConfigurationId = defaultRedirectConfigurationId;
-            DefaultRedirectConfigurationName = defaultRedirectConfigurationName;
-            DefaultRewriteRuleSetId = defaultRewriteRuleSetId;
-            DefaultRewriteRuleSetName = defaultRewriteRuleSetName;
-            Id = id;
-            Name = name;
-            PathRules = pathRules;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayUrlPathMapsPathRules
-    {
-        /// <summary>
-        /// The ID of the associated Backend Address Pool.
-        /// </summary>
-        public readonly string BackendAddressPoolId;
-        /// <summary>
-        /// The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        public readonly string? BackendAddressPoolName;
-        /// <summary>
-        /// The ID of the associated Backend HTTP Settings Configuration.
-        /// </summary>
-        public readonly string BackendHttpSettingsId;
-        /// <summary>
-        /// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
-        /// </summary>
-        public readonly string? BackendHttpSettingsName;
-        /// <summary>
-        /// The ID of the Rewrite Rule Set
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Name of the Path Rule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// A list of Paths used in this Path Rule.
-        /// </summary>
-        public readonly ImmutableArray<string> Paths;
-        /// <summary>
-        /// The ID of the associated Redirect Configuration.
-        /// </summary>
-        public readonly string RedirectConfigurationId;
-        /// <summary>
-        /// The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
-        /// </summary>
-        public readonly string? RedirectConfigurationName;
-        /// <summary>
-        /// The ID of the associated Rewrite Rule Set.
-        /// </summary>
-        public readonly string RewriteRuleSetId;
-        /// <summary>
-        /// The Name of the Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-        /// </summary>
-        public readonly string? RewriteRuleSetName;
-
-        [OutputConstructor]
-        private ApplicationGatewayUrlPathMapsPathRules(
-            string backendAddressPoolId,
-            string? backendAddressPoolName,
-            string backendHttpSettingsId,
-            string? backendHttpSettingsName,
-            string id,
-            string name,
-            ImmutableArray<string> paths,
-            string redirectConfigurationId,
-            string? redirectConfigurationName,
-            string rewriteRuleSetId,
-            string? rewriteRuleSetName)
-        {
-            BackendAddressPoolId = backendAddressPoolId;
-            BackendAddressPoolName = backendAddressPoolName;
-            BackendHttpSettingsId = backendHttpSettingsId;
-            BackendHttpSettingsName = backendHttpSettingsName;
-            Id = id;
-            Name = name;
-            Paths = paths;
-            RedirectConfigurationId = redirectConfigurationId;
-            RedirectConfigurationName = redirectConfigurationName;
-            RewriteRuleSetId = rewriteRuleSetId;
-            RewriteRuleSetName = rewriteRuleSetName;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayWafConfiguration
-    {
-        /// <summary>
-        /// one or more `disabled_rule_group` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayWafConfigurationDisabledRuleGroups> DisabledRuleGroups;
-        /// <summary>
-        /// Is the Web Application Firewall be enabled?
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// one or more `exclusion` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<ApplicationGatewayWafConfigurationExclusions> Exclusions;
-        /// <summary>
-        /// The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
-        /// </summary>
-        public readonly int? FileUploadLimitMb;
-        /// <summary>
-        /// The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-        /// </summary>
-        public readonly string FirewallMode;
-        /// <summary>
-        /// The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
-        /// </summary>
-        public readonly int? MaxRequestBodySizeKb;
-        /// <summary>
-        /// Is Request Body Inspection enabled?  Defaults to `true`.
-        /// </summary>
-        public readonly bool? RequestBodyCheck;
-        /// <summary>
-        /// The Type of the Rule Set used for this Web Application Firewall.
-        /// </summary>
-        public readonly string? RuleSetType;
-        /// <summary>
-        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
-        /// </summary>
-        public readonly string RuleSetVersion;
-
-        [OutputConstructor]
-        private ApplicationGatewayWafConfiguration(
-            ImmutableArray<ApplicationGatewayWafConfigurationDisabledRuleGroups> disabledRuleGroups,
-            bool enabled,
-            ImmutableArray<ApplicationGatewayWafConfigurationExclusions> exclusions,
-            int? fileUploadLimitMb,
-            string firewallMode,
-            int? maxRequestBodySizeKb,
-            bool? requestBodyCheck,
-            string? ruleSetType,
-            string ruleSetVersion)
-        {
-            DisabledRuleGroups = disabledRuleGroups;
-            Enabled = enabled;
-            Exclusions = exclusions;
-            FileUploadLimitMb = fileUploadLimitMb;
-            FirewallMode = firewallMode;
-            MaxRequestBodySizeKb = maxRequestBodySizeKb;
-            RequestBodyCheck = requestBodyCheck;
-            RuleSetType = ruleSetType;
-            RuleSetVersion = ruleSetVersion;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayWafConfigurationDisabledRuleGroups
-    {
-        /// <summary>
-        /// The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
-        /// </summary>
-        public readonly string RuleGroupName;
-        /// <summary>
-        /// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
-        /// </summary>
-        public readonly ImmutableArray<int> Rules;
-
-        [OutputConstructor]
-        private ApplicationGatewayWafConfigurationDisabledRuleGroups(
-            string ruleGroupName,
-            ImmutableArray<int> rules)
-        {
-            RuleGroupName = ruleGroupName;
-            Rules = rules;
-        }
-    }
-
-    [OutputType]
-    public sealed class ApplicationGatewayWafConfigurationExclusions
-    {
-        /// <summary>
-        /// Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
-        /// </summary>
-        public readonly string MatchVariable;
-        /// <summary>
-        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
-        /// </summary>
-        public readonly string? Selector;
-        /// <summary>
-        /// Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
-        /// </summary>
-        public readonly string? SelectorMatchOperator;
-
-        [OutputConstructor]
-        private ApplicationGatewayWafConfigurationExclusions(
-            string matchVariable,
-            string? selector,
-            string? selectorMatchOperator)
-        {
-            MatchVariable = matchVariable;
-            Selector = selector;
-            SelectorMatchOperator = selectorMatchOperator;
-        }
-    }
     }
 }

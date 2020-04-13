@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DevTest
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Dev Test Lab Virtual Network.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVirtualNetwork.InvokeAsync() instead")]
-        public static Task<GetVirtualNetworkResult> GetVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:devtest/getVirtualNetwork:getVirtualNetwork", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVirtualNetwork
     {
         /// <summary>
         /// Use this data source to access information about an existing Dev Test Lab Virtual Network.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:devtest/getVirtualNetwork:getVirtualNetwork", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:devtest/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
     {
@@ -60,115 +47,53 @@ namespace Pulumi.Azure.DevTest
         }
     }
 
+
     [OutputType]
     public sealed class GetVirtualNetworkResult
     {
         /// <summary>
         /// The list of subnets enabled for the virtual network as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetVirtualNetworkAllowedSubnetsResult> AllowedSubnets;
+        public readonly ImmutableArray<Outputs.GetVirtualNetworkAllowedSubnetResult> AllowedSubnets;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string LabName;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The list of permission overrides for the subnets as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetVirtualNetworkSubnetOverridesResult> SubnetOverrides;
+        public readonly ImmutableArray<Outputs.GetVirtualNetworkSubnetOverrideResult> SubnetOverrides;
         /// <summary>
         /// The unique immutable identifier of the virtual network.
         /// </summary>
         public readonly string UniqueIdentifier;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
-            ImmutableArray<Outputs.GetVirtualNetworkAllowedSubnetsResult> allowedSubnets,
+            ImmutableArray<Outputs.GetVirtualNetworkAllowedSubnetResult> allowedSubnets,
+
+            string id,
+
             string labName,
+
             string name,
+
             string resourceGroupName,
-            ImmutableArray<Outputs.GetVirtualNetworkSubnetOverridesResult> subnetOverrides,
-            string uniqueIdentifier,
-            string id)
+
+            ImmutableArray<Outputs.GetVirtualNetworkSubnetOverrideResult> subnetOverrides,
+
+            string uniqueIdentifier)
         {
             AllowedSubnets = allowedSubnets;
+            Id = id;
             LabName = labName;
             Name = name;
             ResourceGroupName = resourceGroupName;
             SubnetOverrides = subnetOverrides;
             UniqueIdentifier = uniqueIdentifier;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetVirtualNetworkAllowedSubnetsResult
-    {
-        /// <summary>
-        /// Indicates if this subnet allows public IP addresses. Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        public readonly string AllowPublicIp;
-        /// <summary>
-        /// The name of the subnet.
-        /// </summary>
-        public readonly string LabSubnetName;
-        /// <summary>
-        /// The resource identifier for the subnet.
-        /// </summary>
-        public readonly string ResourceId;
-
-        [OutputConstructor]
-        private GetVirtualNetworkAllowedSubnetsResult(
-            string allowPublicIp,
-            string labSubnetName,
-            string resourceId)
-        {
-            AllowPublicIp = allowPublicIp;
-            LabSubnetName = labSubnetName;
-            ResourceId = resourceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetVirtualNetworkSubnetOverridesResult
-    {
-        /// <summary>
-        /// The name of the subnet.
-        /// </summary>
-        public readonly string LabSubnetName;
-        /// <summary>
-        /// The resource identifier for the subnet.
-        /// </summary>
-        public readonly string ResourceId;
-        /// <summary>
-        /// Indicates if the subnet can be used for VM creation.  Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        public readonly string UseInVmCreationPermission;
-        public readonly string UsePublicIpAddressPermission;
-        /// <summary>
-        /// The virtual network pool associated with this subnet.
-        /// </summary>
-        public readonly string VirtualNetworkPoolName;
-
-        [OutputConstructor]
-        private GetVirtualNetworkSubnetOverridesResult(
-            string labSubnetName,
-            string resourceId,
-            string useInVmCreationPermission,
-            string usePublicIpAddressPermission,
-            string virtualNetworkPoolName)
-        {
-            LabSubnetName = labSubnetName;
-            ResourceId = resourceId;
-            UseInVmCreationPermission = useInVmCreationPermission;
-            UsePublicIpAddressPermission = usePublicIpAddressPermission;
-            VirtualNetworkPoolName = virtualNetworkPoolName;
-        }
-    }
     }
 }

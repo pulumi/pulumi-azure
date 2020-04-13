@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.LogicApps
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Logic App Workflow.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetWorkflow.InvokeAsync() instead")]
-        public static Task<GetWorkflowResult> GetWorkflow(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetWorkflow
     {
         /// <summary>
         /// Use this data source to access information about an existing Logic App Workflow.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? new GetWorkflowArgs(), options.WithVersion());
     }
+
 
     public sealed class GetWorkflowArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
+
     [OutputType]
     public sealed class GetWorkflowResult
     {
@@ -69,6 +57,10 @@ namespace Pulumi.Azure.LogicApps
         /// The list of outgoing ip addresses of connector.
         /// </summary>
         public readonly ImmutableArray<string> ConnectorOutboundIpAddresses;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure location where the Logic App Workflow exists.
         /// </summary>
@@ -99,30 +91,39 @@ namespace Pulumi.Azure.LogicApps
         /// The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
         /// </summary>
         public readonly string WorkflowVersion;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetWorkflowResult(
             string accessEndpoint,
+
             ImmutableArray<string> connectorEndpointIpAddresses,
+
             ImmutableArray<string> connectorOutboundIpAddresses,
+
+            string id,
+
             string location,
+
             string name,
+
             ImmutableDictionary<string, string> parameters,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
+
             ImmutableArray<string> workflowEndpointIpAddresses,
+
             ImmutableArray<string> workflowOutboundIpAddresses,
+
             string workflowSchema,
-            string workflowVersion,
-            string id)
+
+            string workflowVersion)
         {
             AccessEndpoint = accessEndpoint;
             ConnectorEndpointIpAddresses = connectorEndpointIpAddresses;
             ConnectorOutboundIpAddresses = connectorOutboundIpAddresses;
+            Id = id;
             Location = location;
             Name = name;
             Parameters = parameters;
@@ -132,7 +133,6 @@ namespace Pulumi.Azure.LogicApps
             WorkflowOutboundIpAddresses = workflowOutboundIpAddresses;
             WorkflowSchema = workflowSchema;
             WorkflowVersion = workflowVersion;
-            Id = id;
         }
     }
 }

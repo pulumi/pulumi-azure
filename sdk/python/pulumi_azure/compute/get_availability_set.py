@@ -77,8 +77,6 @@ def get_availability_set(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
-
 
     :param str name: The name of the Availability Set.
     :param str resource_group_name: The name of the resource group in which the Availability Set exists.

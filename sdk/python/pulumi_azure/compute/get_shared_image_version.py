@@ -88,8 +88,6 @@ def get_shared_image_version(gallery_name=None,image_name=None,name=None,resourc
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
-
 
     :param str gallery_name: The name of the Shared Image in which the Shared Image exists.
     :param str image_name: The name of the Shared Image in which this Version exists.

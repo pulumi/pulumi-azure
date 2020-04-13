@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Automation
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Automation Int Variable.
-        /// 
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetIntVariable.InvokeAsync() instead")]
-        public static Task<GetIntVariableResult> GetIntVariable(GetIntVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetIntVariable
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation Int Variable.
         /// 
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIntVariableResult> InvokeAsync(GetIntVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableArgs(), options.WithVersion());
     }
+
 
     public sealed class GetIntVariableArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +48,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
+
     [OutputType]
     public sealed class GetIntVariableResult
     {
@@ -74,34 +61,40 @@ namespace Pulumi.Azure.Automation
         /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
         /// </summary>
         public readonly bool Encrypted;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The value of the Automation Variable as a `integer`.
         /// </summary>
         public readonly int Value;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetIntVariableResult(
             string automationAccountName,
+
             string description,
+
             bool encrypted,
+
+            string id,
+
             string name,
+
             string resourceGroupName,
-            int value,
-            string id)
+
+            int value)
         {
             AutomationAccountName = automationAccountName;
             Description = description;
             Encrypted = encrypted;
+            Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Value = value;
-            Id = id;
         }
     }
 }

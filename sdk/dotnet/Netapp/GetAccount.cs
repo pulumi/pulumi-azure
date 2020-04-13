@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.NetApp
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Uses this data source to access information about an existing NetApp Account.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_account.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccount.InvokeAsync() instead")]
-        public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:netapp/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccount
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Account.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_account.html.markdown.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:netapp/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:netapp/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
@@ -50,31 +38,35 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
+
     [OutputType]
     public sealed class GetAccountResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region where the NetApp Account exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountResult(
+            string id,
+
             string location,
+
             string name,
-            string resourceGroupName,
-            string id)
+
+            string resourceGroupName)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
-            Id = id;
         }
     }
 }

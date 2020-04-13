@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages a Metric Alert within Azure Monitor.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
     /// </summary>
     public partial class MetricAlert : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.Monitoring
         /// One or more `action` blocks as defined below.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.MetricAlertActions>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricAlertAction>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
@@ -34,7 +30,7 @@ namespace Pulumi.Azure.Monitoring
         /// One or more `criteria` blocks as defined below.
         /// </summary>
         [Output("criterias")]
-        public Output<ImmutableArray<Outputs.MetricAlertCriterias>> Criterias { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricAlertCriteria>> Criterias { get; private set; } = null!;
 
         /// <summary>
         /// The description of this Metric Alert.
@@ -99,7 +95,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricAlert(string name, MetricAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/metricAlert:MetricAlert", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/metricAlert:MetricAlert", name, args ?? new MetricAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -137,14 +133,14 @@ namespace Pulumi.Azure.Monitoring
     public sealed class MetricAlertArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.MetricAlertActionsArgs>? _actions;
+        private InputList<Inputs.MetricAlertActionArgs>? _actions;
 
         /// <summary>
         /// One or more `action` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.MetricAlertActionsArgs> Actions
+        public InputList<Inputs.MetricAlertActionArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.MetricAlertActionsArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.MetricAlertActionArgs>());
             set => _actions = value;
         }
 
@@ -155,14 +151,14 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool>? AutoMitigate { get; set; }
 
         [Input("criterias", required: true)]
-        private InputList<Inputs.MetricAlertCriteriasArgs>? _criterias;
+        private InputList<Inputs.MetricAlertCriteriaArgs>? _criterias;
 
         /// <summary>
         /// One or more `criteria` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.MetricAlertCriteriasArgs> Criterias
+        public InputList<Inputs.MetricAlertCriteriaArgs> Criterias
         {
-            get => _criterias ?? (_criterias = new InputList<Inputs.MetricAlertCriteriasArgs>());
+            get => _criterias ?? (_criterias = new InputList<Inputs.MetricAlertCriteriaArgs>());
             set => _criterias = value;
         }
 
@@ -234,14 +230,14 @@ namespace Pulumi.Azure.Monitoring
     public sealed class MetricAlertState : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.MetricAlertActionsGetArgs>? _actions;
+        private InputList<Inputs.MetricAlertActionGetArgs>? _actions;
 
         /// <summary>
         /// One or more `action` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.MetricAlertActionsGetArgs> Actions
+        public InputList<Inputs.MetricAlertActionGetArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.MetricAlertActionsGetArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.MetricAlertActionGetArgs>());
             set => _actions = value;
         }
 
@@ -252,14 +248,14 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool>? AutoMitigate { get; set; }
 
         [Input("criterias")]
-        private InputList<Inputs.MetricAlertCriteriasGetArgs>? _criterias;
+        private InputList<Inputs.MetricAlertCriteriaGetArgs>? _criterias;
 
         /// <summary>
         /// One or more `criteria` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.MetricAlertCriteriasGetArgs> Criterias
+        public InputList<Inputs.MetricAlertCriteriaGetArgs> Criterias
         {
-            get => _criterias ?? (_criterias = new InputList<Inputs.MetricAlertCriteriasGetArgs>());
+            get => _criterias ?? (_criterias = new InputList<Inputs.MetricAlertCriteriaGetArgs>());
             set => _criterias = value;
         }
 
@@ -326,319 +322,5 @@ namespace Pulumi.Azure.Monitoring
         public MetricAlertState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MetricAlertActionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource
-        /// </summary>
-        [Input("actionGroupId", required: true)]
-        public Input<string> ActionGroupId { get; set; } = null!;
-
-        [Input("webhookProperties")]
-        private InputMap<string>? _webhookProperties;
-
-        /// <summary>
-        /// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-        /// </summary>
-        public InputMap<string> WebhookProperties
-        {
-            get => _webhookProperties ?? (_webhookProperties = new InputMap<string>());
-            set => _webhookProperties = value;
-        }
-
-        public MetricAlertActionsArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlertActionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource
-        /// </summary>
-        [Input("actionGroupId", required: true)]
-        public Input<string> ActionGroupId { get; set; } = null!;
-
-        [Input("webhookProperties")]
-        private InputMap<string>? _webhookProperties;
-
-        /// <summary>
-        /// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-        /// </summary>
-        public InputMap<string> WebhookProperties
-        {
-            get => _webhookProperties ?? (_webhookProperties = new InputMap<string>());
-            set => _webhookProperties = value;
-        }
-
-        public MetricAlertActionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlertCriteriasArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-        /// </summary>
-        [Input("aggregation", required: true)]
-        public Input<string> Aggregation { get; set; } = null!;
-
-        [Input("dimensions")]
-        private InputList<MetricAlertCriteriasDimensionsArgs>? _dimensions;
-
-        /// <summary>
-        /// One or more `dimension` blocks as defined below.
-        /// </summary>
-        public InputList<MetricAlertCriteriasDimensionsArgs> Dimensions
-        {
-            get => _dimensions ?? (_dimensions = new InputList<MetricAlertCriteriasDimensionsArgs>());
-            set => _dimensions = value;
-        }
-
-        /// <summary>
-        /// One of the metric names to be monitored.
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        /// <summary>
-        /// One of the metric namespaces to be monitored.
-        /// </summary>
-        [Input("metricNamespace", required: true)]
-        public Input<string> MetricNamespace { get; set; } = null!;
-
-        /// <summary>
-        /// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
-        /// </summary>
-        [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
-
-        /// <summary>
-        /// The criteria threshold value that activates the alert.
-        /// </summary>
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        public MetricAlertCriteriasArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlertCriteriasDimensionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// One of the dimension names.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The dimension operator. Possible values are `Include` and `Exclude`.
-        /// </summary>
-        [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// The list of dimension values.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MetricAlertCriteriasDimensionsArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlertCriteriasDimensionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// One of the dimension names.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The dimension operator. Possible values are `Include` and `Exclude`.
-        /// </summary>
-        [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// The list of dimension values.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public MetricAlertCriteriasDimensionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class MetricAlertCriteriasGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-        /// </summary>
-        [Input("aggregation", required: true)]
-        public Input<string> Aggregation { get; set; } = null!;
-
-        [Input("dimensions")]
-        private InputList<MetricAlertCriteriasDimensionsGetArgs>? _dimensions;
-
-        /// <summary>
-        /// One or more `dimension` blocks as defined below.
-        /// </summary>
-        public InputList<MetricAlertCriteriasDimensionsGetArgs> Dimensions
-        {
-            get => _dimensions ?? (_dimensions = new InputList<MetricAlertCriteriasDimensionsGetArgs>());
-            set => _dimensions = value;
-        }
-
-        /// <summary>
-        /// One of the metric names to be monitored.
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        /// <summary>
-        /// One of the metric namespaces to be monitored.
-        /// </summary>
-        [Input("metricNamespace", required: true)]
-        public Input<string> MetricNamespace { get; set; } = null!;
-
-        /// <summary>
-        /// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
-        /// </summary>
-        [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
-
-        /// <summary>
-        /// The criteria threshold value that activates the alert.
-        /// </summary>
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
-
-        public MetricAlertCriteriasGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MetricAlertActions
-    {
-        /// <summary>
-        /// The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource
-        /// </summary>
-        public readonly string ActionGroupId;
-        /// <summary>
-        /// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? WebhookProperties;
-
-        [OutputConstructor]
-        private MetricAlertActions(
-            string actionGroupId,
-            ImmutableDictionary<string, string>? webhookProperties)
-        {
-            ActionGroupId = actionGroupId;
-            WebhookProperties = webhookProperties;
-        }
-    }
-
-    [OutputType]
-    public sealed class MetricAlertCriterias
-    {
-        /// <summary>
-        /// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-        /// </summary>
-        public readonly string Aggregation;
-        /// <summary>
-        /// One or more `dimension` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<MetricAlertCriteriasDimensions> Dimensions;
-        /// <summary>
-        /// One of the metric names to be monitored.
-        /// </summary>
-        public readonly string MetricName;
-        /// <summary>
-        /// One of the metric namespaces to be monitored.
-        /// </summary>
-        public readonly string MetricNamespace;
-        /// <summary>
-        /// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
-        /// </summary>
-        public readonly string Operator;
-        /// <summary>
-        /// The criteria threshold value that activates the alert.
-        /// </summary>
-        public readonly double Threshold;
-
-        [OutputConstructor]
-        private MetricAlertCriterias(
-            string aggregation,
-            ImmutableArray<MetricAlertCriteriasDimensions> dimensions,
-            string metricName,
-            string metricNamespace,
-            string @operator,
-            double threshold)
-        {
-            Aggregation = aggregation;
-            Dimensions = dimensions;
-            MetricName = metricName;
-            MetricNamespace = metricNamespace;
-            Operator = @operator;
-            Threshold = threshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class MetricAlertCriteriasDimensions
-    {
-        /// <summary>
-        /// One of the dimension names.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The dimension operator. Possible values are `Include` and `Exclude`.
-        /// </summary>
-        public readonly string Operator;
-        /// <summary>
-        /// The list of dimension values.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private MetricAlertCriteriasDimensions(
-            string name,
-            string @operator,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Operator = @operator;
-            Values = values;
-        }
-    }
     }
 }

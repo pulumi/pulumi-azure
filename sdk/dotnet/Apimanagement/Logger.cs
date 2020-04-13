@@ -11,11 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages a Logger within an API Management Service.
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
     /// </summary>
     public partial class Logger : Pulumi.CustomResource
     {
@@ -70,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Logger(string name, LoggerArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/logger:Logger", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/logger:Logger", name, args ?? new LoggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -201,114 +196,5 @@ namespace Pulumi.Azure.ApiManagement
         public LoggerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LoggerApplicationInsightsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The instrumentation key used to push data to Application Insights.
-        /// </summary>
-        [Input("instrumentationKey", required: true)]
-        public Input<string> InstrumentationKey { get; set; } = null!;
-
-        public LoggerApplicationInsightsArgs()
-        {
-        }
-    }
-
-    public sealed class LoggerApplicationInsightsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The instrumentation key used to push data to Application Insights.
-        /// </summary>
-        [Input("instrumentationKey", required: true)]
-        public Input<string> InstrumentationKey { get; set; } = null!;
-
-        public LoggerApplicationInsightsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LoggerEventhubArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The connection string of an EventHub Namespace.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
-
-        /// <summary>
-        /// The name of an EventHub.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public LoggerEventhubArgs()
-        {
-        }
-    }
-
-    public sealed class LoggerEventhubGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The connection string of an EventHub Namespace.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
-
-        /// <summary>
-        /// The name of an EventHub.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public LoggerEventhubGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LoggerApplicationInsights
-    {
-        /// <summary>
-        /// The instrumentation key used to push data to Application Insights.
-        /// </summary>
-        public readonly string InstrumentationKey;
-
-        [OutputConstructor]
-        private LoggerApplicationInsights(string instrumentationKey)
-        {
-            InstrumentationKey = instrumentationKey;
-        }
-    }
-
-    [OutputType]
-    public sealed class LoggerEventhub
-    {
-        /// <summary>
-        /// The connection string of an EventHub Namespace.
-        /// </summary>
-        public readonly string ConnectionString;
-        /// <summary>
-        /// The name of an EventHub.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private LoggerEventhub(
-            string connectionString,
-            string name)
-        {
-            ConnectionString = connectionString;
-            Name = name;
-        }
-    }
     }
 }

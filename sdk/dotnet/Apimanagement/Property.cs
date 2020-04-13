@@ -11,11 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management Property.
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_property.html.markdown.
     /// </summary>
     public partial class Property : Pulumi.CustomResource
     {
@@ -70,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Property(string name, PropertyArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/property:Property", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/property:Property", name, args ?? new PropertyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

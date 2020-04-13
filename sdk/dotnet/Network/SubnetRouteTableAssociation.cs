@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Associates a Route Table with a Subnet within a Virtual Network.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
     /// </summary>
     public partial class SubnetRouteTableAssociation : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubnetRouteTableAssociation(string name, SubnetRouteTableAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, args ?? new SubnetRouteTableAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

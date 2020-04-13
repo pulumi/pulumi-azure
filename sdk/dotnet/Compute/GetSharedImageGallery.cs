@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Shared Image Gallery.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSharedImageGallery.InvokeAsync() instead")]
-        public static Task<GetSharedImageGalleryResult> GetSharedImageGallery(GetSharedImageGalleryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSharedImageGallery
     {
         /// <summary>
         /// Use this data source to access information about an existing Shared Image Gallery.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedImageGalleryResult> InvokeAsync(GetSharedImageGalleryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSharedImageGalleryArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetSharedImageGalleryResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.Compute
         /// A description for the Shared Image Gallery.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
@@ -72,28 +64,30 @@ namespace Pulumi.Azure.Compute
         /// The unique name assigned to the Shared Image Gallery.
         /// </summary>
         public readonly string UniqueName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSharedImageGalleryResult(
             string description,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            string uniqueName,
-            string id)
+
+            string uniqueName)
         {
             Description = description;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             UniqueName = uniqueName;
-            Id = id;
         }
     }
 }

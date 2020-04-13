@@ -11,10 +11,6 @@ namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
     /// Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_network_mapping.html.markdown.
     /// </summary>
     public partial class NetworkMapping : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkMapping(string name, NetworkMappingArgs args, CustomResourceOptions? options = null)
-            : base("azure:siterecovery/networkMapping:NetworkMapping", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:siterecovery/networkMapping:NetworkMapping", name, args ?? new NetworkMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 

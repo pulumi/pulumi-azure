@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_reference_input_blob.html.markdown.
     /// </summary>
     public partial class ReferenceInputBlob : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReferenceInputBlob(string name, ReferenceInputBlobArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/referenceInputBlob:ReferenceInputBlob", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/referenceInputBlob:ReferenceInputBlob", name, args ?? new ReferenceInputBlobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -254,91 +250,5 @@ namespace Pulumi.Azure.StreamAnalytics
         public ReferenceInputBlobState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ReferenceInputBlobSerializationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ReferenceInputBlobSerializationArgs()
-        {
-        }
-    }
-
-    public sealed class ReferenceInputBlobSerializationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ReferenceInputBlobSerializationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ReferenceInputBlobSerialization
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        public readonly string? Encoding;
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        public readonly string? FieldDelimiter;
-        /// <summary>
-        /// The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ReferenceInputBlobSerialization(
-            string? encoding,
-            string? fieldDelimiter,
-            string type)
-        {
-            Encoding = encoding;
-            FieldDelimiter = fieldDelimiter;
-            Type = type;
-        }
-    }
     }
 }

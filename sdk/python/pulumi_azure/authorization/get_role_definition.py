@@ -74,8 +74,6 @@ def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
-
 
     :param str name: Specifies the Name of either a built-in or custom Role Definition.
     :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.

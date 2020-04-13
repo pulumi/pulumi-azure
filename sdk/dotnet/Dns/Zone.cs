@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Zone(string name, ZoneArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/zone:Zone", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:dns/zone:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -84,8 +84,6 @@ def get_server(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
-
 
     :param str name: The name of the SQL Server.
     :param str resource_group_name: Specifies the name of the Resource Group where the SQL Server exists.

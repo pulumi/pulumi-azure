@@ -13,10 +13,6 @@ namespace Pulumi.Azure.DatabaseMigration
     /// Manages a Azure Database Migration Service.
     /// 
     /// &gt; **NOTE:** Destroying a Database Migration Service will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provide.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_service.html.markdown.
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {
@@ -65,7 +61,7 @@ namespace Pulumi.Azure.DatabaseMigration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure:databasemigration/service:Service", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:databasemigration/service:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 

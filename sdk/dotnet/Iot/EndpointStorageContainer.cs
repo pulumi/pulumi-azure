@@ -13,10 +13,6 @@ namespace Pulumi.Azure.Iot
     /// Manages an IotHub Storage Container Endpoint
     /// 
     /// &gt; **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_storage_container.html.markdown.
     /// </summary>
     public partial class EndpointStorageContainer : Pulumi.CustomResource
     {
@@ -84,7 +80,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EndpointStorageContainer(string name, EndpointStorageContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/endpointStorageContainer:EndpointStorageContainer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:iot/endpointStorageContainer:EndpointStorageContainer", name, args ?? new EndpointStorageContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 

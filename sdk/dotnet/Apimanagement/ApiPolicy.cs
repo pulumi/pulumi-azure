@@ -11,11 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management API Policy
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_policy.html.markdown.
     /// </summary>
     public partial class ApiPolicy : Pulumi.CustomResource
     {
@@ -58,7 +53,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiPolicy(string name, ApiPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/apiPolicy:ApiPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/apiPolicy:ApiPolicy", name, args ?? new ApiPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

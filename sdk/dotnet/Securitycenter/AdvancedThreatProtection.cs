@@ -11,10 +11,6 @@ namespace Pulumi.Azure.SecurityCenter
 {
     /// <summary>
     /// Manages a resources Advanced Threat Protection setting.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
     /// </summary>
     public partial class AdvancedThreatProtection : Pulumi.CustomResource
     {
@@ -39,7 +35,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AdvancedThreatProtection(string name, AdvancedThreatProtectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection", name, args ?? new AdvancedThreatProtectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

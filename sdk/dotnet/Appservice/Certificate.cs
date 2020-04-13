@@ -11,10 +11,6 @@ namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// Manages an App Service certificate.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -108,7 +104,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:appservice/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Output to a ServiceBus Topic.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_topic.html.markdown.
     /// </summary>
     public partial class OutputServicebusTopic : Pulumi.CustomResource
     {
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OutputServicebusTopic(string name, OutputServicebusTopicArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, args ?? new OutputServicebusTopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -218,109 +214,5 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputServicebusTopicState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class OutputServicebusTopicSerializationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-        /// </summary>
-        [Input("format")]
-        public Input<string>? Format { get; set; }
-
-        /// <summary>
-        /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public OutputServicebusTopicSerializationArgs()
-        {
-        }
-    }
-
-    public sealed class OutputServicebusTopicSerializationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-        /// </summary>
-        [Input("format")]
-        public Input<string>? Format { get; set; }
-
-        /// <summary>
-        /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public OutputServicebusTopicSerializationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class OutputServicebusTopicSerialization
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        public readonly string? Encoding;
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        public readonly string? FieldDelimiter;
-        /// <summary>
-        /// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-        /// </summary>
-        public readonly string? Format;
-        /// <summary>
-        /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private OutputServicebusTopicSerialization(
-            string? encoding,
-            string? fieldDelimiter,
-            string? format,
-            string type)
-        {
-            Encoding = encoding;
-            FieldDelimiter = fieldDelimiter;
-            Format = format;
-            Type = type;
-        }
-    }
     }
 }

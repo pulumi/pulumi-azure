@@ -11,8 +11,6 @@ namespace Pulumi.Azure.LogAnalytics
 {
     /// <summary>
     /// Manages a Log Analytics Windows Event DataSource.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_datasource_windows_event.html.markdown.
     /// </summary>
     public partial class DataSourceWindowsEvent : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSourceWindowsEvent(string name, DataSourceWindowsEventArgs args, CustomResourceOptions? options = null)
-            : base("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent", name, args ?? new DataSourceWindowsEventArgs(), MakeResourceOptions(options, ""))
         {
         }
 

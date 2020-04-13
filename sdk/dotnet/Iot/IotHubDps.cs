@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Iot
 {
     /// <summary>
     /// Manages an IotHub Device Provisioning Service.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
     /// </summary>
     public partial class IotHubDps : Pulumi.CustomResource
     {
@@ -40,7 +36,7 @@ namespace Pulumi.Azure.Iot
         /// A `linked_hub` block as defined below.
         /// </summary>
         [Output("linkedHubs")]
-        public Output<ImmutableArray<Outputs.IotHubDpsLinkedHubs>> LinkedHubs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IotHubDpsLinkedHub>> LinkedHubs { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotHubDps(string name, IotHubDpsArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/iotHubDps:IotHubDps", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:iot/iotHubDps:IotHubDps", name, args ?? new IotHubDpsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +121,14 @@ namespace Pulumi.Azure.Iot
     public sealed class IotHubDpsArgs : Pulumi.ResourceArgs
     {
         [Input("linkedHubs")]
-        private InputList<Inputs.IotHubDpsLinkedHubsArgs>? _linkedHubs;
+        private InputList<Inputs.IotHubDpsLinkedHubArgs>? _linkedHubs;
 
         /// <summary>
         /// A `linked_hub` block as defined below.
         /// </summary>
-        public InputList<Inputs.IotHubDpsLinkedHubsArgs> LinkedHubs
+        public InputList<Inputs.IotHubDpsLinkedHubArgs> LinkedHubs
         {
-            get => _linkedHubs ?? (_linkedHubs = new InputList<Inputs.IotHubDpsLinkedHubsArgs>());
+            get => _linkedHubs ?? (_linkedHubs = new InputList<Inputs.IotHubDpsLinkedHubArgs>());
             set => _linkedHubs = value;
         }
 
@@ -198,14 +194,14 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IdScope { get; set; }
 
         [Input("linkedHubs")]
-        private InputList<Inputs.IotHubDpsLinkedHubsGetArgs>? _linkedHubs;
+        private InputList<Inputs.IotHubDpsLinkedHubGetArgs>? _linkedHubs;
 
         /// <summary>
         /// A `linked_hub` block as defined below.
         /// </summary>
-        public InputList<Inputs.IotHubDpsLinkedHubsGetArgs> LinkedHubs
+        public InputList<Inputs.IotHubDpsLinkedHubGetArgs> LinkedHubs
         {
-            get => _linkedHubs ?? (_linkedHubs = new InputList<Inputs.IotHubDpsLinkedHubsGetArgs>());
+            get => _linkedHubs ?? (_linkedHubs = new InputList<Inputs.IotHubDpsLinkedHubGetArgs>());
             set => _linkedHubs = value;
         }
 
@@ -254,187 +250,5 @@ namespace Pulumi.Azure.Iot
         public IotHubDpsState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class IotHubDpsLinkedHubsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The weight applied to the IoT Hub. Defaults to 0.
-        /// </summary>
-        [Input("allocationWeight")]
-        public Input<int>? AllocationWeight { get; set; }
-
-        /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
-        /// </summary>
-        [Input("applyAllocationPolicy")]
-        public Input<bool>? ApplyAllocationPolicy { get; set; }
-
-        /// <summary>
-        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
-
-        /// <summary>
-        /// The IoT Hub hostname.
-        /// </summary>
-        [Input("hostname")]
-        public Input<string>? Hostname { get; set; }
-
-        /// <summary>
-        /// The location of the IoT hub. Changing this forces a new resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        public IotHubDpsLinkedHubsArgs()
-        {
-        }
-    }
-
-    public sealed class IotHubDpsLinkedHubsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The weight applied to the IoT Hub. Defaults to 0.
-        /// </summary>
-        [Input("allocationWeight")]
-        public Input<int>? AllocationWeight { get; set; }
-
-        /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
-        /// </summary>
-        [Input("applyAllocationPolicy")]
-        public Input<bool>? ApplyAllocationPolicy { get; set; }
-
-        /// <summary>
-        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
-        /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
-
-        /// <summary>
-        /// The IoT Hub hostname.
-        /// </summary>
-        [Input("hostname")]
-        public Input<string>? Hostname { get; set; }
-
-        /// <summary>
-        /// The location of the IoT hub. Changing this forces a new resource.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        public IotHubDpsLinkedHubsGetArgs()
-        {
-        }
-    }
-
-    public sealed class IotHubDpsSkuArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of provisioned IoT Device Provisioning Service units.
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public IotHubDpsSkuArgs()
-        {
-        }
-    }
-
-    public sealed class IotHubDpsSkuGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of provisioned IoT Device Provisioning Service units.
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public IotHubDpsSkuGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class IotHubDpsLinkedHubs
-    {
-        /// <summary>
-        /// The weight applied to the IoT Hub. Defaults to 0.
-        /// </summary>
-        public readonly int? AllocationWeight;
-        /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
-        /// </summary>
-        public readonly bool? ApplyAllocationPolicy;
-        /// <summary>
-        /// The connection string to connect to the IoT Hub. Changing this forces a new resource.
-        /// </summary>
-        public readonly string ConnectionString;
-        /// <summary>
-        /// The IoT Hub hostname.
-        /// </summary>
-        public readonly string Hostname;
-        /// <summary>
-        /// The location of the IoT hub. Changing this forces a new resource.
-        /// </summary>
-        public readonly string Location;
-
-        [OutputConstructor]
-        private IotHubDpsLinkedHubs(
-            int? allocationWeight,
-            bool? applyAllocationPolicy,
-            string connectionString,
-            string hostname,
-            string location)
-        {
-            AllocationWeight = allocationWeight;
-            ApplyAllocationPolicy = applyAllocationPolicy;
-            ConnectionString = connectionString;
-            Hostname = hostname;
-            Location = location;
-        }
-    }
-
-    [OutputType]
-    public sealed class IotHubDpsSku
-    {
-        /// <summary>
-        /// The number of provisioned IoT Device Provisioning Service units.
-        /// </summary>
-        public readonly int Capacity;
-        /// <summary>
-        /// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private IotHubDpsSku(
-            int capacity,
-            string name)
-        {
-            Capacity = capacity;
-            Name = name;
-        }
-    }
     }
 }

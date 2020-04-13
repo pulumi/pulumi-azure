@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Policy within a Dev Test Policy Set.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_policy.html.markdown.
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/policy:Policy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:devtest/policy:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

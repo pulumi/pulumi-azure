@@ -66,8 +66,6 @@ class Image(pulumi.CustomResource):
         """
         Manages a custom virtual machine image that can be used to create virtual machines.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] data_disks: One or more `data_disk` elements as defined below.

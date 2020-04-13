@@ -11,11 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management User Assignment to a Group.
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group_user.html.markdown.
     /// </summary>
     public partial class GroupUser : Pulumi.CustomResource
     {
@@ -52,7 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GroupUser(string name, GroupUserArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/groupUser:GroupUser", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/groupUser:GroupUser", name, args ?? new GroupUserArgs(), MakeResourceOptions(options, ""))
         {
         }
 

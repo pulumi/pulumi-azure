@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Virtual Hub within a Virtual WAN.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub.html.markdown.
     /// </summary>
     public partial class VirtualHub : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// One or more `route` blocks as defined below.
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.VirtualHubRoutes>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualHubRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the Virtual Hub.
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualHub(string name, VirtualHubArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/virtualHub:VirtualHub", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/virtualHub:VirtualHub", name, args ?? new VirtualHubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -131,14 +127,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("routes")]
-        private InputList<Inputs.VirtualHubRoutesArgs>? _routes;
+        private InputList<Inputs.VirtualHubRouteArgs>? _routes;
 
         /// <summary>
         /// One or more `route` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.VirtualHubRoutesArgs> Routes
+        public InputList<Inputs.VirtualHubRouteArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRoutesArgs>());
+            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRouteArgs>());
             set => _routes = value;
         }
 
@@ -192,14 +188,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("routes")]
-        private InputList<Inputs.VirtualHubRoutesGetArgs>? _routes;
+        private InputList<Inputs.VirtualHubRouteGetArgs>? _routes;
 
         /// <summary>
         /// One or more `route` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.VirtualHubRoutesGetArgs> Routes
+        public InputList<Inputs.VirtualHubRouteGetArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRoutesGetArgs>());
+            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRouteGetArgs>());
             set => _routes = value;
         }
 
@@ -224,85 +220,5 @@ namespace Pulumi.Azure.Network
         public VirtualHubState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VirtualHubRoutesArgs : Pulumi.ResourceArgs
-    {
-        [Input("addressPrefixes", required: true)]
-        private InputList<string>? _addressPrefixes;
-
-        /// <summary>
-        /// A list of Address Prefixes.
-        /// </summary>
-        public InputList<string> AddressPrefixes
-        {
-            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
-            set => _addressPrefixes = value;
-        }
-
-        /// <summary>
-        /// The IP Address that Packets should be forwarded to as the Next Hop.
-        /// </summary>
-        [Input("nextHopIpAddress", required: true)]
-        public Input<string> NextHopIpAddress { get; set; } = null!;
-
-        public VirtualHubRoutesArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualHubRoutesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("addressPrefixes", required: true)]
-        private InputList<string>? _addressPrefixes;
-
-        /// <summary>
-        /// A list of Address Prefixes.
-        /// </summary>
-        public InputList<string> AddressPrefixes
-        {
-            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
-            set => _addressPrefixes = value;
-        }
-
-        /// <summary>
-        /// The IP Address that Packets should be forwarded to as the Next Hop.
-        /// </summary>
-        [Input("nextHopIpAddress", required: true)]
-        public Input<string> NextHopIpAddress { get; set; } = null!;
-
-        public VirtualHubRoutesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VirtualHubRoutes
-    {
-        /// <summary>
-        /// A list of Address Prefixes.
-        /// </summary>
-        public readonly ImmutableArray<string> AddressPrefixes;
-        /// <summary>
-        /// The IP Address that Packets should be forwarded to as the Next Hop.
-        /// </summary>
-        public readonly string NextHopIpAddress;
-
-        [OutputConstructor]
-        private VirtualHubRoutes(
-            ImmutableArray<string> addressPrefixes,
-            string nextHopIpAddress)
-        {
-            AddressPrefixes = addressPrefixes;
-            NextHopIpAddress = nextHopIpAddress;
-        }
-    }
     }
 }

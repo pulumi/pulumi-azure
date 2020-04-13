@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppConfiguration
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing App Configuration.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetConfigurationStore.InvokeAsync() instead")]
-        public static Task<GetConfigurationStoreResult> GetConfigurationStore(GetConfigurationStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetConfigurationStore
     {
         /// <summary>
         /// Use this data source to access information about an existing App Configuration.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithVersion());
     }
+
 
     public sealed class GetConfigurationStoreArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.AppConfiguration
         }
     }
 
+
     [OutputType]
     public sealed class GetConfigurationStoreResult
     {
@@ -62,6 +50,10 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Region where the App Configuration exists.
         /// </summary>
         public readonly string Location;
@@ -69,20 +61,20 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// A `primary_read_key` block as defined below containing the primary read access key.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetConfigurationStorePrimaryReadKeysResult> PrimaryReadKeys;
+        public readonly ImmutableArray<Outputs.GetConfigurationStorePrimaryReadKeyResult> PrimaryReadKeys;
         /// <summary>
         /// A `primary_write_key` block as defined below containing the primary write access key.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetConfigurationStorePrimaryWriteKeysResult> PrimaryWriteKeys;
+        public readonly ImmutableArray<Outputs.GetConfigurationStorePrimaryWriteKeyResult> PrimaryWriteKeys;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A `secondary_read_key` block as defined below containing the secondary read access key.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeysResult> SecondaryReadKeys;
+        public readonly ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeyResult> SecondaryReadKeys;
         /// <summary>
         /// A `secondary_write_key` block as defined below containing the secondary write access key.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetConfigurationStoreSecondaryWriteKeysResult> SecondaryWriteKeys;
+        public readonly ImmutableArray<Outputs.GetConfigurationStoreSecondaryWriteKeyResult> SecondaryWriteKeys;
         /// <summary>
         /// The name of the SKU used for this App Configuration.
         /// </summary>
@@ -91,26 +83,33 @@ namespace Pulumi.Azure.AppConfiguration
         /// A mapping of tags assigned to the App Configuration.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetConfigurationStoreResult(
             string endpoint,
+
+            string id,
+
             string location,
+
             string name,
-            ImmutableArray<Outputs.GetConfigurationStorePrimaryReadKeysResult> primaryReadKeys,
-            ImmutableArray<Outputs.GetConfigurationStorePrimaryWriteKeysResult> primaryWriteKeys,
+
+            ImmutableArray<Outputs.GetConfigurationStorePrimaryReadKeyResult> primaryReadKeys,
+
+            ImmutableArray<Outputs.GetConfigurationStorePrimaryWriteKeyResult> primaryWriteKeys,
+
             string resourceGroupName,
-            ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeysResult> secondaryReadKeys,
-            ImmutableArray<Outputs.GetConfigurationStoreSecondaryWriteKeysResult> secondaryWriteKeys,
+
+            ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeyResult> secondaryReadKeys,
+
+            ImmutableArray<Outputs.GetConfigurationStoreSecondaryWriteKeyResult> secondaryWriteKeys,
+
             string sku,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             Endpoint = endpoint;
+            Id = id;
             Location = location;
             Name = name;
             PrimaryReadKeys = primaryReadKeys;
@@ -120,123 +119,6 @@ namespace Pulumi.Azure.AppConfiguration
             SecondaryWriteKeys = secondaryWriteKeys;
             Sku = sku;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetConfigurationStorePrimaryReadKeysResult
-    {
-        /// <summary>
-        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
-        /// </summary>
-        public readonly string ConnectionString;
-        /// <summary>
-        /// The ID of the Access Key.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Secret of the Access Key.
-        /// </summary>
-        public readonly string Secret;
-
-        [OutputConstructor]
-        private GetConfigurationStorePrimaryReadKeysResult(
-            string connectionString,
-            string id,
-            string secret)
-        {
-            ConnectionString = connectionString;
-            Id = id;
-            Secret = secret;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetConfigurationStorePrimaryWriteKeysResult
-    {
-        /// <summary>
-        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
-        /// </summary>
-        public readonly string ConnectionString;
-        /// <summary>
-        /// The ID of the Access Key.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Secret of the Access Key.
-        /// </summary>
-        public readonly string Secret;
-
-        [OutputConstructor]
-        private GetConfigurationStorePrimaryWriteKeysResult(
-            string connectionString,
-            string id,
-            string secret)
-        {
-            ConnectionString = connectionString;
-            Id = id;
-            Secret = secret;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetConfigurationStoreSecondaryReadKeysResult
-    {
-        /// <summary>
-        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
-        /// </summary>
-        public readonly string ConnectionString;
-        /// <summary>
-        /// The ID of the Access Key.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Secret of the Access Key.
-        /// </summary>
-        public readonly string Secret;
-
-        [OutputConstructor]
-        private GetConfigurationStoreSecondaryReadKeysResult(
-            string connectionString,
-            string id,
-            string secret)
-        {
-            ConnectionString = connectionString;
-            Id = id;
-            Secret = secret;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetConfigurationStoreSecondaryWriteKeysResult
-    {
-        /// <summary>
-        /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
-        /// </summary>
-        public readonly string ConnectionString;
-        /// <summary>
-        /// The ID of the Access Key.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The Secret of the Access Key.
-        /// </summary>
-        public readonly string Secret;
-
-        [OutputConstructor]
-        private GetConfigurationStoreSecondaryWriteKeysResult(
-            string connectionString,
-            string id,
-            string secret)
-        {
-            ConnectionString = connectionString;
-            Id = id;
-            Secret = secret;
-        }
-    }
     }
 }

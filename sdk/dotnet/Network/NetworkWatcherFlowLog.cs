@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Network Watcher Flow Log.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher_flow_log.html.markdown.
     /// </summary>
     public partial class NetworkWatcherFlowLog : Pulumi.CustomResource
     {
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkWatcherFlowLog(string name, NetworkWatcherFlowLogArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog", name, args ?? new NetworkWatcherFlowLogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -218,187 +214,5 @@ namespace Pulumi.Azure.Network
         public NetworkWatcherFlowLogState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NetworkWatcherFlowLogRetentionPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days to retain flow log records.
-        /// </summary>
-        [Input("days", required: true)]
-        public Input<int> Days { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean flag to enable/disable retention.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public NetworkWatcherFlowLogRetentionPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkWatcherFlowLogRetentionPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days to retain flow log records.
-        /// </summary>
-        [Input("days", required: true)]
-        public Input<int> Days { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean flag to enable/disable retention.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public NetworkWatcherFlowLogRetentionPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkWatcherFlowLogTrafficAnalyticsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// How frequently service should do flow analytics in minutes.
-        /// </summary>
-        [Input("intervalInMinutes")]
-        public Input<int>? IntervalInMinutes { get; set; }
-
-        /// <summary>
-        /// The resource guid of the attached workspace.
-        /// </summary>
-        [Input("workspaceId", required: true)]
-        public Input<string> WorkspaceId { get; set; } = null!;
-
-        /// <summary>
-        /// The location of the attached workspace.
-        /// </summary>
-        [Input("workspaceRegion", required: true)]
-        public Input<string> WorkspaceRegion { get; set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the attached workspace.
-        /// </summary>
-        [Input("workspaceResourceId", required: true)]
-        public Input<string> WorkspaceResourceId { get; set; } = null!;
-
-        public NetworkWatcherFlowLogTrafficAnalyticsArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkWatcherFlowLogTrafficAnalyticsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        /// <summary>
-        /// How frequently service should do flow analytics in minutes.
-        /// </summary>
-        [Input("intervalInMinutes")]
-        public Input<int>? IntervalInMinutes { get; set; }
-
-        /// <summary>
-        /// The resource guid of the attached workspace.
-        /// </summary>
-        [Input("workspaceId", required: true)]
-        public Input<string> WorkspaceId { get; set; } = null!;
-
-        /// <summary>
-        /// The location of the attached workspace.
-        /// </summary>
-        [Input("workspaceRegion", required: true)]
-        public Input<string> WorkspaceRegion { get; set; } = null!;
-
-        /// <summary>
-        /// The resource ID of the attached workspace.
-        /// </summary>
-        [Input("workspaceResourceId", required: true)]
-        public Input<string> WorkspaceResourceId { get; set; } = null!;
-
-        public NetworkWatcherFlowLogTrafficAnalyticsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NetworkWatcherFlowLogRetentionPolicy
-    {
-        /// <summary>
-        /// The number of days to retain flow log records.
-        /// </summary>
-        public readonly int Days;
-        /// <summary>
-        /// Boolean flag to enable/disable retention.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private NetworkWatcherFlowLogRetentionPolicy(
-            int days,
-            bool enabled)
-        {
-            Days = days;
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class NetworkWatcherFlowLogTrafficAnalytics
-    {
-        /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// How frequently service should do flow analytics in minutes.
-        /// </summary>
-        public readonly int? IntervalInMinutes;
-        /// <summary>
-        /// The resource guid of the attached workspace.
-        /// </summary>
-        public readonly string WorkspaceId;
-        /// <summary>
-        /// The location of the attached workspace.
-        /// </summary>
-        public readonly string WorkspaceRegion;
-        /// <summary>
-        /// The resource ID of the attached workspace.
-        /// </summary>
-        public readonly string WorkspaceResourceId;
-
-        [OutputConstructor]
-        private NetworkWatcherFlowLogTrafficAnalytics(
-            bool enabled,
-            int? intervalInMinutes,
-            string workspaceId,
-            string workspaceRegion,
-            string workspaceResourceId)
-        {
-            Enabled = enabled;
-            IntervalInMinutes = intervalInMinutes;
-            WorkspaceId = workspaceId;
-            WorkspaceRegion = workspaceRegion;
-            WorkspaceResourceId = workspaceResourceId;
-        }
-    }
     }
 }

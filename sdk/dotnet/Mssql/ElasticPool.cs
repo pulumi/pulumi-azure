@@ -11,10 +11,6 @@ namespace Pulumi.Azure.MSSql
 {
     /// <summary>
     /// Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.MSSql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ElasticPool(string name, ElasticPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure:mssql/elasticPool:ElasticPool", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mssql/elasticPool:ElasticPool", name, args ?? new ElasticPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -266,169 +262,5 @@ namespace Pulumi.Azure.MSSql
         public ElasticPoolState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ElasticPoolPerDatabaseSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum capacity any one database can consume.
-        /// </summary>
-        [Input("maxCapacity", required: true)]
-        public Input<double> MaxCapacity { get; set; } = null!;
-
-        /// <summary>
-        /// The minimum capacity all databases are guaranteed.
-        /// </summary>
-        [Input("minCapacity", required: true)]
-        public Input<double> MinCapacity { get; set; } = null!;
-
-        public ElasticPoolPerDatabaseSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class ElasticPoolPerDatabaseSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The maximum capacity any one database can consume.
-        /// </summary>
-        [Input("maxCapacity", required: true)]
-        public Input<double> MaxCapacity { get; set; } = null!;
-
-        /// <summary>
-        /// The minimum capacity all databases are guaranteed.
-        /// </summary>
-        [Input("minCapacity", required: true)]
-        public Input<double> MinCapacity { get; set; } = null!;
-
-        public ElasticPoolPerDatabaseSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ElasticPoolSkuArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// The `family` of hardware `Gen4` or `Gen5`.
-        /// </summary>
-        [Input("family")]
-        public Input<string>? Family { get; set; }
-
-        /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public ElasticPoolSkuArgs()
-        {
-        }
-    }
-
-    public sealed class ElasticPoolSkuGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// The `family` of hardware `Gen4` or `Gen5`.
-        /// </summary>
-        [Input("family")]
-        public Input<string>? Family { get; set; }
-
-        /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public ElasticPoolSkuGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ElasticPoolPerDatabaseSettings
-    {
-        /// <summary>
-        /// The maximum capacity any one database can consume.
-        /// </summary>
-        public readonly double MaxCapacity;
-        /// <summary>
-        /// The minimum capacity all databases are guaranteed.
-        /// </summary>
-        public readonly double MinCapacity;
-
-        [OutputConstructor]
-        private ElasticPoolPerDatabaseSettings(
-            double maxCapacity,
-            double minCapacity)
-        {
-            MaxCapacity = maxCapacity;
-            MinCapacity = minCapacity;
-        }
-    }
-
-    [OutputType]
-    public sealed class ElasticPoolSku
-    {
-        /// <summary>
-        /// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        /// </summary>
-        public readonly int Capacity;
-        /// <summary>
-        /// The `family` of hardware `Gen4` or `Gen5`.
-        /// </summary>
-        public readonly string? Family;
-        /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        /// </summary>
-        public readonly string Tier;
-
-        [OutputConstructor]
-        private ElasticPoolSku(
-            int capacity,
-            string? family,
-            string name,
-            string tier)
-        {
-            Capacity = capacity;
-            Family = family;
-            Name = name;
-            Tier = tier;
-        }
-    }
     }
 }

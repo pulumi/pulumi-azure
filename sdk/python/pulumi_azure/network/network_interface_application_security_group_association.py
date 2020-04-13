@@ -24,8 +24,6 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.CosmosDB
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccount.InvokeAsync() instead")]
-        public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:cosmosdb/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccount
     {
         /// <summary>
         /// Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:cosmosdb/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:cosmosdb/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
@@ -54,14 +41,15 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
+
     [OutputType]
     public sealed class GetAccountResult
     {
         /// <summary>
         /// Capabilities enabled on this Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetAccountCapabilitiesResult> Capabilities;
-        public readonly ImmutableArray<Outputs.GetAccountConsistencyPoliciesResult> ConsistencyPolicies;
+        public readonly ImmutableArray<Outputs.GetAccountCapabilityResult> Capabilities;
+        public readonly ImmutableArray<Outputs.GetAccountConsistencyPolicyResult> ConsistencyPolicies;
         /// <summary>
         /// If automatic failover is enabled for this CosmosDB Account.
         /// </summary>
@@ -74,7 +62,11 @@ namespace Pulumi.Azure.CosmosDB
         /// The endpoint used to connect to the CosmosDB account.
         /// </summary>
         public readonly string Endpoint;
-        public readonly ImmutableArray<Outputs.GetAccountGeoLocationsResult> GeoLocations;
+        public readonly ImmutableArray<Outputs.GetAccountGeoLocationResult> GeoLocations;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The current IP Filter for this CosmosDB account
         /// </summary>
@@ -124,40 +116,57 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Subnets that are allowed to access this CosmosDB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetAccountVirtualNetworkRulesResult> VirtualNetworkRules;
+        public readonly ImmutableArray<Outputs.GetAccountVirtualNetworkRuleResult> VirtualNetworkRules;
         /// <summary>
         /// A list of write endpoints available for this CosmosDB account.
         /// </summary>
         public readonly ImmutableArray<string> WriteEndpoints;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountResult(
-            ImmutableArray<Outputs.GetAccountCapabilitiesResult> capabilities,
-            ImmutableArray<Outputs.GetAccountConsistencyPoliciesResult> consistencyPolicies,
+            ImmutableArray<Outputs.GetAccountCapabilityResult> capabilities,
+
+            ImmutableArray<Outputs.GetAccountConsistencyPolicyResult> consistencyPolicies,
+
             bool enableAutomaticFailover,
+
             bool enableMultipleWriteLocations,
+
             string endpoint,
-            ImmutableArray<Outputs.GetAccountGeoLocationsResult> geoLocations,
+
+            ImmutableArray<Outputs.GetAccountGeoLocationResult> geoLocations,
+
+            string id,
+
             string ipRangeFilter,
+
             bool isVirtualNetworkFilterEnabled,
+
             string kind,
+
             string location,
+
             string name,
+
             string offerType,
+
             string primaryMasterKey,
+
             string primaryReadonlyMasterKey,
+
             ImmutableArray<string> readEndpoints,
+
             string resourceGroupName,
+
             string secondaryMasterKey,
+
             string secondaryReadonlyMasterKey,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<Outputs.GetAccountVirtualNetworkRulesResult> virtualNetworkRules,
-            ImmutableArray<string> writeEndpoints,
-            string id)
+
+            ImmutableArray<Outputs.GetAccountVirtualNetworkRuleResult> virtualNetworkRules,
+
+            ImmutableArray<string> writeEndpoints)
         {
             Capabilities = capabilities;
             ConsistencyPolicies = consistencyPolicies;
@@ -165,6 +174,7 @@ namespace Pulumi.Azure.CosmosDB
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             Endpoint = endpoint;
             GeoLocations = geoLocations;
+            Id = id;
             IpRangeFilter = ipRangeFilter;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             Kind = kind;
@@ -180,94 +190,6 @@ namespace Pulumi.Azure.CosmosDB
             Tags = tags;
             VirtualNetworkRules = virtualNetworkRules;
             WriteEndpoints = writeEndpoints;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAccountCapabilitiesResult
-    {
-        /// <summary>
-        /// Specifies the name of the CosmosDB Account.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetAccountCapabilitiesResult(string name)
-        {
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetAccountConsistencyPoliciesResult
-    {
-        /// <summary>
-        /// The Consistency Level used by this CosmosDB Account.
-        /// </summary>
-        public readonly string ConsistencyLevel;
-        /// <summary>
-        /// The amount of staleness (in seconds) tolerated when the consistency level is Bounded Staleness.
-        /// </summary>
-        public readonly int MaxIntervalInSeconds;
-        /// <summary>
-        /// The number of stale requests tolerated when the consistency level is Bounded Staleness.
-        /// </summary>
-        public readonly int MaxStalenessPrefix;
-
-        [OutputConstructor]
-        private GetAccountConsistencyPoliciesResult(
-            string consistencyLevel,
-            int maxIntervalInSeconds,
-            int maxStalenessPrefix)
-        {
-            ConsistencyLevel = consistencyLevel;
-            MaxIntervalInSeconds = maxIntervalInSeconds;
-            MaxStalenessPrefix = maxStalenessPrefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetAccountGeoLocationsResult
-    {
-        public readonly int FailoverPriority;
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Azure region hosting replicated data.
-        /// </summary>
-        public readonly string Location;
-
-        [OutputConstructor]
-        private GetAccountGeoLocationsResult(
-            int failoverPriority,
-            string id,
-            string location)
-        {
-            FailoverPriority = failoverPriority;
-            Id = id;
-            Location = location;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetAccountVirtualNetworkRulesResult
-    {
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        public readonly string Id;
-
-        [OutputConstructor]
-        private GetAccountVirtualNetworkRulesResult(string id)
-        {
-            Id = id;
-        }
-    }
     }
 }

@@ -13,10 +13,6 @@ namespace Pulumi.Azure.Compute
     /// Manages an Extension for a Virtual Machine Scale Set.
     /// 
     /// &gt; **NOTE:** This resource is not intended to be used with the `azure.compute.ScaleSet` resource - instead it's intended for this to be used with the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set_extension.html.markdown.
     /// </summary>
     public partial class VirtualMachineScaleSetExtension : Pulumi.CustomResource
     {
@@ -89,7 +85,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMachineScaleSetExtension(string name, VirtualMachineScaleSetExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, args ?? new VirtualMachineScaleSetExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

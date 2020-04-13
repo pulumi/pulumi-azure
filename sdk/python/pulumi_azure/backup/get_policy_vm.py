@@ -53,8 +53,6 @@ def get_policy_vm(name=None,recovery_vault_name=None,resource_group_name=None,op
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
-
 
     :param str name: Specifies the name of the VM Backup Policy.
     :param str recovery_vault_name: Specifies the name of the Recovery Services Vault.

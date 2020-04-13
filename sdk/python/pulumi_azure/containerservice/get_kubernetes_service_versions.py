@@ -60,8 +60,6 @@ def get_kubernetes_service_versions(include_preview=None,location=None,version_p
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
-
 
     :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
     :param str location: Specifies the location in which to query for versions.

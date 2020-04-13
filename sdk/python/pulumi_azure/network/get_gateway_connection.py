@@ -165,8 +165,6 @@ def get_gateway_connection(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
-
 
     :param str name: Specifies the name of the Virtual Network Gateway Connection.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network Gateway Connection is located in.

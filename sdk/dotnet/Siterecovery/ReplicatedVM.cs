@@ -11,10 +11,6 @@ namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
     /// Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replicated_vm.html.markdown.
     /// </summary>
     public partial class ReplicatedVM : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// One or more `managed_disk` block.
         /// </summary>
         [Output("managedDisks")]
-        public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisks>> ManagedDisks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisk>> ManagedDisks { get; private set; } = null!;
 
         /// <summary>
         /// The name of the network mapping.
@@ -96,7 +92,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicatedVM(string name, ReplicatedVMArgs args, CustomResourceOptions? options = null)
-            : base("azure:siterecovery/replicatedVM:ReplicatedVM", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:siterecovery/replicatedVM:ReplicatedVM", name, args ?? new ReplicatedVMArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -134,14 +130,14 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicatedVMArgs : Pulumi.ResourceArgs
     {
         [Input("managedDisks")]
-        private InputList<Inputs.ReplicatedVMManagedDisksArgs>? _managedDisks;
+        private InputList<Inputs.ReplicatedVMManagedDiskArgs>? _managedDisks;
 
         /// <summary>
         /// One or more `managed_disk` block.
         /// </summary>
-        public InputList<Inputs.ReplicatedVMManagedDisksArgs> ManagedDisks
+        public InputList<Inputs.ReplicatedVMManagedDiskArgs> ManagedDisks
         {
-            get => _managedDisks ?? (_managedDisks = new InputList<Inputs.ReplicatedVMManagedDisksArgs>());
+            get => _managedDisks ?? (_managedDisks = new InputList<Inputs.ReplicatedVMManagedDiskArgs>());
             set => _managedDisks = value;
         }
 
@@ -216,14 +212,14 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicatedVMState : Pulumi.ResourceArgs
     {
         [Input("managedDisks")]
-        private InputList<Inputs.ReplicatedVMManagedDisksGetArgs>? _managedDisks;
+        private InputList<Inputs.ReplicatedVMManagedDiskGetArgs>? _managedDisks;
 
         /// <summary>
         /// One or more `managed_disk` block.
         /// </summary>
-        public InputList<Inputs.ReplicatedVMManagedDisksGetArgs> ManagedDisks
+        public InputList<Inputs.ReplicatedVMManagedDiskGetArgs> ManagedDisks
         {
-            get => _managedDisks ?? (_managedDisks = new InputList<Inputs.ReplicatedVMManagedDisksGetArgs>());
+            get => _managedDisks ?? (_managedDisks = new InputList<Inputs.ReplicatedVMManagedDiskGetArgs>());
             set => _managedDisks = value;
         }
 
@@ -293,127 +289,5 @@ namespace Pulumi.Azure.SiteRecovery
         public ReplicatedVMState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ReplicatedVMManagedDisksArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Id of disk that should be replicated.
-        /// </summary>
-        [Input("diskId", required: true)]
-        public Input<string> DiskId { get; set; } = null!;
-
-        /// <summary>
-        /// Storage account that should be used for caching.
-        /// </summary>
-        [Input("stagingStorageAccountId", required: true)]
-        public Input<string> StagingStorageAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// What type should the disk be when a failover is done.
-        /// </summary>
-        [Input("targetDiskType", required: true)]
-        public Input<string> TargetDiskType { get; set; } = null!;
-
-        /// <summary>
-        /// What type should the disk be that holds the replication data.
-        /// </summary>
-        [Input("targetReplicaDiskType", required: true)]
-        public Input<string> TargetReplicaDiskType { get; set; } = null!;
-
-        /// <summary>
-        /// Resource group disk should belong to when a failover is done.
-        /// </summary>
-        [Input("targetResourceGroupId", required: true)]
-        public Input<string> TargetResourceGroupId { get; set; } = null!;
-
-        public ReplicatedVMManagedDisksArgs()
-        {
-        }
-    }
-
-    public sealed class ReplicatedVMManagedDisksGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Id of disk that should be replicated.
-        /// </summary>
-        [Input("diskId", required: true)]
-        public Input<string> DiskId { get; set; } = null!;
-
-        /// <summary>
-        /// Storage account that should be used for caching.
-        /// </summary>
-        [Input("stagingStorageAccountId", required: true)]
-        public Input<string> StagingStorageAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// What type should the disk be when a failover is done.
-        /// </summary>
-        [Input("targetDiskType", required: true)]
-        public Input<string> TargetDiskType { get; set; } = null!;
-
-        /// <summary>
-        /// What type should the disk be that holds the replication data.
-        /// </summary>
-        [Input("targetReplicaDiskType", required: true)]
-        public Input<string> TargetReplicaDiskType { get; set; } = null!;
-
-        /// <summary>
-        /// Resource group disk should belong to when a failover is done.
-        /// </summary>
-        [Input("targetResourceGroupId", required: true)]
-        public Input<string> TargetResourceGroupId { get; set; } = null!;
-
-        public ReplicatedVMManagedDisksGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ReplicatedVMManagedDisks
-    {
-        /// <summary>
-        /// Id of disk that should be replicated.
-        /// </summary>
-        public readonly string DiskId;
-        /// <summary>
-        /// Storage account that should be used for caching.
-        /// </summary>
-        public readonly string StagingStorageAccountId;
-        /// <summary>
-        /// What type should the disk be when a failover is done.
-        /// </summary>
-        public readonly string TargetDiskType;
-        /// <summary>
-        /// What type should the disk be that holds the replication data.
-        /// </summary>
-        public readonly string TargetReplicaDiskType;
-        /// <summary>
-        /// Resource group disk should belong to when a failover is done.
-        /// </summary>
-        public readonly string TargetResourceGroupId;
-
-        [OutputConstructor]
-        private ReplicatedVMManagedDisks(
-            string diskId,
-            string stagingStorageAccountId,
-            string targetDiskType,
-            string targetReplicaDiskType,
-            string targetResourceGroupId)
-        {
-            DiskId = diskId;
-            StagingStorageAccountId = stagingStorageAccountId;
-            TargetDiskType = targetDiskType;
-            TargetReplicaDiskType = targetReplicaDiskType;
-            TargetResourceGroupId = targetResourceGroupId;
-        }
-    }
     }
 }

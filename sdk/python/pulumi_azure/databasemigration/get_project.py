@@ -74,8 +74,6 @@ def get_project(name=None,resource_group_name=None,service_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_project.html.markdown.
-
 
     :param str name: Name of the database migration project.
     :param str resource_group_name: Name of the resource group where resource belongs to.

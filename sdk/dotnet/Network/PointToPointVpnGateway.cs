@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Point-to-Site VPN Gateway.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/point_to_site_vpn_gateway.html.markdown.
     /// </summary>
     public partial class PointToPointVpnGateway : Pulumi.CustomResource
     {
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PointToPointVpnGateway(string name, PointToPointVpnGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/pointToPointVpnGateway:PointToPointVpnGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/pointToPointVpnGateway:PointToPointVpnGateway", name, args ?? new PointToPointVpnGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -230,126 +226,5 @@ namespace Pulumi.Azure.Network
         public PointToPointVpnGatewayState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class PointToPointVpnGatewayConnectionConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Name which should be used for this Connection Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// A `vpn_client_address_pool` block as defined below.
-        /// </summary>
-        [Input("vpnClientAddressPool", required: true)]
-        public Input<PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs> VpnClientAddressPool { get; set; } = null!;
-
-        public PointToPointVpnGatewayConnectionConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class PointToPointVpnGatewayConnectionConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Name which should be used for this Connection Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// A `vpn_client_address_pool` block as defined below.
-        /// </summary>
-        [Input("vpnClientAddressPool", required: true)]
-        public Input<PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolGetArgs> VpnClientAddressPool { get; set; } = null!;
-
-        public PointToPointVpnGatewayConnectionConfigurationGetArgs()
-        {
-        }
-    }
-
-    public sealed class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs : Pulumi.ResourceArgs
-    {
-        [Input("addressPrefixes", required: true)]
-        private InputList<string>? _addressPrefixes;
-
-        /// <summary>
-        /// A list of CIDR Ranges which should be used as Address Prefixes.
-        /// </summary>
-        public InputList<string> AddressPrefixes
-        {
-            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
-            set => _addressPrefixes = value;
-        }
-
-        public PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs()
-        {
-        }
-    }
-
-    public sealed class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("addressPrefixes", required: true)]
-        private InputList<string>? _addressPrefixes;
-
-        /// <summary>
-        /// A list of CIDR Ranges which should be used as Address Prefixes.
-        /// </summary>
-        public InputList<string> AddressPrefixes
-        {
-            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
-            set => _addressPrefixes = value;
-        }
-
-        public PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class PointToPointVpnGatewayConnectionConfiguration
-    {
-        /// <summary>
-        /// The Name which should be used for this Connection Configuration.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// A `vpn_client_address_pool` block as defined below.
-        /// </summary>
-        public readonly PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool VpnClientAddressPool;
-
-        [OutputConstructor]
-        private PointToPointVpnGatewayConnectionConfiguration(
-            string name,
-            PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool)
-        {
-            Name = name;
-            VpnClientAddressPool = vpnClientAddressPool;
-        }
-    }
-
-    [OutputType]
-    public sealed class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool
-    {
-        /// <summary>
-        /// A list of CIDR Ranges which should be used as Address Prefixes.
-        /// </summary>
-        public readonly ImmutableArray<string> AddressPrefixes;
-
-        [OutputConstructor]
-        private PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(ImmutableArray<string> addressPrefixes)
-        {
-            AddressPrefixes = addressPrefixes;
-        }
-    }
     }
 }

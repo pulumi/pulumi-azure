@@ -87,8 +87,6 @@ def get_lb(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
-
 
     :param str name: Specifies the name of the Load Balancer.
     :param str resource_group_name: The name of the Resource Group in which the Load Balancer exists.

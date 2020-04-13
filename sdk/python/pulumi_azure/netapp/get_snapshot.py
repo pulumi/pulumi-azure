@@ -59,8 +59,6 @@ def get_snapshot(account_name=None,name=None,pool_name=None,resource_group_name=
     """
     Uses this data source to access information about an existing NetApp Snapshot.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
-
 
     :param str account_name: The name of the NetApp Account where the NetApp Pool exists.
     :param str name: The name of the NetApp Snapshot.

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Windows Virtual Machine within a Dev Test Lab.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
     /// </summary>
     public partial class WindowsVirtualMachine : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Azure.DevTest
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inboundNatRules")]
-        public Output<ImmutableArray<Outputs.WindowsVirtualMachineInboundNatRules>> InboundNatRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WindowsVirtualMachineInboundNatRule>> InboundNatRules { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -135,7 +131,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WindowsVirtualMachine(string name, WindowsVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, args ?? new WindowsVirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -191,14 +187,14 @@ namespace Pulumi.Azure.DevTest
         public Input<Inputs.WindowsVirtualMachineGalleryImageReferenceArgs> GalleryImageReference { get; set; } = null!;
 
         [Input("inboundNatRules")]
-        private InputList<Inputs.WindowsVirtualMachineInboundNatRulesArgs>? _inboundNatRules;
+        private InputList<Inputs.WindowsVirtualMachineInboundNatRuleArgs>? _inboundNatRules;
 
         /// <summary>
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineInboundNatRulesArgs> InboundNatRules
+        public InputList<Inputs.WindowsVirtualMachineInboundNatRuleArgs> InboundNatRules
         {
-            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.WindowsVirtualMachineInboundNatRulesArgs>());
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.WindowsVirtualMachineInboundNatRuleArgs>());
             set => _inboundNatRules = value;
         }
 
@@ -312,14 +308,14 @@ namespace Pulumi.Azure.DevTest
         public Input<Inputs.WindowsVirtualMachineGalleryImageReferenceGetArgs>? GalleryImageReference { get; set; }
 
         [Input("inboundNatRules")]
-        private InputList<Inputs.WindowsVirtualMachineInboundNatRulesGetArgs>? _inboundNatRules;
+        private InputList<Inputs.WindowsVirtualMachineInboundNatRuleGetArgs>? _inboundNatRules;
 
         /// <summary>
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineInboundNatRulesGetArgs> InboundNatRules
+        public InputList<Inputs.WindowsVirtualMachineInboundNatRuleGetArgs> InboundNatRules
         {
-            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.WindowsVirtualMachineInboundNatRulesGetArgs>());
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.WindowsVirtualMachineInboundNatRuleGetArgs>());
             set => _inboundNatRules = value;
         }
 
@@ -410,187 +406,5 @@ namespace Pulumi.Azure.DevTest
         public WindowsVirtualMachineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WindowsVirtualMachineGalleryImageReferenceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public WindowsVirtualMachineGalleryImageReferenceArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineGalleryImageReferenceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public WindowsVirtualMachineGalleryImageReferenceGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineInboundNatRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("backendPort", required: true)]
-        public Input<int> BackendPort { get; set; } = null!;
-
-        /// <summary>
-        /// The frontend port associated with this Inbound NAT Rule.
-        /// </summary>
-        [Input("frontendPort")]
-        public Input<int>? FrontendPort { get; set; }
-
-        /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        public WindowsVirtualMachineInboundNatRulesArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineInboundNatRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("backendPort", required: true)]
-        public Input<int> BackendPort { get; set; } = null!;
-
-        /// <summary>
-        /// The frontend port associated with this Inbound NAT Rule.
-        /// </summary>
-        [Input("frontendPort")]
-        public Input<int>? FrontendPort { get; set; }
-
-        /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        public WindowsVirtualMachineInboundNatRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineGalleryImageReference
-    {
-        /// <summary>
-        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Offer;
-        /// <summary>
-        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Publisher;
-        /// <summary>
-        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Sku;
-        /// <summary>
-        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Version;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineGalleryImageReference(
-            string offer,
-            string publisher,
-            string sku,
-            string version)
-        {
-            Offer = offer;
-            Publisher = publisher;
-            Sku = sku;
-            Version = version;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineInboundNatRules
-    {
-        /// <summary>
-        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int BackendPort;
-        /// <summary>
-        /// The frontend port associated with this Inbound NAT Rule.
-        /// </summary>
-        public readonly int FrontendPort;
-        /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Protocol;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineInboundNatRules(
-            int backendPort,
-            int frontendPort,
-            string protocol)
-        {
-            BackendPort = backendPort;
-            FrontendPort = frontendPort;
-            Protocol = protocol;
-        }
-    }
     }
 }

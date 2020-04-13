@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Traffic Manager Endpoint.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
     /// </summary>
     public partial class TrafficManagerEndpoint : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.Network
         /// One or more `custom_header` blocks as defined below
         /// </summary>
         [Output("customHeaders")]
-        public Output<ImmutableArray<Outputs.TrafficManagerEndpointCustomHeaders>> CustomHeaders { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrafficManagerEndpointCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Azure location of the Endpoint,
@@ -94,7 +90,7 @@ namespace Pulumi.Azure.Network
         /// One or more `subnet` blocks as defined below
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.TrafficManagerEndpointSubnets>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrafficManagerEndpointSubnet>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN DNS name of the target. This argument must be
@@ -138,7 +134,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TrafficManagerEndpoint(string name, TrafficManagerEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/trafficManagerEndpoint:TrafficManagerEndpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/trafficManagerEndpoint:TrafficManagerEndpoint", name, args ?? new TrafficManagerEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -151,7 +147,7 @@ namespace Pulumi.Azure.Network
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:trafficmanager/endpoint:Endpoint" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:trafficmanager/endpoint:Endpoint"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -176,14 +172,14 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerEndpointArgs : Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
-        private InputList<Inputs.TrafficManagerEndpointCustomHeadersArgs>? _customHeaders;
+        private InputList<Inputs.TrafficManagerEndpointCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
         /// One or more `custom_header` blocks as defined below
         /// </summary>
-        public InputList<Inputs.TrafficManagerEndpointCustomHeadersArgs> CustomHeaders
+        public InputList<Inputs.TrafficManagerEndpointCustomHeaderArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.TrafficManagerEndpointCustomHeadersArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.TrafficManagerEndpointCustomHeaderArgs>());
             set => _customHeaders = value;
         }
 
@@ -257,14 +253,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("subnets")]
-        private InputList<Inputs.TrafficManagerEndpointSubnetsArgs>? _subnets;
+        private InputList<Inputs.TrafficManagerEndpointSubnetArgs>? _subnets;
 
         /// <summary>
         /// One or more `subnet` blocks as defined below
         /// </summary>
-        public InputList<Inputs.TrafficManagerEndpointSubnetsArgs> Subnets
+        public InputList<Inputs.TrafficManagerEndpointSubnetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.TrafficManagerEndpointSubnetsArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.TrafficManagerEndpointSubnetArgs>());
             set => _subnets = value;
         }
 
@@ -309,14 +305,14 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerEndpointState : Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
-        private InputList<Inputs.TrafficManagerEndpointCustomHeadersGetArgs>? _customHeaders;
+        private InputList<Inputs.TrafficManagerEndpointCustomHeaderGetArgs>? _customHeaders;
 
         /// <summary>
         /// One or more `custom_header` blocks as defined below
         /// </summary>
-        public InputList<Inputs.TrafficManagerEndpointCustomHeadersGetArgs> CustomHeaders
+        public InputList<Inputs.TrafficManagerEndpointCustomHeaderGetArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.TrafficManagerEndpointCustomHeadersGetArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.TrafficManagerEndpointCustomHeaderGetArgs>());
             set => _customHeaders = value;
         }
 
@@ -393,14 +389,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("subnets")]
-        private InputList<Inputs.TrafficManagerEndpointSubnetsGetArgs>? _subnets;
+        private InputList<Inputs.TrafficManagerEndpointSubnetGetArgs>? _subnets;
 
         /// <summary>
         /// One or more `subnet` blocks as defined below
         /// </summary>
-        public InputList<Inputs.TrafficManagerEndpointSubnetsGetArgs> Subnets
+        public InputList<Inputs.TrafficManagerEndpointSubnetGetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.TrafficManagerEndpointSubnetsGetArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.TrafficManagerEndpointSubnetGetArgs>());
             set => _subnets = value;
         }
 
@@ -440,151 +436,5 @@ namespace Pulumi.Azure.Network
         public TrafficManagerEndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TrafficManagerEndpointCustomHeadersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the custom header.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public TrafficManagerEndpointCustomHeadersArgs()
-        {
-        }
-    }
-
-    public sealed class TrafficManagerEndpointCustomHeadersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the custom header.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public TrafficManagerEndpointCustomHeadersGetArgs()
-        {
-        }
-    }
-
-    public sealed class TrafficManagerEndpointSubnetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The First IP....
-        /// </summary>
-        [Input("first", required: true)]
-        public Input<string> First { get; set; } = null!;
-
-        /// <summary>
-        /// The Last IP...
-        /// </summary>
-        [Input("last")]
-        public Input<string>? Last { get; set; }
-
-        /// <summary>
-        /// The Scope...
-        /// </summary>
-        [Input("scope")]
-        public Input<int>? Scope { get; set; }
-
-        public TrafficManagerEndpointSubnetsArgs()
-        {
-        }
-    }
-
-    public sealed class TrafficManagerEndpointSubnetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The First IP....
-        /// </summary>
-        [Input("first", required: true)]
-        public Input<string> First { get; set; } = null!;
-
-        /// <summary>
-        /// The Last IP...
-        /// </summary>
-        [Input("last")]
-        public Input<string>? Last { get; set; }
-
-        /// <summary>
-        /// The Scope...
-        /// </summary>
-        [Input("scope")]
-        public Input<int>? Scope { get; set; }
-
-        public TrafficManagerEndpointSubnetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TrafficManagerEndpointCustomHeaders
-    {
-        /// <summary>
-        /// The name of the custom header.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The value of custom header. Applicable for Http and Https protocol.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private TrafficManagerEndpointCustomHeaders(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class TrafficManagerEndpointSubnets
-    {
-        /// <summary>
-        /// The First IP....
-        /// </summary>
-        public readonly string First;
-        /// <summary>
-        /// The Last IP...
-        /// </summary>
-        public readonly string? Last;
-        /// <summary>
-        /// The Scope...
-        /// </summary>
-        public readonly int? Scope;
-
-        [OutputConstructor]
-        private TrafficManagerEndpointSubnets(
-            string first,
-            string? last,
-            int? scope)
-        {
-            First = first;
-            Last = last;
-            Scope = scope;
-        }
-    }
     }
 }

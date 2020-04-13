@@ -74,8 +74,6 @@ def get_shared_access_policy(iothub_name=None,name=None,resource_group_name=None
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
-
 
     :param str iothub_name: The name of the IoTHub to which this Shared Access Policy belongs.
     :param str name: Specifies the name of the IotHub Shared Access Policy resource.

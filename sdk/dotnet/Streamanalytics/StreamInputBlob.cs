@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Stream Input Blob.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_blob.html.markdown.
     /// </summary>
     public partial class StreamInputBlob : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamInputBlob(string name, StreamInputBlobArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, args ?? new StreamInputBlobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -254,91 +250,5 @@ namespace Pulumi.Azure.StreamAnalytics
         public StreamInputBlobState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class StreamInputBlobSerializationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamInputBlobSerializationArgs()
-        {
-        }
-    }
-
-    public sealed class StreamInputBlobSerializationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamInputBlobSerializationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class StreamInputBlobSerialization
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        public readonly string? Encoding;
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        public readonly string? FieldDelimiter;
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private StreamInputBlobSerialization(
-            string? encoding,
-            string? fieldDelimiter,
-            string type)
-        {
-            Encoding = encoding;
-            FieldDelimiter = fieldDelimiter;
-            Type = type;
-        }
-    }
     }
 }

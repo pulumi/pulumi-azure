@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing EventHub Namespace.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNamespace.InvokeAsync() instead")]
-        public static Task<GetNamespaceResult> GetNamespace(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:eventhub/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNamespace
     {
         /// <summary>
         /// Use this data source to access information about an existing EventHub Namespace.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:eventhub/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:eventhub/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
     {
@@ -53,6 +40,7 @@ namespace Pulumi.Azure.EventHub
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetNamespaceResult
@@ -83,6 +71,10 @@ namespace Pulumi.Azure.EventHub
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         public readonly string DefaultSecondaryKey;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool KafkaEnabled;
         /// <summary>
         /// The Azure location where the EventHub Namespace exists
@@ -102,27 +94,36 @@ namespace Pulumi.Azure.EventHub
         /// A mapping of tags to assign to the EventHub Namespace.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNamespaceResult(
             bool autoInflateEnabled,
+
             int capacity,
+
             string defaultPrimaryConnectionString,
+
             string defaultPrimaryKey,
+
             string defaultSecondaryConnectionString,
+
             string defaultSecondaryKey,
+
+            string id,
+
             bool kafkaEnabled,
+
             string location,
+
             int maximumThroughputUnits,
+
             string name,
+
             string resourceGroupName,
+
             string sku,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AutoInflateEnabled = autoInflateEnabled;
             Capacity = capacity;
@@ -130,6 +131,7 @@ namespace Pulumi.Azure.EventHub
             DefaultPrimaryKey = defaultPrimaryKey;
             DefaultSecondaryConnectionString = defaultSecondaryConnectionString;
             DefaultSecondaryKey = defaultSecondaryKey;
+            Id = id;
             KafkaEnabled = kafkaEnabled;
             Location = location;
             MaximumThroughputUnits = maximumThroughputUnits;
@@ -137,7 +139,6 @@ namespace Pulumi.Azure.EventHub
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
-            Id = id;
         }
     }
 }

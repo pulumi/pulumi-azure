@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.MSSql
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing SQL elastic pool.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetElasticPool.InvokeAsync() instead")]
-        public static Task<GetElasticPoolResult> GetElasticPool(GetElasticPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetElasticPool
     {
         /// <summary>
         /// Use this data source to access information about an existing SQL elastic pool.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithVersion());
     }
+
 
     public sealed class GetElasticPoolArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
+
     [OutputType]
     public sealed class GetElasticPoolResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Specifies the supported Azure location where the resource exists.
         /// </summary>
@@ -94,25 +86,32 @@ namespace Pulumi.Azure.MSSql
         /// Whether or not this elastic pool is zone redundant.
         /// </summary>
         public readonly bool ZoneRedundant;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetElasticPoolResult(
+            string id,
+
             string location,
+
             int maxSizeBytes,
+
             double maxSizeGb,
+
             string name,
+
             int perDbMaxCapacity,
+
             int perDbMinCapacity,
+
             string resourceGroupName,
+
             string serverName,
+
             ImmutableDictionary<string, string> tags,
-            bool zoneRedundant,
-            string id)
+
+            bool zoneRedundant)
         {
+            Id = id;
             Location = location;
             MaxSizeBytes = maxSizeBytes;
             MaxSizeGb = maxSizeGb;
@@ -123,7 +122,6 @@ namespace Pulumi.Azure.MSSql
             ServerName = serverName;
             Tags = tags;
             ZoneRedundant = zoneRedundant;
-            Id = id;
         }
     }
 }

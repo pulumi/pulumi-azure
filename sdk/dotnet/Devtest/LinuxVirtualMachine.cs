@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Linux Virtual Machine within a Dev Test Lab.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_linux_virtual_machine.html.markdown.
     /// </summary>
     public partial class LinuxVirtualMachine : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Azure.DevTest
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inboundNatRules")]
-        public Output<ImmutableArray<Outputs.LinuxVirtualMachineInboundNatRules>> InboundNatRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LinuxVirtualMachineInboundNatRule>> InboundNatRules { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -141,7 +137,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinuxVirtualMachine(string name, LinuxVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, args ?? new LinuxVirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -197,14 +193,14 @@ namespace Pulumi.Azure.DevTest
         public Input<Inputs.LinuxVirtualMachineGalleryImageReferenceArgs> GalleryImageReference { get; set; } = null!;
 
         [Input("inboundNatRules")]
-        private InputList<Inputs.LinuxVirtualMachineInboundNatRulesArgs>? _inboundNatRules;
+        private InputList<Inputs.LinuxVirtualMachineInboundNatRuleArgs>? _inboundNatRules;
 
         /// <summary>
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineInboundNatRulesArgs> InboundNatRules
+        public InputList<Inputs.LinuxVirtualMachineInboundNatRuleArgs> InboundNatRules
         {
-            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.LinuxVirtualMachineInboundNatRulesArgs>());
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.LinuxVirtualMachineInboundNatRuleArgs>());
             set => _inboundNatRules = value;
         }
 
@@ -324,14 +320,14 @@ namespace Pulumi.Azure.DevTest
         public Input<Inputs.LinuxVirtualMachineGalleryImageReferenceGetArgs>? GalleryImageReference { get; set; }
 
         [Input("inboundNatRules")]
-        private InputList<Inputs.LinuxVirtualMachineInboundNatRulesGetArgs>? _inboundNatRules;
+        private InputList<Inputs.LinuxVirtualMachineInboundNatRuleGetArgs>? _inboundNatRules;
 
         /// <summary>
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineInboundNatRulesGetArgs> InboundNatRules
+        public InputList<Inputs.LinuxVirtualMachineInboundNatRuleGetArgs> InboundNatRules
         {
-            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.LinuxVirtualMachineInboundNatRulesGetArgs>());
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.LinuxVirtualMachineInboundNatRuleGetArgs>());
             set => _inboundNatRules = value;
         }
 
@@ -428,187 +424,5 @@ namespace Pulumi.Azure.DevTest
         public LinuxVirtualMachineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LinuxVirtualMachineGalleryImageReferenceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public LinuxVirtualMachineGalleryImageReferenceArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineGalleryImageReferenceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        /// <summary>
-        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        /// <summary>
-        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public LinuxVirtualMachineGalleryImageReferenceGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineInboundNatRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("backendPort", required: true)]
-        public Input<int> BackendPort { get; set; } = null!;
-
-        /// <summary>
-        /// The frontend port associated with this Inbound NAT Rule.
-        /// </summary>
-        [Input("frontendPort")]
-        public Input<int>? FrontendPort { get; set; }
-
-        /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        public LinuxVirtualMachineInboundNatRulesArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineInboundNatRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("backendPort", required: true)]
-        public Input<int> BackendPort { get; set; } = null!;
-
-        /// <summary>
-        /// The frontend port associated with this Inbound NAT Rule.
-        /// </summary>
-        [Input("frontendPort")]
-        public Input<int>? FrontendPort { get; set; }
-
-        /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        public LinuxVirtualMachineInboundNatRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineGalleryImageReference
-    {
-        /// <summary>
-        /// The Offer of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Offer;
-        /// <summary>
-        /// The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Publisher;
-        /// <summary>
-        /// The SKU of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Sku;
-        /// <summary>
-        /// The Version of the Gallery Image. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Version;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineGalleryImageReference(
-            string offer,
-            string publisher,
-            string sku,
-            string version)
-        {
-            Offer = offer;
-            Publisher = publisher;
-            Sku = sku;
-            Version = version;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineInboundNatRules
-    {
-        /// <summary>
-        /// The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int BackendPort;
-        /// <summary>
-        /// The frontend port associated with this Inbound NAT Rule.
-        /// </summary>
-        public readonly int FrontendPort;
-        /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Protocol;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineInboundNatRules(
-            int backendPort,
-            int frontendPort,
-            string protocol)
-        {
-            BackendPort = backendPort;
-            FrontendPort = frontendPort;
-            Protocol = protocol;
-        }
-    }
     }
 }

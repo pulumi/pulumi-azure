@@ -94,8 +94,6 @@ def get_authorization_rule(eventhub_name=None,listen=None,manage=None,name=None,
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
-
 
     :param str eventhub_name: Specifies the name of the EventHub.
     :param str name: Specifies the name of the EventHub Authorization Rule resource. be created.

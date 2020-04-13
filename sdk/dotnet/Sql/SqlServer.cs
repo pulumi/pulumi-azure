@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Sql
 {
     /// <summary>
     /// Manages a SQL Azure Database Server.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
     /// </summary>
     public partial class SqlServer : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlServer(string name, SqlServerArgs args, CustomResourceOptions? options = null)
-            : base("azure:sql/sqlServer:SqlServer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:sql/sqlServer:SqlServer", name, args ?? new SqlServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -260,187 +256,5 @@ namespace Pulumi.Azure.Sql
         public SqlServerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SqlServerExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// (Optional) Specifies the number of days to retain logs for in the storage account.
-        /// </summary>
-        [Input("retentionInDays")]
-        public Input<int>? RetentionInDays { get; set; }
-
-        /// <summary>
-        /// (Required)  Specifies the access key to use for the auditing storage account.
-        /// </summary>
-        [Input("storageAccountAccessKey", required: true)]
-        public Input<string> StorageAccountAccessKey { get; set; } = null!;
-
-        /// <summary>
-        /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        /// </summary>
-        [Input("storageAccountAccessKeyIsSecondary")]
-        public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
-
-        /// <summary>
-        /// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        /// </summary>
-        [Input("storageEndpoint", required: true)]
-        public Input<string> StorageEndpoint { get; set; } = null!;
-
-        public SqlServerExtendedAuditingPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class SqlServerExtendedAuditingPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// (Optional) Specifies the number of days to retain logs for in the storage account.
-        /// </summary>
-        [Input("retentionInDays")]
-        public Input<int>? RetentionInDays { get; set; }
-
-        /// <summary>
-        /// (Required)  Specifies the access key to use for the auditing storage account.
-        /// </summary>
-        [Input("storageAccountAccessKey", required: true)]
-        public Input<string> StorageAccountAccessKey { get; set; } = null!;
-
-        /// <summary>
-        /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        /// </summary>
-        [Input("storageAccountAccessKeyIsSecondary")]
-        public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
-
-        /// <summary>
-        /// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        /// </summary>
-        [Input("storageEndpoint", required: true)]
-        public Input<string> StorageEndpoint { get; set; } = null!;
-
-        public SqlServerExtendedAuditingPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class SqlServerIdentityArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public SqlServerIdentityArgs()
-        {
-        }
-    }
-
-    public sealed class SqlServerIdentityGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public SqlServerIdentityGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SqlServerExtendedAuditingPolicy
-    {
-        /// <summary>
-        /// (Optional) Specifies the number of days to retain logs for in the storage account.
-        /// </summary>
-        public readonly int? RetentionInDays;
-        /// <summary>
-        /// (Required)  Specifies the access key to use for the auditing storage account.
-        /// </summary>
-        public readonly string StorageAccountAccessKey;
-        /// <summary>
-        /// (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-        /// </summary>
-        public readonly bool? StorageAccountAccessKeyIsSecondary;
-        /// <summary>
-        /// (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        /// </summary>
-        public readonly string StorageEndpoint;
-
-        [OutputConstructor]
-        private SqlServerExtendedAuditingPolicy(
-            int? retentionInDays,
-            string storageAccountAccessKey,
-            bool? storageAccountAccessKeyIsSecondary,
-            string storageEndpoint)
-        {
-            RetentionInDays = retentionInDays;
-            StorageAccountAccessKey = storageAccountAccessKey;
-            StorageAccountAccessKeyIsSecondary = storageAccountAccessKeyIsSecondary;
-            StorageEndpoint = storageEndpoint;
-        }
-    }
-
-    [OutputType]
-    public sealed class SqlServerIdentity
-    {
-        /// <summary>
-        /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private SqlServerIdentity(
-            string principalId,
-            string tenantId,
-            string type)
-        {
-            PrincipalId = principalId;
-            TenantId = tenantId;
-            Type = type;
-        }
-    }
     }
 }

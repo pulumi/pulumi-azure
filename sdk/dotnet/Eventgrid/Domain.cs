@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventGrid
 {
     /// <summary>
     /// Manages an EventGrid Domain
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
     /// </summary>
     public partial class Domain : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.EventGrid
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventgrid/domain:Domain", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:eventgrid/domain:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -100,7 +96,7 @@ namespace Pulumi.Azure.EventGrid
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/domain:Domain" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/domain:Domain"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -248,223 +244,5 @@ namespace Pulumi.Azure.EventGrid
         public DomainState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DomainInputMappingDefaultValuesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("dataVersion")]
-        public Input<string>? DataVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("eventType")]
-        public Input<string>? EventType { get; set; }
-
-        /// <summary>
-        /// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("subject")]
-        public Input<string>? Subject { get; set; }
-
-        public DomainInputMappingDefaultValuesArgs()
-        {
-        }
-    }
-
-    public sealed class DomainInputMappingDefaultValuesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("dataVersion")]
-        public Input<string>? DataVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("eventType")]
-        public Input<string>? EventType { get; set; }
-
-        /// <summary>
-        /// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("subject")]
-        public Input<string>? Subject { get; set; }
-
-        public DomainInputMappingDefaultValuesGetArgs()
-        {
-        }
-    }
-
-    public sealed class DomainInputMappingFieldsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("dataVersion")]
-        public Input<string>? DataVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("eventTime")]
-        public Input<string>? EventTime { get; set; }
-
-        /// <summary>
-        /// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("eventType")]
-        public Input<string>? EventType { get; set; }
-
-        /// <summary>
-        /// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("subject")]
-        public Input<string>? Subject { get; set; }
-
-        /// <summary>
-        /// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("topic")]
-        public Input<string>? Topic { get; set; }
-
-        public DomainInputMappingFieldsArgs()
-        {
-        }
-    }
-
-    public sealed class DomainInputMappingFieldsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("dataVersion")]
-        public Input<string>? DataVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("eventTime")]
-        public Input<string>? EventTime { get; set; }
-
-        /// <summary>
-        /// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("eventType")]
-        public Input<string>? EventType { get; set; }
-
-        /// <summary>
-        /// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("subject")]
-        public Input<string>? Subject { get; set; }
-
-        /// <summary>
-        /// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("topic")]
-        public Input<string>? Topic { get; set; }
-
-        public DomainInputMappingFieldsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DomainInputMappingDefaultValues
-    {
-        /// <summary>
-        /// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? DataVersion;
-        /// <summary>
-        /// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? EventType;
-        /// <summary>
-        /// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? Subject;
-
-        [OutputConstructor]
-        private DomainInputMappingDefaultValues(
-            string? dataVersion,
-            string? eventType,
-            string? subject)
-        {
-            DataVersion = dataVersion;
-            EventType = eventType;
-            Subject = subject;
-        }
-    }
-
-    [OutputType]
-    public sealed class DomainInputMappingFields
-    {
-        /// <summary>
-        /// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? DataVersion;
-        /// <summary>
-        /// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? EventTime;
-        /// <summary>
-        /// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? EventType;
-        /// <summary>
-        /// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
-        /// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? Subject;
-        /// <summary>
-        /// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? Topic;
-
-        [OutputConstructor]
-        private DomainInputMappingFields(
-            string? dataVersion,
-            string? eventTime,
-            string? eventType,
-            string? id,
-            string? subject,
-            string? topic)
-        {
-            DataVersion = dataVersion;
-            EventTime = eventTime;
-            EventType = eventType;
-            Id = id;
-            Subject = subject;
-            Topic = topic;
-        }
-    }
     }
 }

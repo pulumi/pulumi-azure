@@ -30,8 +30,6 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_container_storage_account.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.

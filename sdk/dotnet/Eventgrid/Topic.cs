@@ -13,10 +13,6 @@ namespace Pulumi.Azure.EventGrid
     /// Manages an EventGrid Topic
     /// 
     /// &gt; **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {
@@ -71,7 +67,7 @@ namespace Pulumi.Azure.EventGrid
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventgrid/topic:Topic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:eventgrid/topic:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -84,7 +80,7 @@ namespace Pulumi.Azure.EventGrid
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/eventGridTopic:EventGridTopic" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/eventGridTopic:EventGridTopic"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

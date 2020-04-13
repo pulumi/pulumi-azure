@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Redis
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Redis Cache
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCache.InvokeAsync() instead")]
-        public static Task<GetCacheResult> GetCache(GetCacheArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCache
     {
         /// <summary>
         /// Use this data source to access information about an existing Redis Cache
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCacheArgs : Pulumi.InvokeArgs
     {
@@ -58,6 +46,7 @@ namespace Pulumi.Azure.Redis
         }
     }
 
+
     [OutputType]
     public sealed class GetCacheResult
     {
@@ -78,6 +67,10 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         public readonly string Hostname;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the Redis Cache.
         /// </summary>
         public readonly string Location;
@@ -89,7 +82,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetCachePatchSchedulesResult> PatchSchedules;
+        public readonly ImmutableArray<Outputs.GetCachePatchScheduleResult> PatchSchedules;
         /// <summary>
         /// The non-SSL Port of the Redis Instance
         /// </summary>
@@ -106,7 +99,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// A `redis_configuration` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetCacheRedisConfigurationsResult> RedisConfigurations;
+        public readonly ImmutableArray<Outputs.GetCacheRedisConfigurationResult> RedisConfigurations;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The Secondary Access Key for the Redis Instance
@@ -128,41 +121,60 @@ namespace Pulumi.Azure.Redis
         public readonly string SubnetId;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> Zones;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetCacheResult(
             int capacity,
+
             bool enableNonSslPort,
+
             string family,
+
             string hostname,
+
+            string id,
+
             string location,
+
             string minimumTlsVersion,
+
             string name,
-            ImmutableArray<Outputs.GetCachePatchSchedulesResult> patchSchedules,
+
+            ImmutableArray<Outputs.GetCachePatchScheduleResult> patchSchedules,
+
             int port,
+
             string primaryAccessKey,
+
             string primaryConnectionString,
+
             string privateStaticIpAddress,
-            ImmutableArray<Outputs.GetCacheRedisConfigurationsResult> redisConfigurations,
+
+            ImmutableArray<Outputs.GetCacheRedisConfigurationResult> redisConfigurations,
+
             string resourceGroupName,
+
             string secondaryAccessKey,
+
             string secondaryConnectionString,
+
             int shardCount,
+
             string skuName,
+
             int sslPort,
+
             string subnetId,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<string> zones,
-            string id)
+
+            ImmutableArray<string> zones)
         {
             Capacity = capacity;
             EnableNonSslPort = enableNonSslPort;
             Family = family;
             Hostname = hostname;
+            Id = id;
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;
@@ -181,112 +193,6 @@ namespace Pulumi.Azure.Redis
             SubnetId = subnetId;
             Tags = tags;
             Zones = zones;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetCachePatchSchedulesResult
-    {
-        /// <summary>
-        /// the Weekday name for the patch item
-        /// </summary>
-        public readonly string DayOfWeek;
-        /// <summary>
-        /// The Start Hour for maintenance in UTC
-        /// </summary>
-        public readonly int StartHourUtc;
-
-        [OutputConstructor]
-        private GetCachePatchSchedulesResult(
-            string dayOfWeek,
-            int startHourUtc)
-        {
-            DayOfWeek = dayOfWeek;
-            StartHourUtc = startHourUtc;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetCacheRedisConfigurationsResult
-    {
-        public readonly bool AofBackupEnabled;
-        public readonly string AofStorageConnectionString0;
-        public readonly string AofStorageConnectionString1;
-        /// <summary>
-        /// Specifies if authentication is enabled
-        /// </summary>
-        public readonly bool EnableAuthentication;
-        public readonly int Maxclients;
-        /// <summary>
-        /// Value in megabytes reserved to accommodate for memory fragmentation.
-        /// </summary>
-        public readonly int MaxfragmentationmemoryReserved;
-        /// <summary>
-        /// The max-memory delta for this Redis instance.
-        /// </summary>
-        public readonly int MaxmemoryDelta;
-        /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached.
-        /// </summary>
-        public readonly string MaxmemoryPolicy;
-        /// <summary>
-        /// The value in megabytes reserved for non-cache usage e.g. failover
-        /// </summary>
-        public readonly int MaxmemoryReserved;
-        public readonly string NotifyKeyspaceEvents;
-        /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKU's.
-        /// </summary>
-        public readonly bool RdbBackupEnabled;
-        /// <summary>
-        /// The Backup Frequency in Minutes. Only supported on Premium SKU's.
-        /// </summary>
-        public readonly int RdbBackupFrequency;
-        /// <summary>
-        /// The maximum number of snapshots that can be created as a backup.
-        /// </summary>
-        public readonly int RdbBackupMaxSnapshotCount;
-        /// <summary>
-        /// The Connection String to the Storage Account. Only supported for Premium SKU's.
-        /// </summary>
-        public readonly string RdbStorageConnectionString;
-
-        [OutputConstructor]
-        private GetCacheRedisConfigurationsResult(
-            bool aofBackupEnabled,
-            string aofStorageConnectionString0,
-            string aofStorageConnectionString1,
-            bool enableAuthentication,
-            int maxclients,
-            int maxfragmentationmemoryReserved,
-            int maxmemoryDelta,
-            string maxmemoryPolicy,
-            int maxmemoryReserved,
-            string notifyKeyspaceEvents,
-            bool rdbBackupEnabled,
-            int rdbBackupFrequency,
-            int rdbBackupMaxSnapshotCount,
-            string rdbStorageConnectionString)
-        {
-            AofBackupEnabled = aofBackupEnabled;
-            AofStorageConnectionString0 = aofStorageConnectionString0;
-            AofStorageConnectionString1 = aofStorageConnectionString1;
-            EnableAuthentication = enableAuthentication;
-            Maxclients = maxclients;
-            MaxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
-            MaxmemoryDelta = maxmemoryDelta;
-            MaxmemoryPolicy = maxmemoryPolicy;
-            MaxmemoryReserved = maxmemoryReserved;
-            NotifyKeyspaceEvents = notifyKeyspaceEvents;
-            RdbBackupEnabled = rdbBackupEnabled;
-            RdbBackupFrequency = rdbBackupFrequency;
-            RdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
-            RdbStorageConnectionString = rdbStorageConnectionString;
-        }
-    }
     }
 }

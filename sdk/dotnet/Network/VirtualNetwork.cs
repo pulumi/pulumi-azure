@@ -16,10 +16,6 @@ namespace Pulumi.Azure.Network
     /// &gt; **NOTE on Virtual Networks and Subnet's:** This provider currently
     /// provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
     /// At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network.html.markdown.
     /// </summary>
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Network
         /// subnets. Each `subnet` block supports fields documented below.
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkSubnets>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkSubnet>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -86,7 +82,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetwork(string name, VirtualNetworkArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/virtualNetwork:VirtualNetwork", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/virtualNetwork:VirtualNetwork", name, args ?? new VirtualNetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -177,15 +173,15 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("subnets")]
-        private InputList<Inputs.VirtualNetworkSubnetsArgs>? _subnets;
+        private InputList<Inputs.VirtualNetworkSubnetArgs>? _subnets;
 
         /// <summary>
         /// Can be specified multiple times to define multiple
         /// subnets. Each `subnet` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.VirtualNetworkSubnetsArgs> Subnets
+        public InputList<Inputs.VirtualNetworkSubnetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.VirtualNetworkSubnetsArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.VirtualNetworkSubnetArgs>());
             set => _subnets = value;
         }
 
@@ -262,15 +258,15 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("subnets")]
-        private InputList<Inputs.VirtualNetworkSubnetsGetArgs>? _subnets;
+        private InputList<Inputs.VirtualNetworkSubnetGetArgs>? _subnets;
 
         /// <summary>
         /// Can be specified multiple times to define multiple
         /// subnets. Each `subnet` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.VirtualNetworkSubnetsGetArgs> Subnets
+        public InputList<Inputs.VirtualNetworkSubnetGetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.VirtualNetworkSubnetsGetArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.VirtualNetworkSubnetGetArgs>());
             set => _subnets = value;
         }
 
@@ -289,175 +285,5 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VirtualNetworkDdosProtectionPlanArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable/disable DDoS Protection Plan on Virtual Network.
-        /// </summary>
-        [Input("enable", required: true)]
-        public Input<bool> Enable { get; set; } = null!;
-
-        /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public VirtualNetworkDdosProtectionPlanArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualNetworkDdosProtectionPlanGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Enable/disable DDoS Protection Plan on Virtual Network.
-        /// </summary>
-        [Input("enable", required: true)]
-        public Input<bool> Enable { get; set; } = null!;
-
-        /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public VirtualNetworkDdosProtectionPlanGetArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualNetworkSubnetsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The address prefix to use for the subnet.
-        /// </summary>
-        [Input("addressPrefix", required: true)]
-        public Input<string> AddressPrefix { get; set; } = null!;
-
-        /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Network Security Group to associate with
-        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
-        /// </summary>
-        [Input("securityGroup")]
-        public Input<string>? SecurityGroup { get; set; }
-
-        public VirtualNetworkSubnetsArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualNetworkSubnetsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The address prefix to use for the subnet.
-        /// </summary>
-        [Input("addressPrefix", required: true)]
-        public Input<string> AddressPrefix { get; set; } = null!;
-
-        /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Network Security Group to associate with
-        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
-        /// </summary>
-        [Input("securityGroup")]
-        public Input<string>? SecurityGroup { get; set; }
-
-        public VirtualNetworkSubnetsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VirtualNetworkDdosProtectionPlan
-    {
-        /// <summary>
-        /// Enable/disable DDoS Protection Plan on Virtual Network.
-        /// </summary>
-        public readonly bool Enable;
-        /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
-        /// </summary>
-        public readonly string Id;
-
-        [OutputConstructor]
-        private VirtualNetworkDdosProtectionPlan(
-            bool enable,
-            string id)
-        {
-            Enable = enable;
-            Id = id;
-        }
-    }
-
-    [OutputType]
-    public sealed class VirtualNetworkSubnets
-    {
-        /// <summary>
-        /// The address prefix to use for the subnet.
-        /// </summary>
-        public readonly string AddressPrefix;
-        /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Network Security Group to associate with
-        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
-        /// </summary>
-        public readonly string? SecurityGroup;
-
-        [OutputConstructor]
-        private VirtualNetworkSubnets(
-            string addressPrefix,
-            string id,
-            string name,
-            string? securityGroup)
-        {
-            AddressPrefix = addressPrefix;
-            Id = id;
-            Name = name;
-            SecurityGroup = securityGroup;
-        }
-    }
     }
 }

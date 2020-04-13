@@ -67,8 +67,6 @@ def get_virtual_network(lab_name=None,name=None,resource_group_name=None,opts=No
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
-
 
     :param str lab_name: Specifies the name of the Dev Test Lab.
     :param str name: Specifies the name of the Virtual Network.

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Route Table
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
     /// </summary>
     public partial class RouteTable : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Azure.Network
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// </summary>
         [Output("routes")]
-        public Output<ImmutableArray<Outputs.RouteTableRoutes>> Routes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RouteTableRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
         /// The collection of Subnets associated with this route table.
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RouteTable(string name, RouteTableArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/routeTable:RouteTable", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/routeTable:RouteTable", name, args ?? new RouteTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -131,14 +127,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("routes")]
-        private InputList<Inputs.RouteTableRoutesArgs>? _routes;
+        private InputList<Inputs.RouteTableRouteArgs>? _routes;
 
         /// <summary>
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// </summary>
-        public InputList<Inputs.RouteTableRoutesArgs> Routes
+        public InputList<Inputs.RouteTableRouteArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.RouteTableRoutesArgs>());
+            get => _routes ?? (_routes = new InputList<Inputs.RouteTableRouteArgs>());
             set => _routes = value;
         }
 
@@ -186,14 +182,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("routes")]
-        private InputList<Inputs.RouteTableRoutesGetArgs>? _routes;
+        private InputList<Inputs.RouteTableRouteGetArgs>? _routes;
 
         /// <summary>
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// </summary>
-        public InputList<Inputs.RouteTableRoutesGetArgs> Routes
+        public InputList<Inputs.RouteTableRouteGetArgs> Routes
         {
-            get => _routes ?? (_routes = new InputList<Inputs.RouteTableRoutesGetArgs>());
+            get => _routes ?? (_routes = new InputList<Inputs.RouteTableRouteGetArgs>());
             set => _routes = value;
         }
 
@@ -224,109 +220,5 @@ namespace Pulumi.Azure.Network
         public RouteTableState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RouteTableRoutesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The destination CIDR to which the route applies, such as 10.1.0.0/16
-        /// </summary>
-        [Input("addressPrefix", required: true)]
-        public Input<string> AddressPrefix { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the route.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-        /// </summary>
-        [Input("nextHopInIpAddress")]
-        public Input<string>? NextHopInIpAddress { get; set; }
-
-        /// <summary>
-        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-        /// </summary>
-        [Input("nextHopType", required: true)]
-        public Input<string> NextHopType { get; set; } = null!;
-
-        public RouteTableRoutesArgs()
-        {
-        }
-    }
-
-    public sealed class RouteTableRoutesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The destination CIDR to which the route applies, such as 10.1.0.0/16
-        /// </summary>
-        [Input("addressPrefix", required: true)]
-        public Input<string> AddressPrefix { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the route.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-        /// </summary>
-        [Input("nextHopInIpAddress")]
-        public Input<string>? NextHopInIpAddress { get; set; }
-
-        /// <summary>
-        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-        /// </summary>
-        [Input("nextHopType", required: true)]
-        public Input<string> NextHopType { get; set; } = null!;
-
-        public RouteTableRoutesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RouteTableRoutes
-    {
-        /// <summary>
-        /// The destination CIDR to which the route applies, such as 10.1.0.0/16
-        /// </summary>
-        public readonly string AddressPrefix;
-        /// <summary>
-        /// The name of the route.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-        /// </summary>
-        public readonly string? NextHopInIpAddress;
-        /// <summary>
-        /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-        /// </summary>
-        public readonly string NextHopType;
-
-        [OutputConstructor]
-        private RouteTableRoutes(
-            string addressPrefix,
-            string name,
-            string? nextHopInIpAddress,
-            string nextHopType)
-        {
-            AddressPrefix = addressPrefix;
-            Name = name;
-            NextHopInIpAddress = nextHopInIpAddress;
-            NextHopType = nextHopType;
-        }
-    }
     }
 }

@@ -15,10 +15,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// &gt; **NOTE:** Owner access permission is required.
     /// 
     /// &gt; **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.markdown.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {
@@ -43,7 +39,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure:securitycenter/workspace:Workspace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:securitycenter/workspace:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 

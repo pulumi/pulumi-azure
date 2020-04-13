@@ -74,8 +74,6 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_authorization_rule.html.markdown.
-
 
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
     :param str namespace_name: Specifies the name of the ServiceBus Namespace.

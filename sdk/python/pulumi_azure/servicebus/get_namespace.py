@@ -107,8 +107,6 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
-
 
     :param str name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.

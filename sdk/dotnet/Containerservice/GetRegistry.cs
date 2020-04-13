@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ContainerService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Container Registry.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.markdown.
-        /// </summary>
-        [Obsolete("Use GetRegistry.InvokeAsync() instead")]
-        public static Task<GetRegistryResult> GetRegistry(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRegistry
     {
         /// <summary>
         /// Use this data source to access information about an existing Container Registry.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? new GetRegistryArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRegistryArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
+
     [OutputType]
     public sealed class GetRegistryResult
     {
@@ -69,6 +57,10 @@ namespace Pulumi.Azure.ContainerService
         /// The Username associated with the Container Registry Admin account - if the admin account is enabled.
         /// </summary>
         public readonly string AdminUsername;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region in which this Container Registry exists.
         /// </summary>
@@ -91,28 +83,35 @@ namespace Pulumi.Azure.ContainerService
         /// A map of tags assigned to the Container Registry.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRegistryResult(
             bool adminEnabled,
+
             string adminPassword,
+
             string adminUsername,
+
+            string id,
+
             string location,
+
             string loginServer,
+
             string name,
+
             string resourceGroupName,
+
             string sku,
+
             string storageAccountId,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AdminEnabled = adminEnabled;
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
+            Id = id;
             Location = location;
             LoginServer = loginServer;
             Name = name;
@@ -120,7 +119,6 @@ namespace Pulumi.Azure.ContainerService
             Sku = sku;
             StorageAccountId = storageAccountId;
             Tags = tags;
-            Id = id;
         }
     }
 }

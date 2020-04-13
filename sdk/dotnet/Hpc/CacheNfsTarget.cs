@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Hpc
 {
     /// <summary>
     /// Manages a NFS Target within a HPC Cache.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hpc_cache_nfs_target.html.markdown.
     /// </summary>
     public partial class CacheNfsTarget : Pulumi.CustomResource
     {
@@ -32,7 +30,7 @@ namespace Pulumi.Azure.Hpc
         /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         /// </summary>
         [Output("namespaceJunctions")]
-        public Output<ImmutableArray<Outputs.CacheNfsTargetNamespaceJunctions>> NamespaceJunctions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CacheNfsTargetNamespaceJunction>> NamespaceJunctions { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Hpc
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CacheNfsTarget(string name, CacheNfsTargetArgs args, CustomResourceOptions? options = null)
-            : base("azure:hpc/cacheNfsTarget:CacheNfsTarget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:hpc/cacheNfsTarget:CacheNfsTarget", name, args ?? new CacheNfsTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -111,14 +109,14 @@ namespace Pulumi.Azure.Hpc
         public Input<string>? Name { get; set; }
 
         [Input("namespaceJunctions", required: true)]
-        private InputList<Inputs.CacheNfsTargetNamespaceJunctionsArgs>? _namespaceJunctions;
+        private InputList<Inputs.CacheNfsTargetNamespaceJunctionArgs>? _namespaceJunctions;
 
         /// <summary>
         /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.CacheNfsTargetNamespaceJunctionsArgs> NamespaceJunctions
+        public InputList<Inputs.CacheNfsTargetNamespaceJunctionArgs> NamespaceJunctions
         {
-            get => _namespaceJunctions ?? (_namespaceJunctions = new InputList<Inputs.CacheNfsTargetNamespaceJunctionsArgs>());
+            get => _namespaceJunctions ?? (_namespaceJunctions = new InputList<Inputs.CacheNfsTargetNamespaceJunctionArgs>());
             set => _namespaceJunctions = value;
         }
 
@@ -160,14 +158,14 @@ namespace Pulumi.Azure.Hpc
         public Input<string>? Name { get; set; }
 
         [Input("namespaceJunctions")]
-        private InputList<Inputs.CacheNfsTargetNamespaceJunctionsGetArgs>? _namespaceJunctions;
+        private InputList<Inputs.CacheNfsTargetNamespaceJunctionGetArgs>? _namespaceJunctions;
 
         /// <summary>
         /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.CacheNfsTargetNamespaceJunctionsGetArgs> NamespaceJunctions
+        public InputList<Inputs.CacheNfsTargetNamespaceJunctionGetArgs> NamespaceJunctions
         {
-            get => _namespaceJunctions ?? (_namespaceJunctions = new InputList<Inputs.CacheNfsTargetNamespaceJunctionsGetArgs>());
+            get => _namespaceJunctions ?? (_namespaceJunctions = new InputList<Inputs.CacheNfsTargetNamespaceJunctionGetArgs>());
             set => _namespaceJunctions = value;
         }
 
@@ -192,91 +190,5 @@ namespace Pulumi.Azure.Hpc
         public CacheNfsTargetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CacheNfsTargetNamespaceJunctionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The client-facing file path of this NFS target within the HPC Cache NFS Target.
-        /// </summary>
-        [Input("namespacePath", required: true)]
-        public Input<string> NamespacePath { get; set; } = null!;
-
-        /// <summary>
-        /// The NFS export of this NFS target within the HPC Cache NFS Target.
-        /// </summary>
-        [Input("nfsExport", required: true)]
-        public Input<string> NfsExport { get; set; } = null!;
-
-        /// <summary>
-        /// The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
-        /// </summary>
-        [Input("targetPath")]
-        public Input<string>? TargetPath { get; set; }
-
-        public CacheNfsTargetNamespaceJunctionsArgs()
-        {
-        }
-    }
-
-    public sealed class CacheNfsTargetNamespaceJunctionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The client-facing file path of this NFS target within the HPC Cache NFS Target.
-        /// </summary>
-        [Input("namespacePath", required: true)]
-        public Input<string> NamespacePath { get; set; } = null!;
-
-        /// <summary>
-        /// The NFS export of this NFS target within the HPC Cache NFS Target.
-        /// </summary>
-        [Input("nfsExport", required: true)]
-        public Input<string> NfsExport { get; set; } = null!;
-
-        /// <summary>
-        /// The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
-        /// </summary>
-        [Input("targetPath")]
-        public Input<string>? TargetPath { get; set; }
-
-        public CacheNfsTargetNamespaceJunctionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CacheNfsTargetNamespaceJunctions
-    {
-        /// <summary>
-        /// The client-facing file path of this NFS target within the HPC Cache NFS Target.
-        /// </summary>
-        public readonly string NamespacePath;
-        /// <summary>
-        /// The NFS export of this NFS target within the HPC Cache NFS Target.
-        /// </summary>
-        public readonly string NfsExport;
-        /// <summary>
-        /// The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
-        /// </summary>
-        public readonly string? TargetPath;
-
-        [OutputConstructor]
-        private CacheNfsTargetNamespaceJunctions(
-            string namespacePath,
-            string nfsExport,
-            string? targetPath)
-        {
-            NamespacePath = namespacePath;
-            NfsExport = nfsExport;
-            TargetPath = targetPath;
-        }
-    }
     }
 }

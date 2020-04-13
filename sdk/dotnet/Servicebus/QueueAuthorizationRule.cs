@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ServiceBus
 {
     /// <summary>
     /// Manages an Authorization Rule for a ServiceBus Queue.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule.html.markdown.
     /// </summary>
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueueAuthorizationRule(string name, QueueAuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, args ?? new QueueAuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -106,7 +102,7 @@ namespace Pulumi.Azure.ServiceBus
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

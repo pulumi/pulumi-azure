@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAuthorizationRule.InvokeAsync() instead")]
-        public static Task<GetAuthorizationRuleResult> GetAuthorizationRule(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAuthorizationRule
     {
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAuthorizationRuleResult> InvokeAsync(GetAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationRuleResult>("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args ?? new GetAuthorizationRuleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
@@ -75,10 +62,15 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
+
     [OutputType]
     public sealed class GetAuthorizationRuleResult
     {
         public readonly string EventhubName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly bool? Listen;
         public readonly string Location;
         public readonly bool? Manage;
@@ -102,28 +94,37 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string SecondaryKey;
         public readonly bool? Send;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAuthorizationRuleResult(
             string eventhubName,
+
+            string id,
+
             bool? listen,
+
             string location,
+
             bool? manage,
+
             string name,
+
             string namespaceName,
+
             string primaryConnectionString,
+
             string primaryKey,
+
             string resourceGroupName,
+
             string secondaryConnectionString,
+
             string secondaryKey,
-            bool? send,
-            string id)
+
+            bool? send)
         {
             EventhubName = eventhubName;
+            Id = id;
             Listen = listen;
             Location = location;
             Manage = manage;
@@ -135,7 +136,6 @@ namespace Pulumi.Azure.EventHub
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryKey = secondaryKey;
             Send = send;
-            Id = id;
         }
     }
 }

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Iot
 {
     /// <summary>
     /// Manages an IotHub Device Provisioning Service Shared Access Policy
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_shared_access_policy.html.markdown.
     /// </summary>
     public partial class DpsSharedAccessPolicy : Pulumi.CustomResource
     {
@@ -99,7 +95,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DpsSharedAccessPolicy(string name, DpsSharedAccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy", name, args ?? new DpsSharedAccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

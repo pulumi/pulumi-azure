@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.PrivateLink
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access the connection status information about an existing Private Endpoint Connection.
-        /// 
-        /// &gt; **NOTE** Private Endpoint is currently in Public Preview.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_endpoint_connection.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetEndpointConnection.InvokeAsync() instead")]
-        public static Task<GetEndpointConnectionResult> GetEndpointConnection(GetEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConnectionResult>("azure:privatelink/getEndpointConnection:getEndpointConnection", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetEndpointConnection
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Azure.PrivateLink
         /// 
         /// &gt; **NOTE** Private Endpoint is currently in Public Preview.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_endpoint_connection.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEndpointConnectionResult> InvokeAsync(GetEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConnectionResult>("azure:privatelink/getEndpointConnection:getEndpointConnection", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConnectionResult>("azure:privatelink/getEndpointConnection:getEndpointConnection", args ?? new GetEndpointConnectionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetEndpointConnectionArgs : Pulumi.InvokeArgs
     {
@@ -58,9 +43,14 @@ namespace Pulumi.Azure.PrivateLink
         }
     }
 
+
     [OutputType]
     public sealed class GetEndpointConnectionResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The supported Azure location where the resource exists.
         /// </summary>
@@ -69,69 +59,26 @@ namespace Pulumi.Azure.PrivateLink
         /// The name of the private endpoint.
         /// </summary>
         public readonly string Name;
-        public readonly ImmutableArray<Outputs.GetEndpointConnectionPrivateServiceConnectionsResult> PrivateServiceConnections;
+        public readonly ImmutableArray<Outputs.GetEndpointConnectionPrivateServiceConnectionResult> PrivateServiceConnections;
         public readonly string ResourceGroupName;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetEndpointConnectionResult(
+            string id,
+
             string location,
+
             string name,
-            ImmutableArray<Outputs.GetEndpointConnectionPrivateServiceConnectionsResult> privateServiceConnections,
-            string resourceGroupName,
-            string id)
+
+            ImmutableArray<Outputs.GetEndpointConnectionPrivateServiceConnectionResult> privateServiceConnections,
+
+            string resourceGroupName)
         {
+            Id = id;
             Location = location;
             Name = name;
             PrivateServiceConnections = privateServiceConnections;
             ResourceGroupName = resourceGroupName;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetEndpointConnectionPrivateServiceConnectionsResult
-    {
-        /// <summary>
-        /// Specifies the Name of the private endpoint.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// Possible values are as follows:
-        /// Value | Meaning
-        /// -- | --
-        /// `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
-        /// `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
-        /// `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text
-        /// </summary>
-        public readonly string RequestResponse;
-        /// <summary>
-        /// The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
-        /// </summary>
-        public readonly string Status;
-
-        [OutputConstructor]
-        private GetEndpointConnectionPrivateServiceConnectionsResult(
-            string name,
-            string privateIpAddress,
-            string requestResponse,
-            string status)
-        {
-            Name = name;
-            PrivateIpAddress = privateIpAddress;
-            RequestResponse = requestResponse;
-            Status = status;
-        }
-    }
     }
 }

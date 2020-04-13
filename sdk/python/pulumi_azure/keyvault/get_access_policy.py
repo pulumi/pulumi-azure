@@ -59,8 +59,6 @@ def get_access_policy(name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
-
 
     :param str name: Specifies the name of the Management Template. Possible values are: `Key Management`,
            `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,

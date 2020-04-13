@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.KeyVault
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Key Vault Key.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetKey.InvokeAsync() instead")]
-        public static Task<GetKeyResult> GetKey(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure:keyvault/getKey:getKey", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetKey
     {
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Key.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure:keyvault/getKey:getKey", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure:keyvault/getKey:getKey", args ?? new GetKeyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetKeyArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
+
     [OutputType]
     public sealed class GetKeyResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.KeyVault
         /// The RSA public exponent of this Key Vault Key.
         /// </summary>
         public readonly string E;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A list of JSON web key operations assigned to this Key Vault Key
         /// </summary>
@@ -87,25 +79,31 @@ namespace Pulumi.Azure.KeyVault
         /// The current version of the Key Vault Key.
         /// </summary>
         public readonly string Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetKeyResult(
             string e,
+
+            string id,
+
             ImmutableArray<string> keyOpts,
+
             int keySize,
+
             string keyType,
+
             string keyVaultId,
+
             string n,
+
             string name,
+
             ImmutableDictionary<string, string> tags,
-            string version,
-            string id)
+
+            string version)
         {
             E = e;
+            Id = id;
             KeyOpts = keyOpts;
             KeySize = keySize;
             KeyType = keyType;
@@ -114,7 +112,6 @@ namespace Pulumi.Azure.KeyVault
             Name = name;
             Tags = tags;
             Version = version;
-            Id = id;
         }
     }
 }

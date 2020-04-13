@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages a Shared Image within a Shared Image Gallery.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
     /// </summary>
     public partial class SharedImage : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SharedImage(string name, SharedImageArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/sharedImage:SharedImage", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/sharedImage:SharedImage", name, args ?? new SharedImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -284,91 +280,5 @@ namespace Pulumi.Azure.Compute
         public SharedImageState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SharedImageIdentifierArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Offer Name for this Shared Image.
-        /// </summary>
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// The Publisher Name for this Gallery Image.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        /// <summary>
-        /// The Name of the SKU for this Gallery Image.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        public SharedImageIdentifierArgs()
-        {
-        }
-    }
-
-    public sealed class SharedImageIdentifierGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Offer Name for this Shared Image.
-        /// </summary>
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// The Publisher Name for this Gallery Image.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        /// <summary>
-        /// The Name of the SKU for this Gallery Image.
-        /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        public SharedImageIdentifierGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SharedImageIdentifier
-    {
-        /// <summary>
-        /// The Offer Name for this Shared Image.
-        /// </summary>
-        public readonly string Offer;
-        /// <summary>
-        /// The Publisher Name for this Gallery Image.
-        /// </summary>
-        public readonly string Publisher;
-        /// <summary>
-        /// The Name of the SKU for this Gallery Image.
-        /// </summary>
-        public readonly string Sku;
-
-        [OutputConstructor]
-        private SharedImageIdentifier(
-            string offer,
-            string publisher,
-            string sku)
-        {
-            Offer = offer;
-            Publisher = publisher;
-            Sku = sku;
-        }
-    }
     }
 }

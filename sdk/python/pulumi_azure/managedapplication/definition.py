@@ -65,7 +65,7 @@ class Definition(pulumi.CustomResource):
         """
         Manages a Managed Application Definition.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_application_definition.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a ServiceBus Subscription Rule.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
     /// </summary>
     public partial class SubscriptionRule : Pulumi.CustomResource
     {
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubscriptionRule(string name, SubscriptionRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventhub/subscriptionRule:SubscriptionRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:eventhub/subscriptionRule:SubscriptionRule", name, args ?? new SubscriptionRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -234,181 +232,5 @@ namespace Pulumi.Azure.EventHub
         public SubscriptionRuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SubscriptionRuleCorrelationFilterArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Content type of the message.
-        /// </summary>
-        [Input("contentType")]
-        public Input<string>? ContentType { get; set; }
-
-        /// <summary>
-        /// Identifier of the correlation.
-        /// </summary>
-        [Input("correlationId")]
-        public Input<string>? CorrelationId { get; set; }
-
-        /// <summary>
-        /// Application specific label.
-        /// </summary>
-        [Input("label")]
-        public Input<string>? Label { get; set; }
-
-        /// <summary>
-        /// Identifier of the message.
-        /// </summary>
-        [Input("messageId")]
-        public Input<string>? MessageId { get; set; }
-
-        /// <summary>
-        /// Address of the queue to reply to.
-        /// </summary>
-        [Input("replyTo")]
-        public Input<string>? ReplyTo { get; set; }
-
-        /// <summary>
-        /// Session identifier to reply to.
-        /// </summary>
-        [Input("replyToSessionId")]
-        public Input<string>? ReplyToSessionId { get; set; }
-
-        /// <summary>
-        /// Session identifier.
-        /// </summary>
-        [Input("sessionId")]
-        public Input<string>? SessionId { get; set; }
-
-        /// <summary>
-        /// Address to send to.
-        /// </summary>
-        [Input("to")]
-        public Input<string>? To { get; set; }
-
-        public SubscriptionRuleCorrelationFilterArgs()
-        {
-        }
-    }
-
-    public sealed class SubscriptionRuleCorrelationFilterGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Content type of the message.
-        /// </summary>
-        [Input("contentType")]
-        public Input<string>? ContentType { get; set; }
-
-        /// <summary>
-        /// Identifier of the correlation.
-        /// </summary>
-        [Input("correlationId")]
-        public Input<string>? CorrelationId { get; set; }
-
-        /// <summary>
-        /// Application specific label.
-        /// </summary>
-        [Input("label")]
-        public Input<string>? Label { get; set; }
-
-        /// <summary>
-        /// Identifier of the message.
-        /// </summary>
-        [Input("messageId")]
-        public Input<string>? MessageId { get; set; }
-
-        /// <summary>
-        /// Address of the queue to reply to.
-        /// </summary>
-        [Input("replyTo")]
-        public Input<string>? ReplyTo { get; set; }
-
-        /// <summary>
-        /// Session identifier to reply to.
-        /// </summary>
-        [Input("replyToSessionId")]
-        public Input<string>? ReplyToSessionId { get; set; }
-
-        /// <summary>
-        /// Session identifier.
-        /// </summary>
-        [Input("sessionId")]
-        public Input<string>? SessionId { get; set; }
-
-        /// <summary>
-        /// Address to send to.
-        /// </summary>
-        [Input("to")]
-        public Input<string>? To { get; set; }
-
-        public SubscriptionRuleCorrelationFilterGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SubscriptionRuleCorrelationFilter
-    {
-        /// <summary>
-        /// Content type of the message.
-        /// </summary>
-        public readonly string? ContentType;
-        /// <summary>
-        /// Identifier of the correlation.
-        /// </summary>
-        public readonly string? CorrelationId;
-        /// <summary>
-        /// Application specific label.
-        /// </summary>
-        public readonly string? Label;
-        /// <summary>
-        /// Identifier of the message.
-        /// </summary>
-        public readonly string? MessageId;
-        /// <summary>
-        /// Address of the queue to reply to.
-        /// </summary>
-        public readonly string? ReplyTo;
-        /// <summary>
-        /// Session identifier to reply to.
-        /// </summary>
-        public readonly string? ReplyToSessionId;
-        /// <summary>
-        /// Session identifier.
-        /// </summary>
-        public readonly string? SessionId;
-        /// <summary>
-        /// Address to send to.
-        /// </summary>
-        public readonly string? To;
-
-        [OutputConstructor]
-        private SubscriptionRuleCorrelationFilter(
-            string? contentType,
-            string? correlationId,
-            string? label,
-            string? messageId,
-            string? replyTo,
-            string? replyToSessionId,
-            string? sessionId,
-            string? to)
-        {
-            ContentType = contentType;
-            CorrelationId = correlationId;
-            Label = label;
-            MessageId = messageId;
-            ReplyTo = replyTo;
-            ReplyToSessionId = replyToSessionId;
-            SessionId = sessionId;
-            To = to;
-        }
-    }
     }
 }

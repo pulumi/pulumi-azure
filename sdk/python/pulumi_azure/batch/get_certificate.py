@@ -74,8 +74,6 @@ def get_certificate(account_name=None,name=None,resource_group_name=None,opts=No
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
-
 
     :param str account_name: The name of the Batch account.
     :param str name: The name of the Batch certificate.

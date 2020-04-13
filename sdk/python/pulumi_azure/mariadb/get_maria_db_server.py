@@ -106,8 +106,6 @@ def get_maria_db_server(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
-
 
     :param str name: The name of the MariaDB Server to retrieve information about.
     :param str resource_group_name: The name of the resource group where the MariaDB Server exists.

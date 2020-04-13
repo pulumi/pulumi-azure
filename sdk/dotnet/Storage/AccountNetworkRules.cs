@@ -17,10 +17,6 @@ namespace Pulumi.Azure.Storage
     /// &gt; **NOTE:** Only one `azure.storage.AccountNetworkRules` can be tied to an `azure.storage.Account`. Spurious changes will occur if more than `azure.storage.AccountNetworkRules` is tied to the same `azure.storage.Account`.
     /// 
     /// &gt; **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_network_rules.html.markdown.
     /// </summary>
     public partial class AccountNetworkRules : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountNetworkRules(string name, AccountNetworkRulesArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/accountNetworkRules:AccountNetworkRules", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/accountNetworkRules:AccountNetworkRules", name, args ?? new AccountNetworkRulesArgs(), MakeResourceOptions(options, ""))
         {
         }
 

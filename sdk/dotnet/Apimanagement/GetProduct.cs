@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ApiManagement
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing API Management Product.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetProduct.InvokeAsync() instead")]
-        public static Task<GetProductResult> GetProduct(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetProduct
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management Product.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductArgs(), options.WithVersion());
     }
+
 
     public sealed class GetProductArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
+
     [OutputType]
     public sealed class GetProductResult
     {
@@ -76,6 +64,10 @@ namespace Pulumi.Azure.ApiManagement
         /// The Display Name for this API Management Product.
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string ProductId;
         /// <summary>
         /// Is this Product Published?
@@ -94,36 +86,42 @@ namespace Pulumi.Azure.ApiManagement
         /// Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         /// </summary>
         public readonly string Terms;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetProductResult(
             string apiManagementName,
+
             bool approvalRequired,
+
             string description,
+
             string displayName,
+
+            string id,
+
             string productId,
+
             bool published,
+
             string resourceGroupName,
+
             bool subscriptionRequired,
+
             int subscriptionsLimit,
-            string terms,
-            string id)
+
+            string terms)
         {
             ApiManagementName = apiManagementName;
             ApprovalRequired = approvalRequired;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             ProductId = productId;
             Published = published;
             ResourceGroupName = resourceGroupName;
             SubscriptionRequired = subscriptionRequired;
             SubscriptionsLimit = subscriptionsLimit;
             Terms = terms;
-            Id = id;
         }
     }
 }

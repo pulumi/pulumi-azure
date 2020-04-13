@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DatabaseMigration
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Database Migration Service.
-        /// 
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_service.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetService.InvokeAsync() instead")]
-        public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:databasemigration/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetService
     {
         /// <summary>
         /// Use this data source to access information about an existing Database Migration Service.
         /// 
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_service.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:databasemigration/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:databasemigration/getService:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
@@ -56,9 +42,14 @@ namespace Pulumi.Azure.DatabaseMigration
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Azure location where the resource exists.
         /// </summary>
@@ -77,28 +68,30 @@ namespace Pulumi.Azure.DatabaseMigration
         /// A mapping of tags to assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string skuName,
+
             string subnetId,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             SkuName = skuName;
             SubnetId = subnetId;
             Tags = tags;
-            Id = id;
         }
     }
 }

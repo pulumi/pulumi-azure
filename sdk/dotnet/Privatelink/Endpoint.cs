@@ -15,10 +15,6 @@ namespace Pulumi.Azure.PrivateLink
     /// &gt; **NOTE** Private Endpoint is currently in Public Preview.
     /// 
     /// Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_endpoint.html.markdown.
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {
@@ -61,7 +57,7 @@ namespace Pulumi.Azure.PrivateLink
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatelink/endpoint:Endpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:privatelink/endpoint:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -168,157 +164,5 @@ namespace Pulumi.Azure.PrivateLink
         public EndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointPrivateServiceConnectionArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("isManualConnection", required: true)]
-        public Input<bool> IsManualConnection { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("privateConnectionResourceId", required: true)]
-        public Input<string> PrivateConnectionResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
-        /// </summary>
-        [Input("requestMessage")]
-        public Input<string>? RequestMessage { get; set; }
-
-        [Input("subresourceNames")]
-        private InputList<string>? _subresourceNames;
-
-        /// <summary>
-        /// A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
-        /// </summary>
-        public InputList<string> SubresourceNames
-        {
-            get => _subresourceNames ?? (_subresourceNames = new InputList<string>());
-            set => _subresourceNames = value;
-        }
-
-        public EndpointPrivateServiceConnectionArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointPrivateServiceConnectionGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("isManualConnection", required: true)]
-        public Input<bool> IsManualConnection { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("privateConnectionResourceId", required: true)]
-        public Input<string> PrivateConnectionResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
-        /// </summary>
-        [Input("requestMessage")]
-        public Input<string>? RequestMessage { get; set; }
-
-        [Input("subresourceNames")]
-        private InputList<string>? _subresourceNames;
-
-        /// <summary>
-        /// A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
-        /// </summary>
-        public InputList<string> SubresourceNames
-        {
-            get => _subresourceNames ?? (_subresourceNames = new InputList<string>());
-            set => _subresourceNames = value;
-        }
-
-        public EndpointPrivateServiceConnectionGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointPrivateServiceConnection
-    {
-        /// <summary>
-        /// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly bool IsManualConnection;
-        /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string PrivateConnectionResourceId;
-        /// <summary>
-        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
-        /// </summary>
-        public readonly string? RequestMessage;
-        /// <summary>
-        /// A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly ImmutableArray<string> SubresourceNames;
-
-        [OutputConstructor]
-        private EndpointPrivateServiceConnection(
-            bool isManualConnection,
-            string name,
-            string privateConnectionResourceId,
-            string privateIpAddress,
-            string? requestMessage,
-            ImmutableArray<string> subresourceNames)
-        {
-            IsManualConnection = isManualConnection;
-            Name = name;
-            PrivateConnectionResourceId = privateConnectionResourceId;
-            PrivateIpAddress = privateIpAddress;
-            RequestMessage = requestMessage;
-            SubresourceNames = subresourceNames;
-        }
-    }
     }
 }

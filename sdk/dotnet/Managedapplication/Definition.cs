@@ -11,8 +11,6 @@ namespace Pulumi.Azure.ManagedApplication
 {
     /// <summary>
     /// Manages a Managed Application Definition.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_application_definition.html.markdown.
     /// </summary>
     public partial class Definition : Pulumi.CustomResource
     {
@@ -20,7 +18,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// One or more `authorization` block defined below.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.DefinitionAuthorizations>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DefinitionAuthorization>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
@@ -97,7 +95,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Definition(string name, DefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure:managedapplication/definition:Definition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:managedapplication/definition:Definition", name, args ?? new DefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -135,14 +133,14 @@ namespace Pulumi.Azure.ManagedApplication
     public sealed class DefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("authorizations")]
-        private InputList<Inputs.DefinitionAuthorizationsArgs>? _authorizations;
+        private InputList<Inputs.DefinitionAuthorizationArgs>? _authorizations;
 
         /// <summary>
         /// One or more `authorization` block defined below.
         /// </summary>
-        public InputList<Inputs.DefinitionAuthorizationsArgs> Authorizations
+        public InputList<Inputs.DefinitionAuthorizationArgs> Authorizations
         {
-            get => _authorizations ?? (_authorizations = new InputList<Inputs.DefinitionAuthorizationsArgs>());
+            get => _authorizations ?? (_authorizations = new InputList<Inputs.DefinitionAuthorizationArgs>());
             set => _authorizations = value;
         }
 
@@ -226,14 +224,14 @@ namespace Pulumi.Azure.ManagedApplication
     public sealed class DefinitionState : Pulumi.ResourceArgs
     {
         [Input("authorizations")]
-        private InputList<Inputs.DefinitionAuthorizationsGetArgs>? _authorizations;
+        private InputList<Inputs.DefinitionAuthorizationGetArgs>? _authorizations;
 
         /// <summary>
         /// One or more `authorization` block defined below.
         /// </summary>
-        public InputList<Inputs.DefinitionAuthorizationsGetArgs> Authorizations
+        public InputList<Inputs.DefinitionAuthorizationGetArgs> Authorizations
         {
-            get => _authorizations ?? (_authorizations = new InputList<Inputs.DefinitionAuthorizationsGetArgs>());
+            get => _authorizations ?? (_authorizations = new InputList<Inputs.DefinitionAuthorizationGetArgs>());
             set => _authorizations = value;
         }
 
@@ -312,73 +310,5 @@ namespace Pulumi.Azure.ManagedApplication
         public DefinitionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DefinitionAuthorizationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-        /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public Input<string> RoleDefinitionId { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        /// </summary>
-        [Input("servicePrincipalId", required: true)]
-        public Input<string> ServicePrincipalId { get; set; } = null!;
-
-        public DefinitionAuthorizationsArgs()
-        {
-        }
-    }
-
-    public sealed class DefinitionAuthorizationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-        /// </summary>
-        [Input("roleDefinitionId", required: true)]
-        public Input<string> RoleDefinitionId { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        /// </summary>
-        [Input("servicePrincipalId", required: true)]
-        public Input<string> ServicePrincipalId { get; set; } = null!;
-
-        public DefinitionAuthorizationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DefinitionAuthorizations
-    {
-        /// <summary>
-        /// Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
-        /// </summary>
-        public readonly string RoleDefinitionId;
-        /// <summary>
-        /// Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
-        /// </summary>
-        public readonly string ServicePrincipalId;
-
-        [OutputConstructor]
-        private DefinitionAuthorizations(
-            string roleDefinitionId,
-            string servicePrincipalId)
-        {
-            RoleDefinitionId = roleDefinitionId;
-            ServicePrincipalId = servicePrincipalId;
-        }
-    }
     }
 }

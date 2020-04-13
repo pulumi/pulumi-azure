@@ -57,8 +57,6 @@ def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
-
 
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
     :param bool attached: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).

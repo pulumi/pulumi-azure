@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Policy
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPolicyDefintion.InvokeAsync() instead")]
-        public static Task<GetPolicyDefintionResult> GetPolicyDefintion(GetPolicyDefintionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPolicyDefintion
     {
         /// <summary>
         /// Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyDefintionResult> InvokeAsync(GetPolicyDefintionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPolicyDefintionArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Policy
         }
     }
 
+
     [OutputType]
     public sealed class GetPolicyDefintionResult
     {
@@ -62,6 +50,10 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string Description;
         public readonly string DisplayName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? ManagementGroupId;
         /// <summary>
         /// Any Metadata defined in the Policy.
@@ -87,26 +79,32 @@ namespace Pulumi.Azure.Policy
         /// The Type of Policy.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPolicyDefintionResult(
             string description,
+
             string displayName,
+
+            string id,
+
             string? managementGroupId,
+
             string metadata,
+
             string name,
+
             string parameters,
+
             string policyRule,
+
             string policyType,
-            string type,
-            string id)
+
+            string type)
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             ManagementGroupId = managementGroupId;
             Metadata = metadata;
             Name = name;
@@ -114,7 +112,6 @@ namespace Pulumi.Azure.Policy
             PolicyRule = policyRule;
             PolicyType = policyType;
             Type = type;
-            Id = id;
         }
     }
 }

@@ -15,10 +15,6 @@ namespace Pulumi.Azure.KeyVault
     /// &gt; **NOTE:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     /// 
     /// &gt; **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_access_policy.html.markdown.
     /// </summary>
     public partial class AccessPolicy : Pulumi.CustomResource
     {
@@ -90,7 +86,7 @@ namespace Pulumi.Azure.KeyVault
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPolicy(string name, AccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:keyvault/accessPolicy:AccessPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:keyvault/accessPolicy:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

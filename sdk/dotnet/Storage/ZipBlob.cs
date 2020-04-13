@@ -9,10 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Storage
 {
+    /// <summary>
+    /// 
+    /// Deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
+    /// </summary>
     public partial class ZipBlob : Pulumi.CustomResource
     {
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
+
+        [Output("content")]
+        public Output<Archive?> Content { get; private set; } = null!;
 
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
@@ -28,9 +35,6 @@ namespace Pulumi.Azure.Storage
 
         [Output("size")]
         public Output<int?> Size { get; private set; } = null!;
-
-        [Output("content")]
-        public Output<Archive?> Content { get; private set; } = null!;
 
         [Output("sourceContent")]
         public Output<string?> SourceContent { get; private set; } = null!;
@@ -59,7 +63,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ZipBlob(string name, ZipBlobArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/zipBlob:ZipBlob", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/zipBlob:ZipBlob", name, args ?? new ZipBlobArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -99,6 +103,9 @@ namespace Pulumi.Azure.Storage
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
 
+        [Input("content")]
+        public Input<Archive>? Content { get; set; }
+
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
@@ -118,9 +125,6 @@ namespace Pulumi.Azure.Storage
 
         [Input("size")]
         public Input<int>? Size { get; set; }
-
-        [Input("content")]
-        public Input<Archive>? Content { get; set; }
 
         [Input("sourceContent")]
         public Input<string>? SourceContent { get; set; }
@@ -147,6 +151,9 @@ namespace Pulumi.Azure.Storage
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
 
+        [Input("content")]
+        public Input<Archive>? Content { get; set; }
+
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
@@ -166,9 +173,6 @@ namespace Pulumi.Azure.Storage
 
         [Input("size")]
         public Input<int>? Size { get; set; }
-
-        [Input("content")]
-        public Input<Archive>? Content { get; set; }
 
         [Input("sourceContent")]
         public Input<string>? SourceContent { get; set; }

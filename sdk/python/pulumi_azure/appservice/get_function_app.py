@@ -116,8 +116,6 @@ def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
-
 
     :param str name: The name of the Function App resource.
     :param str resource_group_name: The name of the Resource Group where the Function App exists.

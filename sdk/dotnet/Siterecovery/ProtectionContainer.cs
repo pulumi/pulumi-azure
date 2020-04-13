@@ -11,10 +11,6 @@ namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
     /// Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container.html.markdown.
     /// </summary>
     public partial class ProtectionContainer : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionContainer(string name, ProtectionContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure:siterecovery/protectionContainer:ProtectionContainer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:siterecovery/protectionContainer:ProtectionContainer", name, args ?? new ProtectionContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 

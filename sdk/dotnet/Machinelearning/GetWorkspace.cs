@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.MachineLearning
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Machine Learning Workspace.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/machine_learning_workspace.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetWorkspace.InvokeAsync() instead")]
-        public static Task<GetWorkspaceResult> GetWorkspace(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetWorkspace
     {
         /// <summary>
         /// Use this data source to access information about an existing Machine Learning Workspace.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/machine_learning_workspace.html.markdown.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
     {
@@ -50,9 +38,14 @@ namespace Pulumi.Azure.MachineLearning
         }
     }
 
+
     [OutputType]
     public sealed class GetWorkspaceResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The location where the Machine Learning Workspace exists.
         /// </summary>
@@ -63,24 +56,24 @@ namespace Pulumi.Azure.MachineLearning
         /// A mapping of tags assigned to the Machine Learning Workspace.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

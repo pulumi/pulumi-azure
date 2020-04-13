@@ -71,8 +71,6 @@ def get_service(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_service.html.markdown.
-
 
     :param str name: Specify the name of the database migration service.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the database migration service exists

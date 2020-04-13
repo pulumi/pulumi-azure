@@ -15,10 +15,6 @@ namespace Pulumi.Azure.MySql
     /// ## Disclaimers
     /// 
     /// &gt; **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_configuration.html.markdown.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource
     {
@@ -55,7 +51,7 @@ namespace Pulumi.Azure.MySql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure:mysql/configuration:Configuration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mysql/configuration:Configuration", name, args ?? new ConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Batch
 {
     /// <summary>
     /// Manages an Azure Batch account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure:batch/account:Account", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:batch/account:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -248,73 +244,5 @@ namespace Pulumi.Azure.Batch
         public AccountState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AccountKeyVaultReferenceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Azure identifier of the Azure KeyVault to use.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// The HTTPS URL of the Azure KeyVault to use.
-        /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        public AccountKeyVaultReferenceArgs()
-        {
-        }
-    }
-
-    public sealed class AccountKeyVaultReferenceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Azure identifier of the Azure KeyVault to use.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// The HTTPS URL of the Azure KeyVault to use.
-        /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        public AccountKeyVaultReferenceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AccountKeyVaultReference
-    {
-        /// <summary>
-        /// The Azure identifier of the Azure KeyVault to use.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The HTTPS URL of the Azure KeyVault to use.
-        /// </summary>
-        public readonly string Url;
-
-        [OutputConstructor]
-        private AccountKeyVaultReference(
-            string id,
-            string url)
-        {
-            Id = id;
-            Url = url;
-        }
-    }
     }
 }

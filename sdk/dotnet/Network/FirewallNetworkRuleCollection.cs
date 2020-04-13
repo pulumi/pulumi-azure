@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Network Rule Collection within an Azure Firewall.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_network_rule_collection.html.markdown.
     /// </summary>
     public partial class FirewallNetworkRuleCollection : Pulumi.CustomResource
     {
@@ -52,7 +48,7 @@ namespace Pulumi.Azure.Network
         /// One or more `rule` blocks as defined below.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.FirewallNetworkRuleCollectionRules>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallNetworkRuleCollectionRule>> Rules { get; private set; } = null!;
 
 
         /// <summary>
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallNetworkRuleCollection(string name, FirewallNetworkRuleCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, args ?? new FirewallNetworkRuleCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -131,14 +127,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rules", required: true)]
-        private InputList<Inputs.FirewallNetworkRuleCollectionRulesArgs>? _rules;
+        private InputList<Inputs.FirewallNetworkRuleCollectionRuleArgs>? _rules;
 
         /// <summary>
         /// One or more `rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FirewallNetworkRuleCollectionRulesArgs> Rules
+        public InputList<Inputs.FirewallNetworkRuleCollectionRuleArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.FirewallNetworkRuleCollectionRulesArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.FirewallNetworkRuleCollectionRuleArgs>());
             set => _rules = value;
         }
 
@@ -180,207 +176,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("rules")]
-        private InputList<Inputs.FirewallNetworkRuleCollectionRulesGetArgs>? _rules;
+        private InputList<Inputs.FirewallNetworkRuleCollectionRuleGetArgs>? _rules;
 
         /// <summary>
         /// One or more `rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FirewallNetworkRuleCollectionRulesGetArgs> Rules
+        public InputList<Inputs.FirewallNetworkRuleCollectionRuleGetArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.FirewallNetworkRuleCollectionRulesGetArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.FirewallNetworkRuleCollectionRuleGetArgs>());
             set => _rules = value;
         }
 
         public FirewallNetworkRuleCollectionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FirewallNetworkRuleCollectionRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a description for the rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("destinationAddresses", required: true)]
-        private InputList<string>? _destinationAddresses;
-
-        /// <summary>
-        /// A list of destination IP addresses and/or IP ranges.
-        /// </summary>
-        public InputList<string> DestinationAddresses
-        {
-            get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
-            set => _destinationAddresses = value;
-        }
-
-        [Input("destinationPorts", required: true)]
-        private InputList<string>? _destinationPorts;
-
-        /// <summary>
-        /// A list of destination ports.
-        /// </summary>
-        public InputList<string> DestinationPorts
-        {
-            get => _destinationPorts ?? (_destinationPorts = new InputList<string>());
-            set => _destinationPorts = value;
-        }
-
-        /// <summary>
-        /// Specifies the name of the rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("protocols", required: true)]
-        private InputList<string>? _protocols;
-
-        /// <summary>
-        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
-        /// </summary>
-        public InputList<string> Protocols
-        {
-            get => _protocols ?? (_protocols = new InputList<string>());
-            set => _protocols = value;
-        }
-
-        [Input("sourceAddresses", required: true)]
-        private InputList<string>? _sourceAddresses;
-
-        /// <summary>
-        /// A list of source IP addresses and/or IP ranges.
-        /// </summary>
-        public InputList<string> SourceAddresses
-        {
-            get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
-            set => _sourceAddresses = value;
-        }
-
-        public FirewallNetworkRuleCollectionRulesArgs()
-        {
-        }
-    }
-
-    public sealed class FirewallNetworkRuleCollectionRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a description for the rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("destinationAddresses", required: true)]
-        private InputList<string>? _destinationAddresses;
-
-        /// <summary>
-        /// A list of destination IP addresses and/or IP ranges.
-        /// </summary>
-        public InputList<string> DestinationAddresses
-        {
-            get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
-            set => _destinationAddresses = value;
-        }
-
-        [Input("destinationPorts", required: true)]
-        private InputList<string>? _destinationPorts;
-
-        /// <summary>
-        /// A list of destination ports.
-        /// </summary>
-        public InputList<string> DestinationPorts
-        {
-            get => _destinationPorts ?? (_destinationPorts = new InputList<string>());
-            set => _destinationPorts = value;
-        }
-
-        /// <summary>
-        /// Specifies the name of the rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("protocols", required: true)]
-        private InputList<string>? _protocols;
-
-        /// <summary>
-        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
-        /// </summary>
-        public InputList<string> Protocols
-        {
-            get => _protocols ?? (_protocols = new InputList<string>());
-            set => _protocols = value;
-        }
-
-        [Input("sourceAddresses", required: true)]
-        private InputList<string>? _sourceAddresses;
-
-        /// <summary>
-        /// A list of source IP addresses and/or IP ranges.
-        /// </summary>
-        public InputList<string> SourceAddresses
-        {
-            get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
-            set => _sourceAddresses = value;
-        }
-
-        public FirewallNetworkRuleCollectionRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FirewallNetworkRuleCollectionRules
-    {
-        /// <summary>
-        /// Specifies a description for the rule.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// A list of destination IP addresses and/or IP ranges.
-        /// </summary>
-        public readonly ImmutableArray<string> DestinationAddresses;
-        /// <summary>
-        /// A list of destination ports.
-        /// </summary>
-        public readonly ImmutableArray<string> DestinationPorts;
-        /// <summary>
-        /// Specifies the name of the rule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
-        /// </summary>
-        public readonly ImmutableArray<string> Protocols;
-        /// <summary>
-        /// A list of source IP addresses and/or IP ranges.
-        /// </summary>
-        public readonly ImmutableArray<string> SourceAddresses;
-
-        [OutputConstructor]
-        private FirewallNetworkRuleCollectionRules(
-            string? description,
-            ImmutableArray<string> destinationAddresses,
-            ImmutableArray<string> destinationPorts,
-            string name,
-            ImmutableArray<string> protocols,
-            ImmutableArray<string> sourceAddresses)
-        {
-            Description = description;
-            DestinationAddresses = destinationAddresses;
-            DestinationPorts = destinationPorts;
-            Name = name;
-            Protocols = protocols;
-            SourceAddresses = sourceAddresses;
-        }
-    }
     }
 }

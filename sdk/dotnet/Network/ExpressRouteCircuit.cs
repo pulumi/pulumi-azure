@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages an ExpressRoute circuit.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
     /// </summary>
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExpressRouteCircuit(string name, ExpressRouteCircuitArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, args ?? new ExpressRouteCircuitArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -272,73 +268,5 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ExpressRouteCircuitSkuArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-        /// </summary>
-        [Input("family", required: true)]
-        public Input<string> Family { get; set; } = null!;
-
-        /// <summary>
-        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public ExpressRouteCircuitSkuArgs()
-        {
-        }
-    }
-
-    public sealed class ExpressRouteCircuitSkuGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-        /// </summary>
-        [Input("family", required: true)]
-        public Input<string> Family { get; set; } = null!;
-
-        /// <summary>
-        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-        /// </summary>
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
-
-        public ExpressRouteCircuitSkuGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ExpressRouteCircuitSku
-    {
-        /// <summary>
-        /// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-        /// </summary>
-        public readonly string Family;
-        /// <summary>
-        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-        /// </summary>
-        public readonly string Tier;
-
-        [OutputConstructor]
-        private ExpressRouteCircuitSku(
-            string family,
-            string tier)
-        {
-            Family = family;
-            Tier = tier;
-        }
-    }
     }
 }

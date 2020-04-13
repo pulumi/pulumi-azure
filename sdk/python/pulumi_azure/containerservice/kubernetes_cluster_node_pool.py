@@ -82,8 +82,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in.

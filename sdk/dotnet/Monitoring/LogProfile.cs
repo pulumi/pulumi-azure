@@ -13,10 +13,6 @@ namespace Pulumi.Azure.Monitoring
     /// Manages a [Log Profile](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.
     /// 
     /// &gt; **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_log_profile.html.markdown.
     /// </summary>
     public partial class LogProfile : Pulumi.CustomResource
     {
@@ -66,7 +62,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogProfile(string name, LogProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/logProfile:LogProfile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/logProfile:LogProfile", name, args ?? new LogProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -211,73 +207,5 @@ namespace Pulumi.Azure.Monitoring
         public LogProfileState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LogProfileRetentionPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days for the retention policy. Defaults to 0.
-        /// </summary>
-        [Input("days")]
-        public Input<int>? Days { get; set; }
-
-        /// <summary>
-        /// A boolean value to indicate whether the retention policy is enabled.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public LogProfileRetentionPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class LogProfileRetentionPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days for the retention policy. Defaults to 0.
-        /// </summary>
-        [Input("days")]
-        public Input<int>? Days { get; set; }
-
-        /// <summary>
-        /// A boolean value to indicate whether the retention policy is enabled.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public LogProfileRetentionPolicyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LogProfileRetentionPolicy
-    {
-        /// <summary>
-        /// The number of days for the retention policy. Defaults to 0.
-        /// </summary>
-        public readonly int? Days;
-        /// <summary>
-        /// A boolean value to indicate whether the retention policy is enabled.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private LogProfileRetentionPolicy(
-            int? days,
-            bool enabled)
-        {
-            Days = days;
-            Enabled = enabled;
-        }
-    }
     }
 }

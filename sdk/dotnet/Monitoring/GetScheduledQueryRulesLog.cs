@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Monitoring
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetScheduledQueryRulesLog.InvokeAsync() instead")]
-        public static Task<GetScheduledQueryRulesLogResult> GetScheduledQueryRulesLog(GetScheduledQueryRulesLogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetScheduledQueryRulesLog
     {
         /// <summary>
         /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduledQueryRulesLogResult> InvokeAsync(GetScheduledQueryRulesLogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogArgs(), options.WithVersion());
     }
+
 
     public sealed class GetScheduledQueryRulesLogArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
+
     [OutputType]
     public sealed class GetScheduledQueryRulesLogResult
     {
@@ -61,7 +49,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `criteria` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetScheduledQueryRulesLogCriteriasResult> Criterias;
+        public readonly ImmutableArray<Outputs.GetScheduledQueryRulesLogCriteriaResult> Criterias;
         /// <summary>
         /// The resource URI over which log search query is to be run.
         /// </summary>
@@ -74,6 +62,10 @@ namespace Pulumi.Azure.Monitoring
         /// Whether this scheduled query rule is enabled.
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         /// <summary>
         /// Name of the dimension.
@@ -81,88 +73,39 @@ namespace Pulumi.Azure.Monitoring
         public readonly string Name;
         public readonly string ResourceGroupName;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetScheduledQueryRulesLogResult(
             ImmutableArray<string> authorizedResourceIds,
-            ImmutableArray<Outputs.GetScheduledQueryRulesLogCriteriasResult> criterias,
+
+            ImmutableArray<Outputs.GetScheduledQueryRulesLogCriteriaResult> criterias,
+
             string dataSourceId,
+
             string description,
+
             bool enabled,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AuthorizedResourceIds = authorizedResourceIds;
             Criterias = criterias;
             DataSourceId = dataSourceId;
             Description = description;
             Enabled = enabled;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetScheduledQueryRulesLogCriteriasDimensionsResult
-    {
-        /// <summary>
-        /// Specifies the name of the scheduled query rule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Operator for dimension values.
-        /// </summary>
-        public readonly string Operator;
-        /// <summary>
-        /// List of dimension values.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private GetScheduledQueryRulesLogCriteriasDimensionsResult(
-            string name,
-            string @operator,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Operator = @operator;
-            Values = values;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetScheduledQueryRulesLogCriteriasResult
-    {
-        /// <summary>
-        /// A `dimension` block as defined below.
-        /// </summary>
-        public readonly ImmutableArray<GetScheduledQueryRulesLogCriteriasDimensionsResult> Dimensions;
-        /// <summary>
-        /// Name of the metric.
-        /// </summary>
-        public readonly string MetricName;
-
-        [OutputConstructor]
-        private GetScheduledQueryRulesLogCriteriasResult(
-            ImmutableArray<GetScheduledQueryRulesLogCriteriasDimensionsResult> dimensions,
-            string metricName)
-        {
-            Dimensions = dimensions;
-            MetricName = metricName;
-        }
-    }
     }
 }

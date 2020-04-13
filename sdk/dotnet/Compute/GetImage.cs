@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Image.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetImage.InvokeAsync() instead")]
-        public static Task<GetImageResult> GetImage(GetImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure:compute/getImage:getImage", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetImage
     {
         /// <summary>
         /// Use this data source to access information about an existing Image.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure:compute/getImage:getImage", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure:compute/getImage:getImage", args ?? new GetImageArgs(), options.WithVersion());
     }
+
 
     public sealed class GetImageArgs : Pulumi.InvokeArgs
     {
@@ -66,13 +53,18 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetImageResult
     {
         /// <summary>
         /// a collection of `data_disk` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetImageDataDisksResult> DataDisks;
+        public readonly ImmutableArray<Outputs.GetImageDataDiskResult> DataDisks;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// the Azure Location where this Image exists.
         /// </summary>
@@ -85,7 +77,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// a `os_disk` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetImageOsDisksResult> OsDisks;
+        public readonly ImmutableArray<Outputs.GetImageOsDiskResult> OsDisks;
         public readonly string ResourceGroupName;
         public readonly bool? SortDescending;
         /// <summary>
@@ -96,25 +88,31 @@ namespace Pulumi.Azure.Compute
         /// is zone resiliency enabled?
         /// </summary>
         public readonly bool ZoneResilient;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetImageResult(
-            ImmutableArray<Outputs.GetImageDataDisksResult> dataDisks,
+            ImmutableArray<Outputs.GetImageDataDiskResult> dataDisks,
+
+            string id,
+
             string location,
+
             string? name,
+
             string? nameRegex,
-            ImmutableArray<Outputs.GetImageOsDisksResult> osDisks,
+
+            ImmutableArray<Outputs.GetImageOsDiskResult> osDisks,
+
             string resourceGroupName,
+
             bool? sortDescending,
+
             ImmutableDictionary<string, string> tags,
-            bool zoneResilient,
-            string id)
+
+            bool zoneResilient)
         {
             DataDisks = dataDisks;
+            Id = id;
             Location = location;
             Name = name;
             NameRegex = nameRegex;
@@ -123,97 +121,6 @@ namespace Pulumi.Azure.Compute
             SortDescending = sortDescending;
             Tags = tags;
             ZoneResilient = zoneResilient;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetImageDataDisksResult
-    {
-        /// <summary>
-        /// the URI in Azure storage of the blob used to create the image.
-        /// </summary>
-        public readonly string BlobUri;
-        /// <summary>
-        /// the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
-        /// </summary>
-        public readonly string Caching;
-        /// <summary>
-        /// the logical unit number of the data disk.
-        /// </summary>
-        public readonly int Lun;
-        /// <summary>
-        /// the ID of the Managed Disk used as the Data Disk Image.
-        /// </summary>
-        public readonly string ManagedDiskId;
-        /// <summary>
-        /// the size of this Data Disk in GB.
-        /// </summary>
-        public readonly int SizeGb;
-
-        [OutputConstructor]
-        private GetImageDataDisksResult(
-            string blobUri,
-            string caching,
-            int lun,
-            string managedDiskId,
-            int sizeGb)
-        {
-            BlobUri = blobUri;
-            Caching = caching;
-            Lun = lun;
-            ManagedDiskId = managedDiskId;
-            SizeGb = sizeGb;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetImageOsDisksResult
-    {
-        /// <summary>
-        /// the URI in Azure storage of the blob used to create the image.
-        /// </summary>
-        public readonly string BlobUri;
-        /// <summary>
-        /// the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
-        /// </summary>
-        public readonly string Caching;
-        /// <summary>
-        /// the ID of the Managed Disk used as the Data Disk Image.
-        /// </summary>
-        public readonly string ManagedDiskId;
-        /// <summary>
-        /// the State of the OS used in the Image, such as `Generalized`.
-        /// </summary>
-        public readonly string OsState;
-        /// <summary>
-        /// the type of Operating System used on the OS Disk. such as `Linux` or `Windows`.
-        /// </summary>
-        public readonly string OsType;
-        /// <summary>
-        /// the size of this Data Disk in GB.
-        /// </summary>
-        public readonly int SizeGb;
-
-        [OutputConstructor]
-        private GetImageOsDisksResult(
-            string blobUri,
-            string caching,
-            string managedDiskId,
-            string osState,
-            string osType,
-            int sizeGb)
-        {
-            BlobUri = blobUri;
-            Caching = caching;
-            ManagedDiskId = managedDiskId;
-            OsState = osState;
-            OsType = osType;
-            SizeGb = sizeGb;
-        }
-    }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Automation
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Automation Account.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccount.InvokeAsync() instead")]
-        public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccount
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation Account.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
+
     [OutputType]
     public sealed class GetAccountResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.Automation
         /// The Endpoint for this Auomation Account.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The Primary Access Key for the Automation Account.
@@ -71,26 +63,27 @@ namespace Pulumi.Azure.Automation
         /// The Secondary Access Key for the Automation Account.
         /// </summary>
         public readonly string SecondaryKey;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountResult(
             string endpoint,
+
+            string id,
+
             string name,
+
             string primaryKey,
+
             string resourceGroupName,
-            string secondaryKey,
-            string id)
+
+            string secondaryKey)
         {
             Endpoint = endpoint;
+            Id = id;
             Name = name;
             PrimaryKey = primaryKey;
             ResourceGroupName = resourceGroupName;
             SecondaryKey = secondaryKey;
-            Id = id;
         }
     }
 }

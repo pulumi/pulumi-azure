@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Proximity
 {
     /// <summary>
     /// Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/proximity_placement_group.html.markdown.
     /// </summary>
     public partial class PlacementGroup : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.Proximity
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PlacementGroup(string name, PlacementGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:proximity/placementGroup:PlacementGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:proximity/placementGroup:PlacementGroup", name, args ?? new PlacementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

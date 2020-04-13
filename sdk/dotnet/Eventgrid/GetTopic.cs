@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventGrid
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing EventGrid Topic
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventgrid_topic.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetTopic.InvokeAsync() instead")]
-        public static Task<GetTopicResult> GetTopic(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetTopic
     {
         /// <summary>
         /// Use this data source to access information about an existing EventGrid Topic
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventgrid_topic.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:eventgrid/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithVersion());
     }
+
 
     public sealed class GetTopicArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +49,7 @@ namespace Pulumi.Azure.EventGrid
         }
     }
 
+
     [OutputType]
     public sealed class GetTopicResult
     {
@@ -69,6 +57,10 @@ namespace Pulumi.Azure.EventGrid
         /// The Endpoint associated with the EventGrid Topic.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Name;
         /// <summary>
@@ -81,30 +73,33 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string SecondaryAccessKey;
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetTopicResult(
             string endpoint,
+
+            string id,
+
             string location,
+
             string name,
+
             string primaryAccessKey,
+
             string resourceGroupName,
+
             string secondaryAccessKey,
-            ImmutableDictionary<string, string>? tags,
-            string id)
+
+            ImmutableDictionary<string, string>? tags)
         {
             Endpoint = endpoint;
+            Id = id;
             Location = location;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;
             ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;
             Tags = tags;
-            Id = id;
         }
     }
 }

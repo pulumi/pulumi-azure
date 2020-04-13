@@ -54,8 +54,6 @@ def get_workspace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Machine Learning Workspace.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/machine_learning_workspace.html.markdown.
-
 
     :param str name: The name of the Machine Learning Workspace exists.
     :param str resource_group_name: The name of the Resource Group where the Machine Learning Workspace exists.

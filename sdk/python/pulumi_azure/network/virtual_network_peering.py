@@ -66,8 +66,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         Virtual Network peerings cannot be created, updated or deleted concurrently.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from  VMs

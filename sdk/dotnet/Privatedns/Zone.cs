@@ -11,10 +11,6 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_zone.html.markdown.
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Zone(string name, ZoneArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatedns/zone:Zone", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:privatedns/zone:Zone", name, args ?? new ZoneArgs(), MakeResourceOptions(options, ""))
         {
         }
 

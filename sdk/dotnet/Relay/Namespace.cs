@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Relay
 {
     /// <summary>
     /// Manages an Azure Relay Namespace.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
     /// </summary>
     public partial class Namespace : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.Relay
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Namespace(string name, NamespaceArgs args, CustomResourceOptions? options = null)
-            : base("azure:relay/namespace:Namespace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:relay/namespace:Namespace", name, args ?? new NamespaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 

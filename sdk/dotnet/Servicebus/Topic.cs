@@ -13,10 +13,6 @@ namespace Pulumi.Azure.ServiceBus
     /// Manages a ServiceBus Topic.
     /// 
     /// **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
     /// </summary>
     public partial class Topic : Pulumi.CustomResource
     {
@@ -123,7 +119,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Topic(string name, TopicArgs args, CustomResourceOptions? options = null)
-            : base("azure:servicebus/topic:Topic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:servicebus/topic:Topic", name, args ?? new TopicArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -136,7 +132,7 @@ namespace Pulumi.Azure.ServiceBus
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/topic:Topic" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/topic:Topic"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

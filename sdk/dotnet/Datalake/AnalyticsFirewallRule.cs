@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataLake
 {
     /// <summary>
     /// Manages a Azure Data Lake Analytics Firewall Rule.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_firewall_rule.html.markdown.
     /// </summary>
     public partial class AnalyticsFirewallRule : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.DataLake
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnalyticsFirewallRule(string name, AnalyticsFirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, args ?? new AnalyticsFirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

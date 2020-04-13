@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Cdn
 {
     /// <summary>
     /// A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format &lt;endpointname&gt;.azureedge.net.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {
@@ -28,7 +24,7 @@ namespace Pulumi.Azure.Cdn
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         /// </summary>
         [Output("geoFilters")]
-        public Output<ImmutableArray<Outputs.EndpointGeoFilters>> GeoFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointGeoFilter>> GeoFilters { get; private set; } = null!;
 
         /// <summary>
         /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
@@ -73,12 +69,6 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> OptimizationType { get; private set; } = null!;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-        /// </summary>
-        [Output("origins")]
-        public Output<ImmutableArray<Outputs.EndpointOrigins>> Origins { get; private set; } = null!;
-
-        /// <summary>
         /// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         /// </summary>
         [Output("originHostHeader")]
@@ -89,6 +79,12 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Output("originPath")]
         public Output<string> OriginPath { get; private set; } = null!;
+
+        /// <summary>
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        /// </summary>
+        [Output("origins")]
+        public Output<ImmutableArray<Outputs.EndpointOrigin>> Origins { get; private set; } = null!;
 
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
@@ -129,7 +125,7 @@ namespace Pulumi.Azure.Cdn
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure:cdn/endpoint:Endpoint", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cdn/endpoint:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -179,14 +175,14 @@ namespace Pulumi.Azure.Cdn
         }
 
         [Input("geoFilters")]
-        private InputList<Inputs.EndpointGeoFiltersArgs>? _geoFilters;
+        private InputList<Inputs.EndpointGeoFilterArgs>? _geoFilters;
 
         /// <summary>
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.EndpointGeoFiltersArgs> GeoFilters
+        public InputList<Inputs.EndpointGeoFilterArgs> GeoFilters
         {
-            get => _geoFilters ?? (_geoFilters = new InputList<Inputs.EndpointGeoFiltersArgs>());
+            get => _geoFilters ?? (_geoFilters = new InputList<Inputs.EndpointGeoFilterArgs>());
             set => _geoFilters = value;
         }
 
@@ -226,18 +222,6 @@ namespace Pulumi.Azure.Cdn
         [Input("optimizationType")]
         public Input<string>? OptimizationType { get; set; }
 
-        [Input("origins", required: true)]
-        private InputList<Inputs.EndpointOriginsArgs>? _origins;
-
-        /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-        /// </summary>
-        public InputList<Inputs.EndpointOriginsArgs> Origins
-        {
-            get => _origins ?? (_origins = new InputList<Inputs.EndpointOriginsArgs>());
-            set => _origins = value;
-        }
-
         /// <summary>
         /// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         /// </summary>
@@ -249,6 +233,18 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("originPath")]
         public Input<string>? OriginPath { get; set; }
+
+        [Input("origins", required: true)]
+        private InputList<Inputs.EndpointOriginArgs>? _origins;
+
+        /// <summary>
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        /// </summary>
+        public InputList<Inputs.EndpointOriginArgs> Origins
+        {
+            get => _origins ?? (_origins = new InputList<Inputs.EndpointOriginArgs>());
+            set => _origins = value;
+        }
 
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
@@ -306,14 +302,14 @@ namespace Pulumi.Azure.Cdn
         }
 
         [Input("geoFilters")]
-        private InputList<Inputs.EndpointGeoFiltersGetArgs>? _geoFilters;
+        private InputList<Inputs.EndpointGeoFilterGetArgs>? _geoFilters;
 
         /// <summary>
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.EndpointGeoFiltersGetArgs> GeoFilters
+        public InputList<Inputs.EndpointGeoFilterGetArgs> GeoFilters
         {
-            get => _geoFilters ?? (_geoFilters = new InputList<Inputs.EndpointGeoFiltersGetArgs>());
+            get => _geoFilters ?? (_geoFilters = new InputList<Inputs.EndpointGeoFilterGetArgs>());
             set => _geoFilters = value;
         }
 
@@ -359,18 +355,6 @@ namespace Pulumi.Azure.Cdn
         [Input("optimizationType")]
         public Input<string>? OptimizationType { get; set; }
 
-        [Input("origins")]
-        private InputList<Inputs.EndpointOriginsGetArgs>? _origins;
-
-        /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-        /// </summary>
-        public InputList<Inputs.EndpointOriginsGetArgs> Origins
-        {
-            get => _origins ?? (_origins = new InputList<Inputs.EndpointOriginsGetArgs>());
-            set => _origins = value;
-        }
-
         /// <summary>
         /// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         /// </summary>
@@ -382,6 +366,18 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("originPath")]
         public Input<string>? OriginPath { get; set; }
+
+        [Input("origins")]
+        private InputList<Inputs.EndpointOriginGetArgs>? _origins;
+
+        /// <summary>
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        /// </summary>
+        public InputList<Inputs.EndpointOriginGetArgs> Origins
+        {
+            get => _origins ?? (_origins = new InputList<Inputs.EndpointOriginGetArgs>());
+            set => _origins = value;
+        }
 
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
@@ -422,199 +418,5 @@ namespace Pulumi.Azure.Cdn
         public EndpointState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class EndpointGeoFiltersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        [Input("countryCodes", required: true)]
-        private InputList<string>? _countryCodes;
-
-        /// <summary>
-        /// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
-        /// </summary>
-        public InputList<string> CountryCodes
-        {
-            get => _countryCodes ?? (_countryCodes = new InputList<string>());
-            set => _countryCodes = value;
-        }
-
-        /// <summary>
-        /// The relative path applicable to geo filter.
-        /// </summary>
-        [Input("relativePath", required: true)]
-        public Input<string> RelativePath { get; set; } = null!;
-
-        public EndpointGeoFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointGeoFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        [Input("countryCodes", required: true)]
-        private InputList<string>? _countryCodes;
-
-        /// <summary>
-        /// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
-        /// </summary>
-        public InputList<string> CountryCodes
-        {
-            get => _countryCodes ?? (_countryCodes = new InputList<string>());
-            set => _countryCodes = value;
-        }
-
-        /// <summary>
-        /// The relative path applicable to geo filter.
-        /// </summary>
-        [Input("relativePath", required: true)]
-        public Input<string> RelativePath { get; set; } = null!;
-
-        public EndpointGeoFiltersGetArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointOriginsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("hostName", required: true)]
-        public Input<string> HostName { get; set; } = null!;
-
-        /// <summary>
-        /// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("httpPort")]
-        public Input<int>? HttpPort { get; set; }
-
-        /// <summary>
-        /// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("httpsPort")]
-        public Input<int>? HttpsPort { get; set; }
-
-        /// <summary>
-        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public EndpointOriginsArgs()
-        {
-        }
-    }
-
-    public sealed class EndpointOriginsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("hostName", required: true)]
-        public Input<string> HostName { get; set; } = null!;
-
-        /// <summary>
-        /// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("httpPort")]
-        public Input<int>? HttpPort { get; set; }
-
-        /// <summary>
-        /// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("httpsPort")]
-        public Input<int>? HttpsPort { get; set; }
-
-        /// <summary>
-        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public EndpointOriginsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class EndpointGeoFilters
-    {
-        /// <summary>
-        /// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
-        /// </summary>
-        public readonly string Action;
-        /// <summary>
-        /// A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
-        /// </summary>
-        public readonly ImmutableArray<string> CountryCodes;
-        /// <summary>
-        /// The relative path applicable to geo filter.
-        /// </summary>
-        public readonly string RelativePath;
-
-        [OutputConstructor]
-        private EndpointGeoFilters(
-            string action,
-            ImmutableArray<string> countryCodes,
-            string relativePath)
-        {
-            Action = action;
-            CountryCodes = countryCodes;
-            RelativePath = relativePath;
-        }
-    }
-
-    [OutputType]
-    public sealed class EndpointOrigins
-    {
-        /// <summary>
-        /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string HostName;
-        /// <summary>
-        /// The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int? HttpPort;
-        /// <summary>
-        /// The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int? HttpsPort;
-        /// <summary>
-        /// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private EndpointOrigins(
-            string hostName,
-            int? httpPort,
-            int? httpsPort,
-            string name)
-        {
-            HostName = hostName;
-            HttpPort = httpPort;
-            HttpsPort = httpsPort;
-            Name = name;
-        }
-    }
     }
 }

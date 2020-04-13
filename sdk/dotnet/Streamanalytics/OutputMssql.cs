@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Output to Microsoft SQL Server Database.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
     /// </summary>
     public partial class OutputMssql : Pulumi.CustomResource
     {
@@ -72,7 +68,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OutputMssql(string name, OutputMssqlArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/outputMssql:OutputMssql", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/outputMssql:OutputMssql", name, args ?? new OutputMssqlArgs(), MakeResourceOptions(options, ""))
         {
         }
 

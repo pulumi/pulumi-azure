@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Core
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Subscription.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSubscription.InvokeAsync() instead")]
-        public static Task<GetSubscriptionResult> GetSubscription(GetSubscriptionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:core/getSubscription:getSubscription", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSubscription
     {
         /// <summary>
         /// Use this data source to access information about an existing Subscription.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:core/getSubscription:getSubscription", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:core/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSubscriptionArgs : Pulumi.InvokeArgs
     {
@@ -48,6 +35,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
+
     [OutputType]
     public sealed class GetSubscriptionResult
     {
@@ -55,6 +43,10 @@ namespace Pulumi.Azure.Core
         /// The subscription display name.
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The subscription location placement ID.
         /// </summary>
@@ -79,30 +71,33 @@ namespace Pulumi.Azure.Core
         /// The subscription tenant ID.
         /// </summary>
         public readonly string TenantId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSubscriptionResult(
             string displayName,
+
+            string id,
+
             string locationPlacementId,
+
             string quotaId,
+
             string spendingLimit,
+
             string state,
+
             string subscriptionId,
-            string tenantId,
-            string id)
+
+            string tenantId)
         {
             DisplayName = displayName;
+            Id = id;
             LocationPlacementId = locationPlacementId;
             QuotaId = quotaId;
             SpendingLimit = spendingLimit;
             State = state;
             SubscriptionId = subscriptionId;
             TenantId = tenantId;
-            Id = id;
         }
     }
 }

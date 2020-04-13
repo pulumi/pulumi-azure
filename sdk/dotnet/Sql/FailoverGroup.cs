@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Sql
 {
     /// <summary>
     /// Create a failover group of databases on a collection of Azure SQL servers.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
     /// </summary>
     public partial class FailoverGroup : Pulumi.CustomResource
     {
@@ -40,7 +36,7 @@ namespace Pulumi.Azure.Sql
         /// A list of secondary servers as documented below
         /// </summary>
         [Output("partnerServers")]
-        public Output<ImmutableArray<Outputs.FailoverGroupPartnerServers>> PartnerServers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FailoverGroupPartnerServer>> PartnerServers { get; private set; } = null!;
 
         /// <summary>
         /// A read/write policy as documented below
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FailoverGroup(string name, FailoverGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:sql/failoverGroup:FailoverGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:sql/failoverGroup:FailoverGroup", name, args ?? new FailoverGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -143,14 +139,14 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Name { get; set; }
 
         [Input("partnerServers", required: true)]
-        private InputList<Inputs.FailoverGroupPartnerServersArgs>? _partnerServers;
+        private InputList<Inputs.FailoverGroupPartnerServerArgs>? _partnerServers;
 
         /// <summary>
         /// A list of secondary servers as documented below
         /// </summary>
-        public InputList<Inputs.FailoverGroupPartnerServersArgs> PartnerServers
+        public InputList<Inputs.FailoverGroupPartnerServerArgs> PartnerServers
         {
-            get => _partnerServers ?? (_partnerServers = new InputList<Inputs.FailoverGroupPartnerServersArgs>());
+            get => _partnerServers ?? (_partnerServers = new InputList<Inputs.FailoverGroupPartnerServerArgs>());
             set => _partnerServers = value;
         }
 
@@ -222,14 +218,14 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Name { get; set; }
 
         [Input("partnerServers")]
-        private InputList<Inputs.FailoverGroupPartnerServersGetArgs>? _partnerServers;
+        private InputList<Inputs.FailoverGroupPartnerServerGetArgs>? _partnerServers;
 
         /// <summary>
         /// A list of secondary servers as documented below
         /// </summary>
-        public InputList<Inputs.FailoverGroupPartnerServersGetArgs> PartnerServers
+        public InputList<Inputs.FailoverGroupPartnerServerGetArgs> PartnerServers
         {
-            get => _partnerServers ?? (_partnerServers = new InputList<Inputs.FailoverGroupPartnerServersGetArgs>());
+            get => _partnerServers ?? (_partnerServers = new InputList<Inputs.FailoverGroupPartnerServerGetArgs>());
             set => _partnerServers = value;
         }
 
@@ -278,192 +274,5 @@ namespace Pulumi.Azure.Sql
         public FailoverGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FailoverGroupPartnerServersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// the SQL server ID
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// the location of the failover group.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// local replication role of the failover group instance.
-        /// </summary>
-        [Input("role")]
-        public Input<string>? Role { get; set; }
-
-        public FailoverGroupPartnerServersArgs()
-        {
-        }
-    }
-
-    public sealed class FailoverGroupPartnerServersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// the SQL server ID
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// the location of the failover group.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// local replication role of the failover group instance.
-        /// </summary>
-        [Input("role")]
-        public Input<string>? Role { get; set; }
-
-        public FailoverGroupPartnerServersGetArgs()
-        {
-        }
-    }
-
-    public sealed class FailoverGroupReadWriteEndpointFailoverPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-        /// </summary>
-        [Input("graceMinutes")]
-        public Input<int>? GraceMinutes { get; set; }
-
-        /// <summary>
-        /// the failover mode. Possible values are `Manual`, `Automatic`
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public FailoverGroupReadWriteEndpointFailoverPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class FailoverGroupReadWriteEndpointFailoverPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-        /// </summary>
-        [Input("graceMinutes")]
-        public Input<int>? GraceMinutes { get; set; }
-
-        /// <summary>
-        /// the failover mode. Possible values are `Manual`, `Automatic`
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public FailoverGroupReadWriteEndpointFailoverPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class FailoverGroupReadonlyEndpointFailoverPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public FailoverGroupReadonlyEndpointFailoverPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class FailoverGroupReadonlyEndpointFailoverPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public FailoverGroupReadonlyEndpointFailoverPolicyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FailoverGroupPartnerServers
-    {
-        /// <summary>
-        /// the SQL server ID
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// the location of the failover group.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// local replication role of the failover group instance.
-        /// </summary>
-        public readonly string Role;
-
-        [OutputConstructor]
-        private FailoverGroupPartnerServers(
-            string id,
-            string location,
-            string role)
-        {
-            Id = id;
-            Location = location;
-            Role = role;
-        }
-    }
-
-    [OutputType]
-    public sealed class FailoverGroupReadWriteEndpointFailoverPolicy
-    {
-        /// <summary>
-        /// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
-        /// </summary>
-        public readonly int? GraceMinutes;
-        /// <summary>
-        /// the failover mode. Possible values are `Manual`, `Automatic`
-        /// </summary>
-        public readonly string Mode;
-
-        [OutputConstructor]
-        private FailoverGroupReadWriteEndpointFailoverPolicy(
-            int? graceMinutes,
-            string mode)
-        {
-            GraceMinutes = graceMinutes;
-            Mode = mode;
-        }
-    }
-
-    [OutputType]
-    public sealed class FailoverGroupReadonlyEndpointFailoverPolicy
-    {
-        /// <summary>
-        /// Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
-        /// </summary>
-        public readonly string Mode;
-
-        [OutputConstructor]
-        private FailoverGroupReadonlyEndpointFailoverPolicy(string mode)
-        {
-            Mode = mode;
-        }
-    }
     }
 }

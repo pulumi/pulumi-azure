@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DevSpace
 {
     /// <summary>
     /// Manages a DevSpace Controller.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
     /// </summary>
     public partial class Controller : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.DevSpace
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Controller(string name, ControllerArgs args, CustomResourceOptions? options = null)
-            : base("azure:devspace/controller:Controller", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:devspace/controller:Controller", name, args ?? new ControllerArgs(), MakeResourceOptions(options, ""))
         {
         }
 

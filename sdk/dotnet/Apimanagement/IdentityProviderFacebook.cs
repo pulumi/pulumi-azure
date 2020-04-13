@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management Facebook Identity Provider.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_facebook.html.markdown.
     /// </summary>
     public partial class IdentityProviderFacebook : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityProviderFacebook(string name, IdentityProviderFacebookArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, args ?? new IdentityProviderFacebookArgs(), MakeResourceOptions(options, ""))
         {
         }
 

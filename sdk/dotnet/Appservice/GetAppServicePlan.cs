@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAppServicePlan.InvokeAsync() instead")]
-        public static Task<GetAppServicePlanResult> GetAppServicePlan(GetAppServicePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAppServicePlan
     {
         /// <summary>
         /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAppServicePlanArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
+
     [OutputType]
     public sealed class GetAppServicePlanResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.AppService
         /// The ID of the App Service Environment where the App Service Plan is located.
         /// </summary>
         public readonly string AppServiceEnvironmentId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A flag that indicates if it's a xenon plan (support for Windows Container)
         /// </summary>
@@ -99,28 +91,37 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAppServicePlanResult(
             string appServiceEnvironmentId,
+
+            string id,
+
             bool isXenon,
+
             string kind,
+
             string location,
+
             int maximumElasticWorkerCount,
+
             int maximumNumberOfWorkers,
+
             string name,
+
             bool perSiteScaling,
+
             bool reserved,
+
             string resourceGroupName,
+
             Outputs.GetAppServicePlanSkuResult sku,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AppServiceEnvironmentId = appServiceEnvironmentId;
+            Id = id;
             IsXenon = isXenon;
             Kind = kind;
             Location = location;
@@ -132,39 +133,6 @@ namespace Pulumi.Azure.AppService
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAppServicePlanSkuResult
-    {
-        /// <summary>
-        /// Specifies the number of workers associated with this App Service Plan.
-        /// </summary>
-        public readonly int Capacity;
-        /// <summary>
-        /// Specifies the plan's instance size.
-        /// </summary>
-        public readonly string Size;
-        /// <summary>
-        /// Specifies the plan's pricing tier.
-        /// </summary>
-        public readonly string Tier;
-
-        [OutputConstructor]
-        private GetAppServicePlanSkuResult(
-            int capacity,
-            string size,
-            string tier)
-        {
-            Capacity = capacity;
-            Size = size;
-            Tier = tier;
-        }
-    }
     }
 }

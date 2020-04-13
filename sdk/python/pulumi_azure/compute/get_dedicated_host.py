@@ -60,8 +60,6 @@ def get_dedicated_host(dedicated_host_group_name=None,name=None,resource_group_n
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
-
 
     :param str dedicated_host_group_name: Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
     :param str name: Specifies the name of the Dedicated Host.

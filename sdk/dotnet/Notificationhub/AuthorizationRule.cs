@@ -11,10 +11,6 @@ namespace Pulumi.Azure.NotificationHub
 {
     /// <summary>
     /// Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_authorization_rule.html.markdown.
     /// </summary>
     public partial class AuthorizationRule : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.NotificationHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthorizationRule(string name, AuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:notificationhub/authorizationRule:AuthorizationRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:notificationhub/authorizationRule:AuthorizationRule", name, args ?? new AuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

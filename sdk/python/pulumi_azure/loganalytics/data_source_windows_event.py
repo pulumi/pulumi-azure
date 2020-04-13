@@ -34,7 +34,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         """
         Manages a Log Analytics Windows Event DataSource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_datasource_windows_event.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

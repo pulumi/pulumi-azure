@@ -11,10 +11,6 @@ namespace Pulumi.Azure.AppInsights
 {
     /// <summary>
     /// Manages an Application Insights component.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
     /// </summary>
     public partial class Insights : Pulumi.CustomResource
     {
@@ -95,7 +91,7 @@ namespace Pulumi.Azure.AppInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Insights(string name, InsightsArgs args, CustomResourceOptions? options = null)
-            : base("azure:appinsights/insights:Insights", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:appinsights/insights:Insights", name, args ?? new InsightsArgs(), MakeResourceOptions(options, ""))
         {
         }
 

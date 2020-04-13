@@ -11,10 +11,6 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a Gremlin Graph within a Cosmos DB Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_graph.html.markdown.
     /// </summary>
     public partial class GremlinGraph : Pulumi.CustomResource
     {
@@ -28,7 +24,7 @@ namespace Pulumi.Azure.CosmosDB
         /// The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("conflictResolutionPolicies")]
-        public Output<ImmutableArray<Outputs.GremlinGraphConflictResolutionPolicies>> ConflictResolutionPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GremlinGraphConflictResolutionPolicy>> ConflictResolutionPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -40,7 +36,7 @@ namespace Pulumi.Azure.CosmosDB
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("indexPolicies")]
-        public Output<ImmutableArray<Outputs.GremlinGraphIndexPolicies>> IndexPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GremlinGraphIndexPolicy>> IndexPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
@@ -70,7 +66,7 @@ namespace Pulumi.Azure.CosmosDB
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("uniqueKeys")]
-        public Output<ImmutableArray<Outputs.GremlinGraphUniqueKeys>> UniqueKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GremlinGraphUniqueKey>> UniqueKeys { get; private set; } = null!;
 
 
         /// <summary>
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GremlinGraph(string name, GremlinGraphArgs args, CustomResourceOptions? options = null)
-            : base("azure:cosmosdb/gremlinGraph:GremlinGraph", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cosmosdb/gremlinGraph:GremlinGraph", name, args ?? new GremlinGraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -125,14 +121,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> AccountName { get; set; } = null!;
 
         [Input("conflictResolutionPolicies", required: true)]
-        private InputList<Inputs.GremlinGraphConflictResolutionPoliciesArgs>? _conflictResolutionPolicies;
+        private InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs>? _conflictResolutionPolicies;
 
         /// <summary>
         /// The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.GremlinGraphConflictResolutionPoliciesArgs> ConflictResolutionPolicies
+        public InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs> ConflictResolutionPolicies
         {
-            get => _conflictResolutionPolicies ?? (_conflictResolutionPolicies = new InputList<Inputs.GremlinGraphConflictResolutionPoliciesArgs>());
+            get => _conflictResolutionPolicies ?? (_conflictResolutionPolicies = new InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs>());
             set => _conflictResolutionPolicies = value;
         }
 
@@ -143,14 +139,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> DatabaseName { get; set; } = null!;
 
         [Input("indexPolicies", required: true)]
-        private InputList<Inputs.GremlinGraphIndexPoliciesArgs>? _indexPolicies;
+        private InputList<Inputs.GremlinGraphIndexPolicyArgs>? _indexPolicies;
 
         /// <summary>
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.GremlinGraphIndexPoliciesArgs> IndexPolicies
+        public InputList<Inputs.GremlinGraphIndexPolicyArgs> IndexPolicies
         {
-            get => _indexPolicies ?? (_indexPolicies = new InputList<Inputs.GremlinGraphIndexPoliciesArgs>());
+            get => _indexPolicies ?? (_indexPolicies = new InputList<Inputs.GremlinGraphIndexPolicyArgs>());
             set => _indexPolicies = value;
         }
 
@@ -179,14 +175,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? Throughput { get; set; }
 
         [Input("uniqueKeys")]
-        private InputList<Inputs.GremlinGraphUniqueKeysArgs>? _uniqueKeys;
+        private InputList<Inputs.GremlinGraphUniqueKeyArgs>? _uniqueKeys;
 
         /// <summary>
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.GremlinGraphUniqueKeysArgs> UniqueKeys
+        public InputList<Inputs.GremlinGraphUniqueKeyArgs> UniqueKeys
         {
-            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.GremlinGraphUniqueKeysArgs>());
+            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.GremlinGraphUniqueKeyArgs>());
             set => _uniqueKeys = value;
         }
 
@@ -204,14 +200,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AccountName { get; set; }
 
         [Input("conflictResolutionPolicies")]
-        private InputList<Inputs.GremlinGraphConflictResolutionPoliciesGetArgs>? _conflictResolutionPolicies;
+        private InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>? _conflictResolutionPolicies;
 
         /// <summary>
         /// The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.GremlinGraphConflictResolutionPoliciesGetArgs> ConflictResolutionPolicies
+        public InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs> ConflictResolutionPolicies
         {
-            get => _conflictResolutionPolicies ?? (_conflictResolutionPolicies = new InputList<Inputs.GremlinGraphConflictResolutionPoliciesGetArgs>());
+            get => _conflictResolutionPolicies ?? (_conflictResolutionPolicies = new InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>());
             set => _conflictResolutionPolicies = value;
         }
 
@@ -222,14 +218,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DatabaseName { get; set; }
 
         [Input("indexPolicies")]
-        private InputList<Inputs.GremlinGraphIndexPoliciesGetArgs>? _indexPolicies;
+        private InputList<Inputs.GremlinGraphIndexPolicyGetArgs>? _indexPolicies;
 
         /// <summary>
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.GremlinGraphIndexPoliciesGetArgs> IndexPolicies
+        public InputList<Inputs.GremlinGraphIndexPolicyGetArgs> IndexPolicies
         {
-            get => _indexPolicies ?? (_indexPolicies = new InputList<Inputs.GremlinGraphIndexPoliciesGetArgs>());
+            get => _indexPolicies ?? (_indexPolicies = new InputList<Inputs.GremlinGraphIndexPolicyGetArgs>());
             set => _indexPolicies = value;
         }
 
@@ -258,278 +254,19 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? Throughput { get; set; }
 
         [Input("uniqueKeys")]
-        private InputList<Inputs.GremlinGraphUniqueKeysGetArgs>? _uniqueKeys;
+        private InputList<Inputs.GremlinGraphUniqueKeyGetArgs>? _uniqueKeys;
 
         /// <summary>
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.GremlinGraphUniqueKeysGetArgs> UniqueKeys
+        public InputList<Inputs.GremlinGraphUniqueKeyGetArgs> UniqueKeys
         {
-            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.GremlinGraphUniqueKeysGetArgs>());
+            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.GremlinGraphUniqueKeyGetArgs>());
             set => _uniqueKeys = value;
         }
 
         public GremlinGraphState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GremlinGraphConflictResolutionPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The conflict resolution path in the case of LastWriterWins mode.
-        /// </summary>
-        [Input("conflictResolutionPath")]
-        public Input<string>? ConflictResolutionPath { get; set; }
-
-        /// <summary>
-        /// The procedure to resolve conflicts in the case of custom mode.
-        /// </summary>
-        [Input("conflictResolutionProcedure")]
-        public Input<string>? ConflictResolutionProcedure { get; set; }
-
-        /// <summary>
-        /// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public GremlinGraphConflictResolutionPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class GremlinGraphConflictResolutionPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The conflict resolution path in the case of LastWriterWins mode.
-        /// </summary>
-        [Input("conflictResolutionPath")]
-        public Input<string>? ConflictResolutionPath { get; set; }
-
-        /// <summary>
-        /// The procedure to resolve conflicts in the case of custom mode.
-        /// </summary>
-        [Input("conflictResolutionProcedure")]
-        public Input<string>? ConflictResolutionProcedure { get; set; }
-
-        /// <summary>
-        /// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
-        /// </summary>
-        [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
-
-        public GremlinGraphConflictResolutionPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class GremlinGraphIndexPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates if the indexing policy is automatic. Defaults to `true`.
-        /// </summary>
-        [Input("automatic")]
-        public Input<bool>? Automatic { get; set; }
-
-        [Input("excludedPaths")]
-        private InputList<string>? _excludedPaths;
-
-        /// <summary>
-        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        /// </summary>
-        public InputList<string> ExcludedPaths
-        {
-            get => _excludedPaths ?? (_excludedPaths = new InputList<string>());
-            set => _excludedPaths = value;
-        }
-
-        [Input("includedPaths")]
-        private InputList<string>? _includedPaths;
-
-        /// <summary>
-        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        /// </summary>
-        public InputList<string> IncludedPaths
-        {
-            get => _includedPaths ?? (_includedPaths = new InputList<string>());
-            set => _includedPaths = value;
-        }
-
-        /// <summary>
-        /// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
-        /// </summary>
-        [Input("indexingMode", required: true)]
-        public Input<string> IndexingMode { get; set; } = null!;
-
-        public GremlinGraphIndexPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class GremlinGraphIndexPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Indicates if the indexing policy is automatic. Defaults to `true`.
-        /// </summary>
-        [Input("automatic")]
-        public Input<bool>? Automatic { get; set; }
-
-        [Input("excludedPaths")]
-        private InputList<string>? _excludedPaths;
-
-        /// <summary>
-        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        /// </summary>
-        public InputList<string> ExcludedPaths
-        {
-            get => _excludedPaths ?? (_excludedPaths = new InputList<string>());
-            set => _excludedPaths = value;
-        }
-
-        [Input("includedPaths")]
-        private InputList<string>? _includedPaths;
-
-        /// <summary>
-        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        /// </summary>
-        public InputList<string> IncludedPaths
-        {
-            get => _includedPaths ?? (_includedPaths = new InputList<string>());
-            set => _includedPaths = value;
-        }
-
-        /// <summary>
-        /// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
-        /// </summary>
-        [Input("indexingMode", required: true)]
-        public Input<string> IndexingMode { get; set; } = null!;
-
-        public GremlinGraphIndexPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class GremlinGraphUniqueKeysArgs : Pulumi.ResourceArgs
-    {
-        [Input("paths", required: true)]
-        private InputList<string>? _paths;
-
-        /// <summary>
-        /// A list of paths to use for this unique key.
-        /// </summary>
-        public InputList<string> Paths
-        {
-            get => _paths ?? (_paths = new InputList<string>());
-            set => _paths = value;
-        }
-
-        public GremlinGraphUniqueKeysArgs()
-        {
-        }
-    }
-
-    public sealed class GremlinGraphUniqueKeysGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("paths", required: true)]
-        private InputList<string>? _paths;
-
-        /// <summary>
-        /// A list of paths to use for this unique key.
-        /// </summary>
-        public InputList<string> Paths
-        {
-            get => _paths ?? (_paths = new InputList<string>());
-            set => _paths = value;
-        }
-
-        public GremlinGraphUniqueKeysGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GremlinGraphConflictResolutionPolicies
-    {
-        /// <summary>
-        /// The conflict resolution path in the case of LastWriterWins mode.
-        /// </summary>
-        public readonly string? ConflictResolutionPath;
-        /// <summary>
-        /// The procedure to resolve conflicts in the case of custom mode.
-        /// </summary>
-        public readonly string? ConflictResolutionProcedure;
-        /// <summary>
-        /// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
-        /// </summary>
-        public readonly string Mode;
-
-        [OutputConstructor]
-        private GremlinGraphConflictResolutionPolicies(
-            string? conflictResolutionPath,
-            string? conflictResolutionProcedure,
-            string mode)
-        {
-            ConflictResolutionPath = conflictResolutionPath;
-            ConflictResolutionProcedure = conflictResolutionProcedure;
-            Mode = mode;
-        }
-    }
-
-    [OutputType]
-    public sealed class GremlinGraphIndexPolicies
-    {
-        /// <summary>
-        /// Indicates if the indexing policy is automatic. Defaults to `true`.
-        /// </summary>
-        public readonly bool? Automatic;
-        /// <summary>
-        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        /// </summary>
-        public readonly ImmutableArray<string> ExcludedPaths;
-        /// <summary>
-        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        /// </summary>
-        public readonly ImmutableArray<string> IncludedPaths;
-        /// <summary>
-        /// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
-        /// </summary>
-        public readonly string IndexingMode;
-
-        [OutputConstructor]
-        private GremlinGraphIndexPolicies(
-            bool? automatic,
-            ImmutableArray<string> excludedPaths,
-            ImmutableArray<string> includedPaths,
-            string indexingMode)
-        {
-            Automatic = automatic;
-            ExcludedPaths = excludedPaths;
-            IncludedPaths = includedPaths;
-            IndexingMode = indexingMode;
-        }
-    }
-
-    [OutputType]
-    public sealed class GremlinGraphUniqueKeys
-    {
-        /// <summary>
-        /// A list of paths to use for this unique key.
-        /// </summary>
-        public readonly ImmutableArray<string> Paths;
-
-        [OutputConstructor]
-        private GremlinGraphUniqueKeys(ImmutableArray<string> paths)
-        {
-            Paths = paths;
-        }
-    }
     }
 }

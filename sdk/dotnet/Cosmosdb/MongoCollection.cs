@@ -11,10 +11,6 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a Mongo Collection within a Cosmos DB Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
     /// </summary>
     public partial class MongoCollection : Pulumi.CustomResource
     {
@@ -66,7 +62,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MongoCollection(string name, MongoCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:cosmosdb/mongoCollection:MongoCollection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cosmosdb/mongoCollection:MongoCollection", name, args ?? new MongoCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

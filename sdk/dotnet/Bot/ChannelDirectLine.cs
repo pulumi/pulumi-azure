@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Bot
 {
     /// <summary>
     /// Manages a Directline integration for a Bot Channel
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_directline.markdown.
     /// </summary>
     public partial class ChannelDirectLine : Pulumi.CustomResource
     {
@@ -28,7 +24,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         [Output("sites")]
-        public Output<ImmutableArray<Outputs.ChannelDirectLineSites>> Sites { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ChannelDirectLineSite>> Sites { get; private set; } = null!;
 
 
         /// <summary>
@@ -39,7 +35,7 @@ namespace Pulumi.Azure.Bot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ChannelDirectLine(string name, ChannelDirectLineArgs args, CustomResourceOptions? options = null)
-            : base("azure:bot/channelDirectLine:ChannelDirectLine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:bot/channelDirectLine:ChannelDirectLine", name, args ?? new ChannelDirectLineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -86,10 +82,10 @@ namespace Pulumi.Azure.Bot
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("sites", required: true)]
-        private InputList<Inputs.ChannelDirectLineSitesArgs>? _sites;
-        public InputList<Inputs.ChannelDirectLineSitesArgs> Sites
+        private InputList<Inputs.ChannelDirectLineSiteArgs>? _sites;
+        public InputList<Inputs.ChannelDirectLineSiteArgs> Sites
         {
-            get => _sites ?? (_sites = new InputList<Inputs.ChannelDirectLineSitesArgs>());
+            get => _sites ?? (_sites = new InputList<Inputs.ChannelDirectLineSiteArgs>());
             set => _sites = value;
         }
 
@@ -110,138 +106,15 @@ namespace Pulumi.Azure.Bot
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("sites")]
-        private InputList<Inputs.ChannelDirectLineSitesGetArgs>? _sites;
-        public InputList<Inputs.ChannelDirectLineSitesGetArgs> Sites
+        private InputList<Inputs.ChannelDirectLineSiteGetArgs>? _sites;
+        public InputList<Inputs.ChannelDirectLineSiteGetArgs> Sites
         {
-            get => _sites ?? (_sites = new InputList<Inputs.ChannelDirectLineSitesGetArgs>());
+            get => _sites ?? (_sites = new InputList<Inputs.ChannelDirectLineSiteGetArgs>());
             set => _sites = value;
         }
 
         public ChannelDirectLineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ChannelDirectLineSitesArgs : Pulumi.ResourceArgs
-    {
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("enhancedAuthenticationEnabled")]
-        public Input<bool>? EnhancedAuthenticationEnabled { get; set; }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        [Input("key2")]
-        public Input<string>? Key2 { get; set; }
-
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("trustedOrigins")]
-        private InputList<string>? _trustedOrigins;
-        public InputList<string> TrustedOrigins
-        {
-            get => _trustedOrigins ?? (_trustedOrigins = new InputList<string>());
-            set => _trustedOrigins = value;
-        }
-
-        [Input("v1Allowed")]
-        public Input<bool>? V1Allowed { get; set; }
-
-        [Input("v3Allowed")]
-        public Input<bool>? V3Allowed { get; set; }
-
-        public ChannelDirectLineSitesArgs()
-        {
-        }
-    }
-
-    public sealed class ChannelDirectLineSitesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        [Input("enhancedAuthenticationEnabled")]
-        public Input<bool>? EnhancedAuthenticationEnabled { get; set; }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        [Input("key2")]
-        public Input<string>? Key2 { get; set; }
-
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("trustedOrigins")]
-        private InputList<string>? _trustedOrigins;
-        public InputList<string> TrustedOrigins
-        {
-            get => _trustedOrigins ?? (_trustedOrigins = new InputList<string>());
-            set => _trustedOrigins = value;
-        }
-
-        [Input("v1Allowed")]
-        public Input<bool>? V1Allowed { get; set; }
-
-        [Input("v3Allowed")]
-        public Input<bool>? V3Allowed { get; set; }
-
-        public ChannelDirectLineSitesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ChannelDirectLineSites
-    {
-        public readonly bool? Enabled;
-        public readonly bool? EnhancedAuthenticationEnabled;
-        public readonly string Id;
-        public readonly string Key;
-        public readonly string Key2;
-        public readonly string Name;
-        public readonly ImmutableArray<string> TrustedOrigins;
-        public readonly bool? V1Allowed;
-        public readonly bool? V3Allowed;
-
-        [OutputConstructor]
-        private ChannelDirectLineSites(
-            bool? enabled,
-            bool? enhancedAuthenticationEnabled,
-            string id,
-            string key,
-            string key2,
-            string name,
-            ImmutableArray<string> trustedOrigins,
-            bool? v1Allowed,
-            bool? v3Allowed)
-        {
-            Enabled = enabled;
-            EnhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
-            Id = id;
-            Key = key;
-            Key2 = key2;
-            Name = name;
-            TrustedOrigins = trustedOrigins;
-            V1Allowed = v1Allowed;
-            V3Allowed = v3Allowed;
-        }
-    }
     }
 }

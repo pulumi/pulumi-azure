@@ -36,8 +36,6 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_disaster_recovery_config.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.

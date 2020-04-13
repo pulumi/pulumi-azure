@@ -123,8 +123,6 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
-
 
     :param str name: Specifies the name of the Managed Disk.
     :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.

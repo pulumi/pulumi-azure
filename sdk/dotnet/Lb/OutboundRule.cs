@@ -13,10 +13,6 @@ namespace Pulumi.Azure.Lb
     /// Manages a Load Balancer Outbound Rule.
     /// 
     /// &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
     /// </summary>
     public partial class OutboundRule : Pulumi.CustomResource
     {
@@ -42,7 +38,7 @@ namespace Pulumi.Azure.Lb
         /// One or more `frontend_ip_configuration` blocks as defined below.
         /// </summary>
         [Output("frontendIpConfigurations")]
-        public Output<ImmutableArray<Outputs.OutboundRuleFrontendIpConfigurations>> FrontendIpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OutboundRuleFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The timeout for the TCP idle connection
@@ -83,7 +79,7 @@ namespace Pulumi.Azure.Lb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OutboundRule(string name, OutboundRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:lb/outboundRule:OutboundRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:lb/outboundRule:OutboundRule", name, args ?? new OutboundRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -139,14 +135,14 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableTcpReset { get; set; }
 
         [Input("frontendIpConfigurations")]
-        private InputList<Inputs.OutboundRuleFrontendIpConfigurationsArgs>? _frontendIpConfigurations;
+        private InputList<Inputs.OutboundRuleFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
         /// One or more `frontend_ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.OutboundRuleFrontendIpConfigurationsArgs> FrontendIpConfigurations
+        public InputList<Inputs.OutboundRuleFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
-            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.OutboundRuleFrontendIpConfigurationsArgs>());
+            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.OutboundRuleFrontendIpConfigurationArgs>());
             set => _frontendIpConfigurations = value;
         }
 
@@ -206,14 +202,14 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableTcpReset { get; set; }
 
         [Input("frontendIpConfigurations")]
-        private InputList<Inputs.OutboundRuleFrontendIpConfigurationsGetArgs>? _frontendIpConfigurations;
+        private InputList<Inputs.OutboundRuleFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
         /// <summary>
         /// One or more `frontend_ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.OutboundRuleFrontendIpConfigurationsGetArgs> FrontendIpConfigurations
+        public InputList<Inputs.OutboundRuleFrontendIpConfigurationGetArgs> FrontendIpConfigurations
         {
-            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.OutboundRuleFrontendIpConfigurationsGetArgs>());
+            get => _frontendIpConfigurations ?? (_frontendIpConfigurations = new InputList<Inputs.OutboundRuleFrontendIpConfigurationGetArgs>());
             set => _frontendIpConfigurations = value;
         }
 
@@ -250,73 +246,5 @@ namespace Pulumi.Azure.Lb
         public OutboundRuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class OutboundRuleFrontendIpConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Load Balancer Outbound Rule.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Frontend IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public OutboundRuleFrontendIpConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class OutboundRuleFrontendIpConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Load Balancer Outbound Rule.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Frontend IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public OutboundRuleFrontendIpConfigurationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class OutboundRuleFrontendIpConfigurations
-    {
-        /// <summary>
-        /// The ID of the Load Balancer Outbound Rule.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Frontend IP Configuration.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private OutboundRuleFrontendIpConfigurations(
-            string id,
-            string name)
-        {
-            Id = id;
-            Name = name;
-        }
-    }
     }
 }

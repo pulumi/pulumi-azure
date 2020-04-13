@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Virtual Network within a DevTest Lab.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_virtual_network.html.markdown.
     /// </summary>
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetwork(string name, VirtualNetworkArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/virtualNetwork:VirtualNetwork", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:devtest/virtualNetwork:VirtualNetwork", name, args ?? new VirtualNetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -206,91 +202,5 @@ namespace Pulumi.Azure.DevTest
         public VirtualNetworkState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VirtualNetworkSubnetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        [Input("useInVirtualMachineCreation")]
-        public Input<string>? UseInVirtualMachineCreation { get; set; }
-
-        /// <summary>
-        /// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        [Input("usePublicIpAddress")]
-        public Input<string>? UsePublicIpAddress { get; set; }
-
-        public VirtualNetworkSubnetArgs()
-        {
-        }
-    }
-
-    public sealed class VirtualNetworkSubnetGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        [Input("useInVirtualMachineCreation")]
-        public Input<string>? UseInVirtualMachineCreation { get; set; }
-
-        /// <summary>
-        /// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        [Input("usePublicIpAddress")]
-        public Input<string>? UsePublicIpAddress { get; set; }
-
-        public VirtualNetworkSubnetGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VirtualNetworkSubnet
-    {
-        /// <summary>
-        /// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        public readonly string? UseInVirtualMachineCreation;
-        /// <summary>
-        /// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
-        /// </summary>
-        public readonly string? UsePublicIpAddress;
-
-        [OutputConstructor]
-        private VirtualNetworkSubnet(
-            string name,
-            string? useInVirtualMachineCreation,
-            string? usePublicIpAddress)
-        {
-            Name = name;
-            UseInVirtualMachineCreation = useInVirtualMachineCreation;
-            UsePublicIpAddress = usePublicIpAddress;
-        }
-    }
     }
 }

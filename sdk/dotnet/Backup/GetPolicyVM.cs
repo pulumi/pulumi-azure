@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Backup
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing VM Backup Policy.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
-        /// </summary>
-        [Obsolete("Use GetPolicyVM.InvokeAsync() instead")]
-        public static Task<GetPolicyVMResult> GetPolicyVM(GetPolicyVMArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPolicyVM
     {
         /// <summary>
         /// Use this data source to access information about an existing VM Backup Policy.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyVMResult> InvokeAsync(GetPolicyVMArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyVMResult>("azure:backup/getPolicyVM:getPolicyVM", args ?? new GetPolicyVMArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPolicyVMArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.Backup
         }
     }
 
+
     [OutputType]
     public sealed class GetPolicyVMResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string RecoveryVaultName;
         public readonly string ResourceGroupName;
@@ -70,24 +62,24 @@ namespace Pulumi.Azure.Backup
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPolicyVMResult(
+            string id,
+
             string name,
+
             string recoveryVaultName,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Name = name;
             RecoveryVaultName = recoveryVaultName;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

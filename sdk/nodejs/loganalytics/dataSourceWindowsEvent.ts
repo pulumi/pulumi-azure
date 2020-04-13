@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Log Analytics Windows Event DataSource.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_datasource_windows_event.html.markdown.
  */

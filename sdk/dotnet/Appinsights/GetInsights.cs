@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppInsights
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Application Insights component.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetInsights.InvokeAsync() instead")]
-        public static Task<GetInsightsResult> GetInsights(GetInsightsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetInsights
     {
         /// <summary>
         /// Use this data source to access information about an existing Application Insights component.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInsightsResult> InvokeAsync(GetInsightsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetInsightsArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
+
     [OutputType]
     public sealed class GetInsightsResult
     {
@@ -65,6 +53,10 @@ namespace Pulumi.Azure.AppInsights
         /// The type of the component.
         /// </summary>
         public readonly string ApplicationType;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The instrumentation key of the Application Insights component.
         /// </summary>
@@ -83,32 +75,36 @@ namespace Pulumi.Azure.AppInsights
         /// Tags applied to the component.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetInsightsResult(
             string appId,
+
             string applicationType,
+
+            string id,
+
             string instrumentationKey,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             int retentionInDays,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AppId = appId;
             ApplicationType = applicationType;
+            Id = id;
             InstrumentationKey = instrumentationKey;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             RetentionInDays = retentionInDays;
             Tags = tags;
-            Id = id;
         }
     }
 }

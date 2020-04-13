@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_scheduled_query_rules_log.html.markdown.
     /// </summary>
     public partial class ScheduledQueryRulesLog : Pulumi.CustomResource
     {
@@ -72,7 +68,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduledQueryRulesLog(string name, ScheduledQueryRulesLogArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog", name, args ?? new ScheduledQueryRulesLogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -229,175 +225,5 @@ namespace Pulumi.Azure.Monitoring
         public ScheduledQueryRulesLogState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ScheduledQueryRulesLogCriteriaArgs : Pulumi.ResourceArgs
-    {
-        [Input("dimensions", required: true)]
-        private InputList<ScheduledQueryRulesLogCriteriaDimensionsArgs>? _dimensions;
-
-        /// <summary>
-        /// A `dimension` block as defined below.
-        /// </summary>
-        public InputList<ScheduledQueryRulesLogCriteriaDimensionsArgs> Dimensions
-        {
-            get => _dimensions ?? (_dimensions = new InputList<ScheduledQueryRulesLogCriteriaDimensionsArgs>());
-            set => _dimensions = value;
-        }
-
-        /// <summary>
-        /// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        public ScheduledQueryRulesLogCriteriaArgs()
-        {
-        }
-    }
-
-    public sealed class ScheduledQueryRulesLogCriteriaDimensionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the dimension.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Operator for dimension values, - 'Include'.
-        /// </summary>
-        [Input("operator")]
-        public Input<string>? Operator { get; set; }
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// List of dimension values.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public ScheduledQueryRulesLogCriteriaDimensionsArgs()
-        {
-        }
-    }
-
-    public sealed class ScheduledQueryRulesLogCriteriaDimensionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Name of the dimension.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Operator for dimension values, - 'Include'.
-        /// </summary>
-        [Input("operator")]
-        public Input<string>? Operator { get; set; }
-
-        [Input("values", required: true)]
-        private InputList<string>? _values;
-
-        /// <summary>
-        /// List of dimension values.
-        /// </summary>
-        public InputList<string> Values
-        {
-            get => _values ?? (_values = new InputList<string>());
-            set => _values = value;
-        }
-
-        public ScheduledQueryRulesLogCriteriaDimensionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ScheduledQueryRulesLogCriteriaGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dimensions", required: true)]
-        private InputList<ScheduledQueryRulesLogCriteriaDimensionsGetArgs>? _dimensions;
-
-        /// <summary>
-        /// A `dimension` block as defined below.
-        /// </summary>
-        public InputList<ScheduledQueryRulesLogCriteriaDimensionsGetArgs> Dimensions
-        {
-            get => _dimensions ?? (_dimensions = new InputList<ScheduledQueryRulesLogCriteriaDimensionsGetArgs>());
-            set => _dimensions = value;
-        }
-
-        /// <summary>
-        /// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
-        /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
-
-        public ScheduledQueryRulesLogCriteriaGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ScheduledQueryRulesLogCriteria
-    {
-        /// <summary>
-        /// A `dimension` block as defined below.
-        /// </summary>
-        public readonly ImmutableArray<ScheduledQueryRulesLogCriteriaDimensions> Dimensions;
-        /// <summary>
-        /// Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
-        /// </summary>
-        public readonly string MetricName;
-
-        [OutputConstructor]
-        private ScheduledQueryRulesLogCriteria(
-            ImmutableArray<ScheduledQueryRulesLogCriteriaDimensions> dimensions,
-            string metricName)
-        {
-            Dimensions = dimensions;
-            MetricName = metricName;
-        }
-    }
-
-    [OutputType]
-    public sealed class ScheduledQueryRulesLogCriteriaDimensions
-    {
-        /// <summary>
-        /// Name of the dimension.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Operator for dimension values, - 'Include'.
-        /// </summary>
-        public readonly string? Operator;
-        /// <summary>
-        /// List of dimension values.
-        /// </summary>
-        public readonly ImmutableArray<string> Values;
-
-        [OutputConstructor]
-        private ScheduledQueryRulesLogCriteriaDimensions(
-            string name,
-            string? @operator,
-            ImmutableArray<string> values)
-        {
-            Name = name;
-            Operator = @operator;
-            Values = values;
-        }
-    }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ManagementGroups
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Management Group.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetManagementGroup.InvokeAsync() instead")]
-        public static Task<GetManagementGroupResult> GetManagementGroup(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetManagementGroup
     {
         /// <summary>
         /// Use this data source to access information about an existing Management Group.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetManagementGroupArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.ManagementGroups
         }
     }
 
+
     [OutputType]
     public sealed class GetManagementGroupResult
     {
@@ -62,6 +50,10 @@ namespace Pulumi.Azure.ManagementGroups
         /// </summary>
         public readonly string DisplayName;
         public readonly string GroupId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The ID of any Parent Management Group.
@@ -71,26 +63,27 @@ namespace Pulumi.Azure.ManagementGroups
         /// A list of Subscription ID's which are assigned to the Management Group.
         /// </summary>
         public readonly ImmutableArray<string> SubscriptionIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetManagementGroupResult(
             string displayName,
+
             string groupId,
+
+            string id,
+
             string name,
+
             string parentManagementGroupId,
-            ImmutableArray<string> subscriptionIds,
-            string id)
+
+            ImmutableArray<string> subscriptionIds)
         {
             DisplayName = displayName;
             GroupId = groupId;
+            Id = id;
             Name = name;
             ParentManagementGroupId = parentManagementGroupId;
             SubscriptionIds = subscriptionIds;
-            Id = id;
         }
     }
 }

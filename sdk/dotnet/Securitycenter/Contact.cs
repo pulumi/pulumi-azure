@@ -13,10 +13,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// Manages the subscription's Security Center Contact.
     /// 
     /// &gt; **NOTE:** Owner access permission is required.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.markdown.
     /// </summary>
     public partial class Contact : Pulumi.CustomResource
     {
@@ -53,7 +49,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Contact(string name, ContactArgs args, CustomResourceOptions? options = null)
-            : base("azure:securitycenter/contact:Contact", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:securitycenter/contact:Contact", name, args ?? new ContactArgs(), MakeResourceOptions(options, ""))
         {
         }
 

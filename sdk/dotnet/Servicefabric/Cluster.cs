@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ServiceFabric
 {
     /// <summary>
     /// Manages a Service Fabric Cluster.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -46,13 +42,13 @@ namespace Pulumi.Azure.ServiceFabric
         /// A `client_certificate_common_name` block as defined below. 
         /// </summary>
         [Output("clientCertificateCommonNames")]
-        public Output<ImmutableArray<Outputs.ClusterClientCertificateCommonNames>> ClientCertificateCommonNames { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterClientCertificateCommonName>> ClientCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
         /// One or two `client_certificate_thumbprint` blocks as defined below. 
         /// </summary>
         [Output("clientCertificateThumbprints")]
-        public Output<ImmutableArray<Outputs.ClusterClientCertificateThumbprints>> ClientCertificateThumbprints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterClientCertificateThumbprint>> ClientCertificateThumbprints { get; private set; } = null!;
 
         /// <summary>
         /// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
@@ -76,7 +72,7 @@ namespace Pulumi.Azure.ServiceFabric
         /// One or more `fabric_settings` blocks as defined below.
         /// </summary>
         [Output("fabricSettings")]
-        public Output<ImmutableArray<Outputs.ClusterFabricSettings>> FabricSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterFabricSetting>> FabricSettings { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
@@ -100,7 +96,7 @@ namespace Pulumi.Azure.ServiceFabric
         /// One or more `node_type` blocks as defined below.
         /// </summary>
         [Output("nodeTypes")]
-        public Output<ImmutableArray<Outputs.ClusterNodeTypes>> NodeTypes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterNodeType>> NodeTypes { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
@@ -147,7 +143,7 @@ namespace Pulumi.Azure.ServiceFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:servicefabric/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:servicefabric/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -215,26 +211,26 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<Inputs.ClusterCertificateCommonNamesArgs>? CertificateCommonNames { get; set; }
 
         [Input("clientCertificateCommonNames")]
-        private InputList<Inputs.ClusterClientCertificateCommonNamesArgs>? _clientCertificateCommonNames;
+        private InputList<Inputs.ClusterClientCertificateCommonNameArgs>? _clientCertificateCommonNames;
 
         /// <summary>
         /// A `client_certificate_common_name` block as defined below. 
         /// </summary>
-        public InputList<Inputs.ClusterClientCertificateCommonNamesArgs> ClientCertificateCommonNames
+        public InputList<Inputs.ClusterClientCertificateCommonNameArgs> ClientCertificateCommonNames
         {
-            get => _clientCertificateCommonNames ?? (_clientCertificateCommonNames = new InputList<Inputs.ClusterClientCertificateCommonNamesArgs>());
+            get => _clientCertificateCommonNames ?? (_clientCertificateCommonNames = new InputList<Inputs.ClusterClientCertificateCommonNameArgs>());
             set => _clientCertificateCommonNames = value;
         }
 
         [Input("clientCertificateThumbprints")]
-        private InputList<Inputs.ClusterClientCertificateThumbprintsArgs>? _clientCertificateThumbprints;
+        private InputList<Inputs.ClusterClientCertificateThumbprintArgs>? _clientCertificateThumbprints;
 
         /// <summary>
         /// One or two `client_certificate_thumbprint` blocks as defined below. 
         /// </summary>
-        public InputList<Inputs.ClusterClientCertificateThumbprintsArgs> ClientCertificateThumbprints
+        public InputList<Inputs.ClusterClientCertificateThumbprintArgs> ClientCertificateThumbprints
         {
-            get => _clientCertificateThumbprints ?? (_clientCertificateThumbprints = new InputList<Inputs.ClusterClientCertificateThumbprintsArgs>());
+            get => _clientCertificateThumbprints ?? (_clientCertificateThumbprints = new InputList<Inputs.ClusterClientCertificateThumbprintArgs>());
             set => _clientCertificateThumbprints = value;
         }
 
@@ -251,14 +247,14 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<Inputs.ClusterDiagnosticsConfigArgs>? DiagnosticsConfig { get; set; }
 
         [Input("fabricSettings")]
-        private InputList<Inputs.ClusterFabricSettingsArgs>? _fabricSettings;
+        private InputList<Inputs.ClusterFabricSettingArgs>? _fabricSettings;
 
         /// <summary>
         /// One or more `fabric_settings` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ClusterFabricSettingsArgs> FabricSettings
+        public InputList<Inputs.ClusterFabricSettingArgs> FabricSettings
         {
-            get => _fabricSettings ?? (_fabricSettings = new InputList<Inputs.ClusterFabricSettingsArgs>());
+            get => _fabricSettings ?? (_fabricSettings = new InputList<Inputs.ClusterFabricSettingArgs>());
             set => _fabricSettings = value;
         }
 
@@ -281,14 +277,14 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? Name { get; set; }
 
         [Input("nodeTypes", required: true)]
-        private InputList<Inputs.ClusterNodeTypesArgs>? _nodeTypes;
+        private InputList<Inputs.ClusterNodeTypeArgs>? _nodeTypes;
 
         /// <summary>
         /// One or more `node_type` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ClusterNodeTypesArgs> NodeTypes
+        public InputList<Inputs.ClusterNodeTypeArgs> NodeTypes
         {
-            get => _nodeTypes ?? (_nodeTypes = new InputList<Inputs.ClusterNodeTypesArgs>());
+            get => _nodeTypes ?? (_nodeTypes = new InputList<Inputs.ClusterNodeTypeArgs>());
             set => _nodeTypes = value;
         }
 
@@ -372,26 +368,26 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<Inputs.ClusterCertificateCommonNamesGetArgs>? CertificateCommonNames { get; set; }
 
         [Input("clientCertificateCommonNames")]
-        private InputList<Inputs.ClusterClientCertificateCommonNamesGetArgs>? _clientCertificateCommonNames;
+        private InputList<Inputs.ClusterClientCertificateCommonNameGetArgs>? _clientCertificateCommonNames;
 
         /// <summary>
         /// A `client_certificate_common_name` block as defined below. 
         /// </summary>
-        public InputList<Inputs.ClusterClientCertificateCommonNamesGetArgs> ClientCertificateCommonNames
+        public InputList<Inputs.ClusterClientCertificateCommonNameGetArgs> ClientCertificateCommonNames
         {
-            get => _clientCertificateCommonNames ?? (_clientCertificateCommonNames = new InputList<Inputs.ClusterClientCertificateCommonNamesGetArgs>());
+            get => _clientCertificateCommonNames ?? (_clientCertificateCommonNames = new InputList<Inputs.ClusterClientCertificateCommonNameGetArgs>());
             set => _clientCertificateCommonNames = value;
         }
 
         [Input("clientCertificateThumbprints")]
-        private InputList<Inputs.ClusterClientCertificateThumbprintsGetArgs>? _clientCertificateThumbprints;
+        private InputList<Inputs.ClusterClientCertificateThumbprintGetArgs>? _clientCertificateThumbprints;
 
         /// <summary>
         /// One or two `client_certificate_thumbprint` blocks as defined below. 
         /// </summary>
-        public InputList<Inputs.ClusterClientCertificateThumbprintsGetArgs> ClientCertificateThumbprints
+        public InputList<Inputs.ClusterClientCertificateThumbprintGetArgs> ClientCertificateThumbprints
         {
-            get => _clientCertificateThumbprints ?? (_clientCertificateThumbprints = new InputList<Inputs.ClusterClientCertificateThumbprintsGetArgs>());
+            get => _clientCertificateThumbprints ?? (_clientCertificateThumbprints = new InputList<Inputs.ClusterClientCertificateThumbprintGetArgs>());
             set => _clientCertificateThumbprints = value;
         }
 
@@ -414,14 +410,14 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<Inputs.ClusterDiagnosticsConfigGetArgs>? DiagnosticsConfig { get; set; }
 
         [Input("fabricSettings")]
-        private InputList<Inputs.ClusterFabricSettingsGetArgs>? _fabricSettings;
+        private InputList<Inputs.ClusterFabricSettingGetArgs>? _fabricSettings;
 
         /// <summary>
         /// One or more `fabric_settings` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ClusterFabricSettingsGetArgs> FabricSettings
+        public InputList<Inputs.ClusterFabricSettingGetArgs> FabricSettings
         {
-            get => _fabricSettings ?? (_fabricSettings = new InputList<Inputs.ClusterFabricSettingsGetArgs>());
+            get => _fabricSettings ?? (_fabricSettings = new InputList<Inputs.ClusterFabricSettingGetArgs>());
             set => _fabricSettings = value;
         }
 
@@ -444,14 +440,14 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? Name { get; set; }
 
         [Input("nodeTypes")]
-        private InputList<Inputs.ClusterNodeTypesGetArgs>? _nodeTypes;
+        private InputList<Inputs.ClusterNodeTypeGetArgs>? _nodeTypes;
 
         /// <summary>
         /// One or more `node_type` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ClusterNodeTypesGetArgs> NodeTypes
+        public InputList<Inputs.ClusterNodeTypeGetArgs> NodeTypes
         {
-            get => _nodeTypes ?? (_nodeTypes = new InputList<Inputs.ClusterNodeTypesGetArgs>());
+            get => _nodeTypes ?? (_nodeTypes = new InputList<Inputs.ClusterNodeTypeGetArgs>());
             set => _nodeTypes = value;
         }
 
@@ -500,1051 +496,5 @@ namespace Pulumi.Azure.ServiceFabric
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterAzureActiveDirectoryArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Azure Active Directory Client ID which should be used for the Client Application.
-        /// </summary>
-        [Input("clientApplicationId", required: true)]
-        public Input<string> ClientApplicationId { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure Active Directory Cluster Application ID.
-        /// </summary>
-        [Input("clusterApplicationId", required: true)]
-        public Input<string> ClusterApplicationId { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure Active Directory Tenant ID.
-        /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
-
-        public ClusterAzureActiveDirectoryArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterAzureActiveDirectoryGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Azure Active Directory Client ID which should be used for the Client Application.
-        /// </summary>
-        [Input("clientApplicationId", required: true)]
-        public Input<string> ClientApplicationId { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure Active Directory Cluster Application ID.
-        /// </summary>
-        [Input("clusterApplicationId", required: true)]
-        public Input<string> ClusterApplicationId { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure Active Directory Tenant ID.
-        /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
-
-        public ClusterAzureActiveDirectoryGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCertificateArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        /// <summary>
-        /// The Secondary Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprintSecondary")]
-        public Input<string>? ThumbprintSecondary { get; set; }
-
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        [Input("x509StoreName", required: true)]
-        public Input<string> X509StoreName { get; set; } = null!;
-
-        public ClusterCertificateArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCertificateCommonNamesArgs : Pulumi.ResourceArgs
-    {
-        [Input("commonNames", required: true)]
-        private InputList<ClusterCertificateCommonNamesCommonNamesArgs>? _commonNames;
-
-        /// <summary>
-        /// A `common_names` block as defined below.
-        /// </summary>
-        public InputList<ClusterCertificateCommonNamesCommonNamesArgs> CommonNames
-        {
-            get => _commonNames ?? (_commonNames = new InputList<ClusterCertificateCommonNamesCommonNamesArgs>());
-            set => _commonNames = value;
-        }
-
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        [Input("x509StoreName", required: true)]
-        public Input<string> X509StoreName { get; set; } = null!;
-
-        public ClusterCertificateCommonNamesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCertificateCommonNamesCommonNamesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The common or subject name of the certificate.
-        /// </summary>
-        [Input("certificateCommonName", required: true)]
-        public Input<string> CertificateCommonName { get; set; } = null!;
-
-        /// <summary>
-        /// The Issuer Thumbprint of the Certificate.
-        /// </summary>
-        [Input("certificateIssuerThumbprint")]
-        public Input<string>? CertificateIssuerThumbprint { get; set; }
-
-        public ClusterCertificateCommonNamesCommonNamesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCertificateCommonNamesCommonNamesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The common or subject name of the certificate.
-        /// </summary>
-        [Input("certificateCommonName", required: true)]
-        public Input<string> CertificateCommonName { get; set; } = null!;
-
-        /// <summary>
-        /// The Issuer Thumbprint of the Certificate.
-        /// </summary>
-        [Input("certificateIssuerThumbprint")]
-        public Input<string>? CertificateIssuerThumbprint { get; set; }
-
-        public ClusterCertificateCommonNamesCommonNamesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCertificateCommonNamesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("commonNames", required: true)]
-        private InputList<ClusterCertificateCommonNamesCommonNamesGetArgs>? _commonNames;
-
-        /// <summary>
-        /// A `common_names` block as defined below.
-        /// </summary>
-        public InputList<ClusterCertificateCommonNamesCommonNamesGetArgs> CommonNames
-        {
-            get => _commonNames ?? (_commonNames = new InputList<ClusterCertificateCommonNamesCommonNamesGetArgs>());
-            set => _commonNames = value;
-        }
-
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        [Input("x509StoreName", required: true)]
-        public Input<string> X509StoreName { get; set; } = null!;
-
-        public ClusterCertificateCommonNamesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterCertificateGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        /// <summary>
-        /// The Secondary Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprintSecondary")]
-        public Input<string>? ThumbprintSecondary { get; set; }
-
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        [Input("x509StoreName", required: true)]
-        public Input<string> X509StoreName { get; set; } = null!;
-
-        public ClusterCertificateGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientCertificateCommonNamesArgs : Pulumi.ResourceArgs
-    {
-        [Input("commonName", required: true)]
-        public Input<string> CommonName { get; set; } = null!;
-
-        /// <summary>
-        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-        /// </summary>
-        [Input("isAdmin", required: true)]
-        public Input<bool> IsAdmin { get; set; } = null!;
-
-        [Input("issuerThumbprint")]
-        public Input<string>? IssuerThumbprint { get; set; }
-
-        public ClusterClientCertificateCommonNamesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientCertificateCommonNamesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("commonName", required: true)]
-        public Input<string> CommonName { get; set; } = null!;
-
-        /// <summary>
-        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-        /// </summary>
-        [Input("isAdmin", required: true)]
-        public Input<bool> IsAdmin { get; set; } = null!;
-
-        [Input("issuerThumbprint")]
-        public Input<string>? IssuerThumbprint { get; set; }
-
-        public ClusterClientCertificateCommonNamesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientCertificateThumbprintsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-        /// </summary>
-        [Input("isAdmin", required: true)]
-        public Input<bool> IsAdmin { get; set; } = null!;
-
-        /// <summary>
-        /// The Thumbprint associated with the Client Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        public ClusterClientCertificateThumbprintsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterClientCertificateThumbprintsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-        /// </summary>
-        [Input("isAdmin", required: true)]
-        public Input<bool> IsAdmin { get; set; } = null!;
-
-        /// <summary>
-        /// The Thumbprint associated with the Client Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        public ClusterClientCertificateThumbprintsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterDiagnosticsConfigArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Blob Endpoint of the Storage Account.
-        /// </summary>
-        [Input("blobEndpoint", required: true)]
-        public Input<string> BlobEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The protected diagnostics storage key name, such as `StorageAccountKey1`.
-        /// </summary>
-        [Input("protectedAccountKeyName", required: true)]
-        public Input<string> ProtectedAccountKeyName { get; set; } = null!;
-
-        /// <summary>
-        /// The Queue Endpoint of the Storage Account.
-        /// </summary>
-        [Input("queueEndpoint", required: true)]
-        public Input<string> QueueEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Storage Account where the Diagnostics should be sent to.
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The Table Endpoint of the Storage Account.
-        /// </summary>
-        [Input("tableEndpoint", required: true)]
-        public Input<string> TableEndpoint { get; set; } = null!;
-
-        public ClusterDiagnosticsConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterDiagnosticsConfigGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Blob Endpoint of the Storage Account.
-        /// </summary>
-        [Input("blobEndpoint", required: true)]
-        public Input<string> BlobEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The protected diagnostics storage key name, such as `StorageAccountKey1`.
-        /// </summary>
-        [Input("protectedAccountKeyName", required: true)]
-        public Input<string> ProtectedAccountKeyName { get; set; } = null!;
-
-        /// <summary>
-        /// The Queue Endpoint of the Storage Account.
-        /// </summary>
-        [Input("queueEndpoint", required: true)]
-        public Input<string> QueueEndpoint { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Storage Account where the Diagnostics should be sent to.
-        /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
-
-        /// <summary>
-        /// The Table Endpoint of the Storage Account.
-        /// </summary>
-        [Input("tableEndpoint", required: true)]
-        public Input<string> TableEndpoint { get; set; } = null!;
-
-        public ClusterDiagnosticsConfigGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterFabricSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the Fabric Setting, such as `Security` or `Federation`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("parameters")]
-        private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// A map containing settings for the specified Fabric Setting.
-        /// </summary>
-        public InputMap<string> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<string>());
-            set => _parameters = value;
-        }
-
-        public ClusterFabricSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterFabricSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the Fabric Setting, such as `Security` or `Federation`.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("parameters")]
-        private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// A map containing settings for the specified Fabric Setting.
-        /// </summary>
-        public InputMap<string> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<string>());
-            set => _parameters = value;
-        }
-
-        public ClusterFabricSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterNodeTypesApplicationPortsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The end of the Application Port Range on this Node Type.
-        /// </summary>
-        [Input("endPort", required: true)]
-        public Input<int> EndPort { get; set; } = null!;
-
-        /// <summary>
-        /// The start of the Application Port Range on this Node Type.
-        /// </summary>
-        [Input("startPort", required: true)]
-        public Input<int> StartPort { get; set; } = null!;
-
-        public ClusterNodeTypesApplicationPortsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterNodeTypesApplicationPortsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The end of the Application Port Range on this Node Type.
-        /// </summary>
-        [Input("endPort", required: true)]
-        public Input<int> EndPort { get; set; } = null!;
-
-        /// <summary>
-        /// The start of the Application Port Range on this Node Type.
-        /// </summary>
-        [Input("startPort", required: true)]
-        public Input<int> StartPort { get; set; } = null!;
-
-        public ClusterNodeTypesApplicationPortsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterNodeTypesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A `application_ports` block as defined below.
-        /// </summary>
-        [Input("applicationPorts")]
-        public Input<ClusterNodeTypesApplicationPortsArgs>? ApplicationPorts { get; set; }
-
-        [Input("capacities")]
-        private InputMap<string>? _capacities;
-
-        /// <summary>
-        /// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-        /// </summary>
-        public InputMap<string> Capacities
-        {
-            get => _capacities ?? (_capacities = new InputMap<string>());
-            set => _capacities = value;
-        }
-
-        /// <summary>
-        /// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("clientEndpointPort", required: true)]
-        public Input<int> ClientEndpointPort { get; set; } = null!;
-
-        /// <summary>
-        /// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("durabilityLevel")]
-        public Input<string>? DurabilityLevel { get; set; }
-
-        /// <summary>
-        /// A `ephemeral_ports` block as defined below.
-        /// </summary>
-        [Input("ephemeralPorts")]
-        public Input<ClusterNodeTypesEphemeralPortsArgs>? EphemeralPorts { get; set; }
-
-        /// <summary>
-        /// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("httpEndpointPort", required: true)]
-        public Input<int> HttpEndpointPort { get; set; } = null!;
-
-        /// <summary>
-        /// The number of nodes for this Node Type.
-        /// </summary>
-        [Input("instanceCount", required: true)]
-        public Input<int> InstanceCount { get; set; } = null!;
-
-        /// <summary>
-        /// Is this the Primary Node Type? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("isPrimary", required: true)]
-        public Input<bool> IsPrimary { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("placementProperties")]
-        private InputMap<string>? _placementProperties;
-
-        /// <summary>
-        /// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        /// </summary>
-        public InputMap<string> PlacementProperties
-        {
-            get => _placementProperties ?? (_placementProperties = new InputMap<string>());
-            set => _placementProperties = value;
-        }
-
-        /// <summary>
-        /// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
-        /// </summary>
-        [Input("reverseProxyEndpointPort")]
-        public Input<int>? ReverseProxyEndpointPort { get; set; }
-
-        public ClusterNodeTypesArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterNodeTypesEphemeralPortsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The end of the Ephemeral Port Range on this Node Type.
-        /// </summary>
-        [Input("endPort", required: true)]
-        public Input<int> EndPort { get; set; } = null!;
-
-        /// <summary>
-        /// The start of the Ephemeral Port Range on this Node Type.
-        /// </summary>
-        [Input("startPort", required: true)]
-        public Input<int> StartPort { get; set; } = null!;
-
-        public ClusterNodeTypesEphemeralPortsArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterNodeTypesEphemeralPortsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The end of the Ephemeral Port Range on this Node Type.
-        /// </summary>
-        [Input("endPort", required: true)]
-        public Input<int> EndPort { get; set; } = null!;
-
-        /// <summary>
-        /// The start of the Ephemeral Port Range on this Node Type.
-        /// </summary>
-        [Input("startPort", required: true)]
-        public Input<int> StartPort { get; set; } = null!;
-
-        public ClusterNodeTypesEphemeralPortsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterNodeTypesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A `application_ports` block as defined below.
-        /// </summary>
-        [Input("applicationPorts")]
-        public Input<ClusterNodeTypesApplicationPortsGetArgs>? ApplicationPorts { get; set; }
-
-        [Input("capacities")]
-        private InputMap<string>? _capacities;
-
-        /// <summary>
-        /// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-        /// </summary>
-        public InputMap<string> Capacities
-        {
-            get => _capacities ?? (_capacities = new InputMap<string>());
-            set => _capacities = value;
-        }
-
-        /// <summary>
-        /// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("clientEndpointPort", required: true)]
-        public Input<int> ClientEndpointPort { get; set; } = null!;
-
-        /// <summary>
-        /// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("durabilityLevel")]
-        public Input<string>? DurabilityLevel { get; set; }
-
-        /// <summary>
-        /// A `ephemeral_ports` block as defined below.
-        /// </summary>
-        [Input("ephemeralPorts")]
-        public Input<ClusterNodeTypesEphemeralPortsGetArgs>? EphemeralPorts { get; set; }
-
-        /// <summary>
-        /// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("httpEndpointPort", required: true)]
-        public Input<int> HttpEndpointPort { get; set; } = null!;
-
-        /// <summary>
-        /// The number of nodes for this Node Type.
-        /// </summary>
-        [Input("instanceCount", required: true)]
-        public Input<int> InstanceCount { get; set; } = null!;
-
-        /// <summary>
-        /// Is this the Primary Node Type? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("isPrimary", required: true)]
-        public Input<bool> IsPrimary { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("placementProperties")]
-        private InputMap<string>? _placementProperties;
-
-        /// <summary>
-        /// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        /// </summary>
-        public InputMap<string> PlacementProperties
-        {
-            get => _placementProperties ?? (_placementProperties = new InputMap<string>());
-            set => _placementProperties = value;
-        }
-
-        /// <summary>
-        /// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
-        /// </summary>
-        [Input("reverseProxyEndpointPort")]
-        public Input<int>? ReverseProxyEndpointPort { get; set; }
-
-        public ClusterNodeTypesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterReverseProxyCertificateArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        /// <summary>
-        /// The Secondary Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprintSecondary")]
-        public Input<string>? ThumbprintSecondary { get; set; }
-
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        [Input("x509StoreName", required: true)]
-        public Input<string> X509StoreName { get; set; } = null!;
-
-        public ClusterReverseProxyCertificateArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterReverseProxyCertificateGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        /// <summary>
-        /// The Secondary Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprintSecondary")]
-        public Input<string>? ThumbprintSecondary { get; set; }
-
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        [Input("x509StoreName", required: true)]
-        public Input<string> X509StoreName { get; set; } = null!;
-
-        public ClusterReverseProxyCertificateGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterAzureActiveDirectory
-    {
-        /// <summary>
-        /// The Azure Active Directory Client ID which should be used for the Client Application.
-        /// </summary>
-        public readonly string ClientApplicationId;
-        /// <summary>
-        /// The Azure Active Directory Cluster Application ID.
-        /// </summary>
-        public readonly string ClusterApplicationId;
-        /// <summary>
-        /// The Azure Active Directory Tenant ID.
-        /// </summary>
-        public readonly string TenantId;
-
-        [OutputConstructor]
-        private ClusterAzureActiveDirectory(
-            string clientApplicationId,
-            string clusterApplicationId,
-            string tenantId)
-        {
-            ClientApplicationId = clientApplicationId;
-            ClusterApplicationId = clusterApplicationId;
-            TenantId = tenantId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterCertificate
-    {
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        public readonly string Thumbprint;
-        /// <summary>
-        /// The Secondary Thumbprint of the Certificate.
-        /// </summary>
-        public readonly string? ThumbprintSecondary;
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        public readonly string X509StoreName;
-
-        [OutputConstructor]
-        private ClusterCertificate(
-            string thumbprint,
-            string? thumbprintSecondary,
-            string x509StoreName)
-        {
-            Thumbprint = thumbprint;
-            ThumbprintSecondary = thumbprintSecondary;
-            X509StoreName = x509StoreName;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterCertificateCommonNames
-    {
-        /// <summary>
-        /// A `common_names` block as defined below.
-        /// </summary>
-        public readonly ImmutableArray<ClusterCertificateCommonNamesCommonNames> CommonNames;
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        public readonly string X509StoreName;
-
-        [OutputConstructor]
-        private ClusterCertificateCommonNames(
-            ImmutableArray<ClusterCertificateCommonNamesCommonNames> commonNames,
-            string x509StoreName)
-        {
-            CommonNames = commonNames;
-            X509StoreName = x509StoreName;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterCertificateCommonNamesCommonNames
-    {
-        /// <summary>
-        /// The common or subject name of the certificate.
-        /// </summary>
-        public readonly string CertificateCommonName;
-        /// <summary>
-        /// The Issuer Thumbprint of the Certificate.
-        /// </summary>
-        public readonly string? CertificateIssuerThumbprint;
-
-        [OutputConstructor]
-        private ClusterCertificateCommonNamesCommonNames(
-            string certificateCommonName,
-            string? certificateIssuerThumbprint)
-        {
-            CertificateCommonName = certificateCommonName;
-            CertificateIssuerThumbprint = certificateIssuerThumbprint;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterClientCertificateCommonNames
-    {
-        public readonly string CommonName;
-        /// <summary>
-        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-        /// </summary>
-        public readonly bool IsAdmin;
-        public readonly string? IssuerThumbprint;
-
-        [OutputConstructor]
-        private ClusterClientCertificateCommonNames(
-            string commonName,
-            bool isAdmin,
-            string? issuerThumbprint)
-        {
-            CommonName = commonName;
-            IsAdmin = isAdmin;
-            IssuerThumbprint = issuerThumbprint;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterClientCertificateThumbprints
-    {
-        /// <summary>
-        /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-        /// </summary>
-        public readonly bool IsAdmin;
-        /// <summary>
-        /// The Thumbprint associated with the Client Certificate.
-        /// </summary>
-        public readonly string Thumbprint;
-
-        [OutputConstructor]
-        private ClusterClientCertificateThumbprints(
-            bool isAdmin,
-            string thumbprint)
-        {
-            IsAdmin = isAdmin;
-            Thumbprint = thumbprint;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterDiagnosticsConfig
-    {
-        /// <summary>
-        /// The Blob Endpoint of the Storage Account.
-        /// </summary>
-        public readonly string BlobEndpoint;
-        /// <summary>
-        /// The protected diagnostics storage key name, such as `StorageAccountKey1`.
-        /// </summary>
-        public readonly string ProtectedAccountKeyName;
-        /// <summary>
-        /// The Queue Endpoint of the Storage Account.
-        /// </summary>
-        public readonly string QueueEndpoint;
-        /// <summary>
-        /// The name of the Storage Account where the Diagnostics should be sent to.
-        /// </summary>
-        public readonly string StorageAccountName;
-        /// <summary>
-        /// The Table Endpoint of the Storage Account.
-        /// </summary>
-        public readonly string TableEndpoint;
-
-        [OutputConstructor]
-        private ClusterDiagnosticsConfig(
-            string blobEndpoint,
-            string protectedAccountKeyName,
-            string queueEndpoint,
-            string storageAccountName,
-            string tableEndpoint)
-        {
-            BlobEndpoint = blobEndpoint;
-            ProtectedAccountKeyName = protectedAccountKeyName;
-            QueueEndpoint = queueEndpoint;
-            StorageAccountName = storageAccountName;
-            TableEndpoint = tableEndpoint;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterFabricSettings
-    {
-        /// <summary>
-        /// The name of the Fabric Setting, such as `Security` or `Federation`.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// A map containing settings for the specified Fabric Setting.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Parameters;
-
-        [OutputConstructor]
-        private ClusterFabricSettings(
-            string name,
-            ImmutableDictionary<string, string>? parameters)
-        {
-            Name = name;
-            Parameters = parameters;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterNodeTypes
-    {
-        /// <summary>
-        /// A `application_ports` block as defined below.
-        /// </summary>
-        public readonly ClusterNodeTypesApplicationPorts ApplicationPorts;
-        /// <summary>
-        /// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Capacities;
-        /// <summary>
-        /// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int ClientEndpointPort;
-        /// <summary>
-        /// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? DurabilityLevel;
-        /// <summary>
-        /// A `ephemeral_ports` block as defined below.
-        /// </summary>
-        public readonly ClusterNodeTypesEphemeralPorts EphemeralPorts;
-        /// <summary>
-        /// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int HttpEndpointPort;
-        /// <summary>
-        /// The number of nodes for this Node Type.
-        /// </summary>
-        public readonly int InstanceCount;
-        /// <summary>
-        /// Is this the Primary Node Type? Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly bool IsPrimary;
-        /// <summary>
-        /// The name of the Node Type. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? PlacementProperties;
-        /// <summary>
-        /// The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
-        /// </summary>
-        public readonly int? ReverseProxyEndpointPort;
-
-        [OutputConstructor]
-        private ClusterNodeTypes(
-            ClusterNodeTypesApplicationPorts applicationPorts,
-            ImmutableDictionary<string, string>? capacities,
-            int clientEndpointPort,
-            string? durabilityLevel,
-            ClusterNodeTypesEphemeralPorts ephemeralPorts,
-            int httpEndpointPort,
-            int instanceCount,
-            bool isPrimary,
-            string name,
-            ImmutableDictionary<string, string>? placementProperties,
-            int? reverseProxyEndpointPort)
-        {
-            ApplicationPorts = applicationPorts;
-            Capacities = capacities;
-            ClientEndpointPort = clientEndpointPort;
-            DurabilityLevel = durabilityLevel;
-            EphemeralPorts = ephemeralPorts;
-            HttpEndpointPort = httpEndpointPort;
-            InstanceCount = instanceCount;
-            IsPrimary = isPrimary;
-            Name = name;
-            PlacementProperties = placementProperties;
-            ReverseProxyEndpointPort = reverseProxyEndpointPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterNodeTypesApplicationPorts
-    {
-        /// <summary>
-        /// The end of the Application Port Range on this Node Type.
-        /// </summary>
-        public readonly int EndPort;
-        /// <summary>
-        /// The start of the Application Port Range on this Node Type.
-        /// </summary>
-        public readonly int StartPort;
-
-        [OutputConstructor]
-        private ClusterNodeTypesApplicationPorts(
-            int endPort,
-            int startPort)
-        {
-            EndPort = endPort;
-            StartPort = startPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterNodeTypesEphemeralPorts
-    {
-        /// <summary>
-        /// The end of the Ephemeral Port Range on this Node Type.
-        /// </summary>
-        public readonly int EndPort;
-        /// <summary>
-        /// The start of the Ephemeral Port Range on this Node Type.
-        /// </summary>
-        public readonly int StartPort;
-
-        [OutputConstructor]
-        private ClusterNodeTypesEphemeralPorts(
-            int endPort,
-            int startPort)
-        {
-            EndPort = endPort;
-            StartPort = startPort;
-        }
-    }
-
-    [OutputType]
-    public sealed class ClusterReverseProxyCertificate
-    {
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        public readonly string Thumbprint;
-        /// <summary>
-        /// The Secondary Thumbprint of the Certificate.
-        /// </summary>
-        public readonly string? ThumbprintSecondary;
-        /// <summary>
-        /// The X509 Store where the Certificate Exists, such as `My`.
-        /// </summary>
-        public readonly string X509StoreName;
-
-        [OutputConstructor]
-        private ClusterReverseProxyCertificate(
-            string thumbprint,
-            string? thumbprintSecondary,
-            string x509StoreName)
-        {
-            Thumbprint = thumbprint;
-            ThumbprintSecondary = thumbprintSecondary;
-            X509StoreName = x509StoreName;
-        }
-    }
     }
 }

@@ -59,8 +59,6 @@ def get_service_endpoint_connections(resource_group_name=None,service_id=None,op
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
-
 
     :param str resource_group_name: The name of the resource group in which the private link service resides.
     :param str service_id: The resource ID of the private link service.

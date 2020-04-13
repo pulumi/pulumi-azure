@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing App Service Environment
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAppServiceEnvironment.InvokeAsync() instead")]
-        public static Task<GetAppServiceEnvironmentResult> GetAppServiceEnvironment(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAppServiceEnvironment
     {
         /// <summary>
         /// Use this data source to access information about an existing App Service Environment
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAppServiceEnvironmentArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
+
     [OutputType]
     public sealed class GetAppServiceEnvironmentResult
     {
@@ -61,6 +49,10 @@ namespace Pulumi.Azure.AppService
         /// The number of app instances per App Service Environment Front End
         /// </summary>
         public readonly int FrontEndScaleFactor;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The Pricing Tier (Isolated SKU) of the App Service Environment.
@@ -71,26 +63,27 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAppServiceEnvironmentResult(
             int frontEndScaleFactor,
+
+            string id,
+
             string name,
+
             string pricingTier,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             FrontEndScaleFactor = frontEndScaleFactor;
+            Id = id;
             Name = name;
             PricingTier = pricingTier;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

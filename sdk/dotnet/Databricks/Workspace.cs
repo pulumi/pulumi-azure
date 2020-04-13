@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataBricks
 {
     /// <summary>
     /// Manages a Databricks Workspace
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/databricks_workspace.html.markdown.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.DataBricks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure:databricks/workspace:Workspace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:databricks/workspace:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -224,109 +220,5 @@ namespace Pulumi.Azure.DataBricks
         public WorkspaceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WorkspaceCustomParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Are public IP Addresses not allowed?
-        /// </summary>
-        [Input("noPublicIp")]
-        public Input<bool>? NoPublicIp { get; set; }
-
-        /// <summary>
-        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        /// </summary>
-        [Input("privateSubnetName")]
-        public Input<string>? PrivateSubnetName { get; set; }
-
-        /// <summary>
-        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        /// </summary>
-        [Input("publicSubnetName")]
-        public Input<string>? PublicSubnetName { get; set; }
-
-        /// <summary>
-        /// The ID of a Virtual Network where this Databricks Cluster should be created.
-        /// </summary>
-        [Input("virtualNetworkId")]
-        public Input<string>? VirtualNetworkId { get; set; }
-
-        public WorkspaceCustomParametersArgs()
-        {
-        }
-    }
-
-    public sealed class WorkspaceCustomParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Are public IP Addresses not allowed?
-        /// </summary>
-        [Input("noPublicIp")]
-        public Input<bool>? NoPublicIp { get; set; }
-
-        /// <summary>
-        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        /// </summary>
-        [Input("privateSubnetName")]
-        public Input<string>? PrivateSubnetName { get; set; }
-
-        /// <summary>
-        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        /// </summary>
-        [Input("publicSubnetName")]
-        public Input<string>? PublicSubnetName { get; set; }
-
-        /// <summary>
-        /// The ID of a Virtual Network where this Databricks Cluster should be created.
-        /// </summary>
-        [Input("virtualNetworkId")]
-        public Input<string>? VirtualNetworkId { get; set; }
-
-        public WorkspaceCustomParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WorkspaceCustomParameters
-    {
-        /// <summary>
-        /// Are public IP Addresses not allowed?
-        /// </summary>
-        public readonly bool? NoPublicIp;
-        /// <summary>
-        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        /// </summary>
-        public readonly string? PrivateSubnetName;
-        /// <summary>
-        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
-        /// </summary>
-        public readonly string? PublicSubnetName;
-        /// <summary>
-        /// The ID of a Virtual Network where this Databricks Cluster should be created.
-        /// </summary>
-        public readonly string? VirtualNetworkId;
-
-        [OutputConstructor]
-        private WorkspaceCustomParameters(
-            bool? noPublicIp,
-            string? privateSubnetName,
-            string? publicSubnetName,
-            string? virtualNetworkId)
-        {
-            NoPublicIp = noPublicIp;
-            PrivateSubnetName = privateSubnetName;
-            PublicSubnetName = publicSubnetName;
-            VirtualNetworkId = virtualNetworkId;
-        }
-    }
     }
 }

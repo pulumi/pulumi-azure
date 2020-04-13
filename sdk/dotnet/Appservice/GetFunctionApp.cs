@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about a Function App.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetFunctionApp.InvokeAsync() instead")]
-        public static Task<GetFunctionAppResult> GetFunctionApp(GetFunctionAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetFunctionApp
     {
         /// <summary>
         /// Use this data source to access information about a Function App.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFunctionAppResult> InvokeAsync(GetFunctionAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppArgs(), options.WithVersion());
     }
+
 
     public sealed class GetFunctionAppArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +49,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
+
     [OutputType]
     public sealed class GetFunctionAppResult
     {
@@ -76,7 +64,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// An `connection_string` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetFunctionAppConnectionStringsResult> ConnectionStrings;
+        public readonly ImmutableArray<Outputs.GetFunctionAppConnectionStringResult> ConnectionStrings;
         /// <summary>
         /// The default hostname associated with the Function App.
         /// </summary>
@@ -85,6 +73,10 @@ namespace Pulumi.Azure.AppService
         /// Is the Function App enabled?
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         /// <summary>
         /// The name of the Connection String.
@@ -106,35 +98,45 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetFunctionAppSiteCredentialsResult> SiteCredentials;
+        public readonly ImmutableArray<Outputs.GetFunctionAppSiteCredentialResult> SiteCredentials;
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetFunctionAppResult(
             string appServicePlanId,
+
             ImmutableDictionary<string, string> appSettings,
-            ImmutableArray<Outputs.GetFunctionAppConnectionStringsResult> connectionStrings,
+
+            ImmutableArray<Outputs.GetFunctionAppConnectionStringResult> connectionStrings,
+
             string defaultHostname,
+
             bool enabled,
+
+            string id,
+
             string location,
+
             string name,
+
             string osType,
+
             string outboundIpAddresses,
+
             string possibleOutboundIpAddresses,
+
             string resourceGroupName,
-            ImmutableArray<Outputs.GetFunctionAppSiteCredentialsResult> siteCredentials,
-            ImmutableDictionary<string, string>? tags,
-            string id)
+
+            ImmutableArray<Outputs.GetFunctionAppSiteCredentialResult> siteCredentials,
+
+            ImmutableDictionary<string, string>? tags)
         {
             AppServicePlanId = appServicePlanId;
             AppSettings = appSettings;
             ConnectionStrings = connectionStrings;
             DefaultHostname = defaultHostname;
             Enabled = enabled;
+            Id = id;
             Location = location;
             Name = name;
             OsType = osType;
@@ -143,61 +145,6 @@ namespace Pulumi.Azure.AppService
             ResourceGroupName = resourceGroupName;
             SiteCredentials = siteCredentials;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetFunctionAppConnectionStringsResult
-    {
-        /// <summary>
-        /// The name of the Function App resource.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The type of the Connection String. 
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// The value for the Connection String.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private GetFunctionAppConnectionStringsResult(
-            string name,
-            string type,
-            string value)
-        {
-            Name = name;
-            Type = type;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetFunctionAppSiteCredentialsResult
-    {
-        /// <summary>
-        /// The password associated with the username, which can be used to publish to this App Service.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// The username which can be used to publish to this App Service
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private GetFunctionAppSiteCredentialsResult(
-            string password,
-            string username)
-        {
-            Password = password;
-            Username = username;
-        }
-    }
     }
 }

@@ -15,10 +15,6 @@ namespace Pulumi.Azure.Compute
     /// &gt; **NOTE**: Disk Encryption Sets are in Public Preview and at this time is only available in `Canada Central`, `North Europe` and `West Central US` regions - [more information can be found in the preview documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption).
     /// 
     /// &gt; **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete &amp; Purge Protection enabled - which are not yet supported by this provider.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
     /// </summary>
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {
@@ -67,7 +63,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiskEncryptionSet(string name, DiskEncryptionSetArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/diskEncryptionSet:DiskEncryptionSet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/diskEncryptionSet:DiskEncryptionSet", name, args ?? new DiskEncryptionSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -198,91 +194,5 @@ namespace Pulumi.Azure.Compute
         public DiskEncryptionSetState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DiskEncryptionSetIdentityArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The (Client) ID of the Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DiskEncryptionSetIdentityArgs()
-        {
-        }
-    }
-
-    public sealed class DiskEncryptionSetIdentityGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The (Client) ID of the Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DiskEncryptionSetIdentityGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DiskEncryptionSetIdentity
-    {
-        /// <summary>
-        /// The (Client) ID of the Service Principal.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private DiskEncryptionSetIdentity(
-            string principalId,
-            string tenantId,
-            string type)
-        {
-            PrincipalId = principalId;
-            TenantId = tenantId;
-            Type = type;
-        }
-    }
     }
 }

@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.NetApp
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Uses this data source to access information about an existing NetApp Pool.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_pool.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPool.InvokeAsync() instead")]
-        public static Task<GetPoolResult> GetPool(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPool
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Pool.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_pool.html.markdown.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPoolArgs : Pulumi.InvokeArgs
     {
@@ -56,10 +44,15 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
+
     [OutputType]
     public sealed class GetPoolResult
     {
         public readonly string AccountName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region where the NetApp Pool exists.
         /// </summary>
@@ -74,28 +67,30 @@ namespace Pulumi.Azure.NetApp
         /// Provisioned size of the pool in TB.
         /// </summary>
         public readonly int SizeInTb;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPoolResult(
             string accountName,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string serviceLevel,
-            int sizeInTb,
-            string id)
+
+            int sizeInTb)
         {
             AccountName = accountName;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             ServiceLevel = serviceLevel;
             SizeInTb = sizeInTb;
-            Id = id;
         }
     }
 }

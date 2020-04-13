@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ContainerService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetKubernetesCluster.InvokeAsync() instead")]
-        public static Task<GetKubernetesClusterResult> GetKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetKubernetesCluster
     {
         /// <summary>
         /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKubernetesClusterResult> InvokeAsync(GetKubernetesClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? new GetKubernetesClusterArgs(), options.WithVersion());
     }
+
 
     public sealed class GetKubernetesClusterArgs : Pulumi.InvokeArgs
     {
@@ -54,17 +41,18 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
+
     [OutputType]
     public sealed class GetKubernetesClusterResult
     {
         /// <summary>
         /// A `addon_profile` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfilesResult> AddonProfiles;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileResult> AddonProfiles;
         /// <summary>
         /// An `agent_pool_profile` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfilesResult> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileResult> AgentPoolProfiles;
         /// <summary>
         /// The IP ranges to whitelist for incoming traffic to the masters.
         /// </summary>
@@ -78,21 +66,25 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
-        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeAdminConfigsResult> KubeAdminConfigs;
+        public readonly string Id;
         /// <summary>
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         /// </summary>
         public readonly string KubeAdminConfigRaw;
         /// <summary>
-        /// A `kube_config` block as defined below.
+        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeConfigsResult> KubeConfigs;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeAdminConfigResult> KubeAdminConfigs;
         /// <summary>
         /// Base64 encoded Kubernetes configuration.
         /// </summary>
         public readonly string KubeConfigRaw;
+        /// <summary>
+        /// A `kube_config` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeConfigResult> KubeConfigs;
         /// <summary>
         /// The version of Kubernetes used on the managed Kubernetes Cluster.
         /// </summary>
@@ -100,7 +92,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `linux_profile` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterLinuxProfilesResult> LinuxProfiles;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterLinuxProfileResult> LinuxProfiles;
         /// <summary>
         /// The Azure Region in which the managed Kubernetes Cluster exists.
         /// </summary>
@@ -112,7 +104,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `network_profile` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterNetworkProfilesResult> NetworkProfiles;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterNetworkProfileResult> NetworkProfiles;
         /// <summary>
         /// Auto-generated Resource Group containing AKS Cluster resources.
         /// </summary>
@@ -129,11 +121,11 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `role_based_access_control` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlsResult> RoleBasedAccessControls;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlResult> RoleBasedAccessControls;
         /// <summary>
         /// A `service_principal` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalsResult> ServicePrincipals;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalResult> ServicePrincipals;
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
@@ -141,47 +133,66 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `windows_profile` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKubernetesClusterWindowsProfilesResult> WindowsProfiles;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterWindowsProfileResult> WindowsProfiles;
 
         [OutputConstructor]
         private GetKubernetesClusterResult(
-            ImmutableArray<Outputs.GetKubernetesClusterAddonProfilesResult> addonProfiles,
-            ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfilesResult> agentPoolProfiles,
+            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileResult> addonProfiles,
+
+            ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileResult> agentPoolProfiles,
+
             ImmutableArray<string> apiServerAuthorizedIpRanges,
+
             string dnsPrefix,
+
             string fqdn,
-            ImmutableArray<Outputs.GetKubernetesClusterKubeAdminConfigsResult> kubeAdminConfigs,
+
+            string id,
+
             string kubeAdminConfigRaw,
-            ImmutableArray<Outputs.GetKubernetesClusterKubeConfigsResult> kubeConfigs,
+
+            ImmutableArray<Outputs.GetKubernetesClusterKubeAdminConfigResult> kubeAdminConfigs,
+
             string kubeConfigRaw,
+
+            ImmutableArray<Outputs.GetKubernetesClusterKubeConfigResult> kubeConfigs,
+
             string kubernetesVersion,
-            ImmutableArray<Outputs.GetKubernetesClusterLinuxProfilesResult> linuxProfiles,
+
+            ImmutableArray<Outputs.GetKubernetesClusterLinuxProfileResult> linuxProfiles,
+
             string location,
+
             string name,
-            ImmutableArray<Outputs.GetKubernetesClusterNetworkProfilesResult> networkProfiles,
+
+            ImmutableArray<Outputs.GetKubernetesClusterNetworkProfileResult> networkProfiles,
+
             string nodeResourceGroup,
+
             string privateFqdn,
+
             bool privateLinkEnabled,
+
             string resourceGroupName,
-            ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlsResult> roleBasedAccessControls,
-            ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalsResult> servicePrincipals,
+
+            ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlResult> roleBasedAccessControls,
+
+            ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalResult> servicePrincipals,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<Outputs.GetKubernetesClusterWindowsProfilesResult> windowsProfiles,
-            string id)
+
+            ImmutableArray<Outputs.GetKubernetesClusterWindowsProfileResult> windowsProfiles)
         {
             AddonProfiles = addonProfiles;
             AgentPoolProfiles = agentPoolProfiles;
             ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;
-            KubeAdminConfigs = kubeAdminConfigs;
+            Id = id;
             KubeAdminConfigRaw = kubeAdminConfigRaw;
-            KubeConfigs = kubeConfigs;
+            KubeAdminConfigs = kubeAdminConfigs;
             KubeConfigRaw = kubeConfigRaw;
+            KubeConfigs = kubeConfigs;
             KubernetesVersion = kubernetesVersion;
             LinuxProfiles = linuxProfiles;
             Location = location;
@@ -195,477 +206,6 @@ namespace Pulumi.Azure.ContainerService
             ServicePrincipals = servicePrincipals;
             Tags = tags;
             WindowsProfiles = windowsProfiles;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetKubernetesClusterAddonProfilesAzurePoliciesResult
-    {
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private GetKubernetesClusterAddonProfilesAzurePoliciesResult(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterAddonProfilesHttpApplicationRoutingsResult
-    {
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// The Zone Name of the HTTP Application Routing.
-        /// </summary>
-        public readonly string HttpApplicationRoutingZoneName;
-
-        [OutputConstructor]
-        private GetKubernetesClusterAddonProfilesHttpApplicationRoutingsResult(
-            bool enabled,
-            string httpApplicationRoutingZoneName)
-        {
-            Enabled = enabled;
-            HttpApplicationRoutingZoneName = httpApplicationRoutingZoneName;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterAddonProfilesKubeDashboardsResult
-    {
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private GetKubernetesClusterAddonProfilesKubeDashboardsResult(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterAddonProfilesOmsAgentsResult
-    {
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
-        /// </summary>
-        public readonly string LogAnalyticsWorkspaceId;
-
-        [OutputConstructor]
-        private GetKubernetesClusterAddonProfilesOmsAgentsResult(
-            bool enabled,
-            string logAnalyticsWorkspaceId)
-        {
-            Enabled = enabled;
-            LogAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterAddonProfilesResult
-    {
-        /// <summary>
-        /// A `azure_policy` block.
-        /// </summary>
-        public readonly ImmutableArray<GetKubernetesClusterAddonProfilesAzurePoliciesResult> AzurePolicies;
-        /// <summary>
-        /// A `http_application_routing` block.
-        /// </summary>
-        public readonly ImmutableArray<GetKubernetesClusterAddonProfilesHttpApplicationRoutingsResult> HttpApplicationRoutings;
-        /// <summary>
-        /// A `kube_dashboard` block.
-        /// </summary>
-        public readonly ImmutableArray<GetKubernetesClusterAddonProfilesKubeDashboardsResult> KubeDashboards;
-        /// <summary>
-        /// A `oms_agent` block.
-        /// </summary>
-        public readonly ImmutableArray<GetKubernetesClusterAddonProfilesOmsAgentsResult> OmsAgents;
-
-        [OutputConstructor]
-        private GetKubernetesClusterAddonProfilesResult(
-            ImmutableArray<GetKubernetesClusterAddonProfilesAzurePoliciesResult> azurePolicies,
-            ImmutableArray<GetKubernetesClusterAddonProfilesHttpApplicationRoutingsResult> httpApplicationRoutings,
-            ImmutableArray<GetKubernetesClusterAddonProfilesKubeDashboardsResult> kubeDashboards,
-            ImmutableArray<GetKubernetesClusterAddonProfilesOmsAgentsResult> omsAgents)
-        {
-            AzurePolicies = azurePolicies;
-            HttpApplicationRoutings = httpApplicationRoutings;
-            KubeDashboards = kubeDashboards;
-            OmsAgents = omsAgents;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterAgentPoolProfilesResult
-    {
-        /// <summary>
-        /// The availability zones used for the nodes.
-        /// </summary>
-        public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// The number of Agents (VM's) in the Pool.
-        /// </summary>
-        public readonly int Count;
-        /// <summary>
-        /// If the auto-scaler is enabled.
-        /// </summary>
-        public readonly bool EnableAutoScaling;
-        public readonly bool? EnableNodePublicIp;
-        /// <summary>
-        /// Maximum number of nodes for auto-scaling
-        /// </summary>
-        public readonly int MaxCount;
-        /// <summary>
-        /// The maximum number of pods that can run on each agent.
-        /// </summary>
-        public readonly int MaxPods;
-        /// <summary>
-        /// Minimum number of nodes for auto-scaling
-        /// </summary>
-        public readonly int MinCount;
-        /// <summary>
-        /// The name of the managed Kubernetes Cluster.
-        /// </summary>
-        public readonly string Name;
-        public readonly ImmutableDictionary<string, string> NodeLabels;
-        /// <summary>
-        /// The list of Kubernetes taints which are applied to nodes in the agent pool
-        /// </summary>
-        public readonly ImmutableArray<string> NodeTaints;
-        /// <summary>
-        /// The size of the Agent VM's Operating System Disk in GB.
-        /// </summary>
-        public readonly int OsDiskSizeGb;
-        /// <summary>
-        /// The Operating System used for the Agents.
-        /// </summary>
-        public readonly string OsType;
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The type of the Agent Pool.
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
-        /// </summary>
-        public readonly string VmSize;
-        /// <summary>
-        /// The ID of the Subnet where the Agents in the Pool are provisioned.
-        /// </summary>
-        public readonly string VnetSubnetId;
-
-        [OutputConstructor]
-        private GetKubernetesClusterAgentPoolProfilesResult(
-            ImmutableArray<string> availabilityZones,
-            int count,
-            bool enableAutoScaling,
-            bool? enableNodePublicIp,
-            int maxCount,
-            int maxPods,
-            int minCount,
-            string name,
-            ImmutableDictionary<string, string> nodeLabels,
-            ImmutableArray<string> nodeTaints,
-            int osDiskSizeGb,
-            string osType,
-            ImmutableDictionary<string, string> tags,
-            string type,
-            string vmSize,
-            string vnetSubnetId)
-        {
-            AvailabilityZones = availabilityZones;
-            Count = count;
-            EnableAutoScaling = enableAutoScaling;
-            EnableNodePublicIp = enableNodePublicIp;
-            MaxCount = maxCount;
-            MaxPods = maxPods;
-            MinCount = minCount;
-            Name = name;
-            NodeLabels = nodeLabels;
-            NodeTaints = nodeTaints;
-            OsDiskSizeGb = osDiskSizeGb;
-            OsType = osType;
-            Tags = tags;
-            Type = type;
-            VmSize = vmSize;
-            VnetSubnetId = vnetSubnetId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterKubeAdminConfigsResult
-    {
-        /// <summary>
-        /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string ClientCertificate;
-        /// <summary>
-        /// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string ClientKey;
-        /// <summary>
-        /// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
-        /// </summary>
-        public readonly string ClusterCaCertificate;
-        /// <summary>
-        /// The Kubernetes cluster server host.
-        /// </summary>
-        public readonly string Host;
-        /// <summary>
-        /// A password or token used to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// A username used to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private GetKubernetesClusterKubeAdminConfigsResult(
-            string clientCertificate,
-            string clientKey,
-            string clusterCaCertificate,
-            string host,
-            string password,
-            string username)
-        {
-            ClientCertificate = clientCertificate;
-            ClientKey = clientKey;
-            ClusterCaCertificate = clusterCaCertificate;
-            Host = host;
-            Password = password;
-            Username = username;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterKubeConfigsResult
-    {
-        /// <summary>
-        /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string ClientCertificate;
-        /// <summary>
-        /// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string ClientKey;
-        /// <summary>
-        /// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
-        /// </summary>
-        public readonly string ClusterCaCertificate;
-        /// <summary>
-        /// The Kubernetes cluster server host.
-        /// </summary>
-        public readonly string Host;
-        /// <summary>
-        /// A password or token used to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string Password;
-        /// <summary>
-        /// A username used to authenticate to the Kubernetes cluster.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private GetKubernetesClusterKubeConfigsResult(
-            string clientCertificate,
-            string clientKey,
-            string clusterCaCertificate,
-            string host,
-            string password,
-            string username)
-        {
-            ClientCertificate = clientCertificate;
-            ClientKey = clientKey;
-            ClusterCaCertificate = clusterCaCertificate;
-            Host = host;
-            Password = password;
-            Username = username;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterLinuxProfilesResult
-    {
-        /// <summary>
-        /// The username associated with the administrator account of the Windows VMs.
-        /// </summary>
-        public readonly string AdminUsername;
-        /// <summary>
-        /// An `ssh_key` block as defined below.
-        /// </summary>
-        public readonly ImmutableArray<GetKubernetesClusterLinuxProfilesSshKeysResult> SshKeys;
-
-        [OutputConstructor]
-        private GetKubernetesClusterLinuxProfilesResult(
-            string adminUsername,
-            ImmutableArray<GetKubernetesClusterLinuxProfilesSshKeysResult> sshKeys)
-        {
-            AdminUsername = adminUsername;
-            SshKeys = sshKeys;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterLinuxProfilesSshKeysResult
-    {
-        /// <summary>
-        /// The Public SSH Key used to access the cluster.
-        /// </summary>
-        public readonly string KeyData;
-
-        [OutputConstructor]
-        private GetKubernetesClusterLinuxProfilesSshKeysResult(string keyData)
-        {
-            KeyData = keyData;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterNetworkProfilesResult
-    {
-        /// <summary>
-        /// IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
-        /// </summary>
-        public readonly string DnsServiceIp;
-        /// <summary>
-        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
-        /// </summary>
-        public readonly string DockerBridgeCidr;
-        public readonly string LoadBalancerSku;
-        /// <summary>
-        /// Network plugin used such as `azure` or `kubenet`.
-        /// </summary>
-        public readonly string NetworkPlugin;
-        /// <summary>
-        /// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
-        /// </summary>
-        public readonly string NetworkPolicy;
-        /// <summary>
-        /// The CIDR used for pod IP addresses.
-        /// </summary>
-        public readonly string PodCidr;
-        /// <summary>
-        /// Network range used by the Kubernetes service.
-        /// </summary>
-        public readonly string ServiceCidr;
-
-        [OutputConstructor]
-        private GetKubernetesClusterNetworkProfilesResult(
-            string dnsServiceIp,
-            string dockerBridgeCidr,
-            string loadBalancerSku,
-            string networkPlugin,
-            string networkPolicy,
-            string podCidr,
-            string serviceCidr)
-        {
-            DnsServiceIp = dnsServiceIp;
-            DockerBridgeCidr = dockerBridgeCidr;
-            LoadBalancerSku = loadBalancerSku;
-            NetworkPlugin = networkPlugin;
-            NetworkPolicy = networkPolicy;
-            PodCidr = podCidr;
-            ServiceCidr = serviceCidr;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterRoleBasedAccessControlsAzureActiveDirectoriesResult
-    {
-        /// <summary>
-        /// The Client ID of an Azure Active Directory Application.
-        /// </summary>
-        public readonly string ClientAppId;
-        /// <summary>
-        /// The Server ID of an Azure Active Directory Application.
-        /// </summary>
-        public readonly string ServerAppId;
-        /// <summary>
-        /// The Tenant ID used for Azure Active Directory Application.
-        /// </summary>
-        public readonly string TenantId;
-
-        [OutputConstructor]
-        private GetKubernetesClusterRoleBasedAccessControlsAzureActiveDirectoriesResult(
-            string clientAppId,
-            string serverAppId,
-            string tenantId)
-        {
-            ClientAppId = clientAppId;
-            ServerAppId = serverAppId;
-            TenantId = tenantId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterRoleBasedAccessControlsResult
-    {
-        /// <summary>
-        /// A `azure_active_directory` block as documented above.
-        /// </summary>
-        public readonly ImmutableArray<GetKubernetesClusterRoleBasedAccessControlsAzureActiveDirectoriesResult> AzureActiveDirectories;
-        /// <summary>
-        /// Is Role Based Access Control enabled?
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private GetKubernetesClusterRoleBasedAccessControlsResult(
-            ImmutableArray<GetKubernetesClusterRoleBasedAccessControlsAzureActiveDirectoriesResult> azureActiveDirectories,
-            bool enabled)
-        {
-            AzureActiveDirectories = azureActiveDirectories;
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterServicePrincipalsResult
-    {
-        /// <summary>
-        /// The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
-        /// </summary>
-        public readonly string ClientId;
-
-        [OutputConstructor]
-        private GetKubernetesClusterServicePrincipalsResult(string clientId)
-        {
-            ClientId = clientId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKubernetesClusterWindowsProfilesResult
-    {
-        /// <summary>
-        /// The username associated with the administrator account of the Windows VMs.
-        /// </summary>
-        public readonly string AdminUsername;
-
-        [OutputConstructor]
-        private GetKubernetesClusterWindowsProfilesResult(string adminUsername)
-        {
-            AdminUsername = adminUsername;
-        }
-    }
     }
 }

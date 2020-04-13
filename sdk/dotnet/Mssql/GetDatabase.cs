@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.MSSql
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing SQL database.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_database.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDatabase.InvokeAsync() instead")]
-        public static Task<GetDatabaseResult> GetDatabase(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:mssql/getDatabase:getDatabase", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDatabase
     {
         /// <summary>
         /// Use this data source to access information about an existing SQL database.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_database.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:mssql/getDatabase:getDatabase", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:mssql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
+
     [OutputType]
     public sealed class GetDatabaseResult
     {
@@ -65,6 +53,10 @@ namespace Pulumi.Azure.MSSql
         /// The id of the elastic pool containing this database.
         /// </summary>
         public readonly string ElasticPoolId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The license type to apply for this database.
         /// </summary>
@@ -95,28 +87,36 @@ namespace Pulumi.Azure.MSSql
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         /// </summary>
         public readonly bool ZoneRedundant;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDatabaseResult(
             string collation,
+
             string elasticPoolId,
+
+            string id,
+
             string licenseType,
+
             int maxSizeGb,
+
             string name,
+
             int readReplicaCount,
+
             bool readScale,
+
             string serverId,
+
             string skuName,
+
             ImmutableDictionary<string, string> tags,
-            bool zoneRedundant,
-            string id)
+
+            bool zoneRedundant)
         {
             Collation = collation;
             ElasticPoolId = elasticPoolId;
+            Id = id;
             LicenseType = licenseType;
             MaxSizeGb = maxSizeGb;
             Name = name;
@@ -126,7 +126,6 @@ namespace Pulumi.Azure.MSSql
             SkuName = skuName;
             Tags = tags;
             ZoneRedundant = zoneRedundant;
-            Id = id;
         }
     }
 }

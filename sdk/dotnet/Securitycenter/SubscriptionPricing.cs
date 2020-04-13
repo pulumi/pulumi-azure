@@ -15,10 +15,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// &gt; **NOTE:** This resource requires the `Owner` permission on the Subscription.
     /// 
     /// &gt; **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.markdown.
     /// </summary>
     public partial class SubscriptionPricing : Pulumi.CustomResource
     {
@@ -37,7 +33,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubscriptionPricing(string name, SubscriptionPricingArgs args, CustomResourceOptions? options = null)
-            : base("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, args ?? new SubscriptionPricingArgs(), MakeResourceOptions(options, ""))
         {
         }
 

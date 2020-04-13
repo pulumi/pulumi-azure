@@ -9,21 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.PrivateLink
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Private Link Service.
-        /// 
-        /// &gt; **NOTE** Private Link is currently in Public Preview.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetService.InvokeAsync() instead")]
-        public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:privatelink/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetService
     {
         /// <summary>
@@ -31,13 +16,13 @@ namespace Pulumi.Azure.PrivateLink
         /// 
         /// &gt; **NOTE** Private Link is currently in Public Preview.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:privatelink/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:privatelink/getService:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
@@ -58,6 +43,7 @@ namespace Pulumi.Azure.PrivateLink
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceResult
     {
@@ -74,6 +60,10 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly bool EnableProxyProtocol;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerFrontendIpConfigurationIds;
@@ -88,7 +78,7 @@ namespace Pulumi.Azure.PrivateLink
         /// <summary>
         /// The `nat_ip_configuration` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetServiceNatIpConfigurationsResult> NatIpConfigurations;
+        public readonly ImmutableArray<Outputs.GetServiceNatIpConfigurationResult> NatIpConfigurations;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -98,28 +88,35 @@ namespace Pulumi.Azure.PrivateLink
         /// The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
         /// </summary>
         public readonly ImmutableArray<string> VisibilitySubscriptionIds;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceResult(
             string alias,
+
             ImmutableArray<string> autoApprovalSubscriptionIds,
+
             bool enableProxyProtocol,
+
+            string id,
+
             ImmutableArray<string> loadBalancerFrontendIpConfigurationIds,
+
             string location,
+
             string name,
-            ImmutableArray<Outputs.GetServiceNatIpConfigurationsResult> natIpConfigurations,
+
+            ImmutableArray<Outputs.GetServiceNatIpConfigurationResult> natIpConfigurations,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<string> visibilitySubscriptionIds,
-            string id)
+
+            ImmutableArray<string> visibilitySubscriptionIds)
         {
             Alias = alias;
             AutoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
             EnableProxyProtocol = enableProxyProtocol;
+            Id = id;
             LoadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             Location = location;
             Name = name;
@@ -127,51 +124,6 @@ namespace Pulumi.Azure.PrivateLink
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             VisibilitySubscriptionIds = visibilitySubscriptionIds;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetServiceNatIpConfigurationsResult
-    {
-        /// <summary>
-        /// The name of the private link service.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Value that indicates if the IP configuration is the primary configuration or not.
-        /// </summary>
-        public readonly bool Primary;
-        /// <summary>
-        /// The private IP address of the NAT IP configuration.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// The version of the IP Protocol.
-        /// </summary>
-        public readonly string PrivateIpAddressVersion;
-        /// <summary>
-        /// The ID of the subnet to be used by the service.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private GetServiceNatIpConfigurationsResult(
-            string name,
-            bool primary,
-            string privateIpAddress,
-            string privateIpAddressVersion,
-            string subnetId)
-        {
-            Name = name;
-            Primary = primary;
-            PrivateIpAddress = privateIpAddress;
-            PrivateIpAddressVersion = privateIpAddressVersion;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

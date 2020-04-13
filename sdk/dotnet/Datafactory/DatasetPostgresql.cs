@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages a PostgreSQL Dataset inside a Azure Data Factory.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_postgresql.html.markdown.
     /// </summary>
     public partial class DatasetPostgresql : Pulumi.CustomResource
     {
@@ -76,7 +72,7 @@ namespace Pulumi.Azure.DataFactory
         /// A `schema_column` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
-        public Output<ImmutableArray<Outputs.DatasetPostgresqlSchemaColumns>> SchemaColumns { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DatasetPostgresqlSchemaColumn>> SchemaColumns { get; private set; } = null!;
 
         /// <summary>
         /// The table name of the Data Factory Dataset PostgreSQL.
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatasetPostgresql(string name, DatasetPostgresqlArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, args ?? new DatasetPostgresqlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -203,14 +199,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("schemaColumns")]
-        private InputList<Inputs.DatasetPostgresqlSchemaColumnsArgs>? _schemaColumns;
+        private InputList<Inputs.DatasetPostgresqlSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
         /// A `schema_column` block as defined below.
         /// </summary>
-        public InputList<Inputs.DatasetPostgresqlSchemaColumnsArgs> SchemaColumns
+        public InputList<Inputs.DatasetPostgresqlSchemaColumnArgs> SchemaColumns
         {
-            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetPostgresqlSchemaColumnsArgs>());
+            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetPostgresqlSchemaColumnArgs>());
             set => _schemaColumns = value;
         }
 
@@ -300,14 +296,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("schemaColumns")]
-        private InputList<Inputs.DatasetPostgresqlSchemaColumnsGetArgs>? _schemaColumns;
+        private InputList<Inputs.DatasetPostgresqlSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
         /// A `schema_column` block as defined below.
         /// </summary>
-        public InputList<Inputs.DatasetPostgresqlSchemaColumnsGetArgs> SchemaColumns
+        public InputList<Inputs.DatasetPostgresqlSchemaColumnGetArgs> SchemaColumns
         {
-            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetPostgresqlSchemaColumnsGetArgs>());
+            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetPostgresqlSchemaColumnGetArgs>());
             set => _schemaColumns = value;
         }
 
@@ -320,91 +316,5 @@ namespace Pulumi.Azure.DataFactory
         public DatasetPostgresqlState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DatasetPostgresqlSchemaColumnsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DatasetPostgresqlSchemaColumnsArgs()
-        {
-        }
-    }
-
-    public sealed class DatasetPostgresqlSchemaColumnsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DatasetPostgresqlSchemaColumnsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DatasetPostgresqlSchemaColumns
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private DatasetPostgresqlSchemaColumns(
-            string? description,
-            string name,
-            string? type)
-        {
-            Description = description;
-            Name = name;
-            Type = type;
-        }
-    }
     }
 }

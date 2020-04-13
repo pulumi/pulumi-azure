@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ApiManagement
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing API Management User.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetUser.InvokeAsync() instead")]
-        public static Task<GetUserResult> GetUser(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetUser
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management User.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
     }
+
 
     public sealed class GetUserArgs : Pulumi.InvokeArgs
     {
@@ -60,6 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
+
     [OutputType]
     public sealed class GetUserResult
     {
@@ -72,6 +60,10 @@ namespace Pulumi.Azure.ApiManagement
         /// The First Name for the User.
         /// </summary>
         public readonly string FirstName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Last Name for the User.
         /// </summary>
@@ -86,32 +78,36 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly string State;
         public readonly string UserId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserResult(
             string apiManagementName,
+
             string email,
+
             string firstName,
+
+            string id,
+
             string lastName,
+
             string note,
+
             string resourceGroupName,
+
             string state,
-            string userId,
-            string id)
+
+            string userId)
         {
             ApiManagementName = apiManagementName;
             Email = email;
             FirstName = firstName;
+            Id = id;
             LastName = lastName;
             Note = note;
             ResourceGroupName = resourceGroupName;
             State = state;
             UserId = userId;
-            Id = id;
         }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Proximity
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Proximity Placement Group.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPlacementGroup.InvokeAsync() instead")]
-        public static Task<GetPlacementGroupResult> GetPlacementGroup(GetPlacementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPlacementGroup
     {
         /// <summary>
         /// Use this data source to access information about an existing Proximity Placement Group.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPlacementGroupArgs : Pulumi.InvokeArgs
     {
@@ -54,31 +41,36 @@ namespace Pulumi.Azure.Proximity
         }
     }
 
+
     [OutputType]
     public sealed class GetPlacementGroupResult
     {
-        public readonly string Location;
-        public readonly string Name;
-        public readonly string ResourceGroupName;
-        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Location;
+        public readonly string Name;
+        public readonly string ResourceGroupName;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetPlacementGroupResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

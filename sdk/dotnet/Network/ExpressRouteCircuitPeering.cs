@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages an ExpressRoute Circuit Peering.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_peering.html.markdown.
     /// </summary>
     public partial class ExpressRouteCircuitPeering : Pulumi.CustomResource
     {
@@ -98,7 +96,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExpressRouteCircuitPeering(string name, ExpressRouteCircuitPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, args ?? new ExpressRouteCircuitPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -273,66 +271,5 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitPeeringState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs : Pulumi.ResourceArgs
-    {
-        [Input("advertisedPublicPrefixes", required: true)]
-        private InputList<string>? _advertisedPublicPrefixes;
-
-        /// <summary>
-        /// A list of Advertised Public Prefixes
-        /// </summary>
-        public InputList<string> AdvertisedPublicPrefixes
-        {
-            get => _advertisedPublicPrefixes ?? (_advertisedPublicPrefixes = new InputList<string>());
-            set => _advertisedPublicPrefixes = value;
-        }
-
-        public ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs()
-        {
-        }
-    }
-
-    public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("advertisedPublicPrefixes", required: true)]
-        private InputList<string>? _advertisedPublicPrefixes;
-
-        /// <summary>
-        /// A list of Advertised Public Prefixes
-        /// </summary>
-        public InputList<string> AdvertisedPublicPrefixes
-        {
-            get => _advertisedPublicPrefixes ?? (_advertisedPublicPrefixes = new InputList<string>());
-            set => _advertisedPublicPrefixes = value;
-        }
-
-        public ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ExpressRouteCircuitPeeringMicrosoftPeeringConfig
-    {
-        /// <summary>
-        /// A list of Advertised Public Prefixes
-        /// </summary>
-        public readonly ImmutableArray<string> AdvertisedPublicPrefixes;
-
-        [OutputConstructor]
-        private ExpressRouteCircuitPeeringMicrosoftPeeringConfig(ImmutableArray<string> advertisedPublicPrefixes)
-        {
-            AdvertisedPublicPrefixes = advertisedPublicPrefixes;
-        }
-    }
     }
 }

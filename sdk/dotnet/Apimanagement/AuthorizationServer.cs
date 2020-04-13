@@ -11,11 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an Authorization Server within an API Management Service.
-    /// 
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
     /// </summary>
     public partial class AuthorizationServer : Pulumi.CustomResource
     {
@@ -122,7 +117,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool?> SupportState { get; private set; } = null!;
 
         [Output("tokenBodyParameters")]
-        public Output<ImmutableArray<Outputs.AuthorizationServerTokenBodyParameters>> TokenBodyParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AuthorizationServerTokenBodyParameter>> TokenBodyParameters { get; private set; } = null!;
 
         /// <summary>
         /// The OAUTH Token Endpoint.
@@ -139,7 +134,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthorizationServer(string name, AuthorizationServerArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/authorizationServer:AuthorizationServer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/authorizationServer:AuthorizationServer", name, args ?? new AuthorizationServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -303,10 +298,10 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? SupportState { get; set; }
 
         [Input("tokenBodyParameters")]
-        private InputList<Inputs.AuthorizationServerTokenBodyParametersArgs>? _tokenBodyParameters;
-        public InputList<Inputs.AuthorizationServerTokenBodyParametersArgs> TokenBodyParameters
+        private InputList<Inputs.AuthorizationServerTokenBodyParameterArgs>? _tokenBodyParameters;
+        public InputList<Inputs.AuthorizationServerTokenBodyParameterArgs> TokenBodyParameters
         {
-            get => _tokenBodyParameters ?? (_tokenBodyParameters = new InputList<Inputs.AuthorizationServerTokenBodyParametersArgs>());
+            get => _tokenBodyParameters ?? (_tokenBodyParameters = new InputList<Inputs.AuthorizationServerTokenBodyParameterArgs>());
             set => _tokenBodyParameters = value;
         }
 
@@ -450,10 +445,10 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? SupportState { get; set; }
 
         [Input("tokenBodyParameters")]
-        private InputList<Inputs.AuthorizationServerTokenBodyParametersGetArgs>? _tokenBodyParameters;
-        public InputList<Inputs.AuthorizationServerTokenBodyParametersGetArgs> TokenBodyParameters
+        private InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs>? _tokenBodyParameters;
+        public InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs> TokenBodyParameters
         {
-            get => _tokenBodyParameters ?? (_tokenBodyParameters = new InputList<Inputs.AuthorizationServerTokenBodyParametersGetArgs>());
+            get => _tokenBodyParameters ?? (_tokenBodyParameters = new InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs>());
             set => _tokenBodyParameters = value;
         }
 
@@ -466,73 +461,5 @@ namespace Pulumi.Azure.ApiManagement
         public AuthorizationServerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AuthorizationServerTokenBodyParametersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Name of the Parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Value of the Parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public AuthorizationServerTokenBodyParametersArgs()
-        {
-        }
-    }
-
-    public sealed class AuthorizationServerTokenBodyParametersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Name of the Parameter.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Value of the Parameter.
-        /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public AuthorizationServerTokenBodyParametersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AuthorizationServerTokenBodyParameters
-    {
-        /// <summary>
-        /// The Name of the Parameter.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Value of the Parameter.
-        /// </summary>
-        public readonly string Value;
-
-        [OutputConstructor]
-        private AuthorizationServerTokenBodyParameters(
-            string name,
-            string value)
-        {
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

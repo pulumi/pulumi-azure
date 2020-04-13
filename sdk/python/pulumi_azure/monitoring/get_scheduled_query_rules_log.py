@@ -85,8 +85,6 @@ def get_scheduled_query_rules_log(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
-
 
     :param str name: Specifies the name of the scheduled query rule.
     :param str resource_group_name: Specifies the name of the resource group where the scheduled query rule is located.

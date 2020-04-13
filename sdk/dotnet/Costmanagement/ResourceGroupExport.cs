@@ -11,10 +11,6 @@ namespace Pulumi.Azure.CostManagement
 {
     /// <summary>
     /// Manages an Azure Cost Management Export for a Resource Group.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cost_management_export_resource_group.html.markdown.
     /// </summary>
     public partial class ResourceGroupExport : Pulumi.CustomResource
     {
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.CostManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceGroupExport(string name, ResourceGroupExportArgs args, CustomResourceOptions? options = null)
-            : base("azure:costmanagement/resourceGroupExport:ResourceGroupExport", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:costmanagement/resourceGroupExport:ResourceGroupExport", name, args ?? new ResourceGroupExportArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -218,151 +214,5 @@ namespace Pulumi.Azure.CostManagement
         public ResourceGroupExportState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ResourceGroupExportDeliveryInfoArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the container where exports will be uploaded.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        /// <summary>
-        /// The path of the directory where exports will be uploaded.
-        /// </summary>
-        [Input("rootFolderPath", required: true)]
-        public Input<string> RootFolderPath { get; set; } = null!;
-
-        /// <summary>
-        /// The storage account id where exports will be delivered.
-        /// </summary>
-        [Input("storageAccountId", required: true)]
-        public Input<string> StorageAccountId { get; set; } = null!;
-
-        public ResourceGroupExportDeliveryInfoArgs()
-        {
-        }
-    }
-
-    public sealed class ResourceGroupExportDeliveryInfoGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the container where exports will be uploaded.
-        /// </summary>
-        [Input("containerName", required: true)]
-        public Input<string> ContainerName { get; set; } = null!;
-
-        /// <summary>
-        /// The path of the directory where exports will be uploaded.
-        /// </summary>
-        [Input("rootFolderPath", required: true)]
-        public Input<string> RootFolderPath { get; set; } = null!;
-
-        /// <summary>
-        /// The storage account id where exports will be delivered.
-        /// </summary>
-        [Input("storageAccountId", required: true)]
-        public Input<string> StorageAccountId { get; set; } = null!;
-
-        public ResourceGroupExportDeliveryInfoGetArgs()
-        {
-        }
-    }
-
-    public sealed class ResourceGroupExportQueryArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
-        /// </summary>
-        [Input("timeFrame", required: true)]
-        public Input<string> TimeFrame { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the query.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ResourceGroupExportQueryArgs()
-        {
-        }
-    }
-
-    public sealed class ResourceGroupExportQueryGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
-        /// </summary>
-        [Input("timeFrame", required: true)]
-        public Input<string> TimeFrame { get; set; } = null!;
-
-        /// <summary>
-        /// The type of the query.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public ResourceGroupExportQueryGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ResourceGroupExportDeliveryInfo
-    {
-        /// <summary>
-        /// The name of the container where exports will be uploaded.
-        /// </summary>
-        public readonly string ContainerName;
-        /// <summary>
-        /// The path of the directory where exports will be uploaded.
-        /// </summary>
-        public readonly string RootFolderPath;
-        /// <summary>
-        /// The storage account id where exports will be delivered.
-        /// </summary>
-        public readonly string StorageAccountId;
-
-        [OutputConstructor]
-        private ResourceGroupExportDeliveryInfo(
-            string containerName,
-            string rootFolderPath,
-            string storageAccountId)
-        {
-            ContainerName = containerName;
-            RootFolderPath = rootFolderPath;
-            StorageAccountId = storageAccountId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ResourceGroupExportQuery
-    {
-        /// <summary>
-        /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
-        /// </summary>
-        public readonly string TimeFrame;
-        /// <summary>
-        /// The type of the query.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private ResourceGroupExportQuery(
-            string timeFrame,
-            string type)
-        {
-            TimeFrame = timeFrame;
-            Type = type;
-        }
-    }
     }
 }

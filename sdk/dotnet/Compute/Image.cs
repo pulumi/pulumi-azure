@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages a custom virtual machine image that can be used to create virtual machines.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
     /// </summary>
     public partial class Image : Pulumi.CustomResource
     {
@@ -20,7 +18,7 @@ namespace Pulumi.Azure.Compute
         /// One or more `data_disk` elements as defined below.
         /// </summary>
         [Output("dataDisks")]
-        public Output<ImmutableArray<Outputs.ImageDataDisks>> DataDisks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ImageDataDisk>> DataDisks { get; private set; } = null!;
 
         /// <summary>
         /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
@@ -82,7 +80,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Image(string name, ImageArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/image:Image", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/image:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -120,14 +118,14 @@ namespace Pulumi.Azure.Compute
     public sealed class ImageArgs : Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
-        private InputList<Inputs.ImageDataDisksArgs>? _dataDisks;
+        private InputList<Inputs.ImageDataDiskArgs>? _dataDisks;
 
         /// <summary>
         /// One or more `data_disk` elements as defined below.
         /// </summary>
-        public InputList<Inputs.ImageDataDisksArgs> DataDisks
+        public InputList<Inputs.ImageDataDiskArgs> DataDisks
         {
-            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.ImageDataDisksArgs>());
+            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.ImageDataDiskArgs>());
             set => _dataDisks = value;
         }
 
@@ -196,14 +194,14 @@ namespace Pulumi.Azure.Compute
     public sealed class ImageState : Pulumi.ResourceArgs
     {
         [Input("dataDisks")]
-        private InputList<Inputs.ImageDataDisksGetArgs>? _dataDisks;
+        private InputList<Inputs.ImageDataDiskGetArgs>? _dataDisks;
 
         /// <summary>
         /// One or more `data_disk` elements as defined below.
         /// </summary>
-        public InputList<Inputs.ImageDataDisksGetArgs> DataDisks
+        public InputList<Inputs.ImageDataDiskGetArgs> DataDisks
         {
-            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.ImageDataDisksGetArgs>());
+            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.ImageDataDiskGetArgs>());
             set => _dataDisks = value;
         }
 
@@ -267,259 +265,5 @@ namespace Pulumi.Azure.Compute
         public ImageState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ImageDataDisksArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
-        /// </summary>
-        [Input("blobUri")]
-        public Input<string>? BlobUri { get; set; }
-
-        /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        /// </summary>
-        [Input("caching")]
-        public Input<string>? Caching { get; set; }
-
-        /// <summary>
-        /// Specifies the logical unit number of the data disk.
-        /// </summary>
-        [Input("lun")]
-        public Input<int>? Lun { get; set; }
-
-        /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
-        /// </summary>
-        [Input("managedDiskId")]
-        public Input<string>? ManagedDiskId { get; set; }
-
-        /// <summary>
-        /// Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        /// </summary>
-        [Input("sizeGb")]
-        public Input<int>? SizeGb { get; set; }
-
-        public ImageDataDisksArgs()
-        {
-        }
-    }
-
-    public sealed class ImageDataDisksGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
-        /// </summary>
-        [Input("blobUri")]
-        public Input<string>? BlobUri { get; set; }
-
-        /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        /// </summary>
-        [Input("caching")]
-        public Input<string>? Caching { get; set; }
-
-        /// <summary>
-        /// Specifies the logical unit number of the data disk.
-        /// </summary>
-        [Input("lun")]
-        public Input<int>? Lun { get; set; }
-
-        /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
-        /// </summary>
-        [Input("managedDiskId")]
-        public Input<string>? ManagedDiskId { get; set; }
-
-        /// <summary>
-        /// Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        /// </summary>
-        [Input("sizeGb")]
-        public Input<int>? SizeGb { get; set; }
-
-        public ImageDataDisksGetArgs()
-        {
-        }
-    }
-
-    public sealed class ImageOsDiskArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
-        /// </summary>
-        [Input("blobUri")]
-        public Input<string>? BlobUri { get; set; }
-
-        /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        /// </summary>
-        [Input("caching")]
-        public Input<string>? Caching { get; set; }
-
-        /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
-        /// </summary>
-        [Input("managedDiskId")]
-        public Input<string>? ManagedDiskId { get; set; }
-
-        /// <summary>
-        /// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
-        /// </summary>
-        [Input("osState")]
-        public Input<string>? OsState { get; set; }
-
-        /// <summary>
-        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
-        /// </summary>
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
-
-        /// <summary>
-        /// Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        /// </summary>
-        [Input("sizeGb")]
-        public Input<int>? SizeGb { get; set; }
-
-        public ImageOsDiskArgs()
-        {
-        }
-    }
-
-    public sealed class ImageOsDiskGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
-        /// </summary>
-        [Input("blobUri")]
-        public Input<string>? BlobUri { get; set; }
-
-        /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        /// </summary>
-        [Input("caching")]
-        public Input<string>? Caching { get; set; }
-
-        /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
-        /// </summary>
-        [Input("managedDiskId")]
-        public Input<string>? ManagedDiskId { get; set; }
-
-        /// <summary>
-        /// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
-        /// </summary>
-        [Input("osState")]
-        public Input<string>? OsState { get; set; }
-
-        /// <summary>
-        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
-        /// </summary>
-        [Input("osType")]
-        public Input<string>? OsType { get; set; }
-
-        /// <summary>
-        /// Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        /// </summary>
-        [Input("sizeGb")]
-        public Input<int>? SizeGb { get; set; }
-
-        public ImageOsDiskGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ImageDataDisks
-    {
-        /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
-        /// </summary>
-        public readonly string BlobUri;
-        /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        /// </summary>
-        public readonly string? Caching;
-        /// <summary>
-        /// Specifies the logical unit number of the data disk.
-        /// </summary>
-        public readonly int? Lun;
-        /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
-        /// </summary>
-        public readonly string? ManagedDiskId;
-        /// <summary>
-        /// Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        /// </summary>
-        public readonly int SizeGb;
-
-        [OutputConstructor]
-        private ImageDataDisks(
-            string blobUri,
-            string? caching,
-            int? lun,
-            string? managedDiskId,
-            int sizeGb)
-        {
-            BlobUri = blobUri;
-            Caching = caching;
-            Lun = lun;
-            ManagedDiskId = managedDiskId;
-            SizeGb = sizeGb;
-        }
-    }
-
-    [OutputType]
-    public sealed class ImageOsDisk
-    {
-        /// <summary>
-        /// Specifies the URI in Azure storage of the blob that you want to use to create the image.
-        /// </summary>
-        public readonly string BlobUri;
-        /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        /// </summary>
-        public readonly string? Caching;
-        /// <summary>
-        /// Specifies the ID of the managed disk resource that you want to use to create the image.
-        /// </summary>
-        public readonly string ManagedDiskId;
-        /// <summary>
-        /// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
-        /// </summary>
-        public readonly string? OsState;
-        /// <summary>
-        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
-        /// </summary>
-        public readonly string? OsType;
-        /// <summary>
-        /// Specifies the size of the image to be created. The target size can't be smaller than the source size.
-        /// </summary>
-        public readonly int SizeGb;
-
-        [OutputConstructor]
-        private ImageOsDisk(
-            string blobUri,
-            string? caching,
-            string managedDiskId,
-            string? osState,
-            string? osType,
-            int sizeGb)
-        {
-            BlobUri = blobUri;
-            Caching = caching;
-            ManagedDiskId = managedDiskId;
-            OsState = osState;
-            OsType = osType;
-            SizeGb = sizeGb;
-        }
-    }
     }
 }

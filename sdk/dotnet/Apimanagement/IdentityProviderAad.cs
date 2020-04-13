@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management AAD Identity Provider.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_aad.html.markdown.
     /// </summary>
     public partial class IdentityProviderAad : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IdentityProviderAad(string name, IdentityProviderAadArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/identityProviderAad:IdentityProviderAad", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/identityProviderAad:IdentityProviderAad", name, args ?? new IdentityProviderAadArgs(), MakeResourceOptions(options, ""))
         {
         }
 

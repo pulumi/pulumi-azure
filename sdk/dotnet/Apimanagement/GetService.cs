@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ApiManagement
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing API Management Service.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetService.InvokeAsync() instead")]
-        public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:apimanagement/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetService
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management Service.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:apimanagement/getService:getService", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:apimanagement/getService:getService", args ?? new GetServiceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServiceArgs : Pulumi.InvokeArgs
     {
@@ -54,13 +41,14 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
+
     [OutputType]
     public sealed class GetServiceResult
     {
         /// <summary>
         /// One or more `additional_location` blocks as defined below
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetServiceAdditionalLocationsResult> AdditionalLocations;
+        public readonly ImmutableArray<Outputs.GetServiceAdditionalLocationResult> AdditionalLocations;
         /// <summary>
         /// Gateway URL of the API Management service in the Region.
         /// </summary>
@@ -72,7 +60,11 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A `hostname_configuration` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetServiceHostnameConfigurationsResult> HostnameConfigurations;
+        public readonly ImmutableArray<Outputs.GetServiceHostnameConfigurationResult> HostnameConfigurations;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The location name of the additional region among Azure Data center regions.
         /// </summary>
@@ -115,35 +107,48 @@ namespace Pulumi.Azure.ApiManagement
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServiceResult(
-            ImmutableArray<Outputs.GetServiceAdditionalLocationsResult> additionalLocations,
+            ImmutableArray<Outputs.GetServiceAdditionalLocationResult> additionalLocations,
+
             string gatewayRegionalUrl,
+
             string gatewayUrl,
-            ImmutableArray<Outputs.GetServiceHostnameConfigurationsResult> hostnameConfigurations,
+
+            ImmutableArray<Outputs.GetServiceHostnameConfigurationResult> hostnameConfigurations,
+
+            string id,
+
             string location,
+
             string managementApiUrl,
+
             string name,
+
             string notificationSenderEmail,
+
             string portalUrl,
+
             ImmutableArray<string> publicIpAddresses,
+
             string publisherEmail,
+
             string publisherName,
+
             string resourceGroupName,
+
             string scmUrl,
+
             string skuName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AdditionalLocations = additionalLocations;
             GatewayRegionalUrl = gatewayRegionalUrl;
             GatewayUrl = gatewayUrl;
             HostnameConfigurations = hostnameConfigurations;
+            Id = id;
             Location = location;
             ManagementApiUrl = managementApiUrl;
             Name = name;
@@ -156,191 +161,6 @@ namespace Pulumi.Azure.ApiManagement
             ScmUrl = scmUrl;
             SkuName = skuName;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetServiceAdditionalLocationsResult
-    {
-        /// <summary>
-        /// Gateway URL of the API Management service in the Region.
-        /// </summary>
-        public readonly string GatewayRegionalUrl;
-        /// <summary>
-        /// The location name of the additional region among Azure Data center regions.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        /// </summary>
-        public readonly ImmutableArray<string> PublicIpAddresses;
-
-        [OutputConstructor]
-        private GetServiceAdditionalLocationsResult(
-            string gatewayRegionalUrl,
-            string location,
-            ImmutableArray<string> publicIpAddresses)
-        {
-            GatewayRegionalUrl = gatewayRegionalUrl;
-            Location = location;
-            PublicIpAddresses = publicIpAddresses;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetServiceHostnameConfigurationsManagementsResult
-    {
-        /// <summary>
-        /// The Hostname used for the SCM URL.
-        /// </summary>
-        public readonly string HostName;
-        /// <summary>
-        /// The ID of the Key Vault Secret which contains the SSL Certificate.
-        /// </summary>
-        public readonly string KeyVaultId;
-        /// <summary>
-        /// Is Client Certificate Negotiation enabled?
-        /// </summary>
-        public readonly bool NegotiateClientCertificate;
-
-        [OutputConstructor]
-        private GetServiceHostnameConfigurationsManagementsResult(
-            string hostName,
-            string keyVaultId,
-            bool negotiateClientCertificate)
-        {
-            HostName = hostName;
-            KeyVaultId = keyVaultId;
-            NegotiateClientCertificate = negotiateClientCertificate;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetServiceHostnameConfigurationsPortalsResult
-    {
-        /// <summary>
-        /// The Hostname used for the SCM URL.
-        /// </summary>
-        public readonly string HostName;
-        /// <summary>
-        /// The ID of the Key Vault Secret which contains the SSL Certificate.
-        /// </summary>
-        public readonly string KeyVaultId;
-        /// <summary>
-        /// Is Client Certificate Negotiation enabled?
-        /// </summary>
-        public readonly bool NegotiateClientCertificate;
-
-        [OutputConstructor]
-        private GetServiceHostnameConfigurationsPortalsResult(
-            string hostName,
-            string keyVaultId,
-            bool negotiateClientCertificate)
-        {
-            HostName = hostName;
-            KeyVaultId = keyVaultId;
-            NegotiateClientCertificate = negotiateClientCertificate;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetServiceHostnameConfigurationsProxiesResult
-    {
-        /// <summary>
-        /// Is this the default SSL Binding?
-        /// </summary>
-        public readonly bool DefaultSslBinding;
-        /// <summary>
-        /// The Hostname used for the SCM URL.
-        /// </summary>
-        public readonly string HostName;
-        /// <summary>
-        /// The ID of the Key Vault Secret which contains the SSL Certificate.
-        /// </summary>
-        public readonly string KeyVaultId;
-        /// <summary>
-        /// Is Client Certificate Negotiation enabled?
-        /// </summary>
-        public readonly bool NegotiateClientCertificate;
-
-        [OutputConstructor]
-        private GetServiceHostnameConfigurationsProxiesResult(
-            bool defaultSslBinding,
-            string hostName,
-            string keyVaultId,
-            bool negotiateClientCertificate)
-        {
-            DefaultSslBinding = defaultSslBinding;
-            HostName = hostName;
-            KeyVaultId = keyVaultId;
-            NegotiateClientCertificate = negotiateClientCertificate;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetServiceHostnameConfigurationsResult
-    {
-        /// <summary>
-        /// One or more `management` blocks as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetServiceHostnameConfigurationsManagementsResult> Managements;
-        /// <summary>
-        /// One or more `portal` blocks as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetServiceHostnameConfigurationsPortalsResult> Portals;
-        /// <summary>
-        /// One or more `proxy` blocks as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetServiceHostnameConfigurationsProxiesResult> Proxies;
-        /// <summary>
-        /// One or more `scm` blocks as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetServiceHostnameConfigurationsScmsResult> Scms;
-
-        [OutputConstructor]
-        private GetServiceHostnameConfigurationsResult(
-            ImmutableArray<GetServiceHostnameConfigurationsManagementsResult> managements,
-            ImmutableArray<GetServiceHostnameConfigurationsPortalsResult> portals,
-            ImmutableArray<GetServiceHostnameConfigurationsProxiesResult> proxies,
-            ImmutableArray<GetServiceHostnameConfigurationsScmsResult> scms)
-        {
-            Managements = managements;
-            Portals = portals;
-            Proxies = proxies;
-            Scms = scms;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetServiceHostnameConfigurationsScmsResult
-    {
-        /// <summary>
-        /// The Hostname used for the SCM URL.
-        /// </summary>
-        public readonly string HostName;
-        /// <summary>
-        /// The ID of the Key Vault Secret which contains the SSL Certificate.
-        /// </summary>
-        public readonly string KeyVaultId;
-        /// <summary>
-        /// Is Client Certificate Negotiation enabled?
-        /// </summary>
-        public readonly bool NegotiateClientCertificate;
-
-        [OutputConstructor]
-        private GetServiceHostnameConfigurationsScmsResult(
-            string hostName,
-            string keyVaultId,
-            bool negotiateClientCertificate)
-        {
-            HostName = hostName;
-            KeyVaultId = keyVaultId;
-            NegotiateClientCertificate = negotiateClientCertificate;
-        }
-    }
     }
 }

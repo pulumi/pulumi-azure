@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Role
 {
     /// <summary>
     /// Assigns a given Principal (User or Application) to a given Role.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
     /// </summary>
     public partial class Assignment : Pulumi.CustomResource
     {
@@ -67,7 +65,7 @@ namespace Pulumi.Azure.Role
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure:role/assignment:Assignment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:role/assignment:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

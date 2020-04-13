@@ -52,8 +52,6 @@ class AuthorizationRule(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_authorization_rule.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.

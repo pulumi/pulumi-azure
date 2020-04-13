@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages a Diagnostic Setting for an existing Resource.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
     /// </summary>
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {
@@ -31,12 +27,6 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> EventhubName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// </summary>
-        [Output("logs")]
-        public Output<ImmutableArray<Outputs.DiagnosticSettingLogs>> Logs { get; private set; } = null!;
-
-        /// <summary>
         /// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         /// </summary>
         [Output("logAnalyticsDestinationType")]
@@ -49,10 +39,16 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `log` blocks as defined below.
+        /// </summary>
+        [Output("logs")]
+        public Output<ImmutableArray<Outputs.DiagnosticSettingLog>> Logs { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `metric` blocks as defined below.
         /// </summary>
         [Output("metrics")]
-        public Output<ImmutableArray<Outputs.DiagnosticSettingMetrics>> Metrics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DiagnosticSettingMetric>> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DiagnosticSetting(string name, DiagnosticSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, args ?? new DiagnosticSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -130,18 +126,6 @@ namespace Pulumi.Azure.Monitoring
         [Input("eventhubName")]
         public Input<string>? EventhubName { get; set; }
 
-        [Input("logs")]
-        private InputList<Inputs.DiagnosticSettingLogsArgs>? _logs;
-
-        /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.DiagnosticSettingLogsArgs> Logs
-        {
-            get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogsArgs>());
-            set => _logs = value;
-        }
-
         /// <summary>
         /// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         /// </summary>
@@ -154,15 +138,27 @@ namespace Pulumi.Azure.Monitoring
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
+        [Input("logs")]
+        private InputList<Inputs.DiagnosticSettingLogArgs>? _logs;
+
+        /// <summary>
+        /// One or more `log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DiagnosticSettingLogArgs> Logs
+        {
+            get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogArgs>());
+            set => _logs = value;
+        }
+
         [Input("metrics")]
-        private InputList<Inputs.DiagnosticSettingMetricsArgs>? _metrics;
+        private InputList<Inputs.DiagnosticSettingMetricArgs>? _metrics;
 
         /// <summary>
         /// One or more `metric` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.DiagnosticSettingMetricsArgs> Metrics
+        public InputList<Inputs.DiagnosticSettingMetricArgs> Metrics
         {
-            get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricsArgs>());
+            get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricArgs>());
             set => _metrics = value;
         }
 
@@ -203,18 +199,6 @@ namespace Pulumi.Azure.Monitoring
         [Input("eventhubName")]
         public Input<string>? EventhubName { get; set; }
 
-        [Input("logs")]
-        private InputList<Inputs.DiagnosticSettingLogsGetArgs>? _logs;
-
-        /// <summary>
-        /// One or more `log` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.DiagnosticSettingLogsGetArgs> Logs
-        {
-            get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogsGetArgs>());
-            set => _logs = value;
-        }
-
         /// <summary>
         /// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         /// </summary>
@@ -227,15 +211,27 @@ namespace Pulumi.Azure.Monitoring
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
+        [Input("logs")]
+        private InputList<Inputs.DiagnosticSettingLogGetArgs>? _logs;
+
+        /// <summary>
+        /// One or more `log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DiagnosticSettingLogGetArgs> Logs
+        {
+            get => _logs ?? (_logs = new InputList<Inputs.DiagnosticSettingLogGetArgs>());
+            set => _logs = value;
+        }
+
         [Input("metrics")]
-        private InputList<Inputs.DiagnosticSettingMetricsGetArgs>? _metrics;
+        private InputList<Inputs.DiagnosticSettingMetricGetArgs>? _metrics;
 
         /// <summary>
         /// One or more `metric` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.DiagnosticSettingMetricsGetArgs> Metrics
+        public InputList<Inputs.DiagnosticSettingMetricGetArgs> Metrics
         {
-            get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricsGetArgs>());
+            get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricGetArgs>());
             set => _metrics = value;
         }
 
@@ -260,289 +256,5 @@ namespace Pulumi.Azure.Monitoring
         public DiagnosticSettingState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DiagnosticSettingLogsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of a Diagnostic Log Category for this Resource.
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
-        /// Is this Diagnostic Log enabled? Defaults to `true`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// A `retention_policy` block as defined below.
-        /// </summary>
-        [Input("retentionPolicy", required: true)]
-        public Input<DiagnosticSettingLogsRetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
-
-        public DiagnosticSettingLogsArgs()
-        {
-        }
-    }
-
-    public sealed class DiagnosticSettingLogsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of a Diagnostic Log Category for this Resource.
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
-        /// Is this Diagnostic Log enabled? Defaults to `true`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// A `retention_policy` block as defined below.
-        /// </summary>
-        [Input("retentionPolicy", required: true)]
-        public Input<DiagnosticSettingLogsRetentionPolicyGetArgs> RetentionPolicy { get; set; } = null!;
-
-        public DiagnosticSettingLogsGetArgs()
-        {
-        }
-    }
-
-    public sealed class DiagnosticSettingLogsRetentionPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// </summary>
-        [Input("days")]
-        public Input<int>? Days { get; set; }
-
-        /// <summary>
-        /// Is this Retention Policy enabled?
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public DiagnosticSettingLogsRetentionPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class DiagnosticSettingLogsRetentionPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// </summary>
-        [Input("days")]
-        public Input<int>? Days { get; set; }
-
-        /// <summary>
-        /// Is this Retention Policy enabled?
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public DiagnosticSettingLogsRetentionPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class DiagnosticSettingMetricsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of a Diagnostic Metric Category for this Resource.
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
-        /// Is this Diagnostic Metric enabled? Defaults to `true`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// A `retention_policy` block as defined below.
-        /// </summary>
-        [Input("retentionPolicy", required: true)]
-        public Input<DiagnosticSettingMetricsRetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
-
-        public DiagnosticSettingMetricsArgs()
-        {
-        }
-    }
-
-    public sealed class DiagnosticSettingMetricsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of a Diagnostic Metric Category for this Resource.
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
-        /// Is this Diagnostic Metric enabled? Defaults to `true`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// A `retention_policy` block as defined below.
-        /// </summary>
-        [Input("retentionPolicy", required: true)]
-        public Input<DiagnosticSettingMetricsRetentionPolicyGetArgs> RetentionPolicy { get; set; } = null!;
-
-        public DiagnosticSettingMetricsGetArgs()
-        {
-        }
-    }
-
-    public sealed class DiagnosticSettingMetricsRetentionPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// </summary>
-        [Input("days")]
-        public Input<int>? Days { get; set; }
-
-        /// <summary>
-        /// Is this Retention Policy enabled?
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public DiagnosticSettingMetricsRetentionPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class DiagnosticSettingMetricsRetentionPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// </summary>
-        [Input("days")]
-        public Input<int>? Days { get; set; }
-
-        /// <summary>
-        /// Is this Retention Policy enabled?
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        public DiagnosticSettingMetricsRetentionPolicyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DiagnosticSettingLogs
-    {
-        /// <summary>
-        /// The name of a Diagnostic Log Category for this Resource.
-        /// </summary>
-        public readonly string Category;
-        /// <summary>
-        /// Is this Diagnostic Log enabled? Defaults to `true`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// A `retention_policy` block as defined below.
-        /// </summary>
-        public readonly DiagnosticSettingLogsRetentionPolicy RetentionPolicy;
-
-        [OutputConstructor]
-        private DiagnosticSettingLogs(
-            string category,
-            bool? enabled,
-            DiagnosticSettingLogsRetentionPolicy retentionPolicy)
-        {
-            Category = category;
-            Enabled = enabled;
-            RetentionPolicy = retentionPolicy;
-        }
-    }
-
-    [OutputType]
-    public sealed class DiagnosticSettingLogsRetentionPolicy
-    {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// </summary>
-        public readonly int? Days;
-        /// <summary>
-        /// Is this Retention Policy enabled?
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private DiagnosticSettingLogsRetentionPolicy(
-            int? days,
-            bool enabled)
-        {
-            Days = days;
-            Enabled = enabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class DiagnosticSettingMetrics
-    {
-        /// <summary>
-        /// The name of a Diagnostic Metric Category for this Resource.
-        /// </summary>
-        public readonly string Category;
-        /// <summary>
-        /// Is this Diagnostic Metric enabled? Defaults to `true`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// A `retention_policy` block as defined below.
-        /// </summary>
-        public readonly DiagnosticSettingMetricsRetentionPolicy RetentionPolicy;
-
-        [OutputConstructor]
-        private DiagnosticSettingMetrics(
-            string category,
-            bool? enabled,
-            DiagnosticSettingMetricsRetentionPolicy retentionPolicy)
-        {
-            Category = category;
-            Enabled = enabled;
-            RetentionPolicy = retentionPolicy;
-        }
-    }
-
-    [OutputType]
-    public sealed class DiagnosticSettingMetricsRetentionPolicy
-    {
-        /// <summary>
-        /// The number of days for which this Retention Policy should apply.
-        /// </summary>
-        public readonly int? Days;
-        /// <summary>
-        /// Is this Retention Policy enabled?
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private DiagnosticSettingMetricsRetentionPolicy(
-            int? days,
-            bool enabled)
-        {
-            Days = days;
-            Enabled = enabled;
-        }
-    }
     }
 }

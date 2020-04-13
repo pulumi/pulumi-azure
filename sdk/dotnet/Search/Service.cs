@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Search
 {
     /// <summary>
     /// Manages a Search Service.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {
@@ -46,7 +42,7 @@ namespace Pulumi.Azure.Search
         /// A `query_keys` block as defined below.
         /// </summary>
         [Output("queryKeys")]
-        public Output<ImmutableArray<Outputs.ServiceQueryKeys>> QueryKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceQueryKey>> QueryKeys { get; private set; } = null!;
 
         /// <summary>
         /// The number of replica's which should be created.
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.Search
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure:search/service:Service", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:search/service:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -204,14 +200,14 @@ namespace Pulumi.Azure.Search
         public Input<string>? PrimaryKey { get; set; }
 
         [Input("queryKeys")]
-        private InputList<Inputs.ServiceQueryKeysGetArgs>? _queryKeys;
+        private InputList<Inputs.ServiceQueryKeyGetArgs>? _queryKeys;
 
         /// <summary>
         /// A `query_keys` block as defined below.
         /// </summary>
-        public InputList<Inputs.ServiceQueryKeysGetArgs> QueryKeys
+        public InputList<Inputs.ServiceQueryKeyGetArgs> QueryKeys
         {
-            get => _queryKeys ?? (_queryKeys = new InputList<Inputs.ServiceQueryKeysGetArgs>());
+            get => _queryKeys ?? (_queryKeys = new InputList<Inputs.ServiceQueryKeyGetArgs>());
             set => _queryKeys = value;
         }
 
@@ -254,54 +250,5 @@ namespace Pulumi.Azure.Search
         public ServiceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServiceQueryKeysGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The value of this Query Key.
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public ServiceQueryKeysGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServiceQueryKeys
-    {
-        /// <summary>
-        /// The value of this Query Key.
-        /// </summary>
-        public readonly string Key;
-        /// <summary>
-        /// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ServiceQueryKeys(
-            string key,
-            string name)
-        {
-            Key = key;
-            Name = name;
-        }
-    }
     }
 }

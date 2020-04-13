@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DatabaseMigration
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Database Migration Project.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_project.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetProject.InvokeAsync() instead")]
-        public static Task<GetProjectResult> GetProject(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetProject
     {
         /// <summary>
         /// Use this data source to access information about an existing Database Migration Project.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/database_migration_project.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? new GetProjectArgs(), options.WithVersion());
     }
+
 
     public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.DatabaseMigration
         }
     }
 
+
     [OutputType]
     public sealed class GetProjectResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Azure location where the resource exists.
         /// </summary>
@@ -82,22 +74,26 @@ namespace Pulumi.Azure.DatabaseMigration
         /// The platform type of the migration target.
         /// </summary>
         public readonly string TargetPlatform;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetProjectResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string serviceName,
+
             string sourcePlatform,
+
             ImmutableDictionary<string, string> tags,
-            string targetPlatform,
-            string id)
+
+            string targetPlatform)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
@@ -105,7 +101,6 @@ namespace Pulumi.Azure.DatabaseMigration
             SourcePlatform = sourcePlatform;
             Tags = tags;
             TargetPlatform = targetPlatform;
-            Id = id;
         }
     }
 }

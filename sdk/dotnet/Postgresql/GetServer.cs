@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.PostgreSql
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetServer.InvokeAsync() instead")]
-        public static Task<GetServerResult> GetServer(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:postgresql/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetServer
     {
         /// <summary>
         /// Use this data source to access information about an existing PostgreSQL Azure Database Server.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:postgresql/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:postgresql/getServer:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
+
     [OutputType]
     public sealed class GetServerResult
     {
@@ -65,6 +53,10 @@ namespace Pulumi.Azure.PostgreSql
         /// The fully qualified domain name of the PostgreSQL Server.
         /// </summary>
         public readonly string Fqdn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The location of the Resource Group in which the PostgreSQL Server exists.
         /// </summary>
@@ -79,30 +71,33 @@ namespace Pulumi.Azure.PostgreSql
         /// The version of the PostgreSQL Server.
         /// </summary>
         public readonly string Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServerResult(
             string administratorLogin,
+
             string fqdn,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            string version,
-            string id)
+
+            string version)
         {
             AdministratorLogin = administratorLogin;
             Fqdn = fqdn;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             Version = version;
-            Id = id;
         }
     }
 }

@@ -91,8 +91,6 @@ def get_key(key_vault_id=None,name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
-
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
     :param str name: Specifies the name of the Key Vault Key.

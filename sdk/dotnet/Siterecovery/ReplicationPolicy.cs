@@ -11,10 +11,6 @@ namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
     /// Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replication_policy.html.markdown.
     /// </summary>
     public partial class ReplicationPolicy : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationPolicy(string name, ReplicationPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, args ?? new ReplicationPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

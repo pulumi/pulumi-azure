@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_authorization_rule.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNamespaceAuthorizationRule.InvokeAsync() instead")]
-        public static Task<GetNamespaceAuthorizationRuleResult> GetNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>
         /// Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_authorization_rule.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNamespaceAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
+
     [OutputType]
     public sealed class GetNamespaceAuthorizationRuleResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Does this Authorization Rule have permissions to Listen to the Event Hub?
         /// </summary>
@@ -97,25 +89,32 @@ namespace Pulumi.Azure.EventHub
         /// Does this Authorization Rule have permissions to Send to the Event Hub?
         /// </summary>
         public readonly bool Send;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNamespaceAuthorizationRuleResult(
+            string id,
+
             bool listen,
+
             bool manage,
+
             string name,
+
             string namespaceName,
+
             string primaryConnectionString,
+
             string primaryKey,
+
             string resourceGroupName,
+
             string secondaryConnectionString,
+
             string secondaryKey,
-            bool send,
-            string id)
+
+            bool send)
         {
+            Id = id;
             Listen = listen;
             Manage = manage;
             Name = name;
@@ -126,7 +125,6 @@ namespace Pulumi.Azure.EventHub
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryKey = secondaryKey;
             Send = send;
-            Id = id;
         }
     }
 }

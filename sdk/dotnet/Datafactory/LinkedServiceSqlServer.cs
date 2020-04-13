@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages a Linked Service (connection) between a SQL Server and Azure Data Factory.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_sql_server.html.markdown.
     /// </summary>
     public partial class LinkedServiceSqlServer : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedServiceSqlServer(string name, LinkedServiceSqlServerArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, args ?? new LinkedServiceSqlServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 

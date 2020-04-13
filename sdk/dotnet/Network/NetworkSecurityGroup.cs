@@ -15,10 +15,6 @@ namespace Pulumi.Azure.Network
     /// &gt; **NOTE on Network Security Groups and Network Security Rules:** This provider currently
     /// provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
     /// At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
     /// </summary>
     public partial class NetworkSecurityGroup : Pulumi.CustomResource
     {
@@ -44,7 +40,7 @@ namespace Pulumi.Azure.Network
         /// A list of objects representing security rules, as defined below.
         /// </summary>
         [Output("securityRules")]
-        public Output<ImmutableArray<Outputs.NetworkSecurityGroupSecurityRules>> SecurityRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkSecurityGroupSecurityRule>> SecurityRules { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -61,7 +57,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkSecurityGroup(string name, NetworkSecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, args ?? new NetworkSecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -117,14 +113,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("securityRules")]
-        private InputList<Inputs.NetworkSecurityGroupSecurityRulesArgs>? _securityRules;
+        private InputList<Inputs.NetworkSecurityGroupSecurityRuleArgs>? _securityRules;
 
         /// <summary>
         /// A list of objects representing security rules, as defined below.
         /// </summary>
-        public InputList<Inputs.NetworkSecurityGroupSecurityRulesArgs> SecurityRules
+        public InputList<Inputs.NetworkSecurityGroupSecurityRuleArgs> SecurityRules
         {
-            get => _securityRules ?? (_securityRules = new InputList<Inputs.NetworkSecurityGroupSecurityRulesArgs>());
+            get => _securityRules ?? (_securityRules = new InputList<Inputs.NetworkSecurityGroupSecurityRuleArgs>());
             set => _securityRules = value;
         }
 
@@ -166,14 +162,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("securityRules")]
-        private InputList<Inputs.NetworkSecurityGroupSecurityRulesGetArgs>? _securityRules;
+        private InputList<Inputs.NetworkSecurityGroupSecurityRuleGetArgs>? _securityRules;
 
         /// <summary>
         /// A list of objects representing security rules, as defined below.
         /// </summary>
-        public InputList<Inputs.NetworkSecurityGroupSecurityRulesGetArgs> SecurityRules
+        public InputList<Inputs.NetworkSecurityGroupSecurityRuleGetArgs> SecurityRules
         {
-            get => _securityRules ?? (_securityRules = new InputList<Inputs.NetworkSecurityGroupSecurityRulesGetArgs>());
+            get => _securityRules ?? (_securityRules = new InputList<Inputs.NetworkSecurityGroupSecurityRuleGetArgs>());
             set => _securityRules = value;
         }
 
@@ -192,397 +188,5 @@ namespace Pulumi.Azure.Network
         public NetworkSecurityGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NetworkSecurityGroupSecurityRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
-        /// </summary>
-        [Input("access", required: true)]
-        public Input<string> Access { get; set; } = null!;
-
-        /// <summary>
-        /// A description for this rule. Restricted to 140 characters.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
-        /// </summary>
-        [Input("destinationAddressPrefix")]
-        public Input<string>? DestinationAddressPrefix { get; set; }
-
-        [Input("destinationAddressPrefixes")]
-        private InputList<string>? _destinationAddressPrefixes;
-
-        /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        /// </summary>
-        public InputList<string> DestinationAddressPrefixes
-        {
-            get => _destinationAddressPrefixes ?? (_destinationAddressPrefixes = new InputList<string>());
-            set => _destinationAddressPrefixes = value;
-        }
-
-        [Input("destinationApplicationSecurityGroupIds")]
-        private InputList<string>? _destinationApplicationSecurityGroupIds;
-
-        /// <summary>
-        /// A List of destination Application Security Group ID's
-        /// </summary>
-        public InputList<string> DestinationApplicationSecurityGroupIds
-        {
-            get => _destinationApplicationSecurityGroupIds ?? (_destinationApplicationSecurityGroupIds = new InputList<string>());
-            set => _destinationApplicationSecurityGroupIds = value;
-        }
-
-        /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        /// </summary>
-        [Input("destinationPortRange")]
-        public Input<string>? DestinationPortRange { get; set; }
-
-        [Input("destinationPortRanges")]
-        private InputList<string>? _destinationPortRanges;
-
-        /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-        /// </summary>
-        public InputList<string> DestinationPortRanges
-        {
-            get => _destinationPortRanges ?? (_destinationPortRanges = new InputList<string>());
-            set => _destinationPortRanges = value;
-        }
-
-        /// <summary>
-        /// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        /// </summary>
-        [Input("direction", required: true)]
-        public Input<string> Direction { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the security rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
-        /// </summary>
-        [Input("sourceAddressPrefix")]
-        public Input<string>? SourceAddressPrefix { get; set; }
-
-        [Input("sourceAddressPrefixes")]
-        private InputList<string>? _sourceAddressPrefixes;
-
-        /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        /// </summary>
-        public InputList<string> SourceAddressPrefixes
-        {
-            get => _sourceAddressPrefixes ?? (_sourceAddressPrefixes = new InputList<string>());
-            set => _sourceAddressPrefixes = value;
-        }
-
-        [Input("sourceApplicationSecurityGroupIds")]
-        private InputList<string>? _sourceApplicationSecurityGroupIds;
-
-        /// <summary>
-        /// A List of source Application Security Group ID's
-        /// </summary>
-        public InputList<string> SourceApplicationSecurityGroupIds
-        {
-            get => _sourceApplicationSecurityGroupIds ?? (_sourceApplicationSecurityGroupIds = new InputList<string>());
-            set => _sourceApplicationSecurityGroupIds = value;
-        }
-
-        /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        /// </summary>
-        [Input("sourcePortRange")]
-        public Input<string>? SourcePortRange { get; set; }
-
-        [Input("sourcePortRanges")]
-        private InputList<string>? _sourcePortRanges;
-
-        /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
-        /// </summary>
-        public InputList<string> SourcePortRanges
-        {
-            get => _sourcePortRanges ?? (_sourcePortRanges = new InputList<string>());
-            set => _sourcePortRanges = value;
-        }
-
-        public NetworkSecurityGroupSecurityRulesArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkSecurityGroupSecurityRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
-        /// </summary>
-        [Input("access", required: true)]
-        public Input<string> Access { get; set; } = null!;
-
-        /// <summary>
-        /// A description for this rule. Restricted to 140 characters.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
-        /// </summary>
-        [Input("destinationAddressPrefix")]
-        public Input<string>? DestinationAddressPrefix { get; set; }
-
-        [Input("destinationAddressPrefixes")]
-        private InputList<string>? _destinationAddressPrefixes;
-
-        /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        /// </summary>
-        public InputList<string> DestinationAddressPrefixes
-        {
-            get => _destinationAddressPrefixes ?? (_destinationAddressPrefixes = new InputList<string>());
-            set => _destinationAddressPrefixes = value;
-        }
-
-        [Input("destinationApplicationSecurityGroupIds")]
-        private InputList<string>? _destinationApplicationSecurityGroupIds;
-
-        /// <summary>
-        /// A List of destination Application Security Group ID's
-        /// </summary>
-        public InputList<string> DestinationApplicationSecurityGroupIds
-        {
-            get => _destinationApplicationSecurityGroupIds ?? (_destinationApplicationSecurityGroupIds = new InputList<string>());
-            set => _destinationApplicationSecurityGroupIds = value;
-        }
-
-        /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        /// </summary>
-        [Input("destinationPortRange")]
-        public Input<string>? DestinationPortRange { get; set; }
-
-        [Input("destinationPortRanges")]
-        private InputList<string>? _destinationPortRanges;
-
-        /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-        /// </summary>
-        public InputList<string> DestinationPortRanges
-        {
-            get => _destinationPortRanges ?? (_destinationPortRanges = new InputList<string>());
-            set => _destinationPortRanges = value;
-        }
-
-        /// <summary>
-        /// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        /// </summary>
-        [Input("direction", required: true)]
-        public Input<string> Direction { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the security rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
-        /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
-        /// </summary>
-        [Input("sourceAddressPrefix")]
-        public Input<string>? SourceAddressPrefix { get; set; }
-
-        [Input("sourceAddressPrefixes")]
-        private InputList<string>? _sourceAddressPrefixes;
-
-        /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        /// </summary>
-        public InputList<string> SourceAddressPrefixes
-        {
-            get => _sourceAddressPrefixes ?? (_sourceAddressPrefixes = new InputList<string>());
-            set => _sourceAddressPrefixes = value;
-        }
-
-        [Input("sourceApplicationSecurityGroupIds")]
-        private InputList<string>? _sourceApplicationSecurityGroupIds;
-
-        /// <summary>
-        /// A List of source Application Security Group ID's
-        /// </summary>
-        public InputList<string> SourceApplicationSecurityGroupIds
-        {
-            get => _sourceApplicationSecurityGroupIds ?? (_sourceApplicationSecurityGroupIds = new InputList<string>());
-            set => _sourceApplicationSecurityGroupIds = value;
-        }
-
-        /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        /// </summary>
-        [Input("sourcePortRange")]
-        public Input<string>? SourcePortRange { get; set; }
-
-        [Input("sourcePortRanges")]
-        private InputList<string>? _sourcePortRanges;
-
-        /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
-        /// </summary>
-        public InputList<string> SourcePortRanges
-        {
-            get => _sourcePortRanges ?? (_sourcePortRanges = new InputList<string>());
-            set => _sourcePortRanges = value;
-        }
-
-        public NetworkSecurityGroupSecurityRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NetworkSecurityGroupSecurityRules
-    {
-        /// <summary>
-        /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
-        /// </summary>
-        public readonly string Access;
-        /// <summary>
-        /// A description for this rule. Restricted to 140 characters.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
-        /// </summary>
-        public readonly string? DestinationAddressPrefix;
-        /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        /// </summary>
-        public readonly ImmutableArray<string> DestinationAddressPrefixes;
-        /// <summary>
-        /// A List of destination Application Security Group ID's
-        /// </summary>
-        public readonly ImmutableArray<string> DestinationApplicationSecurityGroupIds;
-        /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        /// </summary>
-        public readonly string? DestinationPortRange;
-        /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-        /// </summary>
-        public readonly ImmutableArray<string> DestinationPortRanges;
-        /// <summary>
-        /// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        /// </summary>
-        public readonly string Direction;
-        /// <summary>
-        /// The name of the security rule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        /// </summary>
-        public readonly int Priority;
-        /// <summary>
-        /// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
-        /// </summary>
-        public readonly string Protocol;
-        /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
-        /// </summary>
-        public readonly string? SourceAddressPrefix;
-        /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        /// </summary>
-        public readonly ImmutableArray<string> SourceAddressPrefixes;
-        /// <summary>
-        /// A List of source Application Security Group ID's
-        /// </summary>
-        public readonly ImmutableArray<string> SourceApplicationSecurityGroupIds;
-        /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        /// </summary>
-        public readonly string? SourcePortRange;
-        /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
-        /// </summary>
-        public readonly ImmutableArray<string> SourcePortRanges;
-
-        [OutputConstructor]
-        private NetworkSecurityGroupSecurityRules(
-            string access,
-            string? description,
-            string? destinationAddressPrefix,
-            ImmutableArray<string> destinationAddressPrefixes,
-            ImmutableArray<string> destinationApplicationSecurityGroupIds,
-            string? destinationPortRange,
-            ImmutableArray<string> destinationPortRanges,
-            string direction,
-            string name,
-            int priority,
-            string protocol,
-            string? sourceAddressPrefix,
-            ImmutableArray<string> sourceAddressPrefixes,
-            ImmutableArray<string> sourceApplicationSecurityGroupIds,
-            string? sourcePortRange,
-            ImmutableArray<string> sourcePortRanges)
-        {
-            Access = access;
-            Description = description;
-            DestinationAddressPrefix = destinationAddressPrefix;
-            DestinationAddressPrefixes = destinationAddressPrefixes;
-            DestinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
-            DestinationPortRange = destinationPortRange;
-            DestinationPortRanges = destinationPortRanges;
-            Direction = direction;
-            Name = name;
-            Priority = priority;
-            Protocol = protocol;
-            SourceAddressPrefix = sourceAddressPrefix;
-            SourceAddressPrefixes = sourceAddressPrefixes;
-            SourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
-            SourcePortRange = sourcePortRange;
-            SourcePortRanges = sourcePortRanges;
-        }
-    }
     }
 }

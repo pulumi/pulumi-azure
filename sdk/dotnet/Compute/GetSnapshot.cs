@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Snapshot.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSnapshot.InvokeAsync() instead")]
-        public static Task<GetSnapshotResult> GetSnapshot(GetSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:compute/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSnapshot
     {
         /// <summary>
         /// Use this data source to access information about an existing Snapshot.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:compute/getSnapshot:getSnapshot", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:compute/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSnapshotArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetSnapshotResult
     {
@@ -62,7 +50,11 @@ namespace Pulumi.Azure.Compute
         /// The size of the Snapshotted Disk in GB.
         /// </summary>
         public readonly int DiskSizeGb;
-        public readonly ImmutableArray<Outputs.GetSnapshotEncryptionSettingsResult> EncryptionSettings;
+        public readonly ImmutableArray<Outputs.GetSnapshotEncryptionSettingResult> EncryptionSettings;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string OsType;
         public readonly string ResourceGroupName;
@@ -79,28 +71,35 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string StorageAccountId;
         public readonly string TimeCreated;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetSnapshotResult(
             string creationOption,
+
             int diskSizeGb,
-            ImmutableArray<Outputs.GetSnapshotEncryptionSettingsResult> encryptionSettings,
+
+            ImmutableArray<Outputs.GetSnapshotEncryptionSettingResult> encryptionSettings,
+
+            string id,
+
             string name,
+
             string osType,
+
             string resourceGroupName,
+
             string sourceResourceId,
+
             string sourceUri,
+
             string storageAccountId,
-            string timeCreated,
-            string id)
+
+            string timeCreated)
         {
             CreationOption = creationOption;
             DiskSizeGb = diskSizeGb;
             EncryptionSettings = encryptionSettings;
+            Id = id;
             Name = name;
             OsType = osType;
             ResourceGroupName = resourceGroupName;
@@ -108,62 +107,6 @@ namespace Pulumi.Azure.Compute
             SourceUri = sourceUri;
             StorageAccountId = storageAccountId;
             TimeCreated = timeCreated;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSnapshotEncryptionSettingsDiskEncryptionKeysResult
-    {
-        public readonly string SecretUrl;
-        public readonly string SourceVaultId;
-
-        [OutputConstructor]
-        private GetSnapshotEncryptionSettingsDiskEncryptionKeysResult(
-            string secretUrl,
-            string sourceVaultId)
-        {
-            SecretUrl = secretUrl;
-            SourceVaultId = sourceVaultId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetSnapshotEncryptionSettingsKeyEncryptionKeysResult
-    {
-        public readonly string KeyUrl;
-        public readonly string SourceVaultId;
-
-        [OutputConstructor]
-        private GetSnapshotEncryptionSettingsKeyEncryptionKeysResult(
-            string keyUrl,
-            string sourceVaultId)
-        {
-            KeyUrl = keyUrl;
-            SourceVaultId = sourceVaultId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetSnapshotEncryptionSettingsResult
-    {
-        public readonly ImmutableArray<GetSnapshotEncryptionSettingsDiskEncryptionKeysResult> DiskEncryptionKeys;
-        public readonly bool Enabled;
-        public readonly ImmutableArray<GetSnapshotEncryptionSettingsKeyEncryptionKeysResult> KeyEncryptionKeys;
-
-        [OutputConstructor]
-        private GetSnapshotEncryptionSettingsResult(
-            ImmutableArray<GetSnapshotEncryptionSettingsDiskEncryptionKeysResult> diskEncryptionKeys,
-            bool enabled,
-            ImmutableArray<GetSnapshotEncryptionSettingsKeyEncryptionKeysResult> keyEncryptionKeys)
-        {
-            DiskEncryptionKeys = diskEncryptionKeys;
-            Enabled = enabled;
-            KeyEncryptionKeys = keyEncryptionKeys;
-        }
-    }
     }
 }

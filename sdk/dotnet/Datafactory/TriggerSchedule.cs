@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages a Trigger Schedule inside a Azure Data Factory.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
     /// </summary>
     public partial class TriggerSchedule : Pulumi.CustomResource
     {
@@ -87,7 +83,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TriggerSchedule(string name, TriggerScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/triggerSchedule:TriggerSchedule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/triggerSchedule:TriggerSchedule", name, args ?? new TriggerScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

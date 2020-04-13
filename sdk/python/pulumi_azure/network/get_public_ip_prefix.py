@@ -82,8 +82,6 @@ def get_public_ip_prefix(name=None,resource_group_name=None,zones=None,opts=None
     """
     Use this data source to access information about an existing Public IP Prefix.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
-
 
     :param str name: Specifies the name of the public IP prefix.
     :param str resource_group_name: Specifies the name of the resource group.

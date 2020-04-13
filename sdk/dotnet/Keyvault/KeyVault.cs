@@ -17,10 +17,6 @@ namespace Pulumi.Azure.KeyVault
     /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     /// 
     /// &gt; **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
     /// </summary>
     public partial class KeyVault : Pulumi.CustomResource
     {
@@ -28,7 +24,7 @@ namespace Pulumi.Azure.KeyVault
         /// A list of up to 16 objects describing access policies, as described below.
         /// </summary>
         [Output("accessPolicies")]
-        public Output<ImmutableArray<Outputs.KeyVaultAccessPolicies>> AccessPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
@@ -117,7 +113,7 @@ namespace Pulumi.Azure.KeyVault
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeyVault(string name, KeyVaultArgs args, CustomResourceOptions? options = null)
-            : base("azure:keyvault/keyVault:KeyVault", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:keyvault/keyVault:KeyVault", name, args ?? new KeyVaultArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -155,14 +151,14 @@ namespace Pulumi.Azure.KeyVault
     public sealed class KeyVaultArgs : Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
-        private InputList<Inputs.KeyVaultAccessPoliciesArgs>? _accessPolicies;
+        private InputList<Inputs.KeyVaultAccessPolicyArgs>? _accessPolicies;
 
         /// <summary>
         /// A list of up to 16 objects describing access policies, as described below.
         /// </summary>
-        public InputList<Inputs.KeyVaultAccessPoliciesArgs> AccessPolicies
+        public InputList<Inputs.KeyVaultAccessPolicyArgs> AccessPolicies
         {
-            get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.KeyVaultAccessPoliciesArgs>());
+            get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.KeyVaultAccessPolicyArgs>());
             set => _accessPolicies = value;
         }
 
@@ -252,14 +248,14 @@ namespace Pulumi.Azure.KeyVault
     public sealed class KeyVaultState : Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
-        private InputList<Inputs.KeyVaultAccessPoliciesGetArgs>? _accessPolicies;
+        private InputList<Inputs.KeyVaultAccessPolicyGetArgs>? _accessPolicies;
 
         /// <summary>
         /// A list of up to 16 objects describing access policies, as described below.
         /// </summary>
-        public InputList<Inputs.KeyVaultAccessPoliciesGetArgs> AccessPolicies
+        public InputList<Inputs.KeyVaultAccessPolicyGetArgs> AccessPolicies
         {
-            get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.KeyVaultAccessPoliciesGetArgs>());
+            get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.KeyVaultAccessPolicyGetArgs>());
             set => _accessPolicies = value;
         }
 
@@ -350,331 +346,5 @@ namespace Pulumi.Azure.KeyVault
         public KeyVaultState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class KeyVaultAccessPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The object ID of an Application in Azure Active Directory.
-        /// </summary>
-        [Input("applicationId")]
-        public Input<string>? ApplicationId { get; set; }
-
-        [Input("certificatePermissions")]
-        private InputList<string>? _certificatePermissions;
-
-        /// <summary>
-        /// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-        /// </summary>
-        public InputList<string> CertificatePermissions
-        {
-            get => _certificatePermissions ?? (_certificatePermissions = new InputList<string>());
-            set => _certificatePermissions = value;
-        }
-
-        [Input("keyPermissions")]
-        private InputList<string>? _keyPermissions;
-
-        /// <summary>
-        /// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-        /// </summary>
-        public InputList<string> KeyPermissions
-        {
-            get => _keyPermissions ?? (_keyPermissions = new InputList<string>());
-            set => _keyPermissions = value;
-        }
-
-        /// <summary>
-        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        /// </summary>
-        [Input("objectId", required: true)]
-        public Input<string> ObjectId { get; set; } = null!;
-
-        [Input("secretPermissions")]
-        private InputList<string>? _secretPermissions;
-
-        /// <summary>
-        /// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-        /// </summary>
-        public InputList<string> SecretPermissions
-        {
-            get => _secretPermissions ?? (_secretPermissions = new InputList<string>());
-            set => _secretPermissions = value;
-        }
-
-        [Input("storagePermissions")]
-        private InputList<string>? _storagePermissions;
-
-        /// <summary>
-        /// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-        /// </summary>
-        public InputList<string> StoragePermissions
-        {
-            get => _storagePermissions ?? (_storagePermissions = new InputList<string>());
-            set => _storagePermissions = value;
-        }
-
-        /// <summary>
-        /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
-        /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
-
-        public KeyVaultAccessPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class KeyVaultAccessPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The object ID of an Application in Azure Active Directory.
-        /// </summary>
-        [Input("applicationId")]
-        public Input<string>? ApplicationId { get; set; }
-
-        [Input("certificatePermissions")]
-        private InputList<string>? _certificatePermissions;
-
-        /// <summary>
-        /// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-        /// </summary>
-        public InputList<string> CertificatePermissions
-        {
-            get => _certificatePermissions ?? (_certificatePermissions = new InputList<string>());
-            set => _certificatePermissions = value;
-        }
-
-        [Input("keyPermissions")]
-        private InputList<string>? _keyPermissions;
-
-        /// <summary>
-        /// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-        /// </summary>
-        public InputList<string> KeyPermissions
-        {
-            get => _keyPermissions ?? (_keyPermissions = new InputList<string>());
-            set => _keyPermissions = value;
-        }
-
-        /// <summary>
-        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        /// </summary>
-        [Input("objectId", required: true)]
-        public Input<string> ObjectId { get; set; } = null!;
-
-        [Input("secretPermissions")]
-        private InputList<string>? _secretPermissions;
-
-        /// <summary>
-        /// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-        /// </summary>
-        public InputList<string> SecretPermissions
-        {
-            get => _secretPermissions ?? (_secretPermissions = new InputList<string>());
-            set => _secretPermissions = value;
-        }
-
-        [Input("storagePermissions")]
-        private InputList<string>? _storagePermissions;
-
-        /// <summary>
-        /// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-        /// </summary>
-        public InputList<string> StoragePermissions
-        {
-            get => _storagePermissions ?? (_storagePermissions = new InputList<string>());
-            set => _storagePermissions = value;
-        }
-
-        /// <summary>
-        /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
-        /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
-
-        public KeyVaultAccessPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class KeyVaultNetworkAclsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
-        /// </summary>
-        [Input("bypass", required: true)]
-        public Input<string> Bypass { get; set; } = null!;
-
-        /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-        /// </summary>
-        [Input("defaultAction", required: true)]
-        public Input<string> DefaultAction { get; set; } = null!;
-
-        [Input("ipRules")]
-        private InputList<string>? _ipRules;
-
-        /// <summary>
-        /// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-        /// </summary>
-        public InputList<string> IpRules
-        {
-            get => _ipRules ?? (_ipRules = new InputList<string>());
-            set => _ipRules = value;
-        }
-
-        [Input("virtualNetworkSubnetIds")]
-        private InputList<string>? _virtualNetworkSubnetIds;
-
-        /// <summary>
-        /// One or more Subnet ID's which should be able to access this Key Vault.
-        /// </summary>
-        public InputList<string> VirtualNetworkSubnetIds
-        {
-            get => _virtualNetworkSubnetIds ?? (_virtualNetworkSubnetIds = new InputList<string>());
-            set => _virtualNetworkSubnetIds = value;
-        }
-
-        public KeyVaultNetworkAclsArgs()
-        {
-        }
-    }
-
-    public sealed class KeyVaultNetworkAclsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
-        /// </summary>
-        [Input("bypass", required: true)]
-        public Input<string> Bypass { get; set; } = null!;
-
-        /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-        /// </summary>
-        [Input("defaultAction", required: true)]
-        public Input<string> DefaultAction { get; set; } = null!;
-
-        [Input("ipRules")]
-        private InputList<string>? _ipRules;
-
-        /// <summary>
-        /// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-        /// </summary>
-        public InputList<string> IpRules
-        {
-            get => _ipRules ?? (_ipRules = new InputList<string>());
-            set => _ipRules = value;
-        }
-
-        [Input("virtualNetworkSubnetIds")]
-        private InputList<string>? _virtualNetworkSubnetIds;
-
-        /// <summary>
-        /// One or more Subnet ID's which should be able to access this Key Vault.
-        /// </summary>
-        public InputList<string> VirtualNetworkSubnetIds
-        {
-            get => _virtualNetworkSubnetIds ?? (_virtualNetworkSubnetIds = new InputList<string>());
-            set => _virtualNetworkSubnetIds = value;
-        }
-
-        public KeyVaultNetworkAclsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class KeyVaultAccessPolicies
-    {
-        /// <summary>
-        /// The object ID of an Application in Azure Active Directory.
-        /// </summary>
-        public readonly string? ApplicationId;
-        /// <summary>
-        /// List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-        /// </summary>
-        public readonly ImmutableArray<string> CertificatePermissions;
-        /// <summary>
-        /// List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-        /// </summary>
-        public readonly ImmutableArray<string> KeyPermissions;
-        /// <summary>
-        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-        /// </summary>
-        public readonly string ObjectId;
-        /// <summary>
-        /// List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-        /// </summary>
-        public readonly ImmutableArray<string> SecretPermissions;
-        /// <summary>
-        /// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-        /// </summary>
-        public readonly ImmutableArray<string> StoragePermissions;
-        /// <summary>
-        /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
-        /// </summary>
-        public readonly string TenantId;
-
-        [OutputConstructor]
-        private KeyVaultAccessPolicies(
-            string? applicationId,
-            ImmutableArray<string> certificatePermissions,
-            ImmutableArray<string> keyPermissions,
-            string objectId,
-            ImmutableArray<string> secretPermissions,
-            ImmutableArray<string> storagePermissions,
-            string tenantId)
-        {
-            ApplicationId = applicationId;
-            CertificatePermissions = certificatePermissions;
-            KeyPermissions = keyPermissions;
-            ObjectId = objectId;
-            SecretPermissions = secretPermissions;
-            StoragePermissions = storagePermissions;
-            TenantId = tenantId;
-        }
-    }
-
-    [OutputType]
-    public sealed class KeyVaultNetworkAcls
-    {
-        /// <summary>
-        /// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
-        /// </summary>
-        public readonly string Bypass;
-        /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-        /// </summary>
-        public readonly string DefaultAction;
-        /// <summary>
-        /// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-        /// </summary>
-        public readonly ImmutableArray<string> IpRules;
-        /// <summary>
-        /// One or more Subnet ID's which should be able to access this Key Vault.
-        /// </summary>
-        public readonly ImmutableArray<string> VirtualNetworkSubnetIds;
-
-        [OutputConstructor]
-        private KeyVaultNetworkAcls(
-            string bypass,
-            string defaultAction,
-            ImmutableArray<string> ipRules,
-            ImmutableArray<string> virtualNetworkSubnetIds)
-        {
-            Bypass = bypass;
-            DefaultAction = defaultAction;
-            IpRules = ipRules;
-            VirtualNetworkSubnetIds = virtualNetworkSubnetIds;
-        }
-    }
     }
 }

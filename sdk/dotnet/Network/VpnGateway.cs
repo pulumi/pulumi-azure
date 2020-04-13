@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_gateway.html.markdown.
     /// </summary>
     public partial class VpnGateway : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.Network
         /// A `bgp_settings` block as defined below.
         /// </summary>
         [Output("bgpSettings")]
-        public Output<ImmutableArray<Outputs.VpnGatewayBgpSettings>> BgpSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnGatewayBgpSetting>> BgpSettings { get; private set; } = null!;
 
         /// <summary>
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnGateway(string name, VpnGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/vpnGateway:VpnGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/vpnGateway:VpnGateway", name, args ?? new VpnGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -107,14 +103,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnGatewayArgs : Pulumi.ResourceArgs
     {
         [Input("bgpSettings")]
-        private InputList<Inputs.VpnGatewayBgpSettingsArgs>? _bgpSettings;
+        private InputList<Inputs.VpnGatewayBgpSettingArgs>? _bgpSettings;
 
         /// <summary>
         /// A `bgp_settings` block as defined below.
         /// </summary>
-        public InputList<Inputs.VpnGatewayBgpSettingsArgs> BgpSettings
+        public InputList<Inputs.VpnGatewayBgpSettingArgs> BgpSettings
         {
-            get => _bgpSettings ?? (_bgpSettings = new InputList<Inputs.VpnGatewayBgpSettingsArgs>());
+            get => _bgpSettings ?? (_bgpSettings = new InputList<Inputs.VpnGatewayBgpSettingArgs>());
             set => _bgpSettings = value;
         }
 
@@ -168,14 +164,14 @@ namespace Pulumi.Azure.Network
     public sealed class VpnGatewayState : Pulumi.ResourceArgs
     {
         [Input("bgpSettings")]
-        private InputList<Inputs.VpnGatewayBgpSettingsGetArgs>? _bgpSettings;
+        private InputList<Inputs.VpnGatewayBgpSettingGetArgs>? _bgpSettings;
 
         /// <summary>
         /// A `bgp_settings` block as defined below.
         /// </summary>
-        public InputList<Inputs.VpnGatewayBgpSettingsGetArgs> BgpSettings
+        public InputList<Inputs.VpnGatewayBgpSettingGetArgs> BgpSettings
         {
-            get => _bgpSettings ?? (_bgpSettings = new InputList<Inputs.VpnGatewayBgpSettingsGetArgs>());
+            get => _bgpSettings ?? (_bgpSettings = new InputList<Inputs.VpnGatewayBgpSettingGetArgs>());
             set => _bgpSettings = value;
         }
 
@@ -224,91 +220,5 @@ namespace Pulumi.Azure.Network
         public VpnGatewayState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpnGatewayBgpSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("asn", required: true)]
-        public Input<int> Asn { get; set; } = null!;
-
-        /// <summary>
-        /// The Address which should be used for the BGP Peering.
-        /// </summary>
-        [Input("bgpPeeringAddress")]
-        public Input<string>? BgpPeeringAddress { get; set; }
-
-        /// <summary>
-        /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("peerWeight", required: true)]
-        public Input<int> PeerWeight { get; set; } = null!;
-
-        public VpnGatewayBgpSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class VpnGatewayBgpSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("asn", required: true)]
-        public Input<int> Asn { get; set; } = null!;
-
-        /// <summary>
-        /// The Address which should be used for the BGP Peering.
-        /// </summary>
-        [Input("bgpPeeringAddress")]
-        public Input<string>? BgpPeeringAddress { get; set; }
-
-        /// <summary>
-        /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("peerWeight", required: true)]
-        public Input<int> PeerWeight { get; set; } = null!;
-
-        public VpnGatewayBgpSettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpnGatewayBgpSettings
-    {
-        /// <summary>
-        /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int Asn;
-        /// <summary>
-        /// The Address which should be used for the BGP Peering.
-        /// </summary>
-        public readonly string BgpPeeringAddress;
-        /// <summary>
-        /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly int PeerWeight;
-
-        [OutputConstructor]
-        private VpnGatewayBgpSettings(
-            int asn,
-            string bgpPeeringAddress,
-            int peerWeight)
-        {
-            Asn = asn;
-            BgpPeeringAddress = bgpPeeringAddress;
-            PeerWeight = peerWeight;
-        }
-    }
     }
 }

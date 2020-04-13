@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetConsumeGroup.InvokeAsync() instead")]
-        public static Task<GetConsumeGroupResult> GetConsumeGroup(GetConsumeGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetConsumeGroup
     {
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetConsumeGroupResult> InvokeAsync(GetConsumeGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetConsumeGroupArgs : Pulumi.InvokeArgs
     {
@@ -66,10 +53,15 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
+
     [OutputType]
     public sealed class GetConsumeGroupResult
     {
         public readonly string EventhubName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Name;
         public readonly string NamespaceName;
@@ -78,28 +70,30 @@ namespace Pulumi.Azure.EventHub
         /// Specifies the user metadata.
         /// </summary>
         public readonly string UserMetadata;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetConsumeGroupResult(
             string eventhubName,
+
+            string id,
+
             string location,
+
             string name,
+
             string namespaceName,
+
             string resourceGroupName,
-            string userMetadata,
-            string id)
+
+            string userMetadata)
         {
             EventhubName = eventhubName;
+            Id = id;
             Location = location;
             Name = name;
             NamespaceName = namespaceName;
             ResourceGroupName = resourceGroupName;
             UserMetadata = userMetadata;
-            Id = id;
         }
     }
 }

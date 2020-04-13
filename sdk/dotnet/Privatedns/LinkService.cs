@@ -13,10 +13,6 @@ namespace Pulumi.Azure.PrivateDns
     /// Manages a Private Link Service.
     /// 
     /// &gt; **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_link_service.html.markdown.
     /// </summary>
     public partial class LinkService : Pulumi.CustomResource
     {
@@ -60,7 +56,7 @@ namespace Pulumi.Azure.PrivateDns
         /// One or more (up to 8) `nat_ip_configuration` block as defined below.
         /// </summary>
         [Output("natIpConfigurations")]
-        public Output<ImmutableArray<Outputs.LinkServiceNatIpConfigurations>> NatIpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LinkServiceNatIpConfiguration>> NatIpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
@@ -89,7 +85,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkService(string name, LinkServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatedns/linkService:LinkService", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:privatedns/linkService:LinkService", name, args ?? new LinkServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -169,14 +165,14 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         [Input("natIpConfigurations", required: true)]
-        private InputList<Inputs.LinkServiceNatIpConfigurationsArgs>? _natIpConfigurations;
+        private InputList<Inputs.LinkServiceNatIpConfigurationArgs>? _natIpConfigurations;
 
         /// <summary>
         /// One or more (up to 8) `nat_ip_configuration` block as defined below.
         /// </summary>
-        public InputList<Inputs.LinkServiceNatIpConfigurationsArgs> NatIpConfigurations
+        public InputList<Inputs.LinkServiceNatIpConfigurationArgs> NatIpConfigurations
         {
-            get => _natIpConfigurations ?? (_natIpConfigurations = new InputList<Inputs.LinkServiceNatIpConfigurationsArgs>());
+            get => _natIpConfigurations ?? (_natIpConfigurations = new InputList<Inputs.LinkServiceNatIpConfigurationArgs>());
             set => _natIpConfigurations = value;
         }
 
@@ -266,14 +262,14 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         [Input("natIpConfigurations")]
-        private InputList<Inputs.LinkServiceNatIpConfigurationsGetArgs>? _natIpConfigurations;
+        private InputList<Inputs.LinkServiceNatIpConfigurationGetArgs>? _natIpConfigurations;
 
         /// <summary>
         /// One or more (up to 8) `nat_ip_configuration` block as defined below.
         /// </summary>
-        public InputList<Inputs.LinkServiceNatIpConfigurationsGetArgs> NatIpConfigurations
+        public InputList<Inputs.LinkServiceNatIpConfigurationGetArgs> NatIpConfigurations
         {
-            get => _natIpConfigurations ?? (_natIpConfigurations = new InputList<Inputs.LinkServiceNatIpConfigurationsGetArgs>());
+            get => _natIpConfigurations ?? (_natIpConfigurations = new InputList<Inputs.LinkServiceNatIpConfigurationGetArgs>());
             set => _natIpConfigurations = value;
         }
 
@@ -310,127 +306,5 @@ namespace Pulumi.Azure.PrivateDns
         public LinkServiceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LinkServiceNatIpConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("primary", required: true)]
-        public Input<bool> Primary { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies a Private Static IP Address for this IP Configuration.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
-        /// </summary>
-        [Input("privateIpAddressVersion")]
-        public Input<string>? PrivateIpAddressVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the ID of the Subnet which should be used for the Private Link Service.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public LinkServiceNatIpConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class LinkServiceNatIpConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("primary", required: true)]
-        public Input<bool> Primary { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies a Private Static IP Address for this IP Configuration.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
-        /// </summary>
-        [Input("privateIpAddressVersion")]
-        public Input<string>? PrivateIpAddressVersion { get; set; }
-
-        /// <summary>
-        /// Specifies the ID of the Subnet which should be used for the Private Link Service.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public LinkServiceNatIpConfigurationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LinkServiceNatIpConfigurations
-    {
-        /// <summary>
-        /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly bool Primary;
-        /// <summary>
-        /// Specifies a Private Static IP Address for this IP Configuration.
-        /// </summary>
-        public readonly string? PrivateIpAddress;
-        /// <summary>
-        /// The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
-        /// </summary>
-        public readonly string? PrivateIpAddressVersion;
-        /// <summary>
-        /// Specifies the ID of the Subnet which should be used for the Private Link Service.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private LinkServiceNatIpConfigurations(
-            string name,
-            bool primary,
-            string? privateIpAddress,
-            string? privateIpAddressVersion,
-            string subnetId)
-        {
-            Name = name;
-            Primary = primary;
-            PrivateIpAddress = privateIpAddress;
-            PrivateIpAddressVersion = privateIpAddressVersion;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

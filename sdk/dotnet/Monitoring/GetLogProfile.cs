@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Monitoring
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access the properties of a Log Profile.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetLogProfile.InvokeAsync() instead")]
-        public static Task<GetLogProfileResult> GetLogProfile(GetLogProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetLogProfile
     {
         /// <summary>
         /// Use this data source to access the properties of a Log Profile.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? new GetLogProfileArgs(), options.WithVersion());
     }
+
 
     public sealed class GetLogProfileArgs : Pulumi.InvokeArgs
     {
@@ -48,6 +35,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
+
     [OutputType]
     public sealed class GetLogProfileResult
     {
@@ -56,11 +44,15 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly ImmutableArray<string> Categories;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of regions for which Activity Log events are stored or streamed.
         /// </summary>
         public readonly ImmutableArray<string> Locations;
         public readonly string Name;
-        public readonly ImmutableArray<Outputs.GetLogProfileRetentionPoliciesResult> RetentionPolicies;
+        public readonly ImmutableArray<Outputs.GetLogProfileRetentionPolicyResult> RetentionPolicies;
         /// <summary>
         /// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
         /// </summary>
@@ -69,54 +61,30 @@ namespace Pulumi.Azure.Monitoring
         /// The resource id of the storage account in which the Activity Log is stored.
         /// </summary>
         public readonly string StorageAccountId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetLogProfileResult(
             ImmutableArray<string> categories,
+
+            string id,
+
             ImmutableArray<string> locations,
+
             string name,
-            ImmutableArray<Outputs.GetLogProfileRetentionPoliciesResult> retentionPolicies,
+
+            ImmutableArray<Outputs.GetLogProfileRetentionPolicyResult> retentionPolicies,
+
             string servicebusRuleId,
-            string storageAccountId,
-            string id)
+
+            string storageAccountId)
         {
             Categories = categories;
+            Id = id;
             Locations = locations;
             Name = name;
             RetentionPolicies = retentionPolicies;
             ServicebusRuleId = servicebusRuleId;
             StorageAccountId = storageAccountId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetLogProfileRetentionPoliciesResult
-    {
-        /// <summary>
-        /// The number of days for the retention policy.
-        /// </summary>
-        public readonly int Days;
-        /// <summary>
-        /// A boolean value indicating whether the retention policy is enabled.
-        /// </summary>
-        public readonly bool Enabled;
-
-        [OutputConstructor]
-        private GetLogProfileRetentionPoliciesResult(
-            int days,
-            bool enabled)
-        {
-            Days = days;
-            Enabled = enabled;
-        }
-    }
     }
 }

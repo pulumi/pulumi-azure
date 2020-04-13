@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ApiManagement
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing API Management API.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetApi.InvokeAsync() instead")]
-        public static Task<GetApiResult> GetApi(GetApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetApi
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management API.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiArgs(), options.WithVersion());
     }
+
 
     public sealed class GetApiArgs : Pulumi.InvokeArgs
     {
@@ -66,6 +53,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
+
     [OutputType]
     public sealed class GetApiResult
     {
@@ -78,6 +66,10 @@ namespace Pulumi.Azure.ApiManagement
         /// The display name of the API.
         /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Is this the current API Revision?
         /// </summary>
@@ -108,7 +100,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// A `subscription_key_parameter_names` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetApiSubscriptionKeyParameterNamesResult> SubscriptionKeyParameterNames;
+        public readonly ImmutableArray<Outputs.GetApiSubscriptionKeyParameterNameResult> SubscriptionKeyParameterNames;
         /// <summary>
         /// The Version number of this API, if this API is versioned.
         /// </summary>
@@ -117,33 +109,45 @@ namespace Pulumi.Azure.ApiManagement
         /// The ID of the Version Set which this API is associated with.
         /// </summary>
         public readonly string VersionSetId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetApiResult(
             string apiManagementName,
+
             string description,
+
             string displayName,
+
+            string id,
+
             bool isCurrent,
+
             bool isOnline,
+
             string name,
+
             string path,
+
             ImmutableArray<string> protocols,
+
             string resourceGroupName,
+
             string revision,
+
             string serviceUrl,
+
             bool soapPassThrough,
-            ImmutableArray<Outputs.GetApiSubscriptionKeyParameterNamesResult> subscriptionKeyParameterNames,
+
+            ImmutableArray<Outputs.GetApiSubscriptionKeyParameterNameResult> subscriptionKeyParameterNames,
+
             string version,
-            string versionSetId,
-            string id)
+
+            string versionSetId)
         {
             ApiManagementName = apiManagementName;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             IsCurrent = isCurrent;
             IsOnline = isOnline;
             Name = name;
@@ -156,33 +160,6 @@ namespace Pulumi.Azure.ApiManagement
             SubscriptionKeyParameterNames = subscriptionKeyParameterNames;
             Version = version;
             VersionSetId = versionSetId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetApiSubscriptionKeyParameterNamesResult
-    {
-        /// <summary>
-        /// The name of the HTTP Header which should be used for the Subscription Key.
-        /// </summary>
-        public readonly string Header;
-        /// <summary>
-        /// The name of the QueryString parameter which should be used for the Subscription Key.
-        /// </summary>
-        public readonly string Query;
-
-        [OutputConstructor]
-        private GetApiSubscriptionKeyParameterNamesResult(
-            string header,
-            string query)
-        {
-            Header = header;
-            Query = query;
-        }
-    }
     }
 }

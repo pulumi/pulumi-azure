@@ -84,8 +84,6 @@ def get_insights(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
-
 
     :param str name: Specifies the name of the Application Insights component.
     :param str resource_group_name: Specifies the name of the resource group the Application Insights component is located in.

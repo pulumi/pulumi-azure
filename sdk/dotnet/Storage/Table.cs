@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Storage
 {
     /// <summary>
     /// Manages a Table within an Azure Storage Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
     /// </summary>
     public partial class Table : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.Storage
         /// One or more `acl` blocks as defined below.
         /// </summary>
         [Output("acls")]
-        public Output<ImmutableArray<Outputs.TableAcls>> Acls { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TableAcl>> Acls { get; private set; } = null!;
 
         /// <summary>
         /// The name of the storage table. Must be unique within the storage account the table is located.
@@ -46,7 +42,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Table(string name, TableArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/table:Table", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/table:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -84,14 +80,14 @@ namespace Pulumi.Azure.Storage
     public sealed class TableArgs : Pulumi.ResourceArgs
     {
         [Input("acls")]
-        private InputList<Inputs.TableAclsArgs>? _acls;
+        private InputList<Inputs.TableAclArgs>? _acls;
 
         /// <summary>
         /// One or more `acl` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.TableAclsArgs> Acls
+        public InputList<Inputs.TableAclArgs> Acls
         {
-            get => _acls ?? (_acls = new InputList<Inputs.TableAclsArgs>());
+            get => _acls ?? (_acls = new InputList<Inputs.TableAclArgs>());
             set => _acls = value;
         }
 
@@ -116,14 +112,14 @@ namespace Pulumi.Azure.Storage
     public sealed class TableState : Pulumi.ResourceArgs
     {
         [Input("acls")]
-        private InputList<Inputs.TableAclsGetArgs>? _acls;
+        private InputList<Inputs.TableAclGetArgs>? _acls;
 
         /// <summary>
         /// One or more `acl` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.TableAclsGetArgs> Acls
+        public InputList<Inputs.TableAclGetArgs> Acls
         {
-            get => _acls ?? (_acls = new InputList<Inputs.TableAclsGetArgs>());
+            get => _acls ?? (_acls = new InputList<Inputs.TableAclGetArgs>());
             set => _acls = value;
         }
 
@@ -143,163 +139,5 @@ namespace Pulumi.Azure.Storage
         public TableState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class TableAclsAccessPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid until.
-        /// </summary>
-        [Input("expiry", required: true)]
-        public Input<string> Expiry { get; set; } = null!;
-
-        /// <summary>
-        /// The permissions which should associated with this Shared Identifier.
-        /// </summary>
-        [Input("permissions", required: true)]
-        public Input<string> Permissions { get; set; } = null!;
-
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid from.
-        /// </summary>
-        [Input("start", required: true)]
-        public Input<string> Start { get; set; } = null!;
-
-        public TableAclsAccessPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class TableAclsAccessPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid until.
-        /// </summary>
-        [Input("expiry", required: true)]
-        public Input<string> Expiry { get; set; } = null!;
-
-        /// <summary>
-        /// The permissions which should associated with this Shared Identifier.
-        /// </summary>
-        [Input("permissions", required: true)]
-        public Input<string> Permissions { get; set; } = null!;
-
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid from.
-        /// </summary>
-        [Input("start", required: true)]
-        public Input<string> Start { get; set; } = null!;
-
-        public TableAclsAccessPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class TableAclsArgs : Pulumi.ResourceArgs
-    {
-        [Input("accessPolicies")]
-        private InputList<TableAclsAccessPoliciesArgs>? _accessPolicies;
-
-        /// <summary>
-        /// An `access_policy` block as defined below.
-        /// </summary>
-        public InputList<TableAclsAccessPoliciesArgs> AccessPolicies
-        {
-            get => _accessPolicies ?? (_accessPolicies = new InputList<TableAclsAccessPoliciesArgs>());
-            set => _accessPolicies = value;
-        }
-
-        /// <summary>
-        /// The ID which should be used for this Shared Identifier.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public TableAclsArgs()
-        {
-        }
-    }
-
-    public sealed class TableAclsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("accessPolicies")]
-        private InputList<TableAclsAccessPoliciesGetArgs>? _accessPolicies;
-
-        /// <summary>
-        /// An `access_policy` block as defined below.
-        /// </summary>
-        public InputList<TableAclsAccessPoliciesGetArgs> AccessPolicies
-        {
-            get => _accessPolicies ?? (_accessPolicies = new InputList<TableAclsAccessPoliciesGetArgs>());
-            set => _accessPolicies = value;
-        }
-
-        /// <summary>
-        /// The ID which should be used for this Shared Identifier.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public TableAclsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class TableAcls
-    {
-        /// <summary>
-        /// An `access_policy` block as defined below.
-        /// </summary>
-        public readonly ImmutableArray<TableAclsAccessPolicies> AccessPolicies;
-        /// <summary>
-        /// The ID which should be used for this Shared Identifier.
-        /// </summary>
-        public readonly string Id;
-
-        [OutputConstructor]
-        private TableAcls(
-            ImmutableArray<TableAclsAccessPolicies> accessPolicies,
-            string id)
-        {
-            AccessPolicies = accessPolicies;
-            Id = id;
-        }
-    }
-
-    [OutputType]
-    public sealed class TableAclsAccessPolicies
-    {
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid until.
-        /// </summary>
-        public readonly string Expiry;
-        /// <summary>
-        /// The permissions which should associated with this Shared Identifier.
-        /// </summary>
-        public readonly string Permissions;
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid from.
-        /// </summary>
-        public readonly string Start;
-
-        [OutputConstructor]
-        private TableAclsAccessPolicies(
-            string expiry,
-            string permissions,
-            string start)
-        {
-            Expiry = expiry;
-            Permissions = permissions;
-            Start = start;
-        }
-    }
     }
 }

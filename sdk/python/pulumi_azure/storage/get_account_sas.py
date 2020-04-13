@@ -74,8 +74,6 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
-
 
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
     :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.AppInsights
 {
     /// <summary>
     /// Manages an Application Insights API key.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
     /// </summary>
     public partial class ApiKey : Pulumi.CustomResource
     {
@@ -58,7 +54,7 @@ namespace Pulumi.Azure.AppInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiKey(string name, ApiKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure:appinsights/apiKey:ApiKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:appinsights/apiKey:ApiKey", name, args ?? new ApiKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

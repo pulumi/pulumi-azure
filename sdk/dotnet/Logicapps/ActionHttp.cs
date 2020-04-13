@@ -11,10 +11,6 @@ namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages an HTTP Action within a Logic App Workflow
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_http.html.markdown.
     /// </summary>
     public partial class ActionHttp : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.LogicApps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActionHttp(string name, ActionHttpArgs args, CustomResourceOptions? options = null)
-            : base("azure:logicapps/actionHttp:ActionHttp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:logicapps/actionHttp:ActionHttp", name, args ?? new ActionHttpArgs(), MakeResourceOptions(options, ""))
         {
         }
 

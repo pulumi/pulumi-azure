@@ -91,8 +91,6 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
-
 
     :param str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `storage.Account` resource.

@@ -111,8 +111,6 @@ def get_database(name=None,resource_group_name=None,server_name=None,tags=None,o
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
-
 
     :param str name: The name of the SQL Database.
     :param str resource_group_name: Specifies the name of the Resource Group where the Azure SQL Database exists.

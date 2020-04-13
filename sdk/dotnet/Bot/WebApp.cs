@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Bot
 {
     /// <summary>
     /// Manages a Bot Web App.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_web_app.markdown.
     /// </summary>
     public partial class WebApp : Pulumi.CustomResource
     {
@@ -105,7 +101,7 @@ namespace Pulumi.Azure.Bot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebApp(string name, WebAppArgs args, CustomResourceOptions? options = null)
-            : base("azure:bot/webApp:WebApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:bot/webApp:WebApp", name, args ?? new WebAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 

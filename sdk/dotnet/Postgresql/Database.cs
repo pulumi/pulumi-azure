@@ -11,10 +11,6 @@ namespace Pulumi.Azure.PostgreSql
 {
     /// <summary>
     /// Manages a PostgreSQL Database within a PostgreSQL Server
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_database.html.markdown.
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {
@@ -58,7 +54,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure:postgresql/database:Database", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:postgresql/database:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 

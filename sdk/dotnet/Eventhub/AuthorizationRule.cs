@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a Event Hubs authorization Rule within an Event Hub.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
     /// </summary>
     public partial class AuthorizationRule : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthorizationRule(string name, AuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventhub/authorizationRule:AuthorizationRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:eventhub/authorizationRule:AuthorizationRule", name, args ?? new AuthorizationRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -106,7 +102,7 @@ namespace Pulumi.Azure.EventHub
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

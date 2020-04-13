@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a local network gateway connection over which specific connections can be configured.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
     /// </summary>
     public partial class LocalNetworkGateway : Pulumi.CustomResource
     {
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LocalNetworkGateway(string name, LocalNetworkGatewayArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/localNetworkGateway:LocalNetworkGateway", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/localNetworkGateway:LocalNetworkGateway", name, args ?? new LocalNetworkGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -242,97 +238,5 @@ namespace Pulumi.Azure.Network
         public LocalNetworkGatewayState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LocalNetworkGatewayBgpSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The BGP speaker's ASN.
-        /// </summary>
-        [Input("asn", required: true)]
-        public Input<int> Asn { get; set; } = null!;
-
-        /// <summary>
-        /// The BGP peering address and BGP identifier
-        /// of this BGP speaker.
-        /// </summary>
-        [Input("bgpPeeringAddress", required: true)]
-        public Input<string> BgpPeeringAddress { get; set; } = null!;
-
-        /// <summary>
-        /// The weight added to routes learned from this
-        /// BGP speaker.
-        /// </summary>
-        [Input("peerWeight")]
-        public Input<int>? PeerWeight { get; set; }
-
-        public LocalNetworkGatewayBgpSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class LocalNetworkGatewayBgpSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The BGP speaker's ASN.
-        /// </summary>
-        [Input("asn", required: true)]
-        public Input<int> Asn { get; set; } = null!;
-
-        /// <summary>
-        /// The BGP peering address and BGP identifier
-        /// of this BGP speaker.
-        /// </summary>
-        [Input("bgpPeeringAddress", required: true)]
-        public Input<string> BgpPeeringAddress { get; set; } = null!;
-
-        /// <summary>
-        /// The weight added to routes learned from this
-        /// BGP speaker.
-        /// </summary>
-        [Input("peerWeight")]
-        public Input<int>? PeerWeight { get; set; }
-
-        public LocalNetworkGatewayBgpSettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LocalNetworkGatewayBgpSettings
-    {
-        /// <summary>
-        /// The BGP speaker's ASN.
-        /// </summary>
-        public readonly int Asn;
-        /// <summary>
-        /// The BGP peering address and BGP identifier
-        /// of this BGP speaker.
-        /// </summary>
-        public readonly string BgpPeeringAddress;
-        /// <summary>
-        /// The weight added to routes learned from this
-        /// BGP speaker.
-        /// </summary>
-        public readonly int PeerWeight;
-
-        [OutputConstructor]
-        private LocalNetworkGatewayBgpSettings(
-            int asn,
-            string bgpPeeringAddress,
-            int peerWeight)
-        {
-            Asn = asn;
-            BgpPeeringAddress = bgpPeeringAddress;
-            PeerWeight = peerWeight;
-        }
-    }
     }
 }

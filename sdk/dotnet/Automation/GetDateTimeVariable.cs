@@ -9,33 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Automation
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Automation Datetime Variable.
-        /// 
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDateTimeVariable.InvokeAsync() instead")]
-        public static Task<GetDateTimeVariableResult> GetDateTimeVariable(GetDateTimeVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDateTimeVariable
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
         /// 
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDateTimeVariableResult> InvokeAsync(GetDateTimeVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDateTimeVariableArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +48,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
+
     [OutputType]
     public sealed class GetDateTimeVariableResult
     {
@@ -74,34 +61,40 @@ namespace Pulumi.Azure.Automation
         /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
         /// </summary>
         public readonly bool Encrypted;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
         /// </summary>
         public readonly string Value;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDateTimeVariableResult(
             string automationAccountName,
+
             string description,
+
             bool encrypted,
+
+            string id,
+
             string name,
+
             string resourceGroupName,
-            string value,
-            string id)
+
+            string value)
         {
             AutomationAccountName = automationAccountName;
             Description = description;
             Encrypted = encrypted;
+            Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Value = value;
-            Id = id;
         }
     }
 }

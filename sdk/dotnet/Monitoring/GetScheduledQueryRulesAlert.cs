@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Monitoring
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access the properties of an AlertingAction scheduled query rule.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetScheduledQueryRulesAlert.InvokeAsync() instead")]
-        public static Task<GetScheduledQueryRulesAlertResult> GetScheduledQueryRulesAlert(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetScheduledQueryRulesAlert
     {
         /// <summary>
         /// Use this data source to access the properties of an AlertingAction scheduled query rule.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduledQueryRulesAlertResult> InvokeAsync(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertArgs(), options.WithVersion());
     }
+
 
     public sealed class GetScheduledQueryRulesAlertArgs : Pulumi.InvokeArgs
     {
@@ -54,13 +41,14 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
+
     [OutputType]
     public sealed class GetScheduledQueryRulesAlertResult
     {
         /// <summary>
         /// An `action` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetScheduledQueryRulesAlertActionsResult> Actions;
+        public readonly ImmutableArray<Outputs.GetScheduledQueryRulesAlertActionResult> Actions;
         /// <summary>
         /// List of Resource IDs referred into query.
         /// </summary>
@@ -81,6 +69,10 @@ namespace Pulumi.Azure.Monitoring
         /// Frequency at which rule condition should be evaluated.
         /// </summary>
         public readonly int Frequency;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Name;
         /// <summary>
@@ -105,31 +97,43 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `trigger` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetScheduledQueryRulesAlertTriggersResult> Triggers;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetScheduledQueryRulesAlertTriggerResult> Triggers;
 
         [OutputConstructor]
         private GetScheduledQueryRulesAlertResult(
-            ImmutableArray<Outputs.GetScheduledQueryRulesAlertActionsResult> actions,
+            ImmutableArray<Outputs.GetScheduledQueryRulesAlertActionResult> actions,
+
             ImmutableArray<string> authorizedResourceIds,
+
             string dataSourceId,
+
             string description,
+
             bool enabled,
+
             int frequency,
+
+            string id,
+
             string location,
+
             string name,
+
             string query,
+
             string queryType,
+
             string resourceGroupName,
+
             int severity,
+
             ImmutableDictionary<string, string> tags,
+
             int throttling,
+
             int timeWindow,
-            ImmutableArray<Outputs.GetScheduledQueryRulesAlertTriggersResult> triggers,
-            string id)
+
+            ImmutableArray<Outputs.GetScheduledQueryRulesAlertTriggerResult> triggers)
         {
             Actions = actions;
             AuthorizedResourceIds = authorizedResourceIds;
@@ -137,6 +141,7 @@ namespace Pulumi.Azure.Monitoring
             Description = description;
             Enabled = enabled;
             Frequency = frequency;
+            Id = id;
             Location = location;
             Name = name;
             Query = query;
@@ -147,92 +152,6 @@ namespace Pulumi.Azure.Monitoring
             Throttling = throttling;
             TimeWindow = timeWindow;
             Triggers = triggers;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetScheduledQueryRulesAlertActionsResult
-    {
-        /// <summary>
-        /// List of action group reference resource IDs.
-        /// </summary>
-        public readonly ImmutableArray<string> ActionGroups;
-        /// <summary>
-        /// Custom payload to be sent for all webhook URI in Azure action group.
-        /// </summary>
-        public readonly string CustomWebhookPayload;
-        /// <summary>
-        /// Custom subject override for all email IDs in Azure action group.
-        /// </summary>
-        public readonly string EmailSubject;
-
-        [OutputConstructor]
-        private GetScheduledQueryRulesAlertActionsResult(
-            ImmutableArray<string> actionGroups,
-            string customWebhookPayload,
-            string emailSubject)
-        {
-            ActionGroups = actionGroups;
-            CustomWebhookPayload = customWebhookPayload;
-            EmailSubject = emailSubject;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetScheduledQueryRulesAlertTriggersMetricTriggersResult
-    {
-        public readonly string MetricColumn;
-        public readonly string MetricTriggerType;
-        /// <summary>
-        /// Evaluation operation for rule.
-        /// </summary>
-        public readonly string Operator;
-        /// <summary>
-        /// Result or count threshold based on which rule should be triggered.
-        /// </summary>
-        public readonly double Threshold;
-
-        [OutputConstructor]
-        private GetScheduledQueryRulesAlertTriggersMetricTriggersResult(
-            string metricColumn,
-            string metricTriggerType,
-            string @operator,
-            double threshold)
-        {
-            MetricColumn = metricColumn;
-            MetricTriggerType = metricTriggerType;
-            Operator = @operator;
-            Threshold = threshold;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetScheduledQueryRulesAlertTriggersResult
-    {
-        public readonly ImmutableArray<GetScheduledQueryRulesAlertTriggersMetricTriggersResult> MetricTriggers;
-        /// <summary>
-        /// Evaluation operation for rule.
-        /// </summary>
-        public readonly string Operator;
-        /// <summary>
-        /// Result or count threshold based on which rule should be triggered.
-        /// </summary>
-        public readonly double Threshold;
-
-        [OutputConstructor]
-        private GetScheduledQueryRulesAlertTriggersResult(
-            ImmutableArray<GetScheduledQueryRulesAlertTriggersMetricTriggersResult> metricTriggers,
-            string @operator,
-            double threshold)
-        {
-            MetricTriggers = metricTriggers;
-            Operator = @operator;
-            Threshold = threshold;
-        }
-    }
     }
 }

@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Uses this data source to access information about an existing Virtual Hub.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVirtualHub.InvokeAsync() instead")]
-        public static Task<GetVirtualHubResult> GetVirtualHub(GetVirtualHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVirtualHub
     {
         /// <summary>
         /// Uses this data source to access information about an existing Virtual Hub.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVirtualHubArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +38,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetVirtualHubResult
     {
@@ -57,6 +46,10 @@ namespace Pulumi.Azure.Network
         /// The Address Prefix used for this Virtual Hub.
         /// </summary>
         public readonly string AddressPrefix;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region where the Virtual Hub exists.
         /// </summary>
@@ -71,28 +64,30 @@ namespace Pulumi.Azure.Network
         /// The ID of the Virtual WAN within which the Virtual Hub exists.
         /// </summary>
         public readonly string VirtualWanId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVirtualHubResult(
             string addressPrefix,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            string virtualWanId,
-            string id)
+
+            string virtualWanId)
         {
             AddressPrefix = addressPrefix;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             VirtualWanId = virtualWanId;
-            Id = id;
         }
     }
 }

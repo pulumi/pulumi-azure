@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Kusto
 {
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Database
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_database.html.markdown.
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Kusto
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure:kusto/database:Database", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:kusto/database:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 

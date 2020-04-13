@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Waf
 {
     /// <summary>
     /// Manages a Azure Web Application Firewall Policy instance.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.Waf
         /// One or more `custom_rule` blocks as defined below.
         /// </summary>
         [Output("customRules")]
-        public Output<ImmutableArray<Outputs.PolicyCustomRules>> CustomRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PolicyCustomRule>> CustomRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource location. Changing this forces a new resource to be created.
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.Waf
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Policy(string name, PolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:waf/policy:Policy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:waf/policy:Policy", name, args ?? new PolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -101,14 +97,14 @@ namespace Pulumi.Azure.Waf
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         [Input("customRules")]
-        private InputList<Inputs.PolicyCustomRulesArgs>? _customRules;
+        private InputList<Inputs.PolicyCustomRuleArgs>? _customRules;
 
         /// <summary>
         /// One or more `custom_rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.PolicyCustomRulesArgs> CustomRules
+        public InputList<Inputs.PolicyCustomRuleArgs> CustomRules
         {
-            get => _customRules ?? (_customRules = new InputList<Inputs.PolicyCustomRulesArgs>());
+            get => _customRules ?? (_customRules = new InputList<Inputs.PolicyCustomRuleArgs>());
             set => _customRules = value;
         }
 
@@ -156,14 +152,14 @@ namespace Pulumi.Azure.Waf
     public sealed class PolicyState : Pulumi.ResourceArgs
     {
         [Input("customRules")]
-        private InputList<Inputs.PolicyCustomRulesGetArgs>? _customRules;
+        private InputList<Inputs.PolicyCustomRuleGetArgs>? _customRules;
 
         /// <summary>
         /// One or more `custom_rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.PolicyCustomRulesGetArgs> CustomRules
+        public InputList<Inputs.PolicyCustomRuleGetArgs> CustomRules
         {
-            get => _customRules ?? (_customRules = new InputList<Inputs.PolicyCustomRulesGetArgs>());
+            get => _customRules ?? (_customRules = new InputList<Inputs.PolicyCustomRuleGetArgs>());
             set => _customRules = value;
         }
 
@@ -206,379 +202,5 @@ namespace Pulumi.Azure.Waf
         public PolicyState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class PolicyCustomRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of Actions
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        [Input("matchConditions", required: true)]
-        private InputList<PolicyCustomRulesMatchConditionsArgs>? _matchConditions;
-
-        /// <summary>
-        /// One or more `match_condition` block defined below.
-        /// </summary>
-        public InputList<PolicyCustomRulesMatchConditionsArgs> MatchConditions
-        {
-            get => _matchConditions ?? (_matchConditions = new InputList<PolicyCustomRulesMatchConditionsArgs>());
-            set => _matchConditions = value;
-        }
-
-        /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// Describes the type of rule
-        /// </summary>
-        [Input("ruleType", required: true)]
-        public Input<string> RuleType { get; set; } = null!;
-
-        public PolicyCustomRulesArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyCustomRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Type of Actions
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
-
-        [Input("matchConditions", required: true)]
-        private InputList<PolicyCustomRulesMatchConditionsGetArgs>? _matchConditions;
-
-        /// <summary>
-        /// One or more `match_condition` block defined below.
-        /// </summary>
-        public InputList<PolicyCustomRulesMatchConditionsGetArgs> MatchConditions
-        {
-            get => _matchConditions ?? (_matchConditions = new InputList<PolicyCustomRulesMatchConditionsGetArgs>());
-            set => _matchConditions = value;
-        }
-
-        /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// Describes the type of rule
-        /// </summary>
-        [Input("ruleType", required: true)]
-        public Input<string> RuleType { get; set; } = null!;
-
-        public PolicyCustomRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyCustomRulesMatchConditionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("matchValues", required: true)]
-        private InputList<string>? _matchValues;
-
-        /// <summary>
-        /// Match value
-        /// </summary>
-        public InputList<string> MatchValues
-        {
-            get => _matchValues ?? (_matchValues = new InputList<string>());
-            set => _matchValues = value;
-        }
-
-        [Input("matchVariables", required: true)]
-        private InputList<PolicyCustomRulesMatchConditionsMatchVariablesArgs>? _matchVariables;
-
-        /// <summary>
-        /// One or more `match_variable` block defined below.
-        /// </summary>
-        public InputList<PolicyCustomRulesMatchConditionsMatchVariablesArgs> MatchVariables
-        {
-            get => _matchVariables ?? (_matchVariables = new InputList<PolicyCustomRulesMatchConditionsMatchVariablesArgs>());
-            set => _matchVariables = value;
-        }
-
-        /// <summary>
-        /// Describes if this is negate condition or not
-        /// </summary>
-        [Input("negationCondition")]
-        public Input<bool>? NegationCondition { get; set; }
-
-        /// <summary>
-        /// Describes operator to be matched
-        /// </summary>
-        [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
-
-        public PolicyCustomRulesMatchConditionsArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyCustomRulesMatchConditionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("matchValues", required: true)]
-        private InputList<string>? _matchValues;
-
-        /// <summary>
-        /// Match value
-        /// </summary>
-        public InputList<string> MatchValues
-        {
-            get => _matchValues ?? (_matchValues = new InputList<string>());
-            set => _matchValues = value;
-        }
-
-        [Input("matchVariables", required: true)]
-        private InputList<PolicyCustomRulesMatchConditionsMatchVariablesGetArgs>? _matchVariables;
-
-        /// <summary>
-        /// One or more `match_variable` block defined below.
-        /// </summary>
-        public InputList<PolicyCustomRulesMatchConditionsMatchVariablesGetArgs> MatchVariables
-        {
-            get => _matchVariables ?? (_matchVariables = new InputList<PolicyCustomRulesMatchConditionsMatchVariablesGetArgs>());
-            set => _matchVariables = value;
-        }
-
-        /// <summary>
-        /// Describes if this is negate condition or not
-        /// </summary>
-        [Input("negationCondition")]
-        public Input<bool>? NegationCondition { get; set; }
-
-        /// <summary>
-        /// Describes operator to be matched
-        /// </summary>
-        [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
-
-        public PolicyCustomRulesMatchConditionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyCustomRulesMatchConditionsMatchVariablesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Describes field of the matchVariable collection
-        /// </summary>
-        [Input("selector")]
-        public Input<string>? Selector { get; set; }
-
-        /// <summary>
-        /// The name of the Match Variable
-        /// </summary>
-        [Input("variableName", required: true)]
-        public Input<string> VariableName { get; set; } = null!;
-
-        public PolicyCustomRulesMatchConditionsMatchVariablesArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyCustomRulesMatchConditionsMatchVariablesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Describes field of the matchVariable collection
-        /// </summary>
-        [Input("selector")]
-        public Input<string>? Selector { get; set; }
-
-        /// <summary>
-        /// The name of the Match Variable
-        /// </summary>
-        [Input("variableName", required: true)]
-        public Input<string> VariableName { get; set; } = null!;
-
-        public PolicyCustomRulesMatchConditionsMatchVariablesGetArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyPolicySettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
-        /// </summary>
-        [Input("mode")]
-        public Input<string>? Mode { get; set; }
-
-        public PolicyPolicySettingsArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyPolicySettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
-        /// </summary>
-        [Input("mode")]
-        public Input<string>? Mode { get; set; }
-
-        public PolicyPolicySettingsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class PolicyCustomRules
-    {
-        /// <summary>
-        /// Type of Actions
-        /// </summary>
-        public readonly string Action;
-        /// <summary>
-        /// One or more `match_condition` block defined below.
-        /// </summary>
-        public readonly ImmutableArray<PolicyCustomRulesMatchConditions> MatchConditions;
-        /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
-        /// </summary>
-        public readonly int Priority;
-        /// <summary>
-        /// Describes the type of rule
-        /// </summary>
-        public readonly string RuleType;
-
-        [OutputConstructor]
-        private PolicyCustomRules(
-            string action,
-            ImmutableArray<PolicyCustomRulesMatchConditions> matchConditions,
-            string? name,
-            int priority,
-            string ruleType)
-        {
-            Action = action;
-            MatchConditions = matchConditions;
-            Name = name;
-            Priority = priority;
-            RuleType = ruleType;
-        }
-    }
-
-    [OutputType]
-    public sealed class PolicyCustomRulesMatchConditions
-    {
-        /// <summary>
-        /// Match value
-        /// </summary>
-        public readonly ImmutableArray<string> MatchValues;
-        /// <summary>
-        /// One or more `match_variable` block defined below.
-        /// </summary>
-        public readonly ImmutableArray<PolicyCustomRulesMatchConditionsMatchVariables> MatchVariables;
-        /// <summary>
-        /// Describes if this is negate condition or not
-        /// </summary>
-        public readonly bool? NegationCondition;
-        /// <summary>
-        /// Describes operator to be matched
-        /// </summary>
-        public readonly string Operator;
-
-        [OutputConstructor]
-        private PolicyCustomRulesMatchConditions(
-            ImmutableArray<string> matchValues,
-            ImmutableArray<PolicyCustomRulesMatchConditionsMatchVariables> matchVariables,
-            bool? negationCondition,
-            string @operator)
-        {
-            MatchValues = matchValues;
-            MatchVariables = matchVariables;
-            NegationCondition = negationCondition;
-            Operator = @operator;
-        }
-    }
-
-    [OutputType]
-    public sealed class PolicyCustomRulesMatchConditionsMatchVariables
-    {
-        /// <summary>
-        /// Describes field of the matchVariable collection
-        /// </summary>
-        public readonly string? Selector;
-        /// <summary>
-        /// The name of the Match Variable
-        /// </summary>
-        public readonly string VariableName;
-
-        [OutputConstructor]
-        private PolicyCustomRulesMatchConditionsMatchVariables(
-            string? selector,
-            string variableName)
-        {
-            Selector = selector;
-            VariableName = variableName;
-        }
-    }
-
-    [OutputType]
-    public sealed class PolicyPolicySettings
-    {
-        /// <summary>
-        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
-        /// </summary>
-        public readonly string? Mode;
-
-        [OutputConstructor]
-        private PolicyPolicySettings(
-            bool? enabled,
-            string? mode)
-        {
-            Enabled = enabled;
-            Mode = mode;
-        }
-    }
     }
 }

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS AAAA Records within Azure Private DNS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_aaaa_record.html.markdown.
     /// </summary>
     public partial class AAAARecord : Pulumi.CustomResource
     {
@@ -66,7 +62,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AAAARecord(string name, AAAARecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatedns/aAAARecord:AAAARecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:privatedns/aAAARecord:AAAARecord", name, args ?? new AAAARecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -101,8 +101,6 @@ def get_account(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_account.html.markdown.
-
 
     :param str name: The name of the Batch account.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.

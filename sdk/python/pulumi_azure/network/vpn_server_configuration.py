@@ -89,8 +89,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_server_configuration.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.

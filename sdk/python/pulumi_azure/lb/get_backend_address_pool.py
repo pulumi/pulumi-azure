@@ -52,8 +52,6 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
-
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.
     :param str name: Specifies the name of the Backend Address Pool.

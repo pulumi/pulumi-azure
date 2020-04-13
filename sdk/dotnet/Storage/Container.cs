@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Storage
 {
     /// <summary>
     /// Manages a Container within an Azure Storage Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
     /// </summary>
     public partial class Container : Pulumi.CustomResource
     {
@@ -69,7 +65,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/container:Container", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/container:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 

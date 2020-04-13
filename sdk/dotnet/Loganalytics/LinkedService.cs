@@ -11,10 +11,6 @@ namespace Pulumi.Azure.LogAnalytics
 {
     /// <summary>
     /// Links a Log Analytics (formally Operational Insights) Workspace to another resource. The (currently) only linkable service is an Azure Automation Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_linked_service.html.markdown.
     /// </summary>
     public partial class LinkedService : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedService(string name, LinkedServiceArgs args, CustomResourceOptions? options = null)
-            : base("azure:loganalytics/linkedService:LinkedService", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:loganalytics/linkedService:LinkedService", name, args ?? new LinkedServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ManagementGroups
 {
     /// <summary>
     /// Manages a Management Group.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
     /// </summary>
     public partial class ManagementGroup : Pulumi.CustomResource
     {
@@ -57,7 +53,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroup(string name, ManagementGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure:managementgroups/managementGroup:ManagementGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:managementgroups/managementGroup:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

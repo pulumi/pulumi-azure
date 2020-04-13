@@ -11,10 +11,6 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage Private DNS zone Virtual Network Links. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_zone_virtual_network_link.html.markdown.
     /// </summary>
     public partial class ZoneVirtualNetworkLink : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ZoneVirtualNetworkLink(string name, ZoneVirtualNetworkLinkArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, args ?? new ZoneVirtualNetworkLinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Storage
 {
     /// <summary>
     /// Manages an Entity within a Table in an Azure Storage Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table_entity.html.markdown.
     /// </summary>
     public partial class TableEntity : Pulumi.CustomResource
     {
@@ -59,7 +55,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TableEntity(string name, TableEntityArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/tableEntity:TableEntity", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/tableEntity:TableEntity", name, args ?? new TableEntityArgs(), MakeResourceOptions(options, ""))
         {
         }
 

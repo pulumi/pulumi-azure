@@ -11,8 +11,6 @@ namespace Pulumi.Azure.NetApp
 {
     /// <summary>
     /// Manages a NetApp Snapshot.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_snapshot.html.markdown.
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource
     {
@@ -67,7 +65,7 @@ namespace Pulumi.Azure.NetApp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snapshot(string name, SnapshotArgs args, CustomResourceOptions? options = null)
-            : base("azure:netapp/snapshot:Snapshot", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:netapp/snapshot:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 

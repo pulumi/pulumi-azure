@@ -32,8 +32,6 @@ class ConsumerGroup(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.

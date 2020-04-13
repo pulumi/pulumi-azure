@@ -11,10 +11,6 @@ namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
     /// Manages a Key Vault Key.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
     /// </summary>
     public partial class Key : Pulumi.CustomResource
     {
@@ -111,7 +107,7 @@ namespace Pulumi.Azure.KeyVault
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Key(string name, KeyArgs args, CustomResourceOptions? options = null)
-            : base("azure:keyvault/key:Key", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:keyvault/key:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

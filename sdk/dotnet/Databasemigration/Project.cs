@@ -13,10 +13,6 @@ namespace Pulumi.Azure.DatabaseMigration
     /// Manage a Azure Database Migration Project.
     /// 
     /// &gt; **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_project.html.markdown.
     /// </summary>
     public partial class Project : Pulumi.CustomResource
     {
@@ -71,7 +67,7 @@ namespace Pulumi.Azure.DatabaseMigration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("azure:databasemigration/project:Project", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:databasemigration/project:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 

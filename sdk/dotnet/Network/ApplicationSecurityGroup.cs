@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages an Application Security Group.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_security_group.html.markdown.
     /// </summary>
     public partial class ApplicationSecurityGroup : Pulumi.CustomResource
     {
@@ -51,7 +47,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApplicationSecurityGroup(string name, ApplicationSecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", name, args ?? new ApplicationSecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -50,8 +50,6 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_scheduled_query_rules_log.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] criteria: A `criteria` block as defined below.

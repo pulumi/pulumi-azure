@@ -11,10 +11,6 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a CosmosDB (formally DocumentDB) Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {
@@ -22,7 +18,7 @@ namespace Pulumi.Azure.CosmosDB
         /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Output("capabilities")]
-        public Output<ImmutableArray<Outputs.AccountCapabilities>> Capabilities { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
 
         /// <summary>
         /// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
@@ -58,7 +54,7 @@ namespace Pulumi.Azure.CosmosDB
         /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
         /// </summary>
         [Output("geoLocations")]
-        public Output<ImmutableArray<Outputs.AccountGeoLocations>> GeoLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AccountGeoLocation>> GeoLocations { get; private set; } = null!;
 
         /// <summary>
         /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -142,7 +138,7 @@ namespace Pulumi.Azure.CosmosDB
         /// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         /// </summary>
         [Output("virtualNetworkRules")]
-        public Output<ImmutableArray<Outputs.AccountVirtualNetworkRules>> VirtualNetworkRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AccountVirtualNetworkRule>> VirtualNetworkRules { get; private set; } = null!;
 
         /// <summary>
         /// A list of write endpoints available for this CosmosDB account.
@@ -159,7 +155,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure:cosmosdb/account:Account", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cosmosdb/account:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -197,14 +193,14 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         [Input("capabilities")]
-        private InputList<Inputs.AccountCapabilitiesArgs>? _capabilities;
+        private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
 
         /// <summary>
         /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
-        public InputList<Inputs.AccountCapabilitiesArgs> Capabilities
+        public InputList<Inputs.AccountCapabilityArgs> Capabilities
         {
-            get => _capabilities ?? (_capabilities = new InputList<Inputs.AccountCapabilitiesArgs>());
+            get => _capabilities ?? (_capabilities = new InputList<Inputs.AccountCapabilityArgs>());
             set => _capabilities = value;
         }
 
@@ -227,14 +223,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
 
         [Input("geoLocations", required: true)]
-        private InputList<Inputs.AccountGeoLocationsArgs>? _geoLocations;
+        private InputList<Inputs.AccountGeoLocationArgs>? _geoLocations;
 
         /// <summary>
         /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
         /// </summary>
-        public InputList<Inputs.AccountGeoLocationsArgs> GeoLocations
+        public InputList<Inputs.AccountGeoLocationArgs> GeoLocations
         {
-            get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationsArgs>());
+            get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationArgs>());
             set => _geoLocations = value;
         }
 
@@ -293,14 +289,14 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         [Input("virtualNetworkRules")]
-        private InputList<Inputs.AccountVirtualNetworkRulesArgs>? _virtualNetworkRules;
+        private InputList<Inputs.AccountVirtualNetworkRuleArgs>? _virtualNetworkRules;
 
         /// <summary>
         /// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         /// </summary>
-        public InputList<Inputs.AccountVirtualNetworkRulesArgs> VirtualNetworkRules
+        public InputList<Inputs.AccountVirtualNetworkRuleArgs> VirtualNetworkRules
         {
-            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountVirtualNetworkRulesArgs>());
+            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountVirtualNetworkRuleArgs>());
             set => _virtualNetworkRules = value;
         }
 
@@ -312,14 +308,14 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountState : Pulumi.ResourceArgs
     {
         [Input("capabilities")]
-        private InputList<Inputs.AccountCapabilitiesGetArgs>? _capabilities;
+        private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;
 
         /// <summary>
         /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
-        public InputList<Inputs.AccountCapabilitiesGetArgs> Capabilities
+        public InputList<Inputs.AccountCapabilityGetArgs> Capabilities
         {
-            get => _capabilities ?? (_capabilities = new InputList<Inputs.AccountCapabilitiesGetArgs>());
+            get => _capabilities ?? (_capabilities = new InputList<Inputs.AccountCapabilityGetArgs>());
             set => _capabilities = value;
         }
 
@@ -360,14 +356,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Endpoint { get; set; }
 
         [Input("geoLocations")]
-        private InputList<Inputs.AccountGeoLocationsGetArgs>? _geoLocations;
+        private InputList<Inputs.AccountGeoLocationGetArgs>? _geoLocations;
 
         /// <summary>
         /// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
         /// </summary>
-        public InputList<Inputs.AccountGeoLocationsGetArgs> GeoLocations
+        public InputList<Inputs.AccountGeoLocationGetArgs> GeoLocations
         {
-            get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationsGetArgs>());
+            get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationGetArgs>());
             set => _geoLocations = value;
         }
 
@@ -462,14 +458,14 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         [Input("virtualNetworkRules")]
-        private InputList<Inputs.AccountVirtualNetworkRulesGetArgs>? _virtualNetworkRules;
+        private InputList<Inputs.AccountVirtualNetworkRuleGetArgs>? _virtualNetworkRules;
 
         /// <summary>
         /// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         /// </summary>
-        public InputList<Inputs.AccountVirtualNetworkRulesGetArgs> VirtualNetworkRules
+        public InputList<Inputs.AccountVirtualNetworkRuleGetArgs> VirtualNetworkRules
         {
-            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountVirtualNetworkRulesGetArgs>());
+            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.AccountVirtualNetworkRuleGetArgs>());
             set => _virtualNetworkRules = value;
         }
 
@@ -488,269 +484,5 @@ namespace Pulumi.Azure.CosmosDB
         public AccountState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AccountCapabilitiesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public AccountCapabilitiesArgs()
-        {
-        }
-    }
-
-    public sealed class AccountCapabilitiesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public AccountCapabilitiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class AccountConsistencyPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
-        /// </summary>
-        [Input("consistencyLevel", required: true)]
-        public Input<string> ConsistencyLevel { get; set; } = null!;
-
-        /// <summary>
-        /// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
-        /// </summary>
-        [Input("maxIntervalInSeconds")]
-        public Input<int>? MaxIntervalInSeconds { get; set; }
-
-        /// <summary>
-        /// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
-        /// </summary>
-        [Input("maxStalenessPrefix")]
-        public Input<int>? MaxStalenessPrefix { get; set; }
-
-        public AccountConsistencyPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class AccountConsistencyPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
-        /// </summary>
-        [Input("consistencyLevel", required: true)]
-        public Input<string> ConsistencyLevel { get; set; } = null!;
-
-        /// <summary>
-        /// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
-        /// </summary>
-        [Input("maxIntervalInSeconds")]
-        public Input<int>? MaxIntervalInSeconds { get; set; }
-
-        /// <summary>
-        /// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
-        /// </summary>
-        [Input("maxStalenessPrefix")]
-        public Input<int>? MaxStalenessPrefix { get; set; }
-
-        public AccountConsistencyPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class AccountGeoLocationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        [Input("failoverPriority", required: true)]
-        public Input<int> FailoverPriority { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Azure region to host replicated data.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public AccountGeoLocationsArgs()
-        {
-        }
-    }
-
-    public sealed class AccountGeoLocationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        [Input("failoverPriority", required: true)]
-        public Input<int> FailoverPriority { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The name of the Azure region to host replicated data.
-        /// </summary>
-        [Input("location", required: true)]
-        public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
-
-        public AccountGeoLocationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class AccountVirtualNetworkRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public AccountVirtualNetworkRulesArgs()
-        {
-        }
-    }
-
-    public sealed class AccountVirtualNetworkRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public AccountVirtualNetworkRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AccountCapabilities
-    {
-        /// <summary>
-        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private AccountCapabilities(string name)
-        {
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class AccountConsistencyPolicy
-    {
-        /// <summary>
-        /// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
-        /// </summary>
-        public readonly string ConsistencyLevel;
-        /// <summary>
-        /// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
-        /// </summary>
-        public readonly int? MaxIntervalInSeconds;
-        /// <summary>
-        /// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
-        /// </summary>
-        public readonly int? MaxStalenessPrefix;
-
-        [OutputConstructor]
-        private AccountConsistencyPolicy(
-            string consistencyLevel,
-            int? maxIntervalInSeconds,
-            int? maxStalenessPrefix)
-        {
-            ConsistencyLevel = consistencyLevel;
-            MaxIntervalInSeconds = maxIntervalInSeconds;
-            MaxStalenessPrefix = maxStalenessPrefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class AccountGeoLocations
-    {
-        /// <summary>
-        /// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        public readonly int FailoverPriority;
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
-        /// The name of the Azure region to host replicated data.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
-        /// </summary>
-        public readonly string? Prefix;
-
-        [OutputConstructor]
-        private AccountGeoLocations(
-            int failoverPriority,
-            string id,
-            string location,
-            string? prefix)
-        {
-            FailoverPriority = failoverPriority;
-            Id = id;
-            Location = location;
-            Prefix = prefix;
-        }
-    }
-
-    [OutputType]
-    public sealed class AccountVirtualNetworkRules
-    {
-        /// <summary>
-        /// The ID of the virtual network subnet.
-        /// </summary>
-        public readonly string Id;
-
-        [OutputConstructor]
-        private AccountVirtualNetworkRules(string id)
-        {
-            Id = id;
-        }
-    }
     }
 }

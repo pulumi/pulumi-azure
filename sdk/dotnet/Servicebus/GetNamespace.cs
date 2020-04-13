@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ServiceBus
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing ServiceBus Namespace.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNamespace.InvokeAsync() instead")]
-        public static Task<GetNamespaceResult> GetNamespace(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNamespace
     {
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Namespace.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNamespaceArgs : Pulumi.InvokeArgs
     {
@@ -53,6 +40,7 @@ namespace Pulumi.Azure.ServiceBus
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetNamespaceResult
@@ -80,6 +68,10 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string DefaultSecondaryKey;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the Resource Group in which the ServiceBus Namespace exists.
         /// </summary>
         public readonly string Location;
@@ -97,38 +89,45 @@ namespace Pulumi.Azure.ServiceBus
         /// Whether or not this ServiceBus Namespace is zone redundant.
         /// </summary>
         public readonly bool ZoneRedundant;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNamespaceResult(
             int capacity,
+
             string defaultPrimaryConnectionString,
+
             string defaultPrimaryKey,
+
             string defaultSecondaryConnectionString,
+
             string defaultSecondaryKey,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string sku,
+
             ImmutableDictionary<string, string> tags,
-            bool zoneRedundant,
-            string id)
+
+            bool zoneRedundant)
         {
             Capacity = capacity;
             DefaultPrimaryConnectionString = defaultPrimaryConnectionString;
             DefaultPrimaryKey = defaultPrimaryKey;
             DefaultSecondaryConnectionString = defaultSecondaryConnectionString;
             DefaultSecondaryKey = defaultSecondaryKey;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
             ZoneRedundant = zoneRedundant;
-            Id = id;
         }
     }
 }

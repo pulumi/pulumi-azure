@@ -28,8 +28,6 @@ class Workspace(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.

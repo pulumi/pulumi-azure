@@ -11,10 +11,6 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS MX Records within Azure Private DNS.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_mx_record.html.markdown.
     /// </summary>
     public partial class MxRecord : Pulumi.CustomResource
     {
@@ -34,7 +30,7 @@ namespace Pulumi.Azure.PrivateDns
         /// One or more `record` blocks as defined below.
         /// </summary>
         [Output("records")]
-        public Output<ImmutableArray<Outputs.MxRecordRecords>> Records { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MxRecordRecord>> Records { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
@@ -66,7 +62,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MxRecord(string name, MxRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatedns/mxRecord:MxRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:privatedns/mxRecord:MxRecord", name, args ?? new MxRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -110,14 +106,14 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         [Input("records", required: true)]
-        private InputList<Inputs.MxRecordRecordsArgs>? _records;
+        private InputList<Inputs.MxRecordRecordArgs>? _records;
 
         /// <summary>
         /// One or more `record` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.MxRecordRecordsArgs> Records
+        public InputList<Inputs.MxRecordRecordArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.MxRecordRecordsArgs>());
+            get => _records ?? (_records = new InputList<Inputs.MxRecordRecordArgs>());
             set => _records = value;
         }
 
@@ -168,14 +164,14 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         [Input("records")]
-        private InputList<Inputs.MxRecordRecordsGetArgs>? _records;
+        private InputList<Inputs.MxRecordRecordGetArgs>? _records;
 
         /// <summary>
         /// One or more `record` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.MxRecordRecordsGetArgs> Records
+        public InputList<Inputs.MxRecordRecordGetArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.MxRecordRecordsGetArgs>());
+            get => _records ?? (_records = new InputList<Inputs.MxRecordRecordGetArgs>());
             set => _records = value;
         }
 
@@ -209,73 +205,5 @@ namespace Pulumi.Azure.PrivateDns
         public MxRecordState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MxRecordRecordsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The FQDN of the exchange to MX record points to.
-        /// </summary>
-        [Input("exchange", required: true)]
-        public Input<string> Exchange { get; set; } = null!;
-
-        /// <summary>
-        /// The preference of the MX record.
-        /// </summary>
-        [Input("preference", required: true)]
-        public Input<int> Preference { get; set; } = null!;
-
-        public MxRecordRecordsArgs()
-        {
-        }
-    }
-
-    public sealed class MxRecordRecordsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The FQDN of the exchange to MX record points to.
-        /// </summary>
-        [Input("exchange", required: true)]
-        public Input<string> Exchange { get; set; } = null!;
-
-        /// <summary>
-        /// The preference of the MX record.
-        /// </summary>
-        [Input("preference", required: true)]
-        public Input<int> Preference { get; set; } = null!;
-
-        public MxRecordRecordsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MxRecordRecords
-    {
-        /// <summary>
-        /// The FQDN of the exchange to MX record points to.
-        /// </summary>
-        public readonly string Exchange;
-        /// <summary>
-        /// The preference of the MX record.
-        /// </summary>
-        public readonly int Preference;
-
-        [OutputConstructor]
-        private MxRecordRecords(
-            string exchange,
-            int preference)
-        {
-            Exchange = exchange;
-            Preference = preference;
-        }
-    }
     }
 }

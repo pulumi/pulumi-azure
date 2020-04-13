@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Batch
 {
     /// <summary>
     /// Manages a certificate in an Azure Batch account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -78,7 +74,7 @@ namespace Pulumi.Azure.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure:batch/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:batch/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

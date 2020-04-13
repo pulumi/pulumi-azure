@@ -78,8 +78,6 @@ def get_api_version_set(api_management_name=None,name=None,resource_group_name=N
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
-
 
     :param str api_management_name: The name of the API Management Service where the API Version Set exists.
     :param str name: The name of the API Version Set.

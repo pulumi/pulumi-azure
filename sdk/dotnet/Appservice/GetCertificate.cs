@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an App Service Certificate.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCertificate.InvokeAsync() instead")]
-        public static Task<GetCertificateResult> GetCertificate(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:appservice/getCertificate:getCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCertificate
     {
         /// <summary>
         /// Use this data source to access information about an App Service Certificate.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:appservice/getCertificate:getCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:appservice/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
@@ -62,6 +49,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
+
     [OutputType]
     public sealed class GetCertificateResult
     {
@@ -77,6 +65,10 @@ namespace Pulumi.Azure.AppService
         /// List of host names the certificate applies to.
         /// </summary>
         public readonly ImmutableArray<string> HostNames;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The issue date for the certificate.
         /// </summary>
@@ -97,29 +89,37 @@ namespace Pulumi.Azure.AppService
         /// The thumbprint for the certificate.
         /// </summary>
         public readonly string Thumbprint;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetCertificateResult(
             string expirationDate,
+
             string friendlyName,
+
             ImmutableArray<string> hostNames,
+
+            string id,
+
             string issueDate,
+
             string issuer,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string subjectName,
+
             ImmutableDictionary<string, string>? tags,
-            string thumbprint,
-            string id)
+
+            string thumbprint)
         {
             ExpirationDate = expirationDate;
             FriendlyName = friendlyName;
             HostNames = hostNames;
+            Id = id;
             IssueDate = issueDate;
             Issuer = issuer;
             Location = location;
@@ -128,7 +128,6 @@ namespace Pulumi.Azure.AppService
             SubjectName = subjectName;
             Tags = tags;
             Thumbprint = thumbprint;
-            Id = id;
         }
     }
 }

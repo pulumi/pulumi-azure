@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Sql
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing SQL Azure Database Server.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetServer.InvokeAsync() instead")]
-        public static Task<GetServerResult> GetServer(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:sql/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetServer
     {
         /// <summary>
         /// Use this data source to access information about an existing SQL Azure Database Server.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:sql/getServer:getServer", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:sql/getServer:getServer", args ?? new GetServerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetServerArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.Sql
         }
     }
 
+
     [OutputType]
     public sealed class GetServerResult
     {
@@ -66,9 +54,13 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetServerIdentitiesResult> Identities;
+        public readonly ImmutableArray<Outputs.GetServerIdentityResult> Identities;
         /// <summary>
         /// The location of the Resource Group in which the SQL Server exists.
         /// </summary>
@@ -83,64 +75,36 @@ namespace Pulumi.Azure.Sql
         /// The version of the SQL Server.
         /// </summary>
         public readonly string Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetServerResult(
             string administratorLogin,
+
             string fqdn,
-            ImmutableArray<Outputs.GetServerIdentitiesResult> identities,
+
+            string id,
+
+            ImmutableArray<Outputs.GetServerIdentityResult> identities,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            string version,
-            string id)
+
+            string version)
         {
             AdministratorLogin = administratorLogin;
             Fqdn = fqdn;
+            Id = id;
             Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             Version = version;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetServerIdentitiesResult
-    {
-        /// <summary>
-        /// The ID of the Principal (Client) in Azure Active Directory.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The ID of the Azure Active Directory Tenant.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// The identity type of the SQL Server.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private GetServerIdentitiesResult(
-            string principalId,
-            string tenantId,
-            string type)
-        {
-            PrincipalId = principalId;
-            TenantId = tenantId;
-            Type = type;
-        }
-    }
     }
 }

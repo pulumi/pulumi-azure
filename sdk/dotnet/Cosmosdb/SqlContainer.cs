@@ -11,10 +11,6 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a SQL Container within a Cosmos DB Account.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_sql_container.html.markdown.
     /// </summary>
     public partial class SqlContainer : Pulumi.CustomResource
     {
@@ -64,7 +60,7 @@ namespace Pulumi.Azure.CosmosDB
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("uniqueKeys")]
-        public Output<ImmutableArray<Outputs.SqlContainerUniqueKeys>> UniqueKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SqlContainerUniqueKey>> UniqueKeys { get; private set; } = null!;
 
 
         /// <summary>
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlContainer(string name, SqlContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure:cosmosdb/sqlContainer:SqlContainer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cosmosdb/sqlContainer:SqlContainer", name, args ?? new SqlContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -155,14 +151,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? Throughput { get; set; }
 
         [Input("uniqueKeys")]
-        private InputList<Inputs.SqlContainerUniqueKeysArgs>? _uniqueKeys;
+        private InputList<Inputs.SqlContainerUniqueKeyArgs>? _uniqueKeys;
 
         /// <summary>
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.SqlContainerUniqueKeysArgs> UniqueKeys
+        public InputList<Inputs.SqlContainerUniqueKeyArgs> UniqueKeys
         {
-            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.SqlContainerUniqueKeysArgs>());
+            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.SqlContainerUniqueKeyArgs>());
             set => _uniqueKeys = value;
         }
 
@@ -216,80 +212,19 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? Throughput { get; set; }
 
         [Input("uniqueKeys")]
-        private InputList<Inputs.SqlContainerUniqueKeysGetArgs>? _uniqueKeys;
+        private InputList<Inputs.SqlContainerUniqueKeyGetArgs>? _uniqueKeys;
 
         /// <summary>
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.SqlContainerUniqueKeysGetArgs> UniqueKeys
+        public InputList<Inputs.SqlContainerUniqueKeyGetArgs> UniqueKeys
         {
-            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.SqlContainerUniqueKeysGetArgs>());
+            get => _uniqueKeys ?? (_uniqueKeys = new InputList<Inputs.SqlContainerUniqueKeyGetArgs>());
             set => _uniqueKeys = value;
         }
 
         public SqlContainerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SqlContainerUniqueKeysArgs : Pulumi.ResourceArgs
-    {
-        [Input("paths", required: true)]
-        private InputList<string>? _paths;
-
-        /// <summary>
-        /// A list of paths to use for this unique key.
-        /// </summary>
-        public InputList<string> Paths
-        {
-            get => _paths ?? (_paths = new InputList<string>());
-            set => _paths = value;
-        }
-
-        public SqlContainerUniqueKeysArgs()
-        {
-        }
-    }
-
-    public sealed class SqlContainerUniqueKeysGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("paths", required: true)]
-        private InputList<string>? _paths;
-
-        /// <summary>
-        /// A list of paths to use for this unique key.
-        /// </summary>
-        public InputList<string> Paths
-        {
-            get => _paths ?? (_paths = new InputList<string>());
-            set => _paths = value;
-        }
-
-        public SqlContainerUniqueKeysGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SqlContainerUniqueKeys
-    {
-        /// <summary>
-        /// A list of paths to use for this unique key.
-        /// </summary>
-        public readonly ImmutableArray<string> Paths;
-
-        [OutputConstructor]
-        private SqlContainerUniqueKeys(ImmutableArray<string> paths)
-        {
-            Paths = paths;
-        }
-    }
     }
 }

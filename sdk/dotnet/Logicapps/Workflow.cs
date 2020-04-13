@@ -11,10 +11,6 @@ namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages a Logic App Workflow.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_workflow.html.markdown.
     /// </summary>
     public partial class Workflow : Pulumi.CustomResource
     {
@@ -99,7 +95,7 @@ namespace Pulumi.Azure.LogicApps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workflow(string name, WorkflowArgs args, CustomResourceOptions? options = null)
-            : base("azure:logicapps/workflow:Workflow", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:logicapps/workflow:Workflow", name, args ?? new WorkflowArgs(), MakeResourceOptions(options, ""))
         {
         }
 

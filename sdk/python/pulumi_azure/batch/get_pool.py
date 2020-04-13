@@ -127,8 +127,6 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
-
 
     :param str account_name: The name of the Batch account.
     :param list certificates: One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.

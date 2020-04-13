@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Dns
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing DNS Zone.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetZone.InvokeAsync() instead")]
-        public static Task<GetZoneResult> GetZone(GetZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetZone
     {
         /// <summary>
         /// Use this data source to access information about an existing DNS Zone.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args ?? new GetZoneArgs(), options.WithVersion());
     }
+
 
     public sealed class GetZoneArgs : Pulumi.InvokeArgs
     {
@@ -56,9 +43,14 @@ namespace Pulumi.Azure.Dns
         }
     }
 
+
     [OutputType]
     public sealed class GetZoneResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Maximum number of Records in the zone.
         /// </summary>
@@ -77,28 +69,30 @@ namespace Pulumi.Azure.Dns
         /// A mapping of tags to assign to the EventHub Namespace.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetZoneResult(
+            string id,
+
             int maxNumberOfRecordSets,
+
             string name,
+
             ImmutableArray<string> nameServers,
+
             int numberOfRecordSets,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
             Name = name;
             NameServers = nameServers;
             NumberOfRecordSets = numberOfRecordSets;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

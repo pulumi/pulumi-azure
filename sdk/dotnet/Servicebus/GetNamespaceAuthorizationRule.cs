@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ServiceBus
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_authorization_rule.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNamespaceAuthorizationRule.InvokeAsync() instead")]
-        public static Task<GetNamespaceAuthorizationRuleResult> GetNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNamespaceAuthorizationRule
     {
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_authorization_rule.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNamespaceAuthorizationRuleArgs : Pulumi.InvokeArgs
     {
@@ -60,9 +47,14 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
+
     [OutputType]
     public sealed class GetNamespaceAuthorizationRuleResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string NamespaceName;
         /// <summary>
@@ -82,22 +74,26 @@ namespace Pulumi.Azure.ServiceBus
         /// The secondary access key for the authorization rule.
         /// </summary>
         public readonly string SecondaryKey;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNamespaceAuthorizationRuleResult(
+            string id,
+
             string name,
+
             string namespaceName,
+
             string primaryConnectionString,
+
             string primaryKey,
+
             string resourceGroupName,
+
             string secondaryConnectionString,
-            string secondaryKey,
-            string id)
+
+            string secondaryKey)
         {
+            Id = id;
             Name = name;
             NamespaceName = namespaceName;
             PrimaryConnectionString = primaryConnectionString;
@@ -105,7 +101,6 @@ namespace Pulumi.Azure.ServiceBus
             ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryKey = secondaryKey;
-            Id = id;
         }
     }
 }

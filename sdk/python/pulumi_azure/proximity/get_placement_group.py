@@ -50,8 +50,6 @@ def get_placement_group(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
-
 
     :param str name: The name of the Proximity Placement Group.
     :param str resource_group_name: The name of the resource group in which the Proximity Placement Group exists.

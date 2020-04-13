@@ -11,10 +11,6 @@ namespace Pulumi.Azure.AnalysisServices
 {
     /// <summary>
     /// Manages an Analysis Services Server.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/analysis_services_server.html.markdown.
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {
@@ -40,7 +36,7 @@ namespace Pulumi.Azure.AnalysisServices
         /// One or more `ipv4_firewall_rule` block(s) as defined below.
         /// </summary>
         [Output("ipv4FirewallRules")]
-        public Output<ImmutableArray<Outputs.ServerIpv4FirewallRules>> Ipv4FirewallRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServerIpv4FirewallRule>> Ipv4FirewallRules { get; private set; } = null!;
 
         /// <summary>
         /// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
@@ -90,7 +86,7 @@ namespace Pulumi.Azure.AnalysisServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure:analysisservices/server:Server", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:analysisservices/server:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -152,14 +148,14 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<bool>? EnablePowerBiService { get; set; }
 
         [Input("ipv4FirewallRules")]
-        private InputList<Inputs.ServerIpv4FirewallRulesArgs>? _ipv4FirewallRules;
+        private InputList<Inputs.ServerIpv4FirewallRuleArgs>? _ipv4FirewallRules;
 
         /// <summary>
         /// One or more `ipv4_firewall_rule` block(s) as defined below.
         /// </summary>
-        public InputList<Inputs.ServerIpv4FirewallRulesArgs> Ipv4FirewallRules
+        public InputList<Inputs.ServerIpv4FirewallRuleArgs> Ipv4FirewallRules
         {
-            get => _ipv4FirewallRules ?? (_ipv4FirewallRules = new InputList<Inputs.ServerIpv4FirewallRulesArgs>());
+            get => _ipv4FirewallRules ?? (_ipv4FirewallRules = new InputList<Inputs.ServerIpv4FirewallRuleArgs>());
             set => _ipv4FirewallRules = value;
         }
 
@@ -233,14 +229,14 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<bool>? EnablePowerBiService { get; set; }
 
         [Input("ipv4FirewallRules")]
-        private InputList<Inputs.ServerIpv4FirewallRulesGetArgs>? _ipv4FirewallRules;
+        private InputList<Inputs.ServerIpv4FirewallRuleGetArgs>? _ipv4FirewallRules;
 
         /// <summary>
         /// One or more `ipv4_firewall_rule` block(s) as defined below.
         /// </summary>
-        public InputList<Inputs.ServerIpv4FirewallRulesGetArgs> Ipv4FirewallRules
+        public InputList<Inputs.ServerIpv4FirewallRuleGetArgs> Ipv4FirewallRules
         {
-            get => _ipv4FirewallRules ?? (_ipv4FirewallRules = new InputList<Inputs.ServerIpv4FirewallRulesGetArgs>());
+            get => _ipv4FirewallRules ?? (_ipv4FirewallRules = new InputList<Inputs.ServerIpv4FirewallRuleGetArgs>());
             set => _ipv4FirewallRules = value;
         }
 
@@ -291,91 +287,5 @@ namespace Pulumi.Azure.AnalysisServices
         public ServerState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServerIpv4FirewallRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the firewall rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// End of the firewall rule range as IPv4 address.
-        /// </summary>
-        [Input("rangeEnd", required: true)]
-        public Input<string> RangeEnd { get; set; } = null!;
-
-        /// <summary>
-        /// Start of the firewall rule range as IPv4 address.
-        /// </summary>
-        [Input("rangeStart", required: true)]
-        public Input<string> RangeStart { get; set; } = null!;
-
-        public ServerIpv4FirewallRulesArgs()
-        {
-        }
-    }
-
-    public sealed class ServerIpv4FirewallRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the firewall rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// End of the firewall rule range as IPv4 address.
-        /// </summary>
-        [Input("rangeEnd", required: true)]
-        public Input<string> RangeEnd { get; set; } = null!;
-
-        /// <summary>
-        /// Start of the firewall rule range as IPv4 address.
-        /// </summary>
-        [Input("rangeStart", required: true)]
-        public Input<string> RangeStart { get; set; } = null!;
-
-        public ServerIpv4FirewallRulesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServerIpv4FirewallRules
-    {
-        /// <summary>
-        /// Specifies the name of the firewall rule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// End of the firewall rule range as IPv4 address.
-        /// </summary>
-        public readonly string RangeEnd;
-        /// <summary>
-        /// Start of the firewall rule range as IPv4 address.
-        /// </summary>
-        public readonly string RangeStart;
-
-        [OutputConstructor]
-        private ServerIpv4FirewallRules(
-            string name,
-            string rangeEnd,
-            string rangeStart)
-        {
-            Name = name;
-            RangeEnd = rangeEnd;
-            RangeStart = rangeStart;
-        }
-    }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSharedImageVersion.InvokeAsync() instead")]
-        public static Task<GetSharedImageVersionResult> GetSharedImageVersion(GetSharedImageVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSharedImageVersion
     {
         /// <summary>
         /// Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedImageVersionResult> InvokeAsync(GetSharedImageVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionResult>("azure:compute/getSharedImageVersion:getSharedImageVersion", args ?? new GetSharedImageVersionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSharedImageVersionArgs : Pulumi.InvokeArgs
     {
@@ -66,6 +53,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetSharedImageVersionResult
     {
@@ -74,6 +62,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly bool ExcludeFromLatest;
         public readonly string GalleryName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string ImageName;
         /// <summary>
         /// The supported Azure location where the Shared Image Gallery exists.
@@ -95,27 +87,33 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `target_region` blocks as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetSharedImageVersionTargetRegionsResult> TargetRegions;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetSharedImageVersionTargetRegionResult> TargetRegions;
 
         [OutputConstructor]
         private GetSharedImageVersionResult(
             bool excludeFromLatest,
+
             string galleryName,
+
+            string id,
+
             string imageName,
+
             string location,
+
             string managedImageId,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<Outputs.GetSharedImageVersionTargetRegionsResult> targetRegions,
-            string id)
+
+            ImmutableArray<Outputs.GetSharedImageVersionTargetRegionResult> targetRegions)
         {
             ExcludeFromLatest = excludeFromLatest;
             GalleryName = galleryName;
+            Id = id;
             ImageName = imageName;
             Location = location;
             ManagedImageId = managedImageId;
@@ -123,39 +121,6 @@ namespace Pulumi.Azure.Compute
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             TargetRegions = targetRegions;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSharedImageVersionTargetRegionsResult
-    {
-        /// <summary>
-        /// The name of the Image Version.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The number of replicas of the Image Version to be created per region.
-        /// </summary>
-        public readonly int RegionalReplicaCount;
-        /// <summary>
-        /// The storage account type for the image version.
-        /// </summary>
-        public readonly string StorageAccountType;
-
-        [OutputConstructor]
-        private GetSharedImageVersionTargetRegionsResult(
-            string name,
-            int regionalReplicaCount,
-            string storageAccountType)
-        {
-            Name = name;
-            RegionalReplicaCount = regionalReplicaCount;
-            StorageAccountType = storageAccountType;
-        }
-    }
     }
 }

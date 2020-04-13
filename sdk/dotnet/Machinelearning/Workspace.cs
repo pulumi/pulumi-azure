@@ -11,10 +11,6 @@ namespace Pulumi.Azure.MachineLearning
 {
     /// <summary>
     /// Manages a Azure Machine Learning Workspace
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/machine_learning_workspace.html.markdown.
     /// </summary>
     public partial class Workspace : Pulumi.CustomResource
     {
@@ -99,7 +95,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure:machinelearning/workspace:Workspace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:machinelearning/workspace:Workspace", name, args ?? new WorkspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -302,91 +298,5 @@ namespace Pulumi.Azure.MachineLearning
         public WorkspaceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WorkspaceIdentityArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The (Client) ID of the Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WorkspaceIdentityArgs()
-        {
-        }
-    }
-
-    public sealed class WorkspaceIdentityGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The (Client) ID of the Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WorkspaceIdentityGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WorkspaceIdentity
-    {
-        /// <summary>
-        /// The (Client) ID of the Service Principal.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The ID of the Tenant the Service Principal is assigned in.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private WorkspaceIdentity(
-            string principalId,
-            string tenantId,
-            string type)
-        {
-            PrincipalId = principalId;
-            TenantId = tenantId;
-            Type = type;
-        }
-    }
     }
 }

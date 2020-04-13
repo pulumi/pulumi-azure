@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Availability Set.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAvailabilitySet.InvokeAsync() instead")]
-        public static Task<GetAvailabilitySetResult> GetAvailabilitySet(GetAvailabilitySetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAvailabilitySet
     {
         /// <summary>
         /// Use this data source to access information about an existing Availability Set.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAvailabilitySetArgs : Pulumi.InvokeArgs
     {
@@ -54,9 +41,14 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetAvailabilitySetResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The supported Azure location where the Availability Set exists.
         /// </summary>
@@ -79,22 +71,26 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAvailabilitySetResult(
+            string id,
+
             string location,
+
             bool managed,
+
             string name,
+
             string platformFaultDomainCount,
+
             string platformUpdateDomainCount,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Managed = managed;
             Name = name;
@@ -102,7 +98,6 @@ namespace Pulumi.Azure.Compute
             PlatformUpdateDomainCount = platformUpdateDomainCount;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

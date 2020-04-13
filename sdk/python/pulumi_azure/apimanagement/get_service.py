@@ -140,8 +140,6 @@ def get_service(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
-
 
     :param str name: The name of the API Management service.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.

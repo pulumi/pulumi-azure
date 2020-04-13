@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation Runbook.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_runbook.html.markdown.
     /// </summary>
     public partial class RunBook : Pulumi.CustomResource
     {
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RunBook(string name, RunBookArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/runBook:RunBook", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:automation/runBook:RunBook", name, args ?? new RunBookArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -284,115 +280,5 @@ namespace Pulumi.Azure.Automation
         public RunBookState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class RunBookPublishContentLinkArgs : Pulumi.ResourceArgs
-    {
-        [Input("hash")]
-        public Input<RunBookPublishContentLinkHashArgs>? Hash { get; set; }
-
-        /// <summary>
-        /// The uri of the runbook content.
-        /// </summary>
-        [Input("uri", required: true)]
-        public Input<string> Uri { get; set; } = null!;
-
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public RunBookPublishContentLinkArgs()
-        {
-        }
-    }
-
-    public sealed class RunBookPublishContentLinkGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("hash")]
-        public Input<RunBookPublishContentLinkHashGetArgs>? Hash { get; set; }
-
-        /// <summary>
-        /// The uri of the runbook content.
-        /// </summary>
-        [Input("uri", required: true)]
-        public Input<string> Uri { get; set; } = null!;
-
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        public RunBookPublishContentLinkGetArgs()
-        {
-        }
-    }
-
-    public sealed class RunBookPublishContentLinkHashArgs : Pulumi.ResourceArgs
-    {
-        [Input("algorithm", required: true)]
-        public Input<string> Algorithm { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public RunBookPublishContentLinkHashArgs()
-        {
-        }
-    }
-
-    public sealed class RunBookPublishContentLinkHashGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("algorithm", required: true)]
-        public Input<string> Algorithm { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public RunBookPublishContentLinkHashGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class RunBookPublishContentLink
-    {
-        public readonly RunBookPublishContentLinkHash? Hash;
-        /// <summary>
-        /// The uri of the runbook content.
-        /// </summary>
-        public readonly string Uri;
-        public readonly string? Version;
-
-        [OutputConstructor]
-        private RunBookPublishContentLink(
-            RunBookPublishContentLinkHash? hash,
-            string uri,
-            string? version)
-        {
-            Hash = hash;
-            Uri = uri;
-            Version = version;
-        }
-    }
-
-    [OutputType]
-    public sealed class RunBookPublishContentLinkHash
-    {
-        public readonly string Algorithm;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private RunBookPublishContentLinkHash(
-            string algorithm,
-            string value)
-        {
-            Algorithm = algorithm;
-            Value = value;
-        }
-    }
     }
 }

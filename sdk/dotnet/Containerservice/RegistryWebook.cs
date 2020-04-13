@@ -11,10 +11,6 @@ namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
     /// Manages an Azure Container Registry Webhook.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry_webhook.html.markdown.
     /// </summary>
     public partial class RegistryWebook : Pulumi.CustomResource
     {
@@ -84,7 +80,7 @@ namespace Pulumi.Azure.ContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistryWebook(string name, RegistryWebookArgs args, CustomResourceOptions? options = null)
-            : base("azure:containerservice/registryWebook:RegistryWebook", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:containerservice/registryWebook:RegistryWebook", name, args ?? new RegistryWebookArgs(), MakeResourceOptions(options, ""))
         {
         }
 

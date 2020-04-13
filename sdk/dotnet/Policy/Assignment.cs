@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Policy
 {
     /// <summary>
     /// Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
     /// </summary>
     public partial class Assignment : Pulumi.CustomResource
     {
@@ -78,7 +74,7 @@ namespace Pulumi.Azure.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure:policy/assignment:Assignment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:policy/assignment:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -239,91 +235,5 @@ namespace Pulumi.Azure.Policy
         public AssignmentState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class AssignmentIdentityArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public AssignmentIdentityArgs()
-        {
-        }
-    }
-
-    public sealed class AssignmentIdentityGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public AssignmentIdentityGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class AssignmentIdentity
-    {
-        /// <summary>
-        /// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
-        /// The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
-        /// </summary>
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private AssignmentIdentity(
-            string principalId,
-            string tenantId,
-            string? type)
-        {
-            PrincipalId = principalId;
-            TenantId = tenantId;
-            Type = type;
-        }
-    }
     }
 }

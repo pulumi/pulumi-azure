@@ -11,10 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Connection for a Virtual Hub.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub_connection.html.markdown.
     /// </summary>
     public partial class VirtualHubConnection : Pulumi.CustomResource
     {
@@ -63,7 +59,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualHubConnection(string name, VirtualHubConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/virtualHubConnection:VirtualHubConnection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/virtualHubConnection:VirtualHubConnection", name, args ?? new VirtualHubConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

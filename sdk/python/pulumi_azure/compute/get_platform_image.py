@@ -57,8 +57,6 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
-
 
     :param str location: Specifies the Location to pull information about this Platform Image from.
     :param str offer: Specifies the Offer associated with the Platform Image.

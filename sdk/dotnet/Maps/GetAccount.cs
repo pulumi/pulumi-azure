@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Maps
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Azure Maps Account.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maps_account.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccount.InvokeAsync() instead")]
-        public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:maps/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccount
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Maps Account.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maps_account.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:maps/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:maps/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
@@ -62,9 +49,14 @@ namespace Pulumi.Azure.Maps
         }
     }
 
+
     [OutputType]
     public sealed class GetAccountResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The primary key used to authenticate and authorize access to the Maps REST APIs.
@@ -84,22 +76,26 @@ namespace Pulumi.Azure.Maps
         /// A unique identifier for the Maps Account.
         /// </summary>
         public readonly string XMsClientId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountResult(
+            string id,
+
             string name,
+
             string primaryAccessKey,
+
             string resourceGroupName,
+
             string secondaryAccessKey,
+
             string skuName,
+
             ImmutableDictionary<string, string>? tags,
-            string xMsClientId,
-            string id)
+
+            string xMsClientId)
         {
+            Id = id;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;
             ResourceGroupName = resourceGroupName;
@@ -107,7 +103,6 @@ namespace Pulumi.Azure.Maps
             SkuName = skuName;
             Tags = tags;
             XMsClientId = xMsClientId;
-            Id = id;
         }
     }
 }

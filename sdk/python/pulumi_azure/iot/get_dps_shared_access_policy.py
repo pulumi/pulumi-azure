@@ -74,8 +74,6 @@ def get_dps_shared_access_policy(iothub_dps_name=None,name=None,resource_group_n
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
-
 
     :param str iothub_dps_name: Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
     :param str name: Specifies the name of the IotHub Shared Access Policy.

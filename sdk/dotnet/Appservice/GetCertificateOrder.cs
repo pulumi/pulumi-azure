@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppService
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing App Service Certificate Order.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCertificateOrder.InvokeAsync() instead")]
-        public static Task<GetCertificateOrderResult> GetCertificateOrder(GetCertificateOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCertificateOrder
     {
         /// <summary>
         /// Use this data source to access information about an existing App Service Certificate Order.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateOrderResult> InvokeAsync(GetCertificateOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateOrderResult>("azure:appservice/getCertificateOrder:getCertificateOrder", args ?? new GetCertificateOrderArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCertificateOrderArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
+
     [OutputType]
     public sealed class GetCertificateOrderResult
     {
@@ -68,7 +56,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// State of the Key Vault secret. A `certificates` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetCertificateOrderCertificatesResult> Certificates;
+        public readonly ImmutableArray<Outputs.GetCertificateOrderCertificateResult> Certificates;
         /// <summary>
         /// Last CSR that was created for this order.
         /// </summary>
@@ -85,6 +73,10 @@ namespace Pulumi.Azure.AppService
         /// Certificate expiration time.
         /// </summary>
         public readonly string ExpirationTime;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Certificate thumbprint intermediate certificate.
         /// </summary>
@@ -127,33 +119,48 @@ namespace Pulumi.Azure.AppService
         /// Duration in years (must be between 1 and 3).
         /// </summary>
         public readonly int ValidityInYears;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetCertificateOrderResult(
             ImmutableArray<string> appServiceCertificateNotRenewableReasons,
+
             bool autoRenew,
-            ImmutableArray<Outputs.GetCertificateOrderCertificatesResult> certificates,
+
+            ImmutableArray<Outputs.GetCertificateOrderCertificateResult> certificates,
+
             string csr,
+
             string distinguishedName,
+
             string domainVerificationToken,
+
             string expirationTime,
+
+            string id,
+
             string intermediateThumbprint,
+
             bool isPrivateKeyExternal,
+
             int keySize,
+
             string location,
+
             string name,
+
             string productType,
+
             string resourceGroupName,
+
             string rootThumbprint,
+
             string signedCertificateThumbprint,
+
             string status,
+
             ImmutableDictionary<string, string> tags,
-            int validityInYears,
-            string id)
+
+            int validityInYears)
         {
             AppServiceCertificateNotRenewableReasons = appServiceCertificateNotRenewableReasons;
             AutoRenew = autoRenew;
@@ -162,6 +169,7 @@ namespace Pulumi.Azure.AppService
             DistinguishedName = distinguishedName;
             DomainVerificationToken = domainVerificationToken;
             ExpirationTime = expirationTime;
+            Id = id;
             IntermediateThumbprint = intermediateThumbprint;
             IsPrivateKeyExternal = isPrivateKeyExternal;
             KeySize = keySize;
@@ -174,45 +182,6 @@ namespace Pulumi.Azure.AppService
             Status = status;
             Tags = tags;
             ValidityInYears = validityInYears;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetCertificateOrderCertificatesResult
-    {
-        /// <summary>
-        /// The name of the App Service Certificate.
-        /// </summary>
-        public readonly string CertificateName;
-        /// <summary>
-        /// Key Vault resource Id.
-        /// </summary>
-        public readonly string KeyVaultId;
-        /// <summary>
-        /// Key Vault secret name.
-        /// </summary>
-        public readonly string KeyVaultSecretName;
-        /// <summary>
-        /// Status of the Key Vault secret.
-        /// </summary>
-        public readonly string ProvisioningState;
-
-        [OutputConstructor]
-        private GetCertificateOrderCertificatesResult(
-            string certificateName,
-            string keyVaultId,
-            string keyVaultSecretName,
-            string provisioningState)
-        {
-            CertificateName = certificateName;
-            KeyVaultId = keyVaultId;
-            KeyVaultSecretName = keyVaultSecretName;
-            ProvisioningState = provisioningState;
-        }
-    }
     }
 }

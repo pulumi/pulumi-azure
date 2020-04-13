@@ -11,10 +11,6 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Stream Input IoTHub.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_iothub.html.markdown.
     /// </summary>
     public partial class StreamInputIotHub : Pulumi.CustomResource
     {
@@ -81,7 +77,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamInputIotHub(string name, StreamInputIotHubArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, args ?? new StreamInputIotHubArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -236,91 +232,5 @@ namespace Pulumi.Azure.StreamAnalytics
         public StreamInputIotHubState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class StreamInputIotHubSerializationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamInputIotHubSerializationArgs()
-        {
-        }
-    }
-
-    public sealed class StreamInputIotHubSerializationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
-
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        [Input("fieldDelimiter")]
-        public Input<string>? FieldDelimiter { get; set; }
-
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public StreamInputIotHubSerializationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class StreamInputIotHubSerialization
-    {
-        /// <summary>
-        /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-        /// </summary>
-        public readonly string? Encoding;
-        /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-        /// </summary>
-        public readonly string? FieldDelimiter;
-        /// <summary>
-        /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private StreamInputIotHubSerialization(
-            string? encoding,
-            string? fieldDelimiter,
-            string type)
-        {
-            Encoding = encoding;
-            FieldDelimiter = fieldDelimiter;
-            Type = type;
-        }
-    }
     }
 }

@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.MariaDB
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing MariaDB Server.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetMariaDbServer.InvokeAsync() instead")]
-        public static Task<GetMariaDbServerResult> GetMariaDbServer(GetMariaDbServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetMariaDbServer
     {
         /// <summary>
         /// Use this data source to access information about an existing MariaDB Server.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMariaDbServerResult> InvokeAsync(GetMariaDbServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMariaDbServerResult>("azure:mariadb/getMariaDbServer:getMariaDbServer", args ?? new GetMariaDbServerArgs(), options.WithVersion());
     }
+
 
     public sealed class GetMariaDbServerArgs : Pulumi.InvokeArgs
     {
@@ -54,6 +41,7 @@ namespace Pulumi.Azure.MariaDB
         }
     }
 
+
     [OutputType]
     public sealed class GetMariaDbServerResult
     {
@@ -69,6 +57,10 @@ namespace Pulumi.Azure.MariaDB
         /// The FQDN of the MariaDB Server.
         /// </summary>
         public readonly string Fqdn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure location where the resource exists.
         /// </summary>
@@ -86,7 +78,7 @@ namespace Pulumi.Azure.MariaDB
         /// <summary>
         /// A `storage_profile` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetMariaDbServerStorageProfilesResult> StorageProfiles;
+        public readonly ImmutableArray<Outputs.GetMariaDbServerStorageProfileResult> StorageProfiles;
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// ---
@@ -96,29 +88,37 @@ namespace Pulumi.Azure.MariaDB
         /// The version of MariaDB being used.
         /// </summary>
         public readonly string Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetMariaDbServerResult(
             string administratorLogin,
+
             string administratorLoginPassword,
+
             string fqdn,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string skuName,
+
             string sslEnforcement,
-            ImmutableArray<Outputs.GetMariaDbServerStorageProfilesResult> storageProfiles,
+
+            ImmutableArray<Outputs.GetMariaDbServerStorageProfileResult> storageProfiles,
+
             ImmutableDictionary<string, string> tags,
-            string version,
-            string id)
+
+            string version)
         {
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
             Fqdn = fqdn;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
@@ -127,45 +127,6 @@ namespace Pulumi.Azure.MariaDB
             StorageProfiles = storageProfiles;
             Tags = tags;
             Version = version;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetMariaDbServerStorageProfilesResult
-    {
-        /// <summary>
-        /// Whether autogrow is enabled or disabled for the storage.
-        /// </summary>
-        public readonly string AutoGrow;
-        /// <summary>
-        /// Backup retention days for the server.
-        /// </summary>
-        public readonly int BackupRetentionDays;
-        /// <summary>
-        /// Whether Geo-redundant is enabled or not for server backup.
-        /// </summary>
-        public readonly string GeoRedundantBackup;
-        /// <summary>
-        /// The max storage allowed for a server.
-        /// </summary>
-        public readonly int StorageMb;
-
-        [OutputConstructor]
-        private GetMariaDbServerStorageProfilesResult(
-            string autoGrow,
-            int backupRetentionDays,
-            string geoRedundantBackup,
-            int storageMb)
-        {
-            AutoGrow = autoGrow;
-            BackupRetentionDays = backupRetentionDays;
-            GeoRedundantBackup = geoRedundantBackup;
-            StorageMb = storageMb;
-        }
-    }
     }
 }

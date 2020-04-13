@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.KeyVault
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Key Vault.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetKeyVault.InvokeAsync() instead")]
-        public static Task<GetKeyVaultResult> GetKeyVault(GetKeyVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyVaultResult>("azure:keyvault/getKeyVault:getKeyVault", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetKeyVault
     {
         /// <summary>
         /// Use this data source to access information about an existing Key Vault.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyVaultResult> InvokeAsync(GetKeyVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyVaultResult>("azure:keyvault/getKeyVault:getKeyVault", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyVaultResult>("azure:keyvault/getKeyVault:getKeyVault", args ?? new GetKeyVaultArgs(), options.WithVersion());
     }
+
 
     public sealed class GetKeyVaultArgs : Pulumi.InvokeArgs
     {
@@ -54,13 +41,14 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
+
     [OutputType]
     public sealed class GetKeyVaultResult
     {
         /// <summary>
         /// One or more `access_policy` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetKeyVaultAccessPoliciesResult> AccessPolicies;
+        public readonly ImmutableArray<Outputs.GetKeyVaultAccessPolicyResult> AccessPolicies;
         /// <summary>
         /// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
         /// </summary>
@@ -74,11 +62,15 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly bool EnabledForTemplateDeployment;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Region in which the Key Vault exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
-        public readonly ImmutableArray<Outputs.GetKeyVaultNetworkAclsResult> NetworkAcls;
+        public readonly ImmutableArray<Outputs.GetKeyVaultNetworkAclResult> NetworkAcls;
         /// <summary>
         /// Is purge protection enabled on this Key Vault?
         /// </summary>
@@ -104,33 +96,44 @@ namespace Pulumi.Azure.KeyVault
         /// The URI of the vault for performing operations on keys and secrets.
         /// </summary>
         public readonly string VaultUri;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetKeyVaultResult(
-            ImmutableArray<Outputs.GetKeyVaultAccessPoliciesResult> accessPolicies,
+            ImmutableArray<Outputs.GetKeyVaultAccessPolicyResult> accessPolicies,
+
             bool enabledForDeployment,
+
             bool enabledForDiskEncryption,
+
             bool enabledForTemplateDeployment,
+
+            string id,
+
             string location,
+
             string name,
-            ImmutableArray<Outputs.GetKeyVaultNetworkAclsResult> networkAcls,
+
+            ImmutableArray<Outputs.GetKeyVaultNetworkAclResult> networkAcls,
+
             bool purgeProtectionEnabled,
+
             string resourceGroupName,
+
             string skuName,
+
             bool softDeleteEnabled,
+
             ImmutableDictionary<string, string> tags,
+
             string tenantId,
-            string vaultUri,
-            string id)
+
+            string vaultUri)
         {
             AccessPolicies = accessPolicies;
             EnabledForDeployment = enabledForDeployment;
             EnabledForDiskEncryption = enabledForDiskEncryption;
             EnabledForTemplateDeployment = enabledForTemplateDeployment;
+            Id = id;
             Location = location;
             Name = name;
             NetworkAcls = networkAcls;
@@ -141,85 +144,6 @@ namespace Pulumi.Azure.KeyVault
             Tags = tags;
             TenantId = tenantId;
             VaultUri = vaultUri;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetKeyVaultAccessPoliciesResult
-    {
-        /// <summary>
-        /// The Object ID of a Azure Active Directory Application.
-        /// </summary>
-        public readonly string ApplicationId;
-        /// <summary>
-        /// A list of certificate permissions applicable to this Access Policy.
-        /// </summary>
-        public readonly ImmutableArray<string> CertificatePermissions;
-        /// <summary>
-        /// A list of key permissions applicable to this Access Policy.
-        /// </summary>
-        public readonly ImmutableArray<string> KeyPermissions;
-        /// <summary>
-        /// An Object ID of a User, Service Principal or Security Group.
-        /// </summary>
-        public readonly string ObjectId;
-        /// <summary>
-        /// A list of secret permissions applicable to this Access Policy.
-        /// </summary>
-        public readonly ImmutableArray<string> SecretPermissions;
-        /// <summary>
-        /// A list of storage permissions applicable to this Access Policy.
-        /// </summary>
-        public readonly ImmutableArray<string> StoragePermissions;
-        /// <summary>
-        /// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
-        /// </summary>
-        public readonly string TenantId;
-
-        [OutputConstructor]
-        private GetKeyVaultAccessPoliciesResult(
-            string applicationId,
-            ImmutableArray<string> certificatePermissions,
-            ImmutableArray<string> keyPermissions,
-            string objectId,
-            ImmutableArray<string> secretPermissions,
-            ImmutableArray<string> storagePermissions,
-            string tenantId)
-        {
-            ApplicationId = applicationId;
-            CertificatePermissions = certificatePermissions;
-            KeyPermissions = keyPermissions;
-            ObjectId = objectId;
-            SecretPermissions = secretPermissions;
-            StoragePermissions = storagePermissions;
-            TenantId = tenantId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetKeyVaultNetworkAclsResult
-    {
-        public readonly string Bypass;
-        public readonly string DefaultAction;
-        public readonly ImmutableArray<string> IpRules;
-        public readonly ImmutableArray<string> VirtualNetworkSubnetIds;
-
-        [OutputConstructor]
-        private GetKeyVaultNetworkAclsResult(
-            string bypass,
-            string defaultAction,
-            ImmutableArray<string> ipRules,
-            ImmutableArray<string> virtualNetworkSubnetIds)
-        {
-            Bypass = bypass;
-            DefaultAction = defaultAction;
-            IpRules = ipRules;
-            VirtualNetworkSubnetIds = virtualNetworkSubnetIds;
-        }
-    }
     }
 }

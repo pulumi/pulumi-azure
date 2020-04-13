@@ -11,10 +11,6 @@ namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages a SQL Server Table Dataset inside a Azure Data Factory.
-    /// 
-    /// 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_sql_server_table.html.markdown.
     /// </summary>
     public partial class DatasetSqlServerTable : Pulumi.CustomResource
     {
@@ -76,7 +72,7 @@ namespace Pulumi.Azure.DataFactory
         /// A `schema_column` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
-        public Output<ImmutableArray<Outputs.DatasetSqlServerTableSchemaColumns>> SchemaColumns { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DatasetSqlServerTableSchemaColumn>> SchemaColumns { get; private set; } = null!;
 
         /// <summary>
         /// The table name of the Data Factory Dataset SQL Server Table.
@@ -93,7 +89,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatasetSqlServerTable(string name, DatasetSqlServerTableArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, args ?? new DatasetSqlServerTableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -203,14 +199,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("schemaColumns")]
-        private InputList<Inputs.DatasetSqlServerTableSchemaColumnsArgs>? _schemaColumns;
+        private InputList<Inputs.DatasetSqlServerTableSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
         /// A `schema_column` block as defined below.
         /// </summary>
-        public InputList<Inputs.DatasetSqlServerTableSchemaColumnsArgs> SchemaColumns
+        public InputList<Inputs.DatasetSqlServerTableSchemaColumnArgs> SchemaColumns
         {
-            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetSqlServerTableSchemaColumnsArgs>());
+            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetSqlServerTableSchemaColumnArgs>());
             set => _schemaColumns = value;
         }
 
@@ -300,14 +296,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("schemaColumns")]
-        private InputList<Inputs.DatasetSqlServerTableSchemaColumnsGetArgs>? _schemaColumns;
+        private InputList<Inputs.DatasetSqlServerTableSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
         /// A `schema_column` block as defined below.
         /// </summary>
-        public InputList<Inputs.DatasetSqlServerTableSchemaColumnsGetArgs> SchemaColumns
+        public InputList<Inputs.DatasetSqlServerTableSchemaColumnGetArgs> SchemaColumns
         {
-            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetSqlServerTableSchemaColumnsGetArgs>());
+            get => _schemaColumns ?? (_schemaColumns = new InputList<Inputs.DatasetSqlServerTableSchemaColumnGetArgs>());
             set => _schemaColumns = value;
         }
 
@@ -320,91 +316,5 @@ namespace Pulumi.Azure.DataFactory
         public DatasetSqlServerTableState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DatasetSqlServerTableSchemaColumnsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DatasetSqlServerTableSchemaColumnsArgs()
-        {
-        }
-    }
-
-    public sealed class DatasetSqlServerTableSchemaColumnsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        public DatasetSqlServerTableSchemaColumnsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DatasetSqlServerTableSchemaColumns
-    {
-        /// <summary>
-        /// The description of the column.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// The name of the column.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
-        /// </summary>
-        public readonly string? Type;
-
-        [OutputConstructor]
-        private DatasetSqlServerTableSchemaColumns(
-            string? description,
-            string name,
-            string? type)
-        {
-            Description = description;
-            Name = name;
-            Type = type;
-        }
-    }
     }
 }

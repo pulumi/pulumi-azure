@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.NetApp
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Uses this data source to access information about an existing NetApp Volume.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_volume.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVolume.InvokeAsync() instead")]
-        public static Task<GetVolumeResult> GetVolume(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVolume
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Volume.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_volume.html.markdown.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVolumeArgs : Pulumi.InvokeArgs
     {
@@ -62,10 +50,15 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
+
     [OutputType]
     public sealed class GetVolumeResult
     {
         public readonly string AccountName;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region where the NetApp Volume exists.
         /// </summary>
@@ -90,26 +83,33 @@ namespace Pulumi.Azure.NetApp
         /// The unique file path of the volume.
         /// </summary>
         public readonly string VolumePath;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVolumeResult(
             string accountName,
+
+            string id,
+
             string location,
+
             string name,
+
             string poolName,
+
             ImmutableArray<string> protocols,
+
             string resourceGroupName,
+
             string serviceLevel,
+
             int storageQuotaInGb,
+
             string subnetId,
-            string volumePath,
-            string id)
+
+            string volumePath)
         {
             AccountName = accountName;
+            Id = id;
             Location = location;
             Name = name;
             PoolName = poolName;
@@ -119,7 +119,6 @@ namespace Pulumi.Azure.NetApp
             StorageQuotaInGb = storageQuotaInGb;
             SubnetId = subnetId;
             VolumePath = volumePath;
-            Id = id;
         }
     }
 }

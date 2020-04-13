@@ -9,31 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.OperationalInsights
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
-        /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAnalyticsWorkspace.InvokeAsync() instead")]
-        public static Task<GetAnalyticsWorkspaceResult> GetAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAnalyticsWorkspace
     {
         /// <summary>
         /// Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
         /// 
-        /// 
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAnalyticsWorkspaceResult> InvokeAsync(GetAnalyticsWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? new GetAnalyticsWorkspaceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAnalyticsWorkspaceArgs : Pulumi.InvokeArgs
     {
@@ -54,9 +41,14 @@ namespace Pulumi.Azure.OperationalInsights
         }
     }
 
+
     [OutputType]
     public sealed class GetAnalyticsWorkspaceResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Name;
         /// <summary>
@@ -88,25 +80,32 @@ namespace Pulumi.Azure.OperationalInsights
         /// The Workspace (or Customer) ID for the Log Analytics Workspace.
         /// </summary>
         public readonly string WorkspaceId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAnalyticsWorkspaceResult(
+            string id,
+
             string location,
+
             string name,
+
             string portalUrl,
+
             string primarySharedKey,
+
             string resourceGroupName,
+
             int retentionInDays,
+
             string secondarySharedKey,
+
             string sku,
+
             ImmutableDictionary<string, string> tags,
-            string workspaceId,
-            string id)
+
+            string workspaceId)
         {
+            Id = id;
             Location = location;
             Name = name;
             PortalUrl = portalUrl;
@@ -117,7 +116,6 @@ namespace Pulumi.Azure.OperationalInsights
             Sku = sku;
             Tags = tags;
             WorkspaceId = workspaceId;
-            Id = id;
         }
     }
 }

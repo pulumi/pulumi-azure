@@ -88,8 +88,6 @@ def get_store(name=None,resource_group_name=None,opts=None):
 
 
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
-
 
     :param str name: The name of the Data Lake Store.
     :param str resource_group_name: The Name of the Resource Group where the Data Lake Store exists.
