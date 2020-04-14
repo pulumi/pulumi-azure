@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Core
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about all the Subscriptions currently available.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetSubscriptions.InvokeAsync() instead")]
-        public static Task<GetSubscriptionsResult> GetSubscriptions(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetSubscriptions
     {
         /// <summary>
         /// Use this data source to access information about all the Subscriptions currently available.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionsResult> InvokeAsync(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? new GetSubscriptionsArgs(), options.WithVersion());
     }
+
 
     public sealed class GetSubscriptionsArgs : Pulumi.InvokeArgs
     {
@@ -50,87 +41,35 @@ namespace Pulumi.Azure.Core
         }
     }
 
+
     [OutputType]
     public sealed class GetSubscriptionsResult
     {
         public readonly string? DisplayNameContains;
         public readonly string? DisplayNamePrefix;
         /// <summary>
-        /// One or more `subscription` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GetSubscriptionsSubscriptionsResult> Subscriptions;
-        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// One or more `subscription` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSubscriptionsSubscriptionResult> Subscriptions;
 
         [OutputConstructor]
         private GetSubscriptionsResult(
             string? displayNameContains,
+
             string? displayNamePrefix,
-            ImmutableArray<Outputs.GetSubscriptionsSubscriptionsResult> subscriptions,
-            string id)
+
+            string id,
+
+            ImmutableArray<Outputs.GetSubscriptionsSubscriptionResult> subscriptions)
         {
             DisplayNameContains = displayNameContains;
             DisplayNamePrefix = displayNamePrefix;
-            Subscriptions = subscriptions;
             Id = id;
+            Subscriptions = subscriptions;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetSubscriptionsSubscriptionsResult
-    {
-        /// <summary>
-        /// The subscription display name.
-        /// </summary>
-        public readonly string DisplayName;
-        /// <summary>
-        /// The subscription location placement ID.
-        /// </summary>
-        public readonly string LocationPlacementId;
-        /// <summary>
-        /// The subscription quota ID.
-        /// </summary>
-        public readonly string QuotaId;
-        /// <summary>
-        /// The subscription spending limit.
-        /// </summary>
-        public readonly string SpendingLimit;
-        /// <summary>
-        /// The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
-        /// </summary>
-        public readonly string State;
-        /// <summary>
-        /// The subscription GUID.
-        /// </summary>
-        public readonly string SubscriptionId;
-        /// <summary>
-        /// The subscription tenant ID.
-        /// </summary>
-        public readonly string TenantId;
-
-        [OutputConstructor]
-        private GetSubscriptionsSubscriptionsResult(
-            string displayName,
-            string locationPlacementId,
-            string quotaId,
-            string spendingLimit,
-            string state,
-            string subscriptionId,
-            string tenantId)
-        {
-            DisplayName = displayName;
-            LocationPlacementId = locationPlacementId;
-            QuotaId = quotaId;
-            SpendingLimit = spendingLimit;
-            State = state;
-            SubscriptionId = subscriptionId;
-            TenantId = tenantId;
-        }
-    }
     }
 }

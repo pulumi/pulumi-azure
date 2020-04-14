@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Firewall.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
  */
-export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> & GetFirewallResult {
+export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetFirewallResult> = pulumi.runtime.invoke("azure:network/getFirewall:getFirewall", {
+    return pulumi.runtime.invoke("azure:network/getFirewall:getFirewall", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

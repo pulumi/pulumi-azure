@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/machine_learning_workspace.html.markdown.
  */
-export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> & GetWorkspaceResult {
+export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +19,10 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetWorkspaceResult> = pulumi.runtime.invoke("azure:machinelearning/getWorkspace:getWorkspace", {
+    return pulumi.runtime.invoke("azure:machinelearning/getWorkspace:getWorkspace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/nat_gateway.html.markdown.
  */
-export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> & GetNatGatewayResult {
+export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,14 +21,12 @@ export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNatGatewayResult> = pulumi.runtime.invoke("azure:network/getNatGateway:getNatGateway", {
+    return pulumi.runtime.invoke("azure:network/getNatGateway:getNatGateway", {
         "name": args.name,
         "publicIpAddressIds": args.publicIpAddressIds,
         "publicIpPrefixIds": args.publicIpPrefixIds,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

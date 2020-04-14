@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Virtual Network Gateway Connection.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetGatewayConnection.InvokeAsync() instead")]
-        public static Task<GetGatewayConnectionResult> GetGatewayConnection(GetGatewayConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetGatewayConnection
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network Gateway Connection.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGatewayConnectionResult> InvokeAsync(GetGatewayConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayConnectionResult>("azure:network/getGatewayConnection:getGatewayConnection", args ?? new GetGatewayConnectionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetGatewayConnectionArgs : Pulumi.InvokeArgs
     {
@@ -49,6 +40,7 @@ namespace Pulumi.Azure.Network
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetGatewayConnectionResult
@@ -75,8 +67,12 @@ namespace Pulumi.Azure.Network
         /// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
         /// </summary>
         public readonly bool ExpressRouteGatewayBypass;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly int IngressBytesTransferred;
-        public readonly ImmutableArray<Outputs.GetGatewayConnectionIpsecPoliciesResult> IpsecPolicies;
+        public readonly ImmutableArray<Outputs.GetGatewayConnectionIpsecPolicyResult> IpsecPolicies;
         /// <summary>
         /// The ID of the local network gateway
         /// when a Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -124,34 +120,50 @@ namespace Pulumi.Azure.Network
         /// in which the connection is created.
         /// </summary>
         public readonly string VirtualNetworkGatewayId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetGatewayConnectionResult(
             string authorizationKey,
+
             string connectionProtocol,
+
             int egressBytesTransferred,
+
             bool enableBgp,
+
             string expressRouteCircuitId,
+
             bool expressRouteGatewayBypass,
+
+            string id,
+
             int ingressBytesTransferred,
-            ImmutableArray<Outputs.GetGatewayConnectionIpsecPoliciesResult> ipsecPolicies,
+
+            ImmutableArray<Outputs.GetGatewayConnectionIpsecPolicyResult> ipsecPolicies,
+
             string localNetworkGatewayId,
+
             string location,
+
             string name,
+
             string peerVirtualNetworkGatewayId,
+
             string resourceGroupName,
+
             string resourceGuid,
+
             int routingWeight,
+
             string sharedKey,
+
             ImmutableDictionary<string, string> tags,
+
             string type,
+
             bool usePolicyBasedTrafficSelectors,
-            string virtualNetworkGatewayId,
-            string id)
+
+            string virtualNetworkGatewayId)
         {
             AuthorizationKey = authorizationKey;
             ConnectionProtocol = connectionProtocol;
@@ -159,6 +171,7 @@ namespace Pulumi.Azure.Network
             EnableBgp = enableBgp;
             ExpressRouteCircuitId = expressRouteCircuitId;
             ExpressRouteGatewayBypass = expressRouteGatewayBypass;
+            Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
             IpsecPolicies = ipsecPolicies;
             LocalNetworkGatewayId = localNetworkGatewayId;
@@ -173,79 +186,6 @@ namespace Pulumi.Azure.Network
             Type = type;
             UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
             VirtualNetworkGatewayId = virtualNetworkGatewayId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetGatewayConnectionIpsecPoliciesResult
-    {
-        /// <summary>
-        /// The DH group used in IKE phase 1 for initial SA. Valid
-        /// options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
-        /// `ECP256`, `ECP384`, or `None`.
-        /// </summary>
-        public readonly string DhGroup;
-        /// <summary>
-        /// The IKE encryption algorithm. Valid
-        /// options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
-        /// </summary>
-        public readonly string IkeEncryption;
-        /// <summary>
-        /// The IKE integrity algorithm. Valid
-        /// options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
-        /// </summary>
-        public readonly string IkeIntegrity;
-        /// <summary>
-        /// The IPSec encryption algorithm. Valid
-        /// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
-        /// </summary>
-        public readonly string IpsecEncryption;
-        /// <summary>
-        /// The IPSec integrity algorithm. Valid
-        /// options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
-        /// </summary>
-        public readonly string IpsecIntegrity;
-        /// <summary>
-        /// The DH group used in IKE phase 2 for new child SA.
-        /// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
-        /// or `None`.
-        /// </summary>
-        public readonly string PfsGroup;
-        /// <summary>
-        /// The IPSec SA payload size in KB. Must be at least
-        /// `1024` KB.
-        /// </summary>
-        public readonly int SaDatasize;
-        /// <summary>
-        /// The IPSec SA lifetime in seconds. Must be at least
-        /// `300` seconds.
-        /// </summary>
-        public readonly int SaLifetime;
-
-        [OutputConstructor]
-        private GetGatewayConnectionIpsecPoliciesResult(
-            string dhGroup,
-            string ikeEncryption,
-            string ikeIntegrity,
-            string ipsecEncryption,
-            string ipsecIntegrity,
-            string pfsGroup,
-            int saDatasize,
-            int saLifetime)
-        {
-            DhGroup = dhGroup;
-            IkeEncryption = ikeEncryption;
-            IkeIntegrity = ikeIntegrity;
-            IpsecEncryption = ipsecEncryption;
-            IpsecIntegrity = ipsecIntegrity;
-            PfsGroup = pfsGroup;
-            SaDatasize = saDatasize;
-            SaLifetime = saLifetime;
-        }
-    }
     }
 }

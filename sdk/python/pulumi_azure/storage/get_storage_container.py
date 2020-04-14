@@ -75,7 +75,7 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
     """
     Use this data source to access information about an existing Storage Container.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
+
 
 
     :param dict metadata: A mapping of MetaData for this Container.

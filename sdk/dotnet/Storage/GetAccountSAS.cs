@@ -9,22 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Storage
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
-        /// 
-        /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
-        /// 
-        /// Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
-        /// and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccountSAS.InvokeAsync() instead")]
-        public static Task<GetAccountSASResult> GetAccountSAS(GetAccountSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccountSAS
     {
         /// <summary>
@@ -35,11 +19,13 @@ namespace Pulumi.Azure.Storage
         /// Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
         /// and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountSASResult> InvokeAsync(GetAccountSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountSASArgs : Pulumi.InvokeArgs
     {
@@ -90,12 +76,17 @@ namespace Pulumi.Azure.Storage
         }
     }
 
+
     [OutputType]
     public sealed class GetAccountSASResult
     {
         public readonly string ConnectionString;
         public readonly string Expiry;
         public readonly bool? HttpsOnly;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly Outputs.GetAccountSASPermissionsResult Permissions;
         public readonly Outputs.GetAccountSASResourceTypesResult ResourceTypes;
         /// <summary>
@@ -104,271 +95,36 @@ namespace Pulumi.Azure.Storage
         public readonly string Sas;
         public readonly Outputs.GetAccountSASServicesResult Services;
         public readonly string Start;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountSASResult(
             string connectionString,
+
             string expiry,
+
             bool? httpsOnly,
+
+            string id,
+
             Outputs.GetAccountSASPermissionsResult permissions,
+
             Outputs.GetAccountSASResourceTypesResult resourceTypes,
+
             string sas,
+
             Outputs.GetAccountSASServicesResult services,
-            string start,
-            string id)
+
+            string start)
         {
             ConnectionString = connectionString;
             Expiry = expiry;
             HttpsOnly = httpsOnly;
+            Id = id;
             Permissions = permissions;
             ResourceTypes = resourceTypes;
             Sas = sas;
             Services = services;
             Start = start;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetAccountSASPermissionsArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Should Add permissions be enabled for this SAS?
-        /// </summary>
-        [Input("add", required: true)]
-        public bool Add { get; set; }
-
-        /// <summary>
-        /// Should Create permissions be enabled for this SAS?
-        /// </summary>
-        [Input("create", required: true)]
-        public bool Create { get; set; }
-
-        /// <summary>
-        /// Should Delete permissions be enabled for this SAS?
-        /// </summary>
-        [Input("delete", required: true)]
-        public bool Delete { get; set; }
-
-        /// <summary>
-        /// Should List permissions be enabled for this SAS?
-        /// </summary>
-        [Input("list", required: true)]
-        public bool List { get; set; }
-
-        /// <summary>
-        /// Should Process permissions be enabled for this SAS?
-        /// </summary>
-        [Input("process", required: true)]
-        public bool Process { get; set; }
-
-        /// <summary>
-        /// Should Read permissions be enabled for this SAS?
-        /// </summary>
-        [Input("read", required: true)]
-        public bool Read { get; set; }
-
-        /// <summary>
-        /// Should Update permissions be enabled for this SAS?
-        /// </summary>
-        [Input("update", required: true)]
-        public bool Update { get; set; }
-
-        /// <summary>
-        /// Should Write permissions be enabled for this SAS?
-        /// </summary>
-        [Input("write", required: true)]
-        public bool Write { get; set; }
-
-        public GetAccountSASPermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class GetAccountSASResourceTypesArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Should permission be granted to the container?
-        /// </summary>
-        [Input("container", required: true)]
-        public bool Container { get; set; }
-
-        /// <summary>
-        /// Should permission be granted only to a specific object?
-        /// </summary>
-        [Input("object", required: true)]
-        public bool Object { get; set; }
-
-        /// <summary>
-        /// Should permission be granted to the entire service?
-        /// </summary>
-        [Input("service", required: true)]
-        public bool Service { get; set; }
-
-        public GetAccountSASResourceTypesArgs()
-        {
-        }
-    }
-
-    public sealed class GetAccountSASServicesArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Should permission be granted to `blob` services within this storage account?
-        /// </summary>
-        [Input("blob", required: true)]
-        public bool Blob { get; set; }
-
-        /// <summary>
-        /// Should permission be granted to `file` services within this storage account?
-        /// </summary>
-        [Input("file", required: true)]
-        public bool File { get; set; }
-
-        /// <summary>
-        /// Should permission be granted to `queue` services within this storage account?
-        /// </summary>
-        [Input("queue", required: true)]
-        public bool Queue { get; set; }
-
-        /// <summary>
-        /// Should permission be granted to `table` services within this storage account?
-        /// </summary>
-        [Input("table", required: true)]
-        public bool Table { get; set; }
-
-        public GetAccountSASServicesArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAccountSASPermissionsResult
-    {
-        /// <summary>
-        /// Should Add permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Add;
-        /// <summary>
-        /// Should Create permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Create;
-        /// <summary>
-        /// Should Delete permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Delete;
-        /// <summary>
-        /// Should List permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool List;
-        /// <summary>
-        /// Should Process permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Process;
-        /// <summary>
-        /// Should Read permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Read;
-        /// <summary>
-        /// Should Update permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Update;
-        /// <summary>
-        /// Should Write permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Write;
-
-        [OutputConstructor]
-        private GetAccountSASPermissionsResult(
-            bool add,
-            bool create,
-            bool delete,
-            bool list,
-            bool process,
-            bool read,
-            bool update,
-            bool write)
-        {
-            Add = add;
-            Create = create;
-            Delete = delete;
-            List = list;
-            Process = process;
-            Read = read;
-            Update = update;
-            Write = write;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetAccountSASResourceTypesResult
-    {
-        /// <summary>
-        /// Should permission be granted to the container?
-        /// </summary>
-        public readonly bool Container;
-        /// <summary>
-        /// Should permission be granted only to a specific object?
-        /// </summary>
-        public readonly bool Object;
-        /// <summary>
-        /// Should permission be granted to the entire service?
-        /// </summary>
-        public readonly bool Service;
-
-        [OutputConstructor]
-        private GetAccountSASResourceTypesResult(
-            bool container,
-            bool @object,
-            bool service)
-        {
-            Container = container;
-            Object = @object;
-            Service = service;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetAccountSASServicesResult
-    {
-        /// <summary>
-        /// Should permission be granted to `blob` services within this storage account?
-        /// </summary>
-        public readonly bool Blob;
-        /// <summary>
-        /// Should permission be granted to `file` services within this storage account?
-        /// </summary>
-        public readonly bool File;
-        /// <summary>
-        /// Should permission be granted to `queue` services within this storage account?
-        /// </summary>
-        public readonly bool Queue;
-        /// <summary>
-        /// Should permission be granted to `table` services within this storage account?
-        /// </summary>
-        public readonly bool Table;
-
-        [OutputConstructor]
-        private GetAccountSASServicesResult(
-            bool blob,
-            bool file,
-            bool queue,
-            bool table)
-        {
-            Blob = blob;
-            File = file;
-            Queue = queue;
-            Table = table;
-        }
-    }
     }
 }

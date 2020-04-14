@@ -86,7 +86,7 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
+
 
 
     :param str name: Specifies the name of the Subnet.

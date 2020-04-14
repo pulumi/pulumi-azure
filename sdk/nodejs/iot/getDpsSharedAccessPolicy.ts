@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
  */
-export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsSharedAccessPolicyResult> & GetDpsSharedAccessPolicyResult {
+export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsSharedAccessPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +20,11 @@ export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDpsSharedAccessPolicyResult> = pulumi.runtime.invoke("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", {
+    return pulumi.runtime.invoke("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", {
         "iothubDpsName": args.iothubDpsName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

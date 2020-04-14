@@ -165,8 +165,6 @@ def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Redis Cache
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
-
 
     :param str name: The name of the Redis cache
     :param str resource_group_name: The name of the resource group the Redis cache instance is located in.

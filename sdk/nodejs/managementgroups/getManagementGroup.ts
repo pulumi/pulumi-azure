@@ -6,10 +6,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Management Group.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
-export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> & GetManagementGroupResult {
+export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -18,12 +19,10 @@ export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetManagementGroupResult> = pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
+    return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
         "groupId": args.groupId,
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

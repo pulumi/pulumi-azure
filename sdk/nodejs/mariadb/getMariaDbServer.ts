@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing MariaDB Server.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
  */
-export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMariaDbServerResult> & GetMariaDbServerResult {
+export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMariaDbServerResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetMariaDbServerResult> = pulumi.runtime.invoke("azure:mariadb/getMariaDbServer:getMariaDbServer", {
+    return pulumi.runtime.invoke("azure:mariadb/getMariaDbServer:getMariaDbServer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

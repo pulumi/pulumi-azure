@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the properties of a Log Profile.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
  */
-export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> & GetLogProfileResult {
+export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,11 +20,9 @@ export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLogProfileResult> = pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {
+    return pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

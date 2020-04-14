@@ -21,8 +21,6 @@ namespace Pulumi.Azure.Compute
     /// &gt; **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `azure.compute.VirtualMachine` resource instead.
     /// 
     /// &gt; In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
     /// </summary>
     public partial class LinuxVirtualMachine : Pulumi.CustomResource
     {
@@ -42,7 +40,7 @@ namespace Pulumi.Azure.Compute
         /// One or more `admin_ssh_key` blocks as defined below.
         /// </summary>
         [Output("adminSshKeys")]
-        public Output<ImmutableArray<Outputs.LinuxVirtualMachineAdminSshKeys>> AdminSshKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LinuxVirtualMachineAdminSshKey>> AdminSshKeys { get; private set; } = null!;
 
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
@@ -189,7 +187,7 @@ namespace Pulumi.Azure.Compute
         /// One or more `secret` blocks as defined below.
         /// </summary>
         [Output("secrets")]
-        public Output<ImmutableArray<Outputs.LinuxVirtualMachineSecrets>> Secrets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LinuxVirtualMachineSecret>> Secrets { get; private set; } = null!;
 
         /// <summary>
         /// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
@@ -236,7 +234,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinuxVirtualMachine(string name, LinuxVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/linuxVirtualMachine:LinuxVirtualMachine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/linuxVirtualMachine:LinuxVirtualMachine", name, args ?? new LinuxVirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -286,14 +284,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AdminPassword { get; set; }
 
         [Input("adminSshKeys")]
-        private InputList<Inputs.LinuxVirtualMachineAdminSshKeysArgs>? _adminSshKeys;
+        private InputList<Inputs.LinuxVirtualMachineAdminSshKeyArgs>? _adminSshKeys;
 
         /// <summary>
         /// One or more `admin_ssh_key` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineAdminSshKeysArgs> AdminSshKeys
+        public InputList<Inputs.LinuxVirtualMachineAdminSshKeyArgs> AdminSshKeys
         {
-            get => _adminSshKeys ?? (_adminSshKeys = new InputList<Inputs.LinuxVirtualMachineAdminSshKeysArgs>());
+            get => _adminSshKeys ?? (_adminSshKeys = new InputList<Inputs.LinuxVirtualMachineAdminSshKeyArgs>());
             set => _adminSshKeys = value;
         }
 
@@ -421,14 +419,14 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("secrets")]
-        private InputList<Inputs.LinuxVirtualMachineSecretsArgs>? _secrets;
+        private InputList<Inputs.LinuxVirtualMachineSecretArgs>? _secrets;
 
         /// <summary>
         /// One or more `secret` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineSecretsArgs> Secrets
+        public InputList<Inputs.LinuxVirtualMachineSecretArgs> Secrets
         {
-            get => _secrets ?? (_secrets = new InputList<Inputs.LinuxVirtualMachineSecretsArgs>());
+            get => _secrets ?? (_secrets = new InputList<Inputs.LinuxVirtualMachineSecretArgs>());
             set => _secrets = value;
         }
 
@@ -488,14 +486,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AdminPassword { get; set; }
 
         [Input("adminSshKeys")]
-        private InputList<Inputs.LinuxVirtualMachineAdminSshKeysGetArgs>? _adminSshKeys;
+        private InputList<Inputs.LinuxVirtualMachineAdminSshKeyGetArgs>? _adminSshKeys;
 
         /// <summary>
         /// One or more `admin_ssh_key` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineAdminSshKeysGetArgs> AdminSshKeys
+        public InputList<Inputs.LinuxVirtualMachineAdminSshKeyGetArgs> AdminSshKeys
         {
-            get => _adminSshKeys ?? (_adminSshKeys = new InputList<Inputs.LinuxVirtualMachineAdminSshKeysGetArgs>());
+            get => _adminSshKeys ?? (_adminSshKeys = new InputList<Inputs.LinuxVirtualMachineAdminSshKeyGetArgs>());
             set => _adminSshKeys = value;
         }
 
@@ -659,14 +657,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("secrets")]
-        private InputList<Inputs.LinuxVirtualMachineSecretsGetArgs>? _secrets;
+        private InputList<Inputs.LinuxVirtualMachineSecretGetArgs>? _secrets;
 
         /// <summary>
         /// One or more `secret` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.LinuxVirtualMachineSecretsGetArgs> Secrets
+        public InputList<Inputs.LinuxVirtualMachineSecretGetArgs> Secrets
         {
-            get => _secrets ?? (_secrets = new InputList<Inputs.LinuxVirtualMachineSecretsGetArgs>());
+            get => _secrets ?? (_secrets = new InputList<Inputs.LinuxVirtualMachineSecretGetArgs>());
             set => _secrets = value;
         }
 
@@ -715,696 +713,5 @@ namespace Pulumi.Azure.Compute
         public LinuxVirtualMachineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LinuxVirtualMachineAdditionalCapabilitiesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("ultraSsdEnabled")]
-        public Input<bool>? UltraSsdEnabled { get; set; }
-
-        public LinuxVirtualMachineAdditionalCapabilitiesArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineAdditionalCapabilitiesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("ultraSsdEnabled")]
-        public Input<bool>? UltraSsdEnabled { get; set; }
-
-        public LinuxVirtualMachineAdditionalCapabilitiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineAdminSshKeysArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publicKey", required: true)]
-        public Input<string> PublicKey { get; set; } = null!;
-
-        /// <summary>
-        /// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public LinuxVirtualMachineAdminSshKeysArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineAdminSshKeysGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publicKey", required: true)]
-        public Input<string> PublicKey { get; set; } = null!;
-
-        /// <summary>
-        /// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
-
-        public LinuxVirtualMachineAdminSshKeysGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineBootDiagnosticsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-        /// </summary>
-        [Input("storageAccountUri", required: true)]
-        public Input<string> StorageAccountUri { get; set; } = null!;
-
-        public LinuxVirtualMachineBootDiagnosticsArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineBootDiagnosticsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-        /// </summary>
-        [Input("storageAccountUri", required: true)]
-        public Input<string> StorageAccountUri { get; set; } = null!;
-
-        public LinuxVirtualMachineBootDiagnosticsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineIdentityArgs : Pulumi.ResourceArgs
-    {
-        [Input("identityIds")]
-        private InputList<string>? _identityIds;
-
-        /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
-        /// </summary>
-        public InputList<string> IdentityIds
-        {
-            get => _identityIds ?? (_identityIds = new InputList<string>());
-            set => _identityIds = value;
-        }
-
-        /// <summary>
-        /// The ID of the System Managed Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public LinuxVirtualMachineIdentityArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineIdentityGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("identityIds")]
-        private InputList<string>? _identityIds;
-
-        /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
-        /// </summary>
-        public InputList<string> IdentityIds
-        {
-            get => _identityIds ?? (_identityIds = new InputList<string>());
-            set => _identityIds = value;
-        }
-
-        /// <summary>
-        /// The ID of the System Managed Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public LinuxVirtualMachineIdentityGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineOsDiskArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        /// </summary>
-        [Input("caching", required: true)]
-        public Input<string> Caching { get; set; } = null!;
-
-        /// <summary>
-        /// A `diff_disk_settings` block as defined above.
-        /// </summary>
-        [Input("diffDiskSettings")]
-        public Input<LinuxVirtualMachineOsDiskDiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
-
-        /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        /// </summary>
-        [Input("diskEncryptionSetId")]
-        public Input<string>? DiskEncryptionSetId { get; set; }
-
-        /// <summary>
-        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-        /// </summary>
-        [Input("diskSizeGb")]
-        public Input<int>? DiskSizeGb { get; set; }
-
-        /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
-
-        /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-        /// </summary>
-        [Input("writeAcceleratorEnabled")]
-        public Input<bool>? WriteAcceleratorEnabled { get; set; }
-
-        public LinuxVirtualMachineOsDiskArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("option", required: true)]
-        public Input<string> Option { get; set; } = null!;
-
-        public LinuxVirtualMachineOsDiskDiffDiskSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineOsDiskDiffDiskSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("option", required: true)]
-        public Input<string> Option { get; set; } = null!;
-
-        public LinuxVirtualMachineOsDiskDiffDiskSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineOsDiskGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        /// </summary>
-        [Input("caching", required: true)]
-        public Input<string> Caching { get; set; } = null!;
-
-        /// <summary>
-        /// A `diff_disk_settings` block as defined above.
-        /// </summary>
-        [Input("diffDiskSettings")]
-        public Input<LinuxVirtualMachineOsDiskDiffDiskSettingsGetArgs>? DiffDiskSettings { get; set; }
-
-        /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        /// </summary>
-        [Input("diskEncryptionSetId")]
-        public Input<string>? DiskEncryptionSetId { get; set; }
-
-        /// <summary>
-        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-        /// </summary>
-        [Input("diskSizeGb")]
-        public Input<int>? DiskSizeGb { get; set; }
-
-        /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
-
-        /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-        /// </summary>
-        [Input("writeAcceleratorEnabled")]
-        public Input<bool>? WriteAcceleratorEnabled { get; set; }
-
-        public LinuxVirtualMachineOsDiskGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachinePlanArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("product", required: true)]
-        public Input<string> Product { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        public LinuxVirtualMachinePlanArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachinePlanGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("product", required: true)]
-        public Input<string> Product { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        public LinuxVirtualMachinePlanGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineSecretsArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificates", required: true)]
-        private InputList<LinuxVirtualMachineSecretsCertificatesArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `certificate` blocks as defined above.
-        /// </summary>
-        public InputList<LinuxVirtualMachineSecretsCertificatesArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<LinuxVirtualMachineSecretsCertificatesArgs>());
-            set => _certificates = value;
-        }
-
-        /// <summary>
-        /// The ID of the Key Vault from which all Secrets should be sourced.
-        /// </summary>
-        [Input("keyVaultId", required: true)]
-        public Input<string> KeyVaultId { get; set; } = null!;
-
-        public LinuxVirtualMachineSecretsArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineSecretsCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate.
-        /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        public LinuxVirtualMachineSecretsCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineSecretsCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate.
-        /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        public LinuxVirtualMachineSecretsCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineSecretsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificates", required: true)]
-        private InputList<LinuxVirtualMachineSecretsCertificatesGetArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `certificate` blocks as defined above.
-        /// </summary>
-        public InputList<LinuxVirtualMachineSecretsCertificatesGetArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<LinuxVirtualMachineSecretsCertificatesGetArgs>());
-            set => _certificates = value;
-        }
-
-        /// <summary>
-        /// The ID of the Key Vault from which all Secrets should be sourced.
-        /// </summary>
-        [Input("keyVaultId", required: true)]
-        public Input<string> KeyVaultId { get; set; } = null!;
-
-        public LinuxVirtualMachineSecretsGetArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineSourceImageReferenceArgs : Pulumi.ResourceArgs
-    {
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public LinuxVirtualMachineSourceImageReferenceArgs()
-        {
-        }
-    }
-
-    public sealed class LinuxVirtualMachineSourceImageReferenceGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public LinuxVirtualMachineSourceImageReferenceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineAdditionalCapabilities
-    {
-        /// <summary>
-        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly bool? UltraSsdEnabled;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineAdditionalCapabilities(bool? ultraSsdEnabled)
-        {
-            UltraSsdEnabled = ultraSsdEnabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineAdminSshKeys
-    {
-        /// <summary>
-        /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string PublicKey;
-        /// <summary>
-        /// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Username;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineAdminSshKeys(
-            string publicKey,
-            string username)
-        {
-            PublicKey = publicKey;
-            Username = username;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineBootDiagnostics
-    {
-        /// <summary>
-        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-        /// </summary>
-        public readonly string StorageAccountUri;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineBootDiagnostics(string storageAccountUri)
-        {
-            StorageAccountUri = storageAccountUri;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineIdentity
-    {
-        /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
-        /// </summary>
-        public readonly ImmutableArray<string> IdentityIds;
-        /// <summary>
-        /// The ID of the System Managed Service Principal.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineIdentity(
-            ImmutableArray<string> identityIds,
-            string principalId,
-            string type)
-        {
-            IdentityIds = identityIds;
-            PrincipalId = principalId;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineOsDisk
-    {
-        /// <summary>
-        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        /// </summary>
-        public readonly string Caching;
-        /// <summary>
-        /// A `diff_disk_settings` block as defined above.
-        /// </summary>
-        public readonly LinuxVirtualMachineOsDiskDiffDiskSettings? DiffDiskSettings;
-        /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        /// </summary>
-        public readonly string? DiskEncryptionSetId;
-        /// <summary>
-        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-        /// </summary>
-        public readonly int DiskSizeGb;
-        /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string StorageAccountType;
-        /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-        /// </summary>
-        public readonly bool? WriteAcceleratorEnabled;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineOsDisk(
-            string caching,
-            LinuxVirtualMachineOsDiskDiffDiskSettings? diffDiskSettings,
-            string? diskEncryptionSetId,
-            int diskSizeGb,
-            string name,
-            string storageAccountType,
-            bool? writeAcceleratorEnabled)
-        {
-            Caching = caching;
-            DiffDiskSettings = diffDiskSettings;
-            DiskEncryptionSetId = diskEncryptionSetId;
-            DiskSizeGb = diskSizeGb;
-            Name = name;
-            StorageAccountType = storageAccountType;
-            WriteAcceleratorEnabled = writeAcceleratorEnabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineOsDiskDiffDiskSettings
-    {
-        /// <summary>
-        /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Option;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineOsDiskDiffDiskSettings(string option)
-        {
-            Option = option;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachinePlan
-    {
-        /// <summary>
-        /// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Product;
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Publisher;
-
-        [OutputConstructor]
-        private LinuxVirtualMachinePlan(
-            string name,
-            string product,
-            string publisher)
-        {
-            Name = name;
-            Product = product;
-            Publisher = publisher;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineSecrets
-    {
-        /// <summary>
-        /// One or more `certificate` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<LinuxVirtualMachineSecretsCertificates> Certificates;
-        /// <summary>
-        /// The ID of the Key Vault from which all Secrets should be sourced.
-        /// </summary>
-        public readonly string KeyVaultId;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineSecrets(
-            ImmutableArray<LinuxVirtualMachineSecretsCertificates> certificates,
-            string keyVaultId)
-        {
-            Certificates = certificates;
-            KeyVaultId = keyVaultId;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineSecretsCertificates
-    {
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate.
-        /// </summary>
-        public readonly string Url;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineSecretsCertificates(string url)
-        {
-            Url = url;
-        }
-    }
-
-    [OutputType]
-    public sealed class LinuxVirtualMachineSourceImageReference
-    {
-        public readonly string Offer;
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Publisher;
-        public readonly string Sku;
-        public readonly string Version;
-
-        [OutputConstructor]
-        private LinuxVirtualMachineSourceImageReference(
-            string offer,
-            string publisher,
-            string sku,
-            string version)
-        {
-            Offer = offer;
-            Publisher = publisher;
-            Sku = sku;
-            Version = version;
-        }
-    }
     }
 }

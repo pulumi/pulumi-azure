@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Storage
 {
     /// <summary>
     /// Manages a Customer Managed Key for a Storage Account.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_customer_managed_key.html.markdown.
     /// </summary>
     public partial class CustomerManagedKey : Pulumi.CustomResource
     {
@@ -49,7 +47,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomerManagedKey(string name, CustomerManagedKeyArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/customerManagedKey:CustomerManagedKey", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/customerManagedKey:CustomerManagedKey", name, args ?? new CustomerManagedKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Configures a Network Connection Monitor to monitor communication between a Virtual Machine and an endpoint using a Network Watcher.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_connection_monitor.html.markdown.
     /// </summary>
     public partial class NetworkConnectionMonitor : Pulumi.CustomResource
     {
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkConnectionMonitor(string name, NetworkConnectionMonitorArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", name, args ?? new NetworkConnectionMonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -246,151 +244,5 @@ namespace Pulumi.Azure.Network
         public NetworkConnectionMonitorState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NetworkConnectionMonitorDestinationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// IP address or domain name to monitor connectivity to.
-        /// </summary>
-        [Input("address")]
-        public Input<string>? Address { get; set; }
-
-        /// <summary>
-        /// The port on the destination to monitor connectivity to.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Virtual Machine to monitor connectivity to.
-        /// </summary>
-        [Input("virtualMachineId")]
-        public Input<string>? VirtualMachineId { get; set; }
-
-        public NetworkConnectionMonitorDestinationArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkConnectionMonitorDestinationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// IP address or domain name to monitor connectivity to.
-        /// </summary>
-        [Input("address")]
-        public Input<string>? Address { get; set; }
-
-        /// <summary>
-        /// The port on the destination to monitor connectivity to.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Virtual Machine to monitor connectivity to.
-        /// </summary>
-        [Input("virtualMachineId")]
-        public Input<string>? VirtualMachineId { get; set; }
-
-        public NetworkConnectionMonitorDestinationGetArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkConnectionMonitorSourceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The port on the destination to monitor connectivity to.
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        /// <summary>
-        /// The ID of the Virtual Machine to monitor connectivity to.
-        /// </summary>
-        [Input("virtualMachineId", required: true)]
-        public Input<string> VirtualMachineId { get; set; } = null!;
-
-        public NetworkConnectionMonitorSourceArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkConnectionMonitorSourceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The port on the destination to monitor connectivity to.
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        /// <summary>
-        /// The ID of the Virtual Machine to monitor connectivity to.
-        /// </summary>
-        [Input("virtualMachineId", required: true)]
-        public Input<string> VirtualMachineId { get; set; } = null!;
-
-        public NetworkConnectionMonitorSourceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NetworkConnectionMonitorDestination
-    {
-        /// <summary>
-        /// IP address or domain name to monitor connectivity to.
-        /// </summary>
-        public readonly string? Address;
-        /// <summary>
-        /// The port on the destination to monitor connectivity to.
-        /// </summary>
-        public readonly int Port;
-        /// <summary>
-        /// The ID of the Virtual Machine to monitor connectivity to.
-        /// </summary>
-        public readonly string? VirtualMachineId;
-
-        [OutputConstructor]
-        private NetworkConnectionMonitorDestination(
-            string? address,
-            int port,
-            string? virtualMachineId)
-        {
-            Address = address;
-            Port = port;
-            VirtualMachineId = virtualMachineId;
-        }
-    }
-
-    [OutputType]
-    public sealed class NetworkConnectionMonitorSource
-    {
-        /// <summary>
-        /// The port on the destination to monitor connectivity to.
-        /// </summary>
-        public readonly int? Port;
-        /// <summary>
-        /// The ID of the Virtual Machine to monitor connectivity to.
-        /// </summary>
-        public readonly string VirtualMachineId;
-
-        [OutputConstructor]
-        private NetworkConnectionMonitorSource(
-            int? port,
-            string virtualMachineId)
-        {
-            Port = port;
-            VirtualMachineId = virtualMachineId;
-        }
-    }
     }
 }

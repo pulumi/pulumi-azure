@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Virtual Machine.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVirtualMachine.InvokeAsync() instead")]
-        public static Task<GetVirtualMachineResult> GetVirtualMachine(GetVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVirtualMachine
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Machine.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVirtualMachineArgs : Pulumi.InvokeArgs
     {
@@ -50,25 +41,28 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetVirtualMachineResult
     {
-        public readonly string Name;
-        public readonly string ResourceGroupName;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
+        public readonly string ResourceGroupName;
 
         [OutputConstructor]
         private GetVirtualMachineResult(
+            string id,
+
             string name,
-            string resourceGroupName,
-            string id)
+
+            string resourceGroupName)
         {
+            Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;
-            Id = id;
         }
     }
 }

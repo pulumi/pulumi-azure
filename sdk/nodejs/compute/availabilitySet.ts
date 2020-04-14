@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Availability Set for Virtual Machines.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/availability_set.html.markdown.
  */

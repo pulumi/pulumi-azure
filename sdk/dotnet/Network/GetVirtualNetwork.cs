@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Virtual Network.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetVirtualNetwork.InvokeAsync() instead")]
-        public static Task<GetVirtualNetworkResult> GetVirtualNetwork(GetVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetVirtualNetwork
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Network.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure:network/getVirtualNetwork:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithVersion());
     }
+
 
     public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +41,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetVirtualNetworkResult
     {
@@ -61,6 +53,10 @@ namespace Pulumi.Azure.Network
         /// The list of DNS servers used by the virtual network.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Location of the virtual network.
         /// </summary>
@@ -75,30 +71,33 @@ namespace Pulumi.Azure.Network
         /// A mapping of name - virtual network id of the virtual network peerings.
         /// </summary>
         public readonly ImmutableDictionary<string, string> VnetPeerings;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
             ImmutableArray<string> addressSpaces,
+
             ImmutableArray<string> dnsServers,
+
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             ImmutableArray<string> subnets,
-            ImmutableDictionary<string, string> vnetPeerings,
-            string id)
+
+            ImmutableDictionary<string, string> vnetPeerings)
         {
             AddressSpaces = addressSpaces;
             DnsServers = dnsServers;
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Subnets = subnets;
             VnetPeerings = vnetPeerings;
-            Id = id;
         }
     }
 }

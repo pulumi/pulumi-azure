@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Authorization
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Role Definition.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRoleDefinition.InvokeAsync() instead")]
-        public static Task<GetRoleDefinitionResult> GetRoleDefinition(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRoleDefinition
     {
         /// <summary>
         /// Use this data source to access information about an existing Role Definition.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRoleDefinitionArgs : Pulumi.InvokeArgs
     {
@@ -56,6 +47,7 @@ namespace Pulumi.Azure.Authorization
         }
     }
 
+
     [OutputType]
     public sealed class GetRoleDefinitionResult
     {
@@ -67,73 +59,48 @@ namespace Pulumi.Azure.Authorization
         /// the Description of the built-in Role.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// a `permissions` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionsResult> Permissions;
+        public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> Permissions;
         public readonly string RoleDefinitionId;
         public readonly string? Scope;
         /// <summary>
         /// the Type of the Role.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRoleDefinitionResult(
             ImmutableArray<string> assignableScopes,
+
             string description,
+
+            string id,
+
             string name,
-            ImmutableArray<Outputs.GetRoleDefinitionPermissionsResult> permissions,
+
+            ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> permissions,
+
             string roleDefinitionId,
+
             string? scope,
-            string type,
-            string id)
+
+            string type)
         {
             AssignableScopes = assignableScopes;
             Description = description;
+            Id = id;
             Name = name;
             Permissions = permissions;
             RoleDefinitionId = roleDefinitionId;
             Scope = scope;
             Type = type;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetRoleDefinitionPermissionsResult
-    {
-        /// <summary>
-        /// a list of actions supported by this role
-        /// </summary>
-        public readonly ImmutableArray<string> Actions;
-        public readonly ImmutableArray<string> DataActions;
-        /// <summary>
-        /// a list of actions which are denied by this role
-        /// </summary>
-        public readonly ImmutableArray<string> NotActions;
-        public readonly ImmutableArray<string> NotDataActions;
-
-        [OutputConstructor]
-        private GetRoleDefinitionPermissionsResult(
-            ImmutableArray<string> actions,
-            ImmutableArray<string> dataActions,
-            ImmutableArray<string> notActions,
-            ImmutableArray<string> notDataActions)
-        {
-            Actions = actions;
-            DataActions = dataActions;
-            NotActions = notActions;
-            NotDataActions = notDataActions;
-        }
-    }
     }
 }

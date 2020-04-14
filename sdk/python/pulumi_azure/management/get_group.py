@@ -61,7 +61,7 @@ def get_group(group_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
+
 
 
     :param str group_id: Specifies the name or UUID of this Management Group.

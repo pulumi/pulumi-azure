@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -24,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
  */
-export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyVMResult> & GetPolicyVMResult {
+export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyVMResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,13 +34,11 @@ export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPolicyVMResult> = pulumi.runtime.invoke("azure:backup/getPolicyVM:getPolicyVM", {
+    return pulumi.runtime.invoke("azure:backup/getPolicyVM:getPolicyVM", {
         "name": args.name,
         "recoveryVaultName": args.recoveryVaultName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

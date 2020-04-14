@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Cdn
 {
     /// <summary>
     /// Manages a CDN Profile to create a collection of CDN Endpoints.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_profile.html.markdown.
     /// </summary>
     public partial class Profile : Pulumi.CustomResource
     {
@@ -57,7 +55,7 @@ namespace Pulumi.Azure.Cdn
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure:cdn/profile:Profile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:cdn/profile:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 

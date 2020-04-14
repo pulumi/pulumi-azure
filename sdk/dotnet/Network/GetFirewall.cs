@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Azure Firewall.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetFirewall.InvokeAsync() instead")]
-        public static Task<GetFirewallResult> GetFirewall(GetFirewallArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetFirewall
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Firewall.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("azure:network/getFirewall:getFirewall", args ?? new GetFirewallArgs(), options.WithVersion());
     }
+
 
     public sealed class GetFirewallArgs : Pulumi.InvokeArgs
     {
@@ -50,75 +41,43 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetFirewallResult
     {
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A `ip_configuration` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetFirewallIpConfigurationsResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.GetFirewallIpConfigurationResult> IpConfigurations;
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetFirewallResult(
-            ImmutableArray<Outputs.GetFirewallIpConfigurationsResult> ipConfigurations,
+            string id,
+
+            ImmutableArray<Outputs.GetFirewallIpConfigurationResult> ipConfigurations,
+
             string location,
+
             string name,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetFirewallIpConfigurationsResult
-    {
-        public readonly string InternalPublicIpAddressId;
-        /// <summary>
-        /// The name of the Azure Firewall.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The private IP address of the Azure Firewall.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        public readonly string PublicIpAddressId;
-        /// <summary>
-        /// The Resource ID of the subnet where the Azure Firewall is deployed.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private GetFirewallIpConfigurationsResult(
-            string internalPublicIpAddressId,
-            string name,
-            string privateIpAddress,
-            string publicIpAddressId,
-            string subnetId)
-        {
-            InternalPublicIpAddressId = internalPublicIpAddressId;
-            Name = name;
-            PrivateIpAddress = privateIpAddress;
-            PublicIpAddressId = publicIpAddressId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

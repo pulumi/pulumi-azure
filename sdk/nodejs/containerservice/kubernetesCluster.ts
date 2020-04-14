@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
  */

@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
  */
-export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticCategoriesResult> & GetDiagnosticCategoriesResult {
+export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticCategoriesResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,11 +20,9 @@ export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDiagnosticCategoriesResult> = pulumi.runtime.invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", {
+    return pulumi.runtime.invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", {
         "resourceId": args.resourceId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

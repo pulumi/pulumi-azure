@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ServiceBus Namespace.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
  */
-export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> & GetServiceBusNamespaceResult {
+export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceBusNamespaceResult> = pulumi.runtime.invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", {
+    return pulumi.runtime.invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

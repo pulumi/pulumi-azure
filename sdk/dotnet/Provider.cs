@@ -14,8 +14,6 @@ namespace Pulumi.Azure
     /// settings, however an explicit `Provider` instance may be created and passed during resource
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/index.html.markdown.
     /// </summary>
     public partial class Provider : Pulumi.ProviderResource
     {
@@ -27,7 +25,7 @@ namespace Pulumi.Azure
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -55,15 +53,15 @@ namespace Pulumi.Azure
         }
 
         /// <summary>
-        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal
-        /// using a Client Certificate
+        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+        /// Certificate
         /// </summary>
         [Input("clientCertificatePassword")]
         public Input<string>? ClientCertificatePassword { get; set; }
 
         /// <summary>
-        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a
-        /// Service Principal using a Client Certificate.
+        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+        /// Principal using a Client Certificate.
         /// </summary>
         [Input("clientCertificatePath")]
         public Input<string>? ClientCertificatePath { get; set; }
@@ -75,8 +73,7 @@ namespace Pulumi.Azure
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client
-        /// Secret.
+        /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
@@ -94,8 +91,8 @@ namespace Pulumi.Azure
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china.
-        /// Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+        /// public.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
@@ -123,8 +120,8 @@ namespace Pulumi.Azure
         public Input<bool>? SkipCredentialsValidation { get; set; }
 
         /// <summary>
-        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not
-        /// already registered?
+        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
+        /// registered?
         /// </summary>
         [Input("skipProviderRegistration", json: true)]
         public Input<bool>? SkipProviderRegistration { get; set; }
@@ -170,58 +167,5 @@ namespace Pulumi.Azure
             TenantId = Utilities.GetEnv("AZURE_TENANT_ID", "ARM_TENANT_ID") ?? "";
             UseMsi = Utilities.GetEnvBoolean("ARM_USE_MSI") ?? false;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ProviderFeaturesArgs : Pulumi.ResourceArgs
-    {
-        [Input("keyVault")]
-        public Input<ProviderFeaturesKeyVaultArgs>? KeyVault { get; set; }
-
-        [Input("virtualMachine")]
-        public Input<ProviderFeaturesVirtualMachineArgs>? VirtualMachine { get; set; }
-
-        [Input("virtualMachineScaleSet")]
-        public Input<ProviderFeaturesVirtualMachineScaleSetArgs>? VirtualMachineScaleSet { get; set; }
-
-        public ProviderFeaturesArgs()
-        {
-        }
-    }
-
-    public sealed class ProviderFeaturesKeyVaultArgs : Pulumi.ResourceArgs
-    {
-        [Input("purgeSoftDeleteOnDestroy")]
-        public Input<bool>? PurgeSoftDeleteOnDestroy { get; set; }
-
-        [Input("recoverSoftDeletedKeyVaults")]
-        public Input<bool>? RecoverSoftDeletedKeyVaults { get; set; }
-
-        public ProviderFeaturesKeyVaultArgs()
-        {
-        }
-    }
-
-    public sealed class ProviderFeaturesVirtualMachineArgs : Pulumi.ResourceArgs
-    {
-        [Input("deleteOsDiskOnDeletion", required: true)]
-        public Input<bool> DeleteOsDiskOnDeletion { get; set; } = null!;
-
-        public ProviderFeaturesVirtualMachineArgs()
-        {
-        }
-    }
-
-    public sealed class ProviderFeaturesVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
-    {
-        [Input("rollInstancesWhenRequired", required: true)]
-        public Input<bool> RollInstancesWhenRequired { get; set; } = null!;
-
-        public ProviderFeaturesVirtualMachineScaleSetArgs()
-        {
-        }
-    }
     }
 }

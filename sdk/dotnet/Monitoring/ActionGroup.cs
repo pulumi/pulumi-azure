@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages an Action Group within Azure Monitor.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
     /// </summary>
     public partial class ActionGroup : Pulumi.CustomResource
     {
@@ -20,31 +18,31 @@ namespace Pulumi.Azure.Monitoring
         /// One or more `arm_role_receiver` blocks as defined below.
         /// </summary>
         [Output("armRoleReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupArmRoleReceivers>> ArmRoleReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupArmRoleReceiver>> ArmRoleReceivers { get; private set; } = null!;
 
         /// <summary>
         /// One or more `automation_runbook_receiver` blocks as defined below.
         /// </summary>
         [Output("automationRunbookReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupAutomationRunbookReceivers>> AutomationRunbookReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupAutomationRunbookReceiver>> AutomationRunbookReceivers { get; private set; } = null!;
 
         /// <summary>
         /// One or more `azure_app_push_receiver` blocks as defined below.
         /// </summary>
         [Output("azureAppPushReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupAzureAppPushReceivers>> AzureAppPushReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupAzureAppPushReceiver>> AzureAppPushReceivers { get; private set; } = null!;
 
         /// <summary>
         /// One or more `azure_function_receiver` blocks as defined below.
         /// </summary>
         [Output("azureFunctionReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupAzureFunctionReceivers>> AzureFunctionReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupAzureFunctionReceiver>> AzureFunctionReceivers { get; private set; } = null!;
 
         /// <summary>
         /// One or more `email_receiver` blocks as defined below.
         /// </summary>
         [Output("emailReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupEmailReceivers>> EmailReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupEmailReceiver>> EmailReceivers { get; private set; } = null!;
 
         /// <summary>
         /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
@@ -56,13 +54,13 @@ namespace Pulumi.Azure.Monitoring
         /// One or more `itsm_receiver` blocks as defined below.
         /// </summary>
         [Output("itsmReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupItsmReceivers>> ItsmReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupItsmReceiver>> ItsmReceivers { get; private set; } = null!;
 
         /// <summary>
         /// One or more `logic_app_receiver` blocks as defined below.
         /// </summary>
         [Output("logicAppReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupLogicAppReceivers>> LogicAppReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupLogicAppReceiver>> LogicAppReceivers { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Action Group. Changing this forces a new resource to be created.
@@ -86,7 +84,7 @@ namespace Pulumi.Azure.Monitoring
         /// One or more `sms_receiver` blocks as defined below.
         /// </summary>
         [Output("smsReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupSmsReceivers>> SmsReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupSmsReceiver>> SmsReceivers { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -98,13 +96,13 @@ namespace Pulumi.Azure.Monitoring
         /// One or more `voice_receiver` blocks as defined below.
         /// </summary>
         [Output("voiceReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupVoiceReceivers>> VoiceReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupVoiceReceiver>> VoiceReceivers { get; private set; } = null!;
 
         /// <summary>
         /// One or more `webhook_receiver` blocks as defined below.
         /// </summary>
         [Output("webhookReceivers")]
-        public Output<ImmutableArray<Outputs.ActionGroupWebhookReceivers>> WebhookReceivers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionGroupWebhookReceiver>> WebhookReceivers { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,7 +113,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActionGroup(string name, ActionGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/actionGroup:ActionGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/actionGroup:ActionGroup", name, args ?? new ActionGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -153,62 +151,62 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupArgs : Pulumi.ResourceArgs
     {
         [Input("armRoleReceivers")]
-        private InputList<Inputs.ActionGroupArmRoleReceiversArgs>? _armRoleReceivers;
+        private InputList<Inputs.ActionGroupArmRoleReceiverArgs>? _armRoleReceivers;
 
         /// <summary>
         /// One or more `arm_role_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupArmRoleReceiversArgs> ArmRoleReceivers
+        public InputList<Inputs.ActionGroupArmRoleReceiverArgs> ArmRoleReceivers
         {
-            get => _armRoleReceivers ?? (_armRoleReceivers = new InputList<Inputs.ActionGroupArmRoleReceiversArgs>());
+            get => _armRoleReceivers ?? (_armRoleReceivers = new InputList<Inputs.ActionGroupArmRoleReceiverArgs>());
             set => _armRoleReceivers = value;
         }
 
         [Input("automationRunbookReceivers")]
-        private InputList<Inputs.ActionGroupAutomationRunbookReceiversArgs>? _automationRunbookReceivers;
+        private InputList<Inputs.ActionGroupAutomationRunbookReceiverArgs>? _automationRunbookReceivers;
 
         /// <summary>
         /// One or more `automation_runbook_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupAutomationRunbookReceiversArgs> AutomationRunbookReceivers
+        public InputList<Inputs.ActionGroupAutomationRunbookReceiverArgs> AutomationRunbookReceivers
         {
-            get => _automationRunbookReceivers ?? (_automationRunbookReceivers = new InputList<Inputs.ActionGroupAutomationRunbookReceiversArgs>());
+            get => _automationRunbookReceivers ?? (_automationRunbookReceivers = new InputList<Inputs.ActionGroupAutomationRunbookReceiverArgs>());
             set => _automationRunbookReceivers = value;
         }
 
         [Input("azureAppPushReceivers")]
-        private InputList<Inputs.ActionGroupAzureAppPushReceiversArgs>? _azureAppPushReceivers;
+        private InputList<Inputs.ActionGroupAzureAppPushReceiverArgs>? _azureAppPushReceivers;
 
         /// <summary>
         /// One or more `azure_app_push_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupAzureAppPushReceiversArgs> AzureAppPushReceivers
+        public InputList<Inputs.ActionGroupAzureAppPushReceiverArgs> AzureAppPushReceivers
         {
-            get => _azureAppPushReceivers ?? (_azureAppPushReceivers = new InputList<Inputs.ActionGroupAzureAppPushReceiversArgs>());
+            get => _azureAppPushReceivers ?? (_azureAppPushReceivers = new InputList<Inputs.ActionGroupAzureAppPushReceiverArgs>());
             set => _azureAppPushReceivers = value;
         }
 
         [Input("azureFunctionReceivers")]
-        private InputList<Inputs.ActionGroupAzureFunctionReceiversArgs>? _azureFunctionReceivers;
+        private InputList<Inputs.ActionGroupAzureFunctionReceiverArgs>? _azureFunctionReceivers;
 
         /// <summary>
         /// One or more `azure_function_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupAzureFunctionReceiversArgs> AzureFunctionReceivers
+        public InputList<Inputs.ActionGroupAzureFunctionReceiverArgs> AzureFunctionReceivers
         {
-            get => _azureFunctionReceivers ?? (_azureFunctionReceivers = new InputList<Inputs.ActionGroupAzureFunctionReceiversArgs>());
+            get => _azureFunctionReceivers ?? (_azureFunctionReceivers = new InputList<Inputs.ActionGroupAzureFunctionReceiverArgs>());
             set => _azureFunctionReceivers = value;
         }
 
         [Input("emailReceivers")]
-        private InputList<Inputs.ActionGroupEmailReceiversArgs>? _emailReceivers;
+        private InputList<Inputs.ActionGroupEmailReceiverArgs>? _emailReceivers;
 
         /// <summary>
         /// One or more `email_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupEmailReceiversArgs> EmailReceivers
+        public InputList<Inputs.ActionGroupEmailReceiverArgs> EmailReceivers
         {
-            get => _emailReceivers ?? (_emailReceivers = new InputList<Inputs.ActionGroupEmailReceiversArgs>());
+            get => _emailReceivers ?? (_emailReceivers = new InputList<Inputs.ActionGroupEmailReceiverArgs>());
             set => _emailReceivers = value;
         }
 
@@ -219,26 +217,26 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool>? Enabled { get; set; }
 
         [Input("itsmReceivers")]
-        private InputList<Inputs.ActionGroupItsmReceiversArgs>? _itsmReceivers;
+        private InputList<Inputs.ActionGroupItsmReceiverArgs>? _itsmReceivers;
 
         /// <summary>
         /// One or more `itsm_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupItsmReceiversArgs> ItsmReceivers
+        public InputList<Inputs.ActionGroupItsmReceiverArgs> ItsmReceivers
         {
-            get => _itsmReceivers ?? (_itsmReceivers = new InputList<Inputs.ActionGroupItsmReceiversArgs>());
+            get => _itsmReceivers ?? (_itsmReceivers = new InputList<Inputs.ActionGroupItsmReceiverArgs>());
             set => _itsmReceivers = value;
         }
 
         [Input("logicAppReceivers")]
-        private InputList<Inputs.ActionGroupLogicAppReceiversArgs>? _logicAppReceivers;
+        private InputList<Inputs.ActionGroupLogicAppReceiverArgs>? _logicAppReceivers;
 
         /// <summary>
         /// One or more `logic_app_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupLogicAppReceiversArgs> LogicAppReceivers
+        public InputList<Inputs.ActionGroupLogicAppReceiverArgs> LogicAppReceivers
         {
-            get => _logicAppReceivers ?? (_logicAppReceivers = new InputList<Inputs.ActionGroupLogicAppReceiversArgs>());
+            get => _logicAppReceivers ?? (_logicAppReceivers = new InputList<Inputs.ActionGroupLogicAppReceiverArgs>());
             set => _logicAppReceivers = value;
         }
 
@@ -261,14 +259,14 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> ShortName { get; set; } = null!;
 
         [Input("smsReceivers")]
-        private InputList<Inputs.ActionGroupSmsReceiversArgs>? _smsReceivers;
+        private InputList<Inputs.ActionGroupSmsReceiverArgs>? _smsReceivers;
 
         /// <summary>
         /// One or more `sms_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupSmsReceiversArgs> SmsReceivers
+        public InputList<Inputs.ActionGroupSmsReceiverArgs> SmsReceivers
         {
-            get => _smsReceivers ?? (_smsReceivers = new InputList<Inputs.ActionGroupSmsReceiversArgs>());
+            get => _smsReceivers ?? (_smsReceivers = new InputList<Inputs.ActionGroupSmsReceiverArgs>());
             set => _smsReceivers = value;
         }
 
@@ -285,26 +283,26 @@ namespace Pulumi.Azure.Monitoring
         }
 
         [Input("voiceReceivers")]
-        private InputList<Inputs.ActionGroupVoiceReceiversArgs>? _voiceReceivers;
+        private InputList<Inputs.ActionGroupVoiceReceiverArgs>? _voiceReceivers;
 
         /// <summary>
         /// One or more `voice_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupVoiceReceiversArgs> VoiceReceivers
+        public InputList<Inputs.ActionGroupVoiceReceiverArgs> VoiceReceivers
         {
-            get => _voiceReceivers ?? (_voiceReceivers = new InputList<Inputs.ActionGroupVoiceReceiversArgs>());
+            get => _voiceReceivers ?? (_voiceReceivers = new InputList<Inputs.ActionGroupVoiceReceiverArgs>());
             set => _voiceReceivers = value;
         }
 
         [Input("webhookReceivers")]
-        private InputList<Inputs.ActionGroupWebhookReceiversArgs>? _webhookReceivers;
+        private InputList<Inputs.ActionGroupWebhookReceiverArgs>? _webhookReceivers;
 
         /// <summary>
         /// One or more `webhook_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupWebhookReceiversArgs> WebhookReceivers
+        public InputList<Inputs.ActionGroupWebhookReceiverArgs> WebhookReceivers
         {
-            get => _webhookReceivers ?? (_webhookReceivers = new InputList<Inputs.ActionGroupWebhookReceiversArgs>());
+            get => _webhookReceivers ?? (_webhookReceivers = new InputList<Inputs.ActionGroupWebhookReceiverArgs>());
             set => _webhookReceivers = value;
         }
 
@@ -316,62 +314,62 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActionGroupState : Pulumi.ResourceArgs
     {
         [Input("armRoleReceivers")]
-        private InputList<Inputs.ActionGroupArmRoleReceiversGetArgs>? _armRoleReceivers;
+        private InputList<Inputs.ActionGroupArmRoleReceiverGetArgs>? _armRoleReceivers;
 
         /// <summary>
         /// One or more `arm_role_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupArmRoleReceiversGetArgs> ArmRoleReceivers
+        public InputList<Inputs.ActionGroupArmRoleReceiverGetArgs> ArmRoleReceivers
         {
-            get => _armRoleReceivers ?? (_armRoleReceivers = new InputList<Inputs.ActionGroupArmRoleReceiversGetArgs>());
+            get => _armRoleReceivers ?? (_armRoleReceivers = new InputList<Inputs.ActionGroupArmRoleReceiverGetArgs>());
             set => _armRoleReceivers = value;
         }
 
         [Input("automationRunbookReceivers")]
-        private InputList<Inputs.ActionGroupAutomationRunbookReceiversGetArgs>? _automationRunbookReceivers;
+        private InputList<Inputs.ActionGroupAutomationRunbookReceiverGetArgs>? _automationRunbookReceivers;
 
         /// <summary>
         /// One or more `automation_runbook_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupAutomationRunbookReceiversGetArgs> AutomationRunbookReceivers
+        public InputList<Inputs.ActionGroupAutomationRunbookReceiverGetArgs> AutomationRunbookReceivers
         {
-            get => _automationRunbookReceivers ?? (_automationRunbookReceivers = new InputList<Inputs.ActionGroupAutomationRunbookReceiversGetArgs>());
+            get => _automationRunbookReceivers ?? (_automationRunbookReceivers = new InputList<Inputs.ActionGroupAutomationRunbookReceiverGetArgs>());
             set => _automationRunbookReceivers = value;
         }
 
         [Input("azureAppPushReceivers")]
-        private InputList<Inputs.ActionGroupAzureAppPushReceiversGetArgs>? _azureAppPushReceivers;
+        private InputList<Inputs.ActionGroupAzureAppPushReceiverGetArgs>? _azureAppPushReceivers;
 
         /// <summary>
         /// One or more `azure_app_push_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupAzureAppPushReceiversGetArgs> AzureAppPushReceivers
+        public InputList<Inputs.ActionGroupAzureAppPushReceiverGetArgs> AzureAppPushReceivers
         {
-            get => _azureAppPushReceivers ?? (_azureAppPushReceivers = new InputList<Inputs.ActionGroupAzureAppPushReceiversGetArgs>());
+            get => _azureAppPushReceivers ?? (_azureAppPushReceivers = new InputList<Inputs.ActionGroupAzureAppPushReceiverGetArgs>());
             set => _azureAppPushReceivers = value;
         }
 
         [Input("azureFunctionReceivers")]
-        private InputList<Inputs.ActionGroupAzureFunctionReceiversGetArgs>? _azureFunctionReceivers;
+        private InputList<Inputs.ActionGroupAzureFunctionReceiverGetArgs>? _azureFunctionReceivers;
 
         /// <summary>
         /// One or more `azure_function_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupAzureFunctionReceiversGetArgs> AzureFunctionReceivers
+        public InputList<Inputs.ActionGroupAzureFunctionReceiverGetArgs> AzureFunctionReceivers
         {
-            get => _azureFunctionReceivers ?? (_azureFunctionReceivers = new InputList<Inputs.ActionGroupAzureFunctionReceiversGetArgs>());
+            get => _azureFunctionReceivers ?? (_azureFunctionReceivers = new InputList<Inputs.ActionGroupAzureFunctionReceiverGetArgs>());
             set => _azureFunctionReceivers = value;
         }
 
         [Input("emailReceivers")]
-        private InputList<Inputs.ActionGroupEmailReceiversGetArgs>? _emailReceivers;
+        private InputList<Inputs.ActionGroupEmailReceiverGetArgs>? _emailReceivers;
 
         /// <summary>
         /// One or more `email_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupEmailReceiversGetArgs> EmailReceivers
+        public InputList<Inputs.ActionGroupEmailReceiverGetArgs> EmailReceivers
         {
-            get => _emailReceivers ?? (_emailReceivers = new InputList<Inputs.ActionGroupEmailReceiversGetArgs>());
+            get => _emailReceivers ?? (_emailReceivers = new InputList<Inputs.ActionGroupEmailReceiverGetArgs>());
             set => _emailReceivers = value;
         }
 
@@ -382,26 +380,26 @@ namespace Pulumi.Azure.Monitoring
         public Input<bool>? Enabled { get; set; }
 
         [Input("itsmReceivers")]
-        private InputList<Inputs.ActionGroupItsmReceiversGetArgs>? _itsmReceivers;
+        private InputList<Inputs.ActionGroupItsmReceiverGetArgs>? _itsmReceivers;
 
         /// <summary>
         /// One or more `itsm_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupItsmReceiversGetArgs> ItsmReceivers
+        public InputList<Inputs.ActionGroupItsmReceiverGetArgs> ItsmReceivers
         {
-            get => _itsmReceivers ?? (_itsmReceivers = new InputList<Inputs.ActionGroupItsmReceiversGetArgs>());
+            get => _itsmReceivers ?? (_itsmReceivers = new InputList<Inputs.ActionGroupItsmReceiverGetArgs>());
             set => _itsmReceivers = value;
         }
 
         [Input("logicAppReceivers")]
-        private InputList<Inputs.ActionGroupLogicAppReceiversGetArgs>? _logicAppReceivers;
+        private InputList<Inputs.ActionGroupLogicAppReceiverGetArgs>? _logicAppReceivers;
 
         /// <summary>
         /// One or more `logic_app_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupLogicAppReceiversGetArgs> LogicAppReceivers
+        public InputList<Inputs.ActionGroupLogicAppReceiverGetArgs> LogicAppReceivers
         {
-            get => _logicAppReceivers ?? (_logicAppReceivers = new InputList<Inputs.ActionGroupLogicAppReceiversGetArgs>());
+            get => _logicAppReceivers ?? (_logicAppReceivers = new InputList<Inputs.ActionGroupLogicAppReceiverGetArgs>());
             set => _logicAppReceivers = value;
         }
 
@@ -424,14 +422,14 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? ShortName { get; set; }
 
         [Input("smsReceivers")]
-        private InputList<Inputs.ActionGroupSmsReceiversGetArgs>? _smsReceivers;
+        private InputList<Inputs.ActionGroupSmsReceiverGetArgs>? _smsReceivers;
 
         /// <summary>
         /// One or more `sms_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupSmsReceiversGetArgs> SmsReceivers
+        public InputList<Inputs.ActionGroupSmsReceiverGetArgs> SmsReceivers
         {
-            get => _smsReceivers ?? (_smsReceivers = new InputList<Inputs.ActionGroupSmsReceiversGetArgs>());
+            get => _smsReceivers ?? (_smsReceivers = new InputList<Inputs.ActionGroupSmsReceiverGetArgs>());
             set => _smsReceivers = value;
         }
 
@@ -448,954 +446,31 @@ namespace Pulumi.Azure.Monitoring
         }
 
         [Input("voiceReceivers")]
-        private InputList<Inputs.ActionGroupVoiceReceiversGetArgs>? _voiceReceivers;
+        private InputList<Inputs.ActionGroupVoiceReceiverGetArgs>? _voiceReceivers;
 
         /// <summary>
         /// One or more `voice_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupVoiceReceiversGetArgs> VoiceReceivers
+        public InputList<Inputs.ActionGroupVoiceReceiverGetArgs> VoiceReceivers
         {
-            get => _voiceReceivers ?? (_voiceReceivers = new InputList<Inputs.ActionGroupVoiceReceiversGetArgs>());
+            get => _voiceReceivers ?? (_voiceReceivers = new InputList<Inputs.ActionGroupVoiceReceiverGetArgs>());
             set => _voiceReceivers = value;
         }
 
         [Input("webhookReceivers")]
-        private InputList<Inputs.ActionGroupWebhookReceiversGetArgs>? _webhookReceivers;
+        private InputList<Inputs.ActionGroupWebhookReceiverGetArgs>? _webhookReceivers;
 
         /// <summary>
         /// One or more `webhook_receiver` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActionGroupWebhookReceiversGetArgs> WebhookReceivers
+        public InputList<Inputs.ActionGroupWebhookReceiverGetArgs> WebhookReceivers
         {
-            get => _webhookReceivers ?? (_webhookReceivers = new InputList<Inputs.ActionGroupWebhookReceiversGetArgs>());
+            get => _webhookReceivers ?? (_webhookReceivers = new InputList<Inputs.ActionGroupWebhookReceiverGetArgs>());
             set => _webhookReceivers = value;
         }
 
         public ActionGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ActionGroupArmRoleReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the ARM role receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The arm role id.
-        /// </summary>
-        [Input("roleId", required: true)]
-        public Input<string> RoleId { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupArmRoleReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupArmRoleReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the ARM role receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The arm role id.
-        /// </summary>
-        [Input("roleId", required: true)]
-        public Input<string> RoleId { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupArmRoleReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupAutomationRunbookReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The automation account ID which holds this runbook and authenticates to Azure resources.
-        /// </summary>
-        [Input("automationAccountId", required: true)]
-        public Input<string> AutomationAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// Indicates whether this instance is global runbook.
-        /// </summary>
-        [Input("isGlobalRunbook", required: true)]
-        public Input<bool> IsGlobalRunbook { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the automation runbook receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The name for this runbook.
-        /// </summary>
-        [Input("runbookName", required: true)]
-        public Input<string> RunbookName { get; set; } = null!;
-
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        [Input("serviceUri", required: true)]
-        public Input<string> ServiceUri { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        /// <summary>
-        /// The resource id for webhook linked to this runbook.
-        /// </summary>
-        [Input("webhookResourceId", required: true)]
-        public Input<string> WebhookResourceId { get; set; } = null!;
-
-        public ActionGroupAutomationRunbookReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupAutomationRunbookReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The automation account ID which holds this runbook and authenticates to Azure resources.
-        /// </summary>
-        [Input("automationAccountId", required: true)]
-        public Input<string> AutomationAccountId { get; set; } = null!;
-
-        /// <summary>
-        /// Indicates whether this instance is global runbook.
-        /// </summary>
-        [Input("isGlobalRunbook", required: true)]
-        public Input<bool> IsGlobalRunbook { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the automation runbook receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The name for this runbook.
-        /// </summary>
-        [Input("runbookName", required: true)]
-        public Input<string> RunbookName { get; set; } = null!;
-
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        [Input("serviceUri", required: true)]
-        public Input<string> ServiceUri { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        /// <summary>
-        /// The resource id for webhook linked to this runbook.
-        /// </summary>
-        [Input("webhookResourceId", required: true)]
-        public Input<string> WebhookResourceId { get; set; } = null!;
-
-        public ActionGroupAutomationRunbookReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupAzureAppPushReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
-        /// </summary>
-        [Input("emailAddress", required: true)]
-        public Input<string> EmailAddress { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Azure app push receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ActionGroupAzureAppPushReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupAzureAppPushReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
-        /// </summary>
-        [Input("emailAddress", required: true)]
-        public Input<string> EmailAddress { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Azure app push receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ActionGroupAzureAppPushReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupAzureFunctionReceiversArgs : Pulumi.ResourceArgs
-    {
-        [Input("functionAppResourceId", required: true)]
-        public Input<string> FunctionAppResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// The function name in the function app.
-        /// </summary>
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
-
-        /// <summary>
-        /// The http trigger url where http request sent to.
-        /// </summary>
-        [Input("httpTriggerUrl", required: true)]
-        public Input<string> HttpTriggerUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Azure Function receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupAzureFunctionReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupAzureFunctionReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("functionAppResourceId", required: true)]
-        public Input<string> FunctionAppResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// The function name in the function app.
-        /// </summary>
-        [Input("functionName", required: true)]
-        public Input<string> FunctionName { get; set; } = null!;
-
-        /// <summary>
-        /// The http trigger url where http request sent to.
-        /// </summary>
-        [Input("httpTriggerUrl", required: true)]
-        public Input<string> HttpTriggerUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the Azure Function receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupAzureFunctionReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupEmailReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email address of this receiver.
-        /// </summary>
-        [Input("emailAddress", required: true)]
-        public Input<string> EmailAddress { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupEmailReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupEmailReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email address of this receiver.
-        /// </summary>
-        [Input("emailAddress", required: true)]
-        public Input<string> EmailAddress { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupEmailReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupItsmReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The unique connection identifier of the ITSM connection.
-        /// </summary>
-        [Input("connectionId", required: true)]
-        public Input<string> ConnectionId { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the ITSM receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The region of the workspace.
-        /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
-
-        /// <summary>
-        /// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-        /// </summary>
-        [Input("ticketConfiguration", required: true)]
-        public Input<string> TicketConfiguration { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure Log Analytics workspace ID where this connection is defined.
-        /// </summary>
-        [Input("workspaceId", required: true)]
-        public Input<string> WorkspaceId { get; set; } = null!;
-
-        public ActionGroupItsmReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupItsmReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The unique connection identifier of the ITSM connection.
-        /// </summary>
-        [Input("connectionId", required: true)]
-        public Input<string> ConnectionId { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the ITSM receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The region of the workspace.
-        /// </summary>
-        [Input("region", required: true)]
-        public Input<string> Region { get; set; } = null!;
-
-        /// <summary>
-        /// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-        /// </summary>
-        [Input("ticketConfiguration", required: true)]
-        public Input<string> TicketConfiguration { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure Log Analytics workspace ID where this connection is defined.
-        /// </summary>
-        [Input("workspaceId", required: true)]
-        public Input<string> WorkspaceId { get; set; } = null!;
-
-        public ActionGroupItsmReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupLogicAppReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The callback url where http request sent to.
-        /// </summary>
-        [Input("callbackUrl", required: true)]
-        public Input<string> CallbackUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the logic app receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure resource ID of the logic app.
-        /// </summary>
-        [Input("resourceId", required: true)]
-        public Input<string> ResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupLogicAppReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupLogicAppReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The callback url where http request sent to.
-        /// </summary>
-        [Input("callbackUrl", required: true)]
-        public Input<string> CallbackUrl { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the logic app receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Azure resource ID of the logic app.
-        /// </summary>
-        [Input("resourceId", required: true)]
-        public Input<string> ResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupLogicAppReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupSmsReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The country code of the SMS receiver.
-        /// </summary>
-        [Input("countryCode", required: true)]
-        public Input<string> CountryCode { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The phone number of the SMS receiver.
-        /// </summary>
-        [Input("phoneNumber", required: true)]
-        public Input<string> PhoneNumber { get; set; } = null!;
-
-        public ActionGroupSmsReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupSmsReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The country code of the SMS receiver.
-        /// </summary>
-        [Input("countryCode", required: true)]
-        public Input<string> CountryCode { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The phone number of the SMS receiver.
-        /// </summary>
-        [Input("phoneNumber", required: true)]
-        public Input<string> PhoneNumber { get; set; } = null!;
-
-        public ActionGroupSmsReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupVoiceReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The country code of the voice receiver.
-        /// </summary>
-        [Input("countryCode", required: true)]
-        public Input<string> CountryCode { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the voice receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The phone number of the voice receiver.
-        /// </summary>
-        [Input("phoneNumber", required: true)]
-        public Input<string> PhoneNumber { get; set; } = null!;
-
-        public ActionGroupVoiceReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupVoiceReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The country code of the voice receiver.
-        /// </summary>
-        [Input("countryCode", required: true)]
-        public Input<string> CountryCode { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the voice receiver.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The phone number of the voice receiver.
-        /// </summary>
-        [Input("phoneNumber", required: true)]
-        public Input<string> PhoneNumber { get; set; } = null!;
-
-        public ActionGroupVoiceReceiversGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupWebhookReceiversArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        [Input("serviceUri", required: true)]
-        public Input<string> ServiceUri { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupWebhookReceiversArgs()
-        {
-        }
-    }
-
-    public sealed class ActionGroupWebhookReceiversGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        [Input("serviceUri", required: true)]
-        public Input<string> ServiceUri { get; set; } = null!;
-
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        [Input("useCommonAlertSchema")]
-        public Input<bool>? UseCommonAlertSchema { get; set; }
-
-        public ActionGroupWebhookReceiversGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ActionGroupArmRoleReceivers
-    {
-        /// <summary>
-        /// The name of the ARM role receiver.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The arm role id.
-        /// </summary>
-        public readonly string RoleId;
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        public readonly bool? UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private ActionGroupArmRoleReceivers(
-            string name,
-            string roleId,
-            bool? useCommonAlertSchema)
-        {
-            Name = name;
-            RoleId = roleId;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupAutomationRunbookReceivers
-    {
-        /// <summary>
-        /// The automation account ID which holds this runbook and authenticates to Azure resources.
-        /// </summary>
-        public readonly string AutomationAccountId;
-        /// <summary>
-        /// Indicates whether this instance is global runbook.
-        /// </summary>
-        public readonly bool IsGlobalRunbook;
-        /// <summary>
-        /// The name of the automation runbook receiver.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The name for this runbook.
-        /// </summary>
-        public readonly string RunbookName;
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        public readonly string ServiceUri;
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        public readonly bool? UseCommonAlertSchema;
-        /// <summary>
-        /// The resource id for webhook linked to this runbook.
-        /// </summary>
-        public readonly string WebhookResourceId;
-
-        [OutputConstructor]
-        private ActionGroupAutomationRunbookReceivers(
-            string automationAccountId,
-            bool isGlobalRunbook,
-            string name,
-            string runbookName,
-            string serviceUri,
-            bool? useCommonAlertSchema,
-            string webhookResourceId)
-        {
-            AutomationAccountId = automationAccountId;
-            IsGlobalRunbook = isGlobalRunbook;
-            Name = name;
-            RunbookName = runbookName;
-            ServiceUri = serviceUri;
-            UseCommonAlertSchema = useCommonAlertSchema;
-            WebhookResourceId = webhookResourceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupAzureAppPushReceivers
-    {
-        /// <summary>
-        /// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
-        /// </summary>
-        public readonly string EmailAddress;
-        /// <summary>
-        /// The name of the Azure app push receiver.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ActionGroupAzureAppPushReceivers(
-            string emailAddress,
-            string name)
-        {
-            EmailAddress = emailAddress;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupAzureFunctionReceivers
-    {
-        public readonly string FunctionAppResourceId;
-        /// <summary>
-        /// The function name in the function app.
-        /// </summary>
-        public readonly string FunctionName;
-        /// <summary>
-        /// The http trigger url where http request sent to.
-        /// </summary>
-        public readonly string HttpTriggerUrl;
-        /// <summary>
-        /// The name of the Azure Function receiver.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        public readonly bool? UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private ActionGroupAzureFunctionReceivers(
-            string functionAppResourceId,
-            string functionName,
-            string httpTriggerUrl,
-            string name,
-            bool? useCommonAlertSchema)
-        {
-            FunctionAppResourceId = functionAppResourceId;
-            FunctionName = functionName;
-            HttpTriggerUrl = httpTriggerUrl;
-            Name = name;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupEmailReceivers
-    {
-        /// <summary>
-        /// The email address of this receiver.
-        /// </summary>
-        public readonly string EmailAddress;
-        /// <summary>
-        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        public readonly bool? UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private ActionGroupEmailReceivers(
-            string emailAddress,
-            string name,
-            bool? useCommonAlertSchema)
-        {
-            EmailAddress = emailAddress;
-            Name = name;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupItsmReceivers
-    {
-        /// <summary>
-        /// The unique connection identifier of the ITSM connection.
-        /// </summary>
-        public readonly string ConnectionId;
-        /// <summary>
-        /// The name of the ITSM receiver.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The region of the workspace.
-        /// </summary>
-        public readonly string Region;
-        /// <summary>
-        /// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-        /// </summary>
-        public readonly string TicketConfiguration;
-        /// <summary>
-        /// The Azure Log Analytics workspace ID where this connection is defined.
-        /// </summary>
-        public readonly string WorkspaceId;
-
-        [OutputConstructor]
-        private ActionGroupItsmReceivers(
-            string connectionId,
-            string name,
-            string region,
-            string ticketConfiguration,
-            string workspaceId)
-        {
-            ConnectionId = connectionId;
-            Name = name;
-            Region = region;
-            TicketConfiguration = ticketConfiguration;
-            WorkspaceId = workspaceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupLogicAppReceivers
-    {
-        /// <summary>
-        /// The callback url where http request sent to.
-        /// </summary>
-        public readonly string CallbackUrl;
-        /// <summary>
-        /// The name of the logic app receiver.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Azure resource ID of the logic app.
-        /// </summary>
-        public readonly string ResourceId;
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        public readonly bool? UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private ActionGroupLogicAppReceivers(
-            string callbackUrl,
-            string name,
-            string resourceId,
-            bool? useCommonAlertSchema)
-        {
-            CallbackUrl = callbackUrl;
-            Name = name;
-            ResourceId = resourceId;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupSmsReceivers
-    {
-        /// <summary>
-        /// The country code of the SMS receiver.
-        /// </summary>
-        public readonly string CountryCode;
-        /// <summary>
-        /// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The phone number of the SMS receiver.
-        /// </summary>
-        public readonly string PhoneNumber;
-
-        [OutputConstructor]
-        private ActionGroupSmsReceivers(
-            string countryCode,
-            string name,
-            string phoneNumber)
-        {
-            CountryCode = countryCode;
-            Name = name;
-            PhoneNumber = phoneNumber;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupVoiceReceivers
-    {
-        /// <summary>
-        /// The country code of the voice receiver.
-        /// </summary>
-        public readonly string CountryCode;
-        /// <summary>
-        /// The name of the voice receiver.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The phone number of the voice receiver.
-        /// </summary>
-        public readonly string PhoneNumber;
-
-        [OutputConstructor]
-        private ActionGroupVoiceReceivers(
-            string countryCode,
-            string name,
-            string phoneNumber)
-        {
-            CountryCode = countryCode;
-            Name = name;
-            PhoneNumber = phoneNumber;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActionGroupWebhookReceivers
-    {
-        /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        public readonly string ServiceUri;
-        /// <summary>
-        /// Enables or disables the common alert schema.
-        /// </summary>
-        public readonly bool? UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private ActionGroupWebhookReceivers(
-            string name,
-            string serviceUri,
-            bool? useCommonAlertSchema)
-        {
-            Name = name;
-            ServiceUri = serviceUri;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
     }
 }

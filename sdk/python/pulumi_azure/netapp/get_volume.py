@@ -87,8 +87,6 @@ def get_volume(account_name=None,name=None,pool_name=None,resource_group_name=No
     """
     Uses this data source to access information about an existing NetApp Volume.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_volume.html.markdown.
-
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.
     :param str name: The name of the NetApp Volume.

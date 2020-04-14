@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Iot
 {
     /// <summary>
     /// Manages an IotHub Device Provisioning Service Certificate. 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_certificate.html.markdown.
     /// </summary>
     public partial class IotHubCertificate : Pulumi.CustomResource
     {
@@ -49,7 +47,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IotHubCertificate(string name, IotHubCertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/iotHubCertificate:IotHubCertificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:iot/iotHubCertificate:IotHubCertificate", name, args ?? new IotHubCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

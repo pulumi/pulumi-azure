@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
  */
-export function getScheduledQueryRulesLog(args: GetScheduledQueryRulesLogArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesLogResult> & GetScheduledQueryRulesLogResult {
+export function getScheduledQueryRulesLog(args: GetScheduledQueryRulesLogArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesLogResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +35,10 @@ export function getScheduledQueryRulesLog(args: GetScheduledQueryRulesLogArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetScheduledQueryRulesLogResult> = pulumi.runtime.invoke("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", {
+    return pulumi.runtime.invoke("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

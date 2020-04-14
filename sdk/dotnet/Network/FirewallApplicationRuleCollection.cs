@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages an Application Rule Collection within an Azure Firewall.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_application_rule_collection.html.markdown.
     /// </summary>
     public partial class FirewallApplicationRuleCollection : Pulumi.CustomResource
     {
@@ -50,7 +48,7 @@ namespace Pulumi.Azure.Network
         /// One or more `rule` blocks as defined below.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.FirewallApplicationRuleCollectionRules>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallApplicationRuleCollectionRule>> Rules { get; private set; } = null!;
 
 
         /// <summary>
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallApplicationRuleCollection(string name, FirewallApplicationRuleCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection", name, args ?? new FirewallApplicationRuleCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -129,14 +127,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rules", required: true)]
-        private InputList<Inputs.FirewallApplicationRuleCollectionRulesArgs>? _rules;
+        private InputList<Inputs.FirewallApplicationRuleCollectionRuleArgs>? _rules;
 
         /// <summary>
         /// One or more `rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FirewallApplicationRuleCollectionRulesArgs> Rules
+        public InputList<Inputs.FirewallApplicationRuleCollectionRuleArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.FirewallApplicationRuleCollectionRulesArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.FirewallApplicationRuleCollectionRuleArgs>());
             set => _rules = value;
         }
 
@@ -178,267 +176,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("rules")]
-        private InputList<Inputs.FirewallApplicationRuleCollectionRulesGetArgs>? _rules;
+        private InputList<Inputs.FirewallApplicationRuleCollectionRuleGetArgs>? _rules;
 
         /// <summary>
         /// One or more `rule` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.FirewallApplicationRuleCollectionRulesGetArgs> Rules
+        public InputList<Inputs.FirewallApplicationRuleCollectionRuleGetArgs> Rules
         {
-            get => _rules ?? (_rules = new InputList<Inputs.FirewallApplicationRuleCollectionRulesGetArgs>());
+            get => _rules ?? (_rules = new InputList<Inputs.FirewallApplicationRuleCollectionRuleGetArgs>());
             set => _rules = value;
         }
 
         public FirewallApplicationRuleCollectionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FirewallApplicationRuleCollectionRulesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a description for the rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("fqdnTags")]
-        private InputList<string>? _fqdnTags;
-
-        /// <summary>
-        /// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
-        /// </summary>
-        public InputList<string> FqdnTags
-        {
-            get => _fqdnTags ?? (_fqdnTags = new InputList<string>());
-            set => _fqdnTags = value;
-        }
-
-        /// <summary>
-        /// Specifies the name of the rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("protocols")]
-        private InputList<FirewallApplicationRuleCollectionRulesProtocolsArgs>? _protocols;
-
-        /// <summary>
-        /// One or more `protocol` blocks as defined below.
-        /// </summary>
-        public InputList<FirewallApplicationRuleCollectionRulesProtocolsArgs> Protocols
-        {
-            get => _protocols ?? (_protocols = new InputList<FirewallApplicationRuleCollectionRulesProtocolsArgs>());
-            set => _protocols = value;
-        }
-
-        [Input("sourceAddresses", required: true)]
-        private InputList<string>? _sourceAddresses;
-
-        /// <summary>
-        /// A list of source IP addresses and/or IP ranges.
-        /// </summary>
-        public InputList<string> SourceAddresses
-        {
-            get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
-            set => _sourceAddresses = value;
-        }
-
-        [Input("targetFqdns")]
-        private InputList<string>? _targetFqdns;
-
-        /// <summary>
-        /// A list of FQDNs.
-        /// </summary>
-        public InputList<string> TargetFqdns
-        {
-            get => _targetFqdns ?? (_targetFqdns = new InputList<string>());
-            set => _targetFqdns = value;
-        }
-
-        public FirewallApplicationRuleCollectionRulesArgs()
-        {
-        }
-    }
-
-    public sealed class FirewallApplicationRuleCollectionRulesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a description for the rule.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        [Input("fqdnTags")]
-        private InputList<string>? _fqdnTags;
-
-        /// <summary>
-        /// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
-        /// </summary>
-        public InputList<string> FqdnTags
-        {
-            get => _fqdnTags ?? (_fqdnTags = new InputList<string>());
-            set => _fqdnTags = value;
-        }
-
-        /// <summary>
-        /// Specifies the name of the rule.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        [Input("protocols")]
-        private InputList<FirewallApplicationRuleCollectionRulesProtocolsGetArgs>? _protocols;
-
-        /// <summary>
-        /// One or more `protocol` blocks as defined below.
-        /// </summary>
-        public InputList<FirewallApplicationRuleCollectionRulesProtocolsGetArgs> Protocols
-        {
-            get => _protocols ?? (_protocols = new InputList<FirewallApplicationRuleCollectionRulesProtocolsGetArgs>());
-            set => _protocols = value;
-        }
-
-        [Input("sourceAddresses", required: true)]
-        private InputList<string>? _sourceAddresses;
-
-        /// <summary>
-        /// A list of source IP addresses and/or IP ranges.
-        /// </summary>
-        public InputList<string> SourceAddresses
-        {
-            get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
-            set => _sourceAddresses = value;
-        }
-
-        [Input("targetFqdns")]
-        private InputList<string>? _targetFqdns;
-
-        /// <summary>
-        /// A list of FQDNs.
-        /// </summary>
-        public InputList<string> TargetFqdns
-        {
-            get => _targetFqdns ?? (_targetFqdns = new InputList<string>());
-            set => _targetFqdns = value;
-        }
-
-        public FirewallApplicationRuleCollectionRulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class FirewallApplicationRuleCollectionRulesProtocolsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specify a port for the connection.
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        /// <summary>
-        /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirewallApplicationRuleCollectionRulesProtocolsArgs()
-        {
-        }
-    }
-
-    public sealed class FirewallApplicationRuleCollectionRulesProtocolsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specify a port for the connection.
-        /// </summary>
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
-        /// <summary>
-        /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public FirewallApplicationRuleCollectionRulesProtocolsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FirewallApplicationRuleCollectionRules
-    {
-        /// <summary>
-        /// Specifies a description for the rule.
-        /// </summary>
-        public readonly string? Description;
-        /// <summary>
-        /// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
-        /// </summary>
-        public readonly ImmutableArray<string> FqdnTags;
-        /// <summary>
-        /// Specifies the name of the rule.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// One or more `protocol` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<FirewallApplicationRuleCollectionRulesProtocols> Protocols;
-        /// <summary>
-        /// A list of source IP addresses and/or IP ranges.
-        /// </summary>
-        public readonly ImmutableArray<string> SourceAddresses;
-        /// <summary>
-        /// A list of FQDNs.
-        /// </summary>
-        public readonly ImmutableArray<string> TargetFqdns;
-
-        [OutputConstructor]
-        private FirewallApplicationRuleCollectionRules(
-            string? description,
-            ImmutableArray<string> fqdnTags,
-            string name,
-            ImmutableArray<FirewallApplicationRuleCollectionRulesProtocols> protocols,
-            ImmutableArray<string> sourceAddresses,
-            ImmutableArray<string> targetFqdns)
-        {
-            Description = description;
-            FqdnTags = fqdnTags;
-            Name = name;
-            Protocols = protocols;
-            SourceAddresses = sourceAddresses;
-            TargetFqdns = targetFqdns;
-        }
-    }
-
-    [OutputType]
-    public sealed class FirewallApplicationRuleCollectionRulesProtocols
-    {
-        /// <summary>
-        /// Specify a port for the connection.
-        /// </summary>
-        public readonly int? Port;
-        /// <summary>
-        /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private FirewallApplicationRuleCollectionRulesProtocols(
-            int? port,
-            string type)
-        {
-            Port = port;
-            Type = type;
-        }
-    }
     }
 }

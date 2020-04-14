@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IotHub Shared Access Policy
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_shared_access_policy.html.markdown.
  */

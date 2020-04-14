@@ -125,7 +125,7 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
     """
     Use this data source to access information about an existing API Management API.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
+
 
 
     :param str api_management_name: The name of the API Management Service in which the API Management API exists.

@@ -72,7 +72,7 @@ def get_certificate(account_name=None,name=None,resource_group_name=None,opts=No
     """
     Use this data source to access information about an existing certificate in a Batch Account.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
+
 
 
     :param str account_name: The name of the Batch account.

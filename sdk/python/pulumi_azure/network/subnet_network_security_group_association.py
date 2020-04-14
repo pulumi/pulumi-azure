@@ -22,7 +22,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         """
         Associates a Network Security Group with a Subnet within a Virtual Network.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

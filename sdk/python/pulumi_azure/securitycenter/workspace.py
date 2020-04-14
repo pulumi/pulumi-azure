@@ -26,7 +26,7 @@ class Workspace(pulumi.CustomResource):
 
         > **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

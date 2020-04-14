@@ -9,19 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Storage
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
-        /// 
-        /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccountBlobContainerSAS.InvokeAsync() instead")]
-        public static Task<GetAccountBlobContainerSASResult> GetAccountBlobContainerSAS(GetAccountBlobContainerSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccountBlobContainerSAS
     {
         /// <summary>
@@ -29,11 +16,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountBlobContainerSASResult> InvokeAsync(GetAccountBlobContainerSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? new GetAccountBlobContainerSASArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountBlobContainerSASArgs : Pulumi.InvokeArgs
     {
@@ -114,6 +103,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
+
     [OutputType]
     public sealed class GetAccountBlobContainerSASResult
     {
@@ -126,6 +116,10 @@ namespace Pulumi.Azure.Storage
         public readonly string? ContentType;
         public readonly string Expiry;
         public readonly bool? HttpsOnly;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string? IpAddress;
         public readonly Outputs.GetAccountBlobContainerSASPermissionsResult Permissions;
         /// <summary>
@@ -133,27 +127,36 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Sas;
         public readonly string Start;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountBlobContainerSASResult(
             string? cacheControl,
+
             string connectionString,
+
             string containerName,
+
             string? contentDisposition,
+
             string? contentEncoding,
+
             string? contentLanguage,
+
             string? contentType,
+
             string expiry,
+
             bool? httpsOnly,
+
+            string id,
+
             string? ipAddress,
+
             Outputs.GetAccountBlobContainerSASPermissionsResult permissions,
+
             string sas,
-            string start,
-            string id)
+
+            string start)
         {
             CacheControl = cacheControl;
             ConnectionString = connectionString;
@@ -164,108 +167,11 @@ namespace Pulumi.Azure.Storage
             ContentType = contentType;
             Expiry = expiry;
             HttpsOnly = httpsOnly;
+            Id = id;
             IpAddress = ipAddress;
             Permissions = permissions;
             Sas = sas;
             Start = start;
-            Id = id;
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class GetAccountBlobContainerSASPermissionsArgs : Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// Should Add permissions be enabled for this SAS?
-        /// </summary>
-        [Input("add", required: true)]
-        public bool Add { get; set; }
-
-        /// <summary>
-        /// Should Create permissions be enabled for this SAS?
-        /// </summary>
-        [Input("create", required: true)]
-        public bool Create { get; set; }
-
-        /// <summary>
-        /// Should Delete permissions be enabled for this SAS?
-        /// </summary>
-        [Input("delete", required: true)]
-        public bool Delete { get; set; }
-
-        /// <summary>
-        /// Should List permissions be enabled for this SAS?
-        /// </summary>
-        [Input("list", required: true)]
-        public bool List { get; set; }
-
-        /// <summary>
-        /// Should Read permissions be enabled for this SAS?
-        /// </summary>
-        [Input("read", required: true)]
-        public bool Read { get; set; }
-
-        /// <summary>
-        /// Should Write permissions be enabled for this SAS?
-        /// </summary>
-        [Input("write", required: true)]
-        public bool Write { get; set; }
-
-        public GetAccountBlobContainerSASPermissionsArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAccountBlobContainerSASPermissionsResult
-    {
-        /// <summary>
-        /// Should Add permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Add;
-        /// <summary>
-        /// Should Create permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Create;
-        /// <summary>
-        /// Should Delete permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Delete;
-        /// <summary>
-        /// Should List permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool List;
-        /// <summary>
-        /// Should Read permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Read;
-        /// <summary>
-        /// Should Write permissions be enabled for this SAS?
-        /// </summary>
-        public readonly bool Write;
-
-        [OutputConstructor]
-        private GetAccountBlobContainerSASPermissionsResult(
-            bool add,
-            bool create,
-            bool delete,
-            bool list,
-            bool read,
-            bool write)
-        {
-            Add = add;
-            Create = create;
-            Delete = delete;
-            List = list;
-            Read = read;
-            Write = write;
-        }
-    }
     }
 }

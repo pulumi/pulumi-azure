@@ -12,6 +12,7 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Cache.
     /// 
+    /// 
     /// ## Default Redis Configuration Values
     /// 
     /// | Redis Value                     | Basic        | Standard     | Premium      |
@@ -38,8 +39,6 @@ namespace Pulumi.Azure.Redis
     /// 
     ///  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
     ///  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
     /// </summary>
     public partial class Cache : Pulumi.CustomResource
     {
@@ -90,7 +89,7 @@ namespace Pulumi.Azure.Redis
         /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         /// </summary>
         [Output("patchSchedules")]
-        public Output<ImmutableArray<Outputs.CachePatchSchedules>> PatchSchedules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CachePatchSchedule>> PatchSchedules { get; private set; } = null!;
 
         /// <summary>
         /// The non-SSL Port of the Redis Instance
@@ -186,7 +185,7 @@ namespace Pulumi.Azure.Redis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cache(string name, CacheArgs args, CustomResourceOptions? options = null)
-            : base("azure:redis/cache:Cache", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:redis/cache:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -261,14 +260,14 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Name { get; set; }
 
         [Input("patchSchedules")]
-        private InputList<Inputs.CachePatchSchedulesArgs>? _patchSchedules;
+        private InputList<Inputs.CachePatchScheduleArgs>? _patchSchedules;
 
         /// <summary>
         /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         /// </summary>
-        public InputList<Inputs.CachePatchSchedulesArgs> PatchSchedules
+        public InputList<Inputs.CachePatchScheduleArgs> PatchSchedules
         {
-            get => _patchSchedules ?? (_patchSchedules = new InputList<Inputs.CachePatchSchedulesArgs>());
+            get => _patchSchedules ?? (_patchSchedules = new InputList<Inputs.CachePatchScheduleArgs>());
             set => _patchSchedules = value;
         }
 
@@ -378,14 +377,14 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Name { get; set; }
 
         [Input("patchSchedules")]
-        private InputList<Inputs.CachePatchSchedulesGetArgs>? _patchSchedules;
+        private InputList<Inputs.CachePatchScheduleGetArgs>? _patchSchedules;
 
         /// <summary>
         /// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         /// </summary>
-        public InputList<Inputs.CachePatchSchedulesGetArgs> PatchSchedules
+        public InputList<Inputs.CachePatchScheduleGetArgs> PatchSchedules
         {
-            get => _patchSchedules ?? (_patchSchedules = new InputList<Inputs.CachePatchSchedulesGetArgs>());
+            get => _patchSchedules ?? (_patchSchedules = new InputList<Inputs.CachePatchScheduleGetArgs>());
             set => _patchSchedules = value;
         }
 
@@ -483,304 +482,5 @@ namespace Pulumi.Azure.Redis
         public CacheState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CachePatchSchedulesArgs : Pulumi.ResourceArgs
-    {
-        [Input("dayOfWeek", required: true)]
-        public Input<string> DayOfWeek { get; set; } = null!;
-
-        [Input("startHourUtc")]
-        public Input<int>? StartHourUtc { get; set; }
-
-        public CachePatchSchedulesArgs()
-        {
-        }
-    }
-
-    public sealed class CachePatchSchedulesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("dayOfWeek", required: true)]
-        public Input<string> DayOfWeek { get; set; } = null!;
-
-        [Input("startHourUtc")]
-        public Input<int>? StartHourUtc { get; set; }
-
-        public CachePatchSchedulesGetArgs()
-        {
-        }
-    }
-
-    public sealed class CacheRedisConfigurationArgs : Pulumi.ResourceArgs
-    {
-        [Input("aofBackupEnabled")]
-        public Input<bool>? AofBackupEnabled { get; set; }
-
-        [Input("aofStorageConnectionString0")]
-        public Input<string>? AofStorageConnectionString0 { get; set; }
-
-        [Input("aofStorageConnectionString1")]
-        public Input<string>? AofStorageConnectionString1 { get; set; }
-
-        /// <summary>
-        /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-        /// </summary>
-        [Input("enableAuthentication")]
-        public Input<bool>? EnableAuthentication { get; set; }
-
-        /// <summary>
-        /// Returns the max number of connected clients at the same time.
-        /// </summary>
-        [Input("maxclients")]
-        public Input<int>? Maxclients { get; set; }
-
-        /// <summary>
-        /// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
-        /// </summary>
-        [Input("maxfragmentationmemoryReserved")]
-        public Input<int>? MaxfragmentationmemoryReserved { get; set; }
-
-        /// <summary>
-        /// The max-memory delta for this Redis instance. Defaults are shown below.
-        /// </summary>
-        [Input("maxmemoryDelta")]
-        public Input<int>? MaxmemoryDelta { get; set; }
-
-        /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
-        /// </summary>
-        [Input("maxmemoryPolicy")]
-        public Input<string>? MaxmemoryPolicy { get; set; }
-
-        /// <summary>
-        /// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
-        /// </summary>
-        [Input("maxmemoryReserved")]
-        public Input<int>? MaxmemoryReserved { get; set; }
-
-        /// <summary>
-        /// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        /// </summary>
-        [Input("notifyKeyspaceEvents")]
-        public Input<string>? NotifyKeyspaceEvents { get; set; }
-
-        /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKU's.
-        /// </summary>
-        [Input("rdbBackupEnabled")]
-        public Input<bool>? RdbBackupEnabled { get; set; }
-
-        /// <summary>
-        /// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        /// </summary>
-        [Input("rdbBackupFrequency")]
-        public Input<int>? RdbBackupFrequency { get; set; }
-
-        /// <summary>
-        /// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
-        /// </summary>
-        [Input("rdbBackupMaxSnapshotCount")]
-        public Input<int>? RdbBackupMaxSnapshotCount { get; set; }
-
-        /// <summary>
-        /// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
-        /// </summary>
-        [Input("rdbStorageConnectionString")]
-        public Input<string>? RdbStorageConnectionString { get; set; }
-
-        public CacheRedisConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class CacheRedisConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("aofBackupEnabled")]
-        public Input<bool>? AofBackupEnabled { get; set; }
-
-        [Input("aofStorageConnectionString0")]
-        public Input<string>? AofStorageConnectionString0 { get; set; }
-
-        [Input("aofStorageConnectionString1")]
-        public Input<string>? AofStorageConnectionString1 { get; set; }
-
-        /// <summary>
-        /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-        /// </summary>
-        [Input("enableAuthentication")]
-        public Input<bool>? EnableAuthentication { get; set; }
-
-        /// <summary>
-        /// Returns the max number of connected clients at the same time.
-        /// </summary>
-        [Input("maxclients")]
-        public Input<int>? Maxclients { get; set; }
-
-        /// <summary>
-        /// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
-        /// </summary>
-        [Input("maxfragmentationmemoryReserved")]
-        public Input<int>? MaxfragmentationmemoryReserved { get; set; }
-
-        /// <summary>
-        /// The max-memory delta for this Redis instance. Defaults are shown below.
-        /// </summary>
-        [Input("maxmemoryDelta")]
-        public Input<int>? MaxmemoryDelta { get; set; }
-
-        /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
-        /// </summary>
-        [Input("maxmemoryPolicy")]
-        public Input<string>? MaxmemoryPolicy { get; set; }
-
-        /// <summary>
-        /// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
-        /// </summary>
-        [Input("maxmemoryReserved")]
-        public Input<int>? MaxmemoryReserved { get; set; }
-
-        /// <summary>
-        /// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        /// </summary>
-        [Input("notifyKeyspaceEvents")]
-        public Input<string>? NotifyKeyspaceEvents { get; set; }
-
-        /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKU's.
-        /// </summary>
-        [Input("rdbBackupEnabled")]
-        public Input<bool>? RdbBackupEnabled { get; set; }
-
-        /// <summary>
-        /// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        /// </summary>
-        [Input("rdbBackupFrequency")]
-        public Input<int>? RdbBackupFrequency { get; set; }
-
-        /// <summary>
-        /// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
-        /// </summary>
-        [Input("rdbBackupMaxSnapshotCount")]
-        public Input<int>? RdbBackupMaxSnapshotCount { get; set; }
-
-        /// <summary>
-        /// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
-        /// </summary>
-        [Input("rdbStorageConnectionString")]
-        public Input<string>? RdbStorageConnectionString { get; set; }
-
-        public CacheRedisConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CachePatchSchedules
-    {
-        public readonly string DayOfWeek;
-        public readonly int? StartHourUtc;
-
-        [OutputConstructor]
-        private CachePatchSchedules(
-            string dayOfWeek,
-            int? startHourUtc)
-        {
-            DayOfWeek = dayOfWeek;
-            StartHourUtc = startHourUtc;
-        }
-    }
-
-    [OutputType]
-    public sealed class CacheRedisConfiguration
-    {
-        public readonly bool? AofBackupEnabled;
-        public readonly string? AofStorageConnectionString0;
-        public readonly string? AofStorageConnectionString1;
-        /// <summary>
-        /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-        /// </summary>
-        public readonly bool? EnableAuthentication;
-        /// <summary>
-        /// Returns the max number of connected clients at the same time.
-        /// </summary>
-        public readonly int Maxclients;
-        /// <summary>
-        /// Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
-        /// </summary>
-        public readonly int MaxfragmentationmemoryReserved;
-        /// <summary>
-        /// The max-memory delta for this Redis instance. Defaults are shown below.
-        /// </summary>
-        public readonly int MaxmemoryDelta;
-        /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
-        /// </summary>
-        public readonly string? MaxmemoryPolicy;
-        /// <summary>
-        /// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
-        /// </summary>
-        public readonly int MaxmemoryReserved;
-        /// <summary>
-        /// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        /// </summary>
-        public readonly string? NotifyKeyspaceEvents;
-        /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKU's.
-        /// </summary>
-        public readonly bool? RdbBackupEnabled;
-        /// <summary>
-        /// The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        /// </summary>
-        public readonly int? RdbBackupFrequency;
-        /// <summary>
-        /// The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
-        /// </summary>
-        public readonly int? RdbBackupMaxSnapshotCount;
-        /// <summary>
-        /// The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
-        /// </summary>
-        public readonly string? RdbStorageConnectionString;
-
-        [OutputConstructor]
-        private CacheRedisConfiguration(
-            bool? aofBackupEnabled,
-            string? aofStorageConnectionString0,
-            string? aofStorageConnectionString1,
-            bool? enableAuthentication,
-            int maxclients,
-            int maxfragmentationmemoryReserved,
-            int maxmemoryDelta,
-            string? maxmemoryPolicy,
-            int maxmemoryReserved,
-            string? notifyKeyspaceEvents,
-            bool? rdbBackupEnabled,
-            int? rdbBackupFrequency,
-            int? rdbBackupMaxSnapshotCount,
-            string? rdbStorageConnectionString)
-        {
-            AofBackupEnabled = aofBackupEnabled;
-            AofStorageConnectionString0 = aofStorageConnectionString0;
-            AofStorageConnectionString1 = aofStorageConnectionString1;
-            EnableAuthentication = enableAuthentication;
-            Maxclients = maxclients;
-            MaxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
-            MaxmemoryDelta = maxmemoryDelta;
-            MaxmemoryPolicy = maxmemoryPolicy;
-            MaxmemoryReserved = maxmemoryReserved;
-            NotifyKeyspaceEvents = notifyKeyspaceEvents;
-            RdbBackupEnabled = rdbBackupEnabled;
-            RdbBackupFrequency = rdbBackupFrequency;
-            RdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
-            RdbStorageConnectionString = rdbStorageConnectionString;
-        }
-    }
     }
 }

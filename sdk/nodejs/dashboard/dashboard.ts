@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a shared dashboard in the Azure Portal.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dashboard.html.markdown.
  */

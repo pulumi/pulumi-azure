@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS A Records within Azure DNS.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_a_record.html.markdown.
  */

@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the configuration of the AzureRM provider.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/client_config.html.markdown.
  */
-export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> & GetClientConfigResult {
+export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,10 +20,8 @@ export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientC
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetClientConfigResult> = pulumi.runtime.invoke("azure:core/getClientConfig:getClientConfig", {
+    return pulumi.runtime.invoke("azure:core/getClientConfig:getClientConfig", {
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Storage
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Storage Account.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetAccount.InvokeAsync() instead")]
-        public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetAccount
     {
         /// <summary>
         /// Use this data source to access information about an existing Storage Account.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
     }
+
 
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
@@ -49,6 +40,7 @@ namespace Pulumi.Azure.Storage
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetAccountResult
@@ -72,12 +64,16 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetAccountCustomDomainsResult> CustomDomains;
+        public readonly ImmutableArray<Outputs.GetAccountCustomDomainResult> CustomDomains;
         /// <summary>
         /// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
         /// for more information.
         /// </summary>
         public readonly bool EnableHttpsTrafficOnly;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Is Hierarchical Namespace enabled?
         /// </summary>
@@ -223,57 +219,96 @@ namespace Pulumi.Azure.Storage
         /// A mapping of tags to assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetAccountResult(
             string accessTier,
+
             string accountKind,
+
             string accountReplicationType,
+
             string accountTier,
-            ImmutableArray<Outputs.GetAccountCustomDomainsResult> customDomains,
+
+            ImmutableArray<Outputs.GetAccountCustomDomainResult> customDomains,
+
             bool enableHttpsTrafficOnly,
+
+            string id,
+
             bool isHnsEnabled,
+
             string location,
+
             string name,
+
             string primaryAccessKey,
+
             string primaryBlobConnectionString,
+
             string primaryBlobEndpoint,
+
             string primaryBlobHost,
+
             string primaryConnectionString,
+
             string primaryDfsEndpoint,
+
             string primaryDfsHost,
+
             string primaryFileEndpoint,
+
             string primaryFileHost,
+
             string primaryLocation,
+
             string primaryQueueEndpoint,
+
             string primaryQueueHost,
+
             string primaryTableEndpoint,
+
             string primaryTableHost,
+
             string primaryWebEndpoint,
+
             string primaryWebHost,
+
             string resourceGroupName,
+
             string secondaryAccessKey,
+
             string secondaryBlobConnectionString,
+
             string secondaryBlobEndpoint,
+
             string secondaryBlobHost,
+
             string secondaryConnectionString,
+
             string secondaryDfsEndpoint,
+
             string secondaryDfsHost,
+
             string secondaryFileEndpoint,
+
             string secondaryFileHost,
+
             string secondaryLocation,
+
             string secondaryQueueEndpoint,
+
             string secondaryQueueHost,
+
             string secondaryTableEndpoint,
+
             string secondaryTableHost,
+
             string secondaryWebEndpoint,
+
             string secondaryWebHost,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             AccessTier = accessTier;
             AccountKind = accountKind;
@@ -281,6 +316,7 @@ namespace Pulumi.Azure.Storage
             AccountTier = accountTier;
             CustomDomains = customDomains;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
+            Id = id;
             IsHnsEnabled = isHnsEnabled;
             Location = location;
             Name = name;
@@ -318,26 +354,6 @@ namespace Pulumi.Azure.Storage
             SecondaryWebEndpoint = secondaryWebEndpoint;
             SecondaryWebHost = secondaryWebHost;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetAccountCustomDomainsResult
-    {
-        /// <summary>
-        /// Specifies the name of the Storage Account
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetAccountCustomDomainsResult(string name)
-        {
-            Name = name;
-        }
-    }
     }
 }

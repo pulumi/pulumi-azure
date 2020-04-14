@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Storage
 {
     /// <summary>
     /// Manages a Blob within a Storage Container.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
     /// </summary>
     public partial class Blob : Pulumi.CustomResource
     {
@@ -105,7 +103,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Blob(string name, BlobArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/blob:Blob", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/blob:Blob", name, args ?? new BlobArgs(), MakeResourceOptions(options, ""))
         {
         }
 

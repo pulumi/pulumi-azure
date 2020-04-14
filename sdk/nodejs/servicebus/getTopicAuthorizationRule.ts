@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -27,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_topic_authorization_rule.html.markdown.
  */
-export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> & GetTopicAuthorizationRuleResult {
+export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,14 +37,12 @@ export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, o
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetTopicAuthorizationRuleResult> = pulumi.runtime.invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", {
+    return pulumi.runtime.invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

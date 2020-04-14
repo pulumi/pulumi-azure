@@ -54,7 +54,7 @@ class Store(pulumi.CustomResource):
         """
         Manages an Azure Data Lake Store.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

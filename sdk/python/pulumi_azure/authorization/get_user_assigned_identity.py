@@ -68,8 +68,6 @@ def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing User Assigned Identity.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
-
 
     :param str name: The name of the User Assigned Identity.
     :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.

@@ -82,7 +82,7 @@ class Database(pulumi.CustomResource):
         """
         Manages a MS SQL Database.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_database.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

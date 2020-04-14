@@ -72,7 +72,7 @@ def get_group(api_management_name=None,name=None,resource_group_name=None,opts=N
     """
     Use this data source to access information about an existing API Management Group.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
+
 
 
     :param str api_management_name: The Name of the API Management Service in which this Group exists.

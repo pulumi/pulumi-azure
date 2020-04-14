@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Public IP Address.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPublicIP.InvokeAsync() instead")]
-        public static Task<GetPublicIPResult> GetPublicIP(GetPublicIPArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPublicIP
     {
         /// <summary>
         /// Use this data source to access information about an existing Public IP Address.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
         /// </summary>
         public static Task<GetPublicIPResult> InvokeAsync(GetPublicIPArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPublicIPArgs : Pulumi.InvokeArgs
     {
@@ -70,6 +58,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetPublicIPResult
     {
@@ -82,6 +71,10 @@ namespace Pulumi.Azure.Network
         /// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         /// </summary>
         public readonly string Fqdn;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// Specifies the timeout for the TCP idle connection.
         /// </summary>
@@ -104,31 +97,41 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly ImmutableArray<string> Zones;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPublicIPResult(
             string allocationMethod,
+
             string domainNameLabel,
+
             string fqdn,
+
+            string id,
+
             int idleTimeoutInMinutes,
+
             string ipAddress,
+
             string ipVersion,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string reverseFqdn,
+
             string sku,
+
             ImmutableDictionary<string, string>? tags,
-            ImmutableArray<string> zones,
-            string id)
+
+            ImmutableArray<string> zones)
         {
             AllocationMethod = allocationMethod;
             DomainNameLabel = domainNameLabel;
             Fqdn = fqdn;
+            Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpAddress = ipAddress;
             IpVersion = ipVersion;
@@ -139,7 +142,6 @@ namespace Pulumi.Azure.Network
             Sku = sku;
             Tags = tags;
             Zones = zones;
-            Id = id;
         }
     }
 }

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Traffic Manager Profile to which multiple endpoints can be attached.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
  */

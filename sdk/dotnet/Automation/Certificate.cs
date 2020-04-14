@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages an Automation Certificate.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -64,7 +62,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:automation/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Bot
 {
     /// <summary>
     /// Manages a Bot Connection.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_connection.markdown.
     /// </summary>
     public partial class Connection : Pulumi.CustomResource
     {
@@ -85,7 +83,7 @@ namespace Pulumi.Azure.Bot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:bot/connection:Connection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:bot/connection:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

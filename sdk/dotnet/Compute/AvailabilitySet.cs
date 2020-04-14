@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages an Availability Set for Virtual Machines.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/availability_set.html.markdown.
     /// </summary>
     public partial class AvailabilitySet : Pulumi.CustomResource
     {
@@ -73,7 +71,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AvailabilitySet(string name, AvailabilitySetArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/availabilitySet:AvailabilitySet", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/availabilitySet:AvailabilitySet", name, args ?? new AvailabilitySetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

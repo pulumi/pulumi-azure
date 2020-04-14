@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * Manages a virtual network peering which allows resources to access other
  * resources in the linked virtual network.
  * 
+ * 
  * ## Note
  * 
  * Virtual Network peerings cannot be created, updated or deleted concurrently.

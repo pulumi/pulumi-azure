@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Public IP Prefix.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPublicIpPrefix.InvokeAsync() instead")]
-        public static Task<GetPublicIpPrefixResult> GetPublicIpPrefix(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPublicIpPrefix
     {
         /// <summary>
         /// Use this data source to access information about an existing Public IP Prefix.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
         /// </summary>
         public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPublicIpPrefixArgs : Pulumi.InvokeArgs
     {
@@ -58,9 +46,14 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetPublicIpPrefixResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string IpPrefix;
         /// <summary>
         /// The supported Azure location where the resource exists.
@@ -87,23 +80,28 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> Zones;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPublicIpPrefixResult(
+            string id,
+
             string ipPrefix,
+
             string location,
+
             string name,
+
             int prefixLength,
+
             string resourceGroupName,
+
             string sku,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<string> zones,
-            string id)
+
+            ImmutableArray<string> zones)
         {
+            Id = id;
             IpPrefix = ipPrefix;
             Location = location;
             Name = name;
@@ -112,7 +110,6 @@ namespace Pulumi.Azure.Network
             Sku = sku;
             Tags = tags;
             Zones = zones;
-            Id = id;
         }
     }
 }

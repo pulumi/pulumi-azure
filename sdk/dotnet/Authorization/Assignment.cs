@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Authorization
 {
     /// <summary>
     /// Assigns a given Principal (User or Application) to a given Role.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
     /// </summary>
     public partial class Assignment : Pulumi.CustomResource
     {
@@ -67,7 +65,7 @@ namespace Pulumi.Azure.Authorization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure:authorization/assignment:Assignment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:authorization/assignment:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -80,7 +78,7 @@ namespace Pulumi.Azure.Authorization
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:role/assignment:Assignment" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:role/assignment:Assignment"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

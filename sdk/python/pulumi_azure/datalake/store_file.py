@@ -29,7 +29,7 @@ class StoreFile(pulumi.CustomResource):
         > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
         taint the resource so the `datalake.StoreFile` gets recreated with the new data.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

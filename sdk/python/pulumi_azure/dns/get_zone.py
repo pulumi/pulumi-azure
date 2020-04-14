@@ -68,7 +68,7 @@ def get_zone(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing DNS Zone.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
+
 
 
     :param str name: The name of the DNS Zone.

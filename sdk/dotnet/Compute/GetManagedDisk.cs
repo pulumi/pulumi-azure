@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Managed Disk.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetManagedDisk.InvokeAsync() instead")]
-        public static Task<GetManagedDiskResult> GetManagedDisk(GetManagedDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetManagedDisk
     {
         /// <summary>
         /// Use this data source to access information about an existing Managed Disk.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedDiskResult> InvokeAsync(GetManagedDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskArgs(), options.WithVersion());
     }
+
 
     public sealed class GetManagedDiskArgs : Pulumi.InvokeArgs
     {
@@ -74,6 +65,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetManagedDiskResult
     {
@@ -94,6 +86,10 @@ namespace Pulumi.Azure.Compute
         /// The size of the Managed Disk in gigabytes.
         /// </summary>
         public readonly int DiskSizeGb;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The operating system used for this Managed Disk.
@@ -124,34 +120,45 @@ namespace Pulumi.Azure.Compute
         /// A list of Availability Zones where the Managed Disk exists.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetManagedDiskResult(
             string createOption,
+
             string diskEncryptionSetId,
+
             int diskIopsReadWrite,
+
             int diskMbpsReadWrite,
+
             int diskSizeGb,
+
+            string id,
+
             string name,
+
             string osType,
+
             string resourceGroupName,
+
             string sourceResourceId,
+
             string sourceUri,
+
             string storageAccountId,
+
             string storageAccountType,
+
             ImmutableDictionary<string, string>? tags,
-            ImmutableArray<string> zones,
-            string id)
+
+            ImmutableArray<string> zones)
         {
             CreateOption = createOption;
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskIopsReadWrite = diskIopsReadWrite;
             DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
+            Id = id;
             Name = name;
             OsType = osType;
             ResourceGroupName = resourceGroupName;
@@ -161,7 +168,6 @@ namespace Pulumi.Azure.Compute
             StorageAccountType = storageAccountType;
             Tags = tags;
             Zones = zones;
-            Id = id;
         }
     }
 }

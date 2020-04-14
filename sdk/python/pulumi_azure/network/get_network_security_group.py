@@ -64,7 +64,7 @@ def get_network_security_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Network Security Group.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_security_group.html.markdown.
+
 
 
     :param str name: Specifies the Name of the Network Security Group.

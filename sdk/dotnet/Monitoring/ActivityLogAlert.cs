@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages an Activity Log Alert within Azure Monitor.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
     /// </summary>
     public partial class ActivityLogAlert : Pulumi.CustomResource
     {
@@ -20,7 +18,7 @@ namespace Pulumi.Azure.Monitoring
         /// One or more `action` blocks as defined below.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.ActivityLogAlertActions>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActivityLogAlertAction>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// A `criteria` block as defined below.
@@ -73,7 +71,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ActivityLogAlert(string name, ActivityLogAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/activityLogAlert:ActivityLogAlert", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/activityLogAlert:ActivityLogAlert", name, args ?? new ActivityLogAlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -111,14 +109,14 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActivityLogAlertArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.ActivityLogAlertActionsArgs>? _actions;
+        private InputList<Inputs.ActivityLogAlertActionArgs>? _actions;
 
         /// <summary>
         /// One or more `action` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActivityLogAlertActionsArgs> Actions
+        public InputList<Inputs.ActivityLogAlertActionArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.ActivityLogAlertActionsArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.ActivityLogAlertActionArgs>());
             set => _actions = value;
         }
 
@@ -184,14 +182,14 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ActivityLogAlertState : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.ActivityLogAlertActionsGetArgs>? _actions;
+        private InputList<Inputs.ActivityLogAlertActionGetArgs>? _actions;
 
         /// <summary>
         /// One or more `action` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ActivityLogAlertActionsGetArgs> Actions
+        public InputList<Inputs.ActivityLogAlertActionGetArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.ActivityLogAlertActionsGetArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.ActivityLogAlertActionGetArgs>());
             set => _actions = value;
         }
 
@@ -252,289 +250,5 @@ namespace Pulumi.Azure.Monitoring
         public ActivityLogAlertState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ActivityLogAlertActionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
-        /// </summary>
-        [Input("actionGroupId", required: true)]
-        public Input<string> ActionGroupId { get; set; } = null!;
-
-        [Input("webhookProperties")]
-        private InputMap<string>? _webhookProperties;
-
-        /// <summary>
-        /// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-        /// </summary>
-        public InputMap<string> WebhookProperties
-        {
-            get => _webhookProperties ?? (_webhookProperties = new InputMap<string>());
-            set => _webhookProperties = value;
-        }
-
-        public ActivityLogAlertActionsArgs()
-        {
-        }
-    }
-
-    public sealed class ActivityLogAlertActionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
-        /// </summary>
-        [Input("actionGroupId", required: true)]
-        public Input<string> ActionGroupId { get; set; } = null!;
-
-        [Input("webhookProperties")]
-        private InputMap<string>? _webhookProperties;
-
-        /// <summary>
-        /// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-        /// </summary>
-        public InputMap<string> WebhookProperties
-        {
-            get => _webhookProperties ?? (_webhookProperties = new InputMap<string>());
-            set => _webhookProperties = value;
-        }
-
-        public ActivityLogAlertActionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class ActivityLogAlertCriteriaArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email address or Azure Active Directory identifier of the user who performed the operation.
-        /// </summary>
-        [Input("caller")]
-        public Input<string>? Caller { get; set; }
-
-        /// <summary>
-        /// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
-        /// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
-        /// </summary>
-        [Input("level")]
-        public Input<string>? Level { get; set; }
-
-        /// <summary>
-        /// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
-        /// </summary>
-        [Input("operationName")]
-        public Input<string>? OperationName { get; set; }
-
-        /// <summary>
-        /// The name of resource group monitored by the activity log alert.
-        /// </summary>
-        [Input("resourceGroup")]
-        public Input<string>? ResourceGroup { get; set; }
-
-        /// <summary>
-        /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
-
-        /// <summary>
-        /// The name of the resource provider monitored by the activity log alert.
-        /// </summary>
-        [Input("resourceProvider")]
-        public Input<string>? ResourceProvider { get; set; }
-
-        /// <summary>
-        /// The resource type monitored by the activity log alert.
-        /// </summary>
-        [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
-
-        /// <summary>
-        /// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        /// <summary>
-        /// The sub status of the event.
-        /// </summary>
-        [Input("subStatus")]
-        public Input<string>? SubStatus { get; set; }
-
-        public ActivityLogAlertCriteriaArgs()
-        {
-        }
-    }
-
-    public sealed class ActivityLogAlertCriteriaGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The email address or Azure Active Directory identifier of the user who performed the operation.
-        /// </summary>
-        [Input("caller")]
-        public Input<string>? Caller { get; set; }
-
-        /// <summary>
-        /// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
-        /// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
-        /// </summary>
-        [Input("level")]
-        public Input<string>? Level { get; set; }
-
-        /// <summary>
-        /// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
-        /// </summary>
-        [Input("operationName")]
-        public Input<string>? OperationName { get; set; }
-
-        /// <summary>
-        /// The name of resource group monitored by the activity log alert.
-        /// </summary>
-        [Input("resourceGroup")]
-        public Input<string>? ResourceGroup { get; set; }
-
-        /// <summary>
-        /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
-
-        /// <summary>
-        /// The name of the resource provider monitored by the activity log alert.
-        /// </summary>
-        [Input("resourceProvider")]
-        public Input<string>? ResourceProvider { get; set; }
-
-        /// <summary>
-        /// The resource type monitored by the activity log alert.
-        /// </summary>
-        [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
-
-        /// <summary>
-        /// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        /// <summary>
-        /// The sub status of the event.
-        /// </summary>
-        [Input("subStatus")]
-        public Input<string>? SubStatus { get; set; }
-
-        public ActivityLogAlertCriteriaGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ActivityLogAlertActions
-    {
-        /// <summary>
-        /// The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
-        /// </summary>
-        public readonly string ActionGroupId;
-        /// <summary>
-        /// The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? WebhookProperties;
-
-        [OutputConstructor]
-        private ActivityLogAlertActions(
-            string actionGroupId,
-            ImmutableDictionary<string, string>? webhookProperties)
-        {
-            ActionGroupId = actionGroupId;
-            WebhookProperties = webhookProperties;
-        }
-    }
-
-    [OutputType]
-    public sealed class ActivityLogAlertCriteria
-    {
-        /// <summary>
-        /// The email address or Azure Active Directory identifier of the user who performed the operation.
-        /// </summary>
-        public readonly string? Caller;
-        /// <summary>
-        /// The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-        /// </summary>
-        public readonly string Category;
-        /// <summary>
-        /// The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
-        /// </summary>
-        public readonly string? Level;
-        /// <summary>
-        /// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
-        /// </summary>
-        public readonly string? OperationName;
-        /// <summary>
-        /// The name of resource group monitored by the activity log alert.
-        /// </summary>
-        public readonly string? ResourceGroup;
-        /// <summary>
-        /// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
-        /// </summary>
-        public readonly string? ResourceId;
-        /// <summary>
-        /// The name of the resource provider monitored by the activity log alert.
-        /// </summary>
-        public readonly string? ResourceProvider;
-        /// <summary>
-        /// The resource type monitored by the activity log alert.
-        /// </summary>
-        public readonly string? ResourceType;
-        /// <summary>
-        /// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
-        /// </summary>
-        public readonly string? Status;
-        /// <summary>
-        /// The sub status of the event.
-        /// </summary>
-        public readonly string? SubStatus;
-
-        [OutputConstructor]
-        private ActivityLogAlertCriteria(
-            string? caller,
-            string category,
-            string? level,
-            string? operationName,
-            string? resourceGroup,
-            string? resourceId,
-            string? resourceProvider,
-            string? resourceType,
-            string? status,
-            string? subStatus)
-        {
-            Caller = caller;
-            Category = category;
-            Level = level;
-            OperationName = operationName;
-            ResourceGroup = resourceGroup;
-            ResourceId = resourceId;
-            ResourceProvider = resourceProvider;
-            ResourceType = resourceType;
-            Status = status;
-            SubStatus = subStatus;
-        }
-    }
     }
 }

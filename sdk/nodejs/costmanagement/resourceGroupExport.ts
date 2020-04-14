@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Cost Management Export for a Resource Group.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cost_management_export_resource_group.html.markdown.
  */

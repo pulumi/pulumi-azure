@@ -13,10 +13,11 @@ import * as utilities from "../utilities";
  * 
  * Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
  * and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
  */
-export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> & GetAccountSASResult {
+export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
     if (!opts) {
         opts = {}
     }
@@ -24,7 +25,7 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAccountSASResult> = pulumi.runtime.invoke("azure:storage/getAccountSAS:getAccountSAS", {
+    return pulumi.runtime.invoke("azure:storage/getAccountSAS:getAccountSAS", {
         "connectionString": args.connectionString,
         "expiry": args.expiry,
         "httpsOnly": args.httpsOnly,
@@ -33,8 +34,6 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
         "services": args.services,
         "start": args.start,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

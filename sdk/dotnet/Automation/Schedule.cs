@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation Schedule.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource
     {
@@ -56,7 +54,7 @@ namespace Pulumi.Azure.Automation
         /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
         [Output("monthlyOccurrences")]
-        public Output<ImmutableArray<Outputs.ScheduleMonthlyOccurrences>> MonthlyOccurrences { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ScheduleMonthlyOccurrence>> MonthlyOccurrences { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Schedule. Changing this forces a new resource to be created.
@@ -97,7 +95,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schedule(string name, ScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/schedule:Schedule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:automation/schedule:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -177,14 +175,14 @@ namespace Pulumi.Azure.Automation
         }
 
         [Input("monthlyOccurrences")]
-        private InputList<Inputs.ScheduleMonthlyOccurrencesArgs>? _monthlyOccurrences;
+        private InputList<Inputs.ScheduleMonthlyOccurrenceArgs>? _monthlyOccurrences;
 
         /// <summary>
         /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.ScheduleMonthlyOccurrencesArgs> MonthlyOccurrences
+        public InputList<Inputs.ScheduleMonthlyOccurrenceArgs> MonthlyOccurrences
         {
-            get => _monthlyOccurrences ?? (_monthlyOccurrences = new InputList<Inputs.ScheduleMonthlyOccurrencesArgs>());
+            get => _monthlyOccurrences ?? (_monthlyOccurrences = new InputList<Inputs.ScheduleMonthlyOccurrenceArgs>());
             set => _monthlyOccurrences = value;
         }
 
@@ -274,14 +272,14 @@ namespace Pulumi.Azure.Automation
         }
 
         [Input("monthlyOccurrences")]
-        private InputList<Inputs.ScheduleMonthlyOccurrencesGetArgs>? _monthlyOccurrences;
+        private InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs>? _monthlyOccurrences;
 
         /// <summary>
         /// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.ScheduleMonthlyOccurrencesGetArgs> MonthlyOccurrences
+        public InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs> MonthlyOccurrences
         {
-            get => _monthlyOccurrences ?? (_monthlyOccurrences = new InputList<Inputs.ScheduleMonthlyOccurrencesGetArgs>());
+            get => _monthlyOccurrences ?? (_monthlyOccurrences = new InputList<Inputs.ScheduleMonthlyOccurrenceGetArgs>());
             set => _monthlyOccurrences = value;
         }
 
@@ -324,73 +322,5 @@ namespace Pulumi.Azure.Automation
         public ScheduleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ScheduleMonthlyOccurrencesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
-        /// </summary>
-        [Input("day", required: true)]
-        public Input<string> Day { get; set; } = null!;
-
-        /// <summary>
-        /// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
-        /// </summary>
-        [Input("occurrence", required: true)]
-        public Input<int> Occurrence { get; set; } = null!;
-
-        public ScheduleMonthlyOccurrencesArgs()
-        {
-        }
-    }
-
-    public sealed class ScheduleMonthlyOccurrencesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
-        /// </summary>
-        [Input("day", required: true)]
-        public Input<string> Day { get; set; } = null!;
-
-        /// <summary>
-        /// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
-        /// </summary>
-        [Input("occurrence", required: true)]
-        public Input<int> Occurrence { get; set; } = null!;
-
-        public ScheduleMonthlyOccurrencesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ScheduleMonthlyOccurrences
-    {
-        /// <summary>
-        /// Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
-        /// </summary>
-        public readonly string Day;
-        /// <summary>
-        /// Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
-        /// </summary>
-        public readonly int Occurrence;
-
-        [OutputConstructor]
-        private ScheduleMonthlyOccurrences(
-            string day,
-            int occurrence)
-        {
-            Day = day;
-            Occurrence = occurrence;
-        }
-    }
     }
 }

@@ -21,8 +21,6 @@ namespace Pulumi.Azure.Compute
     /// &gt; **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `azure.compute.VirtualMachine` resource instead.
     /// 
     /// &gt; In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine.html.markdown.
     /// </summary>
     public partial class WindowsVirtualMachine : Pulumi.CustomResource
     {
@@ -36,7 +34,7 @@ namespace Pulumi.Azure.Compute
         /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("additionalUnattendContents")]
-        public Output<ImmutableArray<Outputs.WindowsVirtualMachineAdditionalUnattendContents>> AdditionalUnattendContents { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WindowsVirtualMachineAdditionalUnattendContent>> AdditionalUnattendContents { get; private set; } = null!;
 
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -195,7 +193,7 @@ namespace Pulumi.Azure.Compute
         /// One or more `secret` blocks as defined below.
         /// </summary>
         [Output("secrets")]
-        public Output<ImmutableArray<Outputs.WindowsVirtualMachineSecrets>> Secrets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WindowsVirtualMachineSecret>> Secrets { get; private set; } = null!;
 
         /// <summary>
         /// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
@@ -237,7 +235,7 @@ namespace Pulumi.Azure.Compute
         /// One or more `winrm_listener` blocks as defined below.
         /// </summary>
         [Output("winrmListeners")]
-        public Output<ImmutableArray<Outputs.WindowsVirtualMachineWinrmListeners>> WinrmListeners { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WindowsVirtualMachineWinrmListener>> WinrmListeners { get; private set; } = null!;
 
         /// <summary>
         /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -254,7 +252,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WindowsVirtualMachine(string name, WindowsVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/windowsVirtualMachine:WindowsVirtualMachine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/windowsVirtualMachine:WindowsVirtualMachine", name, args ?? new WindowsVirtualMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -298,14 +296,14 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
 
         [Input("additionalUnattendContents")]
-        private InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentsArgs>? _additionalUnattendContents;
+        private InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentArgs>? _additionalUnattendContents;
 
         /// <summary>
         /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentsArgs> AdditionalUnattendContents
+        public InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentArgs> AdditionalUnattendContents
         {
-            get => _additionalUnattendContents ?? (_additionalUnattendContents = new InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentsArgs>());
+            get => _additionalUnattendContents ?? (_additionalUnattendContents = new InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentArgs>());
             set => _additionalUnattendContents = value;
         }
 
@@ -445,14 +443,14 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("secrets")]
-        private InputList<Inputs.WindowsVirtualMachineSecretsArgs>? _secrets;
+        private InputList<Inputs.WindowsVirtualMachineSecretArgs>? _secrets;
 
         /// <summary>
         /// One or more `secret` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineSecretsArgs> Secrets
+        public InputList<Inputs.WindowsVirtualMachineSecretArgs> Secrets
         {
-            get => _secrets ?? (_secrets = new InputList<Inputs.WindowsVirtualMachineSecretsArgs>());
+            get => _secrets ?? (_secrets = new InputList<Inputs.WindowsVirtualMachineSecretArgs>());
             set => _secrets = value;
         }
 
@@ -493,14 +491,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Timezone { get; set; }
 
         [Input("winrmListeners")]
-        private InputList<Inputs.WindowsVirtualMachineWinrmListenersArgs>? _winrmListeners;
+        private InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs>? _winrmListeners;
 
         /// <summary>
         /// One or more `winrm_listener` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineWinrmListenersArgs> WinrmListeners
+        public InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs> WinrmListeners
         {
-            get => _winrmListeners ?? (_winrmListeners = new InputList<Inputs.WindowsVirtualMachineWinrmListenersArgs>());
+            get => _winrmListeners ?? (_winrmListeners = new InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs>());
             set => _winrmListeners = value;
         }
 
@@ -524,14 +522,14 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
 
         [Input("additionalUnattendContents")]
-        private InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentsGetArgs>? _additionalUnattendContents;
+        private InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentGetArgs>? _additionalUnattendContents;
 
         /// <summary>
         /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentsGetArgs> AdditionalUnattendContents
+        public InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentGetArgs> AdditionalUnattendContents
         {
-            get => _additionalUnattendContents ?? (_additionalUnattendContents = new InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentsGetArgs>());
+            get => _additionalUnattendContents ?? (_additionalUnattendContents = new InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentGetArgs>());
             set => _additionalUnattendContents = value;
         }
 
@@ -707,14 +705,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("secrets")]
-        private InputList<Inputs.WindowsVirtualMachineSecretsGetArgs>? _secrets;
+        private InputList<Inputs.WindowsVirtualMachineSecretGetArgs>? _secrets;
 
         /// <summary>
         /// One or more `secret` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineSecretsGetArgs> Secrets
+        public InputList<Inputs.WindowsVirtualMachineSecretGetArgs> Secrets
         {
-            get => _secrets ?? (_secrets = new InputList<Inputs.WindowsVirtualMachineSecretsGetArgs>());
+            get => _secrets ?? (_secrets = new InputList<Inputs.WindowsVirtualMachineSecretGetArgs>());
             set => _secrets = value;
         }
 
@@ -761,14 +759,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VirtualMachineId { get; set; }
 
         [Input("winrmListeners")]
-        private InputList<Inputs.WindowsVirtualMachineWinrmListenersGetArgs>? _winrmListeners;
+        private InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs>? _winrmListeners;
 
         /// <summary>
         /// One or more `winrm_listener` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.WindowsVirtualMachineWinrmListenersGetArgs> WinrmListeners
+        public InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs> WinrmListeners
         {
-            get => _winrmListeners ?? (_winrmListeners = new InputList<Inputs.WindowsVirtualMachineWinrmListenersGetArgs>());
+            get => _winrmListeners ?? (_winrmListeners = new InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs>());
             set => _winrmListeners = value;
         }
 
@@ -781,766 +779,5 @@ namespace Pulumi.Azure.Compute
         public WindowsVirtualMachineState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class WindowsVirtualMachineAdditionalCapabilitiesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("ultraSsdEnabled")]
-        public Input<bool>? UltraSsdEnabled { get; set; }
-
-        public WindowsVirtualMachineAdditionalCapabilitiesArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineAdditionalCapabilitiesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("ultraSsdEnabled")]
-        public Input<bool>? UltraSsdEnabled { get; set; }
-
-        public WindowsVirtualMachineAdditionalCapabilitiesGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineAdditionalUnattendContentsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("setting", required: true)]
-        public Input<string> Setting { get; set; } = null!;
-
-        public WindowsVirtualMachineAdditionalUnattendContentsArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineAdditionalUnattendContentsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("setting", required: true)]
-        public Input<string> Setting { get; set; } = null!;
-
-        public WindowsVirtualMachineAdditionalUnattendContentsGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineBootDiagnosticsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-        /// </summary>
-        [Input("storageAccountUri", required: true)]
-        public Input<string> StorageAccountUri { get; set; } = null!;
-
-        public WindowsVirtualMachineBootDiagnosticsArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineBootDiagnosticsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-        /// </summary>
-        [Input("storageAccountUri", required: true)]
-        public Input<string> StorageAccountUri { get; set; } = null!;
-
-        public WindowsVirtualMachineBootDiagnosticsGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineIdentityArgs : Pulumi.ResourceArgs
-    {
-        [Input("identityIds")]
-        private InputList<string>? _identityIds;
-
-        /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
-        /// </summary>
-        public InputList<string> IdentityIds
-        {
-            get => _identityIds ?? (_identityIds = new InputList<string>());
-            set => _identityIds = value;
-        }
-
-        /// <summary>
-        /// The ID of the System Managed Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WindowsVirtualMachineIdentityArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineIdentityGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("identityIds")]
-        private InputList<string>? _identityIds;
-
-        /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
-        /// </summary>
-        public InputList<string> IdentityIds
-        {
-            get => _identityIds ?? (_identityIds = new InputList<string>());
-            set => _identityIds = value;
-        }
-
-        /// <summary>
-        /// The ID of the System Managed Service Principal.
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public WindowsVirtualMachineIdentityGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineOsDiskArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        /// </summary>
-        [Input("caching", required: true)]
-        public Input<string> Caching { get; set; } = null!;
-
-        /// <summary>
-        /// A `diff_disk_settings` block as defined above.
-        /// </summary>
-        [Input("diffDiskSettings")]
-        public Input<WindowsVirtualMachineOsDiskDiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
-
-        /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        /// </summary>
-        [Input("diskEncryptionSetId")]
-        public Input<string>? DiskEncryptionSetId { get; set; }
-
-        /// <summary>
-        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-        /// </summary>
-        [Input("diskSizeGb")]
-        public Input<int>? DiskSizeGb { get; set; }
-
-        /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
-
-        /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-        /// </summary>
-        [Input("writeAcceleratorEnabled")]
-        public Input<bool>? WriteAcceleratorEnabled { get; set; }
-
-        public WindowsVirtualMachineOsDiskArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineOsDiskDiffDiskSettingsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("option", required: true)]
-        public Input<string> Option { get; set; } = null!;
-
-        public WindowsVirtualMachineOsDiskDiffDiskSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineOsDiskDiffDiskSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("option", required: true)]
-        public Input<string> Option { get; set; } = null!;
-
-        public WindowsVirtualMachineOsDiskDiffDiskSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineOsDiskGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        /// </summary>
-        [Input("caching", required: true)]
-        public Input<string> Caching { get; set; } = null!;
-
-        /// <summary>
-        /// A `diff_disk_settings` block as defined above.
-        /// </summary>
-        [Input("diffDiskSettings")]
-        public Input<WindowsVirtualMachineOsDiskDiffDiskSettingsGetArgs>? DiffDiskSettings { get; set; }
-
-        /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        /// </summary>
-        [Input("diskEncryptionSetId")]
-        public Input<string>? DiskEncryptionSetId { get; set; }
-
-        /// <summary>
-        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-        /// </summary>
-        [Input("diskSizeGb")]
-        public Input<int>? DiskSizeGb { get; set; }
-
-        /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
-
-        /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-        /// </summary>
-        [Input("writeAcceleratorEnabled")]
-        public Input<bool>? WriteAcceleratorEnabled { get; set; }
-
-        public WindowsVirtualMachineOsDiskGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachinePlanArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("product", required: true)]
-        public Input<string> Product { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        public WindowsVirtualMachinePlanArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachinePlanGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("product", required: true)]
-        public Input<string> Product { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        public WindowsVirtualMachinePlanGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineSecretsArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificates", required: true)]
-        private InputList<WindowsVirtualMachineSecretsCertificatesArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `certificate` blocks as defined above.
-        /// </summary>
-        public InputList<WindowsVirtualMachineSecretsCertificatesArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<WindowsVirtualMachineSecretsCertificatesArgs>());
-            set => _certificates = value;
-        }
-
-        /// <summary>
-        /// The ID of the Key Vault from which all Secrets should be sourced.
-        /// </summary>
-        [Input("keyVaultId", required: true)]
-        public Input<string> KeyVaultId { get; set; } = null!;
-
-        public WindowsVirtualMachineSecretsArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineSecretsCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The certificate store on the Virtual Machine where the certificate should be added.
-        /// </summary>
-        [Input("store", required: true)]
-        public Input<string> Store { get; set; } = null!;
-
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate.
-        /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        public WindowsVirtualMachineSecretsCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineSecretsCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The certificate store on the Virtual Machine where the certificate should be added.
-        /// </summary>
-        [Input("store", required: true)]
-        public Input<string> Store { get; set; } = null!;
-
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate.
-        /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
-
-        public WindowsVirtualMachineSecretsCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineSecretsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("certificates", required: true)]
-        private InputList<WindowsVirtualMachineSecretsCertificatesGetArgs>? _certificates;
-
-        /// <summary>
-        /// One or more `certificate` blocks as defined above.
-        /// </summary>
-        public InputList<WindowsVirtualMachineSecretsCertificatesGetArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<WindowsVirtualMachineSecretsCertificatesGetArgs>());
-            set => _certificates = value;
-        }
-
-        /// <summary>
-        /// The ID of the Key Vault from which all Secrets should be sourced.
-        /// </summary>
-        [Input("keyVaultId", required: true)]
-        public Input<string> KeyVaultId { get; set; } = null!;
-
-        public WindowsVirtualMachineSecretsGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineSourceImageReferenceArgs : Pulumi.ResourceArgs
-    {
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public WindowsVirtualMachineSourceImageReferenceArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineSourceImageReferenceGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("offer", required: true)]
-        public Input<string> Offer { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("publisher", required: true)]
-        public Input<string> Publisher { get; set; } = null!;
-
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
-
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        public WindowsVirtualMachineSourceImageReferenceGetArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineWinrmListenersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
-        /// </summary>
-        [Input("certificateUrl")]
-        public Input<string>? CertificateUrl { get; set; }
-
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        public WindowsVirtualMachineWinrmListenersArgs()
-        {
-        }
-    }
-
-    public sealed class WindowsVirtualMachineWinrmListenersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
-        /// </summary>
-        [Input("certificateUrl")]
-        public Input<string>? CertificateUrl { get; set; }
-
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
-
-        public WindowsVirtualMachineWinrmListenersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineAdditionalCapabilities
-    {
-        /// <summary>
-        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly bool? UltraSsdEnabled;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineAdditionalCapabilities(bool? ultraSsdEnabled)
-        {
-            UltraSsdEnabled = ultraSsdEnabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineAdditionalUnattendContents
-    {
-        /// <summary>
-        /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Content;
-        /// <summary>
-        /// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Setting;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineAdditionalUnattendContents(
-            string content,
-            string setting)
-        {
-            Content = content;
-            Setting = setting;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineBootDiagnostics
-    {
-        /// <summary>
-        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-        /// </summary>
-        public readonly string StorageAccountUri;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineBootDiagnostics(string storageAccountUri)
-        {
-            StorageAccountUri = storageAccountUri;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineIdentity
-    {
-        /// <summary>
-        /// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
-        /// </summary>
-        public readonly ImmutableArray<string> IdentityIds;
-        /// <summary>
-        /// The ID of the System Managed Service Principal.
-        /// </summary>
-        public readonly string PrincipalId;
-        /// <summary>
-        /// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineIdentity(
-            ImmutableArray<string> identityIds,
-            string principalId,
-            string type)
-        {
-            IdentityIds = identityIds;
-            PrincipalId = principalId;
-            Type = type;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineOsDisk
-    {
-        /// <summary>
-        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        /// </summary>
-        public readonly string Caching;
-        /// <summary>
-        /// A `diff_disk_settings` block as defined above.
-        /// </summary>
-        public readonly WindowsVirtualMachineOsDiskDiffDiskSettings? DiffDiskSettings;
-        /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        /// </summary>
-        public readonly string? DiskEncryptionSetId;
-        /// <summary>
-        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-        /// </summary>
-        public readonly int DiskSizeGb;
-        /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string StorageAccountType;
-        /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-        /// </summary>
-        public readonly bool? WriteAcceleratorEnabled;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineOsDisk(
-            string caching,
-            WindowsVirtualMachineOsDiskDiffDiskSettings? diffDiskSettings,
-            string? diskEncryptionSetId,
-            int diskSizeGb,
-            string name,
-            string storageAccountType,
-            bool? writeAcceleratorEnabled)
-        {
-            Caching = caching;
-            DiffDiskSettings = diffDiskSettings;
-            DiskEncryptionSetId = diskEncryptionSetId;
-            DiskSizeGb = diskSizeGb;
-            Name = name;
-            StorageAccountType = storageAccountType;
-            WriteAcceleratorEnabled = writeAcceleratorEnabled;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineOsDiskDiffDiskSettings
-    {
-        /// <summary>
-        /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Option;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineOsDiskDiffDiskSettings(string option)
-        {
-            Option = option;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachinePlan
-    {
-        /// <summary>
-        /// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Product;
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Publisher;
-
-        [OutputConstructor]
-        private WindowsVirtualMachinePlan(
-            string name,
-            string product,
-            string publisher)
-        {
-            Name = name;
-            Product = product;
-            Publisher = publisher;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineSecrets
-    {
-        /// <summary>
-        /// One or more `certificate` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<WindowsVirtualMachineSecretsCertificates> Certificates;
-        /// <summary>
-        /// The ID of the Key Vault from which all Secrets should be sourced.
-        /// </summary>
-        public readonly string KeyVaultId;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineSecrets(
-            ImmutableArray<WindowsVirtualMachineSecretsCertificates> certificates,
-            string keyVaultId)
-        {
-            Certificates = certificates;
-            KeyVaultId = keyVaultId;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineSecretsCertificates
-    {
-        /// <summary>
-        /// The certificate store on the Virtual Machine where the certificate should be added.
-        /// </summary>
-        public readonly string Store;
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate.
-        /// </summary>
-        public readonly string Url;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineSecretsCertificates(
-            string store,
-            string url)
-        {
-            Store = store;
-            Url = url;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineSourceImageReference
-    {
-        public readonly string Offer;
-        /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Publisher;
-        public readonly string Sku;
-        public readonly string Version;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineSourceImageReference(
-            string offer,
-            string publisher,
-            string sku,
-            string version)
-        {
-            Offer = offer;
-            Publisher = publisher;
-            Sku = sku;
-            Version = version;
-        }
-    }
-
-    [OutputType]
-    public sealed class WindowsVirtualMachineWinrmListeners
-    {
-        /// <summary>
-        /// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
-        /// </summary>
-        public readonly string? CertificateUrl;
-        public readonly string Protocol;
-
-        [OutputConstructor]
-        private WindowsVirtualMachineWinrmListeners(
-            string? certificateUrl,
-            string protocol)
-        {
-            CertificateUrl = certificateUrl;
-            Protocol = protocol;
-        }
-    }
     }
 }

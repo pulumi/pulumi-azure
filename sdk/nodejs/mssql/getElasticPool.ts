@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing SQL elastic pool.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
  */
-export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> & GetElasticPoolResult {
+export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +20,11 @@ export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetElasticPoolResult> = pulumi.runtime.invoke("azure:mssql/getElasticPool:getElasticPool", {
+    return pulumi.runtime.invoke("azure:mssql/getElasticPool:getElasticPool", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

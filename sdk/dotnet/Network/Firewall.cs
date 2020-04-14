@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages an Azure Firewall.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall.html.markdown.
     /// </summary>
     public partial class Firewall : Pulumi.CustomResource
     {
@@ -20,7 +18,7 @@ namespace Pulumi.Azure.Network
         /// A `ip_configuration` block as documented below.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.FirewallIpConfigurations>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Firewall(string name, FirewallArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/firewall:Firewall", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/firewall:Firewall", name, args ?? new FirewallArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -99,14 +97,14 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallArgs : Pulumi.ResourceArgs
     {
         [Input("ipConfigurations", required: true)]
-        private InputList<Inputs.FirewallIpConfigurationsArgs>? _ipConfigurations;
+        private InputList<Inputs.FirewallIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
         /// A `ip_configuration` block as documented below.
         /// </summary>
-        public InputList<Inputs.FirewallIpConfigurationsArgs> IpConfigurations
+        public InputList<Inputs.FirewallIpConfigurationArgs> IpConfigurations
         {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.FirewallIpConfigurationsArgs>());
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.FirewallIpConfigurationArgs>());
             set => _ipConfigurations = value;
         }
 
@@ -160,14 +158,14 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallState : Pulumi.ResourceArgs
     {
         [Input("ipConfigurations")]
-        private InputList<Inputs.FirewallIpConfigurationsGetArgs>? _ipConfigurations;
+        private InputList<Inputs.FirewallIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
         /// A `ip_configuration` block as documented below.
         /// </summary>
-        public InputList<Inputs.FirewallIpConfigurationsGetArgs> IpConfigurations
+        public InputList<Inputs.FirewallIpConfigurationGetArgs> IpConfigurations
         {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.FirewallIpConfigurationsGetArgs>());
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.FirewallIpConfigurationGetArgs>());
             set => _ipConfigurations = value;
         }
 
@@ -216,109 +214,5 @@ namespace Pulumi.Azure.Network
         public FirewallState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class FirewallIpConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The private IP address of the Azure Firewall.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The Resource ID of the Public IP Address associated with the firewall.
-        /// </summary>
-        [Input("publicIpAddressId", required: true)]
-        public Input<string> PublicIpAddressId { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public FirewallIpConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class FirewallIpConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The private IP address of the Azure Firewall.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The Resource ID of the Public IP Address associated with the firewall.
-        /// </summary>
-        [Input("publicIpAddressId", required: true)]
-        public Input<string> PublicIpAddressId { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public FirewallIpConfigurationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class FirewallIpConfigurations
-    {
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The private IP address of the Azure Firewall.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// The Resource ID of the Public IP Address associated with the firewall.
-        /// </summary>
-        public readonly string PublicIpAddressId;
-        /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
-        /// </summary>
-        public readonly string? SubnetId;
-
-        [OutputConstructor]
-        private FirewallIpConfigurations(
-            string name,
-            string privateIpAddress,
-            string publicIpAddressId,
-            string? subnetId)
-        {
-            Name = name;
-            PrivateIpAddress = privateIpAddress;
-            PublicIpAddressId = publicIpAddressId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

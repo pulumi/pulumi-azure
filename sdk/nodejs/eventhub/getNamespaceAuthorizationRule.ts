@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_authorization_rule.html.markdown.
  */
-export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> & GetNamespaceAuthorizationRuleResult {
+export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +20,11 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNamespaceAuthorizationRuleResult> = pulumi.runtime.invoke("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
+    return pulumi.runtime.invoke("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

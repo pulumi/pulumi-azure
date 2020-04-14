@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Insights WebTest.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
  */

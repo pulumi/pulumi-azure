@@ -26,7 +26,7 @@ class Queue(pulumi.CustomResource):
         """
         Manages a Queue within an Azure Storage Account.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

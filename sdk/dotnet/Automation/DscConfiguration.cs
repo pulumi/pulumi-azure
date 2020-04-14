@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation DSC Configuration.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_configuration.html.markdown.
     /// </summary>
     public partial class DscConfiguration : Pulumi.CustomResource
     {
@@ -76,7 +74,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscConfiguration(string name, DscConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/dscConfiguration:DscConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:automation/dscConfiguration:DscConfiguration", name, args ?? new DscConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

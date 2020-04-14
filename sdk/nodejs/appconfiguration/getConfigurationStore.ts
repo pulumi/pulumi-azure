@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing App Configuration.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_configuration.html.markdown.
  */
-export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> & GetConfigurationStoreResult {
+export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetConfigurationStoreResult> = pulumi.runtime.invoke("azure:appconfiguration/getConfigurationStore:getConfigurationStore", {
+    return pulumi.runtime.invoke("azure:appconfiguration/getConfigurationStore:getConfigurationStore", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

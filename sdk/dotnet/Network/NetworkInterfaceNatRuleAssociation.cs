@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages the association between a Network Interface and a Load Balancer's NAT Rule.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_nat_rule_association.html.markdown.
     /// </summary>
     public partial class NetworkInterfaceNatRuleAssociation : Pulumi.CustomResource
     {
@@ -43,7 +41,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceNatRuleAssociation(string name, NetworkInterfaceNatRuleAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, args ?? new NetworkInterfaceNatRuleAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

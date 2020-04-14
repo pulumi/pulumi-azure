@@ -39,7 +39,7 @@ class CnameRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS CNAME Records within Azure Private DNS.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_cname_record.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

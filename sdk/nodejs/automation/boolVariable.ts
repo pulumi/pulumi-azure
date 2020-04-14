@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a boolean variable in Azure Automation
+ * 
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_bool.html.markdown.
  */

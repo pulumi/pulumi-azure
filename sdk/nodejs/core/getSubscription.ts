@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Subscription.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
  */
-export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> & GetSubscriptionResult {
+export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -20,11 +21,9 @@ export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.Invoke
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSubscriptionResult> = pulumi.runtime.invoke("azure:core/getSubscription:getSubscription", {
+    return pulumi.runtime.invoke("azure:core/getSubscription:getSubscription", {
         "subscriptionId": args.subscriptionId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manage a Dedicated Host Group.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host_group.html.markdown.
     /// </summary>
     public partial class DedicatedHostGroup : Pulumi.CustomResource
     {
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DedicatedHostGroup(string name, DedicatedHostGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/dedicatedHostGroup:DedicatedHostGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/dedicatedHostGroup:DedicatedHostGroup", name, args ?? new DedicatedHostGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

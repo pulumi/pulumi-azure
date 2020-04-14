@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Marketplace
 {
     /// <summary>
     /// Allows accepting the Legal Terms for a Marketplace Image.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
     /// </summary>
     public partial class Agreement : Pulumi.CustomResource
     {
@@ -49,7 +47,7 @@ namespace Pulumi.Azure.Marketplace
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Agreement(string name, AgreementArgs args, CustomResourceOptions? options = null)
-            : base("azure:marketplace/agreement:Agreement", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:marketplace/agreement:Agreement", name, args ?? new AgreementArgs(), MakeResourceOptions(options, ""))
         {
         }
 

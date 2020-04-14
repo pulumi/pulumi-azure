@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
  */
-export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> & GetAuthorizationRuleResult {
+export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,7 +35,7 @@ export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAuthorizationRuleResult> = pulumi.runtime.invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", {
+    return pulumi.runtime.invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", {
         "eventhubName": args.eventhubName,
         "listen": args.listen,
         "manage": args.manage,
@@ -42,8 +44,6 @@ export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulu
         "resourceGroupName": args.resourceGroupName,
         "send": args.send,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

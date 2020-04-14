@@ -10,10 +10,11 @@ import * as utilities from "../utilities";
  * Use this data source to access endpoint connection information about an existing Private Link Service.
  * 
  * > **NOTE** Private Link is currently in Public Preview.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
  */
-export function getServiceEndpointConnections(args: GetServiceEndpointConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointConnectionsResult> & GetServiceEndpointConnectionsResult {
+export function getServiceEndpointConnections(args: GetServiceEndpointConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointConnectionsResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,12 +22,10 @@ export function getServiceEndpointConnections(args: GetServiceEndpointConnection
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceEndpointConnectionsResult> = pulumi.runtime.invoke("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", {
+    return pulumi.runtime.invoke("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", {
         "resourceGroupName": args.resourceGroupName,
         "serviceId": args.serviceId,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

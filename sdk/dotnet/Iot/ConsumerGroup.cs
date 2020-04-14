@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Iot
 {
     /// <summary>
     /// Manages a Consumer Group within an IotHub
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
     /// </summary>
     public partial class ConsumerGroup : Pulumi.CustomResource
     {
@@ -49,7 +47,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConsumerGroup(string name, ConsumerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/consumerGroup:ConsumerGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:iot/consumerGroup:ConsumerGroup", name, args ?? new ConsumerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 

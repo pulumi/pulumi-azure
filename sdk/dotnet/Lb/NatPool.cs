@@ -15,8 +15,6 @@ namespace Pulumi.Azure.Lb
     /// &gt; **NOTE:** This resource cannot be used with with virtual machines, instead use the `azure.lb.NatRule` resource.
     /// 
     /// &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
     /// </summary>
     public partial class NatPool : Pulumi.CustomResource
     {
@@ -80,7 +78,7 @@ namespace Pulumi.Azure.Lb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NatPool(string name, NatPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure:lb/natPool:NatPool", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:lb/natPool:NatPool", name, args ?? new NatPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 

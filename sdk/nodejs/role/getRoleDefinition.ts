@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> & GetRoleDefinitionResult {
+export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -15,13 +15,11 @@ export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRoleDefinitionResult> = pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
+    return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

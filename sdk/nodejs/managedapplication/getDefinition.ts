@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing Managed Application Definition.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_application_definition.html.markdown.
  */
-export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> & GetDefinitionResult {
+export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDefinitionResult> = pulumi.runtime.invoke("azure:managedapplication/getDefinition:getDefinition", {
+    return pulumi.runtime.invoke("azure:managedapplication/getDefinition:getDefinition", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

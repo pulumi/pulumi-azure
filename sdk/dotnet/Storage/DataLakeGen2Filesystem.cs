@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Storage
     /// Manages a Data Lake Gen2 File System within an Azure Storage Account.
     /// 
     /// &gt; **NOTE:** This Resource requires using Azure Active Directory to connect to Azure Storage, which in turn requires the `Storage` specific roles - which are not granted by default.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_data_lake_gen2_filesystem.html.markdown.
     /// </summary>
     public partial class DataLakeGen2Filesystem : Pulumi.CustomResource
     {
@@ -45,7 +43,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataLakeGen2Filesystem(string name, DataLakeGen2FilesystemArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, args ?? new DataLakeGen2FilesystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Front Door Web Application Firewall Policy instance.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor_firewall_policy.html.markdown.
  */

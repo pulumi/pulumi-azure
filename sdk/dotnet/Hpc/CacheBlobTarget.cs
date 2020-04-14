@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Hpc
 {
     /// <summary>
     /// Manages a Blob Target within a HPC Cache.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hpc_cache_blob_target.html.markdown.
     /// </summary>
     public partial class CacheBlobTarget : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.Azure.Hpc
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CacheBlobTarget(string name, CacheBlobTargetArgs args, CustomResourceOptions? options = null)
-            : base("azure:hpc/cacheBlobTarget:CacheBlobTarget", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:hpc/cacheBlobTarget:CacheBlobTarget", name, args ?? new CacheBlobTargetArgs(), MakeResourceOptions(options, ""))
         {
         }
 

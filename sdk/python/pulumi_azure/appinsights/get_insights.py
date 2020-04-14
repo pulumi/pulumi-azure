@@ -82,7 +82,7 @@ def get_insights(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Application Insights component.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
+
 
 
     :param str name: Specifies the name of the Application Insights component.

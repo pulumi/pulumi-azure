@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Lb
     /// Manages a LoadBalancer Probe Resource.
     /// 
     /// &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_probe.html.markdown.
     /// </summary>
     public partial class Probe : Pulumi.CustomResource
     {
@@ -78,7 +76,7 @@ namespace Pulumi.Azure.Lb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Probe(string name, ProbeArgs args, CustomResourceOptions? options = null)
-            : base("azure:lb/probe:Probe", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:lb/probe:Probe", name, args ?? new ProbeArgs(), MakeResourceOptions(options, ""))
         {
         }
 

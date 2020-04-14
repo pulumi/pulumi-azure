@@ -36,8 +36,6 @@ def get_geographical_location(name=None,opts=None):
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
-
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """

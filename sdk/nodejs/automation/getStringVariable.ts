@@ -8,10 +8,12 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Automation String Variable.
+ * 
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_string.html.markdown.
  */
-export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetStringVariableResult> & GetStringVariableResult {
+export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetStringVariableResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +21,11 @@ export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetStringVariableResult> = pulumi.runtime.invoke("azure:automation/getStringVariable:getStringVariable", {
+    return pulumi.runtime.invoke("azure:automation/getStringVariable:getStringVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

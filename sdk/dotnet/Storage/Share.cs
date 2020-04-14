@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Storage
 {
     /// <summary>
     /// Manages a File Share within Azure Storage.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
     /// </summary>
     public partial class Share : Pulumi.CustomResource
     {
@@ -20,7 +18,7 @@ namespace Pulumi.Azure.Storage
         /// One or more `acl` blocks as defined below.
         /// </summary>
         [Output("acls")]
-        public Output<ImmutableArray<Outputs.ShareAcls>> Acls { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ShareAcl>> Acls { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of MetaData for this File Share.
@@ -68,7 +66,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Share(string name, ShareArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/share:Share", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:storage/share:Share", name, args ?? new ShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -106,14 +104,14 @@ namespace Pulumi.Azure.Storage
     public sealed class ShareArgs : Pulumi.ResourceArgs
     {
         [Input("acls")]
-        private InputList<Inputs.ShareAclsArgs>? _acls;
+        private InputList<Inputs.ShareAclArgs>? _acls;
 
         /// <summary>
         /// One or more `acl` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ShareAclsArgs> Acls
+        public InputList<Inputs.ShareAclArgs> Acls
         {
-            get => _acls ?? (_acls = new InputList<Inputs.ShareAclsArgs>());
+            get => _acls ?? (_acls = new InputList<Inputs.ShareAclArgs>());
             set => _acls = value;
         }
 
@@ -156,14 +154,14 @@ namespace Pulumi.Azure.Storage
     public sealed class ShareState : Pulumi.ResourceArgs
     {
         [Input("acls")]
-        private InputList<Inputs.ShareAclsGetArgs>? _acls;
+        private InputList<Inputs.ShareAclGetArgs>? _acls;
 
         /// <summary>
         /// One or more `acl` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.ShareAclsGetArgs> Acls
+        public InputList<Inputs.ShareAclGetArgs> Acls
         {
-            get => _acls ?? (_acls = new InputList<Inputs.ShareAclsGetArgs>());
+            get => _acls ?? (_acls = new InputList<Inputs.ShareAclGetArgs>());
             set => _acls = value;
         }
 
@@ -213,163 +211,5 @@ namespace Pulumi.Azure.Storage
         public ShareState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ShareAclsAccessPoliciesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid until.
-        /// </summary>
-        [Input("expiry", required: true)]
-        public Input<string> Expiry { get; set; } = null!;
-
-        /// <summary>
-        /// The permissions which should associated with this Shared Identifier.
-        /// </summary>
-        [Input("permissions", required: true)]
-        public Input<string> Permissions { get; set; } = null!;
-
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid from.
-        /// </summary>
-        [Input("start", required: true)]
-        public Input<string> Start { get; set; } = null!;
-
-        public ShareAclsAccessPoliciesArgs()
-        {
-        }
-    }
-
-    public sealed class ShareAclsAccessPoliciesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid until.
-        /// </summary>
-        [Input("expiry", required: true)]
-        public Input<string> Expiry { get; set; } = null!;
-
-        /// <summary>
-        /// The permissions which should associated with this Shared Identifier.
-        /// </summary>
-        [Input("permissions", required: true)]
-        public Input<string> Permissions { get; set; } = null!;
-
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid from.
-        /// </summary>
-        [Input("start", required: true)]
-        public Input<string> Start { get; set; } = null!;
-
-        public ShareAclsAccessPoliciesGetArgs()
-        {
-        }
-    }
-
-    public sealed class ShareAclsArgs : Pulumi.ResourceArgs
-    {
-        [Input("accessPolicies")]
-        private InputList<ShareAclsAccessPoliciesArgs>? _accessPolicies;
-
-        /// <summary>
-        /// An `access_policy` block as defined below.
-        /// </summary>
-        public InputList<ShareAclsAccessPoliciesArgs> AccessPolicies
-        {
-            get => _accessPolicies ?? (_accessPolicies = new InputList<ShareAclsAccessPoliciesArgs>());
-            set => _accessPolicies = value;
-        }
-
-        /// <summary>
-        /// The ID which should be used for this Shared Identifier.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public ShareAclsArgs()
-        {
-        }
-    }
-
-    public sealed class ShareAclsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("accessPolicies")]
-        private InputList<ShareAclsAccessPoliciesGetArgs>? _accessPolicies;
-
-        /// <summary>
-        /// An `access_policy` block as defined below.
-        /// </summary>
-        public InputList<ShareAclsAccessPoliciesGetArgs> AccessPolicies
-        {
-            get => _accessPolicies ?? (_accessPolicies = new InputList<ShareAclsAccessPoliciesGetArgs>());
-            set => _accessPolicies = value;
-        }
-
-        /// <summary>
-        /// The ID which should be used for this Shared Identifier.
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        public ShareAclsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ShareAcls
-    {
-        /// <summary>
-        /// An `access_policy` block as defined below.
-        /// </summary>
-        public readonly ImmutableArray<ShareAclsAccessPolicies> AccessPolicies;
-        /// <summary>
-        /// The ID which should be used for this Shared Identifier.
-        /// </summary>
-        public readonly string Id;
-
-        [OutputConstructor]
-        private ShareAcls(
-            ImmutableArray<ShareAclsAccessPolicies> accessPolicies,
-            string id)
-        {
-            AccessPolicies = accessPolicies;
-            Id = id;
-        }
-    }
-
-    [OutputType]
-    public sealed class ShareAclsAccessPolicies
-    {
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid until.
-        /// </summary>
-        public readonly string Expiry;
-        /// <summary>
-        /// The permissions which should associated with this Shared Identifier.
-        /// </summary>
-        public readonly string Permissions;
-        /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid from.
-        /// </summary>
-        public readonly string Start;
-
-        [OutputConstructor]
-        private ShareAclsAccessPolicies(
-            string expiry,
-            string permissions,
-            string start)
-        {
-            Expiry = expiry;
-            Permissions = permissions;
-            Start = start;
-        }
-    }
     }
 }

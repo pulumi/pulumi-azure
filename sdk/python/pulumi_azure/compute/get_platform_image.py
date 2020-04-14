@@ -55,7 +55,7 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
     """
     Use this data source to access information about a Platform Image.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
+
 
 
     :param str location: Specifies the Location to pull information about this Platform Image from.

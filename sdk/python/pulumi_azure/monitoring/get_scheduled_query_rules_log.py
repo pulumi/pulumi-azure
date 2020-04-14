@@ -83,7 +83,7 @@ def get_scheduled_query_rules_log(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access the properties of a LogToMetricAction scheduled query rule.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_scheduled_query_rules_log.html.markdown.
+
 
 
     :param str name: Specifies the name of the scheduled query rule.

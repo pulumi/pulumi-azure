@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Domain
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
  */

@@ -81,7 +81,7 @@ def get_subscription(subscription_id=None,opts=None):
     """
     Use this data source to access information about an existing Subscription.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
+
 
 
     :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.

@@ -16,11 +16,10 @@ namespace Pulumi.Azure.Core
     /// This means that when deleting the `azure.core.TemplateDeployment` resource, this provider will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
     /// One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
     /// 
+    /// 
     /// ## Note
     /// 
     /// This provider does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/template_deployment.html.markdown.
     /// </summary>
     public partial class TemplateDeployment : Pulumi.CustomResource
     {
@@ -79,7 +78,7 @@ namespace Pulumi.Azure.Core
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TemplateDeployment(string name, TemplateDeploymentArgs args, CustomResourceOptions? options = null)
-            : base("azure:core/templateDeployment:TemplateDeployment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:core/templateDeployment:TemplateDeployment", name, args ?? new TemplateDeploymentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

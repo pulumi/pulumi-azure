@@ -93,7 +93,7 @@ def get_product(api_management_name=None,product_id=None,resource_group_name=Non
     """
     Use this data source to access information about an existing API Management Product.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
+
 
 
     :param str api_management_name: The Name of the API Management Service in which this Product exists.

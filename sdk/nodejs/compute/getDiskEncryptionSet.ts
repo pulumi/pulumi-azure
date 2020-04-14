@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/disk_encryption_set.html.markdown.
  */
-export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> & GetDiskEncryptionSetResult {
+export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +19,10 @@ export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDiskEncryptionSetResult> = pulumi.runtime.invoke("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", {
+    return pulumi.runtime.invoke("azure:compute/getDiskEncryptionSet:getDiskEncryptionSet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

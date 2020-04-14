@@ -93,7 +93,7 @@ def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
+
 
 
     :param str name: Specifies the name of the Log Analytics Workspace.

@@ -97,7 +97,7 @@ def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an App Service Certificate.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
+
 
 
     :param str name: Specifies the name of the certificate.

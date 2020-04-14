@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_authorization_rule.html.markdown.
  */

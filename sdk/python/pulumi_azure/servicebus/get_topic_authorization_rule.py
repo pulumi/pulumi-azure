@@ -88,7 +88,7 @@ def get_topic_authorization_rule(name=None,namespace_name=None,resource_group_na
     """
     Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_topic_authorization_rule.html.markdown.
+
 
 
     :param str name: The name of the ServiceBus Topic Authorization Rule resource.

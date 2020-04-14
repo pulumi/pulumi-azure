@@ -79,7 +79,7 @@ def get_dps(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
+
 
 
     :param str name: Specifies the name of the Iot Device Provisioning Service resource.

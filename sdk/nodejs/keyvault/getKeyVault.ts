@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Key Vault.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
  */
-export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> & GetKeyVaultResult {
+export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetKeyVaultResult> = pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {
+    return pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

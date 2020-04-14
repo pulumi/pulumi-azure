@@ -30,7 +30,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         """
         Manages an API Management Twitter Identity Provider.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_twitter.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

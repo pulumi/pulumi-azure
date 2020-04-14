@@ -9,27 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Core
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing User Assigned Identity.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetUserAssignedIdentity.InvokeAsync() instead")]
-        public static Task<GetUserAssignedIdentityResult> GetUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetUserAssignedIdentity
     {
         /// <summary>
         /// Use this data source to access information about an existing User Assigned Identity.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
     }
+
 
     public sealed class GetUserAssignedIdentityArgs : Pulumi.InvokeArgs
     {
@@ -50,6 +38,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
+
     [OutputType]
     public sealed class GetUserAssignedIdentityResult
     {
@@ -57,6 +46,10 @@ namespace Pulumi.Azure.Core
         /// The Client ID of the User Assigned Identity.
         /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure location where the User Assigned Identity exists.
         /// </summary>
@@ -71,28 +64,30 @@ namespace Pulumi.Azure.Core
         /// A mapping of tags assigned to the User Assigned Identity.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetUserAssignedIdentityResult(
             string clientId,
+
+            string id,
+
             string location,
+
             string name,
+
             string principalId,
+
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
             ClientId = clientId;
+            Id = id;
             Location = location;
             Name = name;
             PrincipalId = principalId;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
-            Id = id;
         }
     }
 }

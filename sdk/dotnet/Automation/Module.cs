@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation Module.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
     /// </summary>
     public partial class Module : Pulumi.CustomResource
     {
@@ -49,7 +47,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Module(string name, ModuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/module:Module", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:automation/module:Module", name, args ?? new ModuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -144,106 +142,5 @@ namespace Pulumi.Azure.Automation
         public ModuleState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ModuleModuleLinkArgs : Pulumi.ResourceArgs
-    {
-        [Input("hash")]
-        public Input<ModuleModuleLinkHashArgs>? Hash { get; set; }
-
-        /// <summary>
-        /// The uri of the module content (zip or nupkg).
-        /// </summary>
-        [Input("uri", required: true)]
-        public Input<string> Uri { get; set; } = null!;
-
-        public ModuleModuleLinkArgs()
-        {
-        }
-    }
-
-    public sealed class ModuleModuleLinkGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("hash")]
-        public Input<ModuleModuleLinkHashGetArgs>? Hash { get; set; }
-
-        /// <summary>
-        /// The uri of the module content (zip or nupkg).
-        /// </summary>
-        [Input("uri", required: true)]
-        public Input<string> Uri { get; set; } = null!;
-
-        public ModuleModuleLinkGetArgs()
-        {
-        }
-    }
-
-    public sealed class ModuleModuleLinkHashArgs : Pulumi.ResourceArgs
-    {
-        [Input("algorithm", required: true)]
-        public Input<string> Algorithm { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ModuleModuleLinkHashArgs()
-        {
-        }
-    }
-
-    public sealed class ModuleModuleLinkHashGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("algorithm", required: true)]
-        public Input<string> Algorithm { get; set; } = null!;
-
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
-
-        public ModuleModuleLinkHashGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ModuleModuleLink
-    {
-        public readonly ModuleModuleLinkHash? Hash;
-        /// <summary>
-        /// The uri of the module content (zip or nupkg).
-        /// </summary>
-        public readonly string Uri;
-
-        [OutputConstructor]
-        private ModuleModuleLink(
-            ModuleModuleLinkHash? hash,
-            string uri)
-        {
-            Hash = hash;
-            Uri = uri;
-        }
-    }
-
-    [OutputType]
-    public sealed class ModuleModuleLinkHash
-    {
-        public readonly string Algorithm;
-        public readonly string Value;
-
-        [OutputConstructor]
-        private ModuleModuleLinkHash(
-            string algorithm,
-            string value)
-        {
-            Algorithm = algorithm;
-            Value = value;
-        }
-    }
     }
 }

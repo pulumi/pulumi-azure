@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Storage
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Storage Management Policy.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPolicy.InvokeAsync() instead")]
-        public static Task<GetPolicyResult> GetPolicy(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPolicy
     {
         /// <summary>
         /// Use this data source to access information about an existing Storage Management Policy.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure:storage/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPolicyArgs : Pulumi.InvokeArgs
     {
@@ -44,153 +35,31 @@ namespace Pulumi.Azure.Storage
         }
     }
 
+
     [OutputType]
     public sealed class GetPolicyResult
     {
         /// <summary>
-        /// A `rule` block as documented below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GetPolicyRulesResult> Rules;
-        public readonly string StorageAccountId;
-        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A `rule` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPolicyRuleResult> Rules;
+        public readonly string StorageAccountId;
 
         [OutputConstructor]
         private GetPolicyResult(
-            ImmutableArray<Outputs.GetPolicyRulesResult> rules,
-            string storageAccountId,
-            string id)
+            string id,
+
+            ImmutableArray<Outputs.GetPolicyRuleResult> rules,
+
+            string storageAccountId)
         {
+            Id = id;
             Rules = rules;
             StorageAccountId = storageAccountId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetPolicyRulesActionsBaseBlobsResult
-    {
-        /// <summary>
-        /// The age in days after last modification to delete the blob.
-        /// </summary>
-        public readonly int DeleteAfterDaysSinceModificationGreaterThan;
-        /// <summary>
-        /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
-        /// </summary>
-        public readonly int TierToArchiveAfterDaysSinceModificationGreaterThan;
-        /// <summary>
-        /// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
-        /// </summary>
-        public readonly int TierToCoolAfterDaysSinceModificationGreaterThan;
-
-        [OutputConstructor]
-        private GetPolicyRulesActionsBaseBlobsResult(
-            int deleteAfterDaysSinceModificationGreaterThan,
-            int tierToArchiveAfterDaysSinceModificationGreaterThan,
-            int tierToCoolAfterDaysSinceModificationGreaterThan)
-        {
-            DeleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
-            TierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
-            TierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetPolicyRulesActionsResult
-    {
-        /// <summary>
-        /// A `base_blob` block as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetPolicyRulesActionsBaseBlobsResult> BaseBlobs;
-        /// <summary>
-        /// A `snapshot` block as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetPolicyRulesActionsSnapshotsResult> Snapshots;
-
-        [OutputConstructor]
-        private GetPolicyRulesActionsResult(
-            ImmutableArray<GetPolicyRulesActionsBaseBlobsResult> baseBlobs,
-            ImmutableArray<GetPolicyRulesActionsSnapshotsResult> snapshots)
-        {
-            BaseBlobs = baseBlobs;
-            Snapshots = snapshots;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetPolicyRulesActionsSnapshotsResult
-    {
-        /// <summary>
-        /// The age in days after create to delete the snaphot.
-        /// </summary>
-        public readonly int DeleteAfterDaysSinceCreationGreaterThan;
-
-        [OutputConstructor]
-        private GetPolicyRulesActionsSnapshotsResult(int deleteAfterDaysSinceCreationGreaterThan)
-        {
-            DeleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetPolicyRulesFiltersResult
-    {
-        /// <summary>
-        /// An array of predefined values. Only `blockBlob` is supported.
-        /// </summary>
-        public readonly ImmutableArray<string> BlobTypes;
-        /// <summary>
-        /// An array of strings for prefixes to be matched.
-        /// </summary>
-        public readonly ImmutableArray<string> PrefixMatches;
-
-        [OutputConstructor]
-        private GetPolicyRulesFiltersResult(
-            ImmutableArray<string> blobTypes,
-            ImmutableArray<string> prefixMatches)
-        {
-            BlobTypes = blobTypes;
-            PrefixMatches = prefixMatches;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetPolicyRulesResult
-    {
-        /// <summary>
-        /// An `actions` block as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetPolicyRulesActionsResult> Actions;
-        /// <summary>
-        /// Boolean to specify whether the rule is enabled.
-        /// </summary>
-        public readonly bool Enabled;
-        /// <summary>
-        /// A `filter` block as documented below.
-        /// </summary>
-        public readonly ImmutableArray<GetPolicyRulesFiltersResult> Filters;
-        /// <summary>
-        /// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetPolicyRulesResult(
-            ImmutableArray<GetPolicyRulesActionsResult> actions,
-            bool enabled,
-            ImmutableArray<GetPolicyRulesFiltersResult> filters,
-            string name)
-        {
-            Actions = actions;
-            Enabled = enabled;
-            Filters = filters;
-            Name = name;
-        }
-    }
     }
 }

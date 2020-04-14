@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Network Interface.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNetworkInterface.InvokeAsync() instead")]
-        public static Task<GetNetworkInterfaceResult> GetNetworkInterface(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNetworkInterface
     {
         /// <summary>
         /// Use this data source to access information about an existing Network Interface.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure:network/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNetworkInterfaceArgs : Pulumi.InvokeArgs
     {
@@ -49,6 +40,7 @@ namespace Pulumi.Azure.Network
         {
         }
     }
+
 
     [OutputType]
     public sealed class GetNetworkInterfaceResult
@@ -70,13 +62,17 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly bool EnableIpForwarding;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The internal dns name label of the specified Network Interface.
         /// </summary>
         public readonly string InternalDnsNameLabel;
         /// <summary>
         /// One or more `ip_configuration` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationsResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationResult> IpConfigurations;
         /// <summary>
         /// The location of the specified Network Interface.
         /// </summary>
@@ -110,34 +106,46 @@ namespace Pulumi.Azure.Network
         /// The ID of the virtual machine that the specified Network Interface is attached to.
         /// </summary>
         public readonly string VirtualMachineId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
             ImmutableArray<string> appliedDnsServers,
+
             ImmutableArray<string> dnsServers,
+
             bool enableAcceleratedNetworking,
+
             bool enableIpForwarding,
+
+            string id,
+
             string internalDnsNameLabel,
-            ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationsResult> ipConfigurations,
+
+            ImmutableArray<Outputs.GetNetworkInterfaceIpConfigurationResult> ipConfigurations,
+
             string location,
+
             string macAddress,
+
             string name,
+
             string networkSecurityGroupId,
+
             string privateIpAddress,
+
             ImmutableArray<string> privateIpAddresses,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            string virtualMachineId,
-            string id)
+
+            string virtualMachineId)
         {
             AppliedDnsServers = appliedDnsServers;
             DnsServers = dnsServers;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableIpForwarding = enableIpForwarding;
+            Id = id;
             InternalDnsNameLabel = internalDnsNameLabel;
             IpConfigurations = ipConfigurations;
             Location = location;
@@ -149,81 +157,6 @@ namespace Pulumi.Azure.Network
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             VirtualMachineId = virtualMachineId;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetNetworkInterfaceIpConfigurationsResult
-    {
-        /// <summary>
-        /// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
-        /// </summary>
-        public readonly ImmutableArray<string> ApplicationGatewayBackendAddressPoolsIds;
-        public readonly ImmutableArray<string> ApplicationSecurityGroupIds;
-        /// <summary>
-        /// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
-        /// </summary>
-        public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolsIds;
-        /// <summary>
-        /// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
-        /// </summary>
-        public readonly ImmutableArray<string> LoadBalancerInboundNatRulesIds;
-        /// <summary>
-        /// Specifies the name of the Network Interface.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// is this the Primary IP Configuration for this Network Interface?
-        /// </summary>
-        public readonly bool Primary;
-        /// <summary>
-        /// The Private IP Address assigned to this Network Interface.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// The IP Address allocation type for the Private address, such as `Dynamic` or `Static`.
-        /// </summary>
-        public readonly string PrivateIpAddressAllocation;
-        public readonly string PrivateIpAddressVersion;
-        /// <summary>
-        /// The ID of the Public IP Address which is connected to this Network Interface.
-        /// </summary>
-        public readonly string PublicIpAddressId;
-        /// <summary>
-        /// The ID of the Subnet which the Network Interface is connected to.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private GetNetworkInterfaceIpConfigurationsResult(
-            ImmutableArray<string> applicationGatewayBackendAddressPoolsIds,
-            ImmutableArray<string> applicationSecurityGroupIds,
-            ImmutableArray<string> loadBalancerBackendAddressPoolsIds,
-            ImmutableArray<string> loadBalancerInboundNatRulesIds,
-            string name,
-            bool primary,
-            string privateIpAddress,
-            string privateIpAddressAllocation,
-            string privateIpAddressVersion,
-            string publicIpAddressId,
-            string subnetId)
-        {
-            ApplicationGatewayBackendAddressPoolsIds = applicationGatewayBackendAddressPoolsIds;
-            ApplicationSecurityGroupIds = applicationSecurityGroupIds;
-            LoadBalancerBackendAddressPoolsIds = loadBalancerBackendAddressPoolsIds;
-            LoadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-            Name = name;
-            Primary = primary;
-            PrivateIpAddress = privateIpAddress;
-            PrivateIpAddressAllocation = privateIpAddressAllocation;
-            PrivateIpAddressVersion = privateIpAddressVersion;
-            PublicIpAddressId = publicIpAddressId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

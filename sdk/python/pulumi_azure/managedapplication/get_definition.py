@@ -44,7 +44,7 @@ def get_definition(name=None,resource_group_name=None,opts=None):
     """
     Uses this data source to access information about an existing Managed Application Definition.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_application_definition.html.markdown.
+
 
 
     :param str name: Specifies the name of the Managed Application Definition.

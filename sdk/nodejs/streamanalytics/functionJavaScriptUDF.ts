@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
  */

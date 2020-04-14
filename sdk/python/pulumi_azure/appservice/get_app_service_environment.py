@@ -61,7 +61,7 @@ def get_app_service_environment(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Service Environment
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
+
 
 
     :param str name: The name of the App Service Environment.

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a integer variable in Azure Automation
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_int.html.markdown.
     /// </summary>
     public partial class IntVariable : Pulumi.CustomResource
     {
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntVariable(string name, IntVariableArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/intVariable:IntVariable", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:automation/intVariable:IntVariable", name, args ?? new IntVariableArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Backup
     /// Manages an Azure File Share Backup Policy within a Recovery Services vault.
     /// 
     /// &gt; **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_file_share.markdown.
     /// </summary>
     public partial class PolicyFileShare : Pulumi.CustomResource
     {
@@ -63,7 +61,7 @@ namespace Pulumi.Azure.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PolicyFileShare(string name, PolicyFileShareArgs args, CustomResourceOptions? options = null)
-            : base("azure:backup/policyFileShare:PolicyFileShare", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:backup/policyFileShare:PolicyFileShare", name, args ?? new PolicyFileShareArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -182,105 +180,5 @@ namespace Pulumi.Azure.Backup
         public PolicyFileShareState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class PolicyFileShareBackupArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Sets the backup frequency. Currently, only `Daily` is supported
-        /// </summary>
-        [Input("frequency", required: true)]
-        public Input<string> Frequency { get; set; } = null!;
-
-        [Input("time", required: true)]
-        public Input<string> Time { get; set; } = null!;
-
-        public PolicyFileShareBackupArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyFileShareBackupGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Sets the backup frequency. Currently, only `Daily` is supported
-        /// </summary>
-        [Input("frequency", required: true)]
-        public Input<string> Frequency { get; set; } = null!;
-
-        [Input("time", required: true)]
-        public Input<string> Time { get; set; } = null!;
-
-        public PolicyFileShareBackupGetArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyFileShareRetentionDailyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of daily backups to keep. Must be between `1` and `180` (inclusive)
-        /// </summary>
-        [Input("count", required: true)]
-        public Input<int> Count { get; set; } = null!;
-
-        public PolicyFileShareRetentionDailyArgs()
-        {
-        }
-    }
-
-    public sealed class PolicyFileShareRetentionDailyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The number of daily backups to keep. Must be between `1` and `180` (inclusive)
-        /// </summary>
-        [Input("count", required: true)]
-        public Input<int> Count { get; set; } = null!;
-
-        public PolicyFileShareRetentionDailyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class PolicyFileShareBackup
-    {
-        /// <summary>
-        /// Sets the backup frequency. Currently, only `Daily` is supported
-        /// </summary>
-        public readonly string Frequency;
-        public readonly string Time;
-
-        [OutputConstructor]
-        private PolicyFileShareBackup(
-            string frequency,
-            string time)
-        {
-            Frequency = frequency;
-            Time = time;
-        }
-    }
-
-    [OutputType]
-    public sealed class PolicyFileShareRetentionDaily
-    {
-        /// <summary>
-        /// The number of daily backups to keep. Must be between `1` and `180` (inclusive)
-        /// </summary>
-        public readonly int Count;
-
-        [OutputConstructor]
-        private PolicyFileShareRetentionDaily(int count)
-        {
-            Count = count;
-        }
-    }
     }
 }

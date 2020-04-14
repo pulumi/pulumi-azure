@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Msi
 {
     /// <summary>
     /// Manages a user assigned identity.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.markdown.
     /// </summary>
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
@@ -64,7 +62,7 @@ namespace Pulumi.Azure.Msi
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserAssignedIdentity(string name, UserAssignedIdentityArgs args, CustomResourceOptions? options = null)
-            : base("azure:msi/userAssignedIdentity:UserAssignedIdentity", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:msi/userAssignedIdentity:UserAssignedIdentity", name, args ?? new UserAssignedIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 

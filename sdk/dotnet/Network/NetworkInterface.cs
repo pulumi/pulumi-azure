@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Network Interface.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
     /// </summary>
     public partial class NetworkInterface : Pulumi.CustomResource
     {
@@ -50,7 +48,7 @@ namespace Pulumi.Azure.Network
         /// One or more `ip_configuration` blocks as defined below.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceIpConfigurations>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The location where the Network Interface should exist. Changing this forces a new resource to be created.
@@ -109,7 +107,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterface(string name, NetworkInterfaceArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkInterface:NetworkInterface", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/networkInterface:NetworkInterface", name, args ?? new NetworkInterfaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -177,14 +175,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? InternalDnsNameLabel { get; set; }
 
         [Input("ipConfigurations", required: true)]
-        private InputList<Inputs.NetworkInterfaceIpConfigurationsArgs>? _ipConfigurations;
+        private InputList<Inputs.NetworkInterfaceIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
         /// One or more `ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.NetworkInterfaceIpConfigurationsArgs> IpConfigurations
+        public InputList<Inputs.NetworkInterfaceIpConfigurationArgs> IpConfigurations
         {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIpConfigurationsArgs>());
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIpConfigurationArgs>());
             set => _ipConfigurations = value;
         }
 
@@ -268,14 +266,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? InternalDnsNameLabel { get; set; }
 
         [Input("ipConfigurations")]
-        private InputList<Inputs.NetworkInterfaceIpConfigurationsGetArgs>? _ipConfigurations;
+        private InputList<Inputs.NetworkInterfaceIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
         /// One or more `ip_configuration` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.NetworkInterfaceIpConfigurationsGetArgs> IpConfigurations
+        public InputList<Inputs.NetworkInterfaceIpConfigurationGetArgs> IpConfigurations
         {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIpConfigurationsGetArgs>());
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIpConfigurationGetArgs>());
             set => _ipConfigurations = value;
         }
 
@@ -342,163 +340,5 @@ namespace Pulumi.Azure.Network
         public NetworkInterfaceState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NetworkInterfaceIpConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used for this IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
-        /// </summary>
-        [Input("primary")]
-        public Input<bool>? Primary { get; set; }
-
-        /// <summary>
-        /// The Static IP Address which should be used.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        /// </summary>
-        [Input("privateIpAddressAllocation", required: true)]
-        public Input<string> PrivateIpAddressAllocation { get; set; } = null!;
-
-        /// <summary>
-        /// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
-        /// </summary>
-        [Input("privateIpAddressVersion")]
-        public Input<string>? PrivateIpAddressVersion { get; set; }
-
-        /// <summary>
-        /// Reference to a Public IP Address to associate with this NIC
-        /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
-
-        /// <summary>
-        /// The ID of the Subnet where this Network Interface should be located in.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public NetworkInterfaceIpConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class NetworkInterfaceIpConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used for this IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
-        /// </summary>
-        [Input("primary")]
-        public Input<bool>? Primary { get; set; }
-
-        /// <summary>
-        /// The Static IP Address which should be used.
-        /// </summary>
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
-
-        /// <summary>
-        /// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        /// </summary>
-        [Input("privateIpAddressAllocation", required: true)]
-        public Input<string> PrivateIpAddressAllocation { get; set; } = null!;
-
-        /// <summary>
-        /// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
-        /// </summary>
-        [Input("privateIpAddressVersion")]
-        public Input<string>? PrivateIpAddressVersion { get; set; }
-
-        /// <summary>
-        /// Reference to a Public IP Address to associate with this NIC
-        /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
-
-        /// <summary>
-        /// The ID of the Subnet where this Network Interface should be located in.
-        /// </summary>
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
-        public NetworkInterfaceIpConfigurationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NetworkInterfaceIpConfigurations
-    {
-        /// <summary>
-        /// A name used for this IP Configuration.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
-        /// </summary>
-        public readonly bool Primary;
-        /// <summary>
-        /// The Static IP Address which should be used.
-        /// </summary>
-        public readonly string PrivateIpAddress;
-        /// <summary>
-        /// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        /// </summary>
-        public readonly string PrivateIpAddressAllocation;
-        /// <summary>
-        /// The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
-        /// </summary>
-        public readonly string? PrivateIpAddressVersion;
-        /// <summary>
-        /// Reference to a Public IP Address to associate with this NIC
-        /// </summary>
-        public readonly string? PublicIpAddressId;
-        /// <summary>
-        /// The ID of the Subnet where this Network Interface should be located in.
-        /// </summary>
-        public readonly string? SubnetId;
-
-        [OutputConstructor]
-        private NetworkInterfaceIpConfigurations(
-            string name,
-            bool primary,
-            string privateIpAddress,
-            string privateIpAddressAllocation,
-            string? privateIpAddressVersion,
-            string? publicIpAddressId,
-            string? subnetId)
-        {
-            Name = name;
-            Primary = primary;
-            PrivateIpAddress = privateIpAddress;
-            PrivateIpAddressAllocation = privateIpAddressAllocation;
-            PrivateIpAddressVersion = privateIpAddressVersion;
-            PublicIpAddressId = publicIpAddressId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

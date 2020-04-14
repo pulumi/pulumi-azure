@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Core
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Resource Group.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetResourceGroup.InvokeAsync() instead")]
-        public static Task<GetResourceGroupResult> GetResourceGroup(GetResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetResourceGroup
     {
         /// <summary>
         /// Use this data source to access information about an existing Resource Group.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetResourceGroupArgs : Pulumi.InvokeArgs
     {
@@ -44,9 +35,14 @@ namespace Pulumi.Azure.Core
         }
     }
 
+
     [OutputType]
     public sealed class GetResourceGroupResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region where the Resource Group exists.
         /// </summary>
@@ -56,22 +52,21 @@ namespace Pulumi.Azure.Core
         /// A mapping of tags assigned to the Resource Group.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetResourceGroupResult(
+            string id,
+
             string location,
+
             string name,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             Tags = tags;
-            Id = id;
         }
     }
 }

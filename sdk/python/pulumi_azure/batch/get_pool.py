@@ -125,7 +125,7 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
     """
     Use this data source to access information about an existing Batch pool
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
+
 
 
     :param str account_name: The name of the Batch account.

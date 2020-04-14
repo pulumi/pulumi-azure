@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about a Function App.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
  */
-export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppResult> & GetFunctionAppResult {
+export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +20,11 @@ export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetFunctionAppResult> = pulumi.runtime.invoke("azure:appservice/getFunctionApp:getFunctionApp", {
+    return pulumi.runtime.invoke("azure:appservice/getFunctionApp:getFunctionApp", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

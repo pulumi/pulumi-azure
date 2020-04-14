@@ -43,7 +43,7 @@ def get_policy(storage_account_id=None,opts=None):
     """
     Use this data source to access information about an existing Storage Management Policy.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
+
 
 
     :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.

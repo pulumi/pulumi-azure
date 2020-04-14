@@ -65,7 +65,7 @@ def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
+
 
 
     :param str name: Specifies the Name of the Notification Hub.

@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing EventHub Namespace.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
  */
-export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> & GetEventhubNamespaceResult {
+export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetEventhubNamespaceResult> = pulumi.runtime.invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {
+    return pulumi.runtime.invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

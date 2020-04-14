@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Dashboard
 {
     /// <summary>
     /// Manages a shared dashboard in the Azure Portal.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dashboard.html.markdown.
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource
     {
@@ -56,7 +54,7 @@ namespace Pulumi.Azure.Dashboard
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
-            : base("azure:dashboard/dashboard:Dashboard", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:dashboard/dashboard:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 

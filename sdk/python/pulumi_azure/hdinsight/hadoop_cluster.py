@@ -115,7 +115,7 @@ class HadoopCluster(pulumi.CustomResource):
         """
         Manages a HDInsight Hadoop Cluster.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_hadoop_cluster.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

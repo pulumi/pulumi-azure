@@ -121,7 +121,7 @@ def get_key_vault(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
+
 
 
     :param str name: Specifies the name of the Key Vault.

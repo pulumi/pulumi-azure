@@ -47,8 +47,6 @@ def get_account(name=None,resource_group_name=None,opts=None):
     """
     Uses this data source to access information about an existing NetApp Account.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_account.html.markdown.
-
 
     :param str name: The name of the NetApp Account.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Account exists.

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Managed Application Definition.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_application_definition.html.markdown.
  */

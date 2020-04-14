@@ -48,7 +48,7 @@ def get_placement_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Proximity Placement Group.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
+
 
 
     :param str name: The name of the Proximity Placement Group.

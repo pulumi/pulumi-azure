@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Output to Microsoft SQL Server Database.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
  */

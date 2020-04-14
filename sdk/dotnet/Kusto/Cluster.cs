@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Kusto
 {
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Cluster
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_cluster.html.markdown.
     /// </summary>
     public partial class Cluster : Pulumi.CustomResource
     {
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Kusto
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:kusto/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:kusto/cluster:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -234,73 +232,5 @@ namespace Pulumi.Azure.Kusto
         public ClusterState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ClusterSkuArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ClusterSkuArgs()
-        {
-        }
-    }
-
-    public sealed class ClusterSkuGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
-        /// </summary>
-        [Input("capacity", required: true)]
-        public Input<int> Capacity { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ClusterSkuGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ClusterSku
-    {
-        /// <summary>
-        /// Specifies the node count for the cluster. Boundaries depend on the sku name.
-        /// </summary>
-        public readonly int Capacity;
-        /// <summary>
-        /// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ClusterSku(
-            int capacity,
-            string name)
-        {
-            Capacity = capacity;
-            Name = name;
-        }
-    }
     }
 }

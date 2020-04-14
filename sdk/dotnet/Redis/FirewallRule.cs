@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Redis
 {
     /// <summary>
     /// Manages a Firewall Rule associated with a Redis Cache.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_firewall_rule.html.markdown.
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.Azure.Redis
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:redis/firewallRule:FirewallRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:redis/firewallRule:FirewallRule", name, args ?? new FirewallRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 

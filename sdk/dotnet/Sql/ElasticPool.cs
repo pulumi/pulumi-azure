@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Sql
     /// Allows you to manage an Azure SQL Elastic Pool.
     /// 
     /// &gt; **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azure.mssql.ElasticPool version instead.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {
@@ -93,7 +91,7 @@ namespace Pulumi.Azure.Sql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ElasticPool(string name, ElasticPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure:sql/elasticPool:ElasticPool", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:sql/elasticPool:ElasticPool", name, args ?? new ElasticPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 

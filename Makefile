@@ -15,9 +15,9 @@ DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
 
 ifeq ($(strip ${DOTNET_SUFFIX}),)
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview
+	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})
 else
-	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview-$(strip ${DOTNET_SUFFIX})
+	DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-$(strip ${DOTNET_SUFFIX})
 endif
 
 TESTPARALLELISM := 20
@@ -53,20 +53,20 @@ generate_schema:: tfgen
 
 provider:: generate_schema
 	cd provider && go generate cmd/${PROVIDER}/main.go
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${PROVIDER}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${PROVIDER}
 
 tfgen::
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v2/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v2/cmd/${TFGEN}
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-azure/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${TFGEN}
 
 install_plugins::
-	[ -x "$(shell which pulumi)" ] || curl -fsSL https://get.pulumi.com | sh
+	[ -x "$(shell which pulumi)" ] || curl -fsSL https://get.pulumi.com | sh -s -- --version "2.0.0-beta.2"
 	pulumi plugin install resource random 0.2.0
 
 lint::
 	#GOGC=25 golangci-lint run
 	#nm "$(shell which pulumi-resource-azure)" | grep github.com/pulumi/pulumi-azure/vendor/github.com/terraform-providers/terraform-provider-azurerm/azurerm.requireResourcesToBeImported
 
-install:: tfgen provider 
+install:: provider
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r ${PACKDIR}/nodejs/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"

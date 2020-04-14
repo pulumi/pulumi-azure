@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Policy
 {
     /// <summary>
     /// Manages an Azure Policy Remediation at the specified Scope.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_remediation.html.markdown.
     /// </summary>
     public partial class Remediation : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.Azure.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Remediation(string name, RemediationArgs args, CustomResourceOptions? options = null)
-            : base("azure:policy/remediation:Remediation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:policy/remediation:Remediation", name, args ?? new RemediationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

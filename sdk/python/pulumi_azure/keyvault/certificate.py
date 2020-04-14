@@ -84,8 +84,6 @@ class Certificate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below, used to Import an existing certificate.

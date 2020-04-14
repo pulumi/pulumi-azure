@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing App Service Environment
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_environment.html.markdown.
  */
-export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> & GetAppServiceEnvironmentResult {
+export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAppServiceEnvironmentResult> = pulumi.runtime.invoke("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", {
+    return pulumi.runtime.invoke("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

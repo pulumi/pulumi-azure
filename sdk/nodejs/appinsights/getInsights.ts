@@ -6,10 +6,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Application Insights component.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
  */
-export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> & GetInsightsResult {
+export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,12 +18,10 @@ export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetInsightsResult> = pulumi.runtime.invoke("azure:appinsights/getInsights:getInsights", {
+    return pulumi.runtime.invoke("azure:appinsights/getInsights:getInsights", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

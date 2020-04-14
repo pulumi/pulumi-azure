@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing PostgreSQL Azure Database Server.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
  */
-export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> & GetServerResult {
+export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServerResult> = pulumi.runtime.invoke("azure:postgresql/getServer:getServer", {
+    return pulumi.runtime.invoke("azure:postgresql/getServer:getServer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

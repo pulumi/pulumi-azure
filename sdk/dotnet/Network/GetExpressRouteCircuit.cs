@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing ExpressRoute circuit.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetExpressRouteCircuit.InvokeAsync() instead")]
-        public static Task<GetExpressRouteCircuitResult> GetExpressRouteCircuit(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetExpressRouteCircuit
     {
         /// <summary>
         /// Use this data source to access information about an existing ExpressRoute circuit.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetExpressRouteCircuitResult> InvokeAsync(GetExpressRouteCircuitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitResult>("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args ?? new GetExpressRouteCircuitArgs(), options.WithVersion());
     }
+
 
     public sealed class GetExpressRouteCircuitArgs : Pulumi.InvokeArgs
     {
@@ -50,9 +41,14 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetExpressRouteCircuitResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure location where the ExpressRoute circuit exists
         /// </summary>
@@ -61,7 +57,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `peerings` block for the ExpressRoute circuit as documented below
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetExpressRouteCircuitPeeringsResult> Peerings;
+        public readonly ImmutableArray<Outputs.GetExpressRouteCircuitPeeringResult> Peerings;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The string needed by the service provider to provision the ExpressRoute circuit.
@@ -70,7 +66,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `service_provider_properties` block for the ExpressRoute circuit as documented below
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetExpressRouteCircuitServiceProviderPropertiesResult> ServiceProviderProperties;
+        public readonly ImmutableArray<Outputs.GetExpressRouteCircuitServiceProviderPropertyResult> ServiceProviderProperties;
         /// <summary>
         /// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
         /// </summary>
@@ -79,23 +75,28 @@ namespace Pulumi.Azure.Network
         /// A `sku` block for the ExpressRoute circuit as documented below.
         /// </summary>
         public readonly Outputs.GetExpressRouteCircuitSkuResult Sku;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetExpressRouteCircuitResult(
+            string id,
+
             string location,
+
             string name,
-            ImmutableArray<Outputs.GetExpressRouteCircuitPeeringsResult> peerings,
+
+            ImmutableArray<Outputs.GetExpressRouteCircuitPeeringResult> peerings,
+
             string resourceGroupName,
+
             string serviceKey,
-            ImmutableArray<Outputs.GetExpressRouteCircuitServiceProviderPropertiesResult> serviceProviderProperties,
+
+            ImmutableArray<Outputs.GetExpressRouteCircuitServiceProviderPropertyResult> serviceProviderProperties,
+
             string serviceProviderProvisioningState,
-            Outputs.GetExpressRouteCircuitSkuResult sku,
-            string id)
+
+            Outputs.GetExpressRouteCircuitSkuResult sku)
         {
+            Id = id;
             Location = location;
             Name = name;
             Peerings = peerings;
@@ -104,113 +105,6 @@ namespace Pulumi.Azure.Network
             ServiceProviderProperties = serviceProviderProperties;
             ServiceProviderProvisioningState = serviceProviderProvisioningState;
             Sku = sku;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetExpressRouteCircuitPeeringsResult
-    {
-        /// <summary>
-        /// The Either a 16-bit or a 32-bit ASN for Azure.
-        /// </summary>
-        public readonly int AzureAsn;
-        /// <summary>
-        /// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
-        /// </summary>
-        public readonly int PeerAsn;
-        /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string PeeringType;
-        /// <summary>
-        /// A `/30` subnet for the primary link.
-        /// </summary>
-        public readonly string PrimaryPeerAddressPrefix;
-        /// <summary>
-        /// A `/30` subnet for the secondary link.
-        /// </summary>
-        public readonly string SecondaryPeerAddressPrefix;
-        /// <summary>
-        /// The shared key. Can be a maximum of 25 characters.
-        /// </summary>
-        public readonly string SharedKey;
-        /// <summary>
-        /// A valid VLAN ID to establish this peering on.
-        /// </summary>
-        public readonly int VlanId;
-
-        [OutputConstructor]
-        private GetExpressRouteCircuitPeeringsResult(
-            int azureAsn,
-            int peerAsn,
-            string peeringType,
-            string primaryPeerAddressPrefix,
-            string secondaryPeerAddressPrefix,
-            string sharedKey,
-            int vlanId)
-        {
-            AzureAsn = azureAsn;
-            PeerAsn = peerAsn;
-            PeeringType = peeringType;
-            PrimaryPeerAddressPrefix = primaryPeerAddressPrefix;
-            SecondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
-            SharedKey = sharedKey;
-            VlanId = vlanId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetExpressRouteCircuitServiceProviderPropertiesResult
-    {
-        /// <summary>
-        /// The bandwidth in Mbps of the ExpressRoute circuit.
-        /// </summary>
-        public readonly int BandwidthInMbps;
-        /// <summary>
-        /// The name of the peering location and **not** the Azure resource location.
-        /// </summary>
-        public readonly string PeeringLocation;
-        /// <summary>
-        /// The name of the ExpressRoute Service Provider.
-        /// </summary>
-        public readonly string ServiceProviderName;
-
-        [OutputConstructor]
-        private GetExpressRouteCircuitServiceProviderPropertiesResult(
-            int bandwidthInMbps,
-            string peeringLocation,
-            string serviceProviderName)
-        {
-            BandwidthInMbps = bandwidthInMbps;
-            PeeringLocation = peeringLocation;
-            ServiceProviderName = serviceProviderName;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetExpressRouteCircuitSkuResult
-    {
-        /// <summary>
-        /// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-        /// </summary>
-        public readonly string Family;
-        /// <summary>
-        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-        /// </summary>
-        public readonly string Tier;
-
-        [OutputConstructor]
-        private GetExpressRouteCircuitSkuResult(
-            string family,
-            string tier)
-        {
-            Family = family;
-            Tier = tier;
-        }
-    }
     }
 }

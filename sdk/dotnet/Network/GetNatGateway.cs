@@ -9,31 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing NAT Gateway.
-        /// 
-        /// &gt; **NOTE:** The Azure NAT Gateway service is currently in private preview. Your subscription must be on the NAT Gateway private preview whitelist for this resource to be provisioned correctly. If you attempt to provision this resource and receive an `InvalidResourceType` error may mean that your subscription is not part of the NAT Gateway private preview or you are using a region which does not yet support the NAT Gateway private preview service. The NAT Gateway private preview service is currently available in a limited set of regions. Private preview resources may have multiple breaking changes over their lifecycle until they GA. You can opt into the Private Preview by contacting your Microsoft Representative.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/nat_gateway.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetNatGateway.InvokeAsync() instead")]
-        public static Task<GetNatGatewayResult> GetNatGateway(GetNatGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetNatGateway
     {
         /// <summary>
         /// Use this data source to access information about an existing NAT Gateway.
         /// 
         /// &gt; **NOTE:** The Azure NAT Gateway service is currently in private preview. Your subscription must be on the NAT Gateway private preview whitelist for this resource to be provisioned correctly. If you attempt to provision this resource and receive an `InvalidResourceType` error may mean that your subscription is not part of the NAT Gateway private preview or you are using a region which does not yet support the NAT Gateway private preview service. The NAT Gateway private preview service is currently available in a limited set of regions. Private preview resources may have multiple breaking changes over their lifecycle until they GA. You can opt into the Private Preview by contacting your Microsoft Representative.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/nat_gateway.html.markdown.
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("azure:network/getNatGateway:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
     }
+
 
     public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
     {
@@ -78,9 +64,14 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetNatGatewayResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The idle timeout in minutes which is used for the NAT Gateway.
         /// </summary>
@@ -115,25 +106,32 @@ namespace Pulumi.Azure.Network
         /// A list of Availability Zones which the NAT Gateway exists in.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetNatGatewayResult(
+            string id,
+
             int idleTimeoutInMinutes,
+
             string location,
+
             string name,
+
             ImmutableArray<string> publicIpAddressIds,
+
             ImmutableArray<string> publicIpPrefixIds,
+
             string resourceGroupName,
+
             string resourceGuid,
+
             string skuName,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<string> zones,
-            string id)
+
+            ImmutableArray<string> zones)
         {
+            Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             Location = location;
             Name = name;
@@ -144,7 +142,6 @@ namespace Pulumi.Azure.Network
             SkuName = skuName;
             Tags = tags;
             Zones = zones;
-            Id = id;
         }
     }
 }

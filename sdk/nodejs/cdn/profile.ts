@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CDN Profile to create a collection of CDN Endpoints.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_profile.html.markdown.
  */

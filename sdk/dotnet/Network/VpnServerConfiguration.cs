@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a VPN Server Configuration.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_server_configuration.html.markdown.
     /// </summary>
     public partial class VpnServerConfiguration : Pulumi.CustomResource
     {
@@ -20,19 +18,19 @@ namespace Pulumi.Azure.Network
         /// A `azure_active_directory_authentication` block as defined below.
         /// </summary>
         [Output("azureActiveDirectoryAuthentications")]
-        public Output<ImmutableArray<Outputs.VpnServerConfigurationAzureActiveDirectoryAuthentications>> AzureActiveDirectoryAuthentications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication>> AzureActiveDirectoryAuthentications { get; private set; } = null!;
 
         /// <summary>
         /// One or more `client_revoked_certificate` blocks as defined below.
         /// </summary>
         [Output("clientRevokedCertificates")]
-        public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRevokedCertificates>> ClientRevokedCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRevokedCertificate>> ClientRevokedCertificates { get; private set; } = null!;
 
         /// <summary>
         /// One or more `client_root_certificate` blocks as defined below.
         /// </summary>
         [Output("clientRootCertificates")]
-        public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRootCertificates>> ClientRootCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRootCertificate>> ClientRootCertificates { get; private set; } = null!;
 
         /// <summary>
         /// A `ipsec_policy` block as defined below.
@@ -91,7 +89,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VpnServerConfiguration(string name, VpnServerConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/vpnServerConfiguration:VpnServerConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/vpnServerConfiguration:VpnServerConfiguration", name, args ?? new VpnServerConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -129,38 +127,38 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("azureActiveDirectoryAuthentications")]
-        private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationsArgs>? _azureActiveDirectoryAuthentications;
+        private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>? _azureActiveDirectoryAuthentications;
 
         /// <summary>
         /// A `azure_active_directory_authentication` block as defined below.
         /// </summary>
-        public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationsArgs> AzureActiveDirectoryAuthentications
+        public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs> AzureActiveDirectoryAuthentications
         {
-            get => _azureActiveDirectoryAuthentications ?? (_azureActiveDirectoryAuthentications = new InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationsArgs>());
+            get => _azureActiveDirectoryAuthentications ?? (_azureActiveDirectoryAuthentications = new InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>());
             set => _azureActiveDirectoryAuthentications = value;
         }
 
         [Input("clientRevokedCertificates")]
-        private InputList<Inputs.VpnServerConfigurationClientRevokedCertificatesArgs>? _clientRevokedCertificates;
+        private InputList<Inputs.VpnServerConfigurationClientRevokedCertificateArgs>? _clientRevokedCertificates;
 
         /// <summary>
         /// One or more `client_revoked_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.VpnServerConfigurationClientRevokedCertificatesArgs> ClientRevokedCertificates
+        public InputList<Inputs.VpnServerConfigurationClientRevokedCertificateArgs> ClientRevokedCertificates
         {
-            get => _clientRevokedCertificates ?? (_clientRevokedCertificates = new InputList<Inputs.VpnServerConfigurationClientRevokedCertificatesArgs>());
+            get => _clientRevokedCertificates ?? (_clientRevokedCertificates = new InputList<Inputs.VpnServerConfigurationClientRevokedCertificateArgs>());
             set => _clientRevokedCertificates = value;
         }
 
         [Input("clientRootCertificates")]
-        private InputList<Inputs.VpnServerConfigurationClientRootCertificatesArgs>? _clientRootCertificates;
+        private InputList<Inputs.VpnServerConfigurationClientRootCertificateArgs>? _clientRootCertificates;
 
         /// <summary>
         /// One or more `client_root_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.VpnServerConfigurationClientRootCertificatesArgs> ClientRootCertificates
+        public InputList<Inputs.VpnServerConfigurationClientRootCertificateArgs> ClientRootCertificates
         {
-            get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<Inputs.VpnServerConfigurationClientRootCertificatesArgs>());
+            get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<Inputs.VpnServerConfigurationClientRootCertificateArgs>());
             set => _clientRootCertificates = value;
         }
 
@@ -232,38 +230,38 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationState : Pulumi.ResourceArgs
     {
         [Input("azureActiveDirectoryAuthentications")]
-        private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationsGetArgs>? _azureActiveDirectoryAuthentications;
+        private InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs>? _azureActiveDirectoryAuthentications;
 
         /// <summary>
         /// A `azure_active_directory_authentication` block as defined below.
         /// </summary>
-        public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationsGetArgs> AzureActiveDirectoryAuthentications
+        public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs> AzureActiveDirectoryAuthentications
         {
-            get => _azureActiveDirectoryAuthentications ?? (_azureActiveDirectoryAuthentications = new InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationsGetArgs>());
+            get => _azureActiveDirectoryAuthentications ?? (_azureActiveDirectoryAuthentications = new InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs>());
             set => _azureActiveDirectoryAuthentications = value;
         }
 
         [Input("clientRevokedCertificates")]
-        private InputList<Inputs.VpnServerConfigurationClientRevokedCertificatesGetArgs>? _clientRevokedCertificates;
+        private InputList<Inputs.VpnServerConfigurationClientRevokedCertificateGetArgs>? _clientRevokedCertificates;
 
         /// <summary>
         /// One or more `client_revoked_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.VpnServerConfigurationClientRevokedCertificatesGetArgs> ClientRevokedCertificates
+        public InputList<Inputs.VpnServerConfigurationClientRevokedCertificateGetArgs> ClientRevokedCertificates
         {
-            get => _clientRevokedCertificates ?? (_clientRevokedCertificates = new InputList<Inputs.VpnServerConfigurationClientRevokedCertificatesGetArgs>());
+            get => _clientRevokedCertificates ?? (_clientRevokedCertificates = new InputList<Inputs.VpnServerConfigurationClientRevokedCertificateGetArgs>());
             set => _clientRevokedCertificates = value;
         }
 
         [Input("clientRootCertificates")]
-        private InputList<Inputs.VpnServerConfigurationClientRootCertificatesGetArgs>? _clientRootCertificates;
+        private InputList<Inputs.VpnServerConfigurationClientRootCertificateGetArgs>? _clientRootCertificates;
 
         /// <summary>
         /// One or more `client_root_certificate` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.VpnServerConfigurationClientRootCertificatesGetArgs> ClientRootCertificates
+        public InputList<Inputs.VpnServerConfigurationClientRootCertificateGetArgs> ClientRootCertificates
         {
-            get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<Inputs.VpnServerConfigurationClientRootCertificatesGetArgs>());
+            get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<Inputs.VpnServerConfigurationClientRootCertificateGetArgs>());
             set => _clientRootCertificates = value;
         }
 
@@ -330,619 +328,5 @@ namespace Pulumi.Azure.Network
         public VpnServerConfigurationState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VpnServerConfigurationAzureActiveDirectoryAuthenticationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Audience which should be used for authentication.
-        /// </summary>
-        [Input("audience", required: true)]
-        public Input<string> Audience { get; set; } = null!;
-
-        /// <summary>
-        /// The Issuer which should be used for authentication.
-        /// </summary>
-        [Input("issuer", required: true)]
-        public Input<string> Issuer { get; set; } = null!;
-
-        /// <summary>
-        /// The Tenant which should be used for authentication.
-        /// </summary>
-        [Input("tenant", required: true)]
-        public Input<string> Tenant { get; set; } = null!;
-
-        public VpnServerConfigurationAzureActiveDirectoryAuthenticationsArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationAzureActiveDirectoryAuthenticationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Audience which should be used for authentication.
-        /// </summary>
-        [Input("audience", required: true)]
-        public Input<string> Audience { get; set; } = null!;
-
-        /// <summary>
-        /// The Issuer which should be used for authentication.
-        /// </summary>
-        [Input("issuer", required: true)]
-        public Input<string> Issuer { get; set; } = null!;
-
-        /// <summary>
-        /// The Tenant which should be used for authentication.
-        /// </summary>
-        [Input("tenant", required: true)]
-        public Input<string> Tenant { get; set; } = null!;
-
-        public VpnServerConfigurationAzureActiveDirectoryAuthenticationsGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationClientRevokedCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        public VpnServerConfigurationClientRevokedCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationClientRevokedCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        public VpnServerConfigurationClientRevokedCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationClientRootCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Public Key Data associated with the Certificate.
-        /// </summary>
-        [Input("publicCertData", required: true)]
-        public Input<string> PublicCertData { get; set; } = null!;
-
-        public VpnServerConfigurationClientRootCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationClientRootCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Public Key Data associated with the Certificate.
-        /// </summary>
-        [Input("publicCertData", required: true)]
-        public Input<string> PublicCertData { get; set; } = null!;
-
-        public VpnServerConfigurationClientRootCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationIpsecPolicyArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-        /// </summary>
-        [Input("dhGroup", required: true)]
-        public Input<string> DhGroup { get; set; } = null!;
-
-        /// <summary>
-        /// The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-        /// </summary>
-        [Input("ikeEncryption", required: true)]
-        public Input<string> IkeEncryption { get; set; } = null!;
-
-        /// <summary>
-        /// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-        /// </summary>
-        [Input("ikeIntegrity", required: true)]
-        public Input<string> IkeIntegrity { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-        /// </summary>
-        [Input("ipsecEncryption", required: true)]
-        public Input<string> IpsecEncryption { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-        /// </summary>
-        [Input("ipsecIntegrity", required: true)]
-        public Input<string> IpsecIntegrity { get; set; } = null!;
-
-        /// <summary>
-        /// The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-        /// </summary>
-        [Input("pfsGroup", required: true)]
-        public Input<string> PfsGroup { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-        /// </summary>
-        [Input("saDataSizeKilobytes", required: true)]
-        public Input<int> SaDataSizeKilobytes { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-        /// </summary>
-        [Input("saLifetimeSeconds", required: true)]
-        public Input<int> SaLifetimeSeconds { get; set; } = null!;
-
-        public VpnServerConfigurationIpsecPolicyArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationIpsecPolicyGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-        /// </summary>
-        [Input("dhGroup", required: true)]
-        public Input<string> DhGroup { get; set; } = null!;
-
-        /// <summary>
-        /// The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-        /// </summary>
-        [Input("ikeEncryption", required: true)]
-        public Input<string> IkeEncryption { get; set; } = null!;
-
-        /// <summary>
-        /// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-        /// </summary>
-        [Input("ikeIntegrity", required: true)]
-        public Input<string> IkeIntegrity { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-        /// </summary>
-        [Input("ipsecEncryption", required: true)]
-        public Input<string> IpsecEncryption { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-        /// </summary>
-        [Input("ipsecIntegrity", required: true)]
-        public Input<string> IpsecIntegrity { get; set; } = null!;
-
-        /// <summary>
-        /// The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-        /// </summary>
-        [Input("pfsGroup", required: true)]
-        public Input<string> PfsGroup { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-        /// </summary>
-        [Input("saDataSizeKilobytes", required: true)]
-        public Input<int> SaDataSizeKilobytes { get; set; } = null!;
-
-        /// <summary>
-        /// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-        /// </summary>
-        [Input("saLifetimeSeconds", required: true)]
-        public Input<int> SaLifetimeSeconds { get; set; } = null!;
-
-        public VpnServerConfigurationIpsecPolicyGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationRadiusServerArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Address of the Radius Server.
-        /// </summary>
-        [Input("address", required: true)]
-        public Input<string> Address { get; set; } = null!;
-
-        [Input("clientRootCertificates")]
-        private InputList<VpnServerConfigurationRadiusServerClientRootCertificatesArgs>? _clientRootCertificates;
-
-        /// <summary>
-        /// One or more `client_root_certificate` blocks as defined above.
-        /// </summary>
-        public InputList<VpnServerConfigurationRadiusServerClientRootCertificatesArgs> ClientRootCertificates
-        {
-            get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<VpnServerConfigurationRadiusServerClientRootCertificatesArgs>());
-            set => _clientRootCertificates = value;
-        }
-
-        /// <summary>
-        /// The Secret used to communicate with the Radius Server.
-        /// </summary>
-        [Input("secret", required: true)]
-        public Input<string> Secret { get; set; } = null!;
-
-        [Input("serverRootCertificates", required: true)]
-        private InputList<VpnServerConfigurationRadiusServerServerRootCertificatesArgs>? _serverRootCertificates;
-
-        /// <summary>
-        /// One or more `server_root_certificate` blocks as defined below.
-        /// </summary>
-        public InputList<VpnServerConfigurationRadiusServerServerRootCertificatesArgs> ServerRootCertificates
-        {
-            get => _serverRootCertificates ?? (_serverRootCertificates = new InputList<VpnServerConfigurationRadiusServerServerRootCertificatesArgs>());
-            set => _serverRootCertificates = value;
-        }
-
-        public VpnServerConfigurationRadiusServerArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationRadiusServerClientRootCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        public VpnServerConfigurationRadiusServerClientRootCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        [Input("thumbprint", required: true)]
-        public Input<string> Thumbprint { get; set; } = null!;
-
-        public VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationRadiusServerGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The Address of the Radius Server.
-        /// </summary>
-        [Input("address", required: true)]
-        public Input<string> Address { get; set; } = null!;
-
-        [Input("clientRootCertificates")]
-        private InputList<VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs>? _clientRootCertificates;
-
-        /// <summary>
-        /// One or more `client_root_certificate` blocks as defined above.
-        /// </summary>
-        public InputList<VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs> ClientRootCertificates
-        {
-            get => _clientRootCertificates ?? (_clientRootCertificates = new InputList<VpnServerConfigurationRadiusServerClientRootCertificatesGetArgs>());
-            set => _clientRootCertificates = value;
-        }
-
-        /// <summary>
-        /// The Secret used to communicate with the Radius Server.
-        /// </summary>
-        [Input("secret", required: true)]
-        public Input<string> Secret { get; set; } = null!;
-
-        [Input("serverRootCertificates", required: true)]
-        private InputList<VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs>? _serverRootCertificates;
-
-        /// <summary>
-        /// One or more `server_root_certificate` blocks as defined below.
-        /// </summary>
-        public InputList<VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs> ServerRootCertificates
-        {
-            get => _serverRootCertificates ?? (_serverRootCertificates = new InputList<VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs>());
-            set => _serverRootCertificates = value;
-        }
-
-        public VpnServerConfigurationRadiusServerGetArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationRadiusServerServerRootCertificatesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Public Key Data associated with the Certificate.
-        /// </summary>
-        [Input("publicCertData", required: true)]
-        public Input<string> PublicCertData { get; set; } = null!;
-
-        public VpnServerConfigurationRadiusServerServerRootCertificatesArgs()
-        {
-        }
-    }
-
-    public sealed class VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The Public Key Data associated with the Certificate.
-        /// </summary>
-        [Input("publicCertData", required: true)]
-        public Input<string> PublicCertData { get; set; } = null!;
-
-        public VpnServerConfigurationRadiusServerServerRootCertificatesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VpnServerConfigurationAzureActiveDirectoryAuthentications
-    {
-        /// <summary>
-        /// The Audience which should be used for authentication.
-        /// </summary>
-        public readonly string Audience;
-        /// <summary>
-        /// The Issuer which should be used for authentication.
-        /// </summary>
-        public readonly string Issuer;
-        /// <summary>
-        /// The Tenant which should be used for authentication.
-        /// </summary>
-        public readonly string Tenant;
-
-        [OutputConstructor]
-        private VpnServerConfigurationAzureActiveDirectoryAuthentications(
-            string audience,
-            string issuer,
-            string tenant)
-        {
-            Audience = audience;
-            Issuer = issuer;
-            Tenant = tenant;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpnServerConfigurationClientRevokedCertificates
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        public readonly string Thumbprint;
-
-        [OutputConstructor]
-        private VpnServerConfigurationClientRevokedCertificates(
-            string name,
-            string thumbprint)
-        {
-            Name = name;
-            Thumbprint = thumbprint;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpnServerConfigurationClientRootCertificates
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Public Key Data associated with the Certificate.
-        /// </summary>
-        public readonly string PublicCertData;
-
-        [OutputConstructor]
-        private VpnServerConfigurationClientRootCertificates(
-            string name,
-            string publicCertData)
-        {
-            Name = name;
-            PublicCertData = publicCertData;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpnServerConfigurationIpsecPolicy
-    {
-        /// <summary>
-        /// The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-        /// </summary>
-        public readonly string DhGroup;
-        /// <summary>
-        /// The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-        /// </summary>
-        public readonly string IkeEncryption;
-        /// <summary>
-        /// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-        /// </summary>
-        public readonly string IkeIntegrity;
-        /// <summary>
-        /// The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-        /// </summary>
-        public readonly string IpsecEncryption;
-        /// <summary>
-        /// The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-        /// </summary>
-        public readonly string IpsecIntegrity;
-        /// <summary>
-        /// The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-        /// </summary>
-        public readonly string PfsGroup;
-        /// <summary>
-        /// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-        /// </summary>
-        public readonly int SaDataSizeKilobytes;
-        /// <summary>
-        /// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-        /// </summary>
-        public readonly int SaLifetimeSeconds;
-
-        [OutputConstructor]
-        private VpnServerConfigurationIpsecPolicy(
-            string dhGroup,
-            string ikeEncryption,
-            string ikeIntegrity,
-            string ipsecEncryption,
-            string ipsecIntegrity,
-            string pfsGroup,
-            int saDataSizeKilobytes,
-            int saLifetimeSeconds)
-        {
-            DhGroup = dhGroup;
-            IkeEncryption = ikeEncryption;
-            IkeIntegrity = ikeIntegrity;
-            IpsecEncryption = ipsecEncryption;
-            IpsecIntegrity = ipsecIntegrity;
-            PfsGroup = pfsGroup;
-            SaDataSizeKilobytes = saDataSizeKilobytes;
-            SaLifetimeSeconds = saLifetimeSeconds;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpnServerConfigurationRadiusServer
-    {
-        /// <summary>
-        /// The Address of the Radius Server.
-        /// </summary>
-        public readonly string Address;
-        /// <summary>
-        /// One or more `client_root_certificate` blocks as defined above.
-        /// </summary>
-        public readonly ImmutableArray<VpnServerConfigurationRadiusServerClientRootCertificates> ClientRootCertificates;
-        /// <summary>
-        /// The Secret used to communicate with the Radius Server.
-        /// </summary>
-        public readonly string Secret;
-        /// <summary>
-        /// One or more `server_root_certificate` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<VpnServerConfigurationRadiusServerServerRootCertificates> ServerRootCertificates;
-
-        [OutputConstructor]
-        private VpnServerConfigurationRadiusServer(
-            string address,
-            ImmutableArray<VpnServerConfigurationRadiusServerClientRootCertificates> clientRootCertificates,
-            string secret,
-            ImmutableArray<VpnServerConfigurationRadiusServerServerRootCertificates> serverRootCertificates)
-        {
-            Address = address;
-            ClientRootCertificates = clientRootCertificates;
-            Secret = secret;
-            ServerRootCertificates = serverRootCertificates;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpnServerConfigurationRadiusServerClientRootCertificates
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Thumbprint of the Certificate.
-        /// </summary>
-        public readonly string Thumbprint;
-
-        [OutputConstructor]
-        private VpnServerConfigurationRadiusServerClientRootCertificates(
-            string name,
-            string thumbprint)
-        {
-            Name = name;
-            Thumbprint = thumbprint;
-        }
-    }
-
-    [OutputType]
-    public sealed class VpnServerConfigurationRadiusServerServerRootCertificates
-    {
-        /// <summary>
-        /// A name used to uniquely identify this certificate.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Public Key Data associated with the Certificate.
-        /// </summary>
-        public readonly string PublicCertData;
-
-        [OutputConstructor]
-        private VpnServerConfigurationRadiusServerServerRootCertificates(
-            string name,
-            string publicCertData)
-        {
-            Name = name;
-            PublicCertData = publicCertData;
-        }
-    }
     }
 }

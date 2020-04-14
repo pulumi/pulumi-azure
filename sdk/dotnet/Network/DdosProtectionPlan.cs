@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Network
     /// Manages an AzureNetwork DDoS Protection Plan.
     /// 
     /// &gt; **NOTE** Azure only allows `one` DDoS Protection Plan per region.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_ddos_protection_plan.html.markdown.
     /// </summary>
     public partial class DdosProtectionPlan : Pulumi.CustomResource
     {
@@ -57,7 +55,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DdosProtectionPlan(string name, DdosProtectionPlanArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/ddosProtectionPlan:DdosProtectionPlan", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/ddosProtectionPlan:DdosProtectionPlan", name, args ?? new DdosProtectionPlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 

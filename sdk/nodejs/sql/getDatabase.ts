@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing SQL Azure Database.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
  */
-export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> & GetDatabaseResult {
+export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,14 +20,12 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDatabaseResult> = pulumi.runtime.invoke("azure:sql/getDatabase:getDatabase", {
+    return pulumi.runtime.invoke("azure:sql/getDatabase:getDatabase", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

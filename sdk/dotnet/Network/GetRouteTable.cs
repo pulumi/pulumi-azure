@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Route Table.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetRouteTable.InvokeAsync() instead")]
-        public static Task<GetRouteTableResult> GetRouteTable(GetRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRouteTable
     {
         /// <summary>
         /// Use this data source to access information about an existing Route Table.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("azure:network/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
     {
@@ -50,9 +41,14 @@ namespace Pulumi.Azure.Network
         }
     }
 
+
     [OutputType]
     public sealed class GetRouteTableResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region in which the Route Table exists.
         /// </summary>
@@ -65,7 +61,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// One or more `route` blocks as documented below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetRouteTableRoutesResult> Routes;
+        public readonly ImmutableArray<Outputs.GetRouteTableRouteResult> Routes;
         /// <summary>
         /// The collection of Subnets associated with this route table.
         /// </summary>
@@ -74,66 +70,30 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags assigned to the Route Table.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetRouteTableResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
-            ImmutableArray<Outputs.GetRouteTableRoutesResult> routes,
+
+            ImmutableArray<Outputs.GetRouteTableRouteResult> routes,
+
             ImmutableArray<string> subnets,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Routes = routes;
             Subnets = subnets;
             Tags = tags;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetRouteTableRoutesResult
-    {
-        /// <summary>
-        /// The destination CIDR to which the route applies.
-        /// </summary>
-        public readonly string AddressPrefix;
-        /// <summary>
-        /// The name of the Route Table.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Contains the IP address packets should be forwarded to.
-        /// </summary>
-        public readonly string NextHopInIpAddress;
-        /// <summary>
-        /// The type of Azure hop the packet should be sent to.
-        /// </summary>
-        public readonly string NextHopType;
-
-        [OutputConstructor]
-        private GetRouteTableRoutesResult(
-            string addressPrefix,
-            string name,
-            string nextHopInIpAddress,
-            string nextHopType)
-        {
-            AddressPrefix = addressPrefix;
-            Name = name;
-            NextHopInIpAddress = nextHopInIpAddress;
-            NextHopType = nextHopType;
-        }
-    }
     }
 }

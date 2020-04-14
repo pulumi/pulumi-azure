@@ -35,7 +35,7 @@ class ApiKey(pulumi.CustomResource):
         """
         Manages an Application Insights API key.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS CNAME Records within Azure Private DNS.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_cname_record.html.markdown.
  */

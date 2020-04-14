@@ -42,7 +42,7 @@ class Route(pulumi.CustomResource):
         provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
         At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -103,7 +103,7 @@ def get_database(name=None,server_id=None,opts=None):
     """
     Use this data source to access information about an existing SQL database.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_database.html.markdown.
+
 
 
     :param str name: The name of the Ms SQL Database.

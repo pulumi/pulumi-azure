@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Relay
 {
     /// <summary>
     /// Manages an Azure Relay Hybrid Connection.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_hybrid_connection.html.markdown.
     /// </summary>
     public partial class HybridConnection : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.Azure.Relay
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HybridConnection(string name, HybridConnectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:relay/hybridConnection:HybridConnection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:relay/hybridConnection:HybridConnection", name, args ?? new HybridConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

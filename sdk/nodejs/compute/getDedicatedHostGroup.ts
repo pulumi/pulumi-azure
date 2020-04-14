@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Dedicated Host Group.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host_group.html.markdown.
  */
-export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> & GetDedicatedHostGroupResult {
+export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getDedicatedHostGroup(args: GetDedicatedHostGroupArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDedicatedHostGroupResult> = pulumi.runtime.invoke("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", {
+    return pulumi.runtime.invoke("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

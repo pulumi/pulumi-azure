@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Dev Test Lab.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
  */
-export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> & GetLabResult {
+export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,12 +20,10 @@ export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLabResult> = pulumi.runtime.invoke("azure:devtest/getLab:getLab", {
+    return pulumi.runtime.invoke("azure:devtest/getLab:getLab", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

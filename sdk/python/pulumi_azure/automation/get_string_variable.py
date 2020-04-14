@@ -65,7 +65,8 @@ def get_string_variable(automation_account_name=None,name=None,resource_group_na
     """
     Use this data source to access information about an existing Automation String Variable.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_string.html.markdown.
+
+
 
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.

@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an API Version Set within an API Management Service.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
  */
-export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> & GetApiVersionSetResult {
+export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +20,11 @@ export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetApiVersionSetResult> = pulumi.runtime.invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
+    return pulumi.runtime.invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
         "apiManagementName": args.apiManagementName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Management
 {
     /// <summary>
     /// Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
     /// </summary>
     public partial class Lock : Pulumi.CustomResource
     {
@@ -49,7 +47,7 @@ namespace Pulumi.Azure.Management
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Lock(string name, LockArgs args, CustomResourceOptions? options = null)
-            : base("azure:management/lock:Lock", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:management/lock:Lock", name, args ?? new LockArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -62,7 +60,7 @@ namespace Pulumi.Azure.Management
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:managementresource/manangementLock:ManangementLock" } },
+                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:managementresource/manangementLock:ManangementLock"} },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

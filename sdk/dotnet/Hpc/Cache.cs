@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Hpc
     /// Manages a HPC Cache.
     /// 
     /// &gt; **Note**: During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hpc_cache.html.markdown.
     /// </summary>
     public partial class Cache : Pulumi.CustomResource
     {
@@ -69,7 +67,7 @@ namespace Pulumi.Azure.Hpc
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cache(string name, CacheArgs args, CustomResourceOptions? options = null)
-            : base("azure:hpc/cache:Cache", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:hpc/cache:Cache", name, args ?? new CacheArgs(), MakeResourceOptions(options, ""))
         {
         }
 

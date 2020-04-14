@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Monitoring
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access the properties of an Action Group.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetActionGroup.InvokeAsync() instead")]
-        public static Task<GetActionGroupResult> GetActionGroup(GetActionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetActionGroup
     {
         /// <summary>
         /// Use this data source to access the properties of an Action Group.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetActionGroupArgs : Pulumi.InvokeArgs
     {
@@ -50,41 +41,46 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
+
     [OutputType]
     public sealed class GetActionGroupResult
     {
         /// <summary>
         /// One or more `arm_role_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupArmRoleReceiversResult> ArmRoleReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupArmRoleReceiverResult> ArmRoleReceivers;
         /// <summary>
         /// One or more `automation_runbook_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupAutomationRunbookReceiversResult> AutomationRunbookReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupAutomationRunbookReceiverResult> AutomationRunbookReceivers;
         /// <summary>
         /// One or more `azure_app_push_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupAzureAppPushReceiversResult> AzureAppPushReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupAzureAppPushReceiverResult> AzureAppPushReceivers;
         /// <summary>
         /// One or more `azure_function_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupAzureFunctionReceiversResult> AzureFunctionReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupAzureFunctionReceiverResult> AzureFunctionReceivers;
         /// <summary>
         /// One or more `email_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupEmailReceiversResult> EmailReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupEmailReceiverResult> EmailReceivers;
         /// <summary>
         /// Whether this action group is enabled.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// One or more `itsm_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupItsmReceiversResult> ItsmReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupItsmReceiverResult> ItsmReceivers;
         /// <summary>
         /// One or more `logic_app_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupLogicAppReceiversResult> LogicAppReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupLogicAppReceiverResult> LogicAppReceivers;
         /// <summary>
         /// The name of the webhook receiver.
         /// </summary>
@@ -97,37 +93,47 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more `sms_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupSmsReceiversResult> SmsReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupSmsReceiverResult> SmsReceivers;
         /// <summary>
         /// One or more `voice_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupVoiceReceiversResult> VoiceReceivers;
+        public readonly ImmutableArray<Outputs.GetActionGroupVoiceReceiverResult> VoiceReceivers;
         /// <summary>
         /// One or more `webhook_receiver` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetActionGroupWebhookReceiversResult> WebhookReceivers;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.GetActionGroupWebhookReceiverResult> WebhookReceivers;
 
         [OutputConstructor]
         private GetActionGroupResult(
-            ImmutableArray<Outputs.GetActionGroupArmRoleReceiversResult> armRoleReceivers,
-            ImmutableArray<Outputs.GetActionGroupAutomationRunbookReceiversResult> automationRunbookReceivers,
-            ImmutableArray<Outputs.GetActionGroupAzureAppPushReceiversResult> azureAppPushReceivers,
-            ImmutableArray<Outputs.GetActionGroupAzureFunctionReceiversResult> azureFunctionReceivers,
-            ImmutableArray<Outputs.GetActionGroupEmailReceiversResult> emailReceivers,
+            ImmutableArray<Outputs.GetActionGroupArmRoleReceiverResult> armRoleReceivers,
+
+            ImmutableArray<Outputs.GetActionGroupAutomationRunbookReceiverResult> automationRunbookReceivers,
+
+            ImmutableArray<Outputs.GetActionGroupAzureAppPushReceiverResult> azureAppPushReceivers,
+
+            ImmutableArray<Outputs.GetActionGroupAzureFunctionReceiverResult> azureFunctionReceivers,
+
+            ImmutableArray<Outputs.GetActionGroupEmailReceiverResult> emailReceivers,
+
             bool enabled,
-            ImmutableArray<Outputs.GetActionGroupItsmReceiversResult> itsmReceivers,
-            ImmutableArray<Outputs.GetActionGroupLogicAppReceiversResult> logicAppReceivers,
+
+            string id,
+
+            ImmutableArray<Outputs.GetActionGroupItsmReceiverResult> itsmReceivers,
+
+            ImmutableArray<Outputs.GetActionGroupLogicAppReceiverResult> logicAppReceivers,
+
             string name,
+
             string resourceGroupName,
+
             string shortName,
-            ImmutableArray<Outputs.GetActionGroupSmsReceiversResult> smsReceivers,
-            ImmutableArray<Outputs.GetActionGroupVoiceReceiversResult> voiceReceivers,
-            ImmutableArray<Outputs.GetActionGroupWebhookReceiversResult> webhookReceivers,
-            string id)
+
+            ImmutableArray<Outputs.GetActionGroupSmsReceiverResult> smsReceivers,
+
+            ImmutableArray<Outputs.GetActionGroupVoiceReceiverResult> voiceReceivers,
+
+            ImmutableArray<Outputs.GetActionGroupWebhookReceiverResult> webhookReceivers)
         {
             ArmRoleReceivers = armRoleReceivers;
             AutomationRunbookReceivers = automationRunbookReceivers;
@@ -135,6 +141,7 @@ namespace Pulumi.Azure.Monitoring
             AzureFunctionReceivers = azureFunctionReceivers;
             EmailReceivers = emailReceivers;
             Enabled = enabled;
+            Id = id;
             ItsmReceivers = itsmReceivers;
             LogicAppReceivers = logicAppReceivers;
             Name = name;
@@ -143,336 +150,6 @@ namespace Pulumi.Azure.Monitoring
             SmsReceivers = smsReceivers;
             VoiceReceivers = voiceReceivers;
             WebhookReceivers = webhookReceivers;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetActionGroupArmRoleReceiversResult
-    {
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The arm role id.
-        /// </summary>
-        public readonly string RoleId;
-        /// <summary>
-        /// Indicates whether to use common alert schema.
-        /// </summary>
-        public readonly bool UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private GetActionGroupArmRoleReceiversResult(
-            string name,
-            string roleId,
-            bool useCommonAlertSchema)
-        {
-            Name = name;
-            RoleId = roleId;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupAutomationRunbookReceiversResult
-    {
-        /// <summary>
-        /// The automation account ID which holds this runbook and authenticates to Azure resources.
-        /// </summary>
-        public readonly string AutomationAccountId;
-        /// <summary>
-        /// Indicates whether this instance is global runbook.
-        /// </summary>
-        public readonly bool IsGlobalRunbook;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The name for this runbook.
-        /// </summary>
-        public readonly string RunbookName;
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        public readonly string ServiceUri;
-        /// <summary>
-        /// Indicates whether to use common alert schema.
-        /// </summary>
-        public readonly bool UseCommonAlertSchema;
-        /// <summary>
-        /// The resource id for webhook linked to this runbook.
-        /// </summary>
-        public readonly string WebhookResourceId;
-
-        [OutputConstructor]
-        private GetActionGroupAutomationRunbookReceiversResult(
-            string automationAccountId,
-            bool isGlobalRunbook,
-            string name,
-            string runbookName,
-            string serviceUri,
-            bool useCommonAlertSchema,
-            string webhookResourceId)
-        {
-            AutomationAccountId = automationAccountId;
-            IsGlobalRunbook = isGlobalRunbook;
-            Name = name;
-            RunbookName = runbookName;
-            ServiceUri = serviceUri;
-            UseCommonAlertSchema = useCommonAlertSchema;
-            WebhookResourceId = webhookResourceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupAzureAppPushReceiversResult
-    {
-        /// <summary>
-        /// The email address of this receiver.
-        /// </summary>
-        public readonly string EmailAddress;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private GetActionGroupAzureAppPushReceiversResult(
-            string emailAddress,
-            string name)
-        {
-            EmailAddress = emailAddress;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupAzureFunctionReceiversResult
-    {
-        public readonly string FunctionAppResourceId;
-        /// <summary>
-        /// The function name in the function app.
-        /// </summary>
-        public readonly string FunctionName;
-        /// <summary>
-        /// The http trigger url where http request sent to.
-        /// </summary>
-        public readonly string HttpTriggerUrl;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Indicates whether to use common alert schema.
-        /// </summary>
-        public readonly bool UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private GetActionGroupAzureFunctionReceiversResult(
-            string functionAppResourceId,
-            string functionName,
-            string httpTriggerUrl,
-            string name,
-            bool useCommonAlertSchema)
-        {
-            FunctionAppResourceId = functionAppResourceId;
-            FunctionName = functionName;
-            HttpTriggerUrl = httpTriggerUrl;
-            Name = name;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupEmailReceiversResult
-    {
-        /// <summary>
-        /// The email address of this receiver.
-        /// </summary>
-        public readonly string EmailAddress;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Indicates whether to use common alert schema.
-        /// </summary>
-        public readonly bool UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private GetActionGroupEmailReceiversResult(
-            string emailAddress,
-            string name,
-            bool useCommonAlertSchema)
-        {
-            EmailAddress = emailAddress;
-            Name = name;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupItsmReceiversResult
-    {
-        /// <summary>
-        /// The unique connection identifier of the ITSM connection.
-        /// </summary>
-        public readonly string ConnectionId;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The region of the workspace.
-        /// </summary>
-        public readonly string Region;
-        /// <summary>
-        /// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-        /// </summary>
-        public readonly string TicketConfiguration;
-        /// <summary>
-        /// The Azure Log Analytics workspace ID where this connection is defined.
-        /// </summary>
-        public readonly string WorkspaceId;
-
-        [OutputConstructor]
-        private GetActionGroupItsmReceiversResult(
-            string connectionId,
-            string name,
-            string region,
-            string ticketConfiguration,
-            string workspaceId)
-        {
-            ConnectionId = connectionId;
-            Name = name;
-            Region = region;
-            TicketConfiguration = ticketConfiguration;
-            WorkspaceId = workspaceId;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupLogicAppReceiversResult
-    {
-        /// <summary>
-        /// The callback url where http request sent to.
-        /// </summary>
-        public readonly string CallbackUrl;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The Azure resource ID of the logic app.
-        /// </summary>
-        public readonly string ResourceId;
-        /// <summary>
-        /// Indicates whether to use common alert schema.
-        /// </summary>
-        public readonly bool UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private GetActionGroupLogicAppReceiversResult(
-            string callbackUrl,
-            string name,
-            string resourceId,
-            bool useCommonAlertSchema)
-        {
-            CallbackUrl = callbackUrl;
-            Name = name;
-            ResourceId = resourceId;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupSmsReceiversResult
-    {
-        /// <summary>
-        /// The country code of the voice receiver.
-        /// </summary>
-        public readonly string CountryCode;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The phone number of the voice receiver.
-        /// </summary>
-        public readonly string PhoneNumber;
-
-        [OutputConstructor]
-        private GetActionGroupSmsReceiversResult(
-            string countryCode,
-            string name,
-            string phoneNumber)
-        {
-            CountryCode = countryCode;
-            Name = name;
-            PhoneNumber = phoneNumber;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupVoiceReceiversResult
-    {
-        /// <summary>
-        /// The country code of the voice receiver.
-        /// </summary>
-        public readonly string CountryCode;
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The phone number of the voice receiver.
-        /// </summary>
-        public readonly string PhoneNumber;
-
-        [OutputConstructor]
-        private GetActionGroupVoiceReceiversResult(
-            string countryCode,
-            string name,
-            string phoneNumber)
-        {
-            CountryCode = countryCode;
-            Name = name;
-            PhoneNumber = phoneNumber;
-        }
-    }
-
-    [OutputType]
-    public sealed class GetActionGroupWebhookReceiversResult
-    {
-        /// <summary>
-        /// Specifies the name of the Action Group.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The URI where webhooks should be sent.
-        /// </summary>
-        public readonly string ServiceUri;
-        /// <summary>
-        /// Indicates whether to use common alert schema.
-        /// </summary>
-        public readonly bool? UseCommonAlertSchema;
-
-        [OutputConstructor]
-        private GetActionGroupWebhookReceiversResult(
-            string name,
-            string serviceUri,
-            bool? useCommonAlertSchema)
-        {
-            Name = name;
-            ServiceUri = serviceUri;
-            UseCommonAlertSchema = useCommonAlertSchema;
-        }
-    }
     }
 }

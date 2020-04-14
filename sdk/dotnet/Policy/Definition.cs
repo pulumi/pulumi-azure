@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Policy
     /// Manages a policy rule definition on a management group or your provider subscription.
     /// 
     /// Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_definition.html.markdown.
     /// </summary>
     public partial class Definition : Pulumi.CustomResource
     {
@@ -91,7 +89,7 @@ namespace Pulumi.Azure.Policy
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Definition(string name, DefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure:policy/definition:Definition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:policy/definition:Definition", name, args ?? new DefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

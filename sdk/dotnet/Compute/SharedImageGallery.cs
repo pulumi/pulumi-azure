@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages a Shared Image Gallery.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_gallery.html.markdown.
     /// </summary>
     public partial class SharedImageGallery : Pulumi.CustomResource
     {
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SharedImageGallery(string name, SharedImageGalleryArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/sharedImageGallery:SharedImageGallery", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/sharedImageGallery:SharedImageGallery", name, args ?? new SharedImageGalleryArgs(), MakeResourceOptions(options, ""))
         {
         }
 

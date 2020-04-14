@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Batch
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing certificate in a Batch Account.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetCertificate.InvokeAsync() instead")]
-        public static Task<GetCertificateResult> GetCertificate(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:batch/getCertificate:getCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetCertificate
     {
         /// <summary>
         /// Use this data source to access information about an existing certificate in a Batch Account.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:batch/getCertificate:getCertificate", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:batch/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }
+
 
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
@@ -56,6 +47,7 @@ namespace Pulumi.Azure.Batch
         }
     }
 
+
     [OutputType]
     public sealed class GetCertificateResult
     {
@@ -64,6 +56,10 @@ namespace Pulumi.Azure.Batch
         /// The format of the certificate, such as `Cer` or `Pfx`.
         /// </summary>
         public readonly string Format;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// The public key of the certificate.
@@ -78,30 +74,33 @@ namespace Pulumi.Azure.Batch
         /// The algorithm of the certificate thumbprint.
         /// </summary>
         public readonly string ThumbprintAlgorithm;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetCertificateResult(
             string accountName,
+
             string format,
+
+            string id,
+
             string name,
+
             string publicData,
+
             string resourceGroupName,
+
             string thumbprint,
-            string thumbprintAlgorithm,
-            string id)
+
+            string thumbprintAlgorithm)
         {
             AccountName = accountName;
             Format = format;
+            Id = id;
             Name = name;
             PublicData = publicData;
             ResourceGroupName = resourceGroupName;
             Thumbprint = thumbprint;
             ThumbprintAlgorithm = thumbprintAlgorithm;
-            Id = id;
         }
     }
 }

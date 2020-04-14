@@ -62,7 +62,7 @@ def get_cluster(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kusto_cluster.html.markdown.
+
 
 
     :param str name: Specifies the name of the Kusto Cluster.

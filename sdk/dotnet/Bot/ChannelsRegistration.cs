@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Bot
 {
     /// <summary>
     /// Manages a Bot Channels Registration.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.markdown.
     /// </summary>
     public partial class ChannelsRegistration : Pulumi.CustomResource
     {
@@ -91,7 +89,7 @@ namespace Pulumi.Azure.Bot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ChannelsRegistration(string name, ChannelsRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure:bot/channelsRegistration:ChannelsRegistration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:bot/channelsRegistration:ChannelsRegistration", name, args ?? new ChannelsRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

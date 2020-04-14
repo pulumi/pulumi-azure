@@ -61,7 +61,7 @@ def get_network_ddos_protection_plan(name=None,resource_group_name=None,tags=Non
     """
     Use this data source to access information about an existing Azure Network DDoS Protection Plan.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
+
 
 
     :param str name: The name of the Network DDoS Protection Plan.

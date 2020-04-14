@@ -13,11 +13,10 @@ namespace Pulumi.Azure.Network
     /// Manages a virtual network peering which allows resources to access other
     /// resources in the linked virtual network.
     /// 
+    /// 
     /// ## Note
     /// 
     /// Virtual Network peerings cannot be created, updated or deleted concurrently.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
     /// </summary>
     public partial class VirtualNetworkPeering : Pulumi.CustomResource
     {
@@ -92,7 +91,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkPeering(string name, VirtualNetworkPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, args ?? new VirtualNetworkPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 

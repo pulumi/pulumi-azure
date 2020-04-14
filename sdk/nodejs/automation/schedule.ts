@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Schedule.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
  */

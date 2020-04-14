@@ -13,8 +13,6 @@ namespace Pulumi.Azure.Compute
     /// Manages a Bastion Host.
     /// 
     /// &gt; **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
     /// </summary>
     public partial class BastionHost : Pulumi.CustomResource
     {
@@ -63,7 +61,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BastionHost(string name, BastionHostArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/bastionHost:BastionHost", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/bastionHost:BastionHost", name, args ?? new BastionHostArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -188,91 +186,5 @@ namespace Pulumi.Azure.Compute
         public BastionHostState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class BastionHostIpConfigurationArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the IP configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to a Public IP Address to associate with this Bastion Host.
-        /// </summary>
-        [Input("publicIpAddressId", required: true)]
-        public Input<string> PublicIpAddressId { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to a subnet in which this Bastion Host has been created.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public BastionHostIpConfigurationArgs()
-        {
-        }
-    }
-
-    public sealed class BastionHostIpConfigurationGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The name of the IP configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to a Public IP Address to associate with this Bastion Host.
-        /// </summary>
-        [Input("publicIpAddressId", required: true)]
-        public Input<string> PublicIpAddressId { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to a subnet in which this Bastion Host has been created.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public BastionHostIpConfigurationGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class BastionHostIpConfiguration
-    {
-        /// <summary>
-        /// The name of the IP configuration.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Reference to a Public IP Address to associate with this Bastion Host.
-        /// </summary>
-        public readonly string PublicIpAddressId;
-        /// <summary>
-        /// Reference to a subnet in which this Bastion Host has been created.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private BastionHostIpConfiguration(
-            string name,
-            string publicIpAddressId,
-            string subnetId)
-        {
-            Name = name;
-            PublicIpAddressId = publicIpAddressId;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

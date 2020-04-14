@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Batch
 {
     /// <summary>
     /// Manages Azure Batch Application instance.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Batch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("azure:batch/application:Application", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:batch/application:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

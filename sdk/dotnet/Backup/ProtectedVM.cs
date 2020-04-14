@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Backup
 {
     /// <summary>
     /// Manages Azure Backup for an Azure VM
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_vm.markdown.
     /// </summary>
     public partial class ProtectedVM : Pulumi.CustomResource
     {
@@ -55,7 +53,7 @@ namespace Pulumi.Azure.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectedVM(string name, ProtectedVMArgs args, CustomResourceOptions? options = null)
-            : base("azure:backup/protectedVM:ProtectedVM", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:backup/protectedVM:ProtectedVM", name, args ?? new ProtectedVMArgs(), MakeResourceOptions(options, ""))
         {
         }
 

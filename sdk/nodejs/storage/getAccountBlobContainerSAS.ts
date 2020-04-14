@@ -10,10 +10,11 @@ import * as utilities from "../utilities";
  * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
  * 
  * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
  */
-export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountBlobContainerSASResult> & GetAccountBlobContainerSASResult {
+export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountBlobContainerSASResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,7 +22,7 @@ export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs,
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAccountBlobContainerSASResult> = pulumi.runtime.invoke("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", {
+    return pulumi.runtime.invoke("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", {
         "cacheControl": args.cacheControl,
         "connectionString": args.connectionString,
         "containerName": args.containerName,
@@ -35,8 +36,6 @@ export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs,
         "permissions": args.permissions,
         "start": args.start,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

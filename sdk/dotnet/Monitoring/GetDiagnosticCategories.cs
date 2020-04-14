@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Monitoring
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDiagnosticCategories.InvokeAsync() instead")]
-        public static Task<GetDiagnosticCategoriesResult> GetDiagnosticCategories(GetDiagnosticCategoriesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDiagnosticCategories
     {
         /// <summary>
         /// Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDiagnosticCategoriesResult> InvokeAsync(GetDiagnosticCategoriesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDiagnosticCategoriesArgs : Pulumi.InvokeArgs
     {
@@ -44,9 +35,14 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
+
     [OutputType]
     public sealed class GetDiagnosticCategoriesResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// A list of the Log Categories supported for this Resource.
         /// </summary>
@@ -56,22 +52,21 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly ImmutableArray<string> Metrics;
         public readonly string ResourceId;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDiagnosticCategoriesResult(
+            string id,
+
             ImmutableArray<string> logs,
+
             ImmutableArray<string> metrics,
-            string resourceId,
-            string id)
+
+            string resourceId)
         {
+            Id = id;
             Logs = logs;
             Metrics = metrics;
             ResourceId = resourceId;
-            Id = id;
         }
     }
 }

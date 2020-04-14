@@ -9,17 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Role
 {
-    public static partial class Invokes
-    {
-        [Obsolete("Use GetRoleDefinition.InvokeAsync() instead")]
-        public static Task<GetRoleDefinitionResult> GetRoleDefinition(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetRoleDefinition
     {
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }
+
 
     public sealed class GetRoleDefinitionArgs : Pulumi.InvokeArgs
     {
@@ -37,66 +32,48 @@ namespace Pulumi.Azure.Role
         }
     }
 
+
     [OutputType]
     public sealed class GetRoleDefinitionResult
     {
         public readonly ImmutableArray<string> AssignableScopes;
         public readonly string Description;
-        public readonly string Name;
-        public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionsResult> Permissions;
-        public readonly string RoleDefinitionId;
-        public readonly string? Scope;
-        public readonly string Type;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
+        public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> Permissions;
+        public readonly string RoleDefinitionId;
+        public readonly string? Scope;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetRoleDefinitionResult(
             ImmutableArray<string> assignableScopes,
+
             string description,
+
+            string id,
+
             string name,
-            ImmutableArray<Outputs.GetRoleDefinitionPermissionsResult> permissions,
+
+            ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> permissions,
+
             string roleDefinitionId,
+
             string? scope,
-            string type,
-            string id)
+
+            string type)
         {
             AssignableScopes = assignableScopes;
             Description = description;
+            Id = id;
             Name = name;
             Permissions = permissions;
             RoleDefinitionId = roleDefinitionId;
             Scope = scope;
             Type = type;
-            Id = id;
         }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class GetRoleDefinitionPermissionsResult
-    {
-        public readonly ImmutableArray<string> Actions;
-        public readonly ImmutableArray<string> DataActions;
-        public readonly ImmutableArray<string> NotActions;
-        public readonly ImmutableArray<string> NotDataActions;
-
-        [OutputConstructor]
-        private GetRoleDefinitionPermissionsResult(
-            ImmutableArray<string> actions,
-            ImmutableArray<string> dataActions,
-            ImmutableArray<string> notActions,
-            ImmutableArray<string> notDataActions)
-        {
-            Actions = actions;
-            DataActions = dataActions;
-            NotActions = notActions;
-            NotDataActions = notDataActions;
-        }
-    }
     }
 }

@@ -8,18 +8,17 @@ namespace Pulumi.Azure
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("azure");
-
         public static ImmutableArray<string> AuxiliaryTenantIds { get; set; } = __config.GetObject<ImmutableArray<string>>("auxiliaryTenantIds");
 
         /// <summary>
-        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal
-        /// using a Client Certificate
+        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+        /// Certificate
         /// </summary>
         public static string? ClientCertificatePassword { get; set; } = __config.Get("clientCertificatePassword") ?? Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") ?? "";
 
         /// <summary>
-        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a
-        /// Service Principal using a Client Certificate.
+        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+        /// Principal using a Client Certificate.
         /// </summary>
         public static string? ClientCertificatePath { get; set; } = __config.Get("clientCertificatePath") ?? Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") ?? "";
 
@@ -29,8 +28,7 @@ namespace Pulumi.Azure
         public static string? ClientId { get; set; } = __config.Get("clientId") ?? Utilities.GetEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID") ?? "";
 
         /// <summary>
-        /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client
-        /// Secret.
+        /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
         public static string? ClientSecret { get; set; } = __config.Get("clientSecret") ?? Utilities.GetEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") ?? "";
 
@@ -45,12 +43,14 @@ namespace Pulumi.Azure
         public static bool? DisableTerraformPartnerId { get; set; } = __config.GetBoolean("disableTerraformPartnerId") ?? Utilities.GetEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") ?? true;
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china.
-        /// Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+        /// public.
         /// </summary>
         public static string? Environment { get; set; } = __config.Get("environment") ?? Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
 
-        public static ConfigTypes.Features? Features { get; set; } = __config.GetObject<ConfigTypes.Features>("features");
+        public static Pulumi.Azure.Config.Types.Features? Features { get; set; } = __config.GetObject<Pulumi.Azure.Config.Types.Features>("features");
+
+        public static string? Location { get; set; } = __config.Get("location") ?? Utilities.GetEnv("ARM_LOCATION");
 
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -69,8 +69,8 @@ namespace Pulumi.Azure
         public static bool? SkipCredentialsValidation { get; set; } = __config.GetBoolean("skipCredentialsValidation") ?? Utilities.GetEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") ?? false;
 
         /// <summary>
-        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not
-        /// already registered?
+        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
+        /// registered?
         /// </summary>
         public static bool? SkipProviderRegistration { get; set; } = __config.GetBoolean("skipProviderRegistration") ?? Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
 
@@ -94,33 +94,31 @@ namespace Pulumi.Azure
         /// </summary>
         public static bool? UseMsi { get; set; } = __config.GetBoolean("useMsi") ?? Utilities.GetEnvBoolean("ARM_USE_MSI") ?? false;
 
-        public static string? Location { get; set; } = __config.Get("location") ?? Utilities.GetEnv("ARM_LOCATION");
+        public static class Types
+        {
 
-    }
-    namespace ConfigTypes
-    {
+             public class Features
+             {
+                public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesVirtualMachine? VirtualMachine { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; } = null!;
+            }
 
-    public class Features
-    {
-        public FeaturesKeyVault? KeyVault { get; set; }
-        public FeaturesVirtualMachine? VirtualMachine { get; set; }
-        public FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; }
-    }
+             public class FeaturesKeyVault
+             {
+                public bool? PurgeSoftDeleteOnDestroy { get; set; }
+                public bool? RecoverSoftDeletedKeyVaults { get; set; }
+            }
 
-    public class FeaturesKeyVault
-    {
-        public bool? PurgeSoftDeleteOnDestroy { get; set; }
-        public bool? RecoverSoftDeletedKeyVaults { get; set; }
-    }
+             public class FeaturesVirtualMachine
+             {
+                public bool DeleteOsDiskOnDeletion { get; set; }
+            }
 
-    public class FeaturesVirtualMachine
-    {
-        public bool DeleteOsDiskOnDeletion { get; set; }
-    }
-
-    public class FeaturesVirtualMachineScaleSet
-    {
-        public bool RollInstancesWhenRequired { get; set; }
-    }
+             public class FeaturesVirtualMachineScaleSet
+             {
+                public bool RollInstancesWhenRequired { get; set; }
+            }
+        }
     }
 }

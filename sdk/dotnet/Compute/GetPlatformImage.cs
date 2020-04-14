@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about a Platform Image.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetPlatformImage.InvokeAsync() instead")]
-        public static Task<GetPlatformImageResult> GetPlatformImage(GetPlatformImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetPlatformImage
     {
         /// <summary>
         /// Use this data source to access information about a Platform Image.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlatformImageResult> InvokeAsync(GetPlatformImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageArgs(), options.WithVersion());
     }
+
 
     public sealed class GetPlatformImageArgs : Pulumi.InvokeArgs
     {
@@ -62,9 +53,14 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetPlatformImageResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Location;
         public readonly string Offer;
         public readonly string Publisher;
@@ -73,26 +69,27 @@ namespace Pulumi.Azure.Compute
         /// The latest version of the Platform Image.
         /// </summary>
         public readonly string Version;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetPlatformImageResult(
+            string id,
+
             string location,
+
             string offer,
+
             string publisher,
+
             string sku,
-            string version,
-            string id)
+
+            string version)
         {
+            Id = id;
             Location = location;
             Offer = offer;
             Publisher = publisher;
             Sku = sku;
             Version = version;
-            Id = id;
         }
     }
 }

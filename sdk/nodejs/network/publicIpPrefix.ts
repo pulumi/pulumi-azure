@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Public IP Prefix.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/public_ip_prefix.html.markdown.
  */

@@ -9,27 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Automation
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Automation String Variable.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_string.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetStringVariable.InvokeAsync() instead")]
-        public static Task<GetStringVariableResult> GetStringVariable(GetStringVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetStringVariable
     {
         /// <summary>
         /// Use this data source to access information about an existing Automation String Variable.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_string.html.markdown.
+        /// 
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStringVariableResult> InvokeAsync(GetStringVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? new GetStringVariableArgs(), options.WithVersion());
     }
+
 
     public sealed class GetStringVariableArgs : Pulumi.InvokeArgs
     {
@@ -56,6 +48,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
+
     [OutputType]
     public sealed class GetStringVariableResult
     {
@@ -68,34 +61,40 @@ namespace Pulumi.Azure.Automation
         /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
         /// </summary>
         public readonly bool Encrypted;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The value of the Automation Variable as a `string`.
         /// </summary>
         public readonly string Value;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetStringVariableResult(
             string automationAccountName,
+
             string description,
+
             bool encrypted,
+
+            string id,
+
             string name,
+
             string resourceGroupName,
-            string value,
-            string id)
+
+            string value)
         {
             AutomationAccountName = automationAccountName;
             Description = description;
             Encrypted = encrypted;
+            Id = id;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Value = value;
-            Id = id;
         }
     }
 }

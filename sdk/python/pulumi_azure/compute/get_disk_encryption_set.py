@@ -54,8 +54,6 @@ def get_disk_encryption_set(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Disk Encryption Set.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/disk_encryption_set.html.markdown.
-
 
     :param str name: The name of the Disk Encryption Set exists.
     :param str resource_group_name: The name of the Resource Group where the Disk Encryption Set exists.

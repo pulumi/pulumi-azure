@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing Dedicated Host Group.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host_group.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetDedicatedHostGroup.InvokeAsync() instead")]
-        public static Task<GetDedicatedHostGroupResult> GetDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetDedicatedHostGroup
     {
         /// <summary>
         /// Use this data source to access information about an existing Dedicated Host Group.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host_group.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithVersion());
     }
+
 
     public sealed class GetDedicatedHostGroupArgs : Pulumi.InvokeArgs
     {
@@ -50,9 +41,14 @@ namespace Pulumi.Azure.Compute
         }
     }
 
+
     [OutputType]
     public sealed class GetDedicatedHostGroupResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure location where the Dedicated Host Group exists.
         /// </summary>
@@ -71,28 +67,30 @@ namespace Pulumi.Azure.Compute
         /// The Availability Zones in which this Dedicated Host Group is located.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
+            string id,
+
             string location,
+
             string name,
+
             int platformFaultDomainCount,
+
             string resourceGroupName,
+
             ImmutableDictionary<string, string> tags,
-            ImmutableArray<string> zones,
-            string id)
+
+            ImmutableArray<string> zones)
         {
+            Id = id;
             Location = location;
             Name = name;
             PlatformFaultDomainCount = platformFaultDomainCount;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             Zones = zones;
-            Id = id;
         }
     }
 }

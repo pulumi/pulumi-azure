@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Role
 {
     /// <summary>
     /// Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition.html.markdown.
     /// </summary>
     public partial class Definition : Pulumi.CustomResource
     {
@@ -38,7 +36,7 @@ namespace Pulumi.Azure.Role
         /// A `permissions` block as defined below.
         /// </summary>
         [Output("permissions")]
-        public Output<ImmutableArray<Outputs.DefinitionPermissions>> Permissions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DefinitionPermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
         /// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Role
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Definition(string name, DefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure:role/definition:Definition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:role/definition:Definition", name, args ?? new DefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -123,14 +121,14 @@ namespace Pulumi.Azure.Role
         public Input<string>? Name { get; set; }
 
         [Input("permissions", required: true)]
-        private InputList<Inputs.DefinitionPermissionsArgs>? _permissions;
+        private InputList<Inputs.DefinitionPermissionArgs>? _permissions;
 
         /// <summary>
         /// A `permissions` block as defined below.
         /// </summary>
-        public InputList<Inputs.DefinitionPermissionsArgs> Permissions
+        public InputList<Inputs.DefinitionPermissionArgs> Permissions
         {
-            get => _permissions ?? (_permissions = new InputList<Inputs.DefinitionPermissionsArgs>());
+            get => _permissions ?? (_permissions = new InputList<Inputs.DefinitionPermissionArgs>());
             set => _permissions = value;
         }
 
@@ -178,14 +176,14 @@ namespace Pulumi.Azure.Role
         public Input<string>? Name { get; set; }
 
         [Input("permissions")]
-        private InputList<Inputs.DefinitionPermissionsGetArgs>? _permissions;
+        private InputList<Inputs.DefinitionPermissionGetArgs>? _permissions;
 
         /// <summary>
         /// A `permissions` block as defined below.
         /// </summary>
-        public InputList<Inputs.DefinitionPermissionsGetArgs> Permissions
+        public InputList<Inputs.DefinitionPermissionGetArgs> Permissions
         {
-            get => _permissions ?? (_permissions = new InputList<Inputs.DefinitionPermissionsGetArgs>());
+            get => _permissions ?? (_permissions = new InputList<Inputs.DefinitionPermissionGetArgs>());
             set => _permissions = value;
         }
 
@@ -204,157 +202,5 @@ namespace Pulumi.Azure.Role
         public DefinitionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DefinitionPermissionsArgs : Pulumi.ResourceArgs
-    {
-        [Input("actions")]
-        private InputList<string>? _actions;
-
-        /// <summary>
-        /// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> Actions
-        {
-            get => _actions ?? (_actions = new InputList<string>());
-            set => _actions = value;
-        }
-
-        [Input("dataActions")]
-        private InputList<string>? _dataActions;
-
-        /// <summary>
-        /// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> DataActions
-        {
-            get => _dataActions ?? (_dataActions = new InputList<string>());
-            set => _dataActions = value;
-        }
-
-        [Input("notActions")]
-        private InputList<string>? _notActions;
-
-        /// <summary>
-        /// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> NotActions
-        {
-            get => _notActions ?? (_notActions = new InputList<string>());
-            set => _notActions = value;
-        }
-
-        [Input("notDataActions")]
-        private InputList<string>? _notDataActions;
-
-        /// <summary>
-        /// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> NotDataActions
-        {
-            get => _notDataActions ?? (_notDataActions = new InputList<string>());
-            set => _notDataActions = value;
-        }
-
-        public DefinitionPermissionsArgs()
-        {
-        }
-    }
-
-    public sealed class DefinitionPermissionsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("actions")]
-        private InputList<string>? _actions;
-
-        /// <summary>
-        /// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> Actions
-        {
-            get => _actions ?? (_actions = new InputList<string>());
-            set => _actions = value;
-        }
-
-        [Input("dataActions")]
-        private InputList<string>? _dataActions;
-
-        /// <summary>
-        /// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> DataActions
-        {
-            get => _dataActions ?? (_dataActions = new InputList<string>());
-            set => _dataActions = value;
-        }
-
-        [Input("notActions")]
-        private InputList<string>? _notActions;
-
-        /// <summary>
-        /// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> NotActions
-        {
-            get => _notActions ?? (_notActions = new InputList<string>());
-            set => _notActions = value;
-        }
-
-        [Input("notDataActions")]
-        private InputList<string>? _notDataActions;
-
-        /// <summary>
-        /// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public InputList<string> NotDataActions
-        {
-            get => _notDataActions ?? (_notDataActions = new InputList<string>());
-            set => _notDataActions = value;
-        }
-
-        public DefinitionPermissionsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DefinitionPermissions
-    {
-        /// <summary>
-        /// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public readonly ImmutableArray<string> Actions;
-        /// <summary>
-        /// One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public readonly ImmutableArray<string> DataActions;
-        /// <summary>
-        /// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public readonly ImmutableArray<string> NotActions;
-        /// <summary>
-        /// One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        /// </summary>
-        public readonly ImmutableArray<string> NotDataActions;
-
-        [OutputConstructor]
-        private DefinitionPermissions(
-            ImmutableArray<string> actions,
-            ImmutableArray<string> dataActions,
-            ImmutableArray<string> notActions,
-            ImmutableArray<string> notDataActions)
-        {
-            Actions = actions;
-            DataActions = dataActions;
-            NotActions = notActions;
-            NotDataActions = notDataActions;
-        }
-    }
     }
 }

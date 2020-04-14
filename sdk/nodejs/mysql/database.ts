@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a MySQL Database within a MySQL Server
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_database.html.markdown.
  */

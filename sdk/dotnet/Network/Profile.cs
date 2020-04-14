@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Network Profile.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
     /// </summary>
     public partial class Profile : Pulumi.CustomResource
     {
@@ -61,7 +59,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/profile:Profile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:network/profile:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -192,145 +190,5 @@ namespace Pulumi.Azure.Network
         public ProfileState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ProfileContainerNetworkInterfaceArgs : Pulumi.ResourceArgs
-    {
-        [Input("ipConfigurations", required: true)]
-        private InputList<ProfileContainerNetworkInterfaceIpConfigurationsArgs>? _ipConfigurations;
-
-        /// <summary>
-        /// One or more `ip_configuration` blocks as documented below.
-        /// </summary>
-        public InputList<ProfileContainerNetworkInterfaceIpConfigurationsArgs> IpConfigurations
-        {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<ProfileContainerNetworkInterfaceIpConfigurationsArgs>());
-            set => _ipConfigurations = value;
-        }
-
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ProfileContainerNetworkInterfaceArgs()
-        {
-        }
-    }
-
-    public sealed class ProfileContainerNetworkInterfaceGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("ipConfigurations", required: true)]
-        private InputList<ProfileContainerNetworkInterfaceIpConfigurationsGetArgs>? _ipConfigurations;
-
-        /// <summary>
-        /// One or more `ip_configuration` blocks as documented below.
-        /// </summary>
-        public InputList<ProfileContainerNetworkInterfaceIpConfigurationsGetArgs> IpConfigurations
-        {
-            get => _ipConfigurations ?? (_ipConfigurations = new InputList<ProfileContainerNetworkInterfaceIpConfigurationsGetArgs>());
-            set => _ipConfigurations = value;
-        }
-
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ProfileContainerNetworkInterfaceGetArgs()
-        {
-        }
-    }
-
-    public sealed class ProfileContainerNetworkInterfaceIpConfigurationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ProfileContainerNetworkInterfaceIpConfigurationsArgs()
-        {
-        }
-    }
-
-    public sealed class ProfileContainerNetworkInterfaceIpConfigurationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
-        /// </summary>
-        [Input("subnetId", required: true)]
-        public Input<string> SubnetId { get; set; } = null!;
-
-        public ProfileContainerNetworkInterfaceIpConfigurationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ProfileContainerNetworkInterface
-    {
-        /// <summary>
-        /// One or more `ip_configuration` blocks as documented below.
-        /// </summary>
-        public readonly ImmutableArray<ProfileContainerNetworkInterfaceIpConfigurations> IpConfigurations;
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ProfileContainerNetworkInterface(
-            ImmutableArray<ProfileContainerNetworkInterfaceIpConfigurations> ipConfigurations,
-            string name)
-        {
-            IpConfigurations = ipConfigurations;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class ProfileContainerNetworkInterfaceIpConfigurations
-    {
-        /// <summary>
-        /// Specifies the name of the IP Configuration.
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Reference to the subnet associated with the IP Configuration.
-        /// </summary>
-        public readonly string SubnetId;
-
-        [OutputConstructor]
-        private ProfileContainerNetworkInterfaceIpConfigurations(
-            string name,
-            string subnetId)
-        {
-            Name = name;
-            SubnetId = subnetId;
-        }
-    }
     }
 }

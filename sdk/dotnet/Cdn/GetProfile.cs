@@ -9,27 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Cdn
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to access information about an existing CDN Profile.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetProfile.InvokeAsync() instead")]
-        public static Task<GetProfileResult> GetProfile(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetProfile
     {
         /// <summary>
         /// Use this data source to access information about an existing CDN Profile.
         /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileArgs(), options.WithVersion());
     }
+
 
     public sealed class GetProfileArgs : Pulumi.InvokeArgs
     {
@@ -50,9 +41,14 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
+
     [OutputType]
     public sealed class GetProfileResult
     {
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// The Azure Region where the resource exists.
         /// </summary>
@@ -67,26 +63,27 @@ namespace Pulumi.Azure.Cdn
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetProfileResult(
+            string id,
+
             string location,
+
             string name,
+
             string resourceGroupName,
+
             string sku,
-            ImmutableDictionary<string, string> tags,
-            string id)
+
+            ImmutableDictionary<string, string> tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
-            Id = id;
         }
     }
 }

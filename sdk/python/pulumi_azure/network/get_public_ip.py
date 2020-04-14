@@ -102,8 +102,6 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
     """
     Use this data source to access information about an existing Public IP Address.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
-
 
     :param str name: Specifies the name of the public IP address.
     :param str resource_group_name: Specifies the name of the resource group.

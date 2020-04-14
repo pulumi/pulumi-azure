@@ -65,8 +65,6 @@ def get_pool(account_name=None,name=None,resource_group_name=None,opts=None):
     """
     Uses this data source to access information about an existing NetApp Pool.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_pool.html.markdown.
-
 
     :param str account_name: The name of the NetApp account where the NetApp pool exists.
     :param str name: The name of the NetApp Pool.

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Core
 {
     /// <summary>
     /// Manages an Azure Custom Provider.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/custom_provider.html.markdown.
     /// </summary>
     public partial class CustomProvider : Pulumi.CustomResource
     {
@@ -20,7 +18,7 @@ namespace Pulumi.Azure.Core
         /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.CustomProviderActions>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomProviderAction>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -44,7 +42,7 @@ namespace Pulumi.Azure.Core
         /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
         /// </summary>
         [Output("resourceTypes")]
-        public Output<ImmutableArray<Outputs.CustomProviderResourceTypes>> ResourceTypes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomProviderResourceType>> ResourceTypes { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -56,7 +54,7 @@ namespace Pulumi.Azure.Core
         /// Any number of `validation` block as defined below.
         /// </summary>
         [Output("validations")]
-        public Output<ImmutableArray<Outputs.CustomProviderValidations>> Validations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomProviderValidation>> Validations { get; private set; } = null!;
 
 
         /// <summary>
@@ -67,7 +65,7 @@ namespace Pulumi.Azure.Core
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomProvider(string name, CustomProviderArgs args, CustomResourceOptions? options = null)
-            : base("azure:core/customProvider:CustomProvider", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:core/customProvider:CustomProvider", name, args ?? new CustomProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -105,14 +103,14 @@ namespace Pulumi.Azure.Core
     public sealed class CustomProviderArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.CustomProviderActionsArgs>? _actions;
+        private InputList<Inputs.CustomProviderActionArgs>? _actions;
 
         /// <summary>
         /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         /// </summary>
-        public InputList<Inputs.CustomProviderActionsArgs> Actions
+        public InputList<Inputs.CustomProviderActionArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.CustomProviderActionsArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.CustomProviderActionArgs>());
             set => _actions = value;
         }
 
@@ -135,14 +133,14 @@ namespace Pulumi.Azure.Core
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("resourceTypes")]
-        private InputList<Inputs.CustomProviderResourceTypesArgs>? _resourceTypes;
+        private InputList<Inputs.CustomProviderResourceTypeArgs>? _resourceTypes;
 
         /// <summary>
         /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
         /// </summary>
-        public InputList<Inputs.CustomProviderResourceTypesArgs> ResourceTypes
+        public InputList<Inputs.CustomProviderResourceTypeArgs> ResourceTypes
         {
-            get => _resourceTypes ?? (_resourceTypes = new InputList<Inputs.CustomProviderResourceTypesArgs>());
+            get => _resourceTypes ?? (_resourceTypes = new InputList<Inputs.CustomProviderResourceTypeArgs>());
             set => _resourceTypes = value;
         }
 
@@ -159,14 +157,14 @@ namespace Pulumi.Azure.Core
         }
 
         [Input("validations")]
-        private InputList<Inputs.CustomProviderValidationsArgs>? _validations;
+        private InputList<Inputs.CustomProviderValidationArgs>? _validations;
 
         /// <summary>
         /// Any number of `validation` block as defined below.
         /// </summary>
-        public InputList<Inputs.CustomProviderValidationsArgs> Validations
+        public InputList<Inputs.CustomProviderValidationArgs> Validations
         {
-            get => _validations ?? (_validations = new InputList<Inputs.CustomProviderValidationsArgs>());
+            get => _validations ?? (_validations = new InputList<Inputs.CustomProviderValidationArgs>());
             set => _validations = value;
         }
 
@@ -178,14 +176,14 @@ namespace Pulumi.Azure.Core
     public sealed class CustomProviderState : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputList<Inputs.CustomProviderActionsGetArgs>? _actions;
+        private InputList<Inputs.CustomProviderActionGetArgs>? _actions;
 
         /// <summary>
         /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         /// </summary>
-        public InputList<Inputs.CustomProviderActionsGetArgs> Actions
+        public InputList<Inputs.CustomProviderActionGetArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.CustomProviderActionsGetArgs>());
+            get => _actions ?? (_actions = new InputList<Inputs.CustomProviderActionGetArgs>());
             set => _actions = value;
         }
 
@@ -208,14 +206,14 @@ namespace Pulumi.Azure.Core
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("resourceTypes")]
-        private InputList<Inputs.CustomProviderResourceTypesGetArgs>? _resourceTypes;
+        private InputList<Inputs.CustomProviderResourceTypeGetArgs>? _resourceTypes;
 
         /// <summary>
         /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
         /// </summary>
-        public InputList<Inputs.CustomProviderResourceTypesGetArgs> ResourceTypes
+        public InputList<Inputs.CustomProviderResourceTypeGetArgs> ResourceTypes
         {
-            get => _resourceTypes ?? (_resourceTypes = new InputList<Inputs.CustomProviderResourceTypesGetArgs>());
+            get => _resourceTypes ?? (_resourceTypes = new InputList<Inputs.CustomProviderResourceTypeGetArgs>());
             set => _resourceTypes = value;
         }
 
@@ -232,206 +230,19 @@ namespace Pulumi.Azure.Core
         }
 
         [Input("validations")]
-        private InputList<Inputs.CustomProviderValidationsGetArgs>? _validations;
+        private InputList<Inputs.CustomProviderValidationGetArgs>? _validations;
 
         /// <summary>
         /// Any number of `validation` block as defined below.
         /// </summary>
-        public InputList<Inputs.CustomProviderValidationsGetArgs> Validations
+        public InputList<Inputs.CustomProviderValidationGetArgs> Validations
         {
-            get => _validations ?? (_validations = new InputList<Inputs.CustomProviderValidationsGetArgs>());
+            get => _validations ?? (_validations = new InputList<Inputs.CustomProviderValidationGetArgs>());
             set => _validations = value;
         }
 
         public CustomProviderState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class CustomProviderActionsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the endpoint of the action. 
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<string> Endpoint { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the action. 
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public CustomProviderActionsArgs()
-        {
-        }
-    }
-
-    public sealed class CustomProviderActionsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the endpoint of the action. 
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<string> Endpoint { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the action. 
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public CustomProviderActionsGetArgs()
-        {
-        }
-    }
-
-    public sealed class CustomProviderResourceTypesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the endpoint of the route definition. 
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<string> Endpoint { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the route definition. 
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`. 
-        /// </summary>
-        [Input("routingType")]
-        public Input<string>? RoutingType { get; set; }
-
-        public CustomProviderResourceTypesArgs()
-        {
-        }
-    }
-
-    public sealed class CustomProviderResourceTypesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the endpoint of the route definition. 
-        /// </summary>
-        [Input("endpoint", required: true)]
-        public Input<string> Endpoint { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the route definition. 
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`. 
-        /// </summary>
-        [Input("routingType")]
-        public Input<string>? RoutingType { get; set; }
-
-        public CustomProviderResourceTypesGetArgs()
-        {
-        }
-    }
-
-    public sealed class CustomProviderValidationsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The endpoint where the validation specification is located. 
-        /// </summary>
-        [Input("specification", required: true)]
-        public Input<string> Specification { get; set; } = null!;
-
-        public CustomProviderValidationsArgs()
-        {
-        }
-    }
-
-    public sealed class CustomProviderValidationsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The endpoint where the validation specification is located. 
-        /// </summary>
-        [Input("specification", required: true)]
-        public Input<string> Specification { get; set; } = null!;
-
-        public CustomProviderValidationsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class CustomProviderActions
-    {
-        /// <summary>
-        /// Specifies the endpoint of the action. 
-        /// </summary>
-        public readonly string Endpoint;
-        /// <summary>
-        /// Specifies the name of the action. 
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private CustomProviderActions(
-            string endpoint,
-            string name)
-        {
-            Endpoint = endpoint;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class CustomProviderResourceTypes
-    {
-        /// <summary>
-        /// Specifies the endpoint of the route definition. 
-        /// </summary>
-        public readonly string Endpoint;
-        /// <summary>
-        /// Specifies the name of the route definition. 
-        /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`. 
-        /// </summary>
-        public readonly string? RoutingType;
-
-        [OutputConstructor]
-        private CustomProviderResourceTypes(
-            string endpoint,
-            string name,
-            string? routingType)
-        {
-            Endpoint = endpoint;
-            Name = name;
-            RoutingType = routingType;
-        }
-    }
-
-    [OutputType]
-    public sealed class CustomProviderValidations
-    {
-        /// <summary>
-        /// The endpoint where the validation specification is located. 
-        /// </summary>
-        public readonly string Specification;
-
-        [OutputConstructor]
-        private CustomProviderValidations(string specification)
-        {
-            Specification = specification;
-        }
-    }
     }
 }

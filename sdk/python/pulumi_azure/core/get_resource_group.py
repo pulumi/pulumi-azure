@@ -50,7 +50,7 @@ def get_resource_group(name=None,opts=None):
     """
     Use this data source to access information about an existing Resource Group.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
+
 
 
     :param str name: The Name of this Resource Group.

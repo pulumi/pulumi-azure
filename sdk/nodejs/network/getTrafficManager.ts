@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
  */
-export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerResult> & GetTrafficManagerResult {
+export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,11 +19,9 @@ export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetTrafficManagerResult> = pulumi.runtime.invoke("azure:network/getTrafficManager:getTrafficManager", {
+    return pulumi.runtime.invoke("azure:network/getTrafficManager:getTrafficManager", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

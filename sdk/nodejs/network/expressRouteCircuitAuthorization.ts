@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an ExpressRoute Circuit Authorization.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
  */

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages a Disk Snapshot.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource
     {
@@ -82,7 +80,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snapshot(string name, SnapshotArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/snapshot:Snapshot", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/snapshot:Snapshot", name, args ?? new SnapshotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -255,148 +253,5 @@ namespace Pulumi.Azure.Compute
         public SnapshotState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SnapshotEncryptionSettingsArgs : Pulumi.ResourceArgs
-    {
-        [Input("diskEncryptionKey")]
-        public Input<SnapshotEncryptionSettingsDiskEncryptionKeyArgs>? DiskEncryptionKey { get; set; }
-
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        [Input("keyEncryptionKey")]
-        public Input<SnapshotEncryptionSettingsKeyEncryptionKeyArgs>? KeyEncryptionKey { get; set; }
-
-        public SnapshotEncryptionSettingsArgs()
-        {
-        }
-    }
-
-    public sealed class SnapshotEncryptionSettingsDiskEncryptionKeyArgs : Pulumi.ResourceArgs
-    {
-        [Input("secretUrl", required: true)]
-        public Input<string> SecretUrl { get; set; } = null!;
-
-        [Input("sourceVaultId", required: true)]
-        public Input<string> SourceVaultId { get; set; } = null!;
-
-        public SnapshotEncryptionSettingsDiskEncryptionKeyArgs()
-        {
-        }
-    }
-
-    public sealed class SnapshotEncryptionSettingsDiskEncryptionKeyGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("secretUrl", required: true)]
-        public Input<string> SecretUrl { get; set; } = null!;
-
-        [Input("sourceVaultId", required: true)]
-        public Input<string> SourceVaultId { get; set; } = null!;
-
-        public SnapshotEncryptionSettingsDiskEncryptionKeyGetArgs()
-        {
-        }
-    }
-
-    public sealed class SnapshotEncryptionSettingsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("diskEncryptionKey")]
-        public Input<SnapshotEncryptionSettingsDiskEncryptionKeyGetArgs>? DiskEncryptionKey { get; set; }
-
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
-
-        [Input("keyEncryptionKey")]
-        public Input<SnapshotEncryptionSettingsKeyEncryptionKeyGetArgs>? KeyEncryptionKey { get; set; }
-
-        public SnapshotEncryptionSettingsGetArgs()
-        {
-        }
-    }
-
-    public sealed class SnapshotEncryptionSettingsKeyEncryptionKeyArgs : Pulumi.ResourceArgs
-    {
-        [Input("keyUrl", required: true)]
-        public Input<string> KeyUrl { get; set; } = null!;
-
-        [Input("sourceVaultId", required: true)]
-        public Input<string> SourceVaultId { get; set; } = null!;
-
-        public SnapshotEncryptionSettingsKeyEncryptionKeyArgs()
-        {
-        }
-    }
-
-    public sealed class SnapshotEncryptionSettingsKeyEncryptionKeyGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("keyUrl", required: true)]
-        public Input<string> KeyUrl { get; set; } = null!;
-
-        [Input("sourceVaultId", required: true)]
-        public Input<string> SourceVaultId { get; set; } = null!;
-
-        public SnapshotEncryptionSettingsKeyEncryptionKeyGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SnapshotEncryptionSettings
-    {
-        public readonly SnapshotEncryptionSettingsDiskEncryptionKey? DiskEncryptionKey;
-        public readonly bool Enabled;
-        public readonly SnapshotEncryptionSettingsKeyEncryptionKey? KeyEncryptionKey;
-
-        [OutputConstructor]
-        private SnapshotEncryptionSettings(
-            SnapshotEncryptionSettingsDiskEncryptionKey? diskEncryptionKey,
-            bool enabled,
-            SnapshotEncryptionSettingsKeyEncryptionKey? keyEncryptionKey)
-        {
-            DiskEncryptionKey = diskEncryptionKey;
-            Enabled = enabled;
-            KeyEncryptionKey = keyEncryptionKey;
-        }
-    }
-
-    [OutputType]
-    public sealed class SnapshotEncryptionSettingsDiskEncryptionKey
-    {
-        public readonly string SecretUrl;
-        public readonly string SourceVaultId;
-
-        [OutputConstructor]
-        private SnapshotEncryptionSettingsDiskEncryptionKey(
-            string secretUrl,
-            string sourceVaultId)
-        {
-            SecretUrl = secretUrl;
-            SourceVaultId = sourceVaultId;
-        }
-    }
-
-    [OutputType]
-    public sealed class SnapshotEncryptionSettingsKeyEncryptionKey
-    {
-        public readonly string KeyUrl;
-        public readonly string SourceVaultId;
-
-        [OutputConstructor]
-        private SnapshotEncryptionSettingsKeyEncryptionKey(
-            string keyUrl,
-            string sourceVaultId)
-        {
-            KeyUrl = keyUrl;
-            SourceVaultId = sourceVaultId;
-        }
-    }
     }
 }

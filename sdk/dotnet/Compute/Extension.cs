@@ -16,8 +16,6 @@ namespace Pulumi.Azure.Compute
     /// &gt; **NOTE:** Custom Script Extensions for Linux &amp; Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
     /// 
     /// &gt; **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
     /// </summary>
     public partial class Extension : Pulumi.CustomResource
     {
@@ -91,7 +89,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Extension(string name, ExtensionArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/extension:Extension", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:compute/extension:Extension", name, args ?? new ExtensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS SRV Records within Azure DNS.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_srv_record.html.markdown.
     /// </summary>
     public partial class SrvRecord : Pulumi.CustomResource
     {
@@ -32,7 +30,7 @@ namespace Pulumi.Azure.Dns
         /// A list of values that make up the SRV record. Each `record` block supports fields documented below.
         /// </summary>
         [Output("records")]
-        public Output<ImmutableArray<Outputs.SrvRecordRecords>> Records { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SrvRecordRecord>> Records { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
@@ -67,7 +65,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SrvRecord(string name, SrvRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/srvRecord:SrvRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:dns/srvRecord:SrvRecord", name, args ?? new SrvRecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -111,14 +109,14 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Name { get; set; }
 
         [Input("records", required: true)]
-        private InputList<Inputs.SrvRecordRecordsArgs>? _records;
+        private InputList<Inputs.SrvRecordRecordArgs>? _records;
 
         /// <summary>
         /// A list of values that make up the SRV record. Each `record` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.SrvRecordRecordsArgs> Records
+        public InputList<Inputs.SrvRecordRecordArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.SrvRecordRecordsArgs>());
+            get => _records ?? (_records = new InputList<Inputs.SrvRecordRecordArgs>());
             set => _records = value;
         }
 
@@ -172,14 +170,14 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Name { get; set; }
 
         [Input("records")]
-        private InputList<Inputs.SrvRecordRecordsGetArgs>? _records;
+        private InputList<Inputs.SrvRecordRecordGetArgs>? _records;
 
         /// <summary>
         /// A list of values that make up the SRV record. Each `record` block supports fields documented below.
         /// </summary>
-        public InputList<Inputs.SrvRecordRecordsGetArgs> Records
+        public InputList<Inputs.SrvRecordRecordGetArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.SrvRecordRecordsGetArgs>());
+            get => _records ?? (_records = new InputList<Inputs.SrvRecordRecordGetArgs>());
             set => _records = value;
         }
 
@@ -216,109 +214,5 @@ namespace Pulumi.Azure.Dns
         public SrvRecordState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SrvRecordRecordsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Port the service is listening on.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        /// <summary>
-        /// Priority of the SRV record.
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// FQDN of the service.
-        /// </summary>
-        [Input("target", required: true)]
-        public Input<string> Target { get; set; } = null!;
-
-        /// <summary>
-        /// Weight of the SRV record.
-        /// </summary>
-        [Input("weight", required: true)]
-        public Input<int> Weight { get; set; } = null!;
-
-        public SrvRecordRecordsArgs()
-        {
-        }
-    }
-
-    public sealed class SrvRecordRecordsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Port the service is listening on.
-        /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
-
-        /// <summary>
-        /// Priority of the SRV record.
-        /// </summary>
-        [Input("priority", required: true)]
-        public Input<int> Priority { get; set; } = null!;
-
-        /// <summary>
-        /// FQDN of the service.
-        /// </summary>
-        [Input("target", required: true)]
-        public Input<string> Target { get; set; } = null!;
-
-        /// <summary>
-        /// Weight of the SRV record.
-        /// </summary>
-        [Input("weight", required: true)]
-        public Input<int> Weight { get; set; } = null!;
-
-        public SrvRecordRecordsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SrvRecordRecords
-    {
-        /// <summary>
-        /// Port the service is listening on.
-        /// </summary>
-        public readonly int Port;
-        /// <summary>
-        /// Priority of the SRV record.
-        /// </summary>
-        public readonly int Priority;
-        /// <summary>
-        /// FQDN of the service.
-        /// </summary>
-        public readonly string Target;
-        /// <summary>
-        /// Weight of the SRV record.
-        /// </summary>
-        public readonly int Weight;
-
-        [OutputConstructor]
-        private SrvRecordRecords(
-            int port,
-            int priority,
-            string target,
-            int weight)
-        {
-            Port = port;
-            Priority = priority;
-            Target = target;
-            Weight = weight;
-        }
-    }
     }
 }

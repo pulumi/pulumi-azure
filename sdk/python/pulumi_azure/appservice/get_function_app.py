@@ -114,7 +114,7 @@ def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about a Function App.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
+
 
 
     :param str name: The name of the Function App resource.

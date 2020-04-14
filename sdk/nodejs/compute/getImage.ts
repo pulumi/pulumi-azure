@@ -8,10 +8,11 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Image.
+ * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
  */
-export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> & GetImageResult {
+export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,14 +20,12 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetImageResult> = pulumi.runtime.invoke("azure:compute/getImage:getImage", {
+    return pulumi.runtime.invoke("azure:compute/getImage:getImage", {
         "name": args.name,
         "nameRegex": args.nameRegex,
         "resourceGroupName": args.resourceGroupName,
         "sortDescending": args.sortDescending,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

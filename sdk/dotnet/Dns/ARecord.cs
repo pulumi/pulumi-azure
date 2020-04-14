@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS A Records within Azure DNS.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_a_record.html.markdown.
     /// </summary>
     public partial class ARecord : Pulumi.CustomResource
     {
@@ -70,7 +68,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ARecord(string name, ARecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/aRecord:ARecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:dns/aRecord:ARecord", name, args ?? new ARecordArgs(), MakeResourceOptions(options, ""))
         {
         }
 

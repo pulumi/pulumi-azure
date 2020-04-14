@@ -135,7 +135,7 @@ class Pool(pulumi.CustomResource):
         """
         Manages an Azure Batch pool.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
