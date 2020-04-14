@@ -252,9 +252,10 @@ func TestAccAciVolumeMount(t *testing.T) {
 
 func TestAccCosmosDb(t *testing.T) {
 	skipIfShort(t)
+	t.Skip("Skipping due to Azure capacity issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "cosmosdb"),
+			Dir: path.Join(getCwd(t), "cosmosdb"),
 			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
 		})
 
@@ -274,6 +275,7 @@ func TestAccLoadbalancer(t *testing.T) {
 
 func TestAccMultiCallback(t *testing.T) {
 	skipIfShort(t)
+	t.Skip("Skipping due to Azure capacity issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "multi-callback-all"),
