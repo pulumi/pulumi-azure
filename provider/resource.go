@@ -1482,7 +1482,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.0", // so we can access strongly typed node definitions.
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":                "^2.0.0-beta.2",
+				"@pulumi/pulumi":                "^2.0.0",
 				"azure-eventgrid":               "^1.6.0",
 				"@azure/functions":              "^1.0.3",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
@@ -1544,12 +1544,12 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=2.0.0b2,<3.0.0",
+				"pulumi": ">=2.0.0,<3.0.0",
 			},
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "2.0.0-beta.2",
+				"Pulumi":                       "2.*",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
