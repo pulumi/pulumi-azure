@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.0.0 of Pulumi
-* Upgrade to v2.0.0 of pulumi-terraform-bridge
+_(none)_
 
 ---
+
+## 3.0.0 (2020-04-16)
+* Upgrade to v2.0.0 of Pulumi
+* Upgrade to v2.0.0 of pulumi-terraform-bridge
 
 ## 2.5.0 (2020-04-13)
 * Add several properties to ArchiveFunctionApp.
