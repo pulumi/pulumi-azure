@@ -1417,6 +1417,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_firewall":                                {Tok: azureDataSource(azureNetwork, "getFirewall")},
 			"azurerm_subscription":                            {Tok: azureDataSource(azureCore, "getSubscription")},
 			"azurerm_policy_definition":                       {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
+			"azurerm_policy_set_definition":                   {Tok: azureDataSource(azurePolicy, "getPolicySetDefinition")},
 			"azurerm_platform_image":                          {Tok: azureDataSource(azureCompute, "getPlatformImage")},
 			"azurerm_managed_disk":                            {Tok: azureDataSource(azureCompute, "getManagedDisk")},
 			"azurerm_backup_policy_vm":                        {Tok: azureDataSource(azureBackup, "getPolicyVM")},
@@ -1475,6 +1476,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_machine_learning_workspace":     {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
 			"azurerm_managed_application_definition": {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
+			"azurerm_spring_cloud_service":           {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			AsyncDataSources: true,

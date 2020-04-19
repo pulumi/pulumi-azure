@@ -91,6 +91,7 @@ namespace Pulumi.Azure.HDInsight
         /// The SKU / Tier of this HDInsight Cluster.
         /// </summary>
         public readonly string Tier;
+        public readonly string TlsMinVersion;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -118,7 +119,9 @@ namespace Pulumi.Azure.HDInsight
 
             ImmutableDictionary<string, string> tags,
 
-            string tier)
+            string tier,
+
+            string tlsMinVersion)
         {
             ClusterVersion = clusterVersion;
             ComponentVersions = componentVersions;
@@ -133,6 +136,7 @@ namespace Pulumi.Azure.HDInsight
             SshEndpoint = sshEndpoint;
             Tags = tags;
             Tier = tier;
+            TlsMinVersion = tlsMinVersion;
         }
     }
 }

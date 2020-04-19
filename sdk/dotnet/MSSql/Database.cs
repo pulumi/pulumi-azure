@@ -111,6 +111,12 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Output("threatDetectionPolicy")]
+        public Output<Outputs.DatabaseThreatDetectionPolicy> ThreatDetectionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         /// </summary>
         [Output("zoneRedundant")]
@@ -265,6 +271,12 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
+        /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.DatabaseThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
+
+        /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         /// </summary>
         [Input("zoneRedundant")]
@@ -378,6 +390,12 @@ namespace Pulumi.Azure.MSSql
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.DatabaseThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.

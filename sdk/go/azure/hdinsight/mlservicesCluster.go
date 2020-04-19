@@ -39,7 +39,8 @@ type MLServicesCluster struct {
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier pulumi.StringOutput `pulumi:"tier"`
+	Tier          pulumi.StringOutput    `pulumi:"tier"`
+	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
 }
 
 // NewMLServicesCluster registers a new resource with the given unique name, arguments, and options.
@@ -113,7 +114,8 @@ type mlservicesClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier *string `pulumi:"tier"`
+	Tier          *string `pulumi:"tier"`
+	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
 type MLServicesClusterState struct {
@@ -142,7 +144,8 @@ type MLServicesClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier pulumi.StringPtrInput
+	Tier          pulumi.StringPtrInput
+	TlsMinVersion pulumi.StringPtrInput
 }
 
 func (MLServicesClusterState) ElementType() reflect.Type {
@@ -169,7 +172,8 @@ type mlservicesClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier string `pulumi:"tier"`
+	Tier          string  `pulumi:"tier"`
+	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
 // The set of arguments for constructing a MLServicesCluster resource.
@@ -193,7 +197,8 @@ type MLServicesClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier pulumi.StringInput
+	Tier          pulumi.StringInput
+	TlsMinVersion pulumi.StringPtrInput
 }
 
 func (MLServicesClusterArgs) ElementType() reflect.Type {

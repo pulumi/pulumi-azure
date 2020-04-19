@@ -50,5 +50,6 @@ type GetClusterResult struct {
 	// A map of tags assigned to the HDInsight Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The SKU / Tier of this HDInsight Cluster.
-	Tier string `pulumi:"tier"`
+	Tier          string `pulumi:"tier"`
+	TlsMinVersion string `pulumi:"tlsMinVersion"`
 }

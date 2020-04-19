@@ -19,9 +19,10 @@ type Definition struct {
 	// The description of the policy definition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the policy definition.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-	ManagementGroupId pulumi.StringPtrOutput `pulumi:"managementGroupId"`
+	DisplayName       pulumi.StringOutput `pulumi:"displayName"`
+	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	ManagementGroupName pulumi.StringOutput `pulumi:"managementGroupName"`
 	// The metadata for the policy definition. This
 	// is a json object representing additional metadata that should be stored
 	// with the policy definition.
@@ -41,8 +42,7 @@ type Definition struct {
 	// is a json object representing the rule that contains an if and
 	// a then block.
 	PolicyRule pulumi.StringPtrOutput `pulumi:"policyRule"`
-	// The policy type.  The value can be "BuiltIn", "Custom"
-	// or "NotSpecified". Changing this forces a new resource to be created.
+	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 }
 
@@ -86,9 +86,10 @@ type definitionState struct {
 	// The description of the policy definition.
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	DisplayName       *string `pulumi:"displayName"`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy definition. This
 	// is a json object representing additional metadata that should be stored
 	// with the policy definition.
@@ -108,8 +109,7 @@ type definitionState struct {
 	// is a json object representing the rule that contains an if and
 	// a then block.
 	PolicyRule *string `pulumi:"policyRule"`
-	// The policy type.  The value can be "BuiltIn", "Custom"
-	// or "NotSpecified". Changing this forces a new resource to be created.
+	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType *string `pulumi:"policyType"`
 }
 
@@ -117,9 +117,10 @@ type DefinitionState struct {
 	// The description of the policy definition.
 	Description pulumi.StringPtrInput
 	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrInput
-	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	DisplayName       pulumi.StringPtrInput
 	ManagementGroupId pulumi.StringPtrInput
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy definition. This
 	// is a json object representing additional metadata that should be stored
 	// with the policy definition.
@@ -139,8 +140,7 @@ type DefinitionState struct {
 	// is a json object representing the rule that contains an if and
 	// a then block.
 	PolicyRule pulumi.StringPtrInput
-	// The policy type.  The value can be "BuiltIn", "Custom"
-	// or "NotSpecified". Changing this forces a new resource to be created.
+	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringPtrInput
 }
 
@@ -152,9 +152,10 @@ type definitionArgs struct {
 	// The description of the policy definition.
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
-	DisplayName string `pulumi:"displayName"`
-	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	DisplayName       string  `pulumi:"displayName"`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy definition. This
 	// is a json object representing additional metadata that should be stored
 	// with the policy definition.
@@ -174,8 +175,7 @@ type definitionArgs struct {
 	// is a json object representing the rule that contains an if and
 	// a then block.
 	PolicyRule *string `pulumi:"policyRule"`
-	// The policy type.  The value can be "BuiltIn", "Custom"
-	// or "NotSpecified". Changing this forces a new resource to be created.
+	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType string `pulumi:"policyType"`
 }
 
@@ -184,9 +184,10 @@ type DefinitionArgs struct {
 	// The description of the policy definition.
 	Description pulumi.StringPtrInput
 	// The display name of the policy definition.
-	DisplayName pulumi.StringInput
-	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	DisplayName       pulumi.StringInput
 	ManagementGroupId pulumi.StringPtrInput
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy definition. This
 	// is a json object representing additional metadata that should be stored
 	// with the policy definition.
@@ -206,8 +207,7 @@ type DefinitionArgs struct {
 	// is a json object representing the rule that contains an if and
 	// a then block.
 	PolicyRule pulumi.StringPtrInput
-	// The policy type.  The value can be "BuiltIn", "Custom"
-	// or "NotSpecified". Changing this forces a new resource to be created.
+	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringInput
 }
 

@@ -91,10 +91,11 @@ export class Definition extends pulumi.CustomResource {
      * The display name of the policy definition.
      */
     public readonly displayName!: pulumi.Output<string>;
+    public readonly managementGroupId!: pulumi.Output<string>;
     /**
-     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string | undefined>;
+    public readonly managementGroupName!: pulumi.Output<string>;
     /**
      * The metadata for the policy definition. This
      * is a json object representing additional metadata that should be stored
@@ -125,8 +126,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly policyRule!: pulumi.Output<string | undefined>;
     /**
-     * The policy type.  The value can be "BuiltIn", "Custom"
-     * or "NotSpecified". Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
      */
     public readonly policyType!: pulumi.Output<string>;
 
@@ -145,6 +145,7 @@ export class Definition extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["managementGroupId"] = state ? state.managementGroupId : undefined;
+            inputs["managementGroupName"] = state ? state.managementGroupName : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["mode"] = state ? state.mode : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -165,6 +166,7 @@ export class Definition extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            inputs["managementGroupName"] = args ? args.managementGroupName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["mode"] = args ? args.mode : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -195,10 +197,11 @@ export interface DefinitionState {
      * The display name of the policy definition.
      */
     readonly displayName?: pulumi.Input<string>;
-    /**
-     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     */
     readonly managementGroupId?: pulumi.Input<string>;
+    /**
+     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     */
+    readonly managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a json object representing additional metadata that should be stored
@@ -229,8 +232,7 @@ export interface DefinitionState {
      */
     readonly policyRule?: pulumi.Input<string>;
     /**
-     * The policy type.  The value can be "BuiltIn", "Custom"
-     * or "NotSpecified". Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
      */
     readonly policyType?: pulumi.Input<string>;
 }
@@ -247,10 +249,11 @@ export interface DefinitionArgs {
      * The display name of the policy definition.
      */
     readonly displayName: pulumi.Input<string>;
-    /**
-     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-     */
     readonly managementGroupId?: pulumi.Input<string>;
+    /**
+     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     */
+    readonly managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a json object representing additional metadata that should be stored
@@ -281,8 +284,7 @@ export interface DefinitionArgs {
      */
     readonly policyRule?: pulumi.Input<string>;
     /**
-     * The policy type.  The value can be "BuiltIn", "Custom"
-     * or "NotSpecified". Changing this forces a new resource to be created.
+     * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
      */
     readonly policyType: pulumi.Input<string>;
 }

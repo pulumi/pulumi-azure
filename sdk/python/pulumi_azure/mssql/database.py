@@ -74,11 +74,24 @@ class Database(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
+    threat_detection_policy: pulumi.Output[dict]
+    """
+    Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+
+      * `disabled_alerts` (`list`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+      * `email_account_admins` (`str`) - Should the account administrators be emailed when this alert is triggered?
+      * `email_addresses` (`list`) - A list of email addresses which alerts should be sent to.
+      * `retention_days` (`float`) - Specifies the number of days to keep in the Threat Detection audit logs.
+      * `state` (`str`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+      * `storage_account_access_key` (`str`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+      * `useServerDefault` (`str`) - Should the default server policy be used? Defaults to `Disabled`.
+    """
     zone_redundant: pulumi.Output[bool]
     """
     Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
     """
-    def __init__(__self__, resource_name, opts=None, auto_pause_delay_in_minutes=None, collation=None, create_mode=None, creation_source_database_id=None, elastic_pool_id=None, license_type=None, max_size_gb=None, min_capacity=None, name=None, read_replica_count=None, read_scale=None, restore_point_in_time=None, sample_name=None, server_id=None, sku_name=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_pause_delay_in_minutes=None, collation=None, create_mode=None, creation_source_database_id=None, elastic_pool_id=None, license_type=None, max_size_gb=None, min_capacity=None, name=None, read_replica_count=None, read_scale=None, restore_point_in_time=None, sample_name=None, server_id=None, sku_name=None, tags=None, threat_detection_policy=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a MS SQL Database.
 
@@ -102,7 +115,19 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
+
+        The **threat_detection_policy** object supports the following:
+
+          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `email_account_admins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
+          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+          * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,6 +164,7 @@ class Database(pulumi.CustomResource):
             __props__['server_id'] = server_id
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
+            __props__['threat_detection_policy'] = threat_detection_policy
             __props__['zone_redundant'] = zone_redundant
         super(Database, __self__).__init__(
             'azure:mssql/database:Database',
@@ -147,7 +173,7 @@ class Database(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_pause_delay_in_minutes=None, collation=None, create_mode=None, creation_source_database_id=None, elastic_pool_id=None, license_type=None, max_size_gb=None, min_capacity=None, name=None, read_replica_count=None, read_scale=None, restore_point_in_time=None, sample_name=None, server_id=None, sku_name=None, tags=None, zone_redundant=None):
+    def get(resource_name, id, opts=None, auto_pause_delay_in_minutes=None, collation=None, create_mode=None, creation_source_database_id=None, elastic_pool_id=None, license_type=None, max_size_gb=None, min_capacity=None, name=None, read_replica_count=None, read_scale=None, restore_point_in_time=None, sample_name=None, server_id=None, sku_name=None, tags=None, threat_detection_policy=None, zone_redundant=None):
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -171,7 +197,19 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
+
+        The **threat_detection_policy** object supports the following:
+
+          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `email_account_admins` (`pulumi.Input[str]`) - Should the account administrators be emailed when this alert is triggered?
+          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `state` (`pulumi.Input[str]`) - The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+          * `useServerDefault` (`pulumi.Input[str]`) - Should the default server policy be used? Defaults to `Disabled`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -193,6 +231,7 @@ class Database(pulumi.CustomResource):
         __props__["server_id"] = server_id
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
+        __props__["threat_detection_policy"] = threat_detection_policy
         __props__["zone_redundant"] = zone_redundant
         return Database(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

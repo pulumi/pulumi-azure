@@ -105,7 +105,7 @@ export interface ManagementGroupState {
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      * 
-     * @deprecated Deprecated in favor of `name`
+     * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface ManagementGroupArgs {
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      * 
-     * @deprecated Deprecated in favor of `name`
+     * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;
     /**

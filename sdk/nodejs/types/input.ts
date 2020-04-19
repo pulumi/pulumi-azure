@@ -1509,6 +1509,10 @@ export namespace appservice {
          */
         minTlsVersion?: pulumi.Input<string>;
         /**
+         * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
@@ -2449,6 +2453,449 @@ export namespace bot {
 }
 
 export namespace cdn {
+    export interface EndpointDeliveryRule {
+        /**
+         * A `cacheExpirationAction` block as defined above.
+         */
+        cacheExpirationAction?: pulumi.Input<inputs.cdn.EndpointDeliveryRuleCacheExpirationAction>;
+        /**
+         * A `cacheKeyQueryStringAction` block as defined above.
+         */
+        cacheKeyQueryStringAction?: pulumi.Input<inputs.cdn.EndpointDeliveryRuleCacheKeyQueryStringAction>;
+        /**
+         * A `cookiesCondition` block as defined above.
+         */
+        cookiesConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleCookiesCondition>[]>;
+        /**
+         * A `deviceCondition` block as defined below.
+         */
+        deviceCondition?: pulumi.Input<inputs.cdn.EndpointDeliveryRuleDeviceCondition>;
+        /**
+         * A `httpVersionCondition` block as defined below.
+         */
+        httpVersionConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleHttpVersionCondition>[]>;
+        /**
+         * A `modifyRequestHeaderAction` block as defined below.
+         */
+        modifyRequestHeaderActions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleModifyRequestHeaderAction>[]>;
+        /**
+         * A `modifyResponseHeaderAction` block as defined below.
+         */
+        modifyResponseHeaderActions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleModifyResponseHeaderAction>[]>;
+        /**
+         * The Name which should be used for this Delivery Rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The order used for this rule, which must be larger than 1.
+         */
+        order: pulumi.Input<number>;
+        /**
+         * A `postArgCondition` block as defined below.
+         */
+        postArgConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRulePostArgCondition>[]>;
+        /**
+         * A `queryStringCondition` block as defined below.
+         */
+        queryStringConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleQueryStringCondition>[]>;
+        /**
+         * A `remoteAddressCondition` block as defined below.
+         */
+        remoteAddressConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleRemoteAddressCondition>[]>;
+        /**
+         * A `requestBodyCondition` block as defined below.
+         */
+        requestBodyConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleRequestBodyCondition>[]>;
+        /**
+         * A `requestHeaderCondition` block as defined below.
+         */
+        requestHeaderConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleRequestHeaderCondition>[]>;
+        /**
+         * A `requestMethodCondition` block as defined below.
+         */
+        requestMethodCondition?: pulumi.Input<inputs.cdn.EndpointDeliveryRuleRequestMethodCondition>;
+        /**
+         * A `requestSchemeCondition` block as defined below.
+         */
+        requestSchemeCondition?: pulumi.Input<inputs.cdn.EndpointDeliveryRuleRequestSchemeCondition>;
+        /**
+         * A `requestUriCondition` block as defined below.
+         */
+        requestUriConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleRequestUriCondition>[]>;
+        /**
+         * A `urlFileExtensionCondition` block as defined below.
+         */
+        urlFileExtensionConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleUrlFileExtensionCondition>[]>;
+        /**
+         * A `urlFileNameCondition` block as defined below.
+         */
+        urlFileNameConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleUrlFileNameCondition>[]>;
+        /**
+         * A `urlPathCondition` block as defined below.
+         */
+        urlPathConditions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRuleUrlPathCondition>[]>;
+        /**
+         * A `urlRedirectAction` block as defined below.
+         */
+        urlRedirectAction?: pulumi.Input<inputs.cdn.EndpointDeliveryRuleUrlRedirectAction>;
+        /**
+         * A `urlRewriteAction` block as defined below.
+         */
+        urlRewriteAction?: pulumi.Input<inputs.cdn.EndpointDeliveryRuleUrlRewriteAction>;
+    }
+
+    export interface EndpointDeliveryRuleCacheExpirationAction {
+        /**
+         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         */
+        behavior: pulumi.Input<string>;
+        /**
+         * Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+         */
+        duration?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleCacheKeyQueryStringAction {
+        /**
+         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         */
+        behavior: pulumi.Input<string>;
+        /**
+         * Comma separated list of parameter values.
+         */
+        parameters?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleCookiesCondition {
+        /**
+         * List of values for the cookie.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Name of the cookie.
+         */
+        selector: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleDeviceCondition {
+        /**
+         * Valid values are `Desktop` and `Mobile`.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleHttpVersionCondition {
+        /**
+         * Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleModifyRequestHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The header name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleModifyResponseHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The header name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRulePostArgCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Name of the post arg.
+         */
+        selector: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleQueryStringCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleRemoteAddressCondition {
+        /**
+         * List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `GeoMatch` and `IPMatch`.
+         */
+        operator: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleRequestBodyCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleRequestHeaderCondition {
+        /**
+         * List of header values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Header name.
+         */
+        selector: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleRequestMethodCondition {
+        /**
+         * Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleRequestSchemeCondition {
+        /**
+         * Valid values are `HTTP` and `HTTPS`.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleRequestUriCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleUrlFileExtensionCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleUrlFileNameCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleUrlPathCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: pulumi.Input<boolean>;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointDeliveryRuleUrlRedirectAction {
+        /**
+         * Specifies the fragment part of the URL. This value must not start with a `#`.
+         */
+        fragment?: pulumi.Input<string>;
+        /**
+         * Specifies the hostname part of the URL.
+         */
+        hostname?: pulumi.Input<string>;
+        /**
+         * Specifies the path part of the URL. This value must begin with a `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+         */
+        queryString?: pulumi.Input<string>;
+        /**
+         * Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+         */
+        redirectType: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeliveryRuleUrlRewriteAction {
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        destination: pulumi.Input<string>;
+        /**
+         * Defaults to `true`.
+         */
+        preserveUnmatchedPath?: pulumi.Input<boolean>;
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        sourcePattern: pulumi.Input<string>;
+    }
+
     export interface EndpointGeoFilter {
         /**
          * The Action of the Geo Filter. Possible values include `Allow` and `Block`.
@@ -2462,6 +2909,127 @@ export namespace cdn {
          * The relative path applicable to geo filter.
          */
         relativePath: pulumi.Input<string>;
+    }
+
+    export interface EndpointGlobalDeliveryRule {
+        /**
+         * A `cacheExpirationAction` block as defined above.
+         */
+        cacheExpirationAction?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRuleCacheExpirationAction>;
+        /**
+         * A `cacheKeyQueryStringAction` block as defined above.
+         */
+        cacheKeyQueryStringAction?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRuleCacheKeyQueryStringAction>;
+        /**
+         * A `modifyRequestHeaderAction` block as defined below.
+         */
+        modifyRequestHeaderActions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRuleModifyRequestHeaderAction>[]>;
+        /**
+         * A `modifyResponseHeaderAction` block as defined below.
+         */
+        modifyResponseHeaderActions?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRuleModifyResponseHeaderAction>[]>;
+        /**
+         * A `urlRedirectAction` block as defined below.
+         */
+        urlRedirectAction?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRuleUrlRedirectAction>;
+        /**
+         * A `urlRewriteAction` block as defined below.
+         */
+        urlRewriteAction?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRuleUrlRewriteAction>;
+    }
+
+    export interface EndpointGlobalDeliveryRuleCacheExpirationAction {
+        /**
+         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         */
+        behavior: pulumi.Input<string>;
+        /**
+         * Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+         */
+        duration?: pulumi.Input<string>;
+    }
+
+    export interface EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+        /**
+         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         */
+        behavior: pulumi.Input<string>;
+        /**
+         * Comma separated list of parameter values.
+         */
+        parameters?: pulumi.Input<string>;
+    }
+
+    export interface EndpointGlobalDeliveryRuleModifyRequestHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The header name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The header name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EndpointGlobalDeliveryRuleUrlRedirectAction {
+        /**
+         * Specifies the fragment part of the URL. This value must not start with a `#`.
+         */
+        fragment?: pulumi.Input<string>;
+        /**
+         * Specifies the hostname part of the URL.
+         */
+        hostname?: pulumi.Input<string>;
+        /**
+         * Specifies the path part of the URL. This value must begin with a `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+         */
+        queryString?: pulumi.Input<string>;
+        /**
+         * Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+         */
+        redirectType: pulumi.Input<string>;
+    }
+
+    export interface EndpointGlobalDeliveryRuleUrlRewriteAction {
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        destination: pulumi.Input<string>;
+        /**
+         * Defaults to `true`.
+         */
+        preserveUnmatchedPath?: pulumi.Input<boolean>;
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        sourcePattern: pulumi.Input<string>;
     }
 
     export interface EndpointOrigin {
@@ -4574,6 +5142,21 @@ export namespace containerservice {
          * A username used to authenticate to the Kubernetes cluster.
          */
         username?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterKubeletIdentity {
+        /**
+         * The Client ID for the Service Principal.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterLinuxProfile {
@@ -8626,6 +9209,41 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseThreatDetectionPolicy {
+        /**
+         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         */
+        disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the account administrators be emailed when this alert is triggered?
+         */
+        emailAccountAdmins?: pulumi.Input<string>;
+        /**
+         * A list of email addresses which alerts should be sent to.
+         */
+        emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the number of days to keep in the Threat Detection audit logs.
+         */
+        retentionDays?: pulumi.Input<number>;
+        /**
+         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         */
+        state?: pulumi.Input<string>;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         */
+        storageAccountAccessKey?: pulumi.Input<string>;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         */
+        storageEndpoint?: pulumi.Input<string>;
+        /**
+         * Should the default server policy be used? Defaults to `Disabled`.
+         */
+        useServerDefault?: pulumi.Input<string>;
+    }
+
     export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
         /**
          * A list representing a result of the baseline.
@@ -10974,14 +11592,20 @@ export namespace siterecovery {
 
 export namespace sql {
     export interface DatabaseExtendedAuditingPolicy {
+        /**
+         * Specifies the number of days to retain logs for in the storage account.
+         */
         retentionInDays?: pulumi.Input<number>;
         /**
-         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         * Specifies the access key to use for the auditing storage account.
          */
         storageAccountAccessKey: pulumi.Input<string>;
+        /**
+         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
         storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
         storageEndpoint: pulumi.Input<string>;
     }

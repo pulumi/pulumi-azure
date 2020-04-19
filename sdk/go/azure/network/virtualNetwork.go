@@ -27,6 +27,8 @@ type VirtualNetwork struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrOutput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// The GUID of the virtual network.
+	Guid pulumi.StringOutput `pulumi:"guid"`
 	// The location/region where the virtual network is
 	// created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -85,6 +87,8 @@ type virtualNetworkState struct {
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers []string `pulumi:"dnsServers"`
+	// The GUID of the virtual network.
+	Guid *string `pulumi:"guid"`
 	// The location/region where the virtual network is
 	// created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -110,6 +114,8 @@ type VirtualNetworkState struct {
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayInput
+	// The GUID of the virtual network.
+	Guid pulumi.StringPtrInput
 	// The location/region where the virtual network is
 	// created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

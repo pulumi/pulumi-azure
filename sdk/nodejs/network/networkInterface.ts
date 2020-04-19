@@ -60,6 +60,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly internalDnsNameLabel!: pulumi.Output<string>;
     /**
+     * Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
+     */
+    public /*out*/ readonly internalDomainNameSuffix!: pulumi.Output<string>;
+    /**
      * One or more `ipConfiguration` blocks as defined below.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIpConfiguration[]>;
@@ -113,6 +117,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;
             inputs["enableIpForwarding"] = state ? state.enableIpForwarding : undefined;
             inputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
+            inputs["internalDomainNameSuffix"] = state ? state.internalDomainNameSuffix : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["macAddress"] = state ? state.macAddress : undefined;
@@ -140,6 +145,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["appliedDnsServers"] = undefined /*out*/;
+            inputs["internalDomainNameSuffix"] = undefined /*out*/;
             inputs["macAddress"] = undefined /*out*/;
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["privateIpAddresses"] = undefined /*out*/;
@@ -180,6 +186,10 @@ export interface NetworkInterfaceState {
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */
     readonly internalDnsNameLabel?: pulumi.Input<string>;
+    /**
+     * Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
+     */
+    readonly internalDomainNameSuffix?: pulumi.Input<string>;
     /**
      * One or more `ipConfiguration` blocks as defined below.
      */

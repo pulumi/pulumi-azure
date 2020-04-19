@@ -15,7 +15,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
+        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
         /// </summary>
         [Output("compatibilityLevel")]
         public Output<string> CompatibilityLevel { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
+        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class JobState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
+        /// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
         /// </summary>
         [Input("compatibilityLevel")]
         public Input<string>? CompatibilityLevel { get; set; }

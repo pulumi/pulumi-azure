@@ -101,7 +101,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
-     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
      */
     public readonly policyDefinitions!: pulumi.Output<string | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface PolicySetDefinitionState {
      */
     readonly parameters?: pulumi.Input<string>;
     /**
-     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
      */
     readonly policyDefinitions?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface PolicySetDefinitionArgs {
      */
     readonly parameters?: pulumi.Input<string>;
     /**
-     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
      */
     readonly policyDefinitions?: pulumi.Input<string>;
     /**

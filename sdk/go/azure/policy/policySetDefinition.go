@@ -28,7 +28,7 @@ type PolicySetDefinition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	PolicyDefinitions pulumi.StringPtrOutput `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
@@ -80,7 +80,7 @@ type policySetDefinitionState struct {
 	Name *string `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType *string `pulumi:"policyType"`
@@ -99,7 +99,7 @@ type PolicySetDefinitionState struct {
 	Name pulumi.StringPtrInput
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringPtrInput
@@ -122,7 +122,7 @@ type policySetDefinitionArgs struct {
 	Name *string `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType string `pulumi:"policyType"`
@@ -142,7 +142,7 @@ type PolicySetDefinitionArgs struct {
 	Name pulumi.StringPtrInput
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
-	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
 	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringInput

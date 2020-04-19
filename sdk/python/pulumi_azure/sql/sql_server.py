@@ -18,6 +18,10 @@ class SqlServer(pulumi.CustomResource):
     """
     The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
     """
+    connection_policy: pulumi.Output[str]
+    """
+    The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+    """
     extended_auditing_policy: pulumi.Output[dict]
     """
     A `extended_auditing_policy` block as defined below.
@@ -59,7 +63,7 @@ class SqlServer(pulumi.CustomResource):
     """
     The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
     """
-    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, extended_auditing_policy=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, connection_policy=None, extended_auditing_policy=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a SQL Azure Database Server.
 
@@ -69,6 +73,7 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -113,6 +118,7 @@ class SqlServer(pulumi.CustomResource):
             if administrator_login_password is None:
                 raise TypeError("Missing required property 'administrator_login_password'")
             __props__['administrator_login_password'] = administrator_login_password
+            __props__['connection_policy'] = connection_policy
             __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['identity'] = identity
             __props__['location'] = location
@@ -132,7 +138,7 @@ class SqlServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, extended_auditing_policy=None, fully_qualified_domain_name=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, connection_policy=None, extended_auditing_policy=None, fully_qualified_domain_name=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, version=None):
         """
         Get an existing SqlServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -142,6 +148,7 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
@@ -170,6 +177,7 @@ class SqlServer(pulumi.CustomResource):
 
         __props__["administrator_login"] = administrator_login
         __props__["administrator_login_password"] = administrator_login_password
+        __props__["connection_policy"] = connection_policy
         __props__["extended_auditing_policy"] = extended_auditing_policy
         __props__["fully_qualified_domain_name"] = fully_qualified_domain_name
         __props__["identity"] = identity

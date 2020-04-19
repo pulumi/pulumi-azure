@@ -48,6 +48,10 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
+     * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+     */
+    public readonly connectionPolicy!: pulumi.Output<string | undefined>;
+    /**
      * A `extendedAuditingPolicy` block as defined below.
      */
     public readonly extendedAuditingPolicy!: pulumi.Output<outputs.sql.SqlServerExtendedAuditingPolicy | undefined>;
@@ -94,6 +98,7 @@ export class SqlServer extends pulumi.CustomResource {
             const state = argsOrState as SqlServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            inputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
             inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -118,6 +123,7 @@ export class SqlServer extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
             inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -150,6 +156,10 @@ export interface SqlServerState {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+     */
+    readonly connectionPolicy?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      */
@@ -196,6 +206,10 @@ export interface SqlServerArgs {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword: pulumi.Input<string>;
+    /**
+     * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+     */
+    readonly connectionPolicy?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      */

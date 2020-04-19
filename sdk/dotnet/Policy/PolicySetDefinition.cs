@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Policy
         public Output<string?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         /// </summary>
         [Output("policyDefinitions")]
         public Output<string?> PolicyDefinitions { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Parameters { get; set; }
 
         /// <summary>
-        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         /// </summary>
         [Input("policyDefinitions")]
         public Input<string>? PolicyDefinitions { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Parameters { get; set; }
 
         /// <summary>
-        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+        /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         /// </summary>
         [Input("policyDefinitions")]
         public Input<string>? PolicyDefinitions { get; set; }

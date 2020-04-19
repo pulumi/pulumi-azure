@@ -91,6 +91,7 @@ export class HadoopCluster extends pulumi.CustomResource {
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     public readonly tier!: pulumi.Output<string>;
+    public readonly tlsMinVersion!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HadoopCluster resource with the given unique name, arguments, and options.
@@ -117,6 +118,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tier"] = state ? state.tier : undefined;
+            inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
         } else {
             const args = argsOrState as HadoopClusterArgs | undefined;
             if (!args || args.clusterVersion === undefined) {
@@ -148,6 +150,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
+            inputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
             inputs["httpsEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
         }
@@ -218,6 +221,7 @@ export interface HadoopClusterState {
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     readonly tier?: pulumi.Input<string>;
+    readonly tlsMinVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -268,4 +272,5 @@ export interface HadoopClusterArgs {
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     readonly tier: pulumi.Input<string>;
+    readonly tlsMinVersion?: pulumi.Input<string>;
 }

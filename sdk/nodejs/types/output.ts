@@ -900,6 +900,124 @@ export namespace appconfiguration {
 }
 
 export namespace appplatform {
+    export interface GetSpringCloudServiceConfigServerGitSetting {
+        /**
+         * A `httpBasicAuth` block as defined below.
+         */
+        httpBasicAuths: outputs.appplatform.GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth[];
+        /**
+         * The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+         */
+        label: string;
+        /**
+         * One or more `repository` blocks as defined below.
+         */
+        repositories: outputs.appplatform.GetSpringCloudServiceConfigServerGitSettingRepository[];
+        /**
+         * An array of strings used to search subdirectories of the Git repository.
+         */
+        searchPaths: string[];
+        /**
+         * A `sshAuth` block as defined below.
+         */
+        sshAuths: outputs.appplatform.GetSpringCloudServiceConfigServerGitSettingSshAuth[];
+        /**
+         * The URI of the Git repository
+         */
+        uri: string;
+    }
+
+    export interface GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth {
+        /**
+         * The password used to access the Http Basic Authentication Git repository server.
+         */
+        password: string;
+        /**
+         * The username used to access the Http Basic Authentication Git repository server.
+         */
+        username: string;
+    }
+
+    export interface GetSpringCloudServiceConfigServerGitSettingRepository {
+        /**
+         * A `httpBasicAuth` block as defined below.
+         */
+        httpBasicAuths: outputs.appplatform.GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth[];
+        /**
+         * The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+         */
+        label: string;
+        /**
+         * Specifies The name of the Spring Cloud Service resource.
+         */
+        name: string;
+        /**
+         * An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+         */
+        patterns: string[];
+        /**
+         * An array of strings used to search subdirectories of the Git repository.
+         */
+        searchPaths: string[];
+        /**
+         * A `sshAuth` block as defined below.
+         */
+        sshAuths: outputs.appplatform.GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth[];
+        /**
+         * The URI of the Git repository
+         */
+        uri: string;
+    }
+
+    export interface GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
+        /**
+         * The password used to access the Http Basic Authentication Git repository server.
+         */
+        password: string;
+        /**
+         * The username used to access the Http Basic Authentication Git repository server.
+         */
+        username: string;
+    }
+
+    export interface GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth {
+        /**
+         * The host key of the Git repository server.
+         */
+        hostKey: string;
+        /**
+         * The host key algorithm.
+         */
+        hostKeyAlgorithm: string;
+        /**
+         * The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+         */
+        privateKey: string;
+        /**
+         * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+         */
+        strictHostKeyCheckingEnabled: boolean;
+    }
+
+    export interface GetSpringCloudServiceConfigServerGitSettingSshAuth {
+        /**
+         * The host key of the Git repository server.
+         */
+        hostKey: string;
+        /**
+         * The host key algorithm.
+         */
+        hostKeyAlgorithm: string;
+        /**
+         * The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+         */
+        privateKey: string;
+        /**
+         * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+         */
+        strictHostKeyCheckingEnabled: boolean;
+    }
+
     export interface SpringCloudServiceConfigServerGitSetting {
         /**
          * A `httpBasicAuth` block as defined below.
@@ -1659,6 +1777,10 @@ export namespace appservice {
          * The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
          */
         minTlsVersion: string;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+         */
+        preWarmedInstanceCount?: number;
         /**
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
@@ -2886,6 +3008,449 @@ export namespace bot {
 }
 
 export namespace cdn {
+    export interface EndpointDeliveryRule {
+        /**
+         * A `cacheExpirationAction` block as defined above.
+         */
+        cacheExpirationAction?: outputs.cdn.EndpointDeliveryRuleCacheExpirationAction;
+        /**
+         * A `cacheKeyQueryStringAction` block as defined above.
+         */
+        cacheKeyQueryStringAction?: outputs.cdn.EndpointDeliveryRuleCacheKeyQueryStringAction;
+        /**
+         * A `cookiesCondition` block as defined above.
+         */
+        cookiesConditions?: outputs.cdn.EndpointDeliveryRuleCookiesCondition[];
+        /**
+         * A `deviceCondition` block as defined below.
+         */
+        deviceCondition?: outputs.cdn.EndpointDeliveryRuleDeviceCondition;
+        /**
+         * A `httpVersionCondition` block as defined below.
+         */
+        httpVersionConditions?: outputs.cdn.EndpointDeliveryRuleHttpVersionCondition[];
+        /**
+         * A `modifyRequestHeaderAction` block as defined below.
+         */
+        modifyRequestHeaderActions?: outputs.cdn.EndpointDeliveryRuleModifyRequestHeaderAction[];
+        /**
+         * A `modifyResponseHeaderAction` block as defined below.
+         */
+        modifyResponseHeaderActions?: outputs.cdn.EndpointDeliveryRuleModifyResponseHeaderAction[];
+        /**
+         * The Name which should be used for this Delivery Rule.
+         */
+        name: string;
+        /**
+         * The order used for this rule, which must be larger than 1.
+         */
+        order: number;
+        /**
+         * A `postArgCondition` block as defined below.
+         */
+        postArgConditions?: outputs.cdn.EndpointDeliveryRulePostArgCondition[];
+        /**
+         * A `queryStringCondition` block as defined below.
+         */
+        queryStringConditions?: outputs.cdn.EndpointDeliveryRuleQueryStringCondition[];
+        /**
+         * A `remoteAddressCondition` block as defined below.
+         */
+        remoteAddressConditions?: outputs.cdn.EndpointDeliveryRuleRemoteAddressCondition[];
+        /**
+         * A `requestBodyCondition` block as defined below.
+         */
+        requestBodyConditions?: outputs.cdn.EndpointDeliveryRuleRequestBodyCondition[];
+        /**
+         * A `requestHeaderCondition` block as defined below.
+         */
+        requestHeaderConditions?: outputs.cdn.EndpointDeliveryRuleRequestHeaderCondition[];
+        /**
+         * A `requestMethodCondition` block as defined below.
+         */
+        requestMethodCondition?: outputs.cdn.EndpointDeliveryRuleRequestMethodCondition;
+        /**
+         * A `requestSchemeCondition` block as defined below.
+         */
+        requestSchemeCondition?: outputs.cdn.EndpointDeliveryRuleRequestSchemeCondition;
+        /**
+         * A `requestUriCondition` block as defined below.
+         */
+        requestUriConditions?: outputs.cdn.EndpointDeliveryRuleRequestUriCondition[];
+        /**
+         * A `urlFileExtensionCondition` block as defined below.
+         */
+        urlFileExtensionConditions?: outputs.cdn.EndpointDeliveryRuleUrlFileExtensionCondition[];
+        /**
+         * A `urlFileNameCondition` block as defined below.
+         */
+        urlFileNameConditions?: outputs.cdn.EndpointDeliveryRuleUrlFileNameCondition[];
+        /**
+         * A `urlPathCondition` block as defined below.
+         */
+        urlPathConditions?: outputs.cdn.EndpointDeliveryRuleUrlPathCondition[];
+        /**
+         * A `urlRedirectAction` block as defined below.
+         */
+        urlRedirectAction?: outputs.cdn.EndpointDeliveryRuleUrlRedirectAction;
+        /**
+         * A `urlRewriteAction` block as defined below.
+         */
+        urlRewriteAction?: outputs.cdn.EndpointDeliveryRuleUrlRewriteAction;
+    }
+
+    export interface EndpointDeliveryRuleCacheExpirationAction {
+        /**
+         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         */
+        behavior: string;
+        /**
+         * Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+         */
+        duration?: string;
+    }
+
+    export interface EndpointDeliveryRuleCacheKeyQueryStringAction {
+        /**
+         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         */
+        behavior: string;
+        /**
+         * Comma separated list of parameter values.
+         */
+        parameters?: string;
+    }
+
+    export interface EndpointDeliveryRuleCookiesCondition {
+        /**
+         * List of values for the cookie.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Name of the cookie.
+         */
+        selector: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleDeviceCondition {
+        /**
+         * Valid values are `Desktop` and `Mobile`.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface EndpointDeliveryRuleHttpVersionCondition {
+        /**
+         * Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface EndpointDeliveryRuleModifyRequestHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: string;
+        /**
+         * The header name.
+         */
+        name: string;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: string;
+    }
+
+    export interface EndpointDeliveryRuleModifyResponseHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: string;
+        /**
+         * The header name.
+         */
+        name: string;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: string;
+    }
+
+    export interface EndpointDeliveryRulePostArgCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Name of the post arg.
+         */
+        selector: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleQueryStringCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleRemoteAddressCondition {
+        /**
+         * List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `GeoMatch` and `IPMatch`.
+         */
+        operator: string;
+    }
+
+    export interface EndpointDeliveryRuleRequestBodyCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleRequestHeaderCondition {
+        /**
+         * List of header values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Header name.
+         */
+        selector: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleRequestMethodCondition {
+        /**
+         * Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface EndpointDeliveryRuleRequestSchemeCondition {
+        /**
+         * Valid values are `HTTP` and `HTTPS`.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface EndpointDeliveryRuleRequestUriCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleUrlFileExtensionCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleUrlFileNameCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleUrlPathCondition {
+        /**
+         * List of string values.
+         */
+        matchValues: string[];
+        /**
+         * Defaults to `false`.
+         */
+        negateCondition?: boolean;
+        /**
+         * Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * Valid values are `Lowercase` and `Uppercase`.
+         */
+        transforms?: string[];
+    }
+
+    export interface EndpointDeliveryRuleUrlRedirectAction {
+        /**
+         * Specifies the fragment part of the URL. This value must not start with a `#`.
+         */
+        fragment?: string;
+        /**
+         * Specifies the hostname part of the URL.
+         */
+        hostname?: string;
+        /**
+         * Specifies the path part of the URL. This value must begin with a `/`.
+         */
+        path?: string;
+        /**
+         * Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         */
+        protocol?: string;
+        /**
+         * Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+         */
+        queryString?: string;
+        /**
+         * Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+         */
+        redirectType: string;
+    }
+
+    export interface EndpointDeliveryRuleUrlRewriteAction {
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        destination: string;
+        /**
+         * Defaults to `true`.
+         */
+        preserveUnmatchedPath?: boolean;
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        sourcePattern: string;
+    }
+
     export interface EndpointGeoFilter {
         /**
          * The Action of the Geo Filter. Possible values include `Allow` and `Block`.
@@ -2899,6 +3464,127 @@ export namespace cdn {
          * The relative path applicable to geo filter.
          */
         relativePath: string;
+    }
+
+    export interface EndpointGlobalDeliveryRule {
+        /**
+         * A `cacheExpirationAction` block as defined above.
+         */
+        cacheExpirationAction?: outputs.cdn.EndpointGlobalDeliveryRuleCacheExpirationAction;
+        /**
+         * A `cacheKeyQueryStringAction` block as defined above.
+         */
+        cacheKeyQueryStringAction?: outputs.cdn.EndpointGlobalDeliveryRuleCacheKeyQueryStringAction;
+        /**
+         * A `modifyRequestHeaderAction` block as defined below.
+         */
+        modifyRequestHeaderActions?: outputs.cdn.EndpointGlobalDeliveryRuleModifyRequestHeaderAction[];
+        /**
+         * A `modifyResponseHeaderAction` block as defined below.
+         */
+        modifyResponseHeaderActions?: outputs.cdn.EndpointGlobalDeliveryRuleModifyResponseHeaderAction[];
+        /**
+         * A `urlRedirectAction` block as defined below.
+         */
+        urlRedirectAction?: outputs.cdn.EndpointGlobalDeliveryRuleUrlRedirectAction;
+        /**
+         * A `urlRewriteAction` block as defined below.
+         */
+        urlRewriteAction?: outputs.cdn.EndpointGlobalDeliveryRuleUrlRewriteAction;
+    }
+
+    export interface EndpointGlobalDeliveryRuleCacheExpirationAction {
+        /**
+         * The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+         */
+        behavior: string;
+        /**
+         * Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+         */
+        duration?: string;
+    }
+
+    export interface EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+        /**
+         * The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+         */
+        behavior: string;
+        /**
+         * Comma separated list of parameter values.
+         */
+        parameters?: string;
+    }
+
+    export interface EndpointGlobalDeliveryRuleModifyRequestHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: string;
+        /**
+         * The header name.
+         */
+        name: string;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: string;
+    }
+
+    export interface EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
+        /**
+         * Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+         */
+        action: string;
+        /**
+         * The header name.
+         */
+        name: string;
+        /**
+         * The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+         */
+        value?: string;
+    }
+
+    export interface EndpointGlobalDeliveryRuleUrlRedirectAction {
+        /**
+         * Specifies the fragment part of the URL. This value must not start with a `#`.
+         */
+        fragment?: string;
+        /**
+         * Specifies the hostname part of the URL.
+         */
+        hostname?: string;
+        /**
+         * Specifies the path part of the URL. This value must begin with a `/`.
+         */
+        path?: string;
+        /**
+         * Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+         */
+        protocol?: string;
+        /**
+         * Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+         */
+        queryString?: string;
+        /**
+         * Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+         */
+        redirectType: string;
+    }
+
+    export interface EndpointGlobalDeliveryRuleUrlRewriteAction {
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        destination: string;
+        /**
+         * Defaults to `true`.
+         */
+        preserveUnmatchedPath?: boolean;
+        /**
+         * This value must start with a `/` and can't be longer than 260 characters.
+         */
+        sourcePattern: string;
     }
 
     export interface EndpointOrigin {
@@ -5363,6 +6049,21 @@ export namespace containerservice {
          * A username used to authenticate to the Kubernetes cluster.
          */
         username: string;
+    }
+
+    export interface KubernetesClusterKubeletIdentity {
+        /**
+         * The Client ID for the Service Principal.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface KubernetesClusterLinuxProfile {
@@ -10018,6 +10719,41 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseThreatDetectionPolicy {
+        /**
+         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         */
+        disabledAlerts?: string[];
+        /**
+         * Should the account administrators be emailed when this alert is triggered?
+         */
+        emailAccountAdmins?: string;
+        /**
+         * A list of email addresses which alerts should be sent to.
+         */
+        emailAddresses?: string[];
+        /**
+         * Specifies the number of days to keep in the Threat Detection audit logs.
+         */
+        retentionDays?: number;
+        /**
+         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         */
+        state?: string;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         */
+        storageAccountAccessKey?: string;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         */
+        storageEndpoint?: string;
+        /**
+         * Should the default server policy be used? Defaults to `Disabled`.
+         */
+        useServerDefault?: string;
+    }
+
     export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
         /**
          * A list representing a result of the baseline.
@@ -12899,14 +13635,20 @@ export namespace siterecovery {
 
 export namespace sql {
     export interface DatabaseExtendedAuditingPolicy {
+        /**
+         * Specifies the number of days to retain logs for in the storage account.
+         */
         retentionInDays?: number;
         /**
-         * Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+         * Specifies the access key to use for the auditing storage account.
          */
         storageAccountAccessKey: string;
+        /**
+         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
         storageAccountAccessKeyIsSecondary?: boolean;
         /**
-         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
          */
         storageEndpoint: string;
     }

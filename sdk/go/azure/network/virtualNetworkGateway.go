@@ -24,9 +24,9 @@ type VirtualNetworkGateway struct {
 	BgpSettings  VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
-	// gateway is created will be routed (*forced tunneling*). Refer to the
-	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-	// If not specified, forced tunneling is disabled.
+	// gateway is created will be routed (*forced tunnelling*). Refer to the
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrOutput `pulumi:"defaultLocalNetworkGatewayId"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
@@ -116,9 +116,9 @@ type virtualNetworkGatewayState struct {
 	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
-	// gateway is created will be routed (*forced tunneling*). Refer to the
-	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-	// If not specified, forced tunneling is disabled.
+	// gateway is created will be routed (*forced tunnelling*). Refer to the
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId *string `pulumi:"defaultLocalNetworkGatewayId"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
@@ -169,9 +169,9 @@ type VirtualNetworkGatewayState struct {
 	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
-	// gateway is created will be routed (*forced tunneling*). Refer to the
-	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-	// If not specified, forced tunneling is disabled.
+	// gateway is created will be routed (*forced tunnelling*). Refer to the
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrInput
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
@@ -226,9 +226,9 @@ type virtualNetworkGatewayArgs struct {
 	BgpSettings  *VirtualNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
-	// gateway is created will be routed (*forced tunneling*). Refer to the
-	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-	// If not specified, forced tunneling is disabled.
+	// gateway is created will be routed (*forced tunnelling*). Refer to the
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId *string `pulumi:"defaultLocalNetworkGatewayId"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
@@ -280,9 +280,9 @@ type VirtualNetworkGatewayArgs struct {
 	BgpSettings  VirtualNetworkGatewayBgpSettingsPtrInput
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
-	// gateway is created will be routed (*forced tunneling*). Refer to the
-	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-	// If not specified, forced tunneling is disabled.
+	// gateway is created will be routed (*forced tunnelling*). Refer to the
+	// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// If not specified, forced tunnelling is disabled.
 	DefaultLocalNetworkGatewayId pulumi.StringPtrInput
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.

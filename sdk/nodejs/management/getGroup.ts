@@ -32,7 +32,7 @@ export interface GetGroupArgs {
     /**
      * Specifies the name or UUID of this Management Group.
      * 
-     * @deprecated Deprecated in favor of `name`
+     * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: string;
     /**

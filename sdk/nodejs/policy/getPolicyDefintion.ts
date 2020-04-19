@@ -12,7 +12,8 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
  */
-export function getPolicyDefintion(args: GetPolicyDefintionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionResult> {
+export function getPolicyDefintion(args?: GetPolicyDefintionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -23,6 +24,8 @@ export function getPolicyDefintion(args: GetPolicyDefintionArgs, opts?: pulumi.I
     return pulumi.runtime.invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", {
         "displayName": args.displayName,
         "managementGroupId": args.managementGroupId,
+        "managementGroupName": args.managementGroupName,
+        "name": args.name,
     }, opts);
 }
 
@@ -31,13 +34,18 @@ export function getPolicyDefintion(args: GetPolicyDefintionArgs, opts?: pulumi.I
  */
 export interface GetPolicyDefintionArgs {
     /**
-     * Specifies the name of the Policy Definition.
+     * Specifies the display name of the Policy Definition. Conflicts with `name`.
      */
-    readonly displayName: string;
+    readonly displayName?: string;
+    readonly managementGroupId?: string;
     /**
      * Only retrieve Policy Definitions from this Management Group.
      */
-    readonly managementGroupId?: string;
+    readonly managementGroupName?: string;
+    /**
+     * Specifies the name of the Policy Definition. Conflicts with `displayName`.
+     */
+    readonly name?: string;
 }
 
 /**
@@ -50,13 +58,11 @@ export interface GetPolicyDefintionResult {
     readonly description: string;
     readonly displayName: string;
     readonly managementGroupId?: string;
+    readonly managementGroupName?: string;
     /**
      * Any Metadata defined in the Policy.
      */
     readonly metadata: string;
-    /**
-     * The Name of the Policy Definition.
-     */
     readonly name: string;
     /**
      * Any Parameters defined in the Policy.
@@ -67,7 +73,7 @@ export interface GetPolicyDefintionResult {
      */
     readonly policyRule: string;
     /**
-     * The Type of the Policy, such as `Microsoft.Authorization/policyDefinitions`.
+     * The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
      */
     readonly policyType: string;
     /**

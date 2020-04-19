@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages an IotCentral Application
+// Manages an IoT Central Application
 type Application struct {
 	pulumi.CustomResourceState
 

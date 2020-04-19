@@ -59,6 +59,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
+     * The GUID of the virtual network.
+     */
+    public /*out*/ readonly guid!: pulumi.Output<string>;
+    /**
      * The location/region where the virtual network is
      * created. Changing this forces a new resource to be created.
      */
@@ -98,6 +102,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
             inputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
+            inputs["guid"] = state ? state.guid : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -119,6 +124,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["guid"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -149,6 +155,10 @@ export interface VirtualNetworkState {
      * List of IP addresses of DNS servers
      */
     readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The GUID of the virtual network.
+     */
+    readonly guid?: pulumi.Input<string>;
     /**
      * The location/region where the virtual network is
      * created. Changing this forces a new resource to be created.

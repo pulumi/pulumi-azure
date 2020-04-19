@@ -86,6 +86,7 @@ export interface GetClusterResult {
      * The SKU / Tier of this HDInsight Cluster.
      */
     readonly tier: string;
+    readonly tlsMinVersion: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

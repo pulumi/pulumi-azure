@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
+ * A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
  * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
@@ -44,9 +44,17 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly contentTypesToCompresses!: pulumi.Output<string[]>;
     /**
+     * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
+     */
+    public readonly deliveryRules!: pulumi.Output<outputs.cdn.EndpointDeliveryRule[] | undefined>;
+    /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     public readonly geoFilters!: pulumi.Output<outputs.cdn.EndpointGeoFilter[] | undefined>;
+    /**
+     * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
+     */
+    public readonly globalDeliveryRule!: pulumi.Output<outputs.cdn.EndpointGlobalDeliveryRule | undefined>;
     /**
      * A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
      */
@@ -121,7 +129,9 @@ export class Endpoint extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EndpointState | undefined;
             inputs["contentTypesToCompresses"] = state ? state.contentTypesToCompresses : undefined;
+            inputs["deliveryRules"] = state ? state.deliveryRules : undefined;
             inputs["geoFilters"] = state ? state.geoFilters : undefined;
+            inputs["globalDeliveryRule"] = state ? state.globalDeliveryRule : undefined;
             inputs["hostName"] = state ? state.hostName : undefined;
             inputs["isCompressionEnabled"] = state ? state.isCompressionEnabled : undefined;
             inputs["isHttpAllowed"] = state ? state.isHttpAllowed : undefined;
@@ -149,7 +159,9 @@ export class Endpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contentTypesToCompresses"] = args ? args.contentTypesToCompresses : undefined;
+            inputs["deliveryRules"] = args ? args.deliveryRules : undefined;
             inputs["geoFilters"] = args ? args.geoFilters : undefined;
+            inputs["globalDeliveryRule"] = args ? args.globalDeliveryRule : undefined;
             inputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
             inputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
             inputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
@@ -186,9 +198,17 @@ export interface EndpointState {
      */
     readonly contentTypesToCompresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
+     */
+    readonly deliveryRules?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRule>[]>;
+    /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[]>;
+    /**
+     * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
+     */
+    readonly globalDeliveryRule?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRule>;
     /**
      * A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
      */
@@ -260,9 +280,17 @@ export interface EndpointArgs {
      */
     readonly contentTypesToCompresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
+     */
+    readonly deliveryRules?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointDeliveryRule>[]>;
+    /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[]>;
+    /**
+     * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
+     */
+    readonly globalDeliveryRule?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRule>;
     /**
      * Indicates whether compression is to be enabled. Defaults to false.
      */

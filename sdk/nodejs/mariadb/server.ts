@@ -28,9 +28,9 @@ import * as utilities from "../utilities";
  *     skuName: "B_Gen5_2",
  *     sslEnforcement: "Enabled",
  *     storageProfile: {
+ *         autoGrow: "Disabled",
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",
- *         storageAutogrow: "Disabled",
  *         storageMb: 5120,
  *     },
  *     version: "10.2",

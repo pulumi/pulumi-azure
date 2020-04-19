@@ -45,6 +45,12 @@ namespace Pulumi.Azure.Network
         public Output<string> InternalDnsNameLabel { get; private set; } = null!;
 
         /// <summary>
+        /// Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
+        /// </summary>
+        [Output("internalDomainNameSuffix")]
+        public Output<string> InternalDomainNameSuffix { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `ip_configuration` blocks as defined below.
         /// </summary>
         [Output("ipConfigurations")]
@@ -264,6 +270,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("internalDnsNameLabel")]
         public Input<string>? InternalDnsNameLabel { get; set; }
+
+        /// <summary>
+        /// Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
+        /// </summary>
+        [Input("internalDomainNameSuffix")]
+        public Input<string>? InternalDomainNameSuffix { get; set; }
 
         [Input("ipConfigurations")]
         private InputList<Inputs.NetworkInterfaceIpConfigurationGetArgs>? _ipConfigurations;

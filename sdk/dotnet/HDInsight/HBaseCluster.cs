@@ -92,6 +92,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("tier")]
         public Output<string> Tier { get; private set; } = null!;
 
+        [Output("tlsMinVersion")]
+        public Output<string?> TlsMinVersion { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a HBaseCluster resource with the given unique name, arguments, and options.
@@ -216,6 +219,9 @@ namespace Pulumi.Azure.HDInsight
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
 
+        [Input("tlsMinVersion")]
+        public Input<string>? TlsMinVersion { get; set; }
+
         public HBaseClusterArgs()
         {
         }
@@ -312,6 +318,9 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
+
+        [Input("tlsMinVersion")]
+        public Input<string>? TlsMinVersion { get; set; }
 
         public HBaseClusterState()
         {

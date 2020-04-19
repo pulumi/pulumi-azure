@@ -13,7 +13,7 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, dns_servers=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None):
+    def __init__(__self__, address_spaces=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
         __self__.address_spaces = address_spaces
@@ -25,6 +25,12 @@ class GetVirtualNetworkResult:
         __self__.dns_servers = dns_servers
         """
         The list of DNS servers used by the virtual network.
+        """
+        if guid and not isinstance(guid, str):
+            raise TypeError("Expected argument 'guid' to be a str")
+        __self__.guid = guid
+        """
+        The GUID of the virtual network.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -64,6 +70,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         return GetVirtualNetworkResult(
             address_spaces=self.address_spaces,
             dns_servers=self.dns_servers,
+            guid=self.guid,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -95,6 +102,7 @@ def get_virtual_network(name=None,resource_group_name=None,opts=None):
     return AwaitableGetVirtualNetworkResult(
         address_spaces=__ret__.get('addressSpaces'),
         dns_servers=__ret__.get('dnsServers'),
+        guid=__ret__.get('guid'),
         id=__ret__.get('id'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

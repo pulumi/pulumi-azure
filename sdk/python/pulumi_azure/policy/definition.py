@@ -19,8 +19,9 @@ class Definition(pulumi.CustomResource):
     The display name of the policy definition.
     """
     management_group_id: pulumi.Output[str]
+    management_group_name: pulumi.Output[str]
     """
-    The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+    The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
     """
     metadata: pulumi.Output[str]
     """
@@ -53,10 +54,9 @@ class Definition(pulumi.CustomResource):
     """
     policy_type: pulumi.Output[str]
     """
-    The policy type.  The value can be "BuiltIn", "Custom"
-    or "NotSpecified". Changing this forces a new resource to be created.
+    The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a policy rule definition on a management group or your provider subscription.
 
@@ -68,7 +68,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[str] management_group_id: The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a json object representing additional metadata that should be stored
                with the policy definition.
@@ -83,8 +83,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This
                is a json object representing the rule that contains an if and
                a then block.
-        :param pulumi.Input[str] policy_type: The policy type.  The value can be "BuiltIn", "Custom"
-               or "NotSpecified". Changing this forces a new resource to be created.
+        :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,6 +107,7 @@ class Definition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['management_group_id'] = management_group_id
+            __props__['management_group_name'] = management_group_name
             __props__['metadata'] = metadata
             if mode is None:
                 raise TypeError("Missing required property 'mode'")
@@ -125,7 +125,7 @@ class Definition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None):
+    def get(resource_name, id, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None):
         """
         Get an existing Definition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -135,7 +135,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[str] management_group_id: The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a json object representing additional metadata that should be stored
                with the policy definition.
@@ -150,8 +150,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This
                is a json object representing the rule that contains an if and
                a then block.
-        :param pulumi.Input[str] policy_type: The policy type.  The value can be "BuiltIn", "Custom"
-               or "NotSpecified". Changing this forces a new resource to be created.
+        :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -160,6 +159,7 @@ class Definition(pulumi.CustomResource):
         __props__["description"] = description
         __props__["display_name"] = display_name
         __props__["management_group_id"] = management_group_id
+        __props__["management_group_name"] = management_group_name
         __props__["metadata"] = metadata
         __props__["mode"] = mode
         __props__["name"] = name

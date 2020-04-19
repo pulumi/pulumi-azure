@@ -53,6 +53,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly dnsServers: string[];
     /**
+     * The GUID of the virtual network.
+     */
+    readonly guid: string;
+    /**
      * Location of the virtual network.
      */
     readonly location: string;

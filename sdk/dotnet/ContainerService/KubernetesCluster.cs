@@ -81,6 +81,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeConfig>> KubeConfigs { get; private set; } = null!;
 
         /// <summary>
+        /// A `kubelet_identity` block as defined below.  
+        /// </summary>
+        [Output("kubeletIdentities")]
+        public Output<ImmutableArray<Outputs.KubernetesClusterKubeletIdentity>> KubeletIdentities { get; private set; } = null!;
+
+        /// <summary>
         /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         /// </summary>
         [Output("kubernetesVersion")]
@@ -407,6 +413,18 @@ namespace Pulumi.Azure.ContainerService
         {
             get => _kubeConfigs ?? (_kubeConfigs = new InputList<Inputs.KubernetesClusterKubeConfigGetArgs>());
             set => _kubeConfigs = value;
+        }
+
+        [Input("kubeletIdentities")]
+        private InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs>? _kubeletIdentities;
+
+        /// <summary>
+        /// A `kubelet_identity` block as defined below.  
+        /// </summary>
+        public InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs> KubeletIdentities
+        {
+            get => _kubeletIdentities ?? (_kubeletIdentities = new InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs>());
+            set => _kubeletIdentities = value;
         }
 
         /// <summary>

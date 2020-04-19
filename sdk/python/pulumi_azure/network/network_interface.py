@@ -30,6 +30,10 @@ class NetworkInterface(pulumi.CustomResource):
     """
     The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
     """
+    internal_domain_name_suffix: pulumi.Output[str]
+    """
+    Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
+    """
     ip_configurations: pulumi.Output[list]
     """
     One or more `ip_configuration` blocks as defined below.
@@ -133,6 +137,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['applied_dns_servers'] = None
+            __props__['internal_domain_name_suffix'] = None
             __props__['mac_address'] = None
             __props__['private_ip_address'] = None
             __props__['private_ip_addresses'] = None
@@ -144,7 +149,7 @@ class NetworkInterface(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, ip_configurations=None, location=None, mac_address=None, name=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
+    def get(resource_name, id, opts=None, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_domain_name_suffix=None, ip_configurations=None, location=None, mac_address=None, name=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None):
         """
         Get an existing NetworkInterface resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -157,6 +162,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
         :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+        :param pulumi.Input[str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
         :param pulumi.Input[list] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
@@ -186,6 +192,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__["enable_accelerated_networking"] = enable_accelerated_networking
         __props__["enable_ip_forwarding"] = enable_ip_forwarding
         __props__["internal_dns_name_label"] = internal_dns_name_label
+        __props__["internal_domain_name_suffix"] = internal_domain_name_suffix
         __props__["ip_configurations"] = ip_configurations
         __props__["location"] = location
         __props__["mac_address"] = mac_address
