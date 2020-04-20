@@ -6,7 +6,7 @@ _(none)_
 
 ---
 
-## 2.1.0 (2020-04-20)
+## 3.1.0 (2020-04-20)
 * Upgrade to v2.6.0 of the AzureRM Terraform Provider
 
 ## 3.0.0 (2020-04-16)
