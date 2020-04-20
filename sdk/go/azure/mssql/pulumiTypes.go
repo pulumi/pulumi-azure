@@ -10,6 +10,232 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type DatabaseThreatDetectionPolicy struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	DisabledAlerts []string `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses []string `pulumi:"emailAddresses"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays *int `pulumi:"retentionDays"`
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	State *string `pulumi:"state"`
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
+	// Should the default server policy be used? Defaults to `Disabled`.
+	UseServerDefault *string `pulumi:"useServerDefault"`
+}
+
+// DatabaseThreatDetectionPolicyInput is an input type that accepts DatabaseThreatDetectionPolicyArgs and DatabaseThreatDetectionPolicyOutput values.
+// You can construct a concrete instance of `DatabaseThreatDetectionPolicyInput` via:
+//
+// 		 DatabaseThreatDetectionPolicyArgs{...}
+//
+type DatabaseThreatDetectionPolicyInput interface {
+	pulumi.Input
+
+	ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput
+	ToDatabaseThreatDetectionPolicyOutputWithContext(context.Context) DatabaseThreatDetectionPolicyOutput
+}
+
+type DatabaseThreatDetectionPolicyArgs struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins pulumi.StringPtrInput `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
+	// Should the default server policy be used? Defaults to `Disabled`.
+	UseServerDefault pulumi.StringPtrInput `pulumi:"useServerDefault"`
+}
+
+func (DatabaseThreatDetectionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput {
+	return i.ToDatabaseThreatDetectionPolicyOutputWithContext(context.Background())
+}
+
+func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyOutput)
+}
+
+func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyPtrOutput() DatabaseThreatDetectionPolicyPtrOutput {
+	return i.ToDatabaseThreatDetectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyOutput).ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx)
+}
+
+// DatabaseThreatDetectionPolicyPtrInput is an input type that accepts DatabaseThreatDetectionPolicyArgs, DatabaseThreatDetectionPolicyPtr and DatabaseThreatDetectionPolicyPtrOutput values.
+// You can construct a concrete instance of `DatabaseThreatDetectionPolicyPtrInput` via:
+//
+// 		 DatabaseThreatDetectionPolicyArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type DatabaseThreatDetectionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseThreatDetectionPolicyPtrOutput() DatabaseThreatDetectionPolicyPtrOutput
+	ToDatabaseThreatDetectionPolicyPtrOutputWithContext(context.Context) DatabaseThreatDetectionPolicyPtrOutput
+}
+
+type databaseThreatDetectionPolicyPtrType DatabaseThreatDetectionPolicyArgs
+
+func DatabaseThreatDetectionPolicyPtr(v *DatabaseThreatDetectionPolicyArgs) DatabaseThreatDetectionPolicyPtrInput {
+	return (*databaseThreatDetectionPolicyPtrType)(v)
+}
+
+func (*databaseThreatDetectionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (i *databaseThreatDetectionPolicyPtrType) ToDatabaseThreatDetectionPolicyPtrOutput() DatabaseThreatDetectionPolicyPtrOutput {
+	return i.ToDatabaseThreatDetectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseThreatDetectionPolicyPtrType) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyPtrOutput)
+}
+
+type DatabaseThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput {
+	return o
+}
+
+func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyOutput {
+	return o
+}
+
+func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrOutput() DatabaseThreatDetectionPolicyPtrOutput {
+	return o.ToDatabaseThreatDetectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *DatabaseThreatDetectionPolicy {
+		return &v
+	}).(DatabaseThreatDetectionPolicyPtrOutput)
+}
+
+// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+}
+
+// Should the account administrators be emailed when this alert is triggered?
+func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+}
+
+// A list of email addresses which alerts should be sent to.
+func (o DatabaseThreatDetectionPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o DatabaseThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+func (o DatabaseThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+func (o DatabaseThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Should the default server policy be used? Defaults to `Disabled`.
+func (o DatabaseThreatDetectionPolicyOutput) UseServerDefault() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseThreatDetectionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseThreatDetectionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyPtrOutput() DatabaseThreatDetectionPolicyPtrOutput {
+	return o
+}
+
+func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
+	return o
+}
+
+func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPolicyOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) DatabaseThreatDetectionPolicy { return *v }).(DatabaseThreatDetectionPolicyOutput)
+}
+
+// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+}
+
+// Should the account administrators be emailed when this alert is triggered?
+func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+}
+
+// A list of email addresses which alerts should be sent to.
+func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o DatabaseThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+func (o DatabaseThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+func (o DatabaseThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Should the default server policy be used? Defaults to `Disabled`.
+func (o DatabaseThreatDetectionPolicyPtrOutput) UseServerDefault() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
+}
+
 type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult struct {
 	// A list representing a result of the baseline.
 	Results []string `pulumi:"results"`
@@ -906,6 +1132,8 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulu
 }
 
 func init() {
+	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyOutput{})
+	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsOutput{})

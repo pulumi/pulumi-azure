@@ -13,14 +13,20 @@ namespace Pulumi.Azure.Sql.Outputs
     [OutputType]
     public sealed class DatabaseExtendedAuditingPolicy
     {
+        /// <summary>
+        /// Specifies the number of days to retain logs for in the storage account.
+        /// </summary>
         public readonly int? RetentionInDays;
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        /// Specifies the access key to use for the auditing storage account.
         /// </summary>
         public readonly string StorageAccountAccessKey;
+        /// <summary>
+        /// Specifies whether `storage_account_access_key` value is the storage's secondary key.
+        /// </summary>
         public readonly bool? StorageAccountAccessKeyIsSecondary;
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        /// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
         /// </summary>
         public readonly string StorageEndpoint;
 

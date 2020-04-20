@@ -104,7 +104,8 @@ class RServerCluster(pulumi.CustomResource):
     """
     Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, rstudio=None, storage_accounts=None, tags=None, tier=None, __props__=None, __name__=None, __opts__=None):
+    tls_min_version: pulumi.Output[str]
+    def __init__(__self__, resource_name, opts=None, cluster_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, rstudio=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a HDInsight RServer Cluster.
 
@@ -210,6 +211,7 @@ class RServerCluster(pulumi.CustomResource):
             if tier is None:
                 raise TypeError("Missing required property 'tier'")
             __props__['tier'] = tier
+            __props__['tls_min_version'] = tls_min_version
             __props__['edge_ssh_endpoint'] = None
             __props__['https_endpoint'] = None
             __props__['ssh_endpoint'] = None
@@ -220,7 +222,7 @@ class RServerCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cluster_version=None, edge_ssh_endpoint=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, rstudio=None, ssh_endpoint=None, storage_accounts=None, tags=None, tier=None):
+    def get(resource_name, id, opts=None, cluster_version=None, edge_ssh_endpoint=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, rstudio=None, ssh_endpoint=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None):
         """
         Get an existing RServerCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -307,6 +309,7 @@ class RServerCluster(pulumi.CustomResource):
         __props__["storage_accounts"] = storage_accounts
         __props__["tags"] = tags
         __props__["tier"] = tier
+        __props__["tls_min_version"] = tls_min_version
         return RServerCluster(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

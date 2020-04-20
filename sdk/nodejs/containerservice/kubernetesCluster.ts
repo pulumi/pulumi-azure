@@ -84,6 +84,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kubeConfigRaw!: pulumi.Output<string>;
     /**
+     * A `kubeletIdentity` block as defined below.  
+     */
+    public /*out*/ readonly kubeletIdentities!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity[]>;
+    /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
     public readonly kubernetesVersion!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
             inputs["kubeConfigs"] = state ? state.kubeConfigs : undefined;
             inputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
+            inputs["kubeletIdentities"] = state ? state.kubeletIdentities : undefined;
             inputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
             inputs["linuxProfile"] = state ? state.linuxProfile : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -203,6 +208,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeAdminConfigRaw"] = undefined /*out*/;
             inputs["kubeConfigs"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
+            inputs["kubeletIdentities"] = undefined /*out*/;
             inputs["privateFqdn"] = undefined /*out*/;
         }
         if (!opts) {
@@ -264,6 +270,10 @@ export interface KubernetesClusterState {
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */
     readonly kubeConfigRaw?: pulumi.Input<string>;
+    /**
+     * A `kubeletIdentity` block as defined below.  
+     */
+    readonly kubeletIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>[]>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */

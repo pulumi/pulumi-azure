@@ -22,9 +22,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     """
     The ID of the local network gateway
     through which outbound Internet traffic from the virtual network in which the
-    gateway is created will be routed (*forced tunneling*). Refer to the
-    [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-    If not specified, forced tunneling is disabled.
+    gateway is created will be routed (*forced tunnelling*). Refer to the
+    [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+    If not specified, forced tunnelling is disabled.
     """
     enable_bgp: pulumi.Output[bool]
     """
@@ -137,9 +137,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                Defaults to `false`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
-               gateway is created will be routed (*forced tunneling*). Refer to the
-               [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-               If not specified, forced tunneling is disabled.
+               gateway is created will be routed (*forced tunnelling*). Refer to the
+               [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+               If not specified, forced tunnelling is disabled.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
@@ -277,9 +277,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                Defaults to `false`.
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
-               gateway is created will be routed (*forced tunneling*). Refer to the
-               [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-               If not specified, forced tunneling is disabled.
+               gateway is created will be routed (*forced tunnelling*). Refer to the
+               [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+               If not specified, forced tunnelling is disabled.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.

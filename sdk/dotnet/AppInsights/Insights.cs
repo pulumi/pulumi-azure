@@ -39,6 +39,12 @@ namespace Pulumi.Azure.AppInsights
         public Output<bool> DailyDataCapNotificationsDisabled { get; private set; } = null!;
 
         /// <summary>
+        /// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        /// </summary>
+        [Output("disableIpMasking")]
+        public Output<bool?> DisableIpMasking { get; private set; } = null!;
+
+        /// <summary>
         /// The Instrumentation Key for this Application Insights component.
         /// </summary>
         [Output("instrumentationKey")]
@@ -147,6 +153,12 @@ namespace Pulumi.Azure.AppInsights
         public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
 
         /// <summary>
+        /// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        /// </summary>
+        [Input("disableIpMasking")]
+        public Input<bool>? DisableIpMasking { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -220,6 +232,12 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("dailyDataCapNotificationsDisabled")]
         public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
+
+        /// <summary>
+        /// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        /// </summary>
+        [Input("disableIpMasking")]
+        public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
         /// The Instrumentation Key for this Application Insights component.

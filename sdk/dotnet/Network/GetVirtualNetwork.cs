@@ -54,6 +54,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
+        /// The GUID of the virtual network.
+        /// </summary>
+        public readonly string Guid;
+        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -78,6 +82,8 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> dnsServers,
 
+            string guid,
+
             string id,
 
             string location,
@@ -92,6 +98,7 @@ namespace Pulumi.Azure.Network
         {
             AddressSpaces = addressSpaces;
             DnsServers = dnsServers;
+            Guid = guid;
             Id = id;
             Location = location;
             Name = name;

@@ -19,10 +19,13 @@ func GetPolicyDefintion(ctx *pulumi.Context, args *GetPolicyDefintionArgs, opts 
 
 // A collection of arguments for invoking getPolicyDefintion.
 type GetPolicyDefintionArgs struct {
-	// Specifies the name of the Policy Definition.
-	DisplayName string `pulumi:"displayName"`
-	// Only retrieve Policy Definitions from this Management Group.
+	// Specifies the display name of the Policy Definition. Conflicts with `name`.
+	DisplayName       *string `pulumi:"displayName"`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
+	// Only retrieve Policy Definitions from this Management Group.
+	ManagementGroupName *string `pulumi:"managementGroupName"`
+	// Specifies the name of the Policy Definition. Conflicts with `displayName`.
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getPolicyDefintion.
@@ -31,17 +34,17 @@ type GetPolicyDefintionResult struct {
 	Description string `pulumi:"description"`
 	DisplayName string `pulumi:"displayName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id                string  `pulumi:"id"`
-	ManagementGroupId *string `pulumi:"managementGroupId"`
+	Id                  string  `pulumi:"id"`
+	ManagementGroupId   *string `pulumi:"managementGroupId"`
+	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// Any Metadata defined in the Policy.
 	Metadata string `pulumi:"metadata"`
-	// The Name of the Policy Definition.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 	// Any Parameters defined in the Policy.
 	Parameters string `pulumi:"parameters"`
 	// The Rule as defined (in JSON) in the Policy.
 	PolicyRule string `pulumi:"policyRule"`
-	// The Type of the Policy, such as `Microsoft.Authorization/policyDefinitions`.
+	// The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
 	PolicyType string `pulumi:"policyType"`
 	// The Type of Policy.
 	Type string `pulumi:"type"`

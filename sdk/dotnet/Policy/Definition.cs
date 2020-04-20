@@ -28,11 +28,14 @@ namespace Pulumi.Azure.Policy
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("managementGroupId")]
-        public Output<string?> ManagementGroupId { get; private set; } = null!;
+        public Output<string> ManagementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("managementGroupName")]
+        public Output<string> ManagementGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The metadata for the policy definition. This
@@ -74,8 +77,7 @@ namespace Pulumi.Azure.Policy
         public Output<string?> PolicyRule { get; private set; } = null!;
 
         /// <summary>
-        /// The policy type.  The value can be "BuiltIn", "Custom"
-        /// or "NotSpecified". Changing this forces a new resource to be created.
+        /// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
@@ -138,11 +140,14 @@ namespace Pulumi.Azure.Policy
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
+
+        /// <summary>
+        /// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("managementGroupName")]
+        public Input<string>? ManagementGroupName { get; set; }
 
         /// <summary>
         /// The metadata for the policy definition. This
@@ -184,8 +189,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? PolicyRule { get; set; }
 
         /// <summary>
-        /// The policy type.  The value can be "BuiltIn", "Custom"
-        /// or "NotSpecified". Changing this forces a new resource to be created.
+        /// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
@@ -209,11 +213,14 @@ namespace Pulumi.Azure.Policy
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
+
+        /// <summary>
+        /// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("managementGroupName")]
+        public Input<string>? ManagementGroupName { get; set; }
 
         /// <summary>
         /// The metadata for the policy definition. This
@@ -255,8 +262,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? PolicyRule { get; set; }
 
         /// <summary>
-        /// The policy type.  The value can be "BuiltIn", "Custom"
-        /// or "NotSpecified". Changing this forces a new resource to be created.
+        /// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

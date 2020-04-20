@@ -39,7 +39,8 @@ type KafkaCluster struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier pulumi.StringOutput `pulumi:"tier"`
+	Tier          pulumi.StringOutput    `pulumi:"tier"`
+	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
 }
 
 // NewKafkaCluster registers a new resource with the given unique name, arguments, and options.
@@ -113,7 +114,8 @@ type kafkaClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier *string `pulumi:"tier"`
+	Tier          *string `pulumi:"tier"`
+	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
 type KafkaClusterState struct {
@@ -142,7 +144,8 @@ type KafkaClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier pulumi.StringPtrInput
+	Tier          pulumi.StringPtrInput
+	TlsMinVersion pulumi.StringPtrInput
 }
 
 func (KafkaClusterState) ElementType() reflect.Type {
@@ -171,7 +174,8 @@ type kafkaClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier string `pulumi:"tier"`
+	Tier          string  `pulumi:"tier"`
+	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
 // The set of arguments for constructing a KafkaCluster resource.
@@ -197,7 +201,8 @@ type KafkaClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier pulumi.StringInput
+	Tier          pulumi.StringInput
+	TlsMinVersion pulumi.StringPtrInput
 }
 
 func (KafkaClusterArgs) ElementType() reflect.Type {

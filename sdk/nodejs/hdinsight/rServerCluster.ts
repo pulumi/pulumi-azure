@@ -91,6 +91,7 @@ export class RServerCluster extends pulumi.CustomResource {
      * Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     public readonly tier!: pulumi.Output<string>;
+    public readonly tlsMinVersion!: pulumi.Output<string | undefined>;
 
     /**
      * Create a RServerCluster resource with the given unique name, arguments, and options.
@@ -117,6 +118,7 @@ export class RServerCluster extends pulumi.CustomResource {
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tier"] = state ? state.tier : undefined;
+            inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
         } else {
             const args = argsOrState as RServerClusterArgs | undefined;
             if (!args || args.clusterVersion === undefined) {
@@ -147,6 +149,7 @@ export class RServerCluster extends pulumi.CustomResource {
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
+            inputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
             inputs["edgeSshEndpoint"] = undefined /*out*/;
             inputs["httpsEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
@@ -218,6 +221,7 @@ export interface RServerClusterState {
      * Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     readonly tier?: pulumi.Input<string>;
+    readonly tlsMinVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -264,4 +268,5 @@ export interface RServerClusterArgs {
      * Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     readonly tier: pulumi.Input<string>;
+    readonly tlsMinVersion?: pulumi.Input<string>;
 }

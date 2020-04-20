@@ -14,6 +14,125 @@ class Endpoint(pulumi.CustomResource):
     """
     An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
     """
+    delivery_rules: pulumi.Output[list]
+    """
+    Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+
+      * `cacheExpirationAction` (`dict`) - A `cache_expiration_action` block as defined above.
+        * `behavior` (`str`) - The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        * `duration` (`str`) - Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+
+      * `cacheKeyQueryStringAction` (`dict`) - A `cache_key_query_string_action` block as defined above.
+        * `behavior` (`str`) - The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        * `parameters` (`str`) - Comma separated list of parameter values.
+
+      * `cookiesConditions` (`list`) - A `cookies_condition` block as defined above.
+        * `matchValues` (`list`) - List of values for the cookie.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `selector` (`str`) - Name of the cookie.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `deviceCondition` (`dict`) - A `device_condition` block as defined below.
+        * `matchValues` (`list`) - Valid values are `Desktop` and `Mobile`.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Equal`.
+
+      * `httpVersionConditions` (`list`) - A `http_version_condition` block as defined below.
+        * `matchValues` (`list`) - Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Equal`.
+
+      * `modifyRequestHeaderActions` (`list`) - A `modify_request_header_action` block as defined below.
+        * `action` (`str`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        * `name` (`str`) - The header name.
+        * `value` (`str`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+      * `modifyResponseHeaderActions` (`list`) - A `modify_response_header_action` block as defined below.
+        * `action` (`str`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        * `name` (`str`) - The header name.
+        * `value` (`str`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+      * `name` (`str`) - The Name which should be used for this Delivery Rule.
+      * `order` (`float`) - The order used for this rule, which must be larger than 1.
+      * `postArgConditions` (`list`) - A `post_arg_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `selector` (`str`) - Name of the post arg.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `queryStringConditions` (`list`) - A `query_string_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `remoteAddressConditions` (`list`) - A `remote_address_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `GeoMatch` and `IPMatch`.
+
+      * `requestBodyConditions` (`list`) - A `request_body_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `requestHeaderConditions` (`list`) - A `request_header_condition` block as defined below.
+        * `matchValues` (`list`) - List of header values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `selector` (`str`) - Header name.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `requestMethodCondition` (`dict`) - A `request_method_condition` block as defined below.
+        * `matchValues` (`list`) - Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Equal`.
+
+      * `requestSchemeCondition` (`dict`) - A `request_scheme_condition` block as defined below.
+        * `matchValues` (`list`) - Valid values are `HTTP` and `HTTPS`.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Equal`.
+
+      * `requestUriConditions` (`list`) - A `request_uri_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `urlFileExtensionConditions` (`list`) - A `url_file_extension_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `urlFileNameConditions` (`list`) - A `url_file_name_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `urlPathConditions` (`list`) - A `url_path_condition` block as defined below.
+        * `matchValues` (`list`) - List of string values.
+        * `negateCondition` (`bool`) - Defaults to `false`.
+        * `operator` (`str`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        * `transforms` (`list`) - Valid values are `Lowercase` and `Uppercase`.
+
+      * `urlRedirectAction` (`dict`) - A `url_redirect_action` block as defined below.
+        * `fragment` (`str`) - Specifies the fragment part of the URL. This value must not start with a `#`.
+        * `hostname` (`str`) - Specifies the hostname part of the URL.
+        * `path` (`str`) - Specifies the path part of the URL. This value must begin with a `/`.
+        * `protocol` (`str`) - Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+        * `queryString` (`str`) - Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+        * `redirectType` (`str`) - Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+
+      * `urlRewriteAction` (`dict`) - A `url_rewrite_action` block as defined below.
+        * `destination` (`str`) - This value must start with a `/` and can't be longer than 260 characters.
+        * `preserveUnmatchedPath` (`bool`) - Defaults to `true`.
+        * `sourcePattern` (`str`) - This value must start with a `/` and can't be longer than 260 characters.
+    """
     geo_filters: pulumi.Output[list]
     """
     A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
@@ -21,6 +140,41 @@ class Endpoint(pulumi.CustomResource):
       * `action` (`str`) - The Action of the Geo Filter. Possible values include `Allow` and `Block`.
       * `countryCodes` (`list`) - A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
       * `relative_path` (`str`) - The relative path applicable to geo filter.
+    """
+    global_delivery_rule: pulumi.Output[dict]
+    """
+    Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+
+      * `cacheExpirationAction` (`dict`) - A `cache_expiration_action` block as defined above.
+        * `behavior` (`str`) - The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        * `duration` (`str`) - Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+
+      * `cacheKeyQueryStringAction` (`dict`) - A `cache_key_query_string_action` block as defined above.
+        * `behavior` (`str`) - The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        * `parameters` (`str`) - Comma separated list of parameter values.
+
+      * `modifyRequestHeaderActions` (`list`) - A `modify_request_header_action` block as defined below.
+        * `action` (`str`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        * `name` (`str`) - The header name.
+        * `value` (`str`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+      * `modifyResponseHeaderActions` (`list`) - A `modify_response_header_action` block as defined below.
+        * `action` (`str`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        * `name` (`str`) - The header name.
+        * `value` (`str`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+      * `urlRedirectAction` (`dict`) - A `url_redirect_action` block as defined below.
+        * `fragment` (`str`) - Specifies the fragment part of the URL. This value must not start with a `#`.
+        * `hostname` (`str`) - Specifies the hostname part of the URL.
+        * `path` (`str`) - Specifies the path part of the URL. This value must begin with a `/`.
+        * `protocol` (`str`) - Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+        * `queryString` (`str`) - Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+        * `redirectType` (`str`) - Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+
+      * `urlRewriteAction` (`dict`) - A `url_rewrite_action` block as defined below.
+        * `destination` (`str`) - This value must start with a `/` and can't be longer than 260 characters.
+        * `preserveUnmatchedPath` (`bool`) - Defaults to `true`.
+        * `sourcePattern` (`str`) - This value must start with a `/` and can't be longer than 260 characters.
     """
     host_name: pulumi.Output[str]
     """
@@ -87,16 +241,18 @@ class Endpoint(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, content_types_to_compresses=None, geo_filters=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_types_to_compresses=None, delivery_rules=None, geo_filters=None, global_delivery_rule=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
+        A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
 
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        :param pulumi.Input[list] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[list] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[dict] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled. Defaults to false.
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
         :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
@@ -112,11 +268,161 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        The **delivery_rules** object supports the following:
+
+          * `cacheExpirationAction` (`pulumi.Input[dict]`) - A `cache_expiration_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+            * `duration` (`pulumi.Input[str]`) - Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+
+          * `cacheKeyQueryStringAction` (`pulumi.Input[dict]`) - A `cache_key_query_string_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+            * `parameters` (`pulumi.Input[str]`) - Comma separated list of parameter values.
+
+          * `cookiesConditions` (`pulumi.Input[list]`) - A `cookies_condition` block as defined above.
+            * `matchValues` (`pulumi.Input[list]`) - List of values for the cookie.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `selector` (`pulumi.Input[str]`) - Name of the cookie.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `deviceCondition` (`pulumi.Input[dict]`) - A `device_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `Desktop` and `Mobile`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `httpVersionConditions` (`pulumi.Input[list]`) - A `http_version_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `modifyRequestHeaderActions` (`pulumi.Input[list]`) - A `modify_request_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `modifyResponseHeaderActions` (`pulumi.Input[list]`) - A `modify_response_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `name` (`pulumi.Input[str]`) - The Name which should be used for this Delivery Rule.
+          * `order` (`pulumi.Input[float]`) - The order used for this rule, which must be larger than 1.
+          * `postArgConditions` (`pulumi.Input[list]`) - A `post_arg_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `selector` (`pulumi.Input[str]`) - Name of the post arg.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `queryStringConditions` (`pulumi.Input[list]`) - A `query_string_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `remoteAddressConditions` (`pulumi.Input[list]`) - A `remote_address_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `GeoMatch` and `IPMatch`.
+
+          * `requestBodyConditions` (`pulumi.Input[list]`) - A `request_body_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `requestHeaderConditions` (`pulumi.Input[list]`) - A `request_header_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of header values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `selector` (`pulumi.Input[str]`) - Header name.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `requestMethodCondition` (`pulumi.Input[dict]`) - A `request_method_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `requestSchemeCondition` (`pulumi.Input[dict]`) - A `request_scheme_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `HTTP` and `HTTPS`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `requestUriConditions` (`pulumi.Input[list]`) - A `request_uri_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlFileExtensionConditions` (`pulumi.Input[list]`) - A `url_file_extension_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlFileNameConditions` (`pulumi.Input[list]`) - A `url_file_name_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlPathConditions` (`pulumi.Input[list]`) - A `url_path_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlRedirectAction` (`pulumi.Input[dict]`) - A `url_redirect_action` block as defined below.
+            * `fragment` (`pulumi.Input[str]`) - Specifies the fragment part of the URL. This value must not start with a `#`.
+            * `hostname` (`pulumi.Input[str]`) - Specifies the hostname part of the URL.
+            * `path` (`pulumi.Input[str]`) - Specifies the path part of the URL. This value must begin with a `/`.
+            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+            * `queryString` (`pulumi.Input[str]`) - Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+            * `redirectType` (`pulumi.Input[str]`) - Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+
+          * `urlRewriteAction` (`pulumi.Input[dict]`) - A `url_rewrite_action` block as defined below.
+            * `destination` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
+            * `preserveUnmatchedPath` (`pulumi.Input[bool]`) - Defaults to `true`.
+            * `sourcePattern` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
+
         The **geo_filters** object supports the following:
 
           * `action` (`pulumi.Input[str]`) - The Action of the Geo Filter. Possible values include `Allow` and `Block`.
           * `countryCodes` (`pulumi.Input[list]`) - A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
           * `relative_path` (`pulumi.Input[str]`) - The relative path applicable to geo filter.
+
+        The **global_delivery_rule** object supports the following:
+
+          * `cacheExpirationAction` (`pulumi.Input[dict]`) - A `cache_expiration_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+            * `duration` (`pulumi.Input[str]`) - Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+
+          * `cacheKeyQueryStringAction` (`pulumi.Input[dict]`) - A `cache_key_query_string_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+            * `parameters` (`pulumi.Input[str]`) - Comma separated list of parameter values.
+
+          * `modifyRequestHeaderActions` (`pulumi.Input[list]`) - A `modify_request_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `modifyResponseHeaderActions` (`pulumi.Input[list]`) - A `modify_response_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `urlRedirectAction` (`pulumi.Input[dict]`) - A `url_redirect_action` block as defined below.
+            * `fragment` (`pulumi.Input[str]`) - Specifies the fragment part of the URL. This value must not start with a `#`.
+            * `hostname` (`pulumi.Input[str]`) - Specifies the hostname part of the URL.
+            * `path` (`pulumi.Input[str]`) - Specifies the path part of the URL. This value must begin with a `/`.
+            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+            * `queryString` (`pulumi.Input[str]`) - Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+            * `redirectType` (`pulumi.Input[str]`) - Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+
+          * `urlRewriteAction` (`pulumi.Input[dict]`) - A `url_rewrite_action` block as defined below.
+            * `destination` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
+            * `preserveUnmatchedPath` (`pulumi.Input[bool]`) - Defaults to `true`.
+            * `sourcePattern` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
 
         The **origins** object supports the following:
 
@@ -143,7 +449,9 @@ class Endpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['content_types_to_compresses'] = content_types_to_compresses
+            __props__['delivery_rules'] = delivery_rules
             __props__['geo_filters'] = geo_filters
+            __props__['global_delivery_rule'] = global_delivery_rule
             __props__['is_compression_enabled'] = is_compression_enabled
             __props__['is_http_allowed'] = is_http_allowed
             __props__['is_https_allowed'] = is_https_allowed
@@ -172,7 +480,7 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, content_types_to_compresses=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, content_types_to_compresses=None, delivery_rules=None, geo_filters=None, global_delivery_rule=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -181,7 +489,9 @@ class Endpoint(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        :param pulumi.Input[list] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[list] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[dict] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[str] host_name: A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled. Defaults to false.
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
@@ -198,11 +508,161 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        The **delivery_rules** object supports the following:
+
+          * `cacheExpirationAction` (`pulumi.Input[dict]`) - A `cache_expiration_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+            * `duration` (`pulumi.Input[str]`) - Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+
+          * `cacheKeyQueryStringAction` (`pulumi.Input[dict]`) - A `cache_key_query_string_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+            * `parameters` (`pulumi.Input[str]`) - Comma separated list of parameter values.
+
+          * `cookiesConditions` (`pulumi.Input[list]`) - A `cookies_condition` block as defined above.
+            * `matchValues` (`pulumi.Input[list]`) - List of values for the cookie.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `selector` (`pulumi.Input[str]`) - Name of the cookie.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `deviceCondition` (`pulumi.Input[dict]`) - A `device_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `Desktop` and `Mobile`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `httpVersionConditions` (`pulumi.Input[list]`) - A `http_version_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `modifyRequestHeaderActions` (`pulumi.Input[list]`) - A `modify_request_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `modifyResponseHeaderActions` (`pulumi.Input[list]`) - A `modify_response_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `name` (`pulumi.Input[str]`) - The Name which should be used for this Delivery Rule.
+          * `order` (`pulumi.Input[float]`) - The order used for this rule, which must be larger than 1.
+          * `postArgConditions` (`pulumi.Input[list]`) - A `post_arg_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `selector` (`pulumi.Input[str]`) - Name of the post arg.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `queryStringConditions` (`pulumi.Input[list]`) - A `query_string_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `remoteAddressConditions` (`pulumi.Input[list]`) - A `remote_address_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `GeoMatch` and `IPMatch`.
+
+          * `requestBodyConditions` (`pulumi.Input[list]`) - A `request_body_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `requestHeaderConditions` (`pulumi.Input[list]`) - A `request_header_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of header values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `selector` (`pulumi.Input[str]`) - Header name.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `requestMethodCondition` (`pulumi.Input[dict]`) - A `request_method_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `requestSchemeCondition` (`pulumi.Input[dict]`) - A `request_scheme_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - Valid values are `HTTP` and `HTTPS`.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Equal`.
+
+          * `requestUriConditions` (`pulumi.Input[list]`) - A `request_uri_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlFileExtensionConditions` (`pulumi.Input[list]`) - A `url_file_extension_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlFileNameConditions` (`pulumi.Input[list]`) - A `url_file_name_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlPathConditions` (`pulumi.Input[list]`) - A `url_path_condition` block as defined below.
+            * `matchValues` (`pulumi.Input[list]`) - List of string values.
+            * `negateCondition` (`pulumi.Input[bool]`) - Defaults to `false`.
+            * `operator` (`pulumi.Input[str]`) - Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+            * `transforms` (`pulumi.Input[list]`) - Valid values are `Lowercase` and `Uppercase`.
+
+          * `urlRedirectAction` (`pulumi.Input[dict]`) - A `url_redirect_action` block as defined below.
+            * `fragment` (`pulumi.Input[str]`) - Specifies the fragment part of the URL. This value must not start with a `#`.
+            * `hostname` (`pulumi.Input[str]`) - Specifies the hostname part of the URL.
+            * `path` (`pulumi.Input[str]`) - Specifies the path part of the URL. This value must begin with a `/`.
+            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+            * `queryString` (`pulumi.Input[str]`) - Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+            * `redirectType` (`pulumi.Input[str]`) - Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+
+          * `urlRewriteAction` (`pulumi.Input[dict]`) - A `url_rewrite_action` block as defined below.
+            * `destination` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
+            * `preserveUnmatchedPath` (`pulumi.Input[bool]`) - Defaults to `true`.
+            * `sourcePattern` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
+
         The **geo_filters** object supports the following:
 
           * `action` (`pulumi.Input[str]`) - The Action of the Geo Filter. Possible values include `Allow` and `Block`.
           * `countryCodes` (`pulumi.Input[list]`) - A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
           * `relative_path` (`pulumi.Input[str]`) - The relative path applicable to geo filter.
+
+        The **global_delivery_rule** object supports the following:
+
+          * `cacheExpirationAction` (`pulumi.Input[dict]`) - A `cache_expiration_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+            * `duration` (`pulumi.Input[str]`) - Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+
+          * `cacheKeyQueryStringAction` (`pulumi.Input[dict]`) - A `cache_key_query_string_action` block as defined above.
+            * `behavior` (`pulumi.Input[str]`) - The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+            * `parameters` (`pulumi.Input[str]`) - Comma separated list of parameter values.
+
+          * `modifyRequestHeaderActions` (`pulumi.Input[list]`) - A `modify_request_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `modifyResponseHeaderActions` (`pulumi.Input[list]`) - A `modify_response_header_action` block as defined below.
+            * `action` (`pulumi.Input[str]`) - Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+            * `name` (`pulumi.Input[str]`) - The header name.
+            * `value` (`pulumi.Input[str]`) - The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+
+          * `urlRedirectAction` (`pulumi.Input[dict]`) - A `url_redirect_action` block as defined below.
+            * `fragment` (`pulumi.Input[str]`) - Specifies the fragment part of the URL. This value must not start with a `#`.
+            * `hostname` (`pulumi.Input[str]`) - Specifies the hostname part of the URL.
+            * `path` (`pulumi.Input[str]`) - Specifies the path part of the URL. This value must begin with a `/`.
+            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+            * `queryString` (`pulumi.Input[str]`) - Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+            * `redirectType` (`pulumi.Input[str]`) - Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+
+          * `urlRewriteAction` (`pulumi.Input[dict]`) - A `url_rewrite_action` block as defined below.
+            * `destination` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
+            * `preserveUnmatchedPath` (`pulumi.Input[bool]`) - Defaults to `true`.
+            * `sourcePattern` (`pulumi.Input[str]`) - This value must start with a `/` and can't be longer than 260 characters.
 
         The **origins** object supports the following:
 
@@ -216,7 +676,9 @@ class Endpoint(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["content_types_to_compresses"] = content_types_to_compresses
+        __props__["delivery_rules"] = delivery_rules
         __props__["geo_filters"] = geo_filters
+        __props__["global_delivery_rule"] = global_delivery_rule
         __props__["host_name"] = host_name
         __props__["is_compression_enabled"] = is_compression_enabled
         __props__["is_http_allowed"] = is_http_allowed

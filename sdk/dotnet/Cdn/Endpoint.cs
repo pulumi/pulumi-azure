@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn
 {
     /// <summary>
-    /// A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format &lt;endpointname&gt;.azureedge.net.
+    /// A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format &lt;endpointname&gt;.azureedge.net.
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {
@@ -21,10 +21,22 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<string>> ContentTypesToCompresses { get; private set; } = null!;
 
         /// <summary>
+        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        /// </summary>
+        [Output("deliveryRules")]
+        public Output<ImmutableArray<Outputs.EndpointDeliveryRule>> DeliveryRules { get; private set; } = null!;
+
+        /// <summary>
         /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         /// </summary>
         [Output("geoFilters")]
         public Output<ImmutableArray<Outputs.EndpointGeoFilter>> GeoFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        /// </summary>
+        [Output("globalDeliveryRule")]
+        public Output<Outputs.EndpointGlobalDeliveryRule?> GlobalDeliveryRule { get; private set; } = null!;
 
         /// <summary>
         /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
@@ -174,6 +186,18 @@ namespace Pulumi.Azure.Cdn
             set => _contentTypesToCompresses = value;
         }
 
+        [Input("deliveryRules")]
+        private InputList<Inputs.EndpointDeliveryRuleArgs>? _deliveryRules;
+
+        /// <summary>
+        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.EndpointDeliveryRuleArgs> DeliveryRules
+        {
+            get => _deliveryRules ?? (_deliveryRules = new InputList<Inputs.EndpointDeliveryRuleArgs>());
+            set => _deliveryRules = value;
+        }
+
         [Input("geoFilters")]
         private InputList<Inputs.EndpointGeoFilterArgs>? _geoFilters;
 
@@ -185,6 +209,12 @@ namespace Pulumi.Azure.Cdn
             get => _geoFilters ?? (_geoFilters = new InputList<Inputs.EndpointGeoFilterArgs>());
             set => _geoFilters = value;
         }
+
+        /// <summary>
+        /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        /// </summary>
+        [Input("globalDeliveryRule")]
+        public Input<Inputs.EndpointGlobalDeliveryRuleArgs>? GlobalDeliveryRule { get; set; }
 
         /// <summary>
         /// Indicates whether compression is to be enabled. Defaults to false.
@@ -301,6 +331,18 @@ namespace Pulumi.Azure.Cdn
             set => _contentTypesToCompresses = value;
         }
 
+        [Input("deliveryRules")]
+        private InputList<Inputs.EndpointDeliveryRuleGetArgs>? _deliveryRules;
+
+        /// <summary>
+        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.EndpointDeliveryRuleGetArgs> DeliveryRules
+        {
+            get => _deliveryRules ?? (_deliveryRules = new InputList<Inputs.EndpointDeliveryRuleGetArgs>());
+            set => _deliveryRules = value;
+        }
+
         [Input("geoFilters")]
         private InputList<Inputs.EndpointGeoFilterGetArgs>? _geoFilters;
 
@@ -312,6 +354,12 @@ namespace Pulumi.Azure.Cdn
             get => _geoFilters ?? (_geoFilters = new InputList<Inputs.EndpointGeoFilterGetArgs>());
             set => _geoFilters = value;
         }
+
+        /// <summary>
+        /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        /// </summary>
+        [Input("globalDeliveryRule")]
+        public Input<Inputs.EndpointGlobalDeliveryRuleGetArgs>? GlobalDeliveryRule { get; set; }
 
         /// <summary>
         /// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.

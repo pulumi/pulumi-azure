@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,6 +104,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    public readonly threatDetectionPolicy!: pulumi.Output<outputs.mssql.DatabaseThreatDetectionPolicy>;
+    /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */
     public readonly zoneRedundant!: pulumi.Output<boolean>;
@@ -134,6 +140,7 @@ export class Database extends pulumi.CustomResource {
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
             inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
@@ -156,6 +163,7 @@ export class Database extends pulumi.CustomResource {
             inputs["serverId"] = args ? args.serverId : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
         }
         if (!opts) {
@@ -238,6 +246,10 @@ export interface DatabaseState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    readonly threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
+    /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */
     readonly zoneRedundant?: pulumi.Input<boolean>;
@@ -311,6 +323,10 @@ export interface DatabaseArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    readonly threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */

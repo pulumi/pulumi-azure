@@ -27,6 +27,12 @@ namespace Pulumi.Azure.Sql
         public Output<string> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
+        /// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        /// </summary>
+        [Output("connectionPolicy")]
+        public Output<string?> ConnectionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// A `extended_auditing_policy` block as defined below.
         /// </summary>
         [Output("extendedAuditingPolicy")]
@@ -133,6 +139,12 @@ namespace Pulumi.Azure.Sql
         public Input<string> AdministratorLoginPassword { get; set; } = null!;
 
         /// <summary>
+        /// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        /// </summary>
+        [Input("connectionPolicy")]
+        public Input<string>? ConnectionPolicy { get; set; }
+
+        /// <summary>
         /// A `extended_auditing_policy` block as defined below.
         /// </summary>
         [Input("extendedAuditingPolicy")]
@@ -198,6 +210,12 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("administratorLoginPassword")]
         public Input<string>? AdministratorLoginPassword { get; set; }
+
+        /// <summary>
+        /// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        /// </summary>
+        [Input("connectionPolicy")]
+        public Input<string>? ConnectionPolicy { get; set; }
 
         /// <summary>
         /// A `extended_auditing_policy` block as defined below.

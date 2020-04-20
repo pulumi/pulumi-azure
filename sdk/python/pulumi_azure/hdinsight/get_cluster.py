@@ -13,7 +13,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, id=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None):
+    def __init__(__self__, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, id=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None, tls_min_version=None):
         if cluster_version and not isinstance(cluster_version, str):
             raise TypeError("Expected argument 'cluster_version' to be a str")
         __self__.cluster_version = cluster_version
@@ -86,6 +86,9 @@ class GetClusterResult:
         """
         The SKU / Tier of this HDInsight Cluster.
         """
+        if tls_min_version and not isinstance(tls_min_version, str):
+            raise TypeError("Expected argument 'tls_min_version' to be a str")
+        __self__.tls_min_version = tls_min_version
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -104,7 +107,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             resource_group_name=self.resource_group_name,
             ssh_endpoint=self.ssh_endpoint,
             tags=self.tags,
-            tier=self.tier)
+            tier=self.tier,
+            tls_min_version=self.tls_min_version)
 
 def get_cluster(name=None,resource_group_name=None,opts=None):
     """
@@ -140,4 +144,5 @@ def get_cluster(name=None,resource_group_name=None,opts=None):
         resource_group_name=__ret__.get('resourceGroupName'),
         ssh_endpoint=__ret__.get('sshEndpoint'),
         tags=__ret__.get('tags'),
-        tier=__ret__.get('tier'))
+        tier=__ret__.get('tier'),
+        tls_min_version=__ret__.get('tlsMinVersion'))

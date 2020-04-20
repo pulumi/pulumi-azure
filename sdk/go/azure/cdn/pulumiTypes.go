@@ -10,6 +10,3063 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type EndpointDeliveryRule struct {
+	// A `cacheExpirationAction` block as defined above.
+	CacheExpirationAction *EndpointDeliveryRuleCacheExpirationAction `pulumi:"cacheExpirationAction"`
+	// A `cacheKeyQueryStringAction` block as defined above.
+	CacheKeyQueryStringAction *EndpointDeliveryRuleCacheKeyQueryStringAction `pulumi:"cacheKeyQueryStringAction"`
+	// A `cookiesCondition` block as defined above.
+	CookiesConditions []EndpointDeliveryRuleCookiesCondition `pulumi:"cookiesConditions"`
+	// A `deviceCondition` block as defined below.
+	DeviceCondition *EndpointDeliveryRuleDeviceCondition `pulumi:"deviceCondition"`
+	// A `httpVersionCondition` block as defined below.
+	HttpVersionConditions []EndpointDeliveryRuleHttpVersionCondition `pulumi:"httpVersionConditions"`
+	// A `modifyRequestHeaderAction` block as defined below.
+	ModifyRequestHeaderActions []EndpointDeliveryRuleModifyRequestHeaderAction `pulumi:"modifyRequestHeaderActions"`
+	// A `modifyResponseHeaderAction` block as defined below.
+	ModifyResponseHeaderActions []EndpointDeliveryRuleModifyResponseHeaderAction `pulumi:"modifyResponseHeaderActions"`
+	// The Name which should be used for this Delivery Rule.
+	Name string `pulumi:"name"`
+	// The order used for this rule, which must be larger than 1.
+	Order int `pulumi:"order"`
+	// A `postArgCondition` block as defined below.
+	PostArgConditions []EndpointDeliveryRulePostArgCondition `pulumi:"postArgConditions"`
+	// A `queryStringCondition` block as defined below.
+	QueryStringConditions []EndpointDeliveryRuleQueryStringCondition `pulumi:"queryStringConditions"`
+	// A `remoteAddressCondition` block as defined below.
+	RemoteAddressConditions []EndpointDeliveryRuleRemoteAddressCondition `pulumi:"remoteAddressConditions"`
+	// A `requestBodyCondition` block as defined below.
+	RequestBodyConditions []EndpointDeliveryRuleRequestBodyCondition `pulumi:"requestBodyConditions"`
+	// A `requestHeaderCondition` block as defined below.
+	RequestHeaderConditions []EndpointDeliveryRuleRequestHeaderCondition `pulumi:"requestHeaderConditions"`
+	// A `requestMethodCondition` block as defined below.
+	RequestMethodCondition *EndpointDeliveryRuleRequestMethodCondition `pulumi:"requestMethodCondition"`
+	// A `requestSchemeCondition` block as defined below.
+	RequestSchemeCondition *EndpointDeliveryRuleRequestSchemeCondition `pulumi:"requestSchemeCondition"`
+	// A `requestUriCondition` block as defined below.
+	RequestUriConditions []EndpointDeliveryRuleRequestUriCondition `pulumi:"requestUriConditions"`
+	// A `urlFileExtensionCondition` block as defined below.
+	UrlFileExtensionConditions []EndpointDeliveryRuleUrlFileExtensionCondition `pulumi:"urlFileExtensionConditions"`
+	// A `urlFileNameCondition` block as defined below.
+	UrlFileNameConditions []EndpointDeliveryRuleUrlFileNameCondition `pulumi:"urlFileNameConditions"`
+	// A `urlPathCondition` block as defined below.
+	UrlPathConditions []EndpointDeliveryRuleUrlPathCondition `pulumi:"urlPathConditions"`
+	// A `urlRedirectAction` block as defined below.
+	UrlRedirectAction *EndpointDeliveryRuleUrlRedirectAction `pulumi:"urlRedirectAction"`
+	// A `urlRewriteAction` block as defined below.
+	UrlRewriteAction *EndpointDeliveryRuleUrlRewriteAction `pulumi:"urlRewriteAction"`
+}
+
+// EndpointDeliveryRuleInput is an input type that accepts EndpointDeliveryRuleArgs and EndpointDeliveryRuleOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleInput` via:
+//
+// 		 EndpointDeliveryRuleArgs{...}
+//
+type EndpointDeliveryRuleInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleOutput() EndpointDeliveryRuleOutput
+	ToEndpointDeliveryRuleOutputWithContext(context.Context) EndpointDeliveryRuleOutput
+}
+
+type EndpointDeliveryRuleArgs struct {
+	// A `cacheExpirationAction` block as defined above.
+	CacheExpirationAction EndpointDeliveryRuleCacheExpirationActionPtrInput `pulumi:"cacheExpirationAction"`
+	// A `cacheKeyQueryStringAction` block as defined above.
+	CacheKeyQueryStringAction EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput `pulumi:"cacheKeyQueryStringAction"`
+	// A `cookiesCondition` block as defined above.
+	CookiesConditions EndpointDeliveryRuleCookiesConditionArrayInput `pulumi:"cookiesConditions"`
+	// A `deviceCondition` block as defined below.
+	DeviceCondition EndpointDeliveryRuleDeviceConditionPtrInput `pulumi:"deviceCondition"`
+	// A `httpVersionCondition` block as defined below.
+	HttpVersionConditions EndpointDeliveryRuleHttpVersionConditionArrayInput `pulumi:"httpVersionConditions"`
+	// A `modifyRequestHeaderAction` block as defined below.
+	ModifyRequestHeaderActions EndpointDeliveryRuleModifyRequestHeaderActionArrayInput `pulumi:"modifyRequestHeaderActions"`
+	// A `modifyResponseHeaderAction` block as defined below.
+	ModifyResponseHeaderActions EndpointDeliveryRuleModifyResponseHeaderActionArrayInput `pulumi:"modifyResponseHeaderActions"`
+	// The Name which should be used for this Delivery Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The order used for this rule, which must be larger than 1.
+	Order pulumi.IntInput `pulumi:"order"`
+	// A `postArgCondition` block as defined below.
+	PostArgConditions EndpointDeliveryRulePostArgConditionArrayInput `pulumi:"postArgConditions"`
+	// A `queryStringCondition` block as defined below.
+	QueryStringConditions EndpointDeliveryRuleQueryStringConditionArrayInput `pulumi:"queryStringConditions"`
+	// A `remoteAddressCondition` block as defined below.
+	RemoteAddressConditions EndpointDeliveryRuleRemoteAddressConditionArrayInput `pulumi:"remoteAddressConditions"`
+	// A `requestBodyCondition` block as defined below.
+	RequestBodyConditions EndpointDeliveryRuleRequestBodyConditionArrayInput `pulumi:"requestBodyConditions"`
+	// A `requestHeaderCondition` block as defined below.
+	RequestHeaderConditions EndpointDeliveryRuleRequestHeaderConditionArrayInput `pulumi:"requestHeaderConditions"`
+	// A `requestMethodCondition` block as defined below.
+	RequestMethodCondition EndpointDeliveryRuleRequestMethodConditionPtrInput `pulumi:"requestMethodCondition"`
+	// A `requestSchemeCondition` block as defined below.
+	RequestSchemeCondition EndpointDeliveryRuleRequestSchemeConditionPtrInput `pulumi:"requestSchemeCondition"`
+	// A `requestUriCondition` block as defined below.
+	RequestUriConditions EndpointDeliveryRuleRequestUriConditionArrayInput `pulumi:"requestUriConditions"`
+	// A `urlFileExtensionCondition` block as defined below.
+	UrlFileExtensionConditions EndpointDeliveryRuleUrlFileExtensionConditionArrayInput `pulumi:"urlFileExtensionConditions"`
+	// A `urlFileNameCondition` block as defined below.
+	UrlFileNameConditions EndpointDeliveryRuleUrlFileNameConditionArrayInput `pulumi:"urlFileNameConditions"`
+	// A `urlPathCondition` block as defined below.
+	UrlPathConditions EndpointDeliveryRuleUrlPathConditionArrayInput `pulumi:"urlPathConditions"`
+	// A `urlRedirectAction` block as defined below.
+	UrlRedirectAction EndpointDeliveryRuleUrlRedirectActionPtrInput `pulumi:"urlRedirectAction"`
+	// A `urlRewriteAction` block as defined below.
+	UrlRewriteAction EndpointDeliveryRuleUrlRewriteActionPtrInput `pulumi:"urlRewriteAction"`
+}
+
+func (EndpointDeliveryRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRule)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleArgs) ToEndpointDeliveryRuleOutput() EndpointDeliveryRuleOutput {
+	return i.ToEndpointDeliveryRuleOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleArgs) ToEndpointDeliveryRuleOutputWithContext(ctx context.Context) EndpointDeliveryRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleOutput)
+}
+
+// EndpointDeliveryRuleArrayInput is an input type that accepts EndpointDeliveryRuleArray and EndpointDeliveryRuleArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleArrayInput` via:
+//
+// 		 EndpointDeliveryRuleArray{ EndpointDeliveryRuleArgs{...} }
+//
+type EndpointDeliveryRuleArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleArrayOutput() EndpointDeliveryRuleArrayOutput
+	ToEndpointDeliveryRuleArrayOutputWithContext(context.Context) EndpointDeliveryRuleArrayOutput
+}
+
+type EndpointDeliveryRuleArray []EndpointDeliveryRuleInput
+
+func (EndpointDeliveryRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRule)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleArray) ToEndpointDeliveryRuleArrayOutput() EndpointDeliveryRuleArrayOutput {
+	return i.ToEndpointDeliveryRuleArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleArray) ToEndpointDeliveryRuleArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleArrayOutput)
+}
+
+type EndpointDeliveryRuleOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRule)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleOutput) ToEndpointDeliveryRuleOutput() EndpointDeliveryRuleOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleOutput) ToEndpointDeliveryRuleOutputWithContext(ctx context.Context) EndpointDeliveryRuleOutput {
+	return o
+}
+
+// A `cacheExpirationAction` block as defined above.
+func (o EndpointDeliveryRuleOutput) CacheExpirationAction() EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) *EndpointDeliveryRuleCacheExpirationAction {
+		return v.CacheExpirationAction
+	}).(EndpointDeliveryRuleCacheExpirationActionPtrOutput)
+}
+
+// A `cacheKeyQueryStringAction` block as defined above.
+func (o EndpointDeliveryRuleOutput) CacheKeyQueryStringAction() EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) *EndpointDeliveryRuleCacheKeyQueryStringAction {
+		return v.CacheKeyQueryStringAction
+	}).(EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput)
+}
+
+// A `cookiesCondition` block as defined above.
+func (o EndpointDeliveryRuleOutput) CookiesConditions() EndpointDeliveryRuleCookiesConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleCookiesCondition { return v.CookiesConditions }).(EndpointDeliveryRuleCookiesConditionArrayOutput)
+}
+
+// A `deviceCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) DeviceCondition() EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) *EndpointDeliveryRuleDeviceCondition { return v.DeviceCondition }).(EndpointDeliveryRuleDeviceConditionPtrOutput)
+}
+
+// A `httpVersionCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) HttpVersionConditions() EndpointDeliveryRuleHttpVersionConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleHttpVersionCondition {
+		return v.HttpVersionConditions
+	}).(EndpointDeliveryRuleHttpVersionConditionArrayOutput)
+}
+
+// A `modifyRequestHeaderAction` block as defined below.
+func (o EndpointDeliveryRuleOutput) ModifyRequestHeaderActions() EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleModifyRequestHeaderAction {
+		return v.ModifyRequestHeaderActions
+	}).(EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput)
+}
+
+// A `modifyResponseHeaderAction` block as defined below.
+func (o EndpointDeliveryRuleOutput) ModifyResponseHeaderActions() EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleModifyResponseHeaderAction {
+		return v.ModifyResponseHeaderActions
+	}).(EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput)
+}
+
+// The Name which should be used for this Delivery Rule.
+func (o EndpointDeliveryRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The order used for this rule, which must be larger than 1.
+func (o EndpointDeliveryRuleOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// A `postArgCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) PostArgConditions() EndpointDeliveryRulePostArgConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRulePostArgCondition { return v.PostArgConditions }).(EndpointDeliveryRulePostArgConditionArrayOutput)
+}
+
+// A `queryStringCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) QueryStringConditions() EndpointDeliveryRuleQueryStringConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleQueryStringCondition {
+		return v.QueryStringConditions
+	}).(EndpointDeliveryRuleQueryStringConditionArrayOutput)
+}
+
+// A `remoteAddressCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) RemoteAddressConditions() EndpointDeliveryRuleRemoteAddressConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleRemoteAddressCondition {
+		return v.RemoteAddressConditions
+	}).(EndpointDeliveryRuleRemoteAddressConditionArrayOutput)
+}
+
+// A `requestBodyCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) RequestBodyConditions() EndpointDeliveryRuleRequestBodyConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleRequestBodyCondition {
+		return v.RequestBodyConditions
+	}).(EndpointDeliveryRuleRequestBodyConditionArrayOutput)
+}
+
+// A `requestHeaderCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) RequestHeaderConditions() EndpointDeliveryRuleRequestHeaderConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleRequestHeaderCondition {
+		return v.RequestHeaderConditions
+	}).(EndpointDeliveryRuleRequestHeaderConditionArrayOutput)
+}
+
+// A `requestMethodCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) RequestMethodCondition() EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) *EndpointDeliveryRuleRequestMethodCondition {
+		return v.RequestMethodCondition
+	}).(EndpointDeliveryRuleRequestMethodConditionPtrOutput)
+}
+
+// A `requestSchemeCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) RequestSchemeCondition() EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) *EndpointDeliveryRuleRequestSchemeCondition {
+		return v.RequestSchemeCondition
+	}).(EndpointDeliveryRuleRequestSchemeConditionPtrOutput)
+}
+
+// A `requestUriCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) RequestUriConditions() EndpointDeliveryRuleRequestUriConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleRequestUriCondition { return v.RequestUriConditions }).(EndpointDeliveryRuleRequestUriConditionArrayOutput)
+}
+
+// A `urlFileExtensionCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) UrlFileExtensionConditions() EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleUrlFileExtensionCondition {
+		return v.UrlFileExtensionConditions
+	}).(EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput)
+}
+
+// A `urlFileNameCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) UrlFileNameConditions() EndpointDeliveryRuleUrlFileNameConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleUrlFileNameCondition {
+		return v.UrlFileNameConditions
+	}).(EndpointDeliveryRuleUrlFileNameConditionArrayOutput)
+}
+
+// A `urlPathCondition` block as defined below.
+func (o EndpointDeliveryRuleOutput) UrlPathConditions() EndpointDeliveryRuleUrlPathConditionArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) []EndpointDeliveryRuleUrlPathCondition { return v.UrlPathConditions }).(EndpointDeliveryRuleUrlPathConditionArrayOutput)
+}
+
+// A `urlRedirectAction` block as defined below.
+func (o EndpointDeliveryRuleOutput) UrlRedirectAction() EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) *EndpointDeliveryRuleUrlRedirectAction { return v.UrlRedirectAction }).(EndpointDeliveryRuleUrlRedirectActionPtrOutput)
+}
+
+// A `urlRewriteAction` block as defined below.
+func (o EndpointDeliveryRuleOutput) UrlRewriteAction() EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRule) *EndpointDeliveryRuleUrlRewriteAction { return v.UrlRewriteAction }).(EndpointDeliveryRuleUrlRewriteActionPtrOutput)
+}
+
+type EndpointDeliveryRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRule)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleArrayOutput) ToEndpointDeliveryRuleArrayOutput() EndpointDeliveryRuleArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleArrayOutput) ToEndpointDeliveryRuleArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRule {
+		return vs[0].([]EndpointDeliveryRule)[vs[1].(int)]
+	}).(EndpointDeliveryRuleOutput)
+}
+
+type EndpointDeliveryRuleCacheExpirationAction struct {
+	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	Behavior string `pulumi:"behavior"`
+	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+	Duration *string `pulumi:"duration"`
+}
+
+// EndpointDeliveryRuleCacheExpirationActionInput is an input type that accepts EndpointDeliveryRuleCacheExpirationActionArgs and EndpointDeliveryRuleCacheExpirationActionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleCacheExpirationActionInput` via:
+//
+// 		 EndpointDeliveryRuleCacheExpirationActionArgs{...}
+//
+type EndpointDeliveryRuleCacheExpirationActionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleCacheExpirationActionOutput() EndpointDeliveryRuleCacheExpirationActionOutput
+	ToEndpointDeliveryRuleCacheExpirationActionOutputWithContext(context.Context) EndpointDeliveryRuleCacheExpirationActionOutput
+}
+
+type EndpointDeliveryRuleCacheExpirationActionArgs struct {
+	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+}
+
+func (EndpointDeliveryRuleCacheExpirationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleCacheExpirationActionArgs) ToEndpointDeliveryRuleCacheExpirationActionOutput() EndpointDeliveryRuleCacheExpirationActionOutput {
+	return i.ToEndpointDeliveryRuleCacheExpirationActionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleCacheExpirationActionArgs) ToEndpointDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheExpirationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCacheExpirationActionOutput)
+}
+
+func (i EndpointDeliveryRuleCacheExpirationActionArgs) ToEndpointDeliveryRuleCacheExpirationActionPtrOutput() EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return i.ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleCacheExpirationActionArgs) ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCacheExpirationActionOutput).ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx)
+}
+
+// EndpointDeliveryRuleCacheExpirationActionPtrInput is an input type that accepts EndpointDeliveryRuleCacheExpirationActionArgs, EndpointDeliveryRuleCacheExpirationActionPtr and EndpointDeliveryRuleCacheExpirationActionPtrOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleCacheExpirationActionPtrInput` via:
+//
+// 		 EndpointDeliveryRuleCacheExpirationActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointDeliveryRuleCacheExpirationActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleCacheExpirationActionPtrOutput() EndpointDeliveryRuleCacheExpirationActionPtrOutput
+	ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Context) EndpointDeliveryRuleCacheExpirationActionPtrOutput
+}
+
+type endpointDeliveryRuleCacheExpirationActionPtrType EndpointDeliveryRuleCacheExpirationActionArgs
+
+func EndpointDeliveryRuleCacheExpirationActionPtr(v *EndpointDeliveryRuleCacheExpirationActionArgs) EndpointDeliveryRuleCacheExpirationActionPtrInput {
+	return (*endpointDeliveryRuleCacheExpirationActionPtrType)(v)
+}
+
+func (*endpointDeliveryRuleCacheExpirationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (i *endpointDeliveryRuleCacheExpirationActionPtrType) ToEndpointDeliveryRuleCacheExpirationActionPtrOutput() EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return i.ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeliveryRuleCacheExpirationActionPtrType) ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCacheExpirationActionPtrOutput)
+}
+
+type EndpointDeliveryRuleCacheExpirationActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleCacheExpirationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleCacheExpirationActionOutput) ToEndpointDeliveryRuleCacheExpirationActionOutput() EndpointDeliveryRuleCacheExpirationActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheExpirationActionOutput) ToEndpointDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheExpirationActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheExpirationActionOutput) ToEndpointDeliveryRuleCacheExpirationActionPtrOutput() EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return o.ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeliveryRuleCacheExpirationActionOutput) ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) *EndpointDeliveryRuleCacheExpirationAction {
+		return &v
+	}).(EndpointDeliveryRuleCacheExpirationActionPtrOutput)
+}
+
+// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+func (o EndpointDeliveryRuleCacheExpirationActionOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+func (o EndpointDeliveryRuleCacheExpirationActionOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleCacheExpirationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleCacheExpirationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) ToEndpointDeliveryRuleCacheExpirationActionPtrOutput() EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) ToEndpointDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheExpirationActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Elem() EndpointDeliveryRuleCacheExpirationActionOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleCacheExpirationAction) EndpointDeliveryRuleCacheExpirationAction {
+		return *v
+	}).(EndpointDeliveryRuleCacheExpirationActionOutput)
+}
+
+// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleCacheKeyQueryStringAction struct {
+	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	Behavior string `pulumi:"behavior"`
+	// Comma separated list of parameter values.
+	Parameters *string `pulumi:"parameters"`
+}
+
+// EndpointDeliveryRuleCacheKeyQueryStringActionInput is an input type that accepts EndpointDeliveryRuleCacheKeyQueryStringActionArgs and EndpointDeliveryRuleCacheKeyQueryStringActionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleCacheKeyQueryStringActionInput` via:
+//
+// 		 EndpointDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//
+type EndpointDeliveryRuleCacheKeyQueryStringActionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleCacheKeyQueryStringActionOutput() EndpointDeliveryRuleCacheKeyQueryStringActionOutput
+	ToEndpointDeliveryRuleCacheKeyQueryStringActionOutputWithContext(context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionOutput
+}
+
+type EndpointDeliveryRuleCacheKeyQueryStringActionArgs struct {
+	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// Comma separated list of parameter values.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+}
+
+func (EndpointDeliveryRuleCacheKeyQueryStringActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointDeliveryRuleCacheKeyQueryStringActionOutput() EndpointDeliveryRuleCacheKeyQueryStringActionOutput {
+	return i.ToEndpointDeliveryRuleCacheKeyQueryStringActionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointDeliveryRuleCacheKeyQueryStringActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCacheKeyQueryStringActionOutput)
+}
+
+func (i EndpointDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return i.ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCacheKeyQueryStringActionOutput).ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx)
+}
+
+// EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput is an input type that accepts EndpointDeliveryRuleCacheKeyQueryStringActionArgs, EndpointDeliveryRuleCacheKeyQueryStringActionPtr and EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput` via:
+//
+// 		 EndpointDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput
+	ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput
+}
+
+type endpointDeliveryRuleCacheKeyQueryStringActionPtrType EndpointDeliveryRuleCacheKeyQueryStringActionArgs
+
+func EndpointDeliveryRuleCacheKeyQueryStringActionPtr(v *EndpointDeliveryRuleCacheKeyQueryStringActionArgs) EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput {
+	return (*endpointDeliveryRuleCacheKeyQueryStringActionPtrType)(v)
+}
+
+func (*endpointDeliveryRuleCacheKeyQueryStringActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (i *endpointDeliveryRuleCacheKeyQueryStringActionPtrType) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return i.ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeliveryRuleCacheKeyQueryStringActionPtrType) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput)
+}
+
+type EndpointDeliveryRuleCacheKeyQueryStringActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointDeliveryRuleCacheKeyQueryStringActionOutput() EndpointDeliveryRuleCacheKeyQueryStringActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointDeliveryRuleCacheKeyQueryStringActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o.ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) *EndpointDeliveryRuleCacheKeyQueryStringAction {
+		return &v
+	}).(EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput)
+}
+
+// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Comma separated list of parameter values.
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) ToEndpointDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() EndpointDeliveryRuleCacheKeyQueryStringActionOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleCacheKeyQueryStringAction) EndpointDeliveryRuleCacheKeyQueryStringAction {
+		return *v
+	}).(EndpointDeliveryRuleCacheKeyQueryStringActionOutput)
+}
+
+// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Comma separated list of parameter values.
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleCookiesCondition struct {
+	// List of values for the cookie.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Name of the cookie.
+	Selector string `pulumi:"selector"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleCookiesConditionInput is an input type that accepts EndpointDeliveryRuleCookiesConditionArgs and EndpointDeliveryRuleCookiesConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleCookiesConditionInput` via:
+//
+// 		 EndpointDeliveryRuleCookiesConditionArgs{...}
+//
+type EndpointDeliveryRuleCookiesConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleCookiesConditionOutput() EndpointDeliveryRuleCookiesConditionOutput
+	ToEndpointDeliveryRuleCookiesConditionOutputWithContext(context.Context) EndpointDeliveryRuleCookiesConditionOutput
+}
+
+type EndpointDeliveryRuleCookiesConditionArgs struct {
+	// List of values for the cookie.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of the cookie.
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleCookiesConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleCookiesCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleCookiesConditionArgs) ToEndpointDeliveryRuleCookiesConditionOutput() EndpointDeliveryRuleCookiesConditionOutput {
+	return i.ToEndpointDeliveryRuleCookiesConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleCookiesConditionArgs) ToEndpointDeliveryRuleCookiesConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleCookiesConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCookiesConditionOutput)
+}
+
+// EndpointDeliveryRuleCookiesConditionArrayInput is an input type that accepts EndpointDeliveryRuleCookiesConditionArray and EndpointDeliveryRuleCookiesConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleCookiesConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleCookiesConditionArray{ EndpointDeliveryRuleCookiesConditionArgs{...} }
+//
+type EndpointDeliveryRuleCookiesConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleCookiesConditionArrayOutput() EndpointDeliveryRuleCookiesConditionArrayOutput
+	ToEndpointDeliveryRuleCookiesConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleCookiesConditionArrayOutput
+}
+
+type EndpointDeliveryRuleCookiesConditionArray []EndpointDeliveryRuleCookiesConditionInput
+
+func (EndpointDeliveryRuleCookiesConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleCookiesCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleCookiesConditionArray) ToEndpointDeliveryRuleCookiesConditionArrayOutput() EndpointDeliveryRuleCookiesConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleCookiesConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleCookiesConditionArray) ToEndpointDeliveryRuleCookiesConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleCookiesConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleCookiesConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleCookiesConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleCookiesConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleCookiesCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleCookiesConditionOutput) ToEndpointDeliveryRuleCookiesConditionOutput() EndpointDeliveryRuleCookiesConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCookiesConditionOutput) ToEndpointDeliveryRuleCookiesConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleCookiesConditionOutput {
+	return o
+}
+
+// List of values for the cookie.
+func (o EndpointDeliveryRuleCookiesConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleCookiesConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleCookiesConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of the cookie.
+func (o EndpointDeliveryRuleCookiesConditionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleCookiesConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleCookiesCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleCookiesConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleCookiesConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleCookiesCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleCookiesConditionArrayOutput) ToEndpointDeliveryRuleCookiesConditionArrayOutput() EndpointDeliveryRuleCookiesConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCookiesConditionArrayOutput) ToEndpointDeliveryRuleCookiesConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleCookiesConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleCookiesConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleCookiesConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleCookiesCondition {
+		return vs[0].([]EndpointDeliveryRuleCookiesCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleCookiesConditionOutput)
+}
+
+type EndpointDeliveryRuleDeviceCondition struct {
+	// Valid values are `Desktop` and `Mobile`.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// EndpointDeliveryRuleDeviceConditionInput is an input type that accepts EndpointDeliveryRuleDeviceConditionArgs and EndpointDeliveryRuleDeviceConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleDeviceConditionInput` via:
+//
+// 		 EndpointDeliveryRuleDeviceConditionArgs{...}
+//
+type EndpointDeliveryRuleDeviceConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleDeviceConditionOutput() EndpointDeliveryRuleDeviceConditionOutput
+	ToEndpointDeliveryRuleDeviceConditionOutputWithContext(context.Context) EndpointDeliveryRuleDeviceConditionOutput
+}
+
+type EndpointDeliveryRuleDeviceConditionArgs struct {
+	// Valid values are `Desktop` and `Mobile`.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (EndpointDeliveryRuleDeviceConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleDeviceCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleDeviceConditionArgs) ToEndpointDeliveryRuleDeviceConditionOutput() EndpointDeliveryRuleDeviceConditionOutput {
+	return i.ToEndpointDeliveryRuleDeviceConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleDeviceConditionArgs) ToEndpointDeliveryRuleDeviceConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleDeviceConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleDeviceConditionOutput)
+}
+
+func (i EndpointDeliveryRuleDeviceConditionArgs) ToEndpointDeliveryRuleDeviceConditionPtrOutput() EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return i.ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleDeviceConditionArgs) ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleDeviceConditionOutput).ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(ctx)
+}
+
+// EndpointDeliveryRuleDeviceConditionPtrInput is an input type that accepts EndpointDeliveryRuleDeviceConditionArgs, EndpointDeliveryRuleDeviceConditionPtr and EndpointDeliveryRuleDeviceConditionPtrOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleDeviceConditionPtrInput` via:
+//
+// 		 EndpointDeliveryRuleDeviceConditionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointDeliveryRuleDeviceConditionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleDeviceConditionPtrOutput() EndpointDeliveryRuleDeviceConditionPtrOutput
+	ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(context.Context) EndpointDeliveryRuleDeviceConditionPtrOutput
+}
+
+type endpointDeliveryRuleDeviceConditionPtrType EndpointDeliveryRuleDeviceConditionArgs
+
+func EndpointDeliveryRuleDeviceConditionPtr(v *EndpointDeliveryRuleDeviceConditionArgs) EndpointDeliveryRuleDeviceConditionPtrInput {
+	return (*endpointDeliveryRuleDeviceConditionPtrType)(v)
+}
+
+func (*endpointDeliveryRuleDeviceConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleDeviceCondition)(nil)).Elem()
+}
+
+func (i *endpointDeliveryRuleDeviceConditionPtrType) ToEndpointDeliveryRuleDeviceConditionPtrOutput() EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return i.ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeliveryRuleDeviceConditionPtrType) ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleDeviceConditionPtrOutput)
+}
+
+type EndpointDeliveryRuleDeviceConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleDeviceConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleDeviceCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleDeviceConditionOutput) ToEndpointDeliveryRuleDeviceConditionOutput() EndpointDeliveryRuleDeviceConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleDeviceConditionOutput) ToEndpointDeliveryRuleDeviceConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleDeviceConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleDeviceConditionOutput) ToEndpointDeliveryRuleDeviceConditionPtrOutput() EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return o.ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeliveryRuleDeviceConditionOutput) ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *EndpointDeliveryRuleDeviceCondition {
+		return &v
+	}).(EndpointDeliveryRuleDeviceConditionPtrOutput)
+}
+
+// Valid values are `Desktop` and `Mobile`.
+func (o EndpointDeliveryRuleDeviceConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleDeviceConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Equal`.
+func (o EndpointDeliveryRuleDeviceConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleDeviceConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleDeviceConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleDeviceCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleDeviceConditionPtrOutput) ToEndpointDeliveryRuleDeviceConditionPtrOutput() EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleDeviceConditionPtrOutput) ToEndpointDeliveryRuleDeviceConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleDeviceConditionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleDeviceConditionPtrOutput) Elem() EndpointDeliveryRuleDeviceConditionOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleDeviceCondition) EndpointDeliveryRuleDeviceCondition { return *v }).(EndpointDeliveryRuleDeviceConditionOutput)
+}
+
+// Valid values are `Desktop` and `Mobile`.
+func (o EndpointDeliveryRuleDeviceConditionPtrOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleDeviceConditionPtrOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Equal`.
+func (o EndpointDeliveryRuleDeviceConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleHttpVersionCondition struct {
+	// Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// EndpointDeliveryRuleHttpVersionConditionInput is an input type that accepts EndpointDeliveryRuleHttpVersionConditionArgs and EndpointDeliveryRuleHttpVersionConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleHttpVersionConditionInput` via:
+//
+// 		 EndpointDeliveryRuleHttpVersionConditionArgs{...}
+//
+type EndpointDeliveryRuleHttpVersionConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleHttpVersionConditionOutput() EndpointDeliveryRuleHttpVersionConditionOutput
+	ToEndpointDeliveryRuleHttpVersionConditionOutputWithContext(context.Context) EndpointDeliveryRuleHttpVersionConditionOutput
+}
+
+type EndpointDeliveryRuleHttpVersionConditionArgs struct {
+	// Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (EndpointDeliveryRuleHttpVersionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleHttpVersionCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleHttpVersionConditionArgs) ToEndpointDeliveryRuleHttpVersionConditionOutput() EndpointDeliveryRuleHttpVersionConditionOutput {
+	return i.ToEndpointDeliveryRuleHttpVersionConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleHttpVersionConditionArgs) ToEndpointDeliveryRuleHttpVersionConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleHttpVersionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleHttpVersionConditionOutput)
+}
+
+// EndpointDeliveryRuleHttpVersionConditionArrayInput is an input type that accepts EndpointDeliveryRuleHttpVersionConditionArray and EndpointDeliveryRuleHttpVersionConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleHttpVersionConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleHttpVersionConditionArray{ EndpointDeliveryRuleHttpVersionConditionArgs{...} }
+//
+type EndpointDeliveryRuleHttpVersionConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleHttpVersionConditionArrayOutput() EndpointDeliveryRuleHttpVersionConditionArrayOutput
+	ToEndpointDeliveryRuleHttpVersionConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleHttpVersionConditionArrayOutput
+}
+
+type EndpointDeliveryRuleHttpVersionConditionArray []EndpointDeliveryRuleHttpVersionConditionInput
+
+func (EndpointDeliveryRuleHttpVersionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleHttpVersionCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleHttpVersionConditionArray) ToEndpointDeliveryRuleHttpVersionConditionArrayOutput() EndpointDeliveryRuleHttpVersionConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleHttpVersionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleHttpVersionConditionArray) ToEndpointDeliveryRuleHttpVersionConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleHttpVersionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleHttpVersionConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleHttpVersionConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleHttpVersionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleHttpVersionCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleHttpVersionConditionOutput) ToEndpointDeliveryRuleHttpVersionConditionOutput() EndpointDeliveryRuleHttpVersionConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleHttpVersionConditionOutput) ToEndpointDeliveryRuleHttpVersionConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleHttpVersionConditionOutput {
+	return o
+}
+
+// Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+func (o EndpointDeliveryRuleHttpVersionConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleHttpVersionCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleHttpVersionConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleHttpVersionCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Equal`.
+func (o EndpointDeliveryRuleHttpVersionConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleHttpVersionCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleHttpVersionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleHttpVersionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleHttpVersionCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleHttpVersionConditionArrayOutput) ToEndpointDeliveryRuleHttpVersionConditionArrayOutput() EndpointDeliveryRuleHttpVersionConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleHttpVersionConditionArrayOutput) ToEndpointDeliveryRuleHttpVersionConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleHttpVersionConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleHttpVersionConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleHttpVersionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleHttpVersionCondition {
+		return vs[0].([]EndpointDeliveryRuleHttpVersionCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleHttpVersionConditionOutput)
+}
+
+type EndpointDeliveryRuleModifyRequestHeaderAction struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action string `pulumi:"action"`
+	// The header name.
+	Name string `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value *string `pulumi:"value"`
+}
+
+// EndpointDeliveryRuleModifyRequestHeaderActionInput is an input type that accepts EndpointDeliveryRuleModifyRequestHeaderActionArgs and EndpointDeliveryRuleModifyRequestHeaderActionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleModifyRequestHeaderActionInput` via:
+//
+// 		 EndpointDeliveryRuleModifyRequestHeaderActionArgs{...}
+//
+type EndpointDeliveryRuleModifyRequestHeaderActionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleModifyRequestHeaderActionOutput() EndpointDeliveryRuleModifyRequestHeaderActionOutput
+	ToEndpointDeliveryRuleModifyRequestHeaderActionOutputWithContext(context.Context) EndpointDeliveryRuleModifyRequestHeaderActionOutput
+}
+
+type EndpointDeliveryRuleModifyRequestHeaderActionArgs struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The header name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EndpointDeliveryRuleModifyRequestHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleModifyRequestHeaderActionArgs) ToEndpointDeliveryRuleModifyRequestHeaderActionOutput() EndpointDeliveryRuleModifyRequestHeaderActionOutput {
+	return i.ToEndpointDeliveryRuleModifyRequestHeaderActionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleModifyRequestHeaderActionArgs) ToEndpointDeliveryRuleModifyRequestHeaderActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyRequestHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleModifyRequestHeaderActionOutput)
+}
+
+// EndpointDeliveryRuleModifyRequestHeaderActionArrayInput is an input type that accepts EndpointDeliveryRuleModifyRequestHeaderActionArray and EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleModifyRequestHeaderActionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleModifyRequestHeaderActionArray{ EndpointDeliveryRuleModifyRequestHeaderActionArgs{...} }
+//
+type EndpointDeliveryRuleModifyRequestHeaderActionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleModifyRequestHeaderActionArrayOutput() EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput
+	ToEndpointDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(context.Context) EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput
+}
+
+type EndpointDeliveryRuleModifyRequestHeaderActionArray []EndpointDeliveryRuleModifyRequestHeaderActionInput
+
+func (EndpointDeliveryRuleModifyRequestHeaderActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleModifyRequestHeaderActionArray) ToEndpointDeliveryRuleModifyRequestHeaderActionArrayOutput() EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return i.ToEndpointDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleModifyRequestHeaderActionArray) ToEndpointDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput)
+}
+
+type EndpointDeliveryRuleModifyRequestHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleModifyRequestHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleModifyRequestHeaderActionOutput) ToEndpointDeliveryRuleModifyRequestHeaderActionOutput() EndpointDeliveryRuleModifyRequestHeaderActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleModifyRequestHeaderActionOutput) ToEndpointDeliveryRuleModifyRequestHeaderActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyRequestHeaderActionOutput {
+	return o
+}
+
+// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+func (o EndpointDeliveryRuleModifyRequestHeaderActionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleModifyRequestHeaderAction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The header name.
+func (o EndpointDeliveryRuleModifyRequestHeaderActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleModifyRequestHeaderAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+func (o EndpointDeliveryRuleModifyRequestHeaderActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleModifyRequestHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput) ToEndpointDeliveryRuleModifyRequestHeaderActionArrayOutput() EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput) ToEndpointDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleModifyRequestHeaderActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleModifyRequestHeaderAction {
+		return vs[0].([]EndpointDeliveryRuleModifyRequestHeaderAction)[vs[1].(int)]
+	}).(EndpointDeliveryRuleModifyRequestHeaderActionOutput)
+}
+
+type EndpointDeliveryRuleModifyResponseHeaderAction struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action string `pulumi:"action"`
+	// The header name.
+	Name string `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value *string `pulumi:"value"`
+}
+
+// EndpointDeliveryRuleModifyResponseHeaderActionInput is an input type that accepts EndpointDeliveryRuleModifyResponseHeaderActionArgs and EndpointDeliveryRuleModifyResponseHeaderActionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleModifyResponseHeaderActionInput` via:
+//
+// 		 EndpointDeliveryRuleModifyResponseHeaderActionArgs{...}
+//
+type EndpointDeliveryRuleModifyResponseHeaderActionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleModifyResponseHeaderActionOutput() EndpointDeliveryRuleModifyResponseHeaderActionOutput
+	ToEndpointDeliveryRuleModifyResponseHeaderActionOutputWithContext(context.Context) EndpointDeliveryRuleModifyResponseHeaderActionOutput
+}
+
+type EndpointDeliveryRuleModifyResponseHeaderActionArgs struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The header name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EndpointDeliveryRuleModifyResponseHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleModifyResponseHeaderActionArgs) ToEndpointDeliveryRuleModifyResponseHeaderActionOutput() EndpointDeliveryRuleModifyResponseHeaderActionOutput {
+	return i.ToEndpointDeliveryRuleModifyResponseHeaderActionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleModifyResponseHeaderActionArgs) ToEndpointDeliveryRuleModifyResponseHeaderActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyResponseHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleModifyResponseHeaderActionOutput)
+}
+
+// EndpointDeliveryRuleModifyResponseHeaderActionArrayInput is an input type that accepts EndpointDeliveryRuleModifyResponseHeaderActionArray and EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleModifyResponseHeaderActionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleModifyResponseHeaderActionArray{ EndpointDeliveryRuleModifyResponseHeaderActionArgs{...} }
+//
+type EndpointDeliveryRuleModifyResponseHeaderActionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleModifyResponseHeaderActionArrayOutput() EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput
+	ToEndpointDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(context.Context) EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput
+}
+
+type EndpointDeliveryRuleModifyResponseHeaderActionArray []EndpointDeliveryRuleModifyResponseHeaderActionInput
+
+func (EndpointDeliveryRuleModifyResponseHeaderActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleModifyResponseHeaderActionArray) ToEndpointDeliveryRuleModifyResponseHeaderActionArrayOutput() EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return i.ToEndpointDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleModifyResponseHeaderActionArray) ToEndpointDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput)
+}
+
+type EndpointDeliveryRuleModifyResponseHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleModifyResponseHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleModifyResponseHeaderActionOutput) ToEndpointDeliveryRuleModifyResponseHeaderActionOutput() EndpointDeliveryRuleModifyResponseHeaderActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleModifyResponseHeaderActionOutput) ToEndpointDeliveryRuleModifyResponseHeaderActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyResponseHeaderActionOutput {
+	return o
+}
+
+// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+func (o EndpointDeliveryRuleModifyResponseHeaderActionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleModifyResponseHeaderAction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The header name.
+func (o EndpointDeliveryRuleModifyResponseHeaderActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleModifyResponseHeaderAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+func (o EndpointDeliveryRuleModifyResponseHeaderActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleModifyResponseHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput) ToEndpointDeliveryRuleModifyResponseHeaderActionArrayOutput() EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput) ToEndpointDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleModifyResponseHeaderActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleModifyResponseHeaderAction {
+		return vs[0].([]EndpointDeliveryRuleModifyResponseHeaderAction)[vs[1].(int)]
+	}).(EndpointDeliveryRuleModifyResponseHeaderActionOutput)
+}
+
+type EndpointDeliveryRulePostArgCondition struct {
+	// List of string values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Name of the post arg.
+	Selector string `pulumi:"selector"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRulePostArgConditionInput is an input type that accepts EndpointDeliveryRulePostArgConditionArgs and EndpointDeliveryRulePostArgConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRulePostArgConditionInput` via:
+//
+// 		 EndpointDeliveryRulePostArgConditionArgs{...}
+//
+type EndpointDeliveryRulePostArgConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRulePostArgConditionOutput() EndpointDeliveryRulePostArgConditionOutput
+	ToEndpointDeliveryRulePostArgConditionOutputWithContext(context.Context) EndpointDeliveryRulePostArgConditionOutput
+}
+
+type EndpointDeliveryRulePostArgConditionArgs struct {
+	// List of string values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of the post arg.
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRulePostArgConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRulePostArgCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRulePostArgConditionArgs) ToEndpointDeliveryRulePostArgConditionOutput() EndpointDeliveryRulePostArgConditionOutput {
+	return i.ToEndpointDeliveryRulePostArgConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRulePostArgConditionArgs) ToEndpointDeliveryRulePostArgConditionOutputWithContext(ctx context.Context) EndpointDeliveryRulePostArgConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRulePostArgConditionOutput)
+}
+
+// EndpointDeliveryRulePostArgConditionArrayInput is an input type that accepts EndpointDeliveryRulePostArgConditionArray and EndpointDeliveryRulePostArgConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRulePostArgConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRulePostArgConditionArray{ EndpointDeliveryRulePostArgConditionArgs{...} }
+//
+type EndpointDeliveryRulePostArgConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRulePostArgConditionArrayOutput() EndpointDeliveryRulePostArgConditionArrayOutput
+	ToEndpointDeliveryRulePostArgConditionArrayOutputWithContext(context.Context) EndpointDeliveryRulePostArgConditionArrayOutput
+}
+
+type EndpointDeliveryRulePostArgConditionArray []EndpointDeliveryRulePostArgConditionInput
+
+func (EndpointDeliveryRulePostArgConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRulePostArgCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRulePostArgConditionArray) ToEndpointDeliveryRulePostArgConditionArrayOutput() EndpointDeliveryRulePostArgConditionArrayOutput {
+	return i.ToEndpointDeliveryRulePostArgConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRulePostArgConditionArray) ToEndpointDeliveryRulePostArgConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRulePostArgConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRulePostArgConditionArrayOutput)
+}
+
+type EndpointDeliveryRulePostArgConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRulePostArgConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRulePostArgCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRulePostArgConditionOutput) ToEndpointDeliveryRulePostArgConditionOutput() EndpointDeliveryRulePostArgConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRulePostArgConditionOutput) ToEndpointDeliveryRulePostArgConditionOutputWithContext(ctx context.Context) EndpointDeliveryRulePostArgConditionOutput {
+	return o
+}
+
+// List of string values.
+func (o EndpointDeliveryRulePostArgConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRulePostArgConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRulePostArgConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of the post arg.
+func (o EndpointDeliveryRulePostArgConditionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRulePostArgConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRulePostArgCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRulePostArgConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRulePostArgConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRulePostArgCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRulePostArgConditionArrayOutput) ToEndpointDeliveryRulePostArgConditionArrayOutput() EndpointDeliveryRulePostArgConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRulePostArgConditionArrayOutput) ToEndpointDeliveryRulePostArgConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRulePostArgConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRulePostArgConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRulePostArgConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRulePostArgCondition {
+		return vs[0].([]EndpointDeliveryRulePostArgCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRulePostArgConditionOutput)
+}
+
+type EndpointDeliveryRuleQueryStringCondition struct {
+	// List of string values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleQueryStringConditionInput is an input type that accepts EndpointDeliveryRuleQueryStringConditionArgs and EndpointDeliveryRuleQueryStringConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleQueryStringConditionInput` via:
+//
+// 		 EndpointDeliveryRuleQueryStringConditionArgs{...}
+//
+type EndpointDeliveryRuleQueryStringConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleQueryStringConditionOutput() EndpointDeliveryRuleQueryStringConditionOutput
+	ToEndpointDeliveryRuleQueryStringConditionOutputWithContext(context.Context) EndpointDeliveryRuleQueryStringConditionOutput
+}
+
+type EndpointDeliveryRuleQueryStringConditionArgs struct {
+	// List of string values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleQueryStringConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleQueryStringCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleQueryStringConditionArgs) ToEndpointDeliveryRuleQueryStringConditionOutput() EndpointDeliveryRuleQueryStringConditionOutput {
+	return i.ToEndpointDeliveryRuleQueryStringConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleQueryStringConditionArgs) ToEndpointDeliveryRuleQueryStringConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleQueryStringConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleQueryStringConditionOutput)
+}
+
+// EndpointDeliveryRuleQueryStringConditionArrayInput is an input type that accepts EndpointDeliveryRuleQueryStringConditionArray and EndpointDeliveryRuleQueryStringConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleQueryStringConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleQueryStringConditionArray{ EndpointDeliveryRuleQueryStringConditionArgs{...} }
+//
+type EndpointDeliveryRuleQueryStringConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleQueryStringConditionArrayOutput() EndpointDeliveryRuleQueryStringConditionArrayOutput
+	ToEndpointDeliveryRuleQueryStringConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleQueryStringConditionArrayOutput
+}
+
+type EndpointDeliveryRuleQueryStringConditionArray []EndpointDeliveryRuleQueryStringConditionInput
+
+func (EndpointDeliveryRuleQueryStringConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleQueryStringCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleQueryStringConditionArray) ToEndpointDeliveryRuleQueryStringConditionArrayOutput() EndpointDeliveryRuleQueryStringConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleQueryStringConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleQueryStringConditionArray) ToEndpointDeliveryRuleQueryStringConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleQueryStringConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleQueryStringConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleQueryStringConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleQueryStringConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleQueryStringCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleQueryStringConditionOutput) ToEndpointDeliveryRuleQueryStringConditionOutput() EndpointDeliveryRuleQueryStringConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleQueryStringConditionOutput) ToEndpointDeliveryRuleQueryStringConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleQueryStringConditionOutput {
+	return o
+}
+
+// List of string values.
+func (o EndpointDeliveryRuleQueryStringConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleQueryStringCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleQueryStringConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleQueryStringCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleQueryStringConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleQueryStringCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleQueryStringConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleQueryStringCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleQueryStringConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleQueryStringConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleQueryStringCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleQueryStringConditionArrayOutput) ToEndpointDeliveryRuleQueryStringConditionArrayOutput() EndpointDeliveryRuleQueryStringConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleQueryStringConditionArrayOutput) ToEndpointDeliveryRuleQueryStringConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleQueryStringConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleQueryStringConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleQueryStringConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleQueryStringCondition {
+		return vs[0].([]EndpointDeliveryRuleQueryStringCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleQueryStringConditionOutput)
+}
+
+type EndpointDeliveryRuleRemoteAddressCondition struct {
+	// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `GeoMatch` and `IPMatch`.
+	Operator string `pulumi:"operator"`
+}
+
+// EndpointDeliveryRuleRemoteAddressConditionInput is an input type that accepts EndpointDeliveryRuleRemoteAddressConditionArgs and EndpointDeliveryRuleRemoteAddressConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRemoteAddressConditionInput` via:
+//
+// 		 EndpointDeliveryRuleRemoteAddressConditionArgs{...}
+//
+type EndpointDeliveryRuleRemoteAddressConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRemoteAddressConditionOutput() EndpointDeliveryRuleRemoteAddressConditionOutput
+	ToEndpointDeliveryRuleRemoteAddressConditionOutputWithContext(context.Context) EndpointDeliveryRuleRemoteAddressConditionOutput
+}
+
+type EndpointDeliveryRuleRemoteAddressConditionArgs struct {
+	// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `GeoMatch` and `IPMatch`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (EndpointDeliveryRuleRemoteAddressConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRemoteAddressCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRemoteAddressConditionArgs) ToEndpointDeliveryRuleRemoteAddressConditionOutput() EndpointDeliveryRuleRemoteAddressConditionOutput {
+	return i.ToEndpointDeliveryRuleRemoteAddressConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRemoteAddressConditionArgs) ToEndpointDeliveryRuleRemoteAddressConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRemoteAddressConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRemoteAddressConditionOutput)
+}
+
+// EndpointDeliveryRuleRemoteAddressConditionArrayInput is an input type that accepts EndpointDeliveryRuleRemoteAddressConditionArray and EndpointDeliveryRuleRemoteAddressConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRemoteAddressConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleRemoteAddressConditionArray{ EndpointDeliveryRuleRemoteAddressConditionArgs{...} }
+//
+type EndpointDeliveryRuleRemoteAddressConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRemoteAddressConditionArrayOutput() EndpointDeliveryRuleRemoteAddressConditionArrayOutput
+	ToEndpointDeliveryRuleRemoteAddressConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleRemoteAddressConditionArrayOutput
+}
+
+type EndpointDeliveryRuleRemoteAddressConditionArray []EndpointDeliveryRuleRemoteAddressConditionInput
+
+func (EndpointDeliveryRuleRemoteAddressConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRemoteAddressCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRemoteAddressConditionArray) ToEndpointDeliveryRuleRemoteAddressConditionArrayOutput() EndpointDeliveryRuleRemoteAddressConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleRemoteAddressConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRemoteAddressConditionArray) ToEndpointDeliveryRuleRemoteAddressConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRemoteAddressConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRemoteAddressConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleRemoteAddressConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRemoteAddressConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRemoteAddressCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRemoteAddressConditionOutput) ToEndpointDeliveryRuleRemoteAddressConditionOutput() EndpointDeliveryRuleRemoteAddressConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRemoteAddressConditionOutput) ToEndpointDeliveryRuleRemoteAddressConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRemoteAddressConditionOutput {
+	return o
+}
+
+// List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+func (o EndpointDeliveryRuleRemoteAddressConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRemoteAddressCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRemoteAddressConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRemoteAddressCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `GeoMatch` and `IPMatch`.
+func (o EndpointDeliveryRuleRemoteAddressConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRemoteAddressCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+type EndpointDeliveryRuleRemoteAddressConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRemoteAddressConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRemoteAddressCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRemoteAddressConditionArrayOutput) ToEndpointDeliveryRuleRemoteAddressConditionArrayOutput() EndpointDeliveryRuleRemoteAddressConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRemoteAddressConditionArrayOutput) ToEndpointDeliveryRuleRemoteAddressConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRemoteAddressConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRemoteAddressConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleRemoteAddressConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleRemoteAddressCondition {
+		return vs[0].([]EndpointDeliveryRuleRemoteAddressCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleRemoteAddressConditionOutput)
+}
+
+type EndpointDeliveryRuleRequestBodyCondition struct {
+	// List of string values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleRequestBodyConditionInput is an input type that accepts EndpointDeliveryRuleRequestBodyConditionArgs and EndpointDeliveryRuleRequestBodyConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestBodyConditionInput` via:
+//
+// 		 EndpointDeliveryRuleRequestBodyConditionArgs{...}
+//
+type EndpointDeliveryRuleRequestBodyConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestBodyConditionOutput() EndpointDeliveryRuleRequestBodyConditionOutput
+	ToEndpointDeliveryRuleRequestBodyConditionOutputWithContext(context.Context) EndpointDeliveryRuleRequestBodyConditionOutput
+}
+
+type EndpointDeliveryRuleRequestBodyConditionArgs struct {
+	// List of string values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleRequestBodyConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestBodyCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestBodyConditionArgs) ToEndpointDeliveryRuleRequestBodyConditionOutput() EndpointDeliveryRuleRequestBodyConditionOutput {
+	return i.ToEndpointDeliveryRuleRequestBodyConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestBodyConditionArgs) ToEndpointDeliveryRuleRequestBodyConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestBodyConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestBodyConditionOutput)
+}
+
+// EndpointDeliveryRuleRequestBodyConditionArrayInput is an input type that accepts EndpointDeliveryRuleRequestBodyConditionArray and EndpointDeliveryRuleRequestBodyConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestBodyConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleRequestBodyConditionArray{ EndpointDeliveryRuleRequestBodyConditionArgs{...} }
+//
+type EndpointDeliveryRuleRequestBodyConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestBodyConditionArrayOutput() EndpointDeliveryRuleRequestBodyConditionArrayOutput
+	ToEndpointDeliveryRuleRequestBodyConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleRequestBodyConditionArrayOutput
+}
+
+type EndpointDeliveryRuleRequestBodyConditionArray []EndpointDeliveryRuleRequestBodyConditionInput
+
+func (EndpointDeliveryRuleRequestBodyConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRequestBodyCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestBodyConditionArray) ToEndpointDeliveryRuleRequestBodyConditionArrayOutput() EndpointDeliveryRuleRequestBodyConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleRequestBodyConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestBodyConditionArray) ToEndpointDeliveryRuleRequestBodyConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestBodyConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestBodyConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleRequestBodyConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestBodyConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestBodyCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestBodyConditionOutput) ToEndpointDeliveryRuleRequestBodyConditionOutput() EndpointDeliveryRuleRequestBodyConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestBodyConditionOutput) ToEndpointDeliveryRuleRequestBodyConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestBodyConditionOutput {
+	return o
+}
+
+// List of string values.
+func (o EndpointDeliveryRuleRequestBodyConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestBodyCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRequestBodyConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestBodyCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleRequestBodyConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestBodyCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleRequestBodyConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestBodyCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleRequestBodyConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestBodyConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRequestBodyCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestBodyConditionArrayOutput) ToEndpointDeliveryRuleRequestBodyConditionArrayOutput() EndpointDeliveryRuleRequestBodyConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestBodyConditionArrayOutput) ToEndpointDeliveryRuleRequestBodyConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestBodyConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestBodyConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleRequestBodyConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleRequestBodyCondition {
+		return vs[0].([]EndpointDeliveryRuleRequestBodyCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleRequestBodyConditionOutput)
+}
+
+type EndpointDeliveryRuleRequestHeaderCondition struct {
+	// List of header values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Header name.
+	Selector string `pulumi:"selector"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleRequestHeaderConditionInput is an input type that accepts EndpointDeliveryRuleRequestHeaderConditionArgs and EndpointDeliveryRuleRequestHeaderConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestHeaderConditionInput` via:
+//
+// 		 EndpointDeliveryRuleRequestHeaderConditionArgs{...}
+//
+type EndpointDeliveryRuleRequestHeaderConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestHeaderConditionOutput() EndpointDeliveryRuleRequestHeaderConditionOutput
+	ToEndpointDeliveryRuleRequestHeaderConditionOutputWithContext(context.Context) EndpointDeliveryRuleRequestHeaderConditionOutput
+}
+
+type EndpointDeliveryRuleRequestHeaderConditionArgs struct {
+	// List of header values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Header name.
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleRequestHeaderConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestHeaderCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestHeaderConditionArgs) ToEndpointDeliveryRuleRequestHeaderConditionOutput() EndpointDeliveryRuleRequestHeaderConditionOutput {
+	return i.ToEndpointDeliveryRuleRequestHeaderConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestHeaderConditionArgs) ToEndpointDeliveryRuleRequestHeaderConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestHeaderConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestHeaderConditionOutput)
+}
+
+// EndpointDeliveryRuleRequestHeaderConditionArrayInput is an input type that accepts EndpointDeliveryRuleRequestHeaderConditionArray and EndpointDeliveryRuleRequestHeaderConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestHeaderConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleRequestHeaderConditionArray{ EndpointDeliveryRuleRequestHeaderConditionArgs{...} }
+//
+type EndpointDeliveryRuleRequestHeaderConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestHeaderConditionArrayOutput() EndpointDeliveryRuleRequestHeaderConditionArrayOutput
+	ToEndpointDeliveryRuleRequestHeaderConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleRequestHeaderConditionArrayOutput
+}
+
+type EndpointDeliveryRuleRequestHeaderConditionArray []EndpointDeliveryRuleRequestHeaderConditionInput
+
+func (EndpointDeliveryRuleRequestHeaderConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRequestHeaderCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestHeaderConditionArray) ToEndpointDeliveryRuleRequestHeaderConditionArrayOutput() EndpointDeliveryRuleRequestHeaderConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleRequestHeaderConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestHeaderConditionArray) ToEndpointDeliveryRuleRequestHeaderConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestHeaderConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestHeaderConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleRequestHeaderConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestHeaderConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestHeaderCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestHeaderConditionOutput) ToEndpointDeliveryRuleRequestHeaderConditionOutput() EndpointDeliveryRuleRequestHeaderConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestHeaderConditionOutput) ToEndpointDeliveryRuleRequestHeaderConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestHeaderConditionOutput {
+	return o
+}
+
+// List of header values.
+func (o EndpointDeliveryRuleRequestHeaderConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRequestHeaderConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleRequestHeaderConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Header name.
+func (o EndpointDeliveryRuleRequestHeaderConditionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleRequestHeaderConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestHeaderCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleRequestHeaderConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestHeaderConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRequestHeaderCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestHeaderConditionArrayOutput) ToEndpointDeliveryRuleRequestHeaderConditionArrayOutput() EndpointDeliveryRuleRequestHeaderConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestHeaderConditionArrayOutput) ToEndpointDeliveryRuleRequestHeaderConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestHeaderConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestHeaderConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleRequestHeaderConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleRequestHeaderCondition {
+		return vs[0].([]EndpointDeliveryRuleRequestHeaderCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleRequestHeaderConditionOutput)
+}
+
+type EndpointDeliveryRuleRequestMethodCondition struct {
+	// Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// EndpointDeliveryRuleRequestMethodConditionInput is an input type that accepts EndpointDeliveryRuleRequestMethodConditionArgs and EndpointDeliveryRuleRequestMethodConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestMethodConditionInput` via:
+//
+// 		 EndpointDeliveryRuleRequestMethodConditionArgs{...}
+//
+type EndpointDeliveryRuleRequestMethodConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestMethodConditionOutput() EndpointDeliveryRuleRequestMethodConditionOutput
+	ToEndpointDeliveryRuleRequestMethodConditionOutputWithContext(context.Context) EndpointDeliveryRuleRequestMethodConditionOutput
+}
+
+type EndpointDeliveryRuleRequestMethodConditionArgs struct {
+	// Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (EndpointDeliveryRuleRequestMethodConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestMethodCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestMethodConditionArgs) ToEndpointDeliveryRuleRequestMethodConditionOutput() EndpointDeliveryRuleRequestMethodConditionOutput {
+	return i.ToEndpointDeliveryRuleRequestMethodConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestMethodConditionArgs) ToEndpointDeliveryRuleRequestMethodConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestMethodConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestMethodConditionOutput)
+}
+
+func (i EndpointDeliveryRuleRequestMethodConditionArgs) ToEndpointDeliveryRuleRequestMethodConditionPtrOutput() EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return i.ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestMethodConditionArgs) ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestMethodConditionOutput).ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(ctx)
+}
+
+// EndpointDeliveryRuleRequestMethodConditionPtrInput is an input type that accepts EndpointDeliveryRuleRequestMethodConditionArgs, EndpointDeliveryRuleRequestMethodConditionPtr and EndpointDeliveryRuleRequestMethodConditionPtrOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestMethodConditionPtrInput` via:
+//
+// 		 EndpointDeliveryRuleRequestMethodConditionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointDeliveryRuleRequestMethodConditionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestMethodConditionPtrOutput() EndpointDeliveryRuleRequestMethodConditionPtrOutput
+	ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(context.Context) EndpointDeliveryRuleRequestMethodConditionPtrOutput
+}
+
+type endpointDeliveryRuleRequestMethodConditionPtrType EndpointDeliveryRuleRequestMethodConditionArgs
+
+func EndpointDeliveryRuleRequestMethodConditionPtr(v *EndpointDeliveryRuleRequestMethodConditionArgs) EndpointDeliveryRuleRequestMethodConditionPtrInput {
+	return (*endpointDeliveryRuleRequestMethodConditionPtrType)(v)
+}
+
+func (*endpointDeliveryRuleRequestMethodConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleRequestMethodCondition)(nil)).Elem()
+}
+
+func (i *endpointDeliveryRuleRequestMethodConditionPtrType) ToEndpointDeliveryRuleRequestMethodConditionPtrOutput() EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return i.ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeliveryRuleRequestMethodConditionPtrType) ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestMethodConditionPtrOutput)
+}
+
+type EndpointDeliveryRuleRequestMethodConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestMethodConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestMethodCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestMethodConditionOutput) ToEndpointDeliveryRuleRequestMethodConditionOutput() EndpointDeliveryRuleRequestMethodConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestMethodConditionOutput) ToEndpointDeliveryRuleRequestMethodConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestMethodConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestMethodConditionOutput) ToEndpointDeliveryRuleRequestMethodConditionPtrOutput() EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return o.ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeliveryRuleRequestMethodConditionOutput) ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *EndpointDeliveryRuleRequestMethodCondition {
+		return &v
+	}).(EndpointDeliveryRuleRequestMethodConditionPtrOutput)
+}
+
+// Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+func (o EndpointDeliveryRuleRequestMethodConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRequestMethodConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Equal`.
+func (o EndpointDeliveryRuleRequestMethodConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleRequestMethodConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestMethodConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleRequestMethodCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) ToEndpointDeliveryRuleRequestMethodConditionPtrOutput() EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) ToEndpointDeliveryRuleRequestMethodConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestMethodConditionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) Elem() EndpointDeliveryRuleRequestMethodConditionOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestMethodCondition) EndpointDeliveryRuleRequestMethodCondition {
+		return *v
+	}).(EndpointDeliveryRuleRequestMethodConditionOutput)
+}
+
+// Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Equal`.
+func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleRequestSchemeCondition struct {
+	// Valid values are `HTTP` and `HTTPS`.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// EndpointDeliveryRuleRequestSchemeConditionInput is an input type that accepts EndpointDeliveryRuleRequestSchemeConditionArgs and EndpointDeliveryRuleRequestSchemeConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestSchemeConditionInput` via:
+//
+// 		 EndpointDeliveryRuleRequestSchemeConditionArgs{...}
+//
+type EndpointDeliveryRuleRequestSchemeConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestSchemeConditionOutput() EndpointDeliveryRuleRequestSchemeConditionOutput
+	ToEndpointDeliveryRuleRequestSchemeConditionOutputWithContext(context.Context) EndpointDeliveryRuleRequestSchemeConditionOutput
+}
+
+type EndpointDeliveryRuleRequestSchemeConditionArgs struct {
+	// Valid values are `HTTP` and `HTTPS`.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (EndpointDeliveryRuleRequestSchemeConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestSchemeCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestSchemeConditionArgs) ToEndpointDeliveryRuleRequestSchemeConditionOutput() EndpointDeliveryRuleRequestSchemeConditionOutput {
+	return i.ToEndpointDeliveryRuleRequestSchemeConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestSchemeConditionArgs) ToEndpointDeliveryRuleRequestSchemeConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestSchemeConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestSchemeConditionOutput)
+}
+
+func (i EndpointDeliveryRuleRequestSchemeConditionArgs) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutput() EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return i.ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestSchemeConditionArgs) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestSchemeConditionOutput).ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(ctx)
+}
+
+// EndpointDeliveryRuleRequestSchemeConditionPtrInput is an input type that accepts EndpointDeliveryRuleRequestSchemeConditionArgs, EndpointDeliveryRuleRequestSchemeConditionPtr and EndpointDeliveryRuleRequestSchemeConditionPtrOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestSchemeConditionPtrInput` via:
+//
+// 		 EndpointDeliveryRuleRequestSchemeConditionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointDeliveryRuleRequestSchemeConditionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestSchemeConditionPtrOutput() EndpointDeliveryRuleRequestSchemeConditionPtrOutput
+	ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(context.Context) EndpointDeliveryRuleRequestSchemeConditionPtrOutput
+}
+
+type endpointDeliveryRuleRequestSchemeConditionPtrType EndpointDeliveryRuleRequestSchemeConditionArgs
+
+func EndpointDeliveryRuleRequestSchemeConditionPtr(v *EndpointDeliveryRuleRequestSchemeConditionArgs) EndpointDeliveryRuleRequestSchemeConditionPtrInput {
+	return (*endpointDeliveryRuleRequestSchemeConditionPtrType)(v)
+}
+
+func (*endpointDeliveryRuleRequestSchemeConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleRequestSchemeCondition)(nil)).Elem()
+}
+
+func (i *endpointDeliveryRuleRequestSchemeConditionPtrType) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutput() EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return i.ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeliveryRuleRequestSchemeConditionPtrType) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestSchemeConditionPtrOutput)
+}
+
+type EndpointDeliveryRuleRequestSchemeConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestSchemeConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestSchemeCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestSchemeConditionOutput) ToEndpointDeliveryRuleRequestSchemeConditionOutput() EndpointDeliveryRuleRequestSchemeConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestSchemeConditionOutput) ToEndpointDeliveryRuleRequestSchemeConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestSchemeConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestSchemeConditionOutput) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutput() EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return o.ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeliveryRuleRequestSchemeConditionOutput) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *EndpointDeliveryRuleRequestSchemeCondition {
+		return &v
+	}).(EndpointDeliveryRuleRequestSchemeConditionPtrOutput)
+}
+
+// Valid values are `HTTP` and `HTTPS`.
+func (o EndpointDeliveryRuleRequestSchemeConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRequestSchemeConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Equal`.
+func (o EndpointDeliveryRuleRequestSchemeConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleRequestSchemeConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestSchemeConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleRequestSchemeCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutput() EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) ToEndpointDeliveryRuleRequestSchemeConditionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestSchemeConditionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) Elem() EndpointDeliveryRuleRequestSchemeConditionOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestSchemeCondition) EndpointDeliveryRuleRequestSchemeCondition {
+		return *v
+	}).(EndpointDeliveryRuleRequestSchemeConditionOutput)
+}
+
+// Valid values are `HTTP` and `HTTPS`.
+func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Equal`.
+func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type EndpointDeliveryRuleRequestUriCondition struct {
+	// List of string values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleRequestUriConditionInput is an input type that accepts EndpointDeliveryRuleRequestUriConditionArgs and EndpointDeliveryRuleRequestUriConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestUriConditionInput` via:
+//
+// 		 EndpointDeliveryRuleRequestUriConditionArgs{...}
+//
+type EndpointDeliveryRuleRequestUriConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestUriConditionOutput() EndpointDeliveryRuleRequestUriConditionOutput
+	ToEndpointDeliveryRuleRequestUriConditionOutputWithContext(context.Context) EndpointDeliveryRuleRequestUriConditionOutput
+}
+
+type EndpointDeliveryRuleRequestUriConditionArgs struct {
+	// List of string values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleRequestUriConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestUriCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestUriConditionArgs) ToEndpointDeliveryRuleRequestUriConditionOutput() EndpointDeliveryRuleRequestUriConditionOutput {
+	return i.ToEndpointDeliveryRuleRequestUriConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestUriConditionArgs) ToEndpointDeliveryRuleRequestUriConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestUriConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestUriConditionOutput)
+}
+
+// EndpointDeliveryRuleRequestUriConditionArrayInput is an input type that accepts EndpointDeliveryRuleRequestUriConditionArray and EndpointDeliveryRuleRequestUriConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleRequestUriConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleRequestUriConditionArray{ EndpointDeliveryRuleRequestUriConditionArgs{...} }
+//
+type EndpointDeliveryRuleRequestUriConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleRequestUriConditionArrayOutput() EndpointDeliveryRuleRequestUriConditionArrayOutput
+	ToEndpointDeliveryRuleRequestUriConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleRequestUriConditionArrayOutput
+}
+
+type EndpointDeliveryRuleRequestUriConditionArray []EndpointDeliveryRuleRequestUriConditionInput
+
+func (EndpointDeliveryRuleRequestUriConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRequestUriCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleRequestUriConditionArray) ToEndpointDeliveryRuleRequestUriConditionArrayOutput() EndpointDeliveryRuleRequestUriConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleRequestUriConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleRequestUriConditionArray) ToEndpointDeliveryRuleRequestUriConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestUriConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleRequestUriConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleRequestUriConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestUriConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleRequestUriCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestUriConditionOutput) ToEndpointDeliveryRuleRequestUriConditionOutput() EndpointDeliveryRuleRequestUriConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestUriConditionOutput) ToEndpointDeliveryRuleRequestUriConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestUriConditionOutput {
+	return o
+}
+
+// List of string values.
+func (o EndpointDeliveryRuleRequestUriConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestUriCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleRequestUriConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestUriCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleRequestUriConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestUriCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleRequestUriConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleRequestUriCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleRequestUriConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleRequestUriConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleRequestUriCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleRequestUriConditionArrayOutput) ToEndpointDeliveryRuleRequestUriConditionArrayOutput() EndpointDeliveryRuleRequestUriConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestUriConditionArrayOutput) ToEndpointDeliveryRuleRequestUriConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleRequestUriConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleRequestUriConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleRequestUriConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleRequestUriCondition {
+		return vs[0].([]EndpointDeliveryRuleRequestUriCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleRequestUriConditionOutput)
+}
+
+type EndpointDeliveryRuleUrlFileExtensionCondition struct {
+	// List of string values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleUrlFileExtensionConditionInput is an input type that accepts EndpointDeliveryRuleUrlFileExtensionConditionArgs and EndpointDeliveryRuleUrlFileExtensionConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlFileExtensionConditionInput` via:
+//
+// 		 EndpointDeliveryRuleUrlFileExtensionConditionArgs{...}
+//
+type EndpointDeliveryRuleUrlFileExtensionConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlFileExtensionConditionOutput() EndpointDeliveryRuleUrlFileExtensionConditionOutput
+	ToEndpointDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Context) EndpointDeliveryRuleUrlFileExtensionConditionOutput
+}
+
+type EndpointDeliveryRuleUrlFileExtensionConditionArgs struct {
+	// List of string values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleUrlFileExtensionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlFileExtensionConditionArgs) ToEndpointDeliveryRuleUrlFileExtensionConditionOutput() EndpointDeliveryRuleUrlFileExtensionConditionOutput {
+	return i.ToEndpointDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlFileExtensionConditionArgs) ToEndpointDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileExtensionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlFileExtensionConditionOutput)
+}
+
+// EndpointDeliveryRuleUrlFileExtensionConditionArrayInput is an input type that accepts EndpointDeliveryRuleUrlFileExtensionConditionArray and EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlFileExtensionConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleUrlFileExtensionConditionArray{ EndpointDeliveryRuleUrlFileExtensionConditionArgs{...} }
+//
+type EndpointDeliveryRuleUrlFileExtensionConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlFileExtensionConditionArrayOutput() EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput
+	ToEndpointDeliveryRuleUrlFileExtensionConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput
+}
+
+type EndpointDeliveryRuleUrlFileExtensionConditionArray []EndpointDeliveryRuleUrlFileExtensionConditionInput
+
+func (EndpointDeliveryRuleUrlFileExtensionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlFileExtensionConditionArray) ToEndpointDeliveryRuleUrlFileExtensionConditionArrayOutput() EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleUrlFileExtensionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlFileExtensionConditionArray) ToEndpointDeliveryRuleUrlFileExtensionConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleUrlFileExtensionConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlFileExtensionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) ToEndpointDeliveryRuleUrlFileExtensionConditionOutput() EndpointDeliveryRuleUrlFileExtensionConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) ToEndpointDeliveryRuleUrlFileExtensionConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileExtensionConditionOutput {
+	return o
+}
+
+// List of string values.
+func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileExtensionCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileExtensionCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileExtensionCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleUrlFileExtensionConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileExtensionCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput) ToEndpointDeliveryRuleUrlFileExtensionConditionArrayOutput() EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput) ToEndpointDeliveryRuleUrlFileExtensionConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleUrlFileExtensionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleUrlFileExtensionCondition {
+		return vs[0].([]EndpointDeliveryRuleUrlFileExtensionCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleUrlFileExtensionConditionOutput)
+}
+
+type EndpointDeliveryRuleUrlFileNameCondition struct {
+	// List of string values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleUrlFileNameConditionInput is an input type that accepts EndpointDeliveryRuleUrlFileNameConditionArgs and EndpointDeliveryRuleUrlFileNameConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlFileNameConditionInput` via:
+//
+// 		 EndpointDeliveryRuleUrlFileNameConditionArgs{...}
+//
+type EndpointDeliveryRuleUrlFileNameConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlFileNameConditionOutput() EndpointDeliveryRuleUrlFileNameConditionOutput
+	ToEndpointDeliveryRuleUrlFileNameConditionOutputWithContext(context.Context) EndpointDeliveryRuleUrlFileNameConditionOutput
+}
+
+type EndpointDeliveryRuleUrlFileNameConditionArgs struct {
+	// List of string values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleUrlFileNameConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlFileNameCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlFileNameConditionArgs) ToEndpointDeliveryRuleUrlFileNameConditionOutput() EndpointDeliveryRuleUrlFileNameConditionOutput {
+	return i.ToEndpointDeliveryRuleUrlFileNameConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlFileNameConditionArgs) ToEndpointDeliveryRuleUrlFileNameConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileNameConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlFileNameConditionOutput)
+}
+
+// EndpointDeliveryRuleUrlFileNameConditionArrayInput is an input type that accepts EndpointDeliveryRuleUrlFileNameConditionArray and EndpointDeliveryRuleUrlFileNameConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlFileNameConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleUrlFileNameConditionArray{ EndpointDeliveryRuleUrlFileNameConditionArgs{...} }
+//
+type EndpointDeliveryRuleUrlFileNameConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlFileNameConditionArrayOutput() EndpointDeliveryRuleUrlFileNameConditionArrayOutput
+	ToEndpointDeliveryRuleUrlFileNameConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleUrlFileNameConditionArrayOutput
+}
+
+type EndpointDeliveryRuleUrlFileNameConditionArray []EndpointDeliveryRuleUrlFileNameConditionInput
+
+func (EndpointDeliveryRuleUrlFileNameConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleUrlFileNameCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlFileNameConditionArray) ToEndpointDeliveryRuleUrlFileNameConditionArrayOutput() EndpointDeliveryRuleUrlFileNameConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleUrlFileNameConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlFileNameConditionArray) ToEndpointDeliveryRuleUrlFileNameConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileNameConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlFileNameConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleUrlFileNameConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlFileNameConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlFileNameCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlFileNameConditionOutput) ToEndpointDeliveryRuleUrlFileNameConditionOutput() EndpointDeliveryRuleUrlFileNameConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlFileNameConditionOutput) ToEndpointDeliveryRuleUrlFileNameConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileNameConditionOutput {
+	return o
+}
+
+// List of string values.
+func (o EndpointDeliveryRuleUrlFileNameConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileNameCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleUrlFileNameConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileNameCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleUrlFileNameConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileNameCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleUrlFileNameConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlFileNameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleUrlFileNameConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlFileNameConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleUrlFileNameCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlFileNameConditionArrayOutput) ToEndpointDeliveryRuleUrlFileNameConditionArrayOutput() EndpointDeliveryRuleUrlFileNameConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlFileNameConditionArrayOutput) ToEndpointDeliveryRuleUrlFileNameConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlFileNameConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlFileNameConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleUrlFileNameConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleUrlFileNameCondition {
+		return vs[0].([]EndpointDeliveryRuleUrlFileNameCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleUrlFileNameConditionOutput)
+}
+
+type EndpointDeliveryRuleUrlPathCondition struct {
+	// List of string values.
+	MatchValues []string `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// EndpointDeliveryRuleUrlPathConditionInput is an input type that accepts EndpointDeliveryRuleUrlPathConditionArgs and EndpointDeliveryRuleUrlPathConditionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlPathConditionInput` via:
+//
+// 		 EndpointDeliveryRuleUrlPathConditionArgs{...}
+//
+type EndpointDeliveryRuleUrlPathConditionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlPathConditionOutput() EndpointDeliveryRuleUrlPathConditionOutput
+	ToEndpointDeliveryRuleUrlPathConditionOutputWithContext(context.Context) EndpointDeliveryRuleUrlPathConditionOutput
+}
+
+type EndpointDeliveryRuleUrlPathConditionArgs struct {
+	// List of string values.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Defaults to `false`.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Valid values are `Lowercase` and `Uppercase`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (EndpointDeliveryRuleUrlPathConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlPathConditionArgs) ToEndpointDeliveryRuleUrlPathConditionOutput() EndpointDeliveryRuleUrlPathConditionOutput {
+	return i.ToEndpointDeliveryRuleUrlPathConditionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlPathConditionArgs) ToEndpointDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlPathConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlPathConditionOutput)
+}
+
+// EndpointDeliveryRuleUrlPathConditionArrayInput is an input type that accepts EndpointDeliveryRuleUrlPathConditionArray and EndpointDeliveryRuleUrlPathConditionArrayOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlPathConditionArrayInput` via:
+//
+// 		 EndpointDeliveryRuleUrlPathConditionArray{ EndpointDeliveryRuleUrlPathConditionArgs{...} }
+//
+type EndpointDeliveryRuleUrlPathConditionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlPathConditionArrayOutput() EndpointDeliveryRuleUrlPathConditionArrayOutput
+	ToEndpointDeliveryRuleUrlPathConditionArrayOutputWithContext(context.Context) EndpointDeliveryRuleUrlPathConditionArrayOutput
+}
+
+type EndpointDeliveryRuleUrlPathConditionArray []EndpointDeliveryRuleUrlPathConditionInput
+
+func (EndpointDeliveryRuleUrlPathConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlPathConditionArray) ToEndpointDeliveryRuleUrlPathConditionArrayOutput() EndpointDeliveryRuleUrlPathConditionArrayOutput {
+	return i.ToEndpointDeliveryRuleUrlPathConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlPathConditionArray) ToEndpointDeliveryRuleUrlPathConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlPathConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlPathConditionArrayOutput)
+}
+
+type EndpointDeliveryRuleUrlPathConditionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlPathConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlPathConditionOutput) ToEndpointDeliveryRuleUrlPathConditionOutput() EndpointDeliveryRuleUrlPathConditionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlPathConditionOutput) ToEndpointDeliveryRuleUrlPathConditionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlPathConditionOutput {
+	return o
+}
+
+// List of string values.
+func (o EndpointDeliveryRuleUrlPathConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Defaults to `false`.
+func (o EndpointDeliveryRuleUrlPathConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+func (o EndpointDeliveryRuleUrlPathConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Valid values are `Lowercase` and `Uppercase`.
+func (o EndpointDeliveryRuleUrlPathConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlPathCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type EndpointDeliveryRuleUrlPathConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlPathConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeliveryRuleUrlPathCondition)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlPathConditionArrayOutput) ToEndpointDeliveryRuleUrlPathConditionArrayOutput() EndpointDeliveryRuleUrlPathConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlPathConditionArrayOutput) ToEndpointDeliveryRuleUrlPathConditionArrayOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlPathConditionArrayOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlPathConditionArrayOutput) Index(i pulumi.IntInput) EndpointDeliveryRuleUrlPathConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeliveryRuleUrlPathCondition {
+		return vs[0].([]EndpointDeliveryRuleUrlPathCondition)[vs[1].(int)]
+	}).(EndpointDeliveryRuleUrlPathConditionOutput)
+}
+
+type EndpointDeliveryRuleUrlRedirectAction struct {
+	// Specifies the fragment part of the URL. This value must not start with a `#`.
+	Fragment *string `pulumi:"fragment"`
+	// Specifies the hostname part of the URL.
+	Hostname *string `pulumi:"hostname"`
+	// Specifies the path part of the URL. This value must begin with a `/`.
+	Path *string `pulumi:"path"`
+	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	Protocol *string `pulumi:"protocol"`
+	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+	QueryString *string `pulumi:"queryString"`
+	// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+	RedirectType string `pulumi:"redirectType"`
+}
+
+// EndpointDeliveryRuleUrlRedirectActionInput is an input type that accepts EndpointDeliveryRuleUrlRedirectActionArgs and EndpointDeliveryRuleUrlRedirectActionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlRedirectActionInput` via:
+//
+// 		 EndpointDeliveryRuleUrlRedirectActionArgs{...}
+//
+type EndpointDeliveryRuleUrlRedirectActionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlRedirectActionOutput() EndpointDeliveryRuleUrlRedirectActionOutput
+	ToEndpointDeliveryRuleUrlRedirectActionOutputWithContext(context.Context) EndpointDeliveryRuleUrlRedirectActionOutput
+}
+
+type EndpointDeliveryRuleUrlRedirectActionArgs struct {
+	// Specifies the fragment part of the URL. This value must not start with a `#`.
+	Fragment pulumi.StringPtrInput `pulumi:"fragment"`
+	// Specifies the hostname part of the URL.
+	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
+	// Specifies the path part of the URL. This value must begin with a `/`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+}
+
+func (EndpointDeliveryRuleUrlRedirectActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlRedirectActionArgs) ToEndpointDeliveryRuleUrlRedirectActionOutput() EndpointDeliveryRuleUrlRedirectActionOutput {
+	return i.ToEndpointDeliveryRuleUrlRedirectActionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlRedirectActionArgs) ToEndpointDeliveryRuleUrlRedirectActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRedirectActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlRedirectActionOutput)
+}
+
+func (i EndpointDeliveryRuleUrlRedirectActionArgs) ToEndpointDeliveryRuleUrlRedirectActionPtrOutput() EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return i.ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlRedirectActionArgs) ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlRedirectActionOutput).ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx)
+}
+
+// EndpointDeliveryRuleUrlRedirectActionPtrInput is an input type that accepts EndpointDeliveryRuleUrlRedirectActionArgs, EndpointDeliveryRuleUrlRedirectActionPtr and EndpointDeliveryRuleUrlRedirectActionPtrOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlRedirectActionPtrInput` via:
+//
+// 		 EndpointDeliveryRuleUrlRedirectActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointDeliveryRuleUrlRedirectActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlRedirectActionPtrOutput() EndpointDeliveryRuleUrlRedirectActionPtrOutput
+	ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Context) EndpointDeliveryRuleUrlRedirectActionPtrOutput
+}
+
+type endpointDeliveryRuleUrlRedirectActionPtrType EndpointDeliveryRuleUrlRedirectActionArgs
+
+func EndpointDeliveryRuleUrlRedirectActionPtr(v *EndpointDeliveryRuleUrlRedirectActionArgs) EndpointDeliveryRuleUrlRedirectActionPtrInput {
+	return (*endpointDeliveryRuleUrlRedirectActionPtrType)(v)
+}
+
+func (*endpointDeliveryRuleUrlRedirectActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (i *endpointDeliveryRuleUrlRedirectActionPtrType) ToEndpointDeliveryRuleUrlRedirectActionPtrOutput() EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return i.ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeliveryRuleUrlRedirectActionPtrType) ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlRedirectActionPtrOutput)
+}
+
+type EndpointDeliveryRuleUrlRedirectActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlRedirectActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) ToEndpointDeliveryRuleUrlRedirectActionOutput() EndpointDeliveryRuleUrlRedirectActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) ToEndpointDeliveryRuleUrlRedirectActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRedirectActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) ToEndpointDeliveryRuleUrlRedirectActionPtrOutput() EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return o.ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *EndpointDeliveryRuleUrlRedirectAction {
+		return &v
+	}).(EndpointDeliveryRuleUrlRedirectActionPtrOutput)
+}
+
+// Specifies the fragment part of the URL. This value must not start with a `#`.
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) Fragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Fragment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hostname part of the URL.
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the path part of the URL. This value must begin with a `/`.
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+func (o EndpointDeliveryRuleUrlRedirectActionOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+type EndpointDeliveryRuleUrlRedirectActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlRedirectActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) ToEndpointDeliveryRuleUrlRedirectActionPtrOutput() EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) ToEndpointDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRedirectActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Elem() EndpointDeliveryRuleUrlRedirectActionOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) EndpointDeliveryRuleUrlRedirectAction { return *v }).(EndpointDeliveryRuleUrlRedirectActionOutput)
+}
+
+// Specifies the fragment part of the URL. This value must not start with a `#`.
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Fragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Fragment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hostname part of the URL.
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the path part of the URL. This value must begin with a `/`.
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+type EndpointDeliveryRuleUrlRewriteAction struct {
+	// This value must start with a `/` and can't be longer than 260 characters.
+	Destination string `pulumi:"destination"`
+	// Defaults to `true`.
+	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
+	// This value must start with a `/` and can't be longer than 260 characters.
+	SourcePattern string `pulumi:"sourcePattern"`
+}
+
+// EndpointDeliveryRuleUrlRewriteActionInput is an input type that accepts EndpointDeliveryRuleUrlRewriteActionArgs and EndpointDeliveryRuleUrlRewriteActionOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlRewriteActionInput` via:
+//
+// 		 EndpointDeliveryRuleUrlRewriteActionArgs{...}
+//
+type EndpointDeliveryRuleUrlRewriteActionInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlRewriteActionOutput() EndpointDeliveryRuleUrlRewriteActionOutput
+	ToEndpointDeliveryRuleUrlRewriteActionOutputWithContext(context.Context) EndpointDeliveryRuleUrlRewriteActionOutput
+}
+
+type EndpointDeliveryRuleUrlRewriteActionArgs struct {
+	// This value must start with a `/` and can't be longer than 260 characters.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// Defaults to `true`.
+	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
+	// This value must start with a `/` and can't be longer than 260 characters.
+	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
+}
+
+func (EndpointDeliveryRuleUrlRewriteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (i EndpointDeliveryRuleUrlRewriteActionArgs) ToEndpointDeliveryRuleUrlRewriteActionOutput() EndpointDeliveryRuleUrlRewriteActionOutput {
+	return i.ToEndpointDeliveryRuleUrlRewriteActionOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlRewriteActionArgs) ToEndpointDeliveryRuleUrlRewriteActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRewriteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlRewriteActionOutput)
+}
+
+func (i EndpointDeliveryRuleUrlRewriteActionArgs) ToEndpointDeliveryRuleUrlRewriteActionPtrOutput() EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return i.ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeliveryRuleUrlRewriteActionArgs) ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlRewriteActionOutput).ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx)
+}
+
+// EndpointDeliveryRuleUrlRewriteActionPtrInput is an input type that accepts EndpointDeliveryRuleUrlRewriteActionArgs, EndpointDeliveryRuleUrlRewriteActionPtr and EndpointDeliveryRuleUrlRewriteActionPtrOutput values.
+// You can construct a concrete instance of `EndpointDeliveryRuleUrlRewriteActionPtrInput` via:
+//
+// 		 EndpointDeliveryRuleUrlRewriteActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointDeliveryRuleUrlRewriteActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeliveryRuleUrlRewriteActionPtrOutput() EndpointDeliveryRuleUrlRewriteActionPtrOutput
+	ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Context) EndpointDeliveryRuleUrlRewriteActionPtrOutput
+}
+
+type endpointDeliveryRuleUrlRewriteActionPtrType EndpointDeliveryRuleUrlRewriteActionArgs
+
+func EndpointDeliveryRuleUrlRewriteActionPtr(v *EndpointDeliveryRuleUrlRewriteActionArgs) EndpointDeliveryRuleUrlRewriteActionPtrInput {
+	return (*endpointDeliveryRuleUrlRewriteActionPtrType)(v)
+}
+
+func (*endpointDeliveryRuleUrlRewriteActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (i *endpointDeliveryRuleUrlRewriteActionPtrType) ToEndpointDeliveryRuleUrlRewriteActionPtrOutput() EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return i.ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeliveryRuleUrlRewriteActionPtrType) ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeliveryRuleUrlRewriteActionPtrOutput)
+}
+
+type EndpointDeliveryRuleUrlRewriteActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlRewriteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlRewriteActionOutput) ToEndpointDeliveryRuleUrlRewriteActionOutput() EndpointDeliveryRuleUrlRewriteActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRewriteActionOutput) ToEndpointDeliveryRuleUrlRewriteActionOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRewriteActionOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRewriteActionOutput) ToEndpointDeliveryRuleUrlRewriteActionPtrOutput() EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return o.ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeliveryRuleUrlRewriteActionOutput) ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) *EndpointDeliveryRuleUrlRewriteAction {
+		return &v
+	}).(EndpointDeliveryRuleUrlRewriteActionPtrOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointDeliveryRuleUrlRewriteActionOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Defaults to `true`.
+func (o EndpointDeliveryRuleUrlRewriteActionOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointDeliveryRuleUrlRewriteActionOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) string { return v.SourcePattern }).(pulumi.StringOutput)
+}
+
+type EndpointDeliveryRuleUrlRewriteActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeliveryRuleUrlRewriteActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) ToEndpointDeliveryRuleUrlRewriteActionPtrOutput() EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) ToEndpointDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointDeliveryRuleUrlRewriteActionPtrOutput {
+	return o
+}
+
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) Elem() EndpointDeliveryRuleUrlRewriteActionOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRewriteAction) EndpointDeliveryRuleUrlRewriteAction { return *v }).(EndpointDeliveryRuleUrlRewriteActionOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Defaults to `true`.
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) string { return v.SourcePattern }).(pulumi.StringOutput)
+}
+
 type EndpointGeoFilter struct {
 	// The Action of the Geo Filter. Possible values include `Allow` and `Block`.
 	Action string `pulumi:"action"`
@@ -125,6 +3182,1108 @@ func (o EndpointGeoFilterArrayOutput) Index(i pulumi.IntInput) EndpointGeoFilter
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointGeoFilter {
 		return vs[0].([]EndpointGeoFilter)[vs[1].(int)]
 	}).(EndpointGeoFilterOutput)
+}
+
+type EndpointGlobalDeliveryRule struct {
+	// A `cacheExpirationAction` block as defined above.
+	CacheExpirationAction *EndpointGlobalDeliveryRuleCacheExpirationAction `pulumi:"cacheExpirationAction"`
+	// A `cacheKeyQueryStringAction` block as defined above.
+	CacheKeyQueryStringAction *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction `pulumi:"cacheKeyQueryStringAction"`
+	// A `modifyRequestHeaderAction` block as defined below.
+	ModifyRequestHeaderActions []EndpointGlobalDeliveryRuleModifyRequestHeaderAction `pulumi:"modifyRequestHeaderActions"`
+	// A `modifyResponseHeaderAction` block as defined below.
+	ModifyResponseHeaderActions []EndpointGlobalDeliveryRuleModifyResponseHeaderAction `pulumi:"modifyResponseHeaderActions"`
+	// A `urlRedirectAction` block as defined below.
+	UrlRedirectAction *EndpointGlobalDeliveryRuleUrlRedirectAction `pulumi:"urlRedirectAction"`
+	// A `urlRewriteAction` block as defined below.
+	UrlRewriteAction *EndpointGlobalDeliveryRuleUrlRewriteAction `pulumi:"urlRewriteAction"`
+}
+
+// EndpointGlobalDeliveryRuleInput is an input type that accepts EndpointGlobalDeliveryRuleArgs and EndpointGlobalDeliveryRuleOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleArgs{...}
+//
+type EndpointGlobalDeliveryRuleInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleOutput() EndpointGlobalDeliveryRuleOutput
+	ToEndpointGlobalDeliveryRuleOutputWithContext(context.Context) EndpointGlobalDeliveryRuleOutput
+}
+
+type EndpointGlobalDeliveryRuleArgs struct {
+	// A `cacheExpirationAction` block as defined above.
+	CacheExpirationAction EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput `pulumi:"cacheExpirationAction"`
+	// A `cacheKeyQueryStringAction` block as defined above.
+	CacheKeyQueryStringAction EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput `pulumi:"cacheKeyQueryStringAction"`
+	// A `modifyRequestHeaderAction` block as defined below.
+	ModifyRequestHeaderActions EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayInput `pulumi:"modifyRequestHeaderActions"`
+	// A `modifyResponseHeaderAction` block as defined below.
+	ModifyResponseHeaderActions EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayInput `pulumi:"modifyResponseHeaderActions"`
+	// A `urlRedirectAction` block as defined below.
+	UrlRedirectAction EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput `pulumi:"urlRedirectAction"`
+	// A `urlRewriteAction` block as defined below.
+	UrlRewriteAction EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput `pulumi:"urlRewriteAction"`
+}
+
+func (EndpointGlobalDeliveryRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRule)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleArgs) ToEndpointGlobalDeliveryRuleOutput() EndpointGlobalDeliveryRuleOutput {
+	return i.ToEndpointGlobalDeliveryRuleOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleArgs) ToEndpointGlobalDeliveryRuleOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleOutput)
+}
+
+func (i EndpointGlobalDeliveryRuleArgs) ToEndpointGlobalDeliveryRulePtrOutput() EndpointGlobalDeliveryRulePtrOutput {
+	return i.ToEndpointGlobalDeliveryRulePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleArgs) ToEndpointGlobalDeliveryRulePtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleOutput).ToEndpointGlobalDeliveryRulePtrOutputWithContext(ctx)
+}
+
+// EndpointGlobalDeliveryRulePtrInput is an input type that accepts EndpointGlobalDeliveryRuleArgs, EndpointGlobalDeliveryRulePtr and EndpointGlobalDeliveryRulePtrOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRulePtrInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointGlobalDeliveryRulePtrInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRulePtrOutput() EndpointGlobalDeliveryRulePtrOutput
+	ToEndpointGlobalDeliveryRulePtrOutputWithContext(context.Context) EndpointGlobalDeliveryRulePtrOutput
+}
+
+type endpointGlobalDeliveryRulePtrType EndpointGlobalDeliveryRuleArgs
+
+func EndpointGlobalDeliveryRulePtr(v *EndpointGlobalDeliveryRuleArgs) EndpointGlobalDeliveryRulePtrInput {
+	return (*endpointGlobalDeliveryRulePtrType)(v)
+}
+
+func (*endpointGlobalDeliveryRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRule)(nil)).Elem()
+}
+
+func (i *endpointGlobalDeliveryRulePtrType) ToEndpointGlobalDeliveryRulePtrOutput() EndpointGlobalDeliveryRulePtrOutput {
+	return i.ToEndpointGlobalDeliveryRulePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointGlobalDeliveryRulePtrType) ToEndpointGlobalDeliveryRulePtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRulePtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRule)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleOutput) ToEndpointGlobalDeliveryRuleOutput() EndpointGlobalDeliveryRuleOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleOutput) ToEndpointGlobalDeliveryRuleOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleOutput) ToEndpointGlobalDeliveryRulePtrOutput() EndpointGlobalDeliveryRulePtrOutput {
+	return o.ToEndpointGlobalDeliveryRulePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointGlobalDeliveryRuleOutput) ToEndpointGlobalDeliveryRulePtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRulePtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRule {
+		return &v
+	}).(EndpointGlobalDeliveryRulePtrOutput)
+}
+
+// A `cacheExpirationAction` block as defined above.
+func (o EndpointGlobalDeliveryRuleOutput) CacheExpirationAction() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheExpirationAction {
+		return v.CacheExpirationAction
+	}).(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput)
+}
+
+// A `cacheKeyQueryStringAction` block as defined above.
+func (o EndpointGlobalDeliveryRuleOutput) CacheKeyQueryStringAction() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+		return v.CacheKeyQueryStringAction
+	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput)
+}
+
+// A `modifyRequestHeaderAction` block as defined below.
+func (o EndpointGlobalDeliveryRuleOutput) ModifyRequestHeaderActions() EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyRequestHeaderAction {
+		return v.ModifyRequestHeaderActions
+	}).(EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput)
+}
+
+// A `modifyResponseHeaderAction` block as defined below.
+func (o EndpointGlobalDeliveryRuleOutput) ModifyResponseHeaderActions() EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
+		return v.ModifyResponseHeaderActions
+	}).(EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput)
+}
+
+// A `urlRedirectAction` block as defined below.
+func (o EndpointGlobalDeliveryRuleOutput) UrlRedirectAction() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRedirectAction {
+		return v.UrlRedirectAction
+	}).(EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput)
+}
+
+// A `urlRewriteAction` block as defined below.
+func (o EndpointGlobalDeliveryRuleOutput) UrlRewriteAction() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRewriteAction {
+		return v.UrlRewriteAction
+	}).(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput)
+}
+
+type EndpointGlobalDeliveryRulePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRule)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRulePtrOutput) ToEndpointGlobalDeliveryRulePtrOutput() EndpointGlobalDeliveryRulePtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRulePtrOutput) ToEndpointGlobalDeliveryRulePtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRulePtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRulePtrOutput) Elem() EndpointGlobalDeliveryRuleOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) EndpointGlobalDeliveryRule { return *v }).(EndpointGlobalDeliveryRuleOutput)
+}
+
+// A `cacheExpirationAction` block as defined above.
+func (o EndpointGlobalDeliveryRulePtrOutput) CacheExpirationAction() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheExpirationAction {
+		return v.CacheExpirationAction
+	}).(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput)
+}
+
+// A `cacheKeyQueryStringAction` block as defined above.
+func (o EndpointGlobalDeliveryRulePtrOutput) CacheKeyQueryStringAction() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+		return v.CacheKeyQueryStringAction
+	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput)
+}
+
+// A `modifyRequestHeaderAction` block as defined below.
+func (o EndpointGlobalDeliveryRulePtrOutput) ModifyRequestHeaderActions() EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyRequestHeaderAction {
+		return v.ModifyRequestHeaderActions
+	}).(EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput)
+}
+
+// A `modifyResponseHeaderAction` block as defined below.
+func (o EndpointGlobalDeliveryRulePtrOutput) ModifyResponseHeaderActions() EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
+		return v.ModifyResponseHeaderActions
+	}).(EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput)
+}
+
+// A `urlRedirectAction` block as defined below.
+func (o EndpointGlobalDeliveryRulePtrOutput) UrlRedirectAction() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRedirectAction {
+		return v.UrlRedirectAction
+	}).(EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput)
+}
+
+// A `urlRewriteAction` block as defined below.
+func (o EndpointGlobalDeliveryRulePtrOutput) UrlRewriteAction() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRewriteAction {
+		return v.UrlRewriteAction
+	}).(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleCacheExpirationAction struct {
+	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	Behavior string `pulumi:"behavior"`
+	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+	Duration *string `pulumi:"duration"`
+}
+
+// EndpointGlobalDeliveryRuleCacheExpirationActionInput is an input type that accepts EndpointGlobalDeliveryRuleCacheExpirationActionArgs and EndpointGlobalDeliveryRuleCacheExpirationActionOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheExpirationActionInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleCacheExpirationActionArgs{...}
+//
+type EndpointGlobalDeliveryRuleCacheExpirationActionInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleCacheExpirationActionOutput() EndpointGlobalDeliveryRuleCacheExpirationActionOutput
+	ToEndpointGlobalDeliveryRuleCacheExpirationActionOutputWithContext(context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionOutput
+}
+
+type EndpointGlobalDeliveryRuleCacheExpirationActionArgs struct {
+	// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+}
+
+func (EndpointGlobalDeliveryRuleCacheExpirationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleCacheExpirationActionArgs) ToEndpointGlobalDeliveryRuleCacheExpirationActionOutput() EndpointGlobalDeliveryRuleCacheExpirationActionOutput {
+	return i.ToEndpointGlobalDeliveryRuleCacheExpirationActionOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleCacheExpirationActionArgs) ToEndpointGlobalDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleCacheExpirationActionOutput)
+}
+
+func (i EndpointGlobalDeliveryRuleCacheExpirationActionArgs) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleCacheExpirationActionArgs) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleCacheExpirationActionOutput).ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx)
+}
+
+// EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleCacheExpirationActionArgs, EndpointGlobalDeliveryRuleCacheExpirationActionPtr and EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleCacheExpirationActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput
+	ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput
+}
+
+type endpointGlobalDeliveryRuleCacheExpirationActionPtrType EndpointGlobalDeliveryRuleCacheExpirationActionArgs
+
+func EndpointGlobalDeliveryRuleCacheExpirationActionPtr(v *EndpointGlobalDeliveryRuleCacheExpirationActionArgs) EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput {
+	return (*endpointGlobalDeliveryRuleCacheExpirationActionPtrType)(v)
+}
+
+func (*endpointGlobalDeliveryRuleCacheExpirationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (i *endpointGlobalDeliveryRuleCacheExpirationActionPtrType) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointGlobalDeliveryRuleCacheExpirationActionPtrType) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleCacheExpirationActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ToEndpointGlobalDeliveryRuleCacheExpirationActionOutput() EndpointGlobalDeliveryRuleCacheExpirationActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ToEndpointGlobalDeliveryRuleCacheExpirationActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return o.ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) *EndpointGlobalDeliveryRuleCacheExpirationAction {
+		return &v
+	}).(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput)
+}
+
+// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleCacheExpirationAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) ToEndpointGlobalDeliveryRuleCacheExpirationActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Elem() EndpointGlobalDeliveryRuleCacheExpirationActionOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheExpirationAction) EndpointGlobalDeliveryRuleCacheExpirationAction {
+		return *v
+	}).(EndpointGlobalDeliveryRuleCacheExpirationActionOutput)
+}
+
+// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleCacheKeyQueryStringAction struct {
+	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	Behavior string `pulumi:"behavior"`
+	// Comma separated list of parameter values.
+	Parameters *string `pulumi:"parameters"`
+}
+
+// EndpointGlobalDeliveryRuleCacheKeyQueryStringActionInput is an input type that accepts EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs and EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheKeyQueryStringActionInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//
+type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput
+	ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutputWithContext(context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput
+}
+
+type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs struct {
+	// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+	Behavior pulumi.StringInput `pulumi:"behavior"`
+	// Comma separated list of parameter values.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+}
+
+func (EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput {
+	return i.ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput)
+}
+
+func (i EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput).ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx)
+}
+
+// EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs, EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtr and EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput
+	ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput
+}
+
+type endpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrType EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs
+
+func EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtr(v *EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput {
+	return (*endpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrType)(v)
+}
+
+func (*endpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (i *endpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrType) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrType) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o.ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+		return &v
+	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput)
+}
+
+// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Comma separated list of parameter values.
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleCacheKeyQueryStringAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) ToEndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+		return *v
+	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput)
+}
+
+// The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
+}
+
+// Comma separated list of parameter values.
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleModifyRequestHeaderAction struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action string `pulumi:"action"`
+	// The header name.
+	Name string `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value *string `pulumi:"value"`
+}
+
+// EndpointGlobalDeliveryRuleModifyRequestHeaderActionInput is an input type that accepts EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs and EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyRequestHeaderActionInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs{...}
+//
+type EndpointGlobalDeliveryRuleModifyRequestHeaderActionInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput() EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput
+	ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionOutputWithContext(context.Context) EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput
+}
+
+type EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The header name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput() EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput {
+	return i.ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput)
+}
+
+// EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayInput is an input type that accepts EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray and EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray{ EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs{...} }
+//
+type EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput() EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput
+	ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(context.Context) EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput
+}
+
+type EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray []EndpointGlobalDeliveryRuleModifyRequestHeaderActionInput
+
+func (EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointGlobalDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput() EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return i.ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput)
+}
+
+type EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput() EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput {
+	return o
+}
+
+// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleModifyRequestHeaderAction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The header name.
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleModifyRequestHeaderAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleModifyRequestHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointGlobalDeliveryRuleModifyRequestHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput() EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput) ToEndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput) Index(i pulumi.IntInput) EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointGlobalDeliveryRuleModifyRequestHeaderAction {
+		return vs[0].([]EndpointGlobalDeliveryRuleModifyRequestHeaderAction)[vs[1].(int)]
+	}).(EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput)
+}
+
+type EndpointGlobalDeliveryRuleModifyResponseHeaderAction struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action string `pulumi:"action"`
+	// The header name.
+	Name string `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value *string `pulumi:"value"`
+}
+
+// EndpointGlobalDeliveryRuleModifyResponseHeaderActionInput is an input type that accepts EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs and EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyResponseHeaderActionInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs{...}
+//
+type EndpointGlobalDeliveryRuleModifyResponseHeaderActionInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput() EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput
+	ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionOutputWithContext(context.Context) EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput
+}
+
+type EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs struct {
+	// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The header name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput() EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput {
+	return i.ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput)
+}
+
+// EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayInput is an input type that accepts EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray and EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray{ EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs{...} }
+//
+type EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput() EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput
+	ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(context.Context) EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput
+}
+
+type EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray []EndpointGlobalDeliveryRuleModifyResponseHeaderActionInput
+
+func (EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointGlobalDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput() EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return i.ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput)
+}
+
+type EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput() EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput {
+	return o
+}
+
+// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleModifyResponseHeaderAction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The header name.
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleModifyResponseHeaderAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleModifyResponseHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointGlobalDeliveryRuleModifyResponseHeaderAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput() EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput) ToEndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput) Index(i pulumi.IntInput) EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
+		return vs[0].([]EndpointGlobalDeliveryRuleModifyResponseHeaderAction)[vs[1].(int)]
+	}).(EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput)
+}
+
+type EndpointGlobalDeliveryRuleUrlRedirectAction struct {
+	// Specifies the fragment part of the URL. This value must not start with a `#`.
+	Fragment *string `pulumi:"fragment"`
+	// Specifies the hostname part of the URL.
+	Hostname *string `pulumi:"hostname"`
+	// Specifies the path part of the URL. This value must begin with a `/`.
+	Path *string `pulumi:"path"`
+	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	Protocol *string `pulumi:"protocol"`
+	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+	QueryString *string `pulumi:"queryString"`
+	// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+	RedirectType string `pulumi:"redirectType"`
+}
+
+// EndpointGlobalDeliveryRuleUrlRedirectActionInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRedirectActionArgs and EndpointGlobalDeliveryRuleUrlRedirectActionOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRedirectActionInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleUrlRedirectActionArgs{...}
+//
+type EndpointGlobalDeliveryRuleUrlRedirectActionInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleUrlRedirectActionOutput() EndpointGlobalDeliveryRuleUrlRedirectActionOutput
+	ToEndpointGlobalDeliveryRuleUrlRedirectActionOutputWithContext(context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionOutput
+}
+
+type EndpointGlobalDeliveryRuleUrlRedirectActionArgs struct {
+	// Specifies the fragment part of the URL. This value must not start with a `#`.
+	Fragment pulumi.StringPtrInput `pulumi:"fragment"`
+	// Specifies the hostname part of the URL.
+	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
+	// Specifies the path part of the URL. This value must begin with a `/`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+}
+
+func (EndpointGlobalDeliveryRuleUrlRedirectActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRedirectActionArgs) ToEndpointGlobalDeliveryRuleUrlRedirectActionOutput() EndpointGlobalDeliveryRuleUrlRedirectActionOutput {
+	return i.ToEndpointGlobalDeliveryRuleUrlRedirectActionOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRedirectActionArgs) ToEndpointGlobalDeliveryRuleUrlRedirectActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleUrlRedirectActionOutput)
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRedirectActionArgs) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRedirectActionArgs) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleUrlRedirectActionOutput).ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx)
+}
+
+// EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRedirectActionArgs, EndpointGlobalDeliveryRuleUrlRedirectActionPtr and EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleUrlRedirectActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput
+	ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput
+}
+
+type endpointGlobalDeliveryRuleUrlRedirectActionPtrType EndpointGlobalDeliveryRuleUrlRedirectActionArgs
+
+func EndpointGlobalDeliveryRuleUrlRedirectActionPtr(v *EndpointGlobalDeliveryRuleUrlRedirectActionArgs) EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput {
+	return (*endpointGlobalDeliveryRuleUrlRedirectActionPtrType)(v)
+}
+
+func (*endpointGlobalDeliveryRuleUrlRedirectActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (i *endpointGlobalDeliveryRuleUrlRedirectActionPtrType) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointGlobalDeliveryRuleUrlRedirectActionPtrType) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleUrlRedirectActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleUrlRedirectActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) ToEndpointGlobalDeliveryRuleUrlRedirectActionOutput() EndpointGlobalDeliveryRuleUrlRedirectActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) ToEndpointGlobalDeliveryRuleUrlRedirectActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return o.ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *EndpointGlobalDeliveryRuleUrlRedirectAction {
+		return &v
+	}).(EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput)
+}
+
+// Specifies the fragment part of the URL. This value must not start with a `#`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Fragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Fragment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hostname part of the URL.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the path part of the URL. This value must begin with a `/`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+type EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleUrlRedirectAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) ToEndpointGlobalDeliveryRuleUrlRedirectActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Elem() EndpointGlobalDeliveryRuleUrlRedirectActionOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) EndpointGlobalDeliveryRuleUrlRedirectAction {
+		return *v
+	}).(EndpointGlobalDeliveryRuleUrlRedirectActionOutput)
+}
+
+// Specifies the fragment part of the URL. This value must not start with a `#`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Fragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Fragment }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hostname part of the URL.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the path part of the URL. This value must begin with a `/`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+type EndpointGlobalDeliveryRuleUrlRewriteAction struct {
+	// This value must start with a `/` and can't be longer than 260 characters.
+	Destination string `pulumi:"destination"`
+	// Defaults to `true`.
+	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
+	// This value must start with a `/` and can't be longer than 260 characters.
+	SourcePattern string `pulumi:"sourcePattern"`
+}
+
+// EndpointGlobalDeliveryRuleUrlRewriteActionInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRewriteActionArgs and EndpointGlobalDeliveryRuleUrlRewriteActionOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRewriteActionInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleUrlRewriteActionArgs{...}
+//
+type EndpointGlobalDeliveryRuleUrlRewriteActionInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleUrlRewriteActionOutput() EndpointGlobalDeliveryRuleUrlRewriteActionOutput
+	ToEndpointGlobalDeliveryRuleUrlRewriteActionOutputWithContext(context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionOutput
+}
+
+type EndpointGlobalDeliveryRuleUrlRewriteActionArgs struct {
+	// This value must start with a `/` and can't be longer than 260 characters.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// Defaults to `true`.
+	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
+	// This value must start with a `/` and can't be longer than 260 characters.
+	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
+}
+
+func (EndpointGlobalDeliveryRuleUrlRewriteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRewriteActionArgs) ToEndpointGlobalDeliveryRuleUrlRewriteActionOutput() EndpointGlobalDeliveryRuleUrlRewriteActionOutput {
+	return i.ToEndpointGlobalDeliveryRuleUrlRewriteActionOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRewriteActionArgs) ToEndpointGlobalDeliveryRuleUrlRewriteActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleUrlRewriteActionOutput)
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRewriteActionArgs) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointGlobalDeliveryRuleUrlRewriteActionArgs) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleUrlRewriteActionOutput).ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx)
+}
+
+// EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRewriteActionArgs, EndpointGlobalDeliveryRuleUrlRewriteActionPtr and EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput values.
+// You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput` via:
+//
+// 		 EndpointGlobalDeliveryRuleUrlRewriteActionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput interface {
+	pulumi.Input
+
+	ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput
+	ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput
+}
+
+type endpointGlobalDeliveryRuleUrlRewriteActionPtrType EndpointGlobalDeliveryRuleUrlRewriteActionArgs
+
+func EndpointGlobalDeliveryRuleUrlRewriteActionPtr(v *EndpointGlobalDeliveryRuleUrlRewriteActionArgs) EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput {
+	return (*endpointGlobalDeliveryRuleUrlRewriteActionPtrType)(v)
+}
+
+func (*endpointGlobalDeliveryRuleUrlRewriteActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (i *endpointGlobalDeliveryRuleUrlRewriteActionPtrType) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return i.ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointGlobalDeliveryRuleUrlRewriteActionPtrType) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput)
+}
+
+type EndpointGlobalDeliveryRuleUrlRewriteActionOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleUrlRewriteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) ToEndpointGlobalDeliveryRuleUrlRewriteActionOutput() EndpointGlobalDeliveryRuleUrlRewriteActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) ToEndpointGlobalDeliveryRuleUrlRewriteActionOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return o.ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) *EndpointGlobalDeliveryRuleUrlRewriteAction {
+		return &v
+	}).(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Defaults to `true`.
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) string { return v.SourcePattern }).(pulumi.StringOutput)
+}
+
+type EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointGlobalDeliveryRuleUrlRewriteAction)(nil)).Elem()
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) ToEndpointGlobalDeliveryRuleUrlRewriteActionPtrOutputWithContext(ctx context.Context) EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
+	return o
+}
+
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) Elem() EndpointGlobalDeliveryRuleUrlRewriteActionOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRewriteAction) EndpointGlobalDeliveryRuleUrlRewriteAction {
+		return *v
+	}).(EndpointGlobalDeliveryRuleUrlRewriteActionOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Defaults to `true`.
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// This value must start with a `/` and can't be longer than 260 characters.
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) string { return v.SourcePattern }).(pulumi.StringOutput)
 }
 
 type EndpointOrigin struct {
@@ -254,8 +4413,64 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(EndpointDeliveryRuleOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleCacheExpirationActionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleCacheExpirationActionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleCacheKeyQueryStringActionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleCookiesConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleCookiesConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleDeviceConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleDeviceConditionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleHttpVersionConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleHttpVersionConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleModifyRequestHeaderActionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleModifyResponseHeaderActionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRulePostArgConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRulePostArgConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleQueryStringConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleQueryStringConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRemoteAddressConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRemoteAddressConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestBodyConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestBodyConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestHeaderConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestHeaderConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestMethodConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestMethodConditionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestSchemeConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestSchemeConditionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestUriConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleRequestUriConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlFileExtensionConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlFileNameConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlFileNameConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlPathConditionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlPathConditionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlRedirectActionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlRedirectActionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlRewriteActionOutput{})
+	pulumi.RegisterOutputType(EndpointDeliveryRuleUrlRewriteActionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointGeoFilterOutput{})
 	pulumi.RegisterOutputType(EndpointGeoFilterArrayOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRulePtrOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleCacheExpirationActionOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRedirectActionOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRewriteActionOutput{})
+	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointOriginOutput{})
 	pulumi.RegisterOutputType(EndpointOriginArrayOutput{})
 }

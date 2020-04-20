@@ -5032,6 +5032,8 @@ type FunctionAppSiteConfig struct {
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -5065,6 +5067,8 @@ type FunctionAppSiteConfigArgs struct {
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -5184,6 +5188,11 @@ func (o FunctionAppSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
+// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+func (o FunctionAppSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 func (o FunctionAppSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
@@ -5245,6 +5254,11 @@ func (o FunctionAppSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput 
 // The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
 func (o FunctionAppSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+func (o FunctionAppSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.

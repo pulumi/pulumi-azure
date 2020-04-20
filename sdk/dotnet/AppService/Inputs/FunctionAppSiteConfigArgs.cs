@@ -61,6 +61,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
+        /// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+        /// </summary>
+        [Input("preWarmedInstanceCount")]
+        public Input<int>? PreWarmedInstanceCount { get; set; }
+
+        /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>
         [Input("use32BitWorkerProcess")]

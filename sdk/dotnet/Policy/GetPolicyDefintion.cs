@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Policy
         /// {{% examples %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetPolicyDefintionResult> InvokeAsync(GetPolicyDefintionArgs args, InvokeOptions? options = null)
+        public static Task<GetPolicyDefintionResult> InvokeAsync(GetPolicyDefintionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionArgs(), options.WithVersion());
     }
 
@@ -25,16 +25,25 @@ namespace Pulumi.Azure.Policy
     public sealed class GetPolicyDefintionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the Policy Definition.
+        /// Specifies the display name of the Policy Definition. Conflicts with `name`.
         /// </summary>
-        [Input("displayName", required: true)]
-        public string DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public string? DisplayName { get; set; }
+
+        [Input("managementGroupId")]
+        public string? ManagementGroupId { get; set; }
 
         /// <summary>
         /// Only retrieve Policy Definitions from this Management Group.
         /// </summary>
-        [Input("managementGroupId")]
-        public string? ManagementGroupId { get; set; }
+        [Input("managementGroupName")]
+        public string? ManagementGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the Policy Definition. Conflicts with `display_name`.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         public GetPolicyDefintionArgs()
         {
@@ -55,13 +64,11 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string Id;
         public readonly string? ManagementGroupId;
+        public readonly string? ManagementGroupName;
         /// <summary>
         /// Any Metadata defined in the Policy.
         /// </summary>
         public readonly string Metadata;
-        /// <summary>
-        /// The Name of the Policy Definition.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Any Parameters defined in the Policy.
@@ -72,7 +79,7 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string PolicyRule;
         /// <summary>
-        /// The Type of the Policy, such as `Microsoft.Authorization/policyDefinitions`.
+        /// The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
         /// </summary>
         public readonly string PolicyType;
         /// <summary>
@@ -90,6 +97,8 @@ namespace Pulumi.Azure.Policy
 
             string? managementGroupId,
 
+            string? managementGroupName,
+
             string metadata,
 
             string name,
@@ -106,6 +115,7 @@ namespace Pulumi.Azure.Policy
             DisplayName = displayName;
             Id = id;
             ManagementGroupId = managementGroupId;
+            ManagementGroupName = managementGroupName;
             Metadata = metadata;
             Name = name;
             Parameters = parameters;

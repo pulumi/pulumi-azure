@@ -96,8 +96,6 @@ def get_nat_gateway(name=None,public_ip_address_ids=None,public_ip_prefix_ids=No
     """
     Use this data source to access information about an existing NAT Gateway.
 
-    > **NOTE:** The Azure NAT Gateway service is currently in private preview. Your subscription must be on the NAT Gateway private preview whitelist for this resource to be provisioned correctly. If you attempt to provision this resource and receive an `InvalidResourceType` error may mean that your subscription is not part of the NAT Gateway private preview or you are using a region which does not yet support the NAT Gateway private preview service. The NAT Gateway private preview service is currently available in a limited set of regions. Private preview resources may have multiple breaking changes over their lifecycle until they GA. You can opt into the Private Preview by contacting your Microsoft Representative.
-
 
     :param str name: Specifies the Name of the NAT Gateway.
     :param list public_ip_address_ids: A list of existing Public IP Address resource IDs which the NAT Gateway is using.

@@ -18,6 +18,8 @@ type SqlServer struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+	ConnectionPolicy pulumi.StringPtrOutput `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
@@ -80,6 +82,8 @@ type sqlServerState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy *SqlServerExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
@@ -103,6 +107,8 @@ type SqlServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrInput
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
@@ -130,6 +136,8 @@ type sqlServerArgs struct {
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy *SqlServerExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// An `identity` block as defined below.
@@ -152,6 +160,8 @@ type SqlServerArgs struct {
 	AdministratorLogin pulumi.StringInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringInput
+	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrInput
 	// An `identity` block as defined below.

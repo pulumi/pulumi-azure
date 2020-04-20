@@ -3393,6 +3393,123 @@ func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) Kuberne
 	}).(KubernetesClusterKubeConfigOutput)
 }
 
+type KubernetesClusterKubeletIdentity struct {
+	// The Client ID for the Service Principal.
+	ClientId *string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId *string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// KubernetesClusterKubeletIdentityInput is an input type that accepts KubernetesClusterKubeletIdentityArgs and KubernetesClusterKubeletIdentityOutput values.
+// You can construct a concrete instance of `KubernetesClusterKubeletIdentityInput` via:
+//
+// 		 KubernetesClusterKubeletIdentityArgs{...}
+//
+type KubernetesClusterKubeletIdentityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterKubeletIdentityOutput() KubernetesClusterKubeletIdentityOutput
+	ToKubernetesClusterKubeletIdentityOutputWithContext(context.Context) KubernetesClusterKubeletIdentityOutput
+}
+
+type KubernetesClusterKubeletIdentityArgs struct {
+	// The Client ID for the Service Principal.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (KubernetesClusterKubeletIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentityOutput() KubernetesClusterKubeletIdentityOutput {
+	return i.ToKubernetesClusterKubeletIdentityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentityOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityOutput)
+}
+
+// KubernetesClusterKubeletIdentityArrayInput is an input type that accepts KubernetesClusterKubeletIdentityArray and KubernetesClusterKubeletIdentityArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterKubeletIdentityArrayInput` via:
+//
+// 		 KubernetesClusterKubeletIdentityArray{ KubernetesClusterKubeletIdentityArgs{...} }
+//
+type KubernetesClusterKubeletIdentityArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterKubeletIdentityArrayOutput() KubernetesClusterKubeletIdentityArrayOutput
+	ToKubernetesClusterKubeletIdentityArrayOutputWithContext(context.Context) KubernetesClusterKubeletIdentityArrayOutput
+}
+
+type KubernetesClusterKubeletIdentityArray []KubernetesClusterKubeletIdentityInput
+
+func (KubernetesClusterKubeletIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterKubeletIdentityArray) ToKubernetesClusterKubeletIdentityArrayOutput() KubernetesClusterKubeletIdentityArrayOutput {
+	return i.ToKubernetesClusterKubeletIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterKubeletIdentityArray) ToKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeletIdentityArrayOutput)
+}
+
+type KubernetesClusterKubeletIdentityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterKubeletIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdentityOutput() KubernetesClusterKubeletIdentityOutput {
+	return o
+}
+
+func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdentityOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityOutput {
+	return o
+}
+
+// The Client ID for the Service Principal.
+func (o KubernetesClusterKubeletIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o KubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets.
+func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterKubeletIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterKubeletIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterKubeletIdentityArrayOutput) ToKubernetesClusterKubeletIdentityArrayOutput() KubernetesClusterKubeletIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterKubeletIdentityArrayOutput) ToKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeletIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterKubeletIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeletIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterKubeletIdentity {
+		return vs[0].([]KubernetesClusterKubeletIdentity)[vs[1].(int)]
+	}).(KubernetesClusterKubeletIdentityOutput)
+}
+
 type KubernetesClusterLinuxProfile struct {
 	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -6870,6 +6987,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeConfigOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeConfigArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKubeletIdentityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKubeletIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileSshKeyOutput{})

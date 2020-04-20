@@ -106,6 +106,14 @@ class KubernetesCluster(pulumi.CustomResource):
       * `password` (`str`) - A password or token used to authenticate to the Kubernetes cluster.
       * `username` (`str`) - A username used to authenticate to the Kubernetes cluster.
     """
+    kubelet_identities: pulumi.Output[list]
+    """
+    A `kubelet_identity` block as defined below.  
+
+      * `client_id` (`str`) - The Client ID for the Service Principal.
+      * `object_id` (`str`) - The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+      * `userAssignedIdentityId` (`str`) - The ID of the User Assigned Identity assigned to the Kubelets.
+    """
     kubernetes_version: pulumi.Output[str]
     """
     Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -347,6 +355,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['kube_admin_configs'] = None
             __props__['kube_config_raw'] = None
             __props__['kube_configs'] = None
+            __props__['kubelet_identities'] = None
             __props__['private_fqdn'] = None
         super(KubernetesCluster, __self__).__init__(
             'azure:containerservice/kubernetesCluster:KubernetesCluster',
@@ -355,7 +364,7 @@ class KubernetesCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
+    def get(resource_name, id, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
         """
         Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -374,6 +383,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[list] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
         :param pulumi.Input[list] kube_configs: A `kube_config` block as defined below.
+        :param pulumi.Input[list] kubelet_identities: A `kubelet_identity` block as defined below.  
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[dict] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
@@ -449,6 +459,12 @@ class KubernetesCluster(pulumi.CustomResource):
           * `password` (`pulumi.Input[str]`) - A password or token used to authenticate to the Kubernetes cluster.
           * `username` (`pulumi.Input[str]`) - A username used to authenticate to the Kubernetes cluster.
 
+        The **kubelet_identities** object supports the following:
+
+          * `client_id` (`pulumi.Input[str]`) - The Client ID for the Service Principal.
+          * `object_id` (`pulumi.Input[str]`) - The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+          * `userAssignedIdentityId` (`pulumi.Input[str]`) - The ID of the User Assigned Identity assigned to the Kubelets.
+
         The **linux_profile** object supports the following:
 
           * `admin_username` (`pulumi.Input[str]`) - The Admin Username for the Cluster. Changing this forces a new resource to be created.
@@ -507,6 +523,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__["kube_admin_configs"] = kube_admin_configs
         __props__["kube_config_raw"] = kube_config_raw
         __props__["kube_configs"] = kube_configs
+        __props__["kubelet_identities"] = kubelet_identities
         __props__["kubernetes_version"] = kubernetes_version
         __props__["linux_profile"] = linux_profile
         __props__["location"] = location

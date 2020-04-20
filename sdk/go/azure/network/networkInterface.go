@@ -24,6 +24,8 @@ type NetworkInterface struct {
 	EnableIpForwarding pulumi.BoolPtrOutput `pulumi:"enableIpForwarding"`
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel pulumi.StringOutput `pulumi:"internalDnsNameLabel"`
+	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
+	InternalDomainNameSuffix pulumi.StringOutput `pulumi:"internalDomainNameSuffix"`
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations NetworkInterfaceIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// The location where the Network Interface should exist. Changing this forces a new resource to be created.
@@ -88,6 +90,8 @@ type networkInterfaceState struct {
 	EnableIpForwarding *bool `pulumi:"enableIpForwarding"`
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel *string `pulumi:"internalDnsNameLabel"`
+	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
+	InternalDomainNameSuffix *string `pulumi:"internalDomainNameSuffix"`
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations []NetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// The location where the Network Interface should exist. Changing this forces a new resource to be created.
@@ -119,6 +123,8 @@ type NetworkInterfaceState struct {
 	EnableIpForwarding pulumi.BoolPtrInput
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
 	InternalDnsNameLabel pulumi.StringPtrInput
+	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
+	InternalDomainNameSuffix pulumi.StringPtrInput
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations NetworkInterfaceIpConfigurationArrayInput
 	// The location where the Network Interface should exist. Changing this forces a new resource to be created.

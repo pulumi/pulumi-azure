@@ -40,6 +40,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// The GUID of the virtual network.
+        /// </summary>
+        [Output("guid")]
+        public Output<string> Guid { get; private set; } = null!;
+
+        /// <summary>
         /// The location/region where the virtual network is
         /// created. Changing this forces a new resource to be created.
         /// </summary>
@@ -235,6 +241,12 @@ namespace Pulumi.Azure.Network
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// The GUID of the virtual network.
+        /// </summary>
+        [Input("guid")]
+        public Input<string>? Guid { get; set; }
 
         /// <summary>
         /// The location/region where the virtual network is

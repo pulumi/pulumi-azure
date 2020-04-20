@@ -27,6 +27,10 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     List of IP addresses of DNS servers
     """
+    guid: pulumi.Output[str]
+    """
+    The GUID of the virtual network.
+    """
     location: pulumi.Output[str]
     """
     The location/region where the virtual network is
@@ -129,6 +133,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['subnets'] = subnets
             __props__['tags'] = tags
+            __props__['guid'] = None
         super(VirtualNetwork, __self__).__init__(
             'azure:network/virtualNetwork:VirtualNetwork',
             resource_name,
@@ -136,7 +141,7 @@ class VirtualNetwork(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address_spaces=None, ddos_protection_plan=None, dns_servers=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None):
+    def get(resource_name, id, opts=None, address_spaces=None, ddos_protection_plan=None, dns_servers=None, guid=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None):
         """
         Get an existing VirtualNetwork resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -149,6 +154,7 @@ class VirtualNetwork(pulumi.CustomResource):
                a new resource to be created.
         :param pulumi.Input[dict] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[list] dns_servers: List of IP addresses of DNS servers
+        :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is
                created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
@@ -180,6 +186,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__["address_spaces"] = address_spaces
         __props__["ddos_protection_plan"] = ddos_protection_plan
         __props__["dns_servers"] = dns_servers
+        __props__["guid"] = guid
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name

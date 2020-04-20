@@ -54,6 +54,10 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly dailyDataCapNotificationsDisabled!: pulumi.Output<boolean>;
     /**
+     * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+     */
+    public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
+    /**
      * The Instrumentation Key for this Application Insights component.
      */
     public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["applicationType"] = state ? state.applicationType : undefined;
             inputs["dailyDataCapInGb"] = state ? state.dailyDataCapInGb : undefined;
             inputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
+            inputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
             inputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -118,6 +123,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["applicationType"] = args ? args.applicationType : undefined;
             inputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
             inputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
+            inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -158,6 +164,10 @@ export interface InsightsState {
      * Specifies if a notification email will be send when the daily data volume cap is met.
      */
     readonly dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
+    /**
+     * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+     */
+    readonly disableIpMasking?: pulumi.Input<boolean>;
     /**
      * The Instrumentation Key for this Application Insights component.
      */
@@ -206,6 +216,10 @@ export interface InsightsArgs {
      * Specifies if a notification email will be send when the daily data volume cap is met.
      */
     readonly dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
+    /**
+     * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+     */
+    readonly disableIpMasking?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

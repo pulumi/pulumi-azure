@@ -46,6 +46,8 @@ type Database struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
@@ -113,6 +115,8 @@ type databaseState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -150,6 +154,8 @@ type DatabaseState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
 }
@@ -191,6 +197,8 @@ type databaseArgs struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -229,6 +237,8 @@ type DatabaseArgs struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
 }

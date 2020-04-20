@@ -36,6 +36,8 @@ type KubernetesCluster struct {
 	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
+	// A `kubeletIdentity` block as defined below.
+	KubeletIdentities KubernetesClusterKubeletIdentityArrayOutput `pulumi:"kubeletIdentities"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -122,6 +124,8 @@ type kubernetesClusterState struct {
 	KubeConfigRaw *string `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
+	// A `kubeletIdentity` block as defined below.
+	KubeletIdentities []KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -172,6 +176,8 @@ type KubernetesClusterState struct {
 	KubeConfigRaw pulumi.StringPtrInput
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayInput
+	// A `kubeletIdentity` block as defined below.
+	KubeletIdentities KubernetesClusterKubeletIdentityArrayInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.

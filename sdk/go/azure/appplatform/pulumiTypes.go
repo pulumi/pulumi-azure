@@ -1013,6 +1013,787 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) StrictHostKeyC
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) *bool { return v.StrictHostKeyCheckingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+type GetSpringCloudServiceConfigServerGitSetting struct {
+	// A `httpBasicAuth` block as defined below.
+	HttpBasicAuths []GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth `pulumi:"httpBasicAuths"`
+	// The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+	Label string `pulumi:"label"`
+	// One or more `repository` blocks as defined below.
+	Repositories []GetSpringCloudServiceConfigServerGitSettingRepository `pulumi:"repositories"`
+	// An array of strings used to search subdirectories of the Git repository.
+	SearchPaths []string `pulumi:"searchPaths"`
+	// A `sshAuth` block as defined below.
+	SshAuths []GetSpringCloudServiceConfigServerGitSettingSshAuth `pulumi:"sshAuths"`
+	// The URI of the Git repository
+	Uri string `pulumi:"uri"`
+}
+
+// GetSpringCloudServiceConfigServerGitSettingInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingArgs and GetSpringCloudServiceConfigServerGitSettingOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingArgs{...}
+//
+type GetSpringCloudServiceConfigServerGitSettingInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingOutput() GetSpringCloudServiceConfigServerGitSettingOutput
+	ToGetSpringCloudServiceConfigServerGitSettingOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingArgs struct {
+	// A `httpBasicAuth` block as defined below.
+	HttpBasicAuths GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput `pulumi:"httpBasicAuths"`
+	// The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+	Label pulumi.StringInput `pulumi:"label"`
+	// One or more `repository` blocks as defined below.
+	Repositories GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput `pulumi:"repositories"`
+	// An array of strings used to search subdirectories of the Git repository.
+	SearchPaths pulumi.StringArrayInput `pulumi:"searchPaths"`
+	// A `sshAuth` block as defined below.
+	SshAuths GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput `pulumi:"sshAuths"`
+	// The URI of the Git repository
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (GetSpringCloudServiceConfigServerGitSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSetting)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingArgs) ToGetSpringCloudServiceConfigServerGitSettingOutput() GetSpringCloudServiceConfigServerGitSettingOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingArgs) ToGetSpringCloudServiceConfigServerGitSettingOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingOutput)
+}
+
+// GetSpringCloudServiceConfigServerGitSettingArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingArray and GetSpringCloudServiceConfigServerGitSettingArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingArrayInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingArray{ GetSpringCloudServiceConfigServerGitSettingArgs{...} }
+//
+type GetSpringCloudServiceConfigServerGitSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingArrayOutput() GetSpringCloudServiceConfigServerGitSettingArrayOutput
+	ToGetSpringCloudServiceConfigServerGitSettingArrayOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingArrayOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingArray []GetSpringCloudServiceConfigServerGitSettingInput
+
+func (GetSpringCloudServiceConfigServerGitSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSetting)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingArray) ToGetSpringCloudServiceConfigServerGitSettingArrayOutput() GetSpringCloudServiceConfigServerGitSettingArrayOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingArray) ToGetSpringCloudServiceConfigServerGitSettingArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingArrayOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSetting)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) ToGetSpringCloudServiceConfigServerGitSettingOutput() GetSpringCloudServiceConfigServerGitSettingOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) ToGetSpringCloudServiceConfigServerGitSettingOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingOutput {
+	return o
+}
+
+// A `httpBasicAuth` block as defined below.
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) HttpBasicAuths() GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSetting) []GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth {
+		return v.HttpBasicAuths
+	}).(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput)
+}
+
+// The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSetting) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// One or more `repository` blocks as defined below.
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) Repositories() GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSetting) []GetSpringCloudServiceConfigServerGitSettingRepository {
+		return v.Repositories
+	}).(GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput)
+}
+
+// An array of strings used to search subdirectories of the Git repository.
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) SearchPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSetting) []string { return v.SearchPaths }).(pulumi.StringArrayOutput)
+}
+
+// A `sshAuth` block as defined below.
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) SshAuths() GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSetting) []GetSpringCloudServiceConfigServerGitSettingSshAuth {
+		return v.SshAuths
+	}).(GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput)
+}
+
+// The URI of the Git repository
+func (o GetSpringCloudServiceConfigServerGitSettingOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSetting) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSetting)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingArrayOutput() GetSpringCloudServiceConfigServerGitSettingArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSetting {
+		return vs[0].([]GetSpringCloudServiceConfigServerGitSetting)[vs[1].(int)]
+	}).(GetSpringCloudServiceConfigServerGitSettingOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth struct {
+	// The password used to access the Http Basic Authentication Git repository server.
+	Password string `pulumi:"password"`
+	// The username used to access the Http Basic Authentication Git repository server.
+	Username string `pulumi:"username"`
+}
+
+// GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs and GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...}
+//
+type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput() GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput
+	ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs struct {
+	// The password used to access the Http Basic Authentication Git repository server.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username used to access the Http Basic Authentication Git repository server.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput() GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput)
+}
+
+// GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray and GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray{ GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs{...} }
+//
+type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput
+	ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray []GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthInput
+
+func (GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArray) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput() GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
+	return o
+}
+
+// The password used to access the Http Basic Authentication Git repository server.
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username used to access the Http Basic Authentication Git repository server.
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth {
+		return vs[0].([]GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth)[vs[1].(int)]
+	}).(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepository struct {
+	// A `httpBasicAuth` block as defined below.
+	HttpBasicAuths []GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth `pulumi:"httpBasicAuths"`
+	// The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+	Label string `pulumi:"label"`
+	// Specifies The name of the Spring Cloud Service resource.
+	Name string `pulumi:"name"`
+	// An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+	Patterns []string `pulumi:"patterns"`
+	// An array of strings used to search subdirectories of the Git repository.
+	SearchPaths []string `pulumi:"searchPaths"`
+	// A `sshAuth` block as defined below.
+	SshAuths []GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth `pulumi:"sshAuths"`
+	// The URI of the Git repository
+	Uri string `pulumi:"uri"`
+}
+
+// GetSpringCloudServiceConfigServerGitSettingRepositoryInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryArgs and GetSpringCloudServiceConfigServerGitSettingRepositoryOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingRepositoryArgs{...}
+//
+type GetSpringCloudServiceConfigServerGitSettingRepositoryInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryOutput
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryArgs struct {
+	// A `httpBasicAuth` block as defined below.
+	HttpBasicAuths GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput `pulumi:"httpBasicAuths"`
+	// The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+	Label pulumi.StringInput `pulumi:"label"`
+	// Specifies The name of the Spring Cloud Service resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+	Patterns pulumi.StringArrayInput `pulumi:"patterns"`
+	// An array of strings used to search subdirectories of the Git repository.
+	SearchPaths pulumi.StringArrayInput `pulumi:"searchPaths"`
+	// A `sshAuth` block as defined below.
+	SshAuths GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput `pulumi:"sshAuths"`
+	// The URI of the Git repository
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingRepository)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArgs) ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArgs) ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryOutput)
+}
+
+// GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryArray and GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingRepositoryArray{ GetSpringCloudServiceConfigServerGitSettingRepositoryArgs{...} }
+//
+type GetSpringCloudServiceConfigServerGitSettingRepositoryArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryArray []GetSpringCloudServiceConfigServerGitSettingRepositoryInput
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingRepository)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArray) ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryArray) ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingRepository)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryOutput {
+	return o
+}
+
+// A `httpBasicAuth` block as defined below.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) HttpBasicAuths() GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepository) []GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
+		return v.HttpBasicAuths
+	}).(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput)
+}
+
+// The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepository) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// Specifies The name of the Spring Cloud Service resource.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepository) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) Patterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepository) []string { return v.Patterns }).(pulumi.StringArrayOutput)
+}
+
+// An array of strings used to search subdirectories of the Git repository.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) SearchPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepository) []string { return v.SearchPaths }).(pulumi.StringArrayOutput)
+}
+
+// A `sshAuth` block as defined below.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) SshAuths() GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepository) []GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth {
+		return v.SshAuths
+	}).(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput)
+}
+
+// The URI of the Git repository
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepository) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingRepository)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSettingRepository {
+		return vs[0].([]GetSpringCloudServiceConfigServerGitSettingRepository)[vs[1].(int)]
+	}).(GetSpringCloudServiceConfigServerGitSettingRepositoryOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth struct {
+	// The password used to access the Http Basic Authentication Git repository server.
+	Password string `pulumi:"password"`
+	// The username used to access the Http Basic Authentication Git repository server.
+	Username string `pulumi:"username"`
+}
+
+// GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs and GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...}
+//
+type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs struct {
+	// The password used to access the Http Basic Authentication Git repository server.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username used to access the Http Basic Authentication Git repository server.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput)
+}
+
+// GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray and GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray{ GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs{...} }
+//
+type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput
+	ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray []GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthInput
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArray) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
+	return o
+}
+
+// The password used to access the Http Basic Authentication Git repository server.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username used to access the Http Basic Authentication Git repository server.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth {
+		return vs[0].([]GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth)[vs[1].(int)]
+	}).(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth struct {
+	// The host key of the Git repository server.
+	HostKey string `pulumi:"hostKey"`
+	// The host key algorithm.
+	HostKeyAlgorithm string `pulumi:"hostKeyAlgorithm"`
+	// The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+	PrivateKey string `pulumi:"privateKey"`
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	StrictHostKeyCheckingEnabled bool `pulumi:"strictHostKeyCheckingEnabled"`
+}
+
+// GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs and GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...}
+//
+type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput() GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput
+	ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs struct {
+	// The host key of the Git repository server.
+	HostKey pulumi.StringInput `pulumi:"hostKey"`
+	// The host key algorithm.
+	HostKeyAlgorithm pulumi.StringInput `pulumi:"hostKeyAlgorithm"`
+	// The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	StrictHostKeyCheckingEnabled pulumi.BoolInput `pulumi:"strictHostKeyCheckingEnabled"`
+}
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput() GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput)
+}
+
+// GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray and GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray{ GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs{...} }
+//
+type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput
+	ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray []GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthInput
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArray) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput() GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
+	return o
+}
+
+// The host key of the Git repository server.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) HostKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth) string { return v.HostKey }).(pulumi.StringOutput)
+}
+
+// The host key algorithm.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) HostKeyAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth) string {
+		return v.HostKeyAlgorithm
+	}).(pulumi.StringOutput)
+}
+
+// The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) StrictHostKeyCheckingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth) bool {
+		return v.StrictHostKeyCheckingEnabled
+	}).(pulumi.BoolOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth {
+		return vs[0].([]GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth)[vs[1].(int)]
+	}).(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingSshAuth struct {
+	// The host key of the Git repository server.
+	HostKey string `pulumi:"hostKey"`
+	// The host key algorithm.
+	HostKeyAlgorithm string `pulumi:"hostKeyAlgorithm"`
+	// The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+	PrivateKey string `pulumi:"privateKey"`
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	StrictHostKeyCheckingEnabled bool `pulumi:"strictHostKeyCheckingEnabled"`
+}
+
+// GetSpringCloudServiceConfigServerGitSettingSshAuthInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingSshAuthArgs and GetSpringCloudServiceConfigServerGitSettingSshAuthOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingSshAuthInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingSshAuthArgs{...}
+//
+type GetSpringCloudServiceConfigServerGitSettingSshAuthInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutput() GetSpringCloudServiceConfigServerGitSettingSshAuthOutput
+	ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingSshAuthArgs struct {
+	// The host key of the Git repository server.
+	HostKey pulumi.StringInput `pulumi:"hostKey"`
+	// The host key algorithm.
+	HostKeyAlgorithm pulumi.StringInput `pulumi:"hostKeyAlgorithm"`
+	// The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	StrictHostKeyCheckingEnabled pulumi.BoolInput `pulumi:"strictHostKeyCheckingEnabled"`
+}
+
+func (GetSpringCloudServiceConfigServerGitSettingSshAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingSshAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutput() GetSpringCloudServiceConfigServerGitSettingSshAuthOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArgs) ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingSshAuthOutput)
+}
+
+// GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput is an input type that accepts GetSpringCloudServiceConfigServerGitSettingSshAuthArray and GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput` via:
+//
+// 		 GetSpringCloudServiceConfigServerGitSettingSshAuthArray{ GetSpringCloudServiceConfigServerGitSettingSshAuthArgs{...} }
+//
+type GetSpringCloudServiceConfigServerGitSettingSshAuthArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput
+	ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutputWithContext(context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput
+}
+
+type GetSpringCloudServiceConfigServerGitSettingSshAuthArray []GetSpringCloudServiceConfigServerGitSettingSshAuthInput
+
+func (GetSpringCloudServiceConfigServerGitSettingSshAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingSshAuth)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArray) ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput {
+	return i.ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceConfigServerGitSettingSshAuthArray) ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingSshAuthOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceConfigServerGitSettingSshAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutput() GetSpringCloudServiceConfigServerGitSettingSshAuthOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) ToGetSpringCloudServiceConfigServerGitSettingSshAuthOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthOutput {
+	return o
+}
+
+// The host key of the Git repository server.
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) HostKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingSshAuth) string { return v.HostKey }).(pulumi.StringOutput)
+}
+
+// The host key algorithm.
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) HostKeyAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingSshAuth) string { return v.HostKeyAlgorithm }).(pulumi.StringOutput)
+}
+
+// The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingSshAuth) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) StrictHostKeyCheckingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingSshAuth) bool {
+		return v.StrictHostKeyCheckingEnabled
+	}).(pulumi.BoolOutput)
+}
+
+type GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceConfigServerGitSettingSshAuth)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput() GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) ToGetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceConfigServerGitSettingSshAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceConfigServerGitSettingSshAuth {
+		return vs[0].([]GetSpringCloudServiceConfigServerGitSettingSshAuth)[vs[1].(int)]
+	}).(GetSpringCloudServiceConfigServerGitSettingSshAuthOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingPtrOutput{})
@@ -1026,4 +1807,16 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArrayOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingRepositoryOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrayOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingSshAuthOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput{})
 }

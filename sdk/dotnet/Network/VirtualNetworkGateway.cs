@@ -31,9 +31,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
-        /// gateway is created will be routed (*forced tunneling*). Refer to the
-        /// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        /// If not specified, forced tunneling is disabled.
+        /// gateway is created will be routed (*forced tunnelling*). Refer to the
+        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        /// If not specified, forced tunnelling is disabled.
         /// </summary>
         [Output("defaultLocalNetworkGatewayId")]
         public Output<string?> DefaultLocalNetworkGatewayId { get; private set; } = null!;
@@ -181,9 +181,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
-        /// gateway is created will be routed (*forced tunneling*). Refer to the
-        /// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        /// If not specified, forced tunneling is disabled.
+        /// gateway is created will be routed (*forced tunnelling*). Refer to the
+        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        /// If not specified, forced tunnelling is disabled.
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }
@@ -304,9 +304,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the local network gateway
         /// through which outbound Internet traffic from the virtual network in which the
-        /// gateway is created will be routed (*forced tunneling*). Refer to the
-        /// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-        /// If not specified, forced tunneling is disabled.
+        /// gateway is created will be routed (*forced tunnelling*). Refer to the
+        /// [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        /// If not specified, forced tunnelling is disabled.
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }

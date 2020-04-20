@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an IotCentral Application
+ * Manages an IoT Central Application
  * 
  * ## Example Usage
  * 

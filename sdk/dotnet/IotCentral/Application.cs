@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.IotCentral
 {
     /// <summary>
-    /// Manages an IotCentral Application
+    /// Manages an IoT Central Application
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {
