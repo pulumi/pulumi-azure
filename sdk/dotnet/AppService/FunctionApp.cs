@@ -135,8 +135,17 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.FunctionAppSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+        /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
+        [Output("storageAccountAccessKey")]
+        public Output<string> StorageAccountAccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        /// </summary>
+        [Output("storageAccountName")]
+        public Output<string> StorageAccountName { get; private set; } = null!;
+
         [Output("storageConnectionString")]
         public Output<string> StorageConnectionString { get; private set; } = null!;
 
@@ -301,10 +310,19 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.FunctionAppSiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
-        /// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+        /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
-        [Input("storageConnectionString", required: true)]
-        public Input<string> StorageConnectionString { get; set; } = null!;
+        [Input("storageAccountAccessKey")]
+        public Input<string>? StorageAccountAccessKey { get; set; }
+
+        /// <summary>
+        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
+
+        [Input("storageConnectionString")]
+        public Input<string>? StorageConnectionString { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -470,8 +488,17 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+        /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
+        [Input("storageAccountAccessKey")]
+        public Input<string>? StorageAccountAccessKey { get; set; }
+
+        /// <summary>
+        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
+
         [Input("storageConnectionString")]
         public Input<string>? StorageConnectionString { get; set; }
 

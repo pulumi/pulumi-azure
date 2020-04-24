@@ -13,7 +13,7 @@ class GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
-    def __init__(__self__, description=None, eula=None, gallery_name=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None):
+    def __init__(__self__, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
@@ -29,6 +29,12 @@ class GetSharedImageResult:
         if gallery_name and not isinstance(gallery_name, str):
             raise TypeError("Expected argument 'gallery_name' to be a str")
         __self__.gallery_name = gallery_name
+        if hyper_v_generation and not isinstance(hyper_v_generation, str):
+            raise TypeError("Expected argument 'hyper_v_generation' to be a str")
+        __self__.hyper_v_generation = hyper_v_generation
+        """
+        The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -86,6 +92,7 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
             description=self.description,
             eula=self.eula,
             gallery_name=self.gallery_name,
+            hyper_v_generation=self.hyper_v_generation,
             id=self.id,
             identifiers=self.identifiers,
             location=self.location,
@@ -123,6 +130,7 @@ def get_shared_image(gallery_name=None,name=None,resource_group_name=None,opts=N
         description=__ret__.get('description'),
         eula=__ret__.get('eula'),
         gallery_name=__ret__.get('galleryName'),
+        hyper_v_generation=__ret__.get('hyperVGeneration'),
         id=__ret__.get('id'),
         identifiers=__ret__.get('identifiers'),
         location=__ret__.get('location'),

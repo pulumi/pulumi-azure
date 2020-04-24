@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ApiManagement
         /// Indicates whether a Diagnostic should receive data or not.
         /// </summary>
         [Output("enabled")]
-        public Output<bool> Enabled { get; private set; } = null!;
+        public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
         /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -93,8 +93,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Indicates whether a Diagnostic should receive data or not.
         /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.

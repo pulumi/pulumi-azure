@@ -19,12 +19,16 @@ type MongoCollection struct {
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds pulumi.IntPtrOutput `pulumi:"defaultTtlSeconds"`
+	// One or more `index` blocks as defined below.
+	Indices MongoCollectionIndexArrayOutput `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey pulumi.StringPtrOutput `pulumi:"shardKey"`
+	// One or more `systemIndexes` blocks as defined below.
+	SystemIndexes MongoCollectionSystemIndexArrayOutput `pulumi:"systemIndexes"`
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
@@ -71,12 +75,16 @@ type mongoCollectionState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
+	// One or more `index` blocks as defined below.
+	Indices []MongoCollectionIndex `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey *string `pulumi:"shardKey"`
+	// One or more `systemIndexes` blocks as defined below.
+	SystemIndexes []MongoCollectionSystemIndex `pulumi:"systemIndexes"`
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput *int `pulumi:"throughput"`
 }
@@ -87,12 +95,16 @@ type MongoCollectionState struct {
 	DatabaseName pulumi.StringPtrInput
 	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds pulumi.IntPtrInput
+	// One or more `index` blocks as defined below.
+	Indices MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey pulumi.StringPtrInput
+	// One or more `systemIndexes` blocks as defined below.
+	SystemIndexes MongoCollectionSystemIndexArrayInput
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
 }
@@ -107,6 +119,8 @@ type mongoCollectionArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds *int `pulumi:"defaultTtlSeconds"`
+	// One or more `index` blocks as defined below.
+	Indices []MongoCollectionIndex `pulumi:"indices"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -124,6 +138,8 @@ type MongoCollectionArgs struct {
 	DatabaseName pulumi.StringInput
 	// The default Time To Live in seconds. If the value is `0` items are not automatically expired.
 	DefaultTtlSeconds pulumi.IntPtrInput
+	// One or more `index` blocks as defined below.
+	Indices MongoCollectionIndexArrayInput
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.

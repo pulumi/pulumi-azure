@@ -119,8 +119,13 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.FunctionAppSiteCredential[]>;
     /**
-     * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+     * The access key which will be used to access the backend storage account for the Function App.
      */
+    public readonly storageAccountAccessKey!: pulumi.Output<string>;
+    /**
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     */
+    public readonly storageAccountName!: pulumi.Output<string>;
     public readonly storageConnectionString!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -163,6 +168,8 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
             inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
+            inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             inputs["storageConnectionString"] = state ? state.storageConnectionString : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -173,9 +180,6 @@ export class FunctionApp extends pulumi.CustomResource {
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.storageConnectionString === undefined) {
-                throw new Error("Missing required property 'storageConnectionString'");
             }
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             inputs["appSettings"] = args ? args.appSettings : undefined;
@@ -192,6 +196,8 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -297,8 +303,13 @@ export interface FunctionAppState {
      */
     readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteCredential>[]>;
     /**
-     * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+     * The access key which will be used to access the backend storage account for the Function App.
      */
+    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    /**
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     */
+    readonly storageAccountName?: pulumi.Input<string>;
     readonly storageConnectionString?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -375,9 +386,14 @@ export interface FunctionAppArgs {
      */
     readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
     /**
-     * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+     * The access key which will be used to access the backend storage account for the Function App.
      */
-    readonly storageConnectionString: pulumi.Input<string>;
+    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    /**
+     * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+     */
+    readonly storageAccountName?: pulumi.Input<string>;
+    readonly storageConnectionString?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -73,6 +73,10 @@ export interface GetSharedImageResult {
     readonly eula: string;
     readonly galleryName: string;
     /**
+     * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
+     */
+    readonly hyperVGeneration: string;
+    /**
      * An `identifier` block as defined below.
      */
     readonly identifiers: outputs.compute.GetSharedImageIdentifier[];

@@ -6,6 +6,7 @@
 from .a_record import *
 from .aaaa_record import *
 from .cname_record import *
+from .get_dns_zone import *
 from .link_service import *
 from .mx_record import *
 from .ptr_record import *

@@ -102,6 +102,7 @@ class Service(pulumi.CustomResource):
     """
     The URL for the Publisher Portal associated with this API Management service.
     """
+    private_ip_addresses: pulumi.Output[list]
     protocols: pulumi.Output[dict]
     """
     A `protocols` block as defined below.
@@ -164,7 +165,17 @@ class Service(pulumi.CustomResource):
     """
     A mapping of tags assigned to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, protocols=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    virtual_network_configuration: pulumi.Output[dict]
+    """
+    A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+
+      * `subnet_id` (`str`) - The id of the subnet that will be used for the API Management.
+    """
+    virtual_network_type: pulumi.Output[str]
+    """
+    The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+    """
+    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, protocols=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, virtual_network_configuration=None, virtual_network_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Service.
 
@@ -189,6 +200,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[dict] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 
         The **additional_locations** object supports the following:
 
@@ -269,6 +282,10 @@ class Service(pulumi.CustomResource):
             * `consentRequired` (`pulumi.Input[bool]`) - Should the user be asked for consent during sign up?
             * `enabled` (`pulumi.Input[bool]`) - Should Terms of Service be displayed during sign up?.
             * `text` (`pulumi.Input[str]`) - The Terms of Service which users are required to agree to in order to sign up.
+
+        The **virtual_network_configuration** object supports the following:
+
+          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet that will be used for the API Management.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -312,10 +329,13 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
+            __props__['virtual_network_configuration'] = virtual_network_configuration
+            __props__['virtual_network_type'] = virtual_network_type
             __props__['gateway_regional_url'] = None
             __props__['gateway_url'] = None
             __props__['management_api_url'] = None
             __props__['portal_url'] = None
+            __props__['private_ip_addresses'] = None
             __props__['public_ip_addresses'] = None
             __props__['scm_url'] = None
         super(Service, __self__).__init__(
@@ -325,7 +345,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None):
+    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, private_ip_addresses=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, virtual_network_configuration=None, virtual_network_type=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -356,6 +376,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[dict] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
 
         The **additional_locations** object supports the following:
 
@@ -436,6 +458,10 @@ class Service(pulumi.CustomResource):
             * `consentRequired` (`pulumi.Input[bool]`) - Should the user be asked for consent during sign up?
             * `enabled` (`pulumi.Input[bool]`) - Should Terms of Service be displayed during sign up?.
             * `text` (`pulumi.Input[str]`) - The Terms of Service which users are required to agree to in order to sign up.
+
+        The **virtual_network_configuration** object supports the following:
+
+          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet that will be used for the API Management.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -453,6 +479,7 @@ class Service(pulumi.CustomResource):
         __props__["notification_sender_email"] = notification_sender_email
         __props__["policy"] = policy
         __props__["portal_url"] = portal_url
+        __props__["private_ip_addresses"] = private_ip_addresses
         __props__["protocols"] = protocols
         __props__["public_ip_addresses"] = public_ip_addresses
         __props__["publisher_email"] = publisher_email
@@ -464,6 +491,8 @@ class Service(pulumi.CustomResource):
         __props__["sign_up"] = sign_up
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
+        __props__["virtual_network_configuration"] = virtual_network_configuration
+        __props__["virtual_network_type"] = virtual_network_type
         return Service(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -5100,6 +5100,134 @@ func (o ServiceSignUpTermsOfServiceOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSignUpTermsOfService) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
+type ServiceVirtualNetworkConfiguration struct {
+	// The id of the subnet that will be used for the API Management.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ServiceVirtualNetworkConfigurationInput is an input type that accepts ServiceVirtualNetworkConfigurationArgs and ServiceVirtualNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ServiceVirtualNetworkConfigurationInput` via:
+//
+// 		 ServiceVirtualNetworkConfigurationArgs{...}
+//
+type ServiceVirtualNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceVirtualNetworkConfigurationOutput() ServiceVirtualNetworkConfigurationOutput
+	ToServiceVirtualNetworkConfigurationOutputWithContext(context.Context) ServiceVirtualNetworkConfigurationOutput
+}
+
+type ServiceVirtualNetworkConfigurationArgs struct {
+	// The id of the subnet that will be used for the API Management.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ServiceVirtualNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVirtualNetworkConfigurationArgs) ToServiceVirtualNetworkConfigurationOutput() ServiceVirtualNetworkConfigurationOutput {
+	return i.ToServiceVirtualNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceVirtualNetworkConfigurationArgs) ToServiceVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVirtualNetworkConfigurationOutput)
+}
+
+func (i ServiceVirtualNetworkConfigurationArgs) ToServiceVirtualNetworkConfigurationPtrOutput() ServiceVirtualNetworkConfigurationPtrOutput {
+	return i.ToServiceVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceVirtualNetworkConfigurationArgs) ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVirtualNetworkConfigurationOutput).ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceVirtualNetworkConfigurationPtrInput is an input type that accepts ServiceVirtualNetworkConfigurationArgs, ServiceVirtualNetworkConfigurationPtr and ServiceVirtualNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceVirtualNetworkConfigurationPtrInput` via:
+//
+// 		 ServiceVirtualNetworkConfigurationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ServiceVirtualNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceVirtualNetworkConfigurationPtrOutput() ServiceVirtualNetworkConfigurationPtrOutput
+	ToServiceVirtualNetworkConfigurationPtrOutputWithContext(context.Context) ServiceVirtualNetworkConfigurationPtrOutput
+}
+
+type serviceVirtualNetworkConfigurationPtrType ServiceVirtualNetworkConfigurationArgs
+
+func ServiceVirtualNetworkConfigurationPtr(v *ServiceVirtualNetworkConfigurationArgs) ServiceVirtualNetworkConfigurationPtrInput {
+	return (*serviceVirtualNetworkConfigurationPtrType)(v)
+}
+
+func (*serviceVirtualNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *serviceVirtualNetworkConfigurationPtrType) ToServiceVirtualNetworkConfigurationPtrOutput() ServiceVirtualNetworkConfigurationPtrOutput {
+	return i.ToServiceVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceVirtualNetworkConfigurationPtrType) ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVirtualNetworkConfigurationPtrOutput)
+}
+
+type ServiceVirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceVirtualNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVirtualNetworkConfigurationOutput) ToServiceVirtualNetworkConfigurationOutput() ServiceVirtualNetworkConfigurationOutput {
+	return o
+}
+
+func (o ServiceVirtualNetworkConfigurationOutput) ToServiceVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationOutput {
+	return o
+}
+
+func (o ServiceVirtualNetworkConfigurationOutput) ToServiceVirtualNetworkConfigurationPtrOutput() ServiceVirtualNetworkConfigurationPtrOutput {
+	return o.ToServiceVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceVirtualNetworkConfigurationOutput) ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceVirtualNetworkConfiguration) *ServiceVirtualNetworkConfiguration {
+		return &v
+	}).(ServiceVirtualNetworkConfigurationPtrOutput)
+}
+
+// The id of the subnet that will be used for the API Management.
+func (o ServiceVirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ServiceVirtualNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceVirtualNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVirtualNetworkConfigurationPtrOutput) ToServiceVirtualNetworkConfigurationPtrOutput() ServiceVirtualNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceVirtualNetworkConfigurationPtrOutput) ToServiceVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceVirtualNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceVirtualNetworkConfigurationPtrOutput) Elem() ServiceVirtualNetworkConfigurationOutput {
+	return o.ApplyT(func(v *ServiceVirtualNetworkConfiguration) ServiceVirtualNetworkConfiguration { return *v }).(ServiceVirtualNetworkConfigurationOutput)
+}
+
+// The id of the subnet that will be used for the API Management.
+func (o ServiceVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 type GetApiSubscriptionKeyParameterName struct {
 	// The name of the HTTP Header which should be used for the Subscription Key.
 	Header string `pulumi:"header"`
@@ -6002,6 +6130,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSignUpOutput{})
 	pulumi.RegisterOutputType(ServiceSignUpPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSignUpTermsOfServiceOutput{})
+	pulumi.RegisterOutputType(ServiceVirtualNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceVirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceAdditionalLocationOutput{})

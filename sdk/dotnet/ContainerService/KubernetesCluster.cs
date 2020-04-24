@@ -122,6 +122,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("nodeResourceGroup")]
         public Output<string> NodeResourceGroup { get; private set; } = null!;
 
+        [Output("privateClusterEnabled")]
+        public Output<bool> PrivateClusterEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         /// </summary>
@@ -129,7 +132,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> PrivateFqdn { get; private set; } = null!;
 
         [Output("privateLinkEnabled")]
-        public Output<bool?> PrivateLinkEnabled { get; private set; } = null!;
+        public Output<bool> PrivateLinkEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -284,6 +287,9 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        [Input("privateClusterEnabled")]
+        public Input<bool>? PrivateClusterEnabled { get; set; }
 
         [Input("privateLinkEnabled")]
         public Input<bool>? PrivateLinkEnabled { get; set; }
@@ -462,6 +468,9 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        [Input("privateClusterEnabled")]
+        public Input<bool>? PrivateClusterEnabled { get; set; }
 
         /// <summary>
         /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.

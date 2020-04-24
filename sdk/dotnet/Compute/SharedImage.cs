@@ -33,6 +33,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> GalleryName { get; private set; } = null!;
 
         /// <summary>
+        /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("hyperVGeneration")]
+        public Output<string?> HyperVGeneration { get; private set; } = null!;
+
+        /// <summary>
         /// An `identifier` block as defined below.
         /// </summary>
         [Output("identifier")]
@@ -145,6 +151,12 @@ namespace Pulumi.Azure.Compute
         public Input<string> GalleryName { get; set; } = null!;
 
         /// <summary>
+        /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
+
+        /// <summary>
         /// An `identifier` block as defined below.
         /// </summary>
         [Input("identifier", required: true)]
@@ -222,6 +234,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("galleryName")]
         public Input<string>? GalleryName { get; set; }
+
+        /// <summary>
+        /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// An `identifier` block as defined below.

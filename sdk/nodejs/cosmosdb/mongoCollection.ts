@@ -49,6 +49,10 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public readonly defaultTtlSeconds!: pulumi.Output<number | undefined>;
     /**
+     * One or more `index` blocks as defined below.
+     */
+    public readonly indices!: pulumi.Output<outputs.cosmosdb.MongoCollectionIndex[] | undefined>;
+    /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -60,6 +64,10 @@ export class MongoCollection extends pulumi.CustomResource {
      * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     public readonly shardKey!: pulumi.Output<string | undefined>;
+    /**
+     * One or more `systemIndexes` blocks as defined below.
+     */
+    public /*out*/ readonly systemIndexes!: pulumi.Output<outputs.cosmosdb.MongoCollectionSystemIndex[]>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
@@ -80,9 +88,11 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["defaultTtlSeconds"] = state ? state.defaultTtlSeconds : undefined;
+            inputs["indices"] = state ? state.indices : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["shardKey"] = state ? state.shardKey : undefined;
+            inputs["systemIndexes"] = state ? state.systemIndexes : undefined;
             inputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as MongoCollectionArgs | undefined;
@@ -98,10 +108,12 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultTtlSeconds"] = args ? args.defaultTtlSeconds : undefined;
+            inputs["indices"] = args ? args.indices : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardKey"] = args ? args.shardKey : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
+            inputs["systemIndexes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -128,6 +140,10 @@ export interface MongoCollectionState {
      */
     readonly defaultTtlSeconds?: pulumi.Input<number>;
     /**
+     * One or more `index` blocks as defined below.
+     */
+    readonly indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
+    /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -139,6 +155,10 @@ export interface MongoCollectionState {
      * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     readonly shardKey?: pulumi.Input<string>;
+    /**
+     * One or more `systemIndexes` blocks as defined below.
+     */
+    readonly systemIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionSystemIndex>[]>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
@@ -158,6 +178,10 @@ export interface MongoCollectionArgs {
      * The default Time To Live in seconds. If the value is `0` items are not automatically expired.
      */
     readonly defaultTtlSeconds?: pulumi.Input<number>;
+    /**
+     * One or more `index` blocks as defined below.
+     */
+    readonly indices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */

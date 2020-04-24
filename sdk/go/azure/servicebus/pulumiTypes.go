@@ -10,6 +10,114 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type NamespaceNetworkRuleSetNetworkRule struct {
+	// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// The Subnet ID which should be able to access this ServiceBus Namespace.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// NamespaceNetworkRuleSetNetworkRuleInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArgs and NamespaceNetworkRuleSetNetworkRuleOutput values.
+// You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleInput` via:
+//
+// 		 NamespaceNetworkRuleSetNetworkRuleArgs{...}
+//
+type NamespaceNetworkRuleSetNetworkRuleInput interface {
+	pulumi.Input
+
+	ToNamespaceNetworkRuleSetNetworkRuleOutput() NamespaceNetworkRuleSetNetworkRuleOutput
+	ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(context.Context) NamespaceNetworkRuleSetNetworkRuleOutput
+}
+
+type NamespaceNetworkRuleSetNetworkRuleArgs struct {
+	// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// The Subnet ID which should be able to access this ServiceBus Namespace.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (NamespaceNetworkRuleSetNetworkRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRule)(nil)).Elem()
+}
+
+func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToNamespaceNetworkRuleSetNetworkRuleOutput() NamespaceNetworkRuleSetNetworkRuleOutput {
+	return i.ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetNetworkRuleOutput)
+}
+
+// NamespaceNetworkRuleSetNetworkRuleArrayInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArray and NamespaceNetworkRuleSetNetworkRuleArrayOutput values.
+// You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleArrayInput` via:
+//
+// 		 NamespaceNetworkRuleSetNetworkRuleArray{ NamespaceNetworkRuleSetNetworkRuleArgs{...} }
+//
+type NamespaceNetworkRuleSetNetworkRuleArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceNetworkRuleSetNetworkRuleArrayOutput() NamespaceNetworkRuleSetNetworkRuleArrayOutput
+	ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(context.Context) NamespaceNetworkRuleSetNetworkRuleArrayOutput
+}
+
+type NamespaceNetworkRuleSetNetworkRuleArray []NamespaceNetworkRuleSetNetworkRuleInput
+
+func (NamespaceNetworkRuleSetNetworkRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceNetworkRuleSetNetworkRule)(nil)).Elem()
+}
+
+func (i NamespaceNetworkRuleSetNetworkRuleArray) ToNamespaceNetworkRuleSetNetworkRuleArrayOutput() NamespaceNetworkRuleSetNetworkRuleArrayOutput {
+	return i.ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceNetworkRuleSetNetworkRuleArray) ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetNetworkRuleArrayOutput)
+}
+
+type NamespaceNetworkRuleSetNetworkRuleOutput struct{ *pulumi.OutputState }
+
+func (NamespaceNetworkRuleSetNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRule)(nil)).Elem()
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToNamespaceNetworkRuleSetNetworkRuleOutput() NamespaceNetworkRuleSetNetworkRuleOutput {
+	return o
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToNamespaceNetworkRuleSetNetworkRuleOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleOutput {
+	return o
+}
+
+// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+func (o NamespaceNetworkRuleSetNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NamespaceNetworkRuleSetNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// The Subnet ID which should be able to access this ServiceBus Namespace.
+func (o NamespaceNetworkRuleSetNetworkRuleOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v NamespaceNetworkRuleSetNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type NamespaceNetworkRuleSetNetworkRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceNetworkRuleSetNetworkRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceNetworkRuleSetNetworkRule)(nil)).Elem()
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToNamespaceNetworkRuleSetNetworkRuleArrayOutput() NamespaceNetworkRuleSetNetworkRuleArrayOutput {
+	return o
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) ToNamespaceNetworkRuleSetNetworkRuleArrayOutputWithContext(ctx context.Context) NamespaceNetworkRuleSetNetworkRuleArrayOutput {
+	return o
+}
+
+func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) Index(i pulumi.IntInput) NamespaceNetworkRuleSetNetworkRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceNetworkRuleSetNetworkRule {
+		return vs[0].([]NamespaceNetworkRuleSetNetworkRule)[vs[1].(int)]
+	}).(NamespaceNetworkRuleSetNetworkRuleOutput)
+}
+
 type SubscriptionRuleCorrelationFilter struct {
 	// Content type of the message.
 	ContentType *string `pulumi:"contentType"`
@@ -237,6 +345,8 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleOutput{})
+	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterPtrOutput{})
 }

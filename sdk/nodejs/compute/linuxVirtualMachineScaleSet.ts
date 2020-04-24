@@ -62,6 +62,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly adminUsername!: pulumi.Output<string>;
     /**
+     * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     */
+    public readonly automaticInstanceRepair!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
+    /**
      * A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
      */
     public readonly automaticOsUpgradePolicy!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
@@ -215,6 +219,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
             inputs["adminSshKeys"] = state ? state.adminSshKeys : undefined;
             inputs["adminUsername"] = state ? state.adminUsername : undefined;
+            inputs["automaticInstanceRepair"] = state ? state.automaticInstanceRepair : undefined;
             inputs["automaticOsUpgradePolicy"] = state ? state.automaticOsUpgradePolicy : undefined;
             inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
             inputs["computerNamePrefix"] = state ? state.computerNamePrefix : undefined;
@@ -274,6 +279,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["adminPassword"] = args ? args.adminPassword : undefined;
             inputs["adminSshKeys"] = args ? args.adminSshKeys : undefined;
             inputs["adminUsername"] = args ? args.adminUsername : undefined;
+            inputs["automaticInstanceRepair"] = args ? args.automaticInstanceRepair : undefined;
             inputs["automaticOsUpgradePolicy"] = args ? args.automaticOsUpgradePolicy : undefined;
             inputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
             inputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
@@ -341,6 +347,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      */
     readonly adminUsername?: pulumi.Input<string>;
+    /**
+     * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     */
+    readonly automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
      * A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
      */
@@ -500,6 +510,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      */
     readonly adminUsername: pulumi.Input<string>;
+    /**
+     * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     */
+    readonly automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
      * A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
      */

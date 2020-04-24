@@ -38,7 +38,11 @@ class Namespace(pulumi.CustomResource):
     """
     The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, sku_name=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Notification Hub Namespace.
 
@@ -52,6 +56,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_type: The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,6 +87,7 @@ class Namespace(pulumi.CustomResource):
             if sku_name is None:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
+            __props__['tags'] = tags
             __props__['servicebus_endpoint'] = None
         super(Namespace, __self__).__init__(
             'azure:notificationhub/namespace:Namespace',
@@ -90,7 +96,7 @@ class Namespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku_name=None):
+    def get(resource_name, id, opts=None, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku_name=None, tags=None):
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,6 +111,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] servicebus_endpoint: The ServiceBus Endpoint for this Notification Hub Namespace.
         :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -117,6 +124,7 @@ class Namespace(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["servicebus_endpoint"] = servicebus_endpoint
         __props__["sku_name"] = sku_name
+        __props__["tags"] = tags
         return Namespace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

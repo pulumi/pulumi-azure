@@ -13,7 +13,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, id=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, id=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError("Expected argument 'addon_profiles' to be a list")
         __self__.addon_profiles = addon_profiles
@@ -110,6 +110,12 @@ class GetKubernetesClusterResult:
         """
         Auto-generated Resource Group containing AKS Cluster resources.
         """
+        if private_cluster_enabled and not isinstance(private_cluster_enabled, bool):
+            raise TypeError("Expected argument 'private_cluster_enabled' to be a bool")
+        __self__.private_cluster_enabled = private_cluster_enabled
+        """
+        If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
+        """
         if private_fqdn and not isinstance(private_fqdn, str):
             raise TypeError("Expected argument 'private_fqdn' to be a str")
         __self__.private_fqdn = private_fqdn
@@ -119,9 +125,6 @@ class GetKubernetesClusterResult:
         if private_link_enabled and not isinstance(private_link_enabled, bool):
             raise TypeError("Expected argument 'private_link_enabled' to be a bool")
         __self__.private_link_enabled = private_link_enabled
-        """
-        Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
-        """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
@@ -171,6 +174,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             name=self.name,
             network_profiles=self.network_profiles,
             node_resource_group=self.node_resource_group,
+            private_cluster_enabled=self.private_cluster_enabled,
             private_fqdn=self.private_fqdn,
             private_link_enabled=self.private_link_enabled,
             resource_group_name=self.resource_group_name,
@@ -179,7 +183,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             tags=self.tags,
             windows_profiles=self.windows_profiles)
 
-def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
+def get_kubernetes_cluster(name=None,private_cluster_enabled=None,private_link_enabled=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 
@@ -187,12 +191,15 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
 
 
     :param str name: The name of the managed Kubernetes Cluster.
+    :param bool private_cluster_enabled: If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
     :param str resource_group_name: The name of the Resource Group in which the managed Kubernetes Cluster exists.
     """
     __args__ = dict()
 
 
     __args__['name'] = name
+    __args__['privateClusterEnabled'] = private_cluster_enabled
+    __args__['privateLinkEnabled'] = private_link_enabled
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -217,6 +224,7 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
         name=__ret__.get('name'),
         network_profiles=__ret__.get('networkProfiles'),
         node_resource_group=__ret__.get('nodeResourceGroup'),
+        private_cluster_enabled=__ret__.get('privateClusterEnabled'),
         private_fqdn=__ret__.get('privateFqdn'),
         private_link_enabled=__ret__.get('privateLinkEnabled'),
         resource_group_name=__ret__.get('resourceGroupName'),

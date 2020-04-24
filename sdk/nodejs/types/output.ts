@@ -775,6 +775,13 @@ export namespace apimanagement {
          */
         text?: string;
     }
+
+    export interface ServiceVirtualNetworkConfiguration {
+        /**
+         * The id of the subnet that will be used for the API Management.
+         */
+        subnetId: string;
+    }
 }
 
 export namespace appconfiguration {
@@ -3895,6 +3902,17 @@ export namespace compute {
         username: string;
     }
 
+    export interface LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
+        /**
+         * Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+         */
+        enabled: boolean;
+        /**
+         * Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+         */
+        gracePeriod?: string;
+    }
+
     export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
         /**
          * Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
@@ -5024,6 +5042,17 @@ export namespace compute {
          * The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
          */
         setting: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
+        /**
+         * Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+         */
+        enabled: boolean;
+        /**
+         * Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+         */
+        gracePeriod?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
@@ -6450,6 +6479,28 @@ export namespace cosmosdb {
          * A list of paths to use for this unique key.
          */
         paths: string[];
+    }
+
+    export interface MongoCollectionIndex {
+        /**
+         * Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+         */
+        keys: string[];
+        /**
+         * Is the index unique or not? Defaults to `false`.
+         */
+        unique?: boolean;
+    }
+
+    export interface MongoCollectionSystemIndex {
+        /**
+         * Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+         */
+        keys: string[];
+        /**
+         * Is the index unique or not? Defaults to `false`.
+         */
+        unique: boolean;
     }
 
     export interface SqlContainerUniqueKey {
@@ -12684,7 +12735,7 @@ export namespace network {
          * The ID of the public ip address to associate
          * with the Virtual Network Gateway.
          */
-        publicIpAddressId?: string;
+        publicIpAddressId: string;
         /**
          * The ID of the gateway subnet of a virtual network in
          * which the virtual network gateway will be created. It is mandatory that
@@ -13007,22 +13058,16 @@ export namespace policy {
 
 export namespace postgresql {
     export interface ServerStorageProfile {
-        /**
-         * Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.  
-         */
-        autoGrow?: string;
+        autoGrow: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
          */
         backupRetentionDays?: number;
-        /**
-         * Enable/Disable Geo-redundant for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.  This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
-         */
-        geoRedundantBackup?: string;
+        geoRedundantBackup: string;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
          */
-        storageMb: number;
+        storageMb?: number;
     }
 }
 
@@ -13349,6 +13394,17 @@ export namespace search {
 }
 
 export namespace servicebus {
+    export interface NamespaceNetworkRuleSetNetworkRule {
+        /**
+         * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+         */
+        ignoreMissingVnetServiceEndpoint?: boolean;
+        /**
+         * The Subnet ID which should be able to access this ServiceBus Namespace.
+         */
+        subnetId: string;
+    }
+
     export interface SubscriptionRuleCorrelationFilter {
         /**
          * Content type of the message.

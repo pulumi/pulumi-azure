@@ -70,6 +70,10 @@ namespace Pulumi.Azure.NotificationHub
         public readonly string Name;
         public readonly string NamespaceName;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetHubResult(
@@ -85,7 +89,9 @@ namespace Pulumi.Azure.NotificationHub
 
             string namespaceName,
 
-            string resourceGroupName)
+            string resourceGroupName,
+
+            ImmutableDictionary<string, string> tags)
         {
             ApnsCredentials = apnsCredentials;
             GcmCredentials = gcmCredentials;
@@ -94,6 +100,7 @@ namespace Pulumi.Azure.NotificationHub
             Name = name;
             NamespaceName = namespaceName;
             ResourceGroupName = resourceGroupName;
+            Tags = tags;
         }
     }
 }

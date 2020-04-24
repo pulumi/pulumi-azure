@@ -157,6 +157,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
     """
+    private_cluster_enabled: pulumi.Output[bool]
     private_fqdn: pulumi.Output[str]
     """
     The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -196,7 +197,7 @@ class KubernetesCluster(pulumi.CustomResource):
       * `admin_password` (`str`) - The Admin Password for Windows VMs.
       * `admin_username` (`str`) - The Admin Username for Windows VMs.
     """
-    def __init__(__self__, resource_name, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_cluster_enabled=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 
@@ -342,6 +343,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['name'] = name
             __props__['network_profile'] = network_profile
             __props__['node_resource_group'] = node_resource_group
+            __props__['private_cluster_enabled'] = private_cluster_enabled
             __props__['private_link_enabled'] = private_link_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -364,7 +366,7 @@ class KubernetesCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
+    def get(resource_name, id, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
         """
         Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -530,6 +532,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__["name"] = name
         __props__["network_profile"] = network_profile
         __props__["node_resource_group"] = node_resource_group
+        __props__["private_cluster_enabled"] = private_cluster_enabled
         __props__["private_fqdn"] = private_fqdn
         __props__["private_link_enabled"] = private_link_enabled
         __props__["resource_group_name"] = resource_group_name

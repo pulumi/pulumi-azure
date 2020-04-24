@@ -40,4 +40,6 @@ type LookupHubResult struct {
 	Name              string `pulumi:"name"`
 	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }

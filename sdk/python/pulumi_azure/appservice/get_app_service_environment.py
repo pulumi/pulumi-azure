@@ -13,7 +13,7 @@ class GetAppServiceEnvironmentResult:
     """
     A collection of values returned by getAppServiceEnvironment.
     """
-    def __init__(__self__, front_end_scale_factor=None, id=None, name=None, pricing_tier=None, resource_group_name=None, tags=None):
+    def __init__(__self__, front_end_scale_factor=None, id=None, location=None, name=None, pricing_tier=None, resource_group_name=None, tags=None):
         if front_end_scale_factor and not isinstance(front_end_scale_factor, float):
             raise TypeError("Expected argument 'front_end_scale_factor' to be a float")
         __self__.front_end_scale_factor = front_end_scale_factor
@@ -25,6 +25,12 @@ class GetAppServiceEnvironmentResult:
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
+        """
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        __self__.location = location
+        """
+        The Azure location where the App Service Environment exists
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -52,6 +58,7 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
         return GetAppServiceEnvironmentResult(
             front_end_scale_factor=self.front_end_scale_factor,
             id=self.id,
+            location=self.location,
             name=self.name,
             pricing_tier=self.pricing_tier,
             resource_group_name=self.resource_group_name,
@@ -81,6 +88,7 @@ def get_app_service_environment(name=None,resource_group_name=None,opts=None):
     return AwaitableGetAppServiceEnvironmentResult(
         front_end_scale_factor=__ret__.get('frontEndScaleFactor'),
         id=__ret__.get('id'),
+        location=__ret__.get('location'),
         name=__ret__.get('name'),
         pricing_tier=__ret__.get('pricingTier'),
         resource_group_name=__ret__.get('resourceGroupName'),

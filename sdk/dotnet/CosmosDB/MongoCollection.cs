@@ -30,6 +30,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> DefaultTtlSeconds { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `index` blocks as defined below.
+        /// </summary>
+        [Output("indices")]
+        public Output<ImmutableArray<Outputs.MongoCollectionIndex>> Indices { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -46,6 +52,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("shardKey")]
         public Output<string?> ShardKey { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `system_indexes` blocks as defined below.
+        /// </summary>
+        [Output("systemIndexes")]
+        public Output<ImmutableArray<Outputs.MongoCollectionSystemIndex>> SystemIndexes { get; private set; } = null!;
 
         /// <summary>
         /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
@@ -114,6 +126,18 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
+        [Input("indices")]
+        private InputList<Inputs.MongoCollectionIndexArgs>? _indices;
+
+        /// <summary>
+        /// One or more `index` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.MongoCollectionIndexArgs> Indices
+        {
+            get => _indices ?? (_indices = new InputList<Inputs.MongoCollectionIndexArgs>());
+            set => _indices = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         /// </summary>
@@ -160,6 +184,18 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
+        [Input("indices")]
+        private InputList<Inputs.MongoCollectionIndexGetArgs>? _indices;
+
+        /// <summary>
+        /// One or more `index` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.MongoCollectionIndexGetArgs> Indices
+        {
+            get => _indices ?? (_indices = new InputList<Inputs.MongoCollectionIndexGetArgs>());
+            set => _indices = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         /// </summary>
@@ -177,6 +213,18 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("shardKey")]
         public Input<string>? ShardKey { get; set; }
+
+        [Input("systemIndexes")]
+        private InputList<Inputs.MongoCollectionSystemIndexGetArgs>? _systemIndexes;
+
+        /// <summary>
+        /// One or more `system_indexes` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.MongoCollectionSystemIndexGetArgs> SystemIndexes
+        {
+            get => _systemIndexes ?? (_systemIndexes = new InputList<Inputs.MongoCollectionSystemIndexGetArgs>());
+            set => _systemIndexes = value;
+        }
 
         /// <summary>
         /// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.

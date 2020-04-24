@@ -20,6 +20,8 @@ type SharedImage struct {
 	Eula pulumi.StringPtrOutput `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringOutput `pulumi:"galleryName"`
+	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// An `identifier` block as defined below.
 	Identifier SharedImageIdentifierOutput `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -84,6 +86,8 @@ type sharedImageState struct {
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName *string `pulumi:"galleryName"`
+	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// An `identifier` block as defined below.
 	Identifier *SharedImageIdentifier `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -109,6 +113,8 @@ type SharedImageState struct {
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringPtrInput
+	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+	HyperVGeneration pulumi.StringPtrInput
 	// An `identifier` block as defined below.
 	Identifier SharedImageIdentifierPtrInput
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -138,6 +144,8 @@ type sharedImageArgs struct {
 	Eula *string `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName string `pulumi:"galleryName"`
+	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// An `identifier` block as defined below.
 	Identifier SharedImageIdentifier `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -164,6 +172,8 @@ type SharedImageArgs struct {
 	Eula pulumi.StringPtrInput
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName pulumi.StringInput
+	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+	HyperVGeneration pulumi.StringPtrInput
 	// An `identifier` block as defined below.
 	Identifier SharedImageIdentifierInput
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.

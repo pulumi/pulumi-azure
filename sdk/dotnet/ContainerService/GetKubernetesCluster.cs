@@ -31,6 +31,15 @@ namespace Pulumi.Azure.ContainerService
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
+        /// </summary>
+        [Input("privateClusterEnabled")]
+        public bool? PrivateClusterEnabled { get; set; }
+
+        [Input("privateLinkEnabled")]
+        public bool? PrivateLinkEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the managed Kubernetes Cluster exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -110,12 +119,13 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string NodeResourceGroup;
         /// <summary>
+        /// If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
+        /// </summary>
+        public readonly bool PrivateClusterEnabled;
+        /// <summary>
         /// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
         /// </summary>
         public readonly string PrivateFqdn;
-        /// <summary>
-        /// Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
-        /// </summary>
         public readonly bool PrivateLinkEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -169,6 +179,8 @@ namespace Pulumi.Azure.ContainerService
 
             string nodeResourceGroup,
 
+            bool privateClusterEnabled,
+
             string privateFqdn,
 
             bool privateLinkEnabled,
@@ -199,6 +211,7 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             NetworkProfiles = networkProfiles;
             NodeResourceGroup = nodeResourceGroup;
+            PrivateClusterEnabled = privateClusterEnabled;
             PrivateFqdn = privateFqdn;
             PrivateLinkEnabled = privateLinkEnabled;
             ResourceGroupName = resourceGroupName;

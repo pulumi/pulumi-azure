@@ -52,7 +52,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    public readonly productId!: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -99,9 +99,6 @@ export class Subscription extends pulumi.CustomResource {
             }
             if (!args || args.displayName === undefined) {
                 throw new Error("Missing required property 'displayName'");
-            }
-            if (!args || args.productId === undefined) {
-                throw new Error("Missing required property 'productId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -182,7 +179,7 @@ export interface SubscriptionArgs {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    readonly productId: pulumi.Input<string>;
+    readonly productId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */

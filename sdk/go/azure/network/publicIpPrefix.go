@@ -20,7 +20,7 @@ type PublicIpPrefix struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -69,7 +69,7 @@ type publicIpPrefixState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -88,7 +88,7 @@ type PublicIpPrefixState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix.
 	ResourceGroupName pulumi.StringPtrInput
@@ -109,7 +109,7 @@ type publicIpPrefixArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	PrefixLength *int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the Public IP Prefix.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -127,7 +127,7 @@ type PublicIpPrefixArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 	PrefixLength pulumi.IntPtrInput
 	// The name of the resource group in which to create the Public IP Prefix.
 	ResourceGroupName pulumi.StringInput

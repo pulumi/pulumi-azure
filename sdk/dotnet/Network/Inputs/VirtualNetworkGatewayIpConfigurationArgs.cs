@@ -30,8 +30,8 @@ namespace Pulumi.Azure.Network.Inputs
         /// The ID of the public ip address to associate
         /// with the Virtual Network Gateway.
         /// </summary>
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
+        [Input("publicIpAddressId", required: true)]
+        public Input<string> PublicIpAddressId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the gateway subnet of a virtual network in

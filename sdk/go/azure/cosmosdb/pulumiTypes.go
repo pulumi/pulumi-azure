@@ -832,6 +832,222 @@ func (o GremlinGraphUniqueKeyArrayOutput) Index(i pulumi.IntInput) GremlinGraphU
 	}).(GremlinGraphUniqueKeyOutput)
 }
 
+type MongoCollectionIndex struct {
+	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+	Keys []string `pulumi:"keys"`
+	// Is the index unique or not? Defaults to `false`.
+	Unique *bool `pulumi:"unique"`
+}
+
+// MongoCollectionIndexInput is an input type that accepts MongoCollectionIndexArgs and MongoCollectionIndexOutput values.
+// You can construct a concrete instance of `MongoCollectionIndexInput` via:
+//
+// 		 MongoCollectionIndexArgs{...}
+//
+type MongoCollectionIndexInput interface {
+	pulumi.Input
+
+	ToMongoCollectionIndexOutput() MongoCollectionIndexOutput
+	ToMongoCollectionIndexOutputWithContext(context.Context) MongoCollectionIndexOutput
+}
+
+type MongoCollectionIndexArgs struct {
+	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+	// Is the index unique or not? Defaults to `false`.
+	Unique pulumi.BoolPtrInput `pulumi:"unique"`
+}
+
+func (MongoCollectionIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoCollectionIndex)(nil)).Elem()
+}
+
+func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutput() MongoCollectionIndexOutput {
+	return i.ToMongoCollectionIndexOutputWithContext(context.Background())
+}
+
+func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutputWithContext(ctx context.Context) MongoCollectionIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionIndexOutput)
+}
+
+// MongoCollectionIndexArrayInput is an input type that accepts MongoCollectionIndexArray and MongoCollectionIndexArrayOutput values.
+// You can construct a concrete instance of `MongoCollectionIndexArrayInput` via:
+//
+// 		 MongoCollectionIndexArray{ MongoCollectionIndexArgs{...} }
+//
+type MongoCollectionIndexArrayInput interface {
+	pulumi.Input
+
+	ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput
+	ToMongoCollectionIndexArrayOutputWithContext(context.Context) MongoCollectionIndexArrayOutput
+}
+
+type MongoCollectionIndexArray []MongoCollectionIndexInput
+
+func (MongoCollectionIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoCollectionIndex)(nil)).Elem()
+}
+
+func (i MongoCollectionIndexArray) ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput {
+	return i.ToMongoCollectionIndexArrayOutputWithContext(context.Background())
+}
+
+func (i MongoCollectionIndexArray) ToMongoCollectionIndexArrayOutputWithContext(ctx context.Context) MongoCollectionIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionIndexArrayOutput)
+}
+
+type MongoCollectionIndexOutput struct{ *pulumi.OutputState }
+
+func (MongoCollectionIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoCollectionIndex)(nil)).Elem()
+}
+
+func (o MongoCollectionIndexOutput) ToMongoCollectionIndexOutput() MongoCollectionIndexOutput {
+	return o
+}
+
+func (o MongoCollectionIndexOutput) ToMongoCollectionIndexOutputWithContext(ctx context.Context) MongoCollectionIndexOutput {
+	return o
+}
+
+// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+func (o MongoCollectionIndexOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MongoCollectionIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+// Is the index unique or not? Defaults to `false`.
+func (o MongoCollectionIndexOutput) Unique() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MongoCollectionIndex) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
+}
+
+type MongoCollectionIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (MongoCollectionIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoCollectionIndex)(nil)).Elem()
+}
+
+func (o MongoCollectionIndexArrayOutput) ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput {
+	return o
+}
+
+func (o MongoCollectionIndexArrayOutput) ToMongoCollectionIndexArrayOutputWithContext(ctx context.Context) MongoCollectionIndexArrayOutput {
+	return o
+}
+
+func (o MongoCollectionIndexArrayOutput) Index(i pulumi.IntInput) MongoCollectionIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoCollectionIndex {
+		return vs[0].([]MongoCollectionIndex)[vs[1].(int)]
+	}).(MongoCollectionIndexOutput)
+}
+
+type MongoCollectionSystemIndex struct {
+	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+	Keys []string `pulumi:"keys"`
+	// Is the index unique or not? Defaults to `false`.
+	Unique *bool `pulumi:"unique"`
+}
+
+// MongoCollectionSystemIndexInput is an input type that accepts MongoCollectionSystemIndexArgs and MongoCollectionSystemIndexOutput values.
+// You can construct a concrete instance of `MongoCollectionSystemIndexInput` via:
+//
+// 		 MongoCollectionSystemIndexArgs{...}
+//
+type MongoCollectionSystemIndexInput interface {
+	pulumi.Input
+
+	ToMongoCollectionSystemIndexOutput() MongoCollectionSystemIndexOutput
+	ToMongoCollectionSystemIndexOutputWithContext(context.Context) MongoCollectionSystemIndexOutput
+}
+
+type MongoCollectionSystemIndexArgs struct {
+	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+	// Is the index unique or not? Defaults to `false`.
+	Unique pulumi.BoolPtrInput `pulumi:"unique"`
+}
+
+func (MongoCollectionSystemIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoCollectionSystemIndex)(nil)).Elem()
+}
+
+func (i MongoCollectionSystemIndexArgs) ToMongoCollectionSystemIndexOutput() MongoCollectionSystemIndexOutput {
+	return i.ToMongoCollectionSystemIndexOutputWithContext(context.Background())
+}
+
+func (i MongoCollectionSystemIndexArgs) ToMongoCollectionSystemIndexOutputWithContext(ctx context.Context) MongoCollectionSystemIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionSystemIndexOutput)
+}
+
+// MongoCollectionSystemIndexArrayInput is an input type that accepts MongoCollectionSystemIndexArray and MongoCollectionSystemIndexArrayOutput values.
+// You can construct a concrete instance of `MongoCollectionSystemIndexArrayInput` via:
+//
+// 		 MongoCollectionSystemIndexArray{ MongoCollectionSystemIndexArgs{...} }
+//
+type MongoCollectionSystemIndexArrayInput interface {
+	pulumi.Input
+
+	ToMongoCollectionSystemIndexArrayOutput() MongoCollectionSystemIndexArrayOutput
+	ToMongoCollectionSystemIndexArrayOutputWithContext(context.Context) MongoCollectionSystemIndexArrayOutput
+}
+
+type MongoCollectionSystemIndexArray []MongoCollectionSystemIndexInput
+
+func (MongoCollectionSystemIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoCollectionSystemIndex)(nil)).Elem()
+}
+
+func (i MongoCollectionSystemIndexArray) ToMongoCollectionSystemIndexArrayOutput() MongoCollectionSystemIndexArrayOutput {
+	return i.ToMongoCollectionSystemIndexArrayOutputWithContext(context.Background())
+}
+
+func (i MongoCollectionSystemIndexArray) ToMongoCollectionSystemIndexArrayOutputWithContext(ctx context.Context) MongoCollectionSystemIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionSystemIndexArrayOutput)
+}
+
+type MongoCollectionSystemIndexOutput struct{ *pulumi.OutputState }
+
+func (MongoCollectionSystemIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoCollectionSystemIndex)(nil)).Elem()
+}
+
+func (o MongoCollectionSystemIndexOutput) ToMongoCollectionSystemIndexOutput() MongoCollectionSystemIndexOutput {
+	return o
+}
+
+func (o MongoCollectionSystemIndexOutput) ToMongoCollectionSystemIndexOutputWithContext(ctx context.Context) MongoCollectionSystemIndexOutput {
+	return o
+}
+
+// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+func (o MongoCollectionSystemIndexOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MongoCollectionSystemIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+// Is the index unique or not? Defaults to `false`.
+func (o MongoCollectionSystemIndexOutput) Unique() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MongoCollectionSystemIndex) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
+}
+
+type MongoCollectionSystemIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (MongoCollectionSystemIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoCollectionSystemIndex)(nil)).Elem()
+}
+
+func (o MongoCollectionSystemIndexArrayOutput) ToMongoCollectionSystemIndexArrayOutput() MongoCollectionSystemIndexArrayOutput {
+	return o
+}
+
+func (o MongoCollectionSystemIndexArrayOutput) ToMongoCollectionSystemIndexArrayOutputWithContext(ctx context.Context) MongoCollectionSystemIndexArrayOutput {
+	return o
+}
+
+func (o MongoCollectionSystemIndexArrayOutput) Index(i pulumi.IntInput) MongoCollectionSystemIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoCollectionSystemIndex {
+		return vs[0].([]MongoCollectionSystemIndex)[vs[1].(int)]
+	}).(MongoCollectionSystemIndexOutput)
+}
+
 type SqlContainerUniqueKey struct {
 	// A list of paths to use for this unique key.
 	Paths []string `pulumi:"paths"`
@@ -1375,6 +1591,10 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
+	pulumi.RegisterOutputType(MongoCollectionIndexOutput{})
+	pulumi.RegisterOutputType(MongoCollectionIndexArrayOutput{})
+	pulumi.RegisterOutputType(MongoCollectionSystemIndexOutput{})
+	pulumi.RegisterOutputType(MongoCollectionSystemIndexArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountCapabilityOutput{})

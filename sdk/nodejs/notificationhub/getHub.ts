@@ -65,6 +65,10 @@ export interface GetHubResult {
     readonly namespaceName: string;
     readonly resourceGroupName: string;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

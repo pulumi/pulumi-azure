@@ -71,6 +71,10 @@ namespace Pulumi.Azure.NotificationHub
         /// A `sku` block as defined below.
         /// </summary>
         public readonly Outputs.GetNamespaceSkuResult Sku;
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetNamespaceResult(
@@ -88,7 +92,9 @@ namespace Pulumi.Azure.NotificationHub
 
             string servicebusEndpoint,
 
-            Outputs.GetNamespaceSkuResult sku)
+            Outputs.GetNamespaceSkuResult sku,
+
+            ImmutableDictionary<string, string> tags)
         {
             Enabled = enabled;
             Id = id;
@@ -98,6 +104,7 @@ namespace Pulumi.Azure.NotificationHub
             ResourceGroupName = resourceGroupName;
             ServicebusEndpoint = servicebusEndpoint;
             Sku = sku;
+            Tags = tags;
         }
     }
 }

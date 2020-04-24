@@ -37,7 +37,8 @@ type Service struct {
 	// A `policy` block as defined below.
 	Policy ServicePolicyOutput `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
-	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+	PortalUrl          pulumi.StringOutput      `pulumi:"portalUrl"`
+	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsOutput `pulumi:"protocols"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -60,6 +61,10 @@ type Service struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	VirtualNetworkType pulumi.StringPtrOutput `pulumi:"virtualNetworkType"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -125,7 +130,8 @@ type serviceState struct {
 	// A `policy` block as defined below.
 	Policy *ServicePolicy `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
-	PortalUrl *string `pulumi:"portalUrl"`
+	PortalUrl          *string  `pulumi:"portalUrl"`
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// A `protocols` block as defined below.
 	Protocols *ServiceProtocols `pulumi:"protocols"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -148,6 +154,10 @@ type serviceState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 }
 
 type ServiceState struct {
@@ -174,7 +184,8 @@ type ServiceState struct {
 	// A `policy` block as defined below.
 	Policy ServicePolicyPtrInput
 	// The URL for the Publisher Portal associated with this API Management service.
-	PortalUrl pulumi.StringPtrInput
+	PortalUrl          pulumi.StringPtrInput
+	PrivateIpAddresses pulumi.StringArrayInput
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsPtrInput
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -197,6 +208,10 @@ type ServiceState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	VirtualNetworkType pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -238,6 +253,10 @@ type serviceArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -276,6 +295,10 @@ type ServiceArgs struct {
 	SkuName pulumi.StringInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	VirtualNetworkType pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

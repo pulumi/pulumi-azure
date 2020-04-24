@@ -30,6 +30,10 @@ class Server(pulumi.CustomResource):
     """
     Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
     """
+    public_network_access_enabled: pulumi.Output[bool]
+    """
+    Should public network access be allowed for this server? Defaults to `true`.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
@@ -47,9 +51,9 @@ class Server(pulumi.CustomResource):
     A `storage_profile` block as defined below.
 
       * `autoGrow` (`str`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-      * `backupRetentionDays` (`float`) - Backup retention days for the server, supported values are between `7` and `35` days.
+      * `backup_retention_days` (`float`) - Backup retention days for the server, supported values are between `7` and `35` days.
       * `geoRedundantBackup` (`str`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-      * `storageMb` (`float`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+      * `storage_mb` (`float`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
     """
     tags: pulumi.Output[dict]
     """
@@ -59,7 +63,7 @@ class Server(pulumi.CustomResource):
     """
     Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, location=None, name=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profile=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profile=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a MySQL Server.
 
@@ -71,6 +75,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MySQL Server.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be allowed for this server? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
         :param pulumi.Input[str] ssl_enforcement: Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -81,9 +86,9 @@ class Server(pulumi.CustomResource):
         The **storage_profile** object supports the following:
 
           * `autoGrow` (`pulumi.Input[str]`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-          * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
+          * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-          * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+          * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,6 +115,7 @@ class Server(pulumi.CustomResource):
             __props__['administrator_login_password'] = administrator_login_password
             __props__['location'] = location
             __props__['name'] = name
+            __props__['public_network_access_enabled'] = public_network_access_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -134,7 +140,7 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, fqdn=None, location=None, name=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profile=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, fqdn=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profile=None, tags=None, version=None):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -147,6 +153,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the MySQL Server.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] public_network_access_enabled: Should public network access be allowed for this server? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
         :param pulumi.Input[str] ssl_enforcement: Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -157,9 +164,9 @@ class Server(pulumi.CustomResource):
         The **storage_profile** object supports the following:
 
           * `autoGrow` (`pulumi.Input[str]`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-          * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
+          * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-          * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+          * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -170,6 +177,7 @@ class Server(pulumi.CustomResource):
         __props__["fqdn"] = fqdn
         __props__["location"] = location
         __props__["name"] = name
+        __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["resource_group_name"] = resource_group_name
         __props__["sku_name"] = sku_name
         __props__["ssl_enforcement"] = ssl_enforcement

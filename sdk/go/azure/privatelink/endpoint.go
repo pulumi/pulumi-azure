@@ -28,6 +28,8 @@ type Endpoint struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -77,6 +79,8 @@ type endpointState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type EndpointState struct {
@@ -90,6 +94,8 @@ type EndpointState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointState) ElementType() reflect.Type {
@@ -107,6 +113,8 @@ type endpointArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
@@ -121,6 +129,8 @@ type EndpointArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {

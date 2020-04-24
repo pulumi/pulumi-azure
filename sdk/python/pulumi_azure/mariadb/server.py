@@ -47,9 +47,9 @@ class Server(pulumi.CustomResource):
     A `storage_profile` block as defined below.
 
       * `autoGrow` (`str`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-      * `backupRetentionDays` (`float`) - Backup retention days for the server, supported values are between `7` and `35` days.
+      * `backup_retention_days` (`float`) - Backup retention days for the server, supported values are between `7` and `35` days.
       * `geoRedundantBackup` (`str`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
-      * `storageMb` (`float`) - Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+      * `storage_mb` (`float`) - Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
     """
     tags: pulumi.Output[dict]
     """
@@ -81,9 +81,9 @@ class Server(pulumi.CustomResource):
         The **storage_profile** object supports the following:
 
           * `autoGrow` (`pulumi.Input[str]`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-          * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
+          * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
-          * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+          * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -157,9 +157,9 @@ class Server(pulumi.CustomResource):
         The **storage_profile** object supports the following:
 
           * `autoGrow` (`pulumi.Input[str]`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-          * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
+          * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
-          * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+          * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

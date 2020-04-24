@@ -67,6 +67,10 @@ export class Namespace extends pulumi.CustomResource {
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -87,6 +91,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["servicebusEndpoint"] = state ? state.servicebusEndpoint : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if (!args || args.namespaceType === undefined) {
@@ -104,6 +109,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["namespaceType"] = args ? args.namespaceType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["servicebusEndpoint"] = undefined /*out*/;
         }
         if (!opts) {
@@ -149,6 +155,10 @@ export interface NamespaceState {
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
      */
     readonly skuName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -179,4 +189,8 @@ export interface NamespaceArgs {
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
      */
     readonly skuName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

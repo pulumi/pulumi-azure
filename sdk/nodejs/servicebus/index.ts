@@ -7,6 +7,7 @@ export * from "./getNamespaceAuthorizationRule";
 export * from "./getTopicAuthorizationRule";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
+export * from "./namespaceNetworkRuleSet";
 export * from "./queue";
 export * from "./queueAuthorizationRule";
 export * from "./subscription";

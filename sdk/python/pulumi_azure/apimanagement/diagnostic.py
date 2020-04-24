@@ -59,8 +59,6 @@ class Diagnostic(pulumi.CustomResource):
             if api_management_name is None:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
-            if enabled is None:
-                raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
             if identifier is None:
                 raise TypeError("Missing required property 'identifier'")
