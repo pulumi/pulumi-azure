@@ -1,0 +1,3 @@
+name: azure-py-nsg
+runtime: python
+description: 'Create an NSG '
