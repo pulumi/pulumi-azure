@@ -84,6 +84,7 @@ const (
 	azureEventGrid           = "EventGrid"           // Event Grid
 	azureEventHub            = "EventHub"            // Event Hub
 	azureMachineLearning     = "MachineLearning"     // Machine Learning Resources
+	azureMaintenance         = "Maintenance"         // Maintenance Resources
 	azureManagedApplication  = "ManagedApplication"  // ManagedApplication
 	azureManagement          = "Management"          // Management Resources
 	azureMaps                = "Maps"                // Maps
@@ -468,6 +469,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// AppPlatform
 			"azurerm_spring_cloud_service": {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
+			"azurerm_spring_cloud_app":     {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
 
 			// Automation
 			"azurerm_automation_account":               {Tok: azureResource(azureAutomation, "Account")},
@@ -1276,6 +1278,14 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Managed Applications
 			"azurerm_managed_application_definition": {Tok: azureResource(azureManagedApplication, "Definition")},
+
+			// Maintenance
+			"azurerm_maintenance_configuration": {Tok: azureResource(azureMaintenance, "Configuration")},
+
+			// Servicebus
+			"azurerm_servicebus_namespace_network_rule_set": {
+				Tok: azureResource(azureServiceBus, "NamespaceNetworkRuleSet"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1477,6 +1487,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_machine_learning_workspace":     {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
 			"azurerm_managed_application_definition": {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
 			"azurerm_spring_cloud_service":           {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
+			"azurerm_private_dns_zone":               {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			AsyncDataSources: true,

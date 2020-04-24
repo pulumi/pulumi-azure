@@ -60,6 +60,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Should public network access be allowed for this server? Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class Server extends pulumi.CustomResource {
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["sslEnforcement"] = state ? state.sslEnforcement : undefined;
@@ -134,6 +139,7 @@ export class Server extends pulumi.CustomResource {
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["sslEnforcement"] = args ? args.sslEnforcement : undefined;
@@ -177,6 +183,10 @@ export interface ServerState {
      * Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Should public network access be allowed for this server? Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
      */
@@ -223,6 +233,10 @@ export interface ServerArgs {
      * Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Should public network access be allowed for this server? Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
      */

@@ -11,14 +11,12 @@ import (
 )
 
 type ServerStorageProfile struct {
-	// Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.
 	AutoGrow *string `pulumi:"autoGrow"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Enable/Disable Geo-redundant for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.  This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
-	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  *string `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-	StorageMb int `pulumi:"storageMb"`
+	StorageMb *int `pulumi:"storageMb"`
 }
 
 // ServerStorageProfileInput is an input type that accepts ServerStorageProfileArgs and ServerStorageProfileOutput values.
@@ -34,14 +32,12 @@ type ServerStorageProfileInput interface {
 }
 
 type ServerStorageProfileArgs struct {
-	// Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.
 	AutoGrow pulumi.StringPtrInput `pulumi:"autoGrow"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// Enable/Disable Geo-redundant for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.  This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
-	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	GeoRedundantBackup  pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-	StorageMb pulumi.IntInput `pulumi:"storageMb"`
+	StorageMb pulumi.IntPtrInput `pulumi:"storageMb"`
 }
 
 func (ServerStorageProfileArgs) ElementType() reflect.Type {
@@ -121,8 +117,6 @@ func (o ServerStorageProfileOutput) ToServerStorageProfilePtrOutputWithContext(c
 		return &v
 	}).(ServerStorageProfilePtrOutput)
 }
-
-// Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.
 func (o ServerStorageProfileOutput) AutoGrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
 }
@@ -132,14 +126,13 @@ func (o ServerStorageProfileOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// Enable/Disable Geo-redundant for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.  This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 func (o ServerStorageProfileOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
 
 // Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-func (o ServerStorageProfileOutput) StorageMb() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerStorageProfile) int { return v.StorageMb }).(pulumi.IntOutput)
+func (o ServerStorageProfileOutput) StorageMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerStorageProfile) *int { return v.StorageMb }).(pulumi.IntPtrOutput)
 }
 
 type ServerStorageProfilePtrOutput struct{ *pulumi.OutputState }
@@ -160,7 +153,6 @@ func (o ServerStorageProfilePtrOutput) Elem() ServerStorageProfileOutput {
 	return o.ApplyT(func(v *ServerStorageProfile) ServerStorageProfile { return *v }).(ServerStorageProfileOutput)
 }
 
-// Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.
 func (o ServerStorageProfilePtrOutput) AutoGrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
 }
@@ -170,14 +162,13 @@ func (o ServerStorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ServerStorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// Enable/Disable Geo-redundant for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.  This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 func (o ServerStorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerStorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
 }
 
 // Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerStorageProfile) int { return v.StorageMb }).(pulumi.IntOutput)
+func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerStorageProfile) *int { return v.StorageMb }).(pulumi.IntPtrOutput)
 }
 
 func init() {

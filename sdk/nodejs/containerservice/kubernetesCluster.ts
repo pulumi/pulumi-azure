@@ -111,11 +111,12 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
+    public readonly privateClusterEnabled!: pulumi.Output<boolean>;
     /**
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
-    public readonly privateLinkEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly privateLinkEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -167,6 +168,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["networkProfile"] = state ? state.networkProfile : undefined;
             inputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
+            inputs["privateClusterEnabled"] = state ? state.privateClusterEnabled : undefined;
             inputs["privateFqdn"] = state ? state.privateFqdn : undefined;
             inputs["privateLinkEnabled"] = state ? state.privateLinkEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -197,6 +199,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
+            inputs["privateClusterEnabled"] = args ? args.privateClusterEnabled : undefined;
             inputs["privateLinkEnabled"] = args ? args.privateLinkEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roleBasedAccessControl"] = args ? args.roleBasedAccessControl : undefined;
@@ -298,6 +301,7 @@ export interface KubernetesClusterState {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     readonly nodeResourceGroup?: pulumi.Input<string>;
+    readonly privateClusterEnabled?: pulumi.Input<boolean>;
     /**
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
@@ -377,6 +381,7 @@ export interface KubernetesClusterArgs {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     readonly nodeResourceGroup?: pulumi.Input<string>;
+    readonly privateClusterEnabled?: pulumi.Input<boolean>;
     readonly privateLinkEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.

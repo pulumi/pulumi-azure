@@ -86,6 +86,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("portalUrl")]
         public Output<string> PortalUrl { get; private set; } = null!;
 
+        [Output("privateIpAddresses")]
+        public Output<ImmutableArray<string>> PrivateIpAddresses { get; private set; } = null!;
+
         /// <summary>
         /// A `protocols` block as defined below.
         /// </summary>
@@ -151,6 +154,18 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// </summary>
+        [Output("virtualNetworkConfiguration")]
+        public Output<Outputs.ServiceVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+        /// </summary>
+        [Output("virtualNetworkType")]
+        public Output<string?> VirtualNetworkType { get; private set; } = null!;
 
 
         /// <summary>
@@ -318,6 +333,18 @@ namespace Pulumi.Azure.ApiManagement
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// </summary>
+        [Input("virtualNetworkConfiguration")]
+        public Input<Inputs.ServiceVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+        /// </summary>
+        [Input("virtualNetworkType")]
+        public Input<string>? VirtualNetworkType { get; set; }
+
         public ServiceArgs()
         {
         }
@@ -409,6 +436,14 @@ namespace Pulumi.Azure.ApiManagement
         [Input("portalUrl")]
         public Input<string>? PortalUrl { get; set; }
 
+        [Input("privateIpAddresses")]
+        private InputList<string>? _privateIpAddresses;
+        public InputList<string> PrivateIpAddresses
+        {
+            get => _privateIpAddresses ?? (_privateIpAddresses = new InputList<string>());
+            set => _privateIpAddresses = value;
+        }
+
         /// <summary>
         /// A `protocols` block as defined below.
         /// </summary>
@@ -486,6 +521,18 @@ namespace Pulumi.Azure.ApiManagement
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// </summary>
+        [Input("virtualNetworkConfiguration")]
+        public Input<Inputs.ServiceVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+        /// </summary>
+        [Input("virtualNetworkType")]
+        public Input<string>? VirtualNetworkType { get; set; }
 
         public ServiceState()
         {

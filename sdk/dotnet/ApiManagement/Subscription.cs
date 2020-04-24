@@ -33,7 +33,7 @@ namespace Pulumi.Azure.ApiManagement
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("productId")]
-        public Output<string> ProductId { get; private set; } = null!;
+        public Output<string?> ProductId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -126,8 +126,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("productId", required: true)]
-        public Input<string> ProductId { get; set; } = null!;
+        [Input("productId")]
+        public Input<string>? ProductId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.

@@ -30,8 +30,10 @@ type GetAppServiceEnvironmentResult struct {
 	// The number of app instances per App Service Environment Front End
 	FrontEndScaleFactor int `pulumi:"frontEndScaleFactor"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The Azure location where the App Service Environment exists
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
 	// The Pricing Tier (Isolated SKU) of the App Service Environment.
 	PricingTier       string `pulumi:"pricingTier"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`

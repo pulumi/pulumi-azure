@@ -34,6 +34,8 @@ type LookupSharedImageResult struct {
 	// The End User Licence Agreement for the Shared Image.
 	Eula        string `pulumi:"eula"`
 	GalleryName string `pulumi:"galleryName"`
+	// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
+	HyperVGeneration string `pulumi:"hyperVGeneration"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identifier` block as defined below.

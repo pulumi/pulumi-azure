@@ -28,6 +28,8 @@ type LinuxVirtualMachineScaleSet struct {
 	AdminSshKeys LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	AutomaticInstanceRepair LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput `pulumi:"automaticInstanceRepair"`
 	// A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
@@ -153,6 +155,8 @@ type linuxVirtualMachineScaleSetState struct {
 	AdminSshKeys []LinuxVirtualMachineScaleSetAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	AutomaticInstanceRepair *LinuxVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
 	// A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
@@ -233,6 +237,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	AdminSshKeys LinuxVirtualMachineScaleSetAdminSshKeyArrayInput
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	AutomaticInstanceRepair LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
 	// A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.
@@ -317,6 +323,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	AdminSshKeys []LinuxVirtualMachineScaleSetAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	AutomaticInstanceRepair *LinuxVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
 	// A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
@@ -396,6 +404,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	AdminSshKeys LinuxVirtualMachineScaleSetAdminSshKeyArrayInput
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
+	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	AutomaticInstanceRepair LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
 	// A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.

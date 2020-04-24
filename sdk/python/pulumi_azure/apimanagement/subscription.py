@@ -81,8 +81,6 @@ class Subscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['primary_key'] = primary_key
-            if product_id is None:
-                raise TypeError("Missing required property 'product_id'")
             __props__['product_id'] = product_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

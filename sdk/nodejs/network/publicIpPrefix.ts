@@ -52,7 +52,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+     * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      */
     public readonly prefixLength!: pulumi.Output<number | undefined>;
     /**
@@ -134,7 +134,7 @@ export interface PublicIpPrefixState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+     * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      */
     readonly prefixLength?: pulumi.Input<number>;
     /**
@@ -168,7 +168,7 @@ export interface PublicIpPrefixArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+     * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      */
     readonly prefixLength?: pulumi.Input<number>;
     /**

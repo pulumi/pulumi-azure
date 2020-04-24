@@ -8,6 +8,7 @@ from .get_namespace_authorization_rule import *
 from .get_topic_authorization_rule import *
 from .namespace import *
 from .namespace_authorization_rule import *
+from .namespace_network_rule_set import *
 from .queue import *
 from .queue_authorization_rule import *
 from .subscription import *

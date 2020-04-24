@@ -45,6 +45,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
+        /// A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// </summary>
+        [Output("automaticInstanceRepair")]
+        public Output<Outputs.LinuxVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
+
+        /// <summary>
         /// A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
         /// </summary>
         [Output("automaticOsUpgradePolicy")]
@@ -328,6 +334,12 @@ namespace Pulumi.Azure.Compute
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
+        /// A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// </summary>
+        [Input("automaticInstanceRepair")]
+        public Input<Inputs.LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
+
+        /// <summary>
         /// A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
         /// </summary>
         [Input("automaticOsUpgradePolicy")]
@@ -594,6 +606,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("adminUsername")]
         public Input<string>? AdminUsername { get; set; }
+
+        /// <summary>
+        /// A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// </summary>
+        [Input("automaticInstanceRepair")]
+        public Input<Inputs.LinuxVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
         /// A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.

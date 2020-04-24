@@ -63,6 +63,10 @@ export class Endpoint extends pulumi.CustomResource {
      * The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["privateServiceConnection"] = state ? state.privateServiceConnection : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if (!args || args.privateServiceConnection === undefined) {
@@ -97,6 +102,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["privateServiceConnection"] = args ? args.privateServiceConnection : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -133,6 +139,10 @@ export interface EndpointState {
      * The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -159,4 +169,8 @@ export interface EndpointArgs {
      * The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
      */
     readonly subnetId: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

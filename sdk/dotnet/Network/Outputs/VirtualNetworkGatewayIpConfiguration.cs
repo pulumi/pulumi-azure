@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// The ID of the public ip address to associate
         /// with the Virtual Network Gateway.
         /// </summary>
-        public readonly string? PublicIpAddressId;
+        public readonly string PublicIpAddressId;
         /// <summary>
         /// The ID of the gateway subnet of a virtual network in
         /// which the virtual network gateway will be created. It is mandatory that
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? privateIpAddressAllocation,
 
-            string? publicIpAddressId,
+            string publicIpAddressId,
 
             string subnetId)
         {

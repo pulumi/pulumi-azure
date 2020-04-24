@@ -41,4 +41,6 @@ type LookupNamespaceResult struct {
 	ServicebusEndpoint string `pulumi:"servicebusEndpoint"`
 	// A `sku` block as defined below.
 	Sku GetNamespaceSku `pulumi:"sku"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }

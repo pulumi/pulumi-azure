@@ -35,6 +35,8 @@ export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulu
     }
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", {
         "name": args.name,
+        "privateClusterEnabled": args.privateClusterEnabled,
+        "privateLinkEnabled": args.privateLinkEnabled,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -47,6 +49,11 @@ export interface GetKubernetesClusterArgs {
      * The name of the managed Kubernetes Cluster.
      */
     readonly name: string;
+    /**
+     * If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
+     */
+    readonly privateClusterEnabled?: boolean;
+    readonly privateLinkEnabled?: boolean;
     /**
      * The name of the Resource Group in which the managed Kubernetes Cluster exists.
      */
@@ -118,12 +125,13 @@ export interface GetKubernetesClusterResult {
      */
     readonly nodeResourceGroup: string;
     /**
+     * If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
+     */
+    readonly privateClusterEnabled: boolean;
+    /**
      * The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
      */
     readonly privateFqdn: string;
-    /**
-     * Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
-     */
     readonly privateLinkEnabled: boolean;
     readonly resourceGroupName: string;
     /**

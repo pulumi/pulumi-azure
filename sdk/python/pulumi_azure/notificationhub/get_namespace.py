@@ -13,7 +13,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, enabled=None, id=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku=None):
+    def __init__(__self__, enabled=None, id=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku=None, tags=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         __self__.enabled = enabled
@@ -56,6 +56,12 @@ class GetNamespaceResult:
         """
         A `sku` block as defined below.
         """
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        A mapping of tags to assign to the resource.
+        """
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -69,7 +75,8 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             namespace_type=self.namespace_type,
             resource_group_name=self.resource_group_name,
             servicebus_endpoint=self.servicebus_endpoint,
-            sku=self.sku)
+            sku=self.sku,
+            tags=self.tags)
 
 def get_namespace(name=None,resource_group_name=None,opts=None):
     """
@@ -100,4 +107,5 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
         namespace_type=__ret__.get('namespaceType'),
         resource_group_name=__ret__.get('resourceGroupName'),
         servicebus_endpoint=__ret__.get('servicebusEndpoint'),
-        sku=__ret__.get('sku'))
+        sku=__ret__.get('sku'),
+        tags=__ret__.get('tags'))

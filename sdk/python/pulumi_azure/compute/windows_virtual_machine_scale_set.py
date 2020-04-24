@@ -31,6 +31,13 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     """
     The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
     """
+    automatic_instance_repair: pulumi.Output[dict]
+    """
+    A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+
+      * `enabled` (`bool`) - Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+      * `gracePeriod` (`str`) - Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+    """
     automatic_os_upgrade_policy: pulumi.Output[dict]
     """
     A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
@@ -254,7 +261,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, scale_in_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, terminate_notification=None, timezone=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_instance_repair=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, scale_in_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, terminate_notification=None, timezone=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Windows Virtual Machine Scale Set.
 
@@ -272,6 +279,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[list] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[dict] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
@@ -317,6 +325,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
           * `content` (`pulumi.Input[str]`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
           * `setting` (`pulumi.Input[str]`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+
+        The **automatic_instance_repair** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+          * `gracePeriod` (`pulumi.Input[str]`) - Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
 
         The **automatic_os_upgrade_policy** object supports the following:
 
@@ -445,6 +458,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             if admin_username is None:
                 raise TypeError("Missing required property 'admin_username'")
             __props__['admin_username'] = admin_username
+            __props__['automatic_instance_repair'] = automatic_instance_repair
             __props__['automatic_os_upgrade_policy'] = automatic_os_upgrade_policy
             __props__['boot_diagnostics'] = boot_diagnostics
             __props__['computer_name_prefix'] = computer_name_prefix
@@ -500,7 +514,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, scale_in_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, terminate_notification=None, timezone=None, unique_id=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None):
+    def get(resource_name, id, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, automatic_instance_repair=None, automatic_os_upgrade_policy=None, boot_diagnostics=None, computer_name_prefix=None, custom_data=None, data_disks=None, do_not_run_extensions_on_overprovisioned_machines=None, enable_automatic_updates=None, eviction_policy=None, health_probe_id=None, identity=None, instances=None, license_type=None, location=None, max_bid_price=None, name=None, network_interfaces=None, os_disk=None, overprovision=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, scale_in_policy=None, secrets=None, single_placement_group=None, sku=None, source_image_id=None, source_image_reference=None, tags=None, terminate_notification=None, timezone=None, unique_id=None, upgrade_mode=None, winrm_listeners=None, zone_balance=None, zones=None):
         """
         Get an existing WindowsVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -512,6 +526,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[list] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[dict] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
@@ -558,6 +573,11 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
           * `content` (`pulumi.Input[str]`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
           * `setting` (`pulumi.Input[str]`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+
+        The **automatic_instance_repair** object supports the following:
+
+          * `enabled` (`pulumi.Input[bool]`) - Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+          * `gracePeriod` (`pulumi.Input[str]`) - Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
 
         The **automatic_os_upgrade_policy** object supports the following:
 
@@ -669,6 +689,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["additional_unattend_contents"] = additional_unattend_contents
         __props__["admin_password"] = admin_password
         __props__["admin_username"] = admin_username
+        __props__["automatic_instance_repair"] = automatic_instance_repair
         __props__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
         __props__["boot_diagnostics"] = boot_diagnostics
         __props__["computer_name_prefix"] = computer_name_prefix

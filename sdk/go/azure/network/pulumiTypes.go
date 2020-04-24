@@ -9430,7 +9430,7 @@ type VirtualNetworkGatewayIpConfiguration struct {
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public ip address to associate
 	// with the Virtual Network Gateway.
-	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in
 	// which the virtual network gateway will be created. It is mandatory that
 	// the associated subnet is named `GatewaySubnet`. Therefore, each virtual
@@ -9459,7 +9459,7 @@ type VirtualNetworkGatewayIpConfigurationArgs struct {
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
 	// The ID of the public ip address to associate
 	// with the Virtual Network Gateway.
-	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// The ID of the gateway subnet of a virtual network in
 	// which the virtual network gateway will be created. It is mandatory that
 	// the associated subnet is named `GatewaySubnet`. Therefore, each virtual
@@ -9533,8 +9533,8 @@ func (o VirtualNetworkGatewayIpConfigurationOutput) PrivateIpAddressAllocation()
 
 // The ID of the public ip address to associate
 // with the Virtual Network Gateway.
-func (o VirtualNetworkGatewayIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkGatewayIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
 // The ID of the gateway subnet of a virtual network in

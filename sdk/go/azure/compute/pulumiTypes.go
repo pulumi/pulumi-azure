@@ -1917,6 +1917,150 @@ func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) Index(i pulumi.IntInp
 	}).(LinuxVirtualMachineScaleSetAdminSshKeyOutput)
 }
 
+type LinuxVirtualMachineScaleSetAutomaticInstanceRepair struct {
+	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+	Enabled bool `pulumi:"enabled"`
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	GracePeriod *string `pulumi:"gracePeriod"`
+}
+
+// LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput is an input type that accepts LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs and LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput` via:
+//
+// 		 LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//
+type LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput
+	ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput
+}
+
+type LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
+	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
+}
+
+func (LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return i.ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput).ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx)
+}
+
+// LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput is an input type that accepts LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs, LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtr and LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput` via:
+//
+// 		 LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput
+	ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput
+}
+
+type linuxVirtualMachineScaleSetAutomaticInstanceRepairPtrType LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs
+
+func LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtr(v *LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs) LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput {
+	return (*linuxVirtualMachineScaleSetAutomaticInstanceRepairPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
+		return &v
+	}).(LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
+}
+
+// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToLinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem() LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticInstanceRepair) LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
+		return *v
+	}).(LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput)
+}
+
+// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
+}
+
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
 	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
@@ -12401,6 +12545,150 @@ func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) Index
 	}).(WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput)
 }
 
+type WindowsVirtualMachineScaleSetAutomaticInstanceRepair struct {
+	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+	Enabled bool `pulumi:"enabled"`
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	GracePeriod *string `pulumi:"gracePeriod"`
+}
+
+// WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput is an input type that accepts WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs and WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput` via:
+//
+// 		 WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//
+type WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput
+	ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput
+}
+
+type WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
+	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
+}
+
+func (WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return i.ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput).ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx)
+}
+
+// WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput is an input type that accepts WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs, WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtr and WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput` via:
+//
+// 		 WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput
+	ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput
+}
+
+type windowsVirtualMachineScaleSetAutomaticInstanceRepairPtrType WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs
+
+func WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtr(v *WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs) WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput {
+	return (*windowsVirtualMachineScaleSetAutomaticInstanceRepairPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetAutomaticInstanceRepairPtrType) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
+		return &v
+	}).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
+}
+
+// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetAutomaticInstanceRepair)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput() WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) ToWindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem() WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticInstanceRepair) WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
+		return *v
+	}).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput)
+}
+
+// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
+}
+
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
 	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
 	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
@@ -16188,6 +16476,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdminSshKeyOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetBootDiagnosticsOutput{})
@@ -16332,6 +16622,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetBootDiagnosticsOutput{})

@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./getSpringCloudService";
+export * from "./springCloudApp";
 export * from "./springCloudService";

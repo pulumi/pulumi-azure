@@ -13,7 +13,7 @@ class GetHubResult:
     """
     A collection of values returned by getHub.
     """
-    def __init__(__self__, apns_credentials=None, gcm_credentials=None, id=None, location=None, name=None, namespace_name=None, resource_group_name=None):
+    def __init__(__self__, apns_credentials=None, gcm_credentials=None, id=None, location=None, name=None, namespace_name=None, resource_group_name=None, tags=None):
         if apns_credentials and not isinstance(apns_credentials, list):
             raise TypeError("Expected argument 'apns_credentials' to be a list")
         __self__.apns_credentials = apns_credentials
@@ -47,6 +47,12 @@ class GetHubResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        __self__.tags = tags
+        """
+        A mapping of tags to assign to the resource.
+        """
 class AwaitableGetHubResult(GetHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -59,7 +65,8 @@ class AwaitableGetHubResult(GetHubResult):
             location=self.location,
             name=self.name,
             namespace_name=self.namespace_name,
-            resource_group_name=self.resource_group_name)
+            resource_group_name=self.resource_group_name,
+            tags=self.tags)
 
 def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
@@ -91,4 +98,5 @@ def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         namespace_name=__ret__.get('namespaceName'),
-        resource_group_name=__ret__.get('resourceGroupName'))
+        resource_group_name=__ret__.get('resourceGroupName'),
+        tags=__ret__.get('tags'))

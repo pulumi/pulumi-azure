@@ -53,6 +53,10 @@ namespace Pulumi.Azure.AppService
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Azure location where the App Service Environment exists
+        /// </summary>
+        public readonly string Location;
         public readonly string Name;
         /// <summary>
         /// The Pricing Tier (Isolated SKU) of the App Service Environment.
@@ -70,6 +74,8 @@ namespace Pulumi.Azure.AppService
 
             string id,
 
+            string location,
+
             string name,
 
             string pricingTier,
@@ -80,6 +86,7 @@ namespace Pulumi.Azure.AppService
         {
             FrontEndScaleFactor = frontEndScaleFactor;
             Id = id;
+            Location = location;
             Name = name;
             PricingTier = pricingTier;
             ResourceGroupName = resourceGroupName;

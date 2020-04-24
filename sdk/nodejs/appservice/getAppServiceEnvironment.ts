@@ -48,6 +48,10 @@ export interface GetAppServiceEnvironmentResult {
      * The number of app instances per App Service Environment Front End
      */
     readonly frontEndScaleFactor: number;
+    /**
+     * The Azure location where the App Service Environment exists
+     */
+    readonly location: string;
     readonly name: string;
     /**
      * The Pricing Tier (Isolated SKU) of the App Service Environment.

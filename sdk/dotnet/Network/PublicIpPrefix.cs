@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        /// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         /// </summary>
         [Output("prefixLength")]
         public Output<int?> PrefixLength { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        /// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         /// </summary>
         [Input("prefixLength")]
         public Input<int>? PrefixLength { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        /// Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         /// </summary>
         [Input("prefixLength")]
         public Input<int>? PrefixLength { get; set; }

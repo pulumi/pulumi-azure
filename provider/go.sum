@@ -55,7 +55,6 @@ github.com/Azure/go-autorest/autorest/adal v0.6.0/go.mod h1:Z6vX6WXXuyieHAXwMj0S
 github.com/Azure/go-autorest/autorest/adal v0.8.0/go.mod h1:Z6vX6WXXuyieHAXwMj0S6HY6e6wcHn37qQMBQlvY3lc=
 github.com/Azure/go-autorest/autorest/adal v0.8.1-0.20191028180845-3492b2aff503 h1:Hxqlh1uAA8aGpa1dFhDNhll7U/rkWtG8ZItFvRMr7l0=
 github.com/Azure/go-autorest/autorest/adal v0.8.1-0.20191028180845-3492b2aff503/go.mod h1:Z6vX6WXXuyieHAXwMj0S6HY6e6wcHn37qQMBQlvY3lc=
-github.com/Azure/go-autorest/autorest/adal v0.8.1/go.mod h1:ZjhuQClTqx435SRJ2iMlOxPYt3d2C/T/7TiQCVZSn3Q=
 github.com/Azure/go-autorest/autorest/adal v0.8.2 h1:O1X4oexUxnZCaEUGsvMnr8ZGj8HI37tNezwY4npRqA0=
 github.com/Azure/go-autorest/autorest/adal v0.8.2/go.mod h1:ZjhuQClTqx435SRJ2iMlOxPYt3d2C/T/7TiQCVZSn3Q=
 github.com/Azure/go-autorest/autorest/azure/cli v0.2.0/go.mod h1:WWTbGPvkAg3I4ms2j2s+Zr5xCGwGqTQh+6M2ZqOczkE=
@@ -494,11 +493,11 @@ github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6/go.
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
 github.com/tombuildsstuff/giovanni v0.10.0 h1:XqZBPVD2hETa30FFdMz/zVfnidMnUrIMMmKIH7hWnWA=
 github.com/tombuildsstuff/giovanni v0.10.0/go.mod h1:WwPhFP2+WnhJzvPYDnsyBab2wOIksMX6xm+Tg+jVvKw=
-github.com/tombuildsstuff/go-autorest v14.0.1-0.20200317095413-f2d2d0252c3c+incompatible h1:H+ytGDYKp8E7Mb0GBK3LMaJd9O2lUo2Cmb4sTMHM3N8=
-github.com/tombuildsstuff/go-autorest v14.0.1-0.20200317095413-f2d2d0252c3c+incompatible/go.mod h1:OVwh0+NZeL2RTqclVEX+p20Qys7Ihpd52PD0eqFDXtY=
-github.com/tombuildsstuff/go-autorest/autorest v0.10.1-0.20200317095413-f2d2d0252c3c h1:9KiivLYWWeGGT2jzfB5T5Tj/gsSWf1KgbDwD9H7rrWM=
-github.com/tombuildsstuff/go-autorest/autorest v0.10.1-0.20200317095413-f2d2d0252c3c/go.mod h1:/FALq9T/kS7b5J5qsQ+RSTUdAmGFqi0vUdVNNx8q630=
-github.com/tombuildsstuff/go-autorest/autorest/azure/auth v0.4.3-0.20200317095413-f2d2d0252c3c/go.mod h1:90gmfKdlmKgfjUpnCEpOJzsUEjrWDSLwHIG73tSXddM=
+github.com/tombuildsstuff/go-autorest v14.0.1-0.20200416184303-d4e299a3c04a+incompatible h1:9645FYqYopS+TFknygW7EC9PCbIC5T4WvWUpktyE2JA=
+github.com/tombuildsstuff/go-autorest v14.0.1-0.20200416184303-d4e299a3c04a+incompatible/go.mod h1:OVwh0+NZeL2RTqclVEX+p20Qys7Ihpd52PD0eqFDXtY=
+github.com/tombuildsstuff/go-autorest/autorest v0.10.1-0.20200416184303-d4e299a3c04a h1:F/4zKpn8ra3rhPMBzrVc7LYL1GB1ucl/va4I+4ubUWg=
+github.com/tombuildsstuff/go-autorest/autorest v0.10.1-0.20200416184303-d4e299a3c04a/go.mod h1:/FALq9T/kS7b5J5qsQ+RSTUdAmGFqi0vUdVNNx8q630=
+github.com/tombuildsstuff/go-autorest/autorest/azure/auth v0.4.3-0.20200416184303-d4e299a3c04a/go.mod h1:jyL63IJfcs2j+2n9xmyFz6yUnXex+c/ZfelxDwSbkdc=
 github.com/uber/jaeger-client-go v2.22.1+incompatible h1:NHcubEkVbahf9t3p75TOCR83gdUHXjRJvjoBh1yACsM=
 github.com/uber/jaeger-client-go v2.22.1+incompatible/go.mod h1:WVhlPFC8FDjOFMMWRy2pZqQJSXxYSwNYOkTr/Z6d3Kk=
 github.com/uber/jaeger-lib v2.2.0+incompatible h1:MxZXOiR2JuoANZ3J6DE/U0kSFv/eJ/GfSYVCjK7dyaw=

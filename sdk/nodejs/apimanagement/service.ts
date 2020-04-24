@@ -87,6 +87,7 @@ export class Service extends pulumi.CustomResource {
      * The URL for the Publisher Portal associated with this API Management service.
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
+    public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
      * A `protocols` block as defined below.
      */
@@ -131,6 +132,14 @@ export class Service extends pulumi.CustomResource {
      * A mapping of tags assigned to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+     */
+    public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
+    /**
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     */
+    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -156,6 +165,7 @@ export class Service extends pulumi.CustomResource {
             inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
+            inputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
             inputs["protocols"] = state ? state.protocols : undefined;
             inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["publisherEmail"] = state ? state.publisherEmail : undefined;
@@ -167,6 +177,8 @@ export class Service extends pulumi.CustomResource {
             inputs["signUp"] = state ? state.signUp : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
+            inputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if (!args || args.publisherEmail === undefined) {
@@ -198,10 +210,13 @@ export class Service extends pulumi.CustomResource {
             inputs["signUp"] = args ? args.signUp : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            inputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;
             inputs["gatewayUrl"] = undefined /*out*/;
             inputs["managementApiUrl"] = undefined /*out*/;
             inputs["portalUrl"] = undefined /*out*/;
+            inputs["privateIpAddresses"] = undefined /*out*/;
             inputs["publicIpAddresses"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
         }
@@ -268,6 +283,7 @@ export interface ServiceState {
      * The URL for the Publisher Portal associated with this API Management service.
      */
     readonly portalUrl?: pulumi.Input<string>;
+    readonly privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `protocols` block as defined below.
      */
@@ -312,6 +328,14 @@ export interface ServiceState {
      * A mapping of tags assigned to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+     */
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
+    /**
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     */
+    readonly virtualNetworkType?: pulumi.Input<string>;
 }
 
 /**
@@ -386,4 +410,12 @@ export interface ServiceArgs {
      * A mapping of tags assigned to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+     */
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
+    /**
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     */
+    readonly virtualNetworkType?: pulumi.Input<string>;
 }

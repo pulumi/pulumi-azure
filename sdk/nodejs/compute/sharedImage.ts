@@ -52,6 +52,10 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly galleryName!: pulumi.Output<string>;
     /**
+     * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+     */
+    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    /**
      * An `identifier` block as defined below.
      */
     public readonly identifier!: pulumi.Output<outputs.compute.SharedImageIdentifier>;
@@ -99,6 +103,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["eula"] = state ? state.eula : undefined;
             inputs["galleryName"] = state ? state.galleryName : undefined;
+            inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -124,6 +129,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["eula"] = args ? args.eula : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
+            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -160,6 +166,10 @@ export interface SharedImageState {
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
     readonly galleryName?: pulumi.Input<string>;
+    /**
+     * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+     */
+    readonly hyperVGeneration?: pulumi.Input<string>;
     /**
      * An `identifier` block as defined below.
      */
@@ -210,6 +220,10 @@ export interface SharedImageArgs {
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
     readonly galleryName: pulumi.Input<string>;
+    /**
+     * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+     */
+    readonly hyperVGeneration?: pulumi.Input<string>;
     /**
      * An `identifier` block as defined below.
      */

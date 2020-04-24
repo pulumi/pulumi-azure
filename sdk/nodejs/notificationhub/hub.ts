@@ -63,6 +63,10 @@ export class Hub extends pulumi.CustomResource {
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -82,6 +86,7 @@ export class Hub extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as HubArgs | undefined;
             if (!args || args.namespaceName === undefined) {
@@ -96,6 +101,7 @@ export class Hub extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -136,6 +142,10 @@ export interface HubState {
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -166,4 +176,8 @@ export interface HubArgs {
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

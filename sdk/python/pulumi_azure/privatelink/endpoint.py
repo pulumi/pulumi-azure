@@ -37,7 +37,11 @@ class Endpoint(pulumi.CustomResource):
     """
     The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Private Endpoint.
 
@@ -54,6 +58,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **private_service_connection** object supports the following:
 
@@ -92,6 +97,7 @@ class Endpoint(pulumi.CustomResource):
             if subnet_id is None:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
+            __props__['tags'] = tags
         super(Endpoint, __self__).__init__(
             'azure:privatelink/endpoint:Endpoint',
             resource_name,
@@ -99,7 +105,7 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None):
+    def get(resource_name, id, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, tags=None):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -112,6 +118,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[dict] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **private_service_connection** object supports the following:
 
@@ -131,6 +138,7 @@ class Endpoint(pulumi.CustomResource):
         __props__["private_service_connection"] = private_service_connection
         __props__["resource_group_name"] = resource_group_name
         __props__["subnet_id"] = subnet_id
+        __props__["tags"] = tags
         return Endpoint(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

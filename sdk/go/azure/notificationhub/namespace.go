@@ -28,6 +28,8 @@ type Namespace struct {
 	ServicebusEndpoint pulumi.StringOutput `pulumi:"servicebusEndpoint"`
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -81,6 +83,8 @@ type namespaceState struct {
 	ServicebusEndpoint *string `pulumi:"servicebusEndpoint"`
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type NamespaceState struct {
@@ -98,6 +102,8 @@ type NamespaceState struct {
 	ServicebusEndpoint pulumi.StringPtrInput
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type namespaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -133,6 +141,8 @@ type NamespaceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {

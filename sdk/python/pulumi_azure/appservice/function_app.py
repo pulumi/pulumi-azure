@@ -153,10 +153,15 @@ class FunctionApp(pulumi.CustomResource):
       * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
       * `username` (`str`) - The username which can be used to publish to this App Service
     """
+    storage_account_access_key: pulumi.Output[str]
+    """
+    The access key which will be used to access the backend storage account for the Function App.
+    """
+    storage_account_name: pulumi.Output[str]
+    """
+    The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+    """
     storage_connection_string: pulumi.Output[str]
-    """
-    The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
-    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -165,7 +170,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     The runtime version associated with the Function App. Defaults to `~1`.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, os_type=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, os_type=None, resource_group_name=None, site_config=None, storage_account_access_key=None, storage_account_name=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Function App.
 
@@ -186,7 +191,8 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. 
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[str] storage_connection_string: The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 
@@ -294,8 +300,8 @@ class FunctionApp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_config'] = site_config
-            if storage_connection_string is None:
-                raise TypeError("Missing required property 'storage_connection_string'")
+            __props__['storage_account_access_key'] = storage_account_access_key
+            __props__['storage_account_name'] = storage_account_name
             __props__['storage_connection_string'] = storage_connection_string
             __props__['tags'] = tags
             __props__['version'] = version
@@ -311,7 +317,7 @@ class FunctionApp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_connection_string=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_connection_string=None, tags=None, version=None):
         """
         Get an existing FunctionApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -339,7 +345,8 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[str] storage_connection_string: The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 
@@ -440,6 +447,8 @@ class FunctionApp(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config
         __props__["site_credentials"] = site_credentials
+        __props__["storage_account_access_key"] = storage_account_access_key
+        __props__["storage_account_name"] = storage_account_name
         __props__["storage_connection_string"] = storage_connection_string
         __props__["tags"] = tags
         __props__["version"] = version

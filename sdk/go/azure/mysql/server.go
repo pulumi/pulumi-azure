@@ -24,6 +24,8 @@ type Server struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Should public network access be allowed for this server? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
@@ -97,6 +99,8 @@ type serverState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
+	// Should public network access be allowed for this server? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
@@ -122,6 +126,8 @@ type ServerState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
+	// Should public network access be allowed for this server? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
@@ -149,6 +155,8 @@ type serverArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
+	// Should public network access be allowed for this server? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
@@ -173,6 +181,8 @@ type ServerArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
+	// Should public network access be allowed for this server? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).

@@ -67,6 +67,10 @@ export interface GetNamespaceResult {
      */
     readonly sku: outputs.notificationhub.GetNamespaceSku;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

@@ -20,7 +20,7 @@ type Subscription struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	PrimaryKey  pulumi.StringOutput `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	ProductId pulumi.StringOutput `pulumi:"productId"`
+	ProductId pulumi.StringPtrOutput `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	SecondaryKey      pulumi.StringOutput `pulumi:"secondaryKey"`
@@ -40,9 +40,6 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	if args == nil || args.DisplayName == nil {
 		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.ProductId == nil {
-		return nil, errors.New("missing required argument 'ProductId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -123,7 +120,7 @@ type subscriptionArgs struct {
 	DisplayName string  `pulumi:"displayName"`
 	PrimaryKey  *string `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	ProductId string `pulumi:"productId"`
+	ProductId *string `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string  `pulumi:"resourceGroupName"`
 	SecondaryKey      *string `pulumi:"secondaryKey"`
@@ -143,7 +140,7 @@ type SubscriptionArgs struct {
 	DisplayName pulumi.StringInput
 	PrimaryKey  pulumi.StringPtrInput
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	ProductId pulumi.StringInput
+	ProductId pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	SecondaryKey      pulumi.StringPtrInput

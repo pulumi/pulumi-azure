@@ -22,6 +22,10 @@ class SharedImage(pulumi.CustomResource):
     """
     Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
     """
+    hyper_v_generation: pulumi.Output[str]
+    """
+    The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
+    """
     identifier: pulumi.Output[dict]
     """
     An `identifier` block as defined below.
@@ -58,7 +62,7 @@ class SharedImage(pulumi.CustomResource):
     """
     A mapping of tags to assign to the Shared Image.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, eula=None, gallery_name=None, identifier=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, eula=None, gallery_name=None, hyper_v_generation=None, identifier=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Shared Image within a Shared Image Gallery.
 
@@ -69,6 +73,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
@@ -106,6 +111,7 @@ class SharedImage(pulumi.CustomResource):
             if gallery_name is None:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
+            __props__['hyper_v_generation'] = hyper_v_generation
             if identifier is None:
                 raise TypeError("Missing required property 'identifier'")
             __props__['identifier'] = identifier
@@ -127,7 +133,7 @@ class SharedImage(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, eula=None, gallery_name=None, identifier=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, description=None, eula=None, gallery_name=None, hyper_v_generation=None, identifier=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None):
         """
         Get an existing SharedImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,6 +144,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
@@ -160,6 +167,7 @@ class SharedImage(pulumi.CustomResource):
         __props__["description"] = description
         __props__["eula"] = eula
         __props__["gallery_name"] = gallery_name
+        __props__["hyper_v_generation"] = hyper_v_generation
         __props__["identifier"] = identifier
         __props__["location"] = location
         __props__["name"] = name

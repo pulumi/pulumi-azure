@@ -46,7 +46,7 @@ export class Diagnostic extends pulumi.CustomResource {
     /**
      * Indicates whether a Diagnostic should receive data or not.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
      */
@@ -76,9 +76,6 @@ export class Diagnostic extends pulumi.CustomResource {
             const args = argsOrState as DiagnosticArgs | undefined;
             if (!args || args.apiManagementName === undefined) {
                 throw new Error("Missing required property 'apiManagementName'");
-            }
-            if (!args || args.enabled === undefined) {
-                throw new Error("Missing required property 'enabled'");
             }
             if (!args || args.identifier === undefined) {
                 throw new Error("Missing required property 'identifier'");
@@ -112,6 +109,8 @@ export interface DiagnosticState {
     readonly apiManagementName?: pulumi.Input<string>;
     /**
      * Indicates whether a Diagnostic should receive data or not.
+     * 
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -134,8 +133,10 @@ export interface DiagnosticArgs {
     readonly apiManagementName: pulumi.Input<string>;
     /**
      * Indicates whether a Diagnostic should receive data or not.
+     * 
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
-    readonly enabled: pulumi.Input<boolean>;
+    readonly enabled?: pulumi.Input<boolean>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
      */

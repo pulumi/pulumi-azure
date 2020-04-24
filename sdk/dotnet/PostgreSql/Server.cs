@@ -15,22 +15,55 @@ namespace Pulumi.Azure.PostgreSql
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Administrator Login for the PostgreSQL Server. Changing this forces a new resource to be created.
+        /// The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
         /// </summary>
         [Output("administratorLoginPassword")]
-        public Output<string> AdministratorLoginPassword { get; private set; } = null!;
+        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
+
+        [Output("autoGrowEnabled")]
+        public Output<bool> AutoGrowEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Backup retention days for the server, supported values are between `7` and `35` days.
+        /// </summary>
+        [Output("backupRetentionDays")]
+        public Output<int> BackupRetentionDays { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+        /// </summary>
+        [Output("createMode")]
+        public Output<string?> CreateMode { get; private set; } = null!;
+
+        /// <summary>
+        /// For creation modes other then default the source server ID to use.
+        /// </summary>
+        [Output("creationSourceServerId")]
+        public Output<string?> CreationSourceServerId { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN of the PostgreSQL Server.
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
+        /// </summary>
+        [Output("geoRedundantBackupEnabled")]
+        public Output<bool> GeoRedundantBackupEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        /// </summary>
+        [Output("infrastructureEncryptionEnabled")]
+        public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -45,10 +78,22 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
+        /// </summary>
+        [Output("restorePointInTime")]
+        public Output<string?> RestorePointInTime { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
@@ -62,14 +107,26 @@ namespace Pulumi.Azure.PostgreSql
         [Output("sslEnforcement")]
         public Output<string> SslEnforcement { get; private set; } = null!;
 
+        [Output("sslEnforcementEnabled")]
+        public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
+
         /// <summary>
-        /// A `storage_profile` block as defined below.
+        /// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         /// </summary>
+        [Output("sslMinimalTlsVersionEnforced")]
+        public Output<string?> SslMinimalTlsVersionEnforced { get; private set; } = null!;
+
+        /// <summary>
+        /// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+        /// </summary>
+        [Output("storageMb")]
+        public Output<int> StorageMb { get; private set; } = null!;
+
         [Output("storageProfile")]
         public Output<Outputs.ServerStorageProfile> StorageProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource.  
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -127,16 +184,49 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the PostgreSQL Server. Changing this forces a new resource to be created.
+        /// The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("administratorLogin", required: true)]
-        public Input<string> AdministratorLogin { get; set; } = null!;
+        [Input("administratorLogin")]
+        public Input<string>? AdministratorLogin { get; set; }
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
         /// </summary>
-        [Input("administratorLoginPassword", required: true)]
-        public Input<string> AdministratorLoginPassword { get; set; } = null!;
+        [Input("administratorLoginPassword")]
+        public Input<string>? AdministratorLoginPassword { get; set; }
+
+        [Input("autoGrowEnabled")]
+        public Input<bool>? AutoGrowEnabled { get; set; }
+
+        /// <summary>
+        /// Backup retention days for the server, supported values are between `7` and `35` days.
+        /// </summary>
+        [Input("backupRetentionDays")]
+        public Input<int>? BackupRetentionDays { get; set; }
+
+        /// <summary>
+        /// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+        /// </summary>
+        [Input("createMode")]
+        public Input<string>? CreateMode { get; set; }
+
+        /// <summary>
+        /// For creation modes other then default the source server ID to use.
+        /// </summary>
+        [Input("creationSourceServerId")]
+        public Input<string>? CreationSourceServerId { get; set; }
+
+        /// <summary>
+        /// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
+        /// </summary>
+        [Input("geoRedundantBackupEnabled")]
+        public Input<bool>? GeoRedundantBackupEnabled { get; set; }
+
+        /// <summary>
+        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -151,10 +241,22 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
+        /// </summary>
+        [Input("restorePointInTime")]
+        public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
         /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
@@ -165,20 +267,32 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
         /// </summary>
-        [Input("sslEnforcement", required: true)]
-        public Input<string> SslEnforcement { get; set; } = null!;
+        [Input("sslEnforcement")]
+        public Input<string>? SslEnforcement { get; set; }
+
+        [Input("sslEnforcementEnabled")]
+        public Input<bool>? SslEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// A `storage_profile` block as defined below.
+        /// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         /// </summary>
-        [Input("storageProfile", required: true)]
-        public Input<Inputs.ServerStorageProfileArgs> StorageProfile { get; set; } = null!;
+        [Input("sslMinimalTlsVersionEnforced")]
+        public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
+
+        /// <summary>
+        /// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+        /// </summary>
+        [Input("storageMb")]
+        public Input<int>? StorageMb { get; set; }
+
+        [Input("storageProfile")]
+        public Input<Inputs.ServerStorageProfileArgs>? StorageProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource.  
         /// </summary>
         public InputMap<string> Tags
         {
@@ -200,22 +314,55 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class ServerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator Login for the PostgreSQL Server. Changing this forces a new resource to be created.
+        /// The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
         /// </summary>
         [Input("administratorLoginPassword")]
         public Input<string>? AdministratorLoginPassword { get; set; }
+
+        [Input("autoGrowEnabled")]
+        public Input<bool>? AutoGrowEnabled { get; set; }
+
+        /// <summary>
+        /// Backup retention days for the server, supported values are between `7` and `35` days.
+        /// </summary>
+        [Input("backupRetentionDays")]
+        public Input<int>? BackupRetentionDays { get; set; }
+
+        /// <summary>
+        /// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+        /// </summary>
+        [Input("createMode")]
+        public Input<string>? CreateMode { get; set; }
+
+        /// <summary>
+        /// For creation modes other then default the source server ID to use.
+        /// </summary>
+        [Input("creationSourceServerId")]
+        public Input<string>? CreationSourceServerId { get; set; }
 
         /// <summary>
         /// The FQDN of the PostgreSQL Server.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
+        /// </summary>
+        [Input("geoRedundantBackupEnabled")]
+        public Input<bool>? GeoRedundantBackupEnabled { get; set; }
+
+        /// <summary>
+        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        /// </summary>
+        [Input("infrastructureEncryptionEnabled")]
+        public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -230,10 +377,22 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
+        /// </summary>
+        [Input("restorePointInTime")]
+        public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
         /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
@@ -247,9 +406,21 @@ namespace Pulumi.Azure.PostgreSql
         [Input("sslEnforcement")]
         public Input<string>? SslEnforcement { get; set; }
 
+        [Input("sslEnforcementEnabled")]
+        public Input<bool>? SslEnforcementEnabled { get; set; }
+
         /// <summary>
-        /// A `storage_profile` block as defined below.
+        /// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         /// </summary>
+        [Input("sslMinimalTlsVersionEnforced")]
+        public Input<string>? SslMinimalTlsVersionEnforced { get; set; }
+
+        /// <summary>
+        /// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+        /// </summary>
+        [Input("storageMb")]
+        public Input<int>? StorageMb { get; set; }
+
         [Input("storageProfile")]
         public Input<Inputs.ServerStorageProfileGetArgs>? StorageProfile { get; set; }
 
@@ -257,7 +428,7 @@ namespace Pulumi.Azure.PostgreSql
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource.  
         /// </summary>
         public InputMap<string> Tags
         {

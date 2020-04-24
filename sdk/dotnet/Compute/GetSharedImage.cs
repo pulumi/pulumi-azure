@@ -61,6 +61,10 @@ namespace Pulumi.Azure.Compute
         public readonly string Eula;
         public readonly string GalleryName;
         /// <summary>
+        /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
+        /// </summary>
+        public readonly string HyperVGeneration;
+        /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -99,6 +103,8 @@ namespace Pulumi.Azure.Compute
 
             string galleryName,
 
+            string hyperVGeneration,
+
             string id,
 
             ImmutableArray<Outputs.GetSharedImageIdentifierResult> identifiers,
@@ -120,6 +126,7 @@ namespace Pulumi.Azure.Compute
             Description = description;
             Eula = eula;
             GalleryName = galleryName;
+            HyperVGeneration = hyperVGeneration;
             Id = id;
             Identifiers = identifiers;
             Location = location;

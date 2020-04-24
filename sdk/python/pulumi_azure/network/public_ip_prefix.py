@@ -24,7 +24,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     """
     prefix_length: pulumi.Output[float]
     """
-    Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+    Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -52,7 +52,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
-        :param pulumi.Input[float] prefix_length: Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        :param pulumi.Input[float] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -103,7 +103,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] ip_prefix: The IP address prefix value that was allocated.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
-        :param pulumi.Input[float] prefix_length: Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        :param pulumi.Input[float] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

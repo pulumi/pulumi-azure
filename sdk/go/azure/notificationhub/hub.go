@@ -26,6 +26,8 @@ type Hub struct {
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -74,6 +76,8 @@ type hubState struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type HubState struct {
@@ -89,6 +93,8 @@ type HubState struct {
 	NamespaceName pulumi.StringPtrInput
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (HubState) ElementType() reflect.Type {
@@ -108,6 +114,8 @@ type hubArgs struct {
 	NamespaceName string `pulumi:"namespaceName"`
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Hub resource.
@@ -124,6 +132,8 @@ type HubArgs struct {
 	NamespaceName pulumi.StringInput
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (HubArgs) ElementType() reflect.Type {
