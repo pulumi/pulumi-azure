@@ -38,7 +38,7 @@ type LookupFunctionAppResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is the Function App enabled?
 	Enabled bool `pulumi:"enabled"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
 	// The name of the Connection String.

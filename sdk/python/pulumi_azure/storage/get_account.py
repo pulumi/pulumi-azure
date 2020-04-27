@@ -55,7 +55,7 @@ class GetAccountResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if is_hns_enabled and not isinstance(is_hns_enabled, bool):
             raise TypeError("Expected argument 'is_hns_enabled' to be a bool")

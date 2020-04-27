@@ -7,6 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+//
+// Deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition
 func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*GetRoleDefinitionResult, error) {
 	var rv GetRoleDefinitionResult
 	err := ctx.Invoke("azure:role/getRoleDefinition:getRoleDefinition", args, &rv, opts...)
@@ -27,7 +29,7 @@ type GetRoleDefinitionArgs struct {
 type GetRoleDefinitionResult struct {
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	Description      string   `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id               string                        `pulumi:"id"`
 	Name             string                        `pulumi:"name"`
 	Permissions      []GetRoleDefinitionPermission `pulumi:"permissions"`

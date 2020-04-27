@@ -33,7 +33,7 @@ class GetUserResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if last_name and not isinstance(last_name, str):
             raise TypeError("Expected argument 'last_name' to be a str")

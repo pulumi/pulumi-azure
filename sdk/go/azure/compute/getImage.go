@@ -33,7 +33,7 @@ type LookupImageArgs struct {
 type LookupImageResult struct {
 	// a collection of `dataDisk` blocks as defined below.
 	DataDisks []GetImageDataDisk `pulumi:"dataDisks"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// the Azure Location where this Image exists.
 	Location string `pulumi:"location"`

@@ -29,7 +29,7 @@ type LookupFactoryArgs struct {
 type LookupFactoryResult struct {
 	// A `githubConfiguration` block as defined below.
 	GithubConfigurations []GetFactoryGithubConfiguration `pulumi:"githubConfigurations"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
 	Identities []GetFactoryIdentity `pulumi:"identities"`

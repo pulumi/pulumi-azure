@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
  */
+/** @deprecated azure.TopicAuthorizationRule has been deprecated in favour of azure.TopicAuthorizationRule */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing TopicAuthorizationRule resource's state with the given name, ID, and optional extra
@@ -22,6 +23,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): TopicAuthorizationRule {
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.TopicAuthorizationRule has been deprecated in favour of azure.TopicAuthorizationRule")
         return new TopicAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -91,8 +93,11 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.TopicAuthorizationRule has been deprecated in favour of azure.TopicAuthorizationRule */
     constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.TopicAuthorizationRule has been deprecated in favour of azure.TopicAuthorizationRule */
     constructor(name: string, argsOrState?: TopicAuthorizationRuleArgs | TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.TopicAuthorizationRule has been deprecated in favour of azure.TopicAuthorizationRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TopicAuthorizationRuleState | undefined;

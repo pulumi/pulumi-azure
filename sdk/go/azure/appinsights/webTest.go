@@ -26,7 +26,8 @@ type WebTest struct {
 	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayOutput `pulumi:"geoLocations"`
-	Kind         pulumi.StringOutput      `pulumi:"kind"`
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The location of the resource group.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
@@ -97,7 +98,8 @@ type webTestState struct {
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	Kind         *string  `pulumi:"kind"`
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	Kind *string `pulumi:"kind"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
@@ -126,7 +128,8 @@ type WebTestState struct {
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	Kind         pulumi.StringPtrInput
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	Kind pulumi.StringPtrInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
@@ -159,7 +162,8 @@ type webTestArgs struct {
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	Kind         string   `pulumi:"kind"`
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	Kind string `pulumi:"kind"`
 	// The location of the resource group.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
@@ -188,7 +192,8 @@ type WebTestArgs struct {
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	Kind         pulumi.StringInput
+	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+	Kind pulumi.StringInput
 	// The location of the resource group.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights WebTest. Changing this forces a

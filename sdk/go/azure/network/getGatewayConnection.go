@@ -41,7 +41,7 @@ type GetGatewayConnectionResult struct {
 	ExpressRouteCircuitId string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass bool `pulumi:"expressRouteGatewayBypass"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                      string                            `pulumi:"id"`
 	IngressBytesTransferred int                               `pulumi:"ingressBytesTransferred"`
 	IpsecPolicies           []GetGatewayConnectionIpsecPolicy `pulumi:"ipsecPolicies"`

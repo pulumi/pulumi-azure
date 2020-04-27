@@ -162,22 +162,42 @@ func (o DatabaseExtendedAuditingPolicyPtrOutput) Elem() DatabaseExtendedAuditing
 
 // Specifies the number of days to retain logs for in the storage account.
 func (o DatabaseExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the access key to use for the auditing storage account.
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountAccessKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountAccessKeyIsSecondary
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 type DatabaseImport struct {
@@ -358,38 +378,73 @@ func (o DatabaseImportPtrOutput) Elem() DatabaseImportOutput {
 }
 
 // Specifies the name of the SQL administrator.
-func (o DatabaseImportPtrOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+func (o DatabaseImportPtrOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorLogin
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the password of the SQL administrator.
-func (o DatabaseImportPtrOutput) AdministratorLoginPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
+func (o DatabaseImportPtrOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorLoginPassword
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
-func (o DatabaseImportPtrOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseImport) string { return v.AuthenticationType }).(pulumi.StringOutput)
+func (o DatabaseImportPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of import operation being performed. The only allowable value is `Import`.
 func (o DatabaseImportPtrOutput) OperationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseImport) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the access key for the storage account.
-func (o DatabaseImportPtrOutput) StorageKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKey }).(pulumi.StringOutput)
+func (o DatabaseImportPtrOutput) StorageKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
-func (o DatabaseImportPtrOutput) StorageKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKeyType }).(pulumi.StringOutput)
+func (o DatabaseImportPtrOutput) StorageKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageKeyType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the blob URI of the .bacpac file.
-func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseImport) string { return v.StorageUri }).(pulumi.StringOutput)
+func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageUri
+	}).(pulumi.StringPtrOutput)
 }
 
 type DatabaseThreatDetectionPolicy struct {
@@ -580,42 +635,82 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPo
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisabledAlerts
+	}).(pulumi.StringArrayOutput)
 }
 
 // Should the account administrators be emailed when this alert is triggered?
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAccountAdmins
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of email addresses which alerts should be sent to.
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAddresses
+	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies the number of days to keep in the Threat Detection audit logs.
 func (o DatabaseThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountAccessKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // Should the default server policy be used? Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) UseServerDefault() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UseServerDefault
+	}).(pulumi.StringPtrOutput)
 }
 
 type FailoverGroupPartnerServer struct {
@@ -871,12 +966,22 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() FailoverGr
 
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) GraceMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GraceMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // the failover mode. Possible values are `Manual`, `Automatic`
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointFailoverPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type FailoverGroupReadonlyEndpointFailoverPolicy struct {
@@ -1005,8 +1110,13 @@ func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Elem() FailoverGro
 }
 
 // Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
-func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v FailoverGroupReadonlyEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+func (o FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverGroupReadonlyEndpointFailoverPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type SqlServerExtendedAuditingPolicy struct {
@@ -1161,22 +1271,42 @@ func (o SqlServerExtendedAuditingPolicyPtrOutput) Elem() SqlServerExtendedAuditi
 
 // (Optional) Specifies the number of days to retain logs for in the storage account.
 func (o SqlServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // (Required)  Specifies the access key to use for the auditing storage account.
-func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountAccessKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
 func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountAccessKeyIsSecondary
+	}).(pulumi.BoolPtrOutput)
 }
 
 // (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlServerExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+func (o SqlServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerExtendedAuditingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 type SqlServerIdentity struct {
@@ -1322,17 +1452,32 @@ func (o SqlServerIdentityPtrOutput) Elem() SqlServerIdentityOutput {
 
 // The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 func (o SqlServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SqlServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 func (o SqlServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SqlServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
-func (o SqlServerIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o SqlServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetServerIdentity struct {

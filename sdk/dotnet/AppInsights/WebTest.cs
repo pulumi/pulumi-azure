@@ -50,6 +50,9 @@ namespace Pulumi.Azure.AppInsights
         [Output("geoLocations")]
         public Output<ImmutableArray<string>> GeoLocations { get; private set; } = null!;
 
+        /// <summary>
+        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+        /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
 
@@ -178,6 +181,9 @@ namespace Pulumi.Azure.AppInsights
             set => _geoLocations = value;
         }
 
+        /// <summary>
+        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+        /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
 
@@ -270,6 +276,9 @@ namespace Pulumi.Azure.AppInsights
             set => _geoLocations = value;
         }
 
+        /// <summary>
+        /// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+        /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 

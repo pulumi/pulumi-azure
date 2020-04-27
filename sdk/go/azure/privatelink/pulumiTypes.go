@@ -179,33 +179,63 @@ func (o EndpointPrivateServiceConnectionPtrOutput) Elem() EndpointPrivateService
 }
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
-func (o EndpointPrivateServiceConnectionPtrOutput) IsManualConnection() pulumi.BoolOutput {
-	return o.ApplyT(func(v EndpointPrivateServiceConnection) bool { return v.IsManualConnection }).(pulumi.BoolOutput)
+func (o EndpointPrivateServiceConnectionPtrOutput) IsManualConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsManualConnection
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-func (o EndpointPrivateServiceConnectionPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointPrivateServiceConnection) string { return v.Name }).(pulumi.StringOutput)
+func (o EndpointPrivateServiceConnectionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
-func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
+func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateConnectionResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 // A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestMessage
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *EndpointPrivateServiceConnection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubresourceNames
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetEndpointConnectionPrivateServiceConnection struct {

@@ -11,7 +11,12 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule
     /// </summary>
+    [Obsolete(@"azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

@@ -32,7 +32,7 @@ type LookupVolumeArgs struct {
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
 	AccountName string `pulumi:"accountName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the NetApp Volume exists.
 	Location          string   `pulumi:"location"`

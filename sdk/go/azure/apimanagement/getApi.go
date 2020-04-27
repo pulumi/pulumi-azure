@@ -36,7 +36,7 @@ type LookupApiResult struct {
 	Description string `pulumi:"description"`
 	// The display name of the API.
 	DisplayName string `pulumi:"displayName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Is this the current API Revision?
 	IsCurrent bool `pulumi:"isCurrent"`

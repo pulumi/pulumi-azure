@@ -198,11 +198,21 @@ func (o FeaturesKeyVaultPtrOutput) Elem() FeaturesKeyVaultOutput {
 }
 
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecoverSoftDeletedKeyVaults
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FeaturesVirtualMachine struct {
@@ -324,8 +334,13 @@ func (o FeaturesVirtualMachinePtrOutput) Elem() FeaturesVirtualMachineOutput {
 	return o.ApplyT(func(v *FeaturesVirtualMachine) FeaturesVirtualMachine { return *v }).(FeaturesVirtualMachineOutput)
 }
 
-func (o FeaturesVirtualMachinePtrOutput) DeleteOsDiskOnDeletion() pulumi.BoolOutput {
-	return o.ApplyT(func(v FeaturesVirtualMachine) bool { return v.DeleteOsDiskOnDeletion }).(pulumi.BoolOutput)
+func (o FeaturesVirtualMachinePtrOutput) DeleteOsDiskOnDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesVirtualMachine) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DeleteOsDiskOnDeletion
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FeaturesVirtualMachineScaleSet struct {
@@ -447,8 +462,13 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) Elem() FeaturesVirtualMachineSc
 	return o.ApplyT(func(v *FeaturesVirtualMachineScaleSet) FeaturesVirtualMachineScaleSet { return *v }).(FeaturesVirtualMachineScaleSetOutput)
 }
 
-func (o FeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pulumi.BoolOutput {
-	return o.ApplyT(func(v FeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
+func (o FeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesVirtualMachineScaleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RollInstancesWhenRequired
+	}).(pulumi.BoolPtrOutput)
 }
 
 func init() {

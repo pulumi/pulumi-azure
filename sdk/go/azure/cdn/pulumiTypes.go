@@ -459,13 +459,23 @@ func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Elem() EndpointDeliv
 }
 
 // The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
-func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
+func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleCacheExpirationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(pulumi.StringPtrOutput)
 }
 
 // Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
 func (o EndpointDeliveryRuleCacheExpirationActionPtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleCacheExpirationAction) *string { return v.Duration }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleCacheExpirationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointDeliveryRuleCacheKeyQueryStringAction struct {
@@ -603,13 +613,23 @@ func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() EndpointD
 }
 
 // The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
-func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
+func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleCacheKeyQueryStringAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(pulumi.StringPtrOutput)
 }
 
 // Comma separated list of parameter values.
 func (o EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput) Parameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleCacheKeyQueryStringAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleCacheKeyQueryStringAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointDeliveryRuleCookiesCondition struct {
@@ -890,17 +910,32 @@ func (o EndpointDeliveryRuleDeviceConditionPtrOutput) Elem() EndpointDeliveryRul
 
 // Valid values are `Desktop` and `Mobile`.
 func (o EndpointDeliveryRuleDeviceConditionPtrOutput) MatchValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleDeviceCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchValues
+	}).(pulumi.StringArrayOutput)
 }
 
 // Defaults to `false`.
 func (o EndpointDeliveryRuleDeviceConditionPtrOutput) NegateCondition() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleDeviceCondition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NegateCondition
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Valid values are `Equal`.
 func (o EndpointDeliveryRuleDeviceConditionPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleDeviceCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointDeliveryRuleHttpVersionCondition struct {
@@ -2038,17 +2073,32 @@ func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) Elem() EndpointDeli
 
 // Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
 func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) MatchValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestMethodCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchValues
+	}).(pulumi.StringArrayOutput)
 }
 
 // Defaults to `false`.
 func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) NegateCondition() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestMethodCondition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NegateCondition
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Valid values are `Equal`.
 func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestMethodCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointDeliveryRuleRequestSchemeCondition struct {
@@ -2196,17 +2246,32 @@ func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) Elem() EndpointDeli
 
 // Valid values are `HTTP` and `HTTPS`.
 func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) MatchValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestSchemeCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchValues
+	}).(pulumi.StringArrayOutput)
 }
 
 // Defaults to `false`.
 func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) NegateCondition() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestSchemeCondition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NegateCondition
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Valid values are `Equal`.
 func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleRequestSchemeCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointDeliveryRuleRequestUriCondition struct {
@@ -2883,32 +2948,62 @@ func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Elem() EndpointDeliveryR
 
 // Specifies the fragment part of the URL. This value must not start with a `#`.
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Fragment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Fragment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fragment
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the hostname part of the URL.
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Hostname
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the path part of the URL. This value must begin with a `/`.
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
 }
 
 // Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
-func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) string { return v.RedirectType }).(pulumi.StringOutput)
+func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectType
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointDeliveryRuleUrlRewriteAction struct {
@@ -3053,18 +3148,33 @@ func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) Elem() EndpointDeliveryRu
 }
 
 // This value must start with a `/` and can't be longer than 260 characters.
-func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRewriteAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defaults to `true`.
 func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRewriteAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveUnmatchedPath
+	}).(pulumi.BoolPtrOutput)
 }
 
 // This value must start with a `/` and can't be longer than 260 characters.
-func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) SourcePattern() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) string { return v.SourcePattern }).(pulumi.StringOutput)
+func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) SourcePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRewriteAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourcePattern
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointGeoFilter struct {
@@ -3366,42 +3476,60 @@ func (o EndpointGlobalDeliveryRulePtrOutput) Elem() EndpointGlobalDeliveryRuleOu
 
 // A `cacheExpirationAction` block as defined above.
 func (o EndpointGlobalDeliveryRulePtrOutput) CacheExpirationAction() EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheExpirationAction {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheExpirationAction {
+		if v == nil {
+			return nil
+		}
 		return v.CacheExpirationAction
 	}).(EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput)
 }
 
 // A `cacheKeyQueryStringAction` block as defined above.
 func (o EndpointGlobalDeliveryRulePtrOutput) CacheKeyQueryStringAction() EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
+		if v == nil {
+			return nil
+		}
 		return v.CacheKeyQueryStringAction
 	}).(EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput)
 }
 
 // A `modifyRequestHeaderAction` block as defined below.
 func (o EndpointGlobalDeliveryRulePtrOutput) ModifyRequestHeaderActions() EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyRequestHeaderAction {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyRequestHeaderAction {
+		if v == nil {
+			return nil
+		}
 		return v.ModifyRequestHeaderActions
 	}).(EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput)
 }
 
 // A `modifyResponseHeaderAction` block as defined below.
 func (o EndpointGlobalDeliveryRulePtrOutput) ModifyResponseHeaderActions() EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) []EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
+		if v == nil {
+			return nil
+		}
 		return v.ModifyResponseHeaderActions
 	}).(EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput)
 }
 
 // A `urlRedirectAction` block as defined below.
 func (o EndpointGlobalDeliveryRulePtrOutput) UrlRedirectAction() EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRedirectAction {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRedirectAction {
+		if v == nil {
+			return nil
+		}
 		return v.UrlRedirectAction
 	}).(EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput)
 }
 
 // A `urlRewriteAction` block as defined below.
 func (o EndpointGlobalDeliveryRulePtrOutput) UrlRewriteAction() EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRewriteAction {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRule) *EndpointGlobalDeliveryRuleUrlRewriteAction {
+		if v == nil {
+			return nil
+		}
 		return v.UrlRewriteAction
 	}).(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput)
 }
@@ -3541,13 +3669,23 @@ func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Elem() Endpoin
 }
 
 // The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
-func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) string { return v.Behavior }).(pulumi.StringOutput)
+func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheExpirationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(pulumi.StringPtrOutput)
 }
 
 // Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
 func (o EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheExpirationAction) *string { return v.Duration }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheExpirationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointGlobalDeliveryRuleCacheKeyQueryStringAction struct {
@@ -3685,13 +3823,23 @@ func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Elem() End
 }
 
 // The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
-func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) string { return v.Behavior }).(pulumi.StringOutput)
+func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Behavior
+	}).(pulumi.StringPtrOutput)
 }
 
 // Comma separated list of parameter values.
 func (o EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput) Parameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleCacheKeyQueryStringAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointGlobalDeliveryRuleModifyRequestHeaderAction struct {
@@ -4100,32 +4248,62 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Elem() EndpointGlo
 
 // Specifies the fragment part of the URL. This value must not start with a `#`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Fragment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Fragment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fragment
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the hostname part of the URL.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Hostname }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Hostname
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the path part of the URL. This value must begin with a `/`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
 }
 
 // Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
-func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) string { return v.RedirectType }).(pulumi.StringOutput)
+func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectType
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointGlobalDeliveryRuleUrlRewriteAction struct {
@@ -4272,18 +4450,33 @@ func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) Elem() EndpointGlob
 }
 
 // This value must start with a `/` and can't be longer than 260 characters.
-func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRewriteAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defaults to `true`.
 func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRewriteAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveUnmatchedPath
+	}).(pulumi.BoolPtrOutput)
 }
 
 // This value must start with a `/` and can't be longer than 260 characters.
-func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) SourcePattern() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) string { return v.SourcePattern }).(pulumi.StringOutput)
+func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) SourcePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRewriteAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourcePattern
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointOrigin struct {

@@ -30,7 +30,7 @@ type LookupDedicatedHostArgs struct {
 // A collection of values returned by getDedicatedHost.
 type LookupDedicatedHostResult struct {
 	DedicatedHostGroupName string `pulumi:"dedicatedHostGroupName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location where the Dedicated Host exists.
 	Location          string `pulumi:"location"`

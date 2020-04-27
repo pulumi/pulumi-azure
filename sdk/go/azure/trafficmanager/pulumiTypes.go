@@ -368,13 +368,23 @@ func (o ProfileDnsConfigPtrOutput) Elem() ProfileDnsConfigOutput {
 }
 
 // The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
-func (o ProfileDnsConfigPtrOutput) RelativeName() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
+func (o ProfileDnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileDnsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelativeName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The TTL value of the Profile used by Local DNS resolvers and clients.
-func (o ProfileDnsConfigPtrOutput) Ttl() pulumi.IntOutput {
-	return o.ApplyT(func(v ProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
+func (o ProfileDnsConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProfileDnsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Ttl
+	}).(pulumi.IntPtrOutput)
 }
 
 type ProfileMonitorConfig struct {
@@ -565,42 +575,82 @@ func (o ProfileMonitorConfigPtrOutput) Elem() ProfileMonitorConfigOutput {
 
 // One or more `customHeader` blocks as defined below.
 func (o ProfileMonitorConfigPtrOutput) CustomHeaders() ProfileMonitorConfigCustomHeaderArrayOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) []ProfileMonitorConfigCustomHeader { return v.CustomHeaders }).(ProfileMonitorConfigCustomHeaderArrayOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) []ProfileMonitorConfigCustomHeader {
+		if v == nil {
+			return nil
+		}
+		return v.CustomHeaders
+	}).(ProfileMonitorConfigCustomHeaderArrayOutput)
 }
 
 // A list of status code ranges in the format of `100-101`.
 func (o ProfileMonitorConfigPtrOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedStatusCodeRanges
+	}).(pulumi.StringArrayOutput)
 }
 
 // The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
 func (o ProfileMonitorConfigPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
 func (o ProfileMonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
 }
 
 // The port number used by the monitoring checks.
-func (o ProfileMonitorConfigPtrOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
+func (o ProfileMonitorConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-func (o ProfileMonitorConfigPtrOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
+func (o ProfileMonitorConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileMonitorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
 }
 
 // The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
 func (o ProfileMonitorConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
 func (o ProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToleratedNumberOfFailures
+	}).(pulumi.IntPtrOutput)
 }
 
 type ProfileMonitorConfigCustomHeader struct {

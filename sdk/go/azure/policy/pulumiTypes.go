@@ -153,17 +153,32 @@ func (o AssignmentIdentityPtrOutput) Elem() AssignmentIdentityOutput {
 
 // The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
 func (o AssignmentIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
 func (o AssignmentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
 func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssignmentIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AssignmentIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

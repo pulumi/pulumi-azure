@@ -111,6 +111,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     public readonly nodeResourceGroup!: pulumi.Output<string>;
+    /**
+     * Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+     */
     public readonly privateClusterEnabled!: pulumi.Output<boolean>;
     /**
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -301,6 +304,9 @@ export interface KubernetesClusterState {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     readonly nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+     */
     readonly privateClusterEnabled?: pulumi.Input<boolean>;
     /**
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
@@ -381,6 +387,9 @@ export interface KubernetesClusterArgs {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      */
     readonly nodeResourceGroup?: pulumi.Input<string>;
+    /**
+     * Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+     */
     readonly privateClusterEnabled?: pulumi.Input<boolean>;
     readonly privateLinkEnabled?: pulumi.Input<boolean>;
     /**

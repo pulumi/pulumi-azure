@@ -36,7 +36,7 @@ type LookupProductResult struct {
 	Description string `pulumi:"description"`
 	// The Display Name for this API Management Product.
 	DisplayName string `pulumi:"displayName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
 	ProductId string `pulumi:"productId"`
 	// Is this Product Published?

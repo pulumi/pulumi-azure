@@ -31,7 +31,7 @@ type GetServiceTagsArgs struct {
 type GetServiceTagsResult struct {
 	// List of address prefixes for the service type (and optionally a specific region).
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id             string  `pulumi:"id"`
 	Location       string  `pulumi:"location"`
 	LocationFilter *string `pulumi:"locationFilter"`

@@ -27,7 +27,7 @@ type LookupDedicatedHostGroupArgs struct {
 
 // A collection of values returned by getDedicatedHostGroup.
 type LookupDedicatedHostGroupResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Dedicated Host Group exists.
 	Location string `pulumi:"location"`

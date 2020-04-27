@@ -33,7 +33,7 @@ type LookupVirtualNetworkResult struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// The GUID of the virtual network.
 	Guid string `pulumi:"guid"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Location of the virtual network.
 	Location          string `pulumi:"location"`

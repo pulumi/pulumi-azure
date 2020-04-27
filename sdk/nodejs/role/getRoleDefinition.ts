@@ -6,7 +6,9 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/** @deprecated azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
+    pulumi.log.warn("getRoleDefinition is deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -43,7 +45,7 @@ export interface GetRoleDefinitionResult {
     readonly scope?: string;
     readonly type: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

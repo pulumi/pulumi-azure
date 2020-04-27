@@ -8,6 +8,10 @@ import (
 )
 
 // Use this data source to access information about an existing EventHub Namespace.
+//
+//
+//
+// Deprecated: azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
 	var rv GetEventhubNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, &rv, opts...)
@@ -41,7 +45,7 @@ type GetEventhubNamespaceResult struct {
 	DefaultSecondaryConnectionString string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
 	KafkaEnabled bool   `pulumi:"kafkaEnabled"`
 	// The Azure location where the EventHub Namespace exists

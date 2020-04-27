@@ -35,7 +35,7 @@ type LookupServiceResult struct {
 	GatewayUrl string `pulumi:"gatewayUrl"`
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfigurations []GetServiceHostnameConfiguration `pulumi:"hostnameConfigurations"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`

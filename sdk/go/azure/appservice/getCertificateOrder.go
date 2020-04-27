@@ -41,7 +41,7 @@ type LookupCertificateOrderResult struct {
 	DomainVerificationToken string `pulumi:"domainVerificationToken"`
 	// Certificate expiration time.
 	ExpirationTime string `pulumi:"expirationTime"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Certificate thumbprint intermediate certificate.
 	IntermediateThumbprint string `pulumi:"intermediateThumbprint"`

@@ -32,7 +32,7 @@ type GetConsumeGroupArgs struct {
 // A collection of values returned by getConsumeGroup.
 type GetConsumeGroupResult struct {
 	EventhubName string `pulumi:"eventhubName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`

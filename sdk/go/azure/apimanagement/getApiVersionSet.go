@@ -34,7 +34,7 @@ type LookupApiVersionSetResult struct {
 	Description string `pulumi:"description"`
 	// The display name of this API Version Set.
 	DisplayName string `pulumi:"displayName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`

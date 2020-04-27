@@ -27,7 +27,7 @@ type LookupFirewallArgs struct {
 
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `ipConfiguration` block as defined below.
 	IpConfigurations  []GetFirewallIpConfiguration `pulumi:"ipConfigurations"`

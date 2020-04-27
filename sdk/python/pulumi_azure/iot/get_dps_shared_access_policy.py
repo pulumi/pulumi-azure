@@ -18,7 +18,7 @@ class GetDpsSharedAccessPolicyResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if iothub_dps_name and not isinstance(iothub_dps_name, str):
             raise TypeError("Expected argument 'iothub_dps_name' to be a str")

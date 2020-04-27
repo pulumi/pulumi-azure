@@ -11,6 +11,8 @@ import (
 )
 
 // Manages a ServiceBus Subscription Rule.
+//
+// Deprecated: azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule
 type SubscriptionRule struct {
 	pulumi.CustomResourceState
 

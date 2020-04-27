@@ -35,7 +35,7 @@ type LookupServiceResult struct {
 	// A `corsConfiguration` block as defined below.
 	CorsConfigurations []GetServiceCorsConfiguration `pulumi:"corsConfigurations"`
 	CosmosdbThroughput int                           `pulumi:"cosmosdbThroughput"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The type of the service.
 	Kind string `pulumi:"kind"`

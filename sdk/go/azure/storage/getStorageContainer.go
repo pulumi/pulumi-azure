@@ -35,7 +35,7 @@ type GetStorageContainerResult struct {
 	HasImmutabilityPolicy bool `pulumi:"hasImmutabilityPolicy"`
 	// Is there a Legal Hold configured on this Storage Container?
 	HasLegalHold bool `pulumi:"hasLegalHold"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A mapping of MetaData for this Container.
 	Metadata map[string]string `pulumi:"metadata"`

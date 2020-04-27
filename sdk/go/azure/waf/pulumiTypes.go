@@ -515,12 +515,22 @@ func (o PolicyPolicySettingsPtrOutput) Elem() PolicyPolicySettingsOutput {
 
 // Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
 func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
 func (o PolicyPolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PolicyPolicySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

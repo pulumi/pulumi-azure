@@ -29,7 +29,7 @@ type LookupNamespaceAuthorizationRuleArgs struct {
 
 // A collection of values returned by getNamespaceAuthorizationRule.
 type LookupNamespaceAuthorizationRuleResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Does this Authorization Rule have permissions to Listen to the Event Hub?
 	Listen bool `pulumi:"listen"`

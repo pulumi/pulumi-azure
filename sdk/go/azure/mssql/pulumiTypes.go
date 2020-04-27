@@ -198,42 +198,82 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPo
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisabledAlerts
+	}).(pulumi.StringArrayOutput)
 }
 
 // Should the account administrators be emailed when this alert is triggered?
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAccountAdmins
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of email addresses which alerts should be sent to.
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAddresses
+	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies the number of days to keep in the Threat Detection audit logs.
 func (o DatabaseThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountAccessKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // Should the default server policy be used? Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) UseServerDefault() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.UseServerDefault }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UseServerDefault
+	}).(pulumi.StringPtrOutput)
 }
 
 type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult struct {
@@ -468,13 +508,23 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSe
 }
 
 // The maximum capacity any one database can consume.
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64Output {
-	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
+func (o ElasticPoolPerDatabaseSettingsPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacity
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The minimum capacity all databases are guaranteed.
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Output {
-	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MinCapacity }).(pulumi.Float64Output)
+func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPoolPerDatabaseSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinCapacity
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ElasticPoolSku struct {
@@ -628,23 +678,43 @@ func (o ElasticPoolSkuPtrOutput) Elem() ElasticPoolSkuOutput {
 }
 
 // The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-func (o ElasticPoolSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v ElasticPoolSku) int { return v.Capacity }).(pulumi.IntOutput)
+func (o ElasticPoolSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ElasticPoolSku) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The `family` of hardware `Gen4` or `Gen5`.
 func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ElasticPoolSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
-func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
+func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPoolSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-func (o ElasticPoolSkuPtrOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func(v ElasticPoolSku) string { return v.Tier }).(pulumi.StringOutput)
+func (o ElasticPoolSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPoolSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServerVulnerabilityAssessmentRecurringScans struct {
@@ -792,17 +862,32 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Elem() ServerVulne
 
 // Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ServerVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubscriptionAdmins
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Emails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) []string { return v.Emails }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ServerVulnerabilityAssessmentRecurringScans) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Emails
+	}).(pulumi.StringArrayOutput)
 }
 
 // Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServerVulnerabilityAssessmentRecurringScans) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ServerVulnerabilityAssessmentRecurringScans) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type VirtualMachineAutoPatching struct {
@@ -947,18 +1032,33 @@ func (o VirtualMachineAutoPatchingPtrOutput) Elem() VirtualMachineAutoPatchingOu
 }
 
 // The day of week to apply the patch on.
-func (o VirtualMachineAutoPatchingPtrOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineAutoPatching) string { return v.DayOfWeek }).(pulumi.StringOutput)
+func (o VirtualMachineAutoPatchingPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoPatching) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
 }
 
 // The size of the Maintenance Window in minutes.
-func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowDurationInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualMachineAutoPatching) int { return v.MaintenanceWindowDurationInMinutes }).(pulumi.IntOutput)
+func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoPatching) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaintenanceWindowDurationInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowStartingHour() pulumi.IntOutput {
-	return o.ApplyT(func(v VirtualMachineAutoPatching) int { return v.MaintenanceWindowStartingHour }).(pulumi.IntOutput)
+func (o VirtualMachineAutoPatchingPtrOutput) MaintenanceWindowStartingHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineAutoPatching) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaintenanceWindowStartingHour
+	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualMachineKeyVaultCredential struct {
@@ -1112,23 +1212,43 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) Elem() VirtualMachineKeyVault
 }
 
 // The azure Key Vault url. Changing this forces a new resource to be created.
-func (o VirtualMachineKeyVaultCredentialPtrOutput) KeyVaultUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.KeyVaultUrl }).(pulumi.StringOutput)
+func (o VirtualMachineKeyVaultCredentialPtrOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 // The credential name.
-func (o VirtualMachineKeyVaultCredentialPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.Name }).(pulumi.StringOutput)
+func (o VirtualMachineKeyVaultCredentialPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // The service principal name to access key vault. Changing this forces a new resource to be created.
-func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalName() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.ServicePrincipalName }).(pulumi.StringOutput)
+func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServicePrincipalName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The service principal name secret to access key vault. Changing this forces a new resource to be created.
-func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineKeyVaultCredential) string { return v.ServicePrincipalSecret }).(pulumi.StringOutput)
+func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineKeyVaultCredential) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServicePrincipalSecret
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

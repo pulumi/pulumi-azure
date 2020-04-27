@@ -35,7 +35,7 @@ type LookupSubnetResult struct {
 	EnforcePrivateLinkEndpointNetworkPolicies bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
 	// Enable or Disable network policies for the private link service on the subnet.
 	EnforcePrivateLinkServiceNetworkPolicies bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The ID of the Network Security Group associated with the subnet.

@@ -29,7 +29,7 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint string `pulumi:"accountEndpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReferences []GetAccountKeyVaultReference `pulumi:"keyVaultReferences"`

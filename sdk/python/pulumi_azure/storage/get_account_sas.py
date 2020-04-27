@@ -27,7 +27,7 @@ class GetAccountSASResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if permissions and not isinstance(permissions, dict):
             raise TypeError("Expected argument 'permissions' to be a dict")

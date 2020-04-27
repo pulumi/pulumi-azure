@@ -162,22 +162,42 @@ func (o ServerStorageProfilePtrOutput) Elem() ServerStorageProfileOutput {
 
 // Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
 func (o ServerStorageProfilePtrOutput) AutoGrow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoGrow
+	}).(pulumi.StringPtrOutput)
 }
 
 // Backup retention days for the server, supported values are between `7` and `35` days.
 func (o ServerStorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
 func (o ServerStorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRedundantBackup
+	}).(pulumi.StringPtrOutput)
 }
 
 // Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
-func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntOutput {
-	return o.ApplyT(func(v ServerStorageProfile) int { return v.StorageMb }).(pulumi.IntOutput)
+func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerStorageProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageMb
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetMariaDbServerStorageProfile struct {

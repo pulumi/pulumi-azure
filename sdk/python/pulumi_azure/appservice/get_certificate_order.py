@@ -60,7 +60,7 @@ class GetCertificateOrderResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if intermediate_thumbprint and not isinstance(intermediate_thumbprint, str):
             raise TypeError("Expected argument 'intermediate_thumbprint' to be a str")

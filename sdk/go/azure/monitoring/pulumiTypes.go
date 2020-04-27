@@ -1563,52 +1563,102 @@ func (o ActivityLogAlertCriteriaPtrOutput) Elem() ActivityLogAlertCriteriaOutput
 
 // The email address or Azure Active Directory identifier of the user who performed the operation.
 func (o ActivityLogAlertCriteriaPtrOutput) Caller() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Caller }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Caller
+	}).(pulumi.StringPtrOutput)
 }
 
 // The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-func (o ActivityLogAlertCriteriaPtrOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) string { return v.Category }).(pulumi.StringOutput)
+func (o ActivityLogAlertCriteriaPtrOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Category
+	}).(pulumi.StringPtrOutput)
 }
 
 // The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
 func (o ActivityLogAlertCriteriaPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Level }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 func (o ActivityLogAlertCriteriaPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of resource group monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource provider monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceProvider }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceProvider
+	}).(pulumi.StringPtrOutput)
 }
 
 // The resource type monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 func (o ActivityLogAlertCriteriaPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // The sub status of the event.
 func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubStatus
+	}).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingNotification struct {
@@ -1745,12 +1795,22 @@ func (o AutoscaleSettingNotificationPtrOutput) Elem() AutoscaleSettingNotificati
 
 // A `email` block as defined below.
 func (o AutoscaleSettingNotificationPtrOutput) Email() AutoscaleSettingNotificationEmailPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 
 // One or more `webhook` blocks as defined below.
 func (o AutoscaleSettingNotificationPtrOutput) Webhooks() AutoscaleSettingNotificationWebhookArrayOutput {
-	return o.ApplyT(func(v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook { return v.Webhooks }).(AutoscaleSettingNotificationWebhookArrayOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhook {
+		if v == nil {
+			return nil
+		}
+		return v.Webhooks
+	}).(AutoscaleSettingNotificationWebhookArrayOutput)
 }
 
 type AutoscaleSettingNotificationEmail struct {
@@ -1896,17 +1956,32 @@ func (o AutoscaleSettingNotificationEmailPtrOutput) Elem() AutoscaleSettingNotif
 
 // Specifies a list of custom email addresses to which the email notifications will be sent.
 func (o AutoscaleSettingNotificationEmailPtrOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotificationEmail) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEmails
+	}).(pulumi.StringArrayOutput)
 }
 
 // Should email notifications be sent to the subscription administrator? Defaults to `false`.
 func (o AutoscaleSettingNotificationEmailPtrOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotificationEmail) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendToSubscriptionAdministrator
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
 func (o AutoscaleSettingNotificationEmailPtrOutput) SendToSubscriptionCoAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingNotificationEmail) *bool { return v.SendToSubscriptionCoAdministrator }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *AutoscaleSettingNotificationEmail) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SendToSubscriptionCoAdministrator
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AutoscaleSettingNotificationWebhook struct {
@@ -2365,18 +2440,33 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) Elem() AutoscaleSettingProfil
 }
 
 // Specifies the end date for the profile, formatted as an RFC3339 date string.
-func (o AutoscaleSettingProfileFixedDatePtrOutput) End() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.End }).(pulumi.StringOutput)
+func (o AutoscaleSettingProfileFixedDatePtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.End
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the start date for the profile, formatted as an RFC3339 date string.
-func (o AutoscaleSettingProfileFixedDatePtrOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) string { return v.Start }).(pulumi.StringOutput)
+func (o AutoscaleSettingProfileFixedDatePtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileFixedDate) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AutoscaleSettingProfileFixedDate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingProfileRecurrence struct {
@@ -2531,22 +2621,42 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) Elem() AutoscaleSettingProfi
 
 // A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) []string { return v.Days }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
-func (o AutoscaleSettingProfileRecurrencePtrOutput) Hours() pulumi.IntOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Hours }).(pulumi.IntOutput)
+func (o AutoscaleSettingProfileRecurrencePtrOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hours
+	}).(pulumi.IntPtrOutput)
 }
 
 // A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-func (o AutoscaleSettingProfileRecurrencePtrOutput) Minutes() pulumi.IntOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) int { return v.Minutes }).(pulumi.IntOutput)
+func (o AutoscaleSettingProfileRecurrencePtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingProfileRecurrence) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AutoscaleSettingProfileRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
 }
 
 type AutoscaleSettingProfileRule struct {
@@ -3345,12 +3455,22 @@ func (o LogProfileRetentionPolicyPtrOutput) Elem() LogProfileRetentionPolicyOutp
 
 // The number of days for the retention policy. Defaults to 0.
 func (o LogProfileRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LogProfileRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
 }
 
 // A boolean value to indicate whether the retention policy is enabled.
-func (o LogProfileRetentionPolicyPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o LogProfileRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogProfileRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type MetricAlertAction struct {
@@ -3865,17 +3985,32 @@ func (o ScheduledQueryRulesAlertActionPtrOutput) Elem() ScheduledQueryRulesAlert
 
 // List of action group reference resource IDs.
 func (o ScheduledQueryRulesAlertActionPtrOutput) ActionGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionGroups
+	}).(pulumi.StringArrayOutput)
 }
 
 // Custom payload to be sent for all webhook payloads in alerting action.
 func (o ScheduledQueryRulesAlertActionPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomWebhookPayload
+	}).(pulumi.StringPtrOutput)
 }
 
 // Custom subject override for all email ids in Azure action group.
 func (o ScheduledQueryRulesAlertActionPtrOutput) EmailSubject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertAction) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubject
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduledQueryRulesAlertTrigger struct {
@@ -4018,19 +4153,32 @@ func (o ScheduledQueryRulesAlertTriggerPtrOutput) Elem() ScheduledQueryRulesAler
 }
 
 func (o ScheduledQueryRulesAlertTriggerPtrOutput) MetricTrigger() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
+		if v == nil {
+			return nil
+		}
 		return v.MetricTrigger
 	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
 }
 
 // Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) string { return v.Operator }).(pulumi.StringOutput)
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
 }
 
 // Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+func (o ScheduledQueryRulesAlertTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTrigger) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Threshold
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ScheduledQueryRulesAlertTriggerMetricTrigger struct {
@@ -4178,22 +4326,42 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Elem() ScheduledQ
 	}).(ScheduledQueryRulesAlertTriggerMetricTriggerOutput)
 }
 
-func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricColumn() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricColumn }).(pulumi.StringOutput)
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricColumn
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricTriggerType }).(pulumi.StringOutput)
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricTriggerType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Evaluation operation for rule - 'Equal', 'GreaterThan' or 'LessThan'.
-func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
 }
 
 // The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
-func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertTriggerMetricTrigger) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Threshold
+	}).(pulumi.Float64PtrOutput)
 }
 
 type ScheduledQueryRulesLogCriteria struct {
@@ -4330,12 +4498,22 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) Elem() ScheduledQueryRulesLogCr
 
 // A `dimension` block as defined below.
 func (o ScheduledQueryRulesLogCriteriaPtrOutput) Dimensions() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
+	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
 }
 
 // Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
-func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesLogCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduledQueryRulesLogCriteriaDimension struct {

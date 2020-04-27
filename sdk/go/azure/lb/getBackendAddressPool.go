@@ -29,7 +29,7 @@ type LookupBackendAddressPoolArgs struct {
 type LookupBackendAddressPoolResult struct {
 	// An array of references to IP addresses defined in network interfaces.
 	BackendIpConfigurations []GetBackendAddressPoolBackendIpConfiguration `pulumi:"backendIpConfigurations"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// The name of the Backend Address Pool.

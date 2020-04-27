@@ -33,7 +33,7 @@ type GetPolicyDefintionResult struct {
 	// The Description of the Policy.
 	Description string `pulumi:"description"`
 	DisplayName string `pulumi:"displayName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                  string  `pulumi:"id"`
 	ManagementGroupId   *string `pulumi:"managementGroupId"`
 	ManagementGroupName *string `pulumi:"managementGroupName"`

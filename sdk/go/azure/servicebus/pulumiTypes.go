@@ -306,42 +306,82 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) Elem() SubscriptionRuleCorre
 
 // Content type of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the correlation.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CorrelationId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Application specific label.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) MessageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Address of the queue to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyTo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyTo
+	}).(pulumi.StringPtrOutput)
 }
 
 // Session identifier to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyToSessionId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Session identifier.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) SessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Address to send to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

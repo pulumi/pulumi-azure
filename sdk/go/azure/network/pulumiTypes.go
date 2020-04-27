@@ -261,12 +261,22 @@ func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) Elem() ApplicationGat
 
 // Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
 func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayAutoscaleConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewayAutoscaleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
-func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) MinCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v ApplicationGatewayAutoscaleConfiguration) int { return v.MinCapacity }).(pulumi.IntOutput)
+func (o ApplicationGatewayAutoscaleConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayAutoscaleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinCapacity
+	}).(pulumi.IntPtrOutput)
 }
 
 type ApplicationGatewayBackendAddressPool struct {
@@ -414,13 +424,13 @@ type ApplicationGatewayBackendHttpSetting struct {
 	Path *string `pulumi:"path"`
 	// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
 	PickHostNameFromBackendAddress *bool `pulumi:"pickHostNameFromBackendAddress"`
-	// The port used for this Frontend Port.
+	// The port which should be used for this Backend HTTP Settings Collection.
 	Port int `pulumi:"port"`
 	// The ID of the associated Probe.
 	ProbeId *string `pulumi:"probeId"`
 	// The name of an associated HTTP Probe.
 	ProbeName *string `pulumi:"probeName"`
-	// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+	// The Protocol which should be used. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
 	// The request timeout in seconds, which must be between 1 and 86400 seconds.
 	RequestTimeout *int `pulumi:"requestTimeout"`
@@ -459,13 +469,13 @@ type ApplicationGatewayBackendHttpSettingArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
 	PickHostNameFromBackendAddress pulumi.BoolPtrInput `pulumi:"pickHostNameFromBackendAddress"`
-	// The port used for this Frontend Port.
+	// The port which should be used for this Backend HTTP Settings Collection.
 	Port pulumi.IntInput `pulumi:"port"`
 	// The ID of the associated Probe.
 	ProbeId pulumi.StringPtrInput `pulumi:"probeId"`
 	// The name of an associated HTTP Probe.
 	ProbeName pulumi.StringPtrInput `pulumi:"probeName"`
-	// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+	// The Protocol which should be used. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The request timeout in seconds, which must be between 1 and 86400 seconds.
 	RequestTimeout pulumi.IntPtrInput `pulumi:"requestTimeout"`
@@ -574,7 +584,7 @@ func (o ApplicationGatewayBackendHttpSettingOutput) PickHostNameFromBackendAddre
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *bool { return v.PickHostNameFromBackendAddress }).(pulumi.BoolPtrOutput)
 }
 
-// The port used for this Frontend Port.
+// The port which should be used for this Backend HTTP Settings Collection.
 func (o ApplicationGatewayBackendHttpSettingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -589,7 +599,7 @@ func (o ApplicationGatewayBackendHttpSettingOutput) ProbeName() pulumi.StringPtr
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *string { return v.ProbeName }).(pulumi.StringPtrOutput)
 }
 
-// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+// The Protocol which should be used. Possible values are `Http` and `Https`.
 func (o ApplicationGatewayBackendHttpSettingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -867,13 +877,23 @@ func (o ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput) Elem() 
 }
 
 // The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
-func (o ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput) DrainTimeoutSec() pulumi.IntOutput {
-	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingConnectionDraining) int { return v.DrainTimeoutSec }).(pulumi.IntOutput)
+func (o ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput) DrainTimeoutSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingConnectionDraining) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DrainTimeoutSec
+	}).(pulumi.IntPtrOutput)
 }
 
 // If connection draining is enabled or not.
-func (o ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingConnectionDraining) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayBackendHttpSettingConnectionDraining) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ApplicationGatewayCustomErrorConfiguration struct {
@@ -1821,13 +1841,23 @@ func (o ApplicationGatewayIdentityPtrOutput) Elem() ApplicationGatewayIdentityOu
 }
 
 // Specifies a list with a single user managed identity id to be assigned to the Application Gateway.
-func (o ApplicationGatewayIdentityPtrOutput) IdentityIds() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayIdentity) string { return v.IdentityIds }).(pulumi.StringOutput)
+func (o ApplicationGatewayIdentityPtrOutput) IdentityIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityIds
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Managed Service Identity Type of this Application Gateway. The only possible value is `UserAssigned`. Defaults to `UserAssigned`.
 func (o ApplicationGatewayIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewayIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewayProbe struct {
@@ -2153,12 +2183,22 @@ func (o ApplicationGatewayProbeMatchPtrOutput) Elem() ApplicationGatewayProbeMat
 
 // A snippet from the Response Body which must be present in the Response..
 func (o ApplicationGatewayProbeMatchPtrOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayProbeMatch) *string { return v.Body }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewayProbeMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of allowed status codes for this Health Probe.
 func (o ApplicationGatewayProbeMatchPtrOutput) StatusCodes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationGatewayProbeMatch) []string { return v.StatusCodes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ApplicationGatewayProbeMatch) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCodes
+	}).(pulumi.StringArrayOutput)
 }
 
 type ApplicationGatewayRedirectConfiguration struct {
@@ -3298,17 +3338,32 @@ func (o ApplicationGatewaySkuPtrOutput) Elem() ApplicationGatewaySkuOutput {
 
 // The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
 func (o ApplicationGatewaySkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewaySku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewaySku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
-func (o ApplicationGatewaySkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewaySku) string { return v.Name }).(pulumi.StringOutput)
+func (o ApplicationGatewaySkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewaySku) string { return v.Tier }).(pulumi.StringOutput)
+func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewaySku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewaySslCertificate struct {
@@ -4286,51 +4341,92 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) Elem() ApplicationGatewayWa
 
 // one or more `disabledRuleGroup` blocks as defined below.
 func (o ApplicationGatewayWafConfigurationPtrOutput) DisabledRuleGroups() ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationDisabledRuleGroup {
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationDisabledRuleGroup {
+		if v == nil {
+			return nil
+		}
 		return v.DisabledRuleGroups
 	}).(ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput)
 }
 
 // Is the Web Application Firewall be enabled?
-func (o ApplicationGatewayWafConfigurationPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o ApplicationGatewayWafConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // one or more `exclusion` blocks as defined below.
 func (o ApplicationGatewayWafConfigurationPtrOutput) Exclusions() ApplicationGatewayWafConfigurationExclusionArrayOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationExclusion {
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationExclusion {
+		if v == nil {
+			return nil
+		}
 		return v.Exclusions
 	}).(ApplicationGatewayWafConfigurationExclusionArrayOutput)
 }
 
 // The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
 func (o ApplicationGatewayWafConfigurationPtrOutput) FileUploadLimitMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *int { return v.FileUploadLimitMb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FileUploadLimitMb
+	}).(pulumi.IntPtrOutput)
 }
 
 // The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-func (o ApplicationGatewayWafConfigurationPtrOutput) FirewallMode() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) string { return v.FirewallMode }).(pulumi.StringOutput)
+func (o ApplicationGatewayWafConfigurationPtrOutput) FirewallMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirewallMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
 func (o ApplicationGatewayWafConfigurationPtrOutput) MaxRequestBodySizeKb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *int { return v.MaxRequestBodySizeKb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRequestBodySizeKb
+	}).(pulumi.IntPtrOutput)
 }
 
 // Is Request Body Inspection enabled?  Defaults to `true`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBodyCheck
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Type of the Rule Set used for this Web Application Firewall.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *string { return v.RuleSetType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuleSetType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
-func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) string { return v.RuleSetVersion }).(pulumi.StringOutput)
+func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuleSetVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGatewayWafConfigurationDisabledRuleGroup struct {
@@ -4685,7 +4781,12 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) Elem() Expres
 
 // A list of Advertised Public Prefixes
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) AdvertisedPublicPrefixes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertisedPublicPrefixes
+	}).(pulumi.StringArrayOutput)
 }
 
 type ExpressRouteCircuitSku struct {
@@ -4821,13 +4922,23 @@ func (o ExpressRouteCircuitSkuPtrOutput) Elem() ExpressRouteCircuitSkuOutput {
 }
 
 // The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-func (o ExpressRouteCircuitSkuPtrOutput) Family() pulumi.StringOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitSku) string { return v.Family }).(pulumi.StringOutput)
+func (o ExpressRouteCircuitSkuPtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Family
+	}).(pulumi.StringPtrOutput)
 }
 
 // The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
-func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringOutput {
-	return o.ApplyT(func(v ExpressRouteCircuitSku) string { return v.Tier }).(pulumi.StringOutput)
+func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Tier
+	}).(pulumi.StringPtrOutput)
 }
 
 type FirewallApplicationRuleCollectionRule struct {
@@ -5664,20 +5775,35 @@ func (o LocalNetworkGatewayBgpSettingsPtrOutput) Elem() LocalNetworkGatewayBgpSe
 }
 
 // The BGP speaker's ASN.
-func (o LocalNetworkGatewayBgpSettingsPtrOutput) Asn() pulumi.IntOutput {
-	return o.ApplyT(func(v LocalNetworkGatewayBgpSettings) int { return v.Asn }).(pulumi.IntOutput)
+func (o LocalNetworkGatewayBgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGatewayBgpSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Asn
+	}).(pulumi.IntPtrOutput)
 }
 
 // The BGP peering address and BGP identifier
 // of this BGP speaker.
-func (o LocalNetworkGatewayBgpSettingsPtrOutput) BgpPeeringAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v LocalNetworkGatewayBgpSettings) string { return v.BgpPeeringAddress }).(pulumi.StringOutput)
+func (o LocalNetworkGatewayBgpSettingsPtrOutput) BgpPeeringAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGatewayBgpSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BgpPeeringAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 // The weight added to routes learned from this
 // BGP speaker.
 func (o LocalNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LocalNetworkGatewayBgpSettings) *int { return v.PeerWeight }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *LocalNetworkGatewayBgpSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeerWeight
+	}).(pulumi.IntPtrOutput)
 }
 
 type NetworkConnectionMonitorDestination struct {
@@ -5823,17 +5949,32 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) Elem() NetworkConnectionMo
 
 // IP address or domain name to monitor connectivity to.
 func (o NetworkConnectionMonitorDestinationPtrOutput) Address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.Address }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
 }
 
 // The port on the destination to monitor connectivity to.
-func (o NetworkConnectionMonitorDestinationPtrOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) int { return v.Port }).(pulumi.IntOutput)
+func (o NetworkConnectionMonitorDestinationPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // The ID of the Virtual Machine to monitor connectivity to.
 func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualMachineId
+	}).(pulumi.StringPtrOutput)
 }
 
 type NetworkConnectionMonitorSource struct {
@@ -5970,12 +6111,22 @@ func (o NetworkConnectionMonitorSourcePtrOutput) Elem() NetworkConnectionMonitor
 
 // The port on the destination to monitor connectivity to.
 func (o NetworkConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorSource) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // The ID of the Virtual Machine to monitor connectivity to.
-func (o NetworkConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorSource) string { return v.VirtualMachineId }).(pulumi.StringOutput)
+func (o NetworkConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VirtualMachineId
+	}).(pulumi.StringPtrOutput)
 }
 
 type NetworkInterfaceIpConfiguration struct {
@@ -6409,17 +6560,32 @@ func (o NetworkPacketCaptureStorageLocationPtrOutput) Elem() NetworkPacketCaptur
 
 // A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
 func (o NetworkPacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.FilePath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilePath
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ID of the storage account to save the packet capture session
 func (o NetworkPacketCaptureStorageLocationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The URI of the storage path to save the packet capture.
 func (o NetworkPacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkPacketCaptureStorageLocation) *string { return v.StoragePath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NetworkPacketCaptureStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StoragePath
+	}).(pulumi.StringPtrOutput)
 }
 
 type NetworkSecurityGroupSecurityRule struct {
@@ -6659,7 +6825,7 @@ func (o NetworkSecurityGroupSecurityRuleArrayOutput) Index(i pulumi.IntInput) Ne
 type NetworkWatcherFlowLogRetentionPolicy struct {
 	// The number of days to retain flow log records.
 	Days int `pulumi:"days"`
-	// Boolean flag to enable/disable retention.
+	// Boolean flag to enable/disable traffic analytics.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -6678,7 +6844,7 @@ type NetworkWatcherFlowLogRetentionPolicyInput interface {
 type NetworkWatcherFlowLogRetentionPolicyArgs struct {
 	// The number of days to retain flow log records.
 	Days pulumi.IntInput `pulumi:"days"`
-	// Boolean flag to enable/disable retention.
+	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -6765,7 +6931,7 @@ func (o NetworkWatcherFlowLogRetentionPolicyOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkWatcherFlowLogRetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// Boolean flag to enable/disable retention.
+// Boolean flag to enable/disable traffic analytics.
 func (o NetworkWatcherFlowLogRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v NetworkWatcherFlowLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -6789,13 +6955,23 @@ func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Elem() NetworkWatcherFlow
 }
 
 // The number of days to retain flow log records.
-func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Days() pulumi.IntOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogRetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
+func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLogRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Days
+	}).(pulumi.IntPtrOutput)
 }
 
-// Boolean flag to enable/disable retention.
-func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Boolean flag to enable/disable traffic analytics.
+func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLogRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type NetworkWatcherFlowLogTrafficAnalytics struct {
@@ -6958,28 +7134,53 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) Elem() NetworkWatcherFlo
 }
 
 // Boolean flag to enable/disable traffic analytics.
-func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // How frequently service should do flow analytics in minutes.
 func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) IntervalInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) *int { return v.IntervalInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // The resource guid of the attached workspace.
-func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) string { return v.WorkspaceId }).(pulumi.StringOutput)
+func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The location of the attached workspace.
-func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) string { return v.WorkspaceRegion }).(pulumi.StringOutput)
+func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceRegion
+	}).(pulumi.StringPtrOutput)
 }
 
 // The resource ID of the attached workspace.
-func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
+func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkspaceResourceId
+	}).(pulumi.StringPtrOutput)
 }
 
 type PacketCaptureFilter struct {
@@ -7260,17 +7461,32 @@ func (o PacketCaptureStorageLocationPtrOutput) Elem() PacketCaptureStorageLocati
 
 // A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
 func (o PacketCaptureStorageLocationPtrOutput) FilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureStorageLocation) *string { return v.FilePath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PacketCaptureStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilePath
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ID of the storage account to save the packet capture session
 func (o PacketCaptureStorageLocationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureStorageLocation) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PacketCaptureStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The URI of the storage path to save the packet capture.
 func (o PacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PacketCaptureStorageLocation) *string { return v.StoragePath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PacketCaptureStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StoragePath
+	}).(pulumi.StringPtrOutput)
 }
 
 type PointToPointVpnGatewayConnectionConfiguration struct {
@@ -7410,15 +7626,23 @@ func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Elem() PointToPo
 }
 
 // The Name which should be used for this Connection Configuration.
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) string { return v.Name }).(pulumi.StringOutput)
+func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `vpnClientAddressPool` block as defined below.
-func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) VpnClientAddressPool() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput {
-	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
-		return v.VpnClientAddressPool
-	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
+func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) VpnClientAddressPool() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
+		if v == nil {
+			return nil
+		}
+		return &v.VpnClientAddressPool
+	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
 }
 
 type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool struct {
@@ -7455,6 +7679,48 @@ func (i PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 }
 
+func (i PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Background())
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput).ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx)
+}
+
+// PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs, PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtr and PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput values.
+// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput` via:
+//
+// 		 PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput interface {
+	pulumi.Input
+
+	ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput
+	ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput
+}
+
+type pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
+
+func PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtr(v *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput {
+	return (*pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType)(v)
+}
+
+func (*pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool)(nil)).Elem()
+}
+
+func (i *pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *pointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrType) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
+}
+
 type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput struct{ *pulumi.OutputState }
 
 func (PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) ElementType() reflect.Type {
@@ -7469,9 +7735,49 @@ func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
 	return o
 }
 
+func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return o.ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(context.Background())
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
+		return &v
+	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
+}
+
 // A list of CIDR Ranges which should be used as Address Prefixes.
 func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) []string {
+		return v.AddressPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput struct{ *pulumi.OutputState }
+
+func (PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool)(nil)).Elem()
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) ToPointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
+		return *v
+	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput)
+}
+
+// A list of CIDR Ranges which should be used as Address Prefixes.
+func (o PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool) []string {
+		if v == nil {
+			return nil
+		}
 		return v.AddressPrefixes
 	}).(pulumi.StringArrayOutput)
 }
@@ -7612,14 +7918,22 @@ func (o ProfileContainerNetworkInterfacePtrOutput) Elem() ProfileContainerNetwor
 
 // One or more `ipConfiguration` blocks as documented below.
 func (o ProfileContainerNetworkInterfacePtrOutput) IpConfigurations() ProfileContainerNetworkInterfaceIpConfigurationArrayOutput {
-	return o.ApplyT(func(v ProfileContainerNetworkInterface) []ProfileContainerNetworkInterfaceIpConfiguration {
+	return o.ApplyT(func(v *ProfileContainerNetworkInterface) []ProfileContainerNetworkInterfaceIpConfiguration {
+		if v == nil {
+			return nil
+		}
 		return v.IpConfigurations
 	}).(ProfileContainerNetworkInterfaceIpConfigurationArrayOutput)
 }
 
 // Specifies the name of the IP Configuration.
-func (o ProfileContainerNetworkInterfacePtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileContainerNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+func (o ProfileContainerNetworkInterfacePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileContainerNetworkInterface) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type ProfileContainerNetworkInterfaceIpConfiguration struct {
@@ -8384,13 +8698,23 @@ func (o TrafficManagerProfileDnsConfigPtrOutput) Elem() TrafficManagerProfileDns
 }
 
 // The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
-func (o TrafficManagerProfileDnsConfigPtrOutput) RelativeName() pulumi.StringOutput {
-	return o.ApplyT(func(v TrafficManagerProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
+func (o TrafficManagerProfileDnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerProfileDnsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelativeName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The TTL value of the Profile used by Local DNS resolvers and clients.
-func (o TrafficManagerProfileDnsConfigPtrOutput) Ttl() pulumi.IntOutput {
-	return o.ApplyT(func(v TrafficManagerProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
+func (o TrafficManagerProfileDnsConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerProfileDnsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Ttl
+	}).(pulumi.IntPtrOutput)
 }
 
 type TrafficManagerProfileMonitorConfig struct {
@@ -8583,44 +8907,82 @@ func (o TrafficManagerProfileMonitorConfigPtrOutput) Elem() TrafficManagerProfil
 
 // One or more `customHeader` blocks as defined below.
 func (o TrafficManagerProfileMonitorConfigPtrOutput) CustomHeaders() TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) []TrafficManagerProfileMonitorConfigCustomHeader {
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) []TrafficManagerProfileMonitorConfigCustomHeader {
+		if v == nil {
+			return nil
+		}
 		return v.CustomHeaders
 	}).(TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput)
 }
 
 // A list of status code ranges in the format of `100-101`.
 func (o TrafficManagerProfileMonitorConfigPtrOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedStatusCodeRanges
+	}).(pulumi.StringArrayOutput)
 }
 
 // The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
 func (o TrafficManagerProfileMonitorConfigPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
 func (o TrafficManagerProfileMonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
 }
 
 // The port number used by the monitoring checks.
-func (o TrafficManagerProfileMonitorConfigPtrOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
+func (o TrafficManagerProfileMonitorConfigPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-func (o TrafficManagerProfileMonitorConfigPtrOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
+func (o TrafficManagerProfileMonitorConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
 }
 
 // The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
 func (o TrafficManagerProfileMonitorConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
 func (o TrafficManagerProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TrafficManagerProfileMonitorConfig) *int { return v.ToleratedNumberOfFailures }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *TrafficManagerProfileMonitorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ToleratedNumberOfFailures
+	}).(pulumi.IntPtrOutput)
 }
 
 type TrafficManagerProfileMonitorConfigCustomHeader struct {
@@ -8972,13 +9334,23 @@ func (o VirtualNetworkDdosProtectionPlanPtrOutput) Elem() VirtualNetworkDdosProt
 }
 
 // Enable/disable DDoS Protection Plan on Virtual Network.
-func (o VirtualNetworkDdosProtectionPlanPtrOutput) Enable() pulumi.BoolOutput {
-	return o.ApplyT(func(v VirtualNetworkDdosProtectionPlan) bool { return v.Enable }).(pulumi.BoolOutput)
+func (o VirtualNetworkDdosProtectionPlanPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkDdosProtectionPlan) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Resource ID of DDoS Protection Plan.
-func (o VirtualNetworkDdosProtectionPlanPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkDdosProtectionPlan) string { return v.Id }).(pulumi.StringOutput)
+func (o VirtualNetworkDdosProtectionPlanPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkDdosProtectionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualNetworkGatewayBgpSettings struct {
@@ -9136,13 +9508,23 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) Elem() VirtualNetworkGatewayB
 
 // The Autonomous System Number (ASN) to use as part of the BGP.
 func (o VirtualNetworkGatewayBgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *int { return v.Asn }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Asn
+	}).(pulumi.IntPtrOutput)
 }
 
 // The weight added to routes which have been learned
 // through BGP peering. Valid values can be between `0` and `100`.
 func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *int { return v.PeerWeight }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeerWeight
+	}).(pulumi.IntPtrOutput)
 }
 
 // The BGP peer IP address of the virtual network
@@ -9150,7 +9532,12 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOut
 // on the on-premises VPN devices. The IP address must be part of the subnet of
 // the Virtual Network Gateway. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *string { return v.PeeringAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PeeringAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualNetworkGatewayConnectionIpsecPolicy struct {
@@ -9374,51 +9761,91 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) Elem() VirtualNetwo
 // The DH group used in IKE phase 1 for initial SA. Valid
 // options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
 // `ECP256`, `ECP384`, or `None`.
-func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) DhGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.DhGroup }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) DhGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DhGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IKE encryption algorithm. Valid
 // options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
-func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IkeEncryption() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.IkeEncryption }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IkeEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IkeEncryption
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IKE integrity algorithm. Valid
 // options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
-func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IkeIntegrity() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.IkeIntegrity }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IkeIntegrity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IkeIntegrity
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IPSec encryption algorithm. Valid
 // options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
-func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IpsecEncryption() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.IpsecEncryption }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IpsecEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpsecEncryption
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IPSec integrity algorithm. Valid
 // options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
-func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IpsecIntegrity() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.IpsecIntegrity }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IpsecIntegrity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpsecIntegrity
+	}).(pulumi.StringPtrOutput)
 }
 
 // The DH group used in IKE phase 2 for new child SA.
 // Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
 // or `None`.
-func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) PfsGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.PfsGroup }).(pulumi.StringOutput)
+func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) PfsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PfsGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IPSec SA payload size in KB. Must be at least
 // `1024` KB. Defaults to `102400000` KB.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) SaDatasize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) *int { return v.SaDatasize }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SaDatasize
+	}).(pulumi.IntPtrOutput)
 }
 
 // The IPSec SA lifetime in seconds. Must be at least
 // `300` seconds. Defaults to `27000` seconds.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) SaLifetime() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) *int { return v.SaLifetime }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SaLifetime
+	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualNetworkGatewayIpConfiguration struct {
@@ -9773,26 +10200,44 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) Elem() VirtualNetw
 // vpn clients will be taken. You can provide more than one address space, e.g.
 // in CIDR notation.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AddressSpaces() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []string { return v.AddressSpaces }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressSpaces
+	}).(pulumi.StringArrayOutput)
 }
 
 // The address of the Radius server.
 // This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RadiusServerAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 // The secret used by the Radius server.
 // This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RadiusServerSecret
+	}).(pulumi.StringPtrOutput)
 }
 
 // One or more `revokedCertificate` blocks which
 // are defined below.
 // This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
+		if v == nil {
+			return nil
+		}
 		return v.RevokedCertificates
 	}).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput)
 }
@@ -9802,7 +10247,10 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificate
 // used by the VPN clients to connect to the gateway.
 // This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
+		if v == nil {
+			return nil
+		}
 		return v.RootCertificates
 	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput)
 }
@@ -9810,7 +10258,12 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates()
 // List of the protocols supported by the vpn client.
 // The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnClientProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []string { return v.VpnClientProtocols }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpnClientProtocols
+	}).(pulumi.StringArrayOutput)
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
@@ -10798,43 +11251,83 @@ func (o VpnServerConfigurationIpsecPolicyPtrOutput) Elem() VpnServerConfiguratio
 }
 
 // The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) DhGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) string { return v.DhGroup }).(pulumi.StringOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) DhGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DhGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) IkeEncryption() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) string { return v.IkeEncryption }).(pulumi.StringOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) IkeEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IkeEncryption
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) IkeIntegrity() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) string { return v.IkeIntegrity }).(pulumi.StringOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) IkeIntegrity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IkeIntegrity
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) IpsecEncryption() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) string { return v.IpsecEncryption }).(pulumi.StringOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) IpsecEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpsecEncryption
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) IpsecIntegrity() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) string { return v.IpsecIntegrity }).(pulumi.StringOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) IpsecIntegrity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpsecIntegrity
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) PfsGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) string { return v.PfsGroup }).(pulumi.StringOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) PfsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PfsGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) SaDataSizeKilobytes() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) int { return v.SaDataSizeKilobytes }).(pulumi.IntOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) SaDataSizeKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SaDataSizeKilobytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-func (o VpnServerConfigurationIpsecPolicyPtrOutput) SaLifetimeSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnServerConfigurationIpsecPolicy) int { return v.SaLifetimeSeconds }).(pulumi.IntOutput)
+func (o VpnServerConfigurationIpsecPolicyPtrOutput) SaLifetimeSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationIpsecPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SaLifetimeSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type VpnServerConfigurationRadiusServer struct {
@@ -10992,25 +11485,41 @@ func (o VpnServerConfigurationRadiusServerPtrOutput) Elem() VpnServerConfigurati
 }
 
 // The Address of the Radius Server.
-func (o VpnServerConfigurationRadiusServerPtrOutput) Address() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) string { return v.Address }).(pulumi.StringOutput)
+func (o VpnServerConfigurationRadiusServerPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Address
+	}).(pulumi.StringPtrOutput)
 }
 
 // One or more `clientRootCertificate` blocks as defined above.
 func (o VpnServerConfigurationRadiusServerPtrOutput) ClientRootCertificates() VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerClientRootCertificate {
+	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerClientRootCertificate {
+		if v == nil {
+			return nil
+		}
 		return v.ClientRootCertificates
 	}).(VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput)
 }
 
 // The Secret used to communicate with the Radius Server.
-func (o VpnServerConfigurationRadiusServerPtrOutput) Secret() pulumi.StringOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) string { return v.Secret }).(pulumi.StringOutput)
+func (o VpnServerConfigurationRadiusServerPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Secret
+	}).(pulumi.StringPtrOutput)
 }
 
 // One or more `serverRootCertificate` blocks as defined below.
 func (o VpnServerConfigurationRadiusServerPtrOutput) ServerRootCertificates() VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput {
-	return o.ApplyT(func(v VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerServerRootCertificate {
+	return o.ApplyT(func(v *VpnServerConfigurationRadiusServer) []VpnServerConfigurationRadiusServerServerRootCertificate {
+		if v == nil {
+			return nil
+		}
 		return v.ServerRootCertificates
 	}).(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput)
 }
@@ -13309,6 +13818,7 @@ func init() {
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput{})
+	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfacePtrOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceIpConfigurationOutput{})

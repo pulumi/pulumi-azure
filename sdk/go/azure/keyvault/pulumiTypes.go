@@ -143,13 +143,23 @@ func (o CertifiateCertificatePtrOutput) Elem() CertifiateCertificateOutput {
 }
 
 // The base64-encoded certificate contents. Changing this forces a new resource to be created.
-func (o CertifiateCertificatePtrOutput) Contents() pulumi.StringOutput {
-	return o.ApplyT(func(v CertifiateCertificate) string { return v.Contents }).(pulumi.StringOutput)
+func (o CertifiateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Contents
+	}).(pulumi.StringPtrOutput)
 }
 
 // The password associated with the certificate. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificate) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CertifiateCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
 }
 
 type CertifiateCertificatePolicy struct {
@@ -320,34 +330,51 @@ func (o CertifiateCertificatePolicyPtrOutput) Elem() CertifiateCertificatePolicy
 }
 
 // A `issuerParameters` block as defined below.
-func (o CertifiateCertificatePolicyPtrOutput) IssuerParameters() CertifiateCertificatePolicyIssuerParametersOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicy) CertifiateCertificatePolicyIssuerParameters {
-		return v.IssuerParameters
-	}).(CertifiateCertificatePolicyIssuerParametersOutput)
+func (o CertifiateCertificatePolicyPtrOutput) IssuerParameters() CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicy) *CertifiateCertificatePolicyIssuerParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.IssuerParameters
+	}).(CertifiateCertificatePolicyIssuerParametersPtrOutput)
 }
 
 // A `keyProperties` block as defined below.
-func (o CertifiateCertificatePolicyPtrOutput) KeyProperties() CertifiateCertificatePolicyKeyPropertiesOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicy) CertifiateCertificatePolicyKeyProperties { return v.KeyProperties }).(CertifiateCertificatePolicyKeyPropertiesOutput)
+func (o CertifiateCertificatePolicyPtrOutput) KeyProperties() CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicy) *CertifiateCertificatePolicyKeyProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyProperties
+	}).(CertifiateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
 // A `lifetimeAction` block as defined below.
 func (o CertifiateCertificatePolicyPtrOutput) LifetimeActions() CertifiateCertificatePolicyLifetimeActionArrayOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicy) []CertifiateCertificatePolicyLifetimeAction {
+	return o.ApplyT(func(v *CertifiateCertificatePolicy) []CertifiateCertificatePolicyLifetimeAction {
+		if v == nil {
+			return nil
+		}
 		return v.LifetimeActions
 	}).(CertifiateCertificatePolicyLifetimeActionArrayOutput)
 }
 
 // A `secretProperties` block as defined below.
-func (o CertifiateCertificatePolicyPtrOutput) SecretProperties() CertifiateCertificatePolicySecretPropertiesOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicy) CertifiateCertificatePolicySecretProperties {
-		return v.SecretProperties
-	}).(CertifiateCertificatePolicySecretPropertiesOutput)
+func (o CertifiateCertificatePolicyPtrOutput) SecretProperties() CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicy) *CertifiateCertificatePolicySecretProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretProperties
+	}).(CertifiateCertificatePolicySecretPropertiesPtrOutput)
 }
 
 // A `x509CertificateProperties` block as defined below.
 func (o CertifiateCertificatePolicyPtrOutput) X509CertificateProperties() CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicy) *CertifiateCertificatePolicyX509CertificateProperties {
+	return o.ApplyT(func(v *CertifiateCertificatePolicy) *CertifiateCertificatePolicyX509CertificateProperties {
+		if v == nil {
+			return nil
+		}
 		return v.X509CertificateProperties
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput)
 }
@@ -386,6 +413,48 @@ func (i CertifiateCertificatePolicyIssuerParametersArgs) ToCertifiateCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyIssuerParametersOutput)
 }
 
+func (i CertifiateCertificatePolicyIssuerParametersArgs) ToCertifiateCertificatePolicyIssuerParametersPtrOutput() CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return i.ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
+}
+
+func (i CertifiateCertificatePolicyIssuerParametersArgs) ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyIssuerParametersOutput).ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx)
+}
+
+// CertifiateCertificatePolicyIssuerParametersPtrInput is an input type that accepts CertifiateCertificatePolicyIssuerParametersArgs, CertifiateCertificatePolicyIssuerParametersPtr and CertifiateCertificatePolicyIssuerParametersPtrOutput values.
+// You can construct a concrete instance of `CertifiateCertificatePolicyIssuerParametersPtrInput` via:
+//
+// 		 CertifiateCertificatePolicyIssuerParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type CertifiateCertificatePolicyIssuerParametersPtrInput interface {
+	pulumi.Input
+
+	ToCertifiateCertificatePolicyIssuerParametersPtrOutput() CertifiateCertificatePolicyIssuerParametersPtrOutput
+	ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Context) CertifiateCertificatePolicyIssuerParametersPtrOutput
+}
+
+type certifiateCertificatePolicyIssuerParametersPtrType CertifiateCertificatePolicyIssuerParametersArgs
+
+func CertifiateCertificatePolicyIssuerParametersPtr(v *CertifiateCertificatePolicyIssuerParametersArgs) CertifiateCertificatePolicyIssuerParametersPtrInput {
+	return (*certifiateCertificatePolicyIssuerParametersPtrType)(v)
+}
+
+func (*certifiateCertificatePolicyIssuerParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertifiateCertificatePolicyIssuerParameters)(nil)).Elem()
+}
+
+func (i *certifiateCertificatePolicyIssuerParametersPtrType) ToCertifiateCertificatePolicyIssuerParametersPtrOutput() CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return i.ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *certifiateCertificatePolicyIssuerParametersPtrType) ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyIssuerParametersPtrOutput)
+}
+
 type CertifiateCertificatePolicyIssuerParametersOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyIssuerParametersOutput) ElementType() reflect.Type {
@@ -400,9 +469,49 @@ func (o CertifiateCertificatePolicyIssuerParametersOutput) ToCertifiateCertifica
 	return o
 }
 
+func (o CertifiateCertificatePolicyIssuerParametersOutput) ToCertifiateCertificatePolicyIssuerParametersPtrOutput() CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return o.ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
+}
+
+func (o CertifiateCertificatePolicyIssuerParametersOutput) ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificatePolicyIssuerParameters) *CertifiateCertificatePolicyIssuerParameters {
+		return &v
+	}).(CertifiateCertificatePolicyIssuerParametersPtrOutput)
+}
+
 // The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyIssuerParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyIssuerParameters) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CertifiateCertificatePolicyIssuerParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (CertifiateCertificatePolicyIssuerParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertifiateCertificatePolicyIssuerParameters)(nil)).Elem()
+}
+
+func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) ToCertifiateCertificatePolicyIssuerParametersPtrOutput() CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return o
+}
+
+func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyIssuerParametersPtrOutput {
+	return o
+}
+
+func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Elem() CertifiateCertificatePolicyIssuerParametersOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyIssuerParameters) CertifiateCertificatePolicyIssuerParameters {
+		return *v
+	}).(CertifiateCertificatePolicyIssuerParametersOutput)
+}
+
+// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyIssuerParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type CertifiateCertificatePolicyKeyProperties struct {
@@ -451,6 +560,48 @@ func (i CertifiateCertificatePolicyKeyPropertiesArgs) ToCertifiateCertificatePol
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyKeyPropertiesOutput)
 }
 
+func (i CertifiateCertificatePolicyKeyPropertiesArgs) ToCertifiateCertificatePolicyKeyPropertiesPtrOutput() CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return i.ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CertifiateCertificatePolicyKeyPropertiesArgs) ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyKeyPropertiesOutput).ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// CertifiateCertificatePolicyKeyPropertiesPtrInput is an input type that accepts CertifiateCertificatePolicyKeyPropertiesArgs, CertifiateCertificatePolicyKeyPropertiesPtr and CertifiateCertificatePolicyKeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `CertifiateCertificatePolicyKeyPropertiesPtrInput` via:
+//
+// 		 CertifiateCertificatePolicyKeyPropertiesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type CertifiateCertificatePolicyKeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCertifiateCertificatePolicyKeyPropertiesPtrOutput() CertifiateCertificatePolicyKeyPropertiesPtrOutput
+	ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Context) CertifiateCertificatePolicyKeyPropertiesPtrOutput
+}
+
+type certifiateCertificatePolicyKeyPropertiesPtrType CertifiateCertificatePolicyKeyPropertiesArgs
+
+func CertifiateCertificatePolicyKeyPropertiesPtr(v *CertifiateCertificatePolicyKeyPropertiesArgs) CertifiateCertificatePolicyKeyPropertiesPtrInput {
+	return (*certifiateCertificatePolicyKeyPropertiesPtrType)(v)
+}
+
+func (*certifiateCertificatePolicyKeyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertifiateCertificatePolicyKeyProperties)(nil)).Elem()
+}
+
+func (i *certifiateCertificatePolicyKeyPropertiesPtrType) ToCertifiateCertificatePolicyKeyPropertiesPtrOutput() CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return i.ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *certifiateCertificatePolicyKeyPropertiesPtrType) ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyKeyPropertiesPtrOutput)
+}
+
 type CertifiateCertificatePolicyKeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyKeyPropertiesOutput) ElementType() reflect.Type {
@@ -463,6 +614,16 @@ func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificateP
 
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificatePolicyKeyPropertiesOutputWithContext(ctx context.Context) CertifiateCertificatePolicyKeyPropertiesOutput {
 	return o
+}
+
+func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificatePolicyKeyPropertiesPtrOutput() CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return o.ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) *CertifiateCertificatePolicyKeyProperties {
+		return &v
+	}).(CertifiateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
 // Is this Certificate Exportable? Changing this forces a new resource to be created.
@@ -483,6 +644,64 @@ func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.StringO
 // Is the key reusable? Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) ReuseKey() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) bool { return v.ReuseKey }).(pulumi.BoolOutput)
+}
+
+type CertifiateCertificatePolicyKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CertifiateCertificatePolicyKeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertifiateCertificatePolicyKeyProperties)(nil)).Elem()
+}
+
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ToCertifiateCertificatePolicyKeyPropertiesPtrOutput() CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertifiateCertificatePolicyKeyPropertiesOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) CertifiateCertificatePolicyKeyProperties { return *v }).(CertifiateCertificatePolicyKeyPropertiesOutput)
+}
+
+// Is this Certificate Exportable? Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Exportable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.KeySize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the key reusable? Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ReuseKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ReuseKey
+	}).(pulumi.BoolPtrOutput)
 }
 
 type CertifiateCertificatePolicyLifetimeAction struct {
@@ -746,6 +965,48 @@ func (i CertifiateCertificatePolicySecretPropertiesArgs) ToCertifiateCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicySecretPropertiesOutput)
 }
 
+func (i CertifiateCertificatePolicySecretPropertiesArgs) ToCertifiateCertificatePolicySecretPropertiesPtrOutput() CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return i.ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CertifiateCertificatePolicySecretPropertiesArgs) ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicySecretPropertiesOutput).ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx)
+}
+
+// CertifiateCertificatePolicySecretPropertiesPtrInput is an input type that accepts CertifiateCertificatePolicySecretPropertiesArgs, CertifiateCertificatePolicySecretPropertiesPtr and CertifiateCertificatePolicySecretPropertiesPtrOutput values.
+// You can construct a concrete instance of `CertifiateCertificatePolicySecretPropertiesPtrInput` via:
+//
+// 		 CertifiateCertificatePolicySecretPropertiesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type CertifiateCertificatePolicySecretPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCertifiateCertificatePolicySecretPropertiesPtrOutput() CertifiateCertificatePolicySecretPropertiesPtrOutput
+	ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Context) CertifiateCertificatePolicySecretPropertiesPtrOutput
+}
+
+type certifiateCertificatePolicySecretPropertiesPtrType CertifiateCertificatePolicySecretPropertiesArgs
+
+func CertifiateCertificatePolicySecretPropertiesPtr(v *CertifiateCertificatePolicySecretPropertiesArgs) CertifiateCertificatePolicySecretPropertiesPtrInput {
+	return (*certifiateCertificatePolicySecretPropertiesPtrType)(v)
+}
+
+func (*certifiateCertificatePolicySecretPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertifiateCertificatePolicySecretProperties)(nil)).Elem()
+}
+
+func (i *certifiateCertificatePolicySecretPropertiesPtrType) ToCertifiateCertificatePolicySecretPropertiesPtrOutput() CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return i.ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *certifiateCertificatePolicySecretPropertiesPtrType) ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicySecretPropertiesPtrOutput)
+}
+
 type CertifiateCertificatePolicySecretPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicySecretPropertiesOutput) ElementType() reflect.Type {
@@ -760,9 +1021,49 @@ func (o CertifiateCertificatePolicySecretPropertiesOutput) ToCertifiateCertifica
 	return o
 }
 
+func (o CertifiateCertificatePolicySecretPropertiesOutput) ToCertifiateCertificatePolicySecretPropertiesPtrOutput() CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return o.ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CertifiateCertificatePolicySecretPropertiesOutput) ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificatePolicySecretProperties) *CertifiateCertificatePolicySecretProperties {
+		return &v
+	}).(CertifiateCertificatePolicySecretPropertiesPtrOutput)
+}
+
 // The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicySecretPropertiesOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicySecretProperties) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+type CertifiateCertificatePolicySecretPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CertifiateCertificatePolicySecretPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertifiateCertificatePolicySecretProperties)(nil)).Elem()
+}
+
+func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ToCertifiateCertificatePolicySecretPropertiesPtrOutput() CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return o
+}
+
+func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicySecretPropertiesPtrOutput {
+	return o
+}
+
+func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) Elem() CertifiateCertificatePolicySecretPropertiesOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicySecretProperties) CertifiateCertificatePolicySecretProperties {
+		return *v
+	}).(CertifiateCertificatePolicySecretPropertiesOutput)
+}
+
+// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicySecretProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentType
+	}).(pulumi.StringPtrOutput)
 }
 
 type CertifiateCertificatePolicyX509CertificateProperties struct {
@@ -930,29 +1231,52 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() Ce
 
 // A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ExtendedKeyUsages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) []string { return v.ExtendedKeyUsages }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedKeyUsages
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) KeyUsages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) []string { return v.KeyUsages }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUsages
+	}).(pulumi.StringArrayOutput)
 }
 
 // The Certificate's Subject. Changing this forces a new resource to be created.
-func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject() pulumi.StringOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) string { return v.Subject }).(pulumi.StringOutput)
+func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `subjectAlternativeNames` block as defined below.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectAlternativeNames() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
 		return v.SubjectAlternativeNames
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
 // The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ValidityInMonths() pulumi.IntOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) int { return v.ValidityInMonths }).(pulumi.IntOutput)
+func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ValidityInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidityInMonths
+	}).(pulumi.IntPtrOutput)
 }
 
 type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames struct {
@@ -1106,21 +1430,30 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 
 // A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) DnsNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+		if v == nil {
+			return nil
+		}
 		return v.DnsNames
 	}).(pulumi.StringArrayOutput)
 }
 
 // A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Emails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+		if v == nil {
+			return nil
+		}
 		return v.Emails
 	}).(pulumi.StringArrayOutput)
 }
 
 // A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Upns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+		if v == nil {
+			return nil
+		}
 		return v.Upns
 	}).(pulumi.StringArrayOutput)
 }
@@ -1258,13 +1591,23 @@ func (o CertificateCertificatePtrOutput) Elem() CertificateCertificateOutput {
 }
 
 // The base64-encoded certificate contents. Changing this forces a new resource to be created.
-func (o CertificateCertificatePtrOutput) Contents() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateCertificate) string { return v.Contents }).(pulumi.StringOutput)
+func (o CertificateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Contents
+	}).(pulumi.StringPtrOutput)
 }
 
 // The password associated with the certificate. Changing this forces a new resource to be created.
 func (o CertificateCertificatePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateCertificate) *string { return v.Password }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CertificateCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
 }
 
 type CertificateCertificatePolicy struct {
@@ -1437,36 +1780,51 @@ func (o CertificateCertificatePolicyPtrOutput) Elem() CertificateCertificatePoli
 }
 
 // A `issuerParameters` block as defined below.
-func (o CertificateCertificatePolicyPtrOutput) IssuerParameters() CertificateCertificatePolicyIssuerParametersOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicy) CertificateCertificatePolicyIssuerParameters {
-		return v.IssuerParameters
-	}).(CertificateCertificatePolicyIssuerParametersOutput)
+func (o CertificateCertificatePolicyPtrOutput) IssuerParameters() CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicy) *CertificateCertificatePolicyIssuerParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.IssuerParameters
+	}).(CertificateCertificatePolicyIssuerParametersPtrOutput)
 }
 
 // A `keyProperties` block as defined below.
-func (o CertificateCertificatePolicyPtrOutput) KeyProperties() CertificateCertificatePolicyKeyPropertiesOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicy) CertificateCertificatePolicyKeyProperties {
-		return v.KeyProperties
-	}).(CertificateCertificatePolicyKeyPropertiesOutput)
+func (o CertificateCertificatePolicyPtrOutput) KeyProperties() CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicy) *CertificateCertificatePolicyKeyProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyProperties
+	}).(CertificateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
 // A `lifetimeAction` block as defined below.
 func (o CertificateCertificatePolicyPtrOutput) LifetimeActions() CertificateCertificatePolicyLifetimeActionArrayOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicy) []CertificateCertificatePolicyLifetimeAction {
+	return o.ApplyT(func(v *CertificateCertificatePolicy) []CertificateCertificatePolicyLifetimeAction {
+		if v == nil {
+			return nil
+		}
 		return v.LifetimeActions
 	}).(CertificateCertificatePolicyLifetimeActionArrayOutput)
 }
 
 // A `secretProperties` block as defined below.
-func (o CertificateCertificatePolicyPtrOutput) SecretProperties() CertificateCertificatePolicySecretPropertiesOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicy) CertificateCertificatePolicySecretProperties {
-		return v.SecretProperties
-	}).(CertificateCertificatePolicySecretPropertiesOutput)
+func (o CertificateCertificatePolicyPtrOutput) SecretProperties() CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicy) *CertificateCertificatePolicySecretProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretProperties
+	}).(CertificateCertificatePolicySecretPropertiesPtrOutput)
 }
 
 // A `x509CertificateProperties` block as defined below.
 func (o CertificateCertificatePolicyPtrOutput) X509CertificateProperties() CertificateCertificatePolicyX509CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicy) *CertificateCertificatePolicyX509CertificateProperties {
+	return o.ApplyT(func(v *CertificateCertificatePolicy) *CertificateCertificatePolicyX509CertificateProperties {
+		if v == nil {
+			return nil
+		}
 		return v.X509CertificateProperties
 	}).(CertificateCertificatePolicyX509CertificatePropertiesPtrOutput)
 }
@@ -1505,6 +1863,48 @@ func (i CertificateCertificatePolicyIssuerParametersArgs) ToCertificateCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyIssuerParametersOutput)
 }
 
+func (i CertificateCertificatePolicyIssuerParametersArgs) ToCertificateCertificatePolicyIssuerParametersPtrOutput() CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return i.ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateCertificatePolicyIssuerParametersArgs) ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyIssuerParametersOutput).ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx)
+}
+
+// CertificateCertificatePolicyIssuerParametersPtrInput is an input type that accepts CertificateCertificatePolicyIssuerParametersArgs, CertificateCertificatePolicyIssuerParametersPtr and CertificateCertificatePolicyIssuerParametersPtrOutput values.
+// You can construct a concrete instance of `CertificateCertificatePolicyIssuerParametersPtrInput` via:
+//
+// 		 CertificateCertificatePolicyIssuerParametersArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type CertificateCertificatePolicyIssuerParametersPtrInput interface {
+	pulumi.Input
+
+	ToCertificateCertificatePolicyIssuerParametersPtrOutput() CertificateCertificatePolicyIssuerParametersPtrOutput
+	ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Context) CertificateCertificatePolicyIssuerParametersPtrOutput
+}
+
+type certificateCertificatePolicyIssuerParametersPtrType CertificateCertificatePolicyIssuerParametersArgs
+
+func CertificateCertificatePolicyIssuerParametersPtr(v *CertificateCertificatePolicyIssuerParametersArgs) CertificateCertificatePolicyIssuerParametersPtrInput {
+	return (*certificateCertificatePolicyIssuerParametersPtrType)(v)
+}
+
+func (*certificateCertificatePolicyIssuerParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateCertificatePolicyIssuerParameters)(nil)).Elem()
+}
+
+func (i *certificateCertificatePolicyIssuerParametersPtrType) ToCertificateCertificatePolicyIssuerParametersPtrOutput() CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return i.ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateCertificatePolicyIssuerParametersPtrType) ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyIssuerParametersPtrOutput)
+}
+
 type CertificateCertificatePolicyIssuerParametersOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyIssuerParametersOutput) ElementType() reflect.Type {
@@ -1519,9 +1919,49 @@ func (o CertificateCertificatePolicyIssuerParametersOutput) ToCertificateCertifi
 	return o
 }
 
+func (o CertificateCertificatePolicyIssuerParametersOutput) ToCertificateCertificatePolicyIssuerParametersPtrOutput() CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return o.ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateCertificatePolicyIssuerParametersOutput) ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return o.ApplyT(func(v CertificateCertificatePolicyIssuerParameters) *CertificateCertificatePolicyIssuerParameters {
+		return &v
+	}).(CertificateCertificatePolicyIssuerParametersPtrOutput)
+}
+
 // The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyIssuerParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyIssuerParameters) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type CertificateCertificatePolicyIssuerParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateCertificatePolicyIssuerParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateCertificatePolicyIssuerParameters)(nil)).Elem()
+}
+
+func (o CertificateCertificatePolicyIssuerParametersPtrOutput) ToCertificateCertificatePolicyIssuerParametersPtrOutput() CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return o
+}
+
+func (o CertificateCertificatePolicyIssuerParametersPtrOutput) ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyIssuerParametersPtrOutput {
+	return o
+}
+
+func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Elem() CertificateCertificatePolicyIssuerParametersOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyIssuerParameters) CertificateCertificatePolicyIssuerParameters {
+		return *v
+	}).(CertificateCertificatePolicyIssuerParametersOutput)
+}
+
+// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyIssuerParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type CertificateCertificatePolicyKeyProperties struct {
@@ -1570,6 +2010,48 @@ func (i CertificateCertificatePolicyKeyPropertiesArgs) ToCertificateCertificateP
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyKeyPropertiesOutput)
 }
 
+func (i CertificateCertificatePolicyKeyPropertiesArgs) ToCertificateCertificatePolicyKeyPropertiesPtrOutput() CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return i.ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateCertificatePolicyKeyPropertiesArgs) ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyKeyPropertiesOutput).ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx)
+}
+
+// CertificateCertificatePolicyKeyPropertiesPtrInput is an input type that accepts CertificateCertificatePolicyKeyPropertiesArgs, CertificateCertificatePolicyKeyPropertiesPtr and CertificateCertificatePolicyKeyPropertiesPtrOutput values.
+// You can construct a concrete instance of `CertificateCertificatePolicyKeyPropertiesPtrInput` via:
+//
+// 		 CertificateCertificatePolicyKeyPropertiesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type CertificateCertificatePolicyKeyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCertificateCertificatePolicyKeyPropertiesPtrOutput() CertificateCertificatePolicyKeyPropertiesPtrOutput
+	ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Context) CertificateCertificatePolicyKeyPropertiesPtrOutput
+}
+
+type certificateCertificatePolicyKeyPropertiesPtrType CertificateCertificatePolicyKeyPropertiesArgs
+
+func CertificateCertificatePolicyKeyPropertiesPtr(v *CertificateCertificatePolicyKeyPropertiesArgs) CertificateCertificatePolicyKeyPropertiesPtrInput {
+	return (*certificateCertificatePolicyKeyPropertiesPtrType)(v)
+}
+
+func (*certificateCertificatePolicyKeyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateCertificatePolicyKeyProperties)(nil)).Elem()
+}
+
+func (i *certificateCertificatePolicyKeyPropertiesPtrType) ToCertificateCertificatePolicyKeyPropertiesPtrOutput() CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return i.ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateCertificatePolicyKeyPropertiesPtrType) ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyKeyPropertiesPtrOutput)
+}
+
 type CertificateCertificatePolicyKeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyKeyPropertiesOutput) ElementType() reflect.Type {
@@ -1582,6 +2064,16 @@ func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificat
 
 func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificatePolicyKeyPropertiesOutputWithContext(ctx context.Context) CertificateCertificatePolicyKeyPropertiesOutput {
 	return o
+}
+
+func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificatePolicyKeyPropertiesPtrOutput() CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return o.ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) *CertificateCertificatePolicyKeyProperties {
+		return &v
+	}).(CertificateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
 // Is this Certificate Exportable? Changing this forces a new resource to be created.
@@ -1602,6 +2094,66 @@ func (o CertificateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.String
 // Is the key reusable? Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesOutput) ReuseKey() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) bool { return v.ReuseKey }).(pulumi.BoolOutput)
+}
+
+type CertificateCertificatePolicyKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateCertificatePolicyKeyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateCertificatePolicyKeyProperties)(nil)).Elem()
+}
+
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ToCertificateCertificatePolicyKeyPropertiesPtrOutput() CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyKeyPropertiesPtrOutput {
+	return o
+}
+
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertificateCertificatePolicyKeyPropertiesOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) CertificateCertificatePolicyKeyProperties {
+		return *v
+	}).(CertificateCertificatePolicyKeyPropertiesOutput)
+}
+
+// Is this Certificate Exportable? Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Exportable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.KeySize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the key reusable? Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ReuseKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ReuseKey
+	}).(pulumi.BoolPtrOutput)
 }
 
 type CertificateCertificatePolicyLifetimeAction struct {
@@ -1865,6 +2417,48 @@ func (i CertificateCertificatePolicySecretPropertiesArgs) ToCertificateCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicySecretPropertiesOutput)
 }
 
+func (i CertificateCertificatePolicySecretPropertiesArgs) ToCertificateCertificatePolicySecretPropertiesPtrOutput() CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return i.ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateCertificatePolicySecretPropertiesArgs) ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicySecretPropertiesOutput).ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx)
+}
+
+// CertificateCertificatePolicySecretPropertiesPtrInput is an input type that accepts CertificateCertificatePolicySecretPropertiesArgs, CertificateCertificatePolicySecretPropertiesPtr and CertificateCertificatePolicySecretPropertiesPtrOutput values.
+// You can construct a concrete instance of `CertificateCertificatePolicySecretPropertiesPtrInput` via:
+//
+// 		 CertificateCertificatePolicySecretPropertiesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type CertificateCertificatePolicySecretPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCertificateCertificatePolicySecretPropertiesPtrOutput() CertificateCertificatePolicySecretPropertiesPtrOutput
+	ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Context) CertificateCertificatePolicySecretPropertiesPtrOutput
+}
+
+type certificateCertificatePolicySecretPropertiesPtrType CertificateCertificatePolicySecretPropertiesArgs
+
+func CertificateCertificatePolicySecretPropertiesPtr(v *CertificateCertificatePolicySecretPropertiesArgs) CertificateCertificatePolicySecretPropertiesPtrInput {
+	return (*certificateCertificatePolicySecretPropertiesPtrType)(v)
+}
+
+func (*certificateCertificatePolicySecretPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateCertificatePolicySecretProperties)(nil)).Elem()
+}
+
+func (i *certificateCertificatePolicySecretPropertiesPtrType) ToCertificateCertificatePolicySecretPropertiesPtrOutput() CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return i.ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateCertificatePolicySecretPropertiesPtrType) ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicySecretPropertiesPtrOutput)
+}
+
 type CertificateCertificatePolicySecretPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicySecretPropertiesOutput) ElementType() reflect.Type {
@@ -1879,9 +2473,49 @@ func (o CertificateCertificatePolicySecretPropertiesOutput) ToCertificateCertifi
 	return o
 }
 
+func (o CertificateCertificatePolicySecretPropertiesOutput) ToCertificateCertificatePolicySecretPropertiesPtrOutput() CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return o.ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateCertificatePolicySecretPropertiesOutput) ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return o.ApplyT(func(v CertificateCertificatePolicySecretProperties) *CertificateCertificatePolicySecretProperties {
+		return &v
+	}).(CertificateCertificatePolicySecretPropertiesPtrOutput)
+}
+
 // The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicySecretPropertiesOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicySecretProperties) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+type CertificateCertificatePolicySecretPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateCertificatePolicySecretPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateCertificatePolicySecretProperties)(nil)).Elem()
+}
+
+func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ToCertificateCertificatePolicySecretPropertiesPtrOutput() CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return o
+}
+
+func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicySecretPropertiesPtrOutput {
+	return o
+}
+
+func (o CertificateCertificatePolicySecretPropertiesPtrOutput) Elem() CertificateCertificatePolicySecretPropertiesOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicySecretProperties) CertificateCertificatePolicySecretProperties {
+		return *v
+	}).(CertificateCertificatePolicySecretPropertiesOutput)
+}
+
+// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicySecretProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentType
+	}).(pulumi.StringPtrOutput)
 }
 
 type CertificateCertificatePolicyX509CertificateProperties struct {
@@ -2049,29 +2683,52 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() C
 
 // A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ExtendedKeyUsages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) []string { return v.ExtendedKeyUsages }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedKeyUsages
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) KeyUsages() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) []string { return v.KeyUsages }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUsages
+	}).(pulumi.StringArrayOutput)
 }
 
 // The Certificate's Subject. Changing this forces a new resource to be created.
-func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) string { return v.Subject }).(pulumi.StringOutput)
+func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `subjectAlternativeNames` block as defined below.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectAlternativeNames() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
+		if v == nil {
+			return nil
+		}
 		return v.SubjectAlternativeNames
 	}).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
 // The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ValidityInMonths() pulumi.IntOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) int { return v.ValidityInMonths }).(pulumi.IntOutput)
+func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ValidityInMonths() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidityInMonths
+	}).(pulumi.IntPtrOutput)
 }
 
 type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames struct {
@@ -2225,21 +2882,30 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 
 // A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) DnsNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+		if v == nil {
+			return nil
+		}
 		return v.DnsNames
 	}).(pulumi.StringArrayOutput)
 }
 
 // A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Emails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+		if v == nil {
+			return nil
+		}
 		return v.Emails
 	}).(pulumi.StringArrayOutput)
 }
 
 // A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Upns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
+		if v == nil {
+			return nil
+		}
 		return v.Upns
 	}).(pulumi.StringArrayOutput)
 }
@@ -2548,23 +3214,43 @@ func (o KeyVaultNetworkAclsPtrOutput) Elem() KeyVaultNetworkAclsOutput {
 }
 
 // Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
-func (o KeyVaultNetworkAclsPtrOutput) Bypass() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultNetworkAcls) string { return v.Bypass }).(pulumi.StringOutput)
+func (o KeyVaultNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bypass
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
-func (o KeyVaultNetworkAclsPtrOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
+func (o KeyVaultNetworkAclsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultAction
+	}).(pulumi.StringPtrOutput)
 }
 
 // One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
 func (o KeyVaultNetworkAclsPtrOutput) IpRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.IpRules }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *KeyVaultNetworkAcls) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(pulumi.StringArrayOutput)
 }
 
 // One or more Subnet ID's which should be able to access this Key Vault.
 func (o KeyVaultNetworkAclsPtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KeyVaultNetworkAcls) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *KeyVaultNetworkAcls) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkSubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetKeyVaultAccessPolicy struct {
@@ -2840,12 +3526,15 @@ func init() {
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyIssuerParametersOutput{})
+	pulumi.RegisterOutputType(CertifiateCertificatePolicyIssuerParametersPtrOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(CertifiateCertificatePolicyKeyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyLifetimeActionOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyLifetimeActionArrayOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyLifetimeActionActionOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyLifetimeActionTriggerOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicySecretPropertiesOutput{})
+	pulumi.RegisterOutputType(CertifiateCertificatePolicySecretPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyX509CertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput{})
@@ -2855,12 +3544,15 @@ func init() {
 	pulumi.RegisterOutputType(CertificateCertificatePolicyOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyIssuerParametersOutput{})
+	pulumi.RegisterOutputType(CertificateCertificatePolicyIssuerParametersPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyKeyPropertiesOutput{})
+	pulumi.RegisterOutputType(CertificateCertificatePolicyKeyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyLifetimeActionOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyLifetimeActionArrayOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyLifetimeActionActionOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyLifetimeActionTriggerOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicySecretPropertiesOutput{})
+	pulumi.RegisterOutputType(CertificateCertificatePolicySecretPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput{})

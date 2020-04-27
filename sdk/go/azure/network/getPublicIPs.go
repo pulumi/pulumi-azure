@@ -33,7 +33,7 @@ type GetPublicIPsArgs struct {
 type GetPublicIPsResult struct {
 	AllocationType *string `pulumi:"allocationType"`
 	Attached       *bool   `pulumi:"attached"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string  `pulumi:"id"`
 	NamePrefix *string `pulumi:"namePrefix"`
 	// A List of `publicIps` blocks as defined below filtered by the criteria above.

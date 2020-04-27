@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Storage
         public readonly string Expiry;
         public readonly bool? HttpsOnly;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly Outputs.GetAccountSASPermissionsResult Permissions;

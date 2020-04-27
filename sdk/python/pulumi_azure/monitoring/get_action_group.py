@@ -54,7 +54,7 @@ class GetActionGroupResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if itsm_receivers and not isinstance(itsm_receivers, list):
             raise TypeError("Expected argument 'itsm_receivers' to be a list")

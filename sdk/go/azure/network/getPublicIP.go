@@ -35,7 +35,7 @@ type GetPublicIPResult struct {
 	DomainNameLabel string `pulumi:"domainNameLabel"`
 	// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
 	Fqdn string `pulumi:"fqdn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Specifies the timeout for the TCP idle connection.
 	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`

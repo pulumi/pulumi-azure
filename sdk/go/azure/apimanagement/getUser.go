@@ -34,7 +34,7 @@ type LookupUserResult struct {
 	Email string `pulumi:"email"`
 	// The First Name for the User.
 	FirstName string `pulumi:"firstName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Last Name for the User.
 	LastName string `pulumi:"lastName"`

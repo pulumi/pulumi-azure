@@ -11,7 +11,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
  */
+/** @deprecated azure.getGeographicalLocation has been deprecated in favour of azure.getTrafficManager */
 export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> {
+    pulumi.log.warn("getGeographicalLocation is deprecated: azure.getGeographicalLocation has been deprecated in favour of azure.getTrafficManager")
     if (!opts) {
         opts = {}
     }
@@ -40,7 +42,7 @@ export interface GetGeographicalLocationArgs {
 export interface GetGeographicalLocationResult {
     readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -29,7 +29,7 @@ type LookupSecretArgs struct {
 type LookupSecretResult struct {
 	// The content type for the Key Vault Secret.
 	ContentType string `pulumi:"contentType"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
 	Name       string `pulumi:"name"`

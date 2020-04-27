@@ -27,7 +27,7 @@ class GetPolicySetDefinitionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if management_group_name and not isinstance(management_group_name, str):
             raise TypeError("Expected argument 'management_group_name' to be a str")

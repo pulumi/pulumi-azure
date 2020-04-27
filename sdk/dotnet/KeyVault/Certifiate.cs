@@ -11,7 +11,10 @@ namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
     /// Manages a Key Vault Certificate.
+    /// 
+    /// Deprecated: azure.Certifiate has been deprecated in favour of azure.Certificate
     /// </summary>
+    [Obsolete(@"azure.Certifiate has been deprecated in favour of azure.Certificate")]
     public partial class Certifiate : Pulumi.CustomResource
     {
         /// <summary>

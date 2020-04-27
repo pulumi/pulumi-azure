@@ -35,7 +35,7 @@ type LookupKeyVaultResult struct {
 	EnabledForDiskEncryption bool `pulumi:"enabledForDiskEncryption"`
 	// Can Azure Resource Manager retrieve secrets from the Key Vault?
 	EnabledForTemplateDeployment bool `pulumi:"enabledForTemplateDeployment"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which the Key Vault exists.
 	Location    string                  `pulumi:"location"`

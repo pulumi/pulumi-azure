@@ -40,7 +40,7 @@ type LookupManagedDiskResult struct {
 	DiskMbpsReadWrite int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Managed Disk in gigabytes.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The operating system used for this Managed Disk.

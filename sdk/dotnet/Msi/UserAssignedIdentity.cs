@@ -11,7 +11,12 @@ namespace Pulumi.Azure.Msi
 {
     /// <summary>
     /// Manages a user assigned identity.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity
     /// </summary>
+    [Obsolete(@"azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity")]
     public partial class UserAssignedIdentity : Pulumi.CustomResource
     {
         /// <summary>

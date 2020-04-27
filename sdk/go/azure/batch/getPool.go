@@ -44,7 +44,7 @@ type LookupPoolResult struct {
 	DisplayName             string                          `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScales []GetPoolFixedScale `pulumi:"fixedScales"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
 	MaxTasksPerNode int               `pulumi:"maxTasksPerNode"`

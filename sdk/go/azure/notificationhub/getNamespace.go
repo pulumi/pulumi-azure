@@ -29,7 +29,7 @@ type LookupNamespaceArgs struct {
 type LookupNamespaceResult struct {
 	// Is this Notification Hub Namespace enabled?
 	Enabled bool `pulumi:"enabled"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Notification Hub Namespace exists.
 	Location string `pulumi:"location"`

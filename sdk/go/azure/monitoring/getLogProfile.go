@@ -27,7 +27,7 @@ type LookupLogProfileArgs struct {
 type LookupLogProfileResult struct {
 	// List of categories of the logs.
 	Categories []string `pulumi:"categories"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations         []string                       `pulumi:"locations"`

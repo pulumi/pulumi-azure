@@ -35,7 +35,7 @@ type LookupNetworkInterfaceResult struct {
 	EnableAcceleratedNetworking bool `pulumi:"enableAcceleratedNetworking"`
 	// Indicate if IP forwarding is set on the specified Network Interface.
 	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The internal dns name label of the specified Network Interface.
 	InternalDnsNameLabel string `pulumi:"internalDnsNameLabel"`

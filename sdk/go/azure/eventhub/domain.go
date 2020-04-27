@@ -11,6 +11,10 @@ import (
 )
 
 // Manages an EventGrid Domain
+//
+//
+//
+// Deprecated: azure.Domain has been deprecated in favour of azure.Domain
 type Domain struct {
 	pulumi.CustomResourceState
 

@@ -350,13 +350,23 @@ func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
 }
 
 // Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
-func (o ServiceSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
+func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceSku) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
-func (o ServiceSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
+func (o ServiceSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

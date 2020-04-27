@@ -9,10 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Core
 {
+    [Obsolete(@"azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity")]
     public static class GetUserAssignedIdentity
     {
         /// <summary>
         /// Use this data source to access information about an existing User Assigned Identity.
+        /// 
+        /// Deprecated: azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
@@ -47,7 +50,7 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

@@ -27,7 +27,7 @@ type LookupDiskEncryptionSetArgs struct {
 
 // A collection of values returned by getDiskEncryptionSet.
 type LookupDiskEncryptionSetResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location where the Disk Encryption Set exists.
 	Location          string `pulumi:"location"`

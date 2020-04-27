@@ -29,7 +29,7 @@ type GetAppServicePlanArgs struct {
 type GetAppServicePlanResult struct {
 	// The ID of the App Service Environment where the App Service Plan is located.
 	AppServiceEnvironmentId string `pulumi:"appServiceEnvironmentId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A flag that indicates if it's a xenon plan (support for Windows Container)
 	IsXenon bool `pulumi:"isXenon"`

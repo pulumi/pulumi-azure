@@ -116,6 +116,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
       * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
     """
     priority: pulumi.Output[str]
+    """
+    Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+    """
     private_ip_address: pulumi.Output[str]
     """
     The Primary Private IP Address assigned to this Virtual Machine.
@@ -232,6 +235,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[list] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[dict] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[dict] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
@@ -402,6 +406,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[list] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[dict] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[dict] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
         :param pulumi.Input[list] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.

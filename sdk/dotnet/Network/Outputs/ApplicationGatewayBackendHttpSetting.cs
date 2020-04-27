@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool? PickHostNameFromBackendAddress;
         /// <summary>
-        /// The port used for this Frontend Port.
+        /// The port which should be used for this Backend HTTP Settings Collection.
         /// </summary>
         public readonly int Port;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? ProbeName;
         /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// The Protocol which should be used. Possible values are `Http` and `Https`.
         /// </summary>
         public readonly string Protocol;
         /// <summary>

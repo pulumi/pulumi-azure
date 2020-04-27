@@ -186,38 +186,62 @@ func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Elem() SpringCloudSer
 
 // A `httpBasicAuth` block as defined below.
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) HttpBasicAuth() SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSetting) *SpringCloudServiceConfigServerGitSettingHttpBasicAuth {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) *SpringCloudServiceConfigServerGitSettingHttpBasicAuth {
+		if v == nil {
+			return nil
+		}
 		return v.HttpBasicAuth
 	}).(SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput)
 }
 
 // The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSetting) *string { return v.Label }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
 }
 
 // One or more `repository` blocks as defined below.
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Repositories() SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSetting) []SpringCloudServiceConfigServerGitSettingRepository {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) []SpringCloudServiceConfigServerGitSettingRepository {
+		if v == nil {
+			return nil
+		}
 		return v.Repositories
 	}).(SpringCloudServiceConfigServerGitSettingRepositoryArrayOutput)
 }
 
 // An array of strings used to search subdirectories of the Git repository.
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) SearchPaths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSetting) []string { return v.SearchPaths }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchPaths
+	}).(pulumi.StringArrayOutput)
 }
 
 // A `sshAuth` block as defined below.
 func (o SpringCloudServiceConfigServerGitSettingPtrOutput) SshAuth() SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSetting) *SpringCloudServiceConfigServerGitSettingSshAuth {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) *SpringCloudServiceConfigServerGitSettingSshAuth {
+		if v == nil {
+			return nil
+		}
 		return v.SshAuth
 	}).(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput)
 }
 
 // The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
-func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSetting) string { return v.Uri }).(pulumi.StringOutput)
+func (o SpringCloudServiceConfigServerGitSettingPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpringCloudServiceConfigServerGitSettingHttpBasicAuth struct {
@@ -355,13 +379,23 @@ func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Elem() S
 }
 
 // The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
+func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingHttpBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
 }
 
 // The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
+func (o SpringCloudServiceConfigServerGitSettingHttpBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingHttpBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpringCloudServiceConfigServerGitSettingRepository struct {
@@ -656,13 +690,23 @@ func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput
 }
 
 // The password used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Password }).(pulumi.StringOutput)
+func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
 }
 
 // The username that's used to access the Git repository server, required when the Git repository server supports Http Basic Authentication.
-func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) string { return v.Username }).(pulumi.StringOutput)
+func (o SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpringCloudServiceConfigServerGitSettingRepositorySshAuth struct {
@@ -821,22 +865,40 @@ func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) Elem
 
 // The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) HostKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *string { return v.HostKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *string { return v.HostKeyAlgorithm }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostKeyAlgorithm
+	}).(pulumi.StringPtrOutput)
 }
 
 // The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
-func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) string { return v.PrivateKey }).(pulumi.StringOutput)
+func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the Config Server instance will fail to start if the hostKey does not match.
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) StrictHostKeyCheckingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *bool {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *bool {
+		if v == nil {
+			return nil
+		}
 		return v.StrictHostKeyCheckingEnabled
 	}).(pulumi.BoolPtrOutput)
 }
@@ -995,22 +1057,42 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) Elem() SpringC
 
 // The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
 func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) HostKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) *string { return v.HostKey }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingSshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
 func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) *string { return v.HostKeyAlgorithm }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingSshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostKeyAlgorithm
+	}).(pulumi.StringPtrOutput)
 }
 
 // The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
-func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) PrivateKey() pulumi.StringOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) string { return v.PrivateKey }).(pulumi.StringOutput)
+func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingSshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the Config Server instance will fail to start if the hostKey does not match.
 func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) StrictHostKeyCheckingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) *bool { return v.StrictHostKeyCheckingEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingSshAuth) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StrictHostKeyCheckingEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetSpringCloudServiceConfigServerGitSetting struct {

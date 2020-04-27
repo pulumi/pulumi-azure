@@ -29,7 +29,7 @@ type LookupAccessPolicyArgs struct {
 type LookupAccessPolicyResult struct {
 	// the certificate permissions for the access policy
 	CertificatePermissions []string `pulumi:"certificatePermissions"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// the key permissions for the access policy
 	KeyPermissions []string `pulumi:"keyPermissions"`

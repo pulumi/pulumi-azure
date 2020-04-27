@@ -40,7 +40,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
     }
 
     /**
-     * Should Network Flow Logging be Enabled?
+     * Boolean flag to enable/disable traffic analytics.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -137,7 +137,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
  */
 export interface NetworkWatcherFlowLogState {
     /**
-     * Should Network Flow Logging be Enabled?
+     * Boolean flag to enable/disable traffic analytics.
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
@@ -175,7 +175,7 @@ export interface NetworkWatcherFlowLogState {
  */
 export interface NetworkWatcherFlowLogArgs {
     /**
-     * Should Network Flow Logging be Enabled?
+     * Boolean flag to enable/disable traffic analytics.
      */
     readonly enabled: pulumi.Input<boolean>;
     /**

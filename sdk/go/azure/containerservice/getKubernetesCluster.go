@@ -40,7 +40,7 @@ type LookupKubernetesClusterResult struct {
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn string `pulumi:"fqdn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw string `pulumi:"kubeAdminConfigRaw"`

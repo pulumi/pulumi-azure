@@ -11,6 +11,10 @@ import (
 )
 
 // Manages a Traffic Manager Profile to which multiple endpoints can be attached.
+//
+//
+//
+// Deprecated: azure.Profile has been deprecated in favour of azure.TrafficManagerProfile
 type Profile struct {
 	pulumi.CustomResourceState
 

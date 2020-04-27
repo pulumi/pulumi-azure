@@ -28,7 +28,7 @@ type LookupPublicIpPrefixArgs struct {
 
 // A collection of values returned by getPublicIpPrefix.
 type LookupPublicIpPrefixResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	IpPrefix string `pulumi:"ipPrefix"`
 	// The supported Azure location where the resource exists.

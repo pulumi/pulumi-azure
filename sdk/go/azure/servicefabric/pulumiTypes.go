@@ -152,18 +152,33 @@ func (o ClusterAzureActiveDirectoryPtrOutput) Elem() ClusterAzureActiveDirectory
 }
 
 // The Azure Active Directory Client ID which should be used for the Client Application.
-func (o ClusterAzureActiveDirectoryPtrOutput) ClientApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClientApplicationId }).(pulumi.StringOutput)
+func (o ClusterAzureActiveDirectoryPtrOutput) ClientApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientApplicationId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Azure Active Directory Cluster Application ID.
-func (o ClusterAzureActiveDirectoryPtrOutput) ClusterApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.ClusterApplicationId }).(pulumi.StringOutput)
+func (o ClusterAzureActiveDirectoryPtrOutput) ClusterApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterApplicationId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Azure Active Directory Tenant ID.
-func (o ClusterAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
+func (o ClusterAzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterCertificate struct {
@@ -308,18 +323,33 @@ func (o ClusterCertificatePtrOutput) Elem() ClusterCertificateOutput {
 }
 
 // The Thumbprint of the Certificate.
-func (o ClusterCertificatePtrOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+func (o ClusterCertificatePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Thumbprint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Secondary Thumbprint of the Certificate.
 func (o ClusterCertificatePtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThumbprintSecondary
+	}).(pulumi.StringPtrOutput)
 }
 
 // The X509 Store where the Certificate Exists, such as `My`.
-func (o ClusterCertificatePtrOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
+func (o ClusterCertificatePtrOutput) X509StoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.X509StoreName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterCertificateCommonNames struct {
@@ -456,12 +486,22 @@ func (o ClusterCertificateCommonNamesPtrOutput) Elem() ClusterCertificateCommonN
 
 // A `commonNames` block as defined below.
 func (o ClusterCertificateCommonNamesPtrOutput) CommonNames() ClusterCertificateCommonNamesCommonNameArrayOutput {
-	return o.ApplyT(func(v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
+	return o.ApplyT(func(v *ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName {
+		if v == nil {
+			return nil
+		}
+		return v.CommonNames
+	}).(ClusterCertificateCommonNamesCommonNameArrayOutput)
 }
 
 // The X509 Store where the Certificate Exists, such as `My`.
-func (o ClusterCertificateCommonNamesPtrOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterCertificateCommonNames) string { return v.X509StoreName }).(pulumi.StringOutput)
+func (o ClusterCertificateCommonNamesPtrOutput) X509StoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCertificateCommonNames) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.X509StoreName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterCertificateCommonNamesCommonName struct {
@@ -951,28 +991,53 @@ func (o ClusterDiagnosticsConfigPtrOutput) Elem() ClusterDiagnosticsConfigOutput
 }
 
 // The Blob Endpoint of the Storage Account.
-func (o ClusterDiagnosticsConfigPtrOutput) BlobEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.BlobEndpoint }).(pulumi.StringOutput)
+func (o ClusterDiagnosticsConfigPtrOutput) BlobEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDiagnosticsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BlobEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The protected diagnostics storage key name, such as `StorageAccountKey1`.
-func (o ClusterDiagnosticsConfigPtrOutput) ProtectedAccountKeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
+func (o ClusterDiagnosticsConfigPtrOutput) ProtectedAccountKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDiagnosticsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtectedAccountKeyName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Queue Endpoint of the Storage Account.
-func (o ClusterDiagnosticsConfigPtrOutput) QueueEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.QueueEndpoint }).(pulumi.StringOutput)
+func (o ClusterDiagnosticsConfigPtrOutput) QueueEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDiagnosticsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueueEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the Storage Account where the Diagnostics should be sent to.
-func (o ClusterDiagnosticsConfigPtrOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.StorageAccountName }).(pulumi.StringOutput)
+func (o ClusterDiagnosticsConfigPtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDiagnosticsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Table Endpoint of the Storage Account.
-func (o ClusterDiagnosticsConfigPtrOutput) TableEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterDiagnosticsConfig) string { return v.TableEndpoint }).(pulumi.StringOutput)
+func (o ClusterDiagnosticsConfigPtrOutput) TableEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterDiagnosticsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterFabricSetting struct {
@@ -1405,13 +1470,23 @@ func (o ClusterNodeTypeApplicationPortsPtrOutput) Elem() ClusterNodeTypeApplicat
 }
 
 // The end of the Application Port Range on this Node Type.
-func (o ClusterNodeTypeApplicationPortsPtrOutput) EndPort() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
+func (o ClusterNodeTypeApplicationPortsPtrOutput) EndPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterNodeTypeApplicationPorts) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EndPort
+	}).(pulumi.IntPtrOutput)
 }
 
 // The start of the Application Port Range on this Node Type.
-func (o ClusterNodeTypeApplicationPortsPtrOutput) StartPort() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.StartPort }).(pulumi.IntOutput)
+func (o ClusterNodeTypeApplicationPortsPtrOutput) StartPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterNodeTypeApplicationPorts) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StartPort
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterNodeTypeEphemeralPorts struct {
@@ -1547,13 +1622,23 @@ func (o ClusterNodeTypeEphemeralPortsPtrOutput) Elem() ClusterNodeTypeEphemeralP
 }
 
 // The end of the Ephemeral Port Range on this Node Type.
-func (o ClusterNodeTypeEphemeralPortsPtrOutput) EndPort() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
+func (o ClusterNodeTypeEphemeralPortsPtrOutput) EndPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterNodeTypeEphemeralPorts) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EndPort
+	}).(pulumi.IntPtrOutput)
 }
 
 // The start of the Ephemeral Port Range on this Node Type.
-func (o ClusterNodeTypeEphemeralPortsPtrOutput) StartPort() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.StartPort }).(pulumi.IntOutput)
+func (o ClusterNodeTypeEphemeralPortsPtrOutput) StartPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterNodeTypeEphemeralPorts) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StartPort
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterReverseProxyCertificate struct {
@@ -1698,18 +1783,33 @@ func (o ClusterReverseProxyCertificatePtrOutput) Elem() ClusterReverseProxyCerti
 }
 
 // The Thumbprint of the Certificate.
-func (o ClusterReverseProxyCertificatePtrOutput) Thumbprint() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.Thumbprint }).(pulumi.StringOutput)
+func (o ClusterReverseProxyCertificatePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterReverseProxyCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Thumbprint
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Secondary Thumbprint of the Certificate.
 func (o ClusterReverseProxyCertificatePtrOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterReverseProxyCertificate) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ClusterReverseProxyCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThumbprintSecondary
+	}).(pulumi.StringPtrOutput)
 }
 
 // The X509 Store where the Certificate Exists, such as `My`.
-func (o ClusterReverseProxyCertificatePtrOutput) X509StoreName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterReverseProxyCertificate) string { return v.X509StoreName }).(pulumi.StringOutput)
+func (o ClusterReverseProxyCertificatePtrOutput) X509StoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterReverseProxyCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.X509StoreName
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

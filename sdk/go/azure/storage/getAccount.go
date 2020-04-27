@@ -40,7 +40,7 @@ type LookupAccountResult struct {
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Is Hierarchical Namespace enabled?
 	IsHnsEnabled bool `pulumi:"isHnsEnabled"`

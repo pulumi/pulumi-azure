@@ -9551,7 +9551,7 @@ export namespace network {
          */
         pickHostNameFromBackendAddress?: pulumi.Input<boolean>;
         /**
-         * The port used for this Frontend Port.
+         * The port which should be used for this Backend HTTP Settings Collection.
          */
         port: pulumi.Input<number>;
         /**
@@ -9563,7 +9563,7 @@ export namespace network {
          */
         probeName?: pulumi.Input<string>;
         /**
-         * The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+         * The Protocol which should be used. Possible values are `Http` and `Https`.
          */
         protocol: pulumi.Input<string>;
         /**
@@ -10538,7 +10538,7 @@ export namespace network {
          */
         days: pulumi.Input<number>;
         /**
-         * Boolean flag to enable/disable retention.
+         * Boolean flag to enable/disable traffic analytics.
          */
         enabled: pulumi.Input<boolean>;
     }

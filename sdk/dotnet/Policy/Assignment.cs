@@ -62,6 +62,9 @@ namespace Pulumi.Azure.Policy
         [Output("policyDefinitionId")]
         public Output<string> PolicyDefinitionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
@@ -165,6 +168,9 @@ namespace Pulumi.Azure.Policy
         [Input("policyDefinitionId", required: true)]
         public Input<string> PolicyDefinitionId { get; set; } = null!;
 
+        /// <summary>
+        /// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
@@ -229,6 +235,9 @@ namespace Pulumi.Azure.Policy
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
 
+        /// <summary>
+        /// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 

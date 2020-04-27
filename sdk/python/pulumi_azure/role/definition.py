@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.Definition has been deprecated in favour of azure.RoleDefinition", DeprecationWarning)
 class Definition(pulumi.CustomResource):
     assignable_scopes: pulumi.Output[list]
     """
@@ -39,11 +40,14 @@ class Definition(pulumi.CustomResource):
     """
     The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
     """
+    warnings.warn("azure.Definition has been deprecated in favour of azure.RoleDefinition", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, assignable_scopes=None, description=None, name=None, permissions=None, role_definition_id=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
 
 
+
+        Deprecated: azure.Definition has been deprecated in favour of azure.RoleDefinition
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -61,6 +65,7 @@ class Definition(pulumi.CustomResource):
           * `notActions` (`pulumi.Input[list]`) - One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
           * `notDataActions` (`pulumi.Input[list]`) - One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
+        pulumi.log.warn("Definition is deprecated: azure.Definition has been deprecated in favour of azure.RoleDefinition")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

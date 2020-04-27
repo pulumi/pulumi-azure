@@ -14,7 +14,7 @@ import (
 type NetworkWatcherFlowLog struct {
 	pulumi.CustomResourceState
 
-	// Should Network Flow Logging be Enabled?
+	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringOutput `pulumi:"networkSecurityGroupId"`
@@ -78,7 +78,7 @@ func GetNetworkWatcherFlowLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkWatcherFlowLog resources.
 type networkWatcherFlowLogState struct {
-	// Should Network Flow Logging be Enabled?
+	// Boolean flag to enable/disable traffic analytics.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
@@ -97,7 +97,7 @@ type networkWatcherFlowLogState struct {
 }
 
 type NetworkWatcherFlowLogState struct {
-	// Should Network Flow Logging be Enabled?
+	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringPtrInput
@@ -120,7 +120,7 @@ func (NetworkWatcherFlowLogState) ElementType() reflect.Type {
 }
 
 type networkWatcherFlowLogArgs struct {
-	// Should Network Flow Logging be Enabled?
+	// Boolean flag to enable/disable traffic analytics.
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
@@ -140,7 +140,7 @@ type networkWatcherFlowLogArgs struct {
 
 // The set of arguments for constructing a NetworkWatcherFlowLog resource.
 type NetworkWatcherFlowLogArgs struct {
-	// Should Network Flow Logging be Enabled?
+	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolInput
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringInput

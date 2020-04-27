@@ -42,7 +42,7 @@ class GetNetworkInterfaceResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if internal_dns_name_label and not isinstance(internal_dns_name_label, str):
             raise TypeError("Expected argument 'internal_dns_name_label' to be a str")

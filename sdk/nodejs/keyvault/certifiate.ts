@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
  */
+/** @deprecated azure.Certifiate has been deprecated in favour of azure.Certificate */
 export class Certifiate extends pulumi.CustomResource {
     /**
      * Get an existing Certifiate resource's state with the given name, ID, and optional extra
@@ -21,6 +22,7 @@ export class Certifiate extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertifiateState, opts?: pulumi.CustomResourceOptions): Certifiate {
+        pulumi.log.warn("Certifiate is deprecated: azure.Certifiate has been deprecated in favour of azure.Certificate")
         return new Certifiate(name, <any>state, { ...opts, id: id });
     }
 
@@ -82,8 +84,11 @@ export class Certifiate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.Certifiate has been deprecated in favour of azure.Certificate */
     constructor(name: string, args: CertifiateArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.Certifiate has been deprecated in favour of azure.Certificate */
     constructor(name: string, argsOrState?: CertifiateArgs | CertifiateState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Certifiate is deprecated: azure.Certifiate has been deprecated in favour of azure.Certificate")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as CertifiateState | undefined;

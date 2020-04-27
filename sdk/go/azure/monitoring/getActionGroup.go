@@ -39,7 +39,7 @@ type LookupActionGroupResult struct {
 	EmailReceivers []GetActionGroupEmailReceiver `pulumi:"emailReceivers"`
 	// Whether this action group is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// One or more `itsmReceiver` blocks as defined below.
 	ItsmReceivers []GetActionGroupItsmReceiver `pulumi:"itsmReceivers"`

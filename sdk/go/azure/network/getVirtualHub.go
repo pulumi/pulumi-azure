@@ -29,7 +29,7 @@ type LookupVirtualHubArgs struct {
 type LookupVirtualHubResult struct {
 	// The Address Prefix used for this Virtual Hub.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the Virtual Hub exists.
 	Location          string `pulumi:"location"`

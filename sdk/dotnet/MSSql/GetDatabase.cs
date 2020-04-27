@@ -54,7 +54,7 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string ElasticPoolId;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

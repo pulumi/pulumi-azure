@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace", DeprecationWarning)
 class GetServiceBusNamespaceResult:
     """
     A collection of values returned by getServiceBusNamespace.
@@ -50,7 +51,7 @@ class GetServiceBusNamespaceResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -107,10 +108,13 @@ def get_service_bus_namespace(name=None,resource_group_name=None,opts=None):
 
 
 
+    Deprecated: azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace
+
 
     :param str name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     """
+    pulumi.log.warn("get_service_bus_namespace is deprecated: azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace")
     __args__ = dict()
 
 

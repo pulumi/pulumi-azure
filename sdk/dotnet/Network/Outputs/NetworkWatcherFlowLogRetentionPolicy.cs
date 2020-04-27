@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Days;
         /// <summary>
-        /// Boolean flag to enable/disable retention.
+        /// Boolean flag to enable/disable traffic analytics.
         /// </summary>
         public readonly bool Enabled;
 

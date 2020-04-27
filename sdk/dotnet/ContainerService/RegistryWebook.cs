@@ -11,7 +11,12 @@ namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
     /// Manages an Azure Container Registry Webhook.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: azure.RegistryWebook has been deprecated in favour of azure.RegistryWebhook
     /// </summary>
+    [Obsolete(@"azure.RegistryWebook has been deprecated in favour of azure.RegistryWebhook")]
     public partial class RegistryWebook : Pulumi.CustomResource
     {
         /// <summary>

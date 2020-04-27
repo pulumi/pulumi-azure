@@ -27,7 +27,7 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location where the Machine Learning Workspace exists.
 	Location          string `pulumi:"location"`

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
  */
+/** @deprecated azure.Queue has been deprecated in favour of azure.Queue */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra
@@ -22,6 +23,7 @@ export class Queue extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueueState, opts?: pulumi.CustomResourceOptions): Queue {
+        pulumi.log.warn("Queue is deprecated: azure.Queue has been deprecated in favour of azure.Queue")
         return new Queue(name, <any>state, { ...opts, id: id });
     }
 
@@ -122,8 +124,11 @@ export class Queue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.Queue has been deprecated in favour of azure.Queue */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.Queue has been deprecated in favour of azure.Queue */
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Queue is deprecated: azure.Queue has been deprecated in favour of azure.Queue")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as QueueState | undefined;

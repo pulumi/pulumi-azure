@@ -35,7 +35,7 @@ type LookupAuthorizationRuleArgs struct {
 // A collection of values returned by getAuthorizationRule.
 type LookupAuthorizationRuleResult struct {
 	EventhubName string `pulumi:"eventhubName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	Listen        *bool  `pulumi:"listen"`
 	Location      string `pulumi:"location"`

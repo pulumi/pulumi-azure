@@ -521,28 +521,53 @@ func (o FactoryGithubConfigurationPtrOutput) Elem() FactoryGithubConfigurationOu
 }
 
 // Specifies the GitHub account name.
-func (o FactoryGithubConfigurationPtrOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+func (o FactoryGithubConfigurationPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the branch of the repository to get code from.
-func (o FactoryGithubConfigurationPtrOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+func (o FactoryGithubConfigurationPtrOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BranchName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
-func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
+func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GitUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the git repository.
-func (o FactoryGithubConfigurationPtrOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+func (o FactoryGithubConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the root folder within the repository. Set to `/` for the top level.
-func (o FactoryGithubConfigurationPtrOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+func (o FactoryGithubConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryGithubConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFolder
+	}).(pulumi.StringPtrOutput)
 }
 
 type FactoryIdentity struct {
@@ -688,17 +713,32 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 
 // The ID of the Principal (Client) in Azure Active Directory
 func (o FactoryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FactoryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Tenant ID associated with the VSTS account.
 func (o FactoryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FactoryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
-func (o FactoryIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type FactoryVstsConfiguration struct {
@@ -870,33 +910,63 @@ func (o FactoryVstsConfigurationPtrOutput) Elem() FactoryVstsConfigurationOutput
 }
 
 // Specifies the VSTS account name.
-func (o FactoryVstsConfigurationPtrOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.AccountName }).(pulumi.StringOutput)
+func (o FactoryVstsConfigurationPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryVstsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the branch of the repository to get code from.
-func (o FactoryVstsConfigurationPtrOutput) BranchName() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
+func (o FactoryVstsConfigurationPtrOutput) BranchName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryVstsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BranchName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the VSTS project.
-func (o FactoryVstsConfigurationPtrOutput) ProjectName() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
+func (o FactoryVstsConfigurationPtrOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryVstsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the git repository.
-func (o FactoryVstsConfigurationPtrOutput) RepositoryName() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+func (o FactoryVstsConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryVstsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the root folder within the repository. Set to `/` for the top level.
-func (o FactoryVstsConfigurationPtrOutput) RootFolder() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.RootFolder }).(pulumi.StringOutput)
+func (o FactoryVstsConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryVstsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFolder
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Tenant ID associated with the VSTS account.
-func (o FactoryVstsConfigurationPtrOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.TenantId }).(pulumi.StringOutput)
+func (o FactoryVstsConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FactoryVstsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 type IntegrationRuntimeManagedCatalogInfo struct {
@@ -1050,23 +1120,43 @@ func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) Elem() IntegrationRuntime
 }
 
 // Administrator login name for the SQL Server.
-func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorLogin() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorLogin
+	}).(pulumi.StringPtrOutput)
 }
 
 // Administrator login password for the SQL Server.
-func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.AdministratorPassword }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorPassword
+	}).(pulumi.StringPtrOutput)
 }
 
 // Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) PricingTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PricingTier
+	}).(pulumi.StringPtrOutput)
 }
 
 // The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
-func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) ServerEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) string { return v.ServerEndpoint }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) ServerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 type IntegrationRuntimeManagedCustomSetupScript struct {
@@ -1204,13 +1294,23 @@ func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) Elem() IntegrationR
 }
 
 // The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) BlobContainerUri() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.BlobContainerUri }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) BlobContainerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCustomSetupScript) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BlobContainerUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) SasToken() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedCustomSetupScript) string { return v.SasToken }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedCustomSetupScriptPtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManagedCustomSetupScript) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasToken
+	}).(pulumi.StringPtrOutput)
 }
 
 type IntegrationRuntimeManagedVnetIntegration struct {
@@ -1346,13 +1446,23 @@ func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) Elem() IntegrationRun
 }
 
 // Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
-func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) SubnetName() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedVnetIntegration) string { return v.SubnetName }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) SubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManagedVnetIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetName
+	}).(pulumi.StringPtrOutput)
 }
 
 // ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
-func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) VnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeManagedVnetIntegration) string { return v.VnetId }).(pulumi.StringOutput)
+func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) VnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeManagedVnetIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetFactoryGithubConfiguration struct {
