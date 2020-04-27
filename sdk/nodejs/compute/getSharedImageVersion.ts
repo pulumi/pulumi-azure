@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.compute.getSharedImageVersion({
+ * const example = pulumi.output(azure.compute.getSharedImageVersion({
  *     galleryName: "my-image-gallery",
  *     imageName: "my-image",
  *     name: "1.0.0",
  *     resourceGroupName: "example-resources",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: azurerm_eventhub_consumer_group_testName,
  *     namespaceName: azurerm_eventhub_namespace_testName,
  *     resourceGroupName: azurerm_resource_group_testName,
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_consumer_group.html.markdown.

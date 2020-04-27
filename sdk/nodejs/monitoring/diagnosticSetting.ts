@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  * const exampleAccount = exampleResourceGroup.name.apply(name => azure.storage.getAccount({
  *     name: "examplestoracc",
  *     resourceGroupName: name,
- * }));
+ * }, { async: true }));
  * const exampleKeyVault = exampleResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
  *     name: "example-vault",
  *     resourceGroupName: name,
- * }));
+ * }, { async: true }));
  * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("example", {
  *     logs: [{
  *         category: "AuditEvent",

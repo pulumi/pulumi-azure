@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.databasemigration.getProject({
+ * const example = pulumi.output(azure.databasemigration.getProject({
  *     name: "example-dbms-project",
  *     resourceGroupName: "example-rg",
  *     serviceName: "example-dbms",
- * });
+ * }, { async: true }));
  * 
  * export const name = example.name;
  * ```

@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.containerservice.getKubernetesCluster({
+ * const example = pulumi.output(azure.containerservice.getKubernetesCluster({
  *     name: "myakscluster",
  *     resourceGroupName: "my-example-resource-group",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.

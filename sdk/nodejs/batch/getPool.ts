@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.batch.getPool({
+ * const example = pulumi.output(azure.batch.getPool({
  *     accountName: "testbatchaccount",
  *     name: "testbatchpool",
  *     resourceGroupName: "test",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.

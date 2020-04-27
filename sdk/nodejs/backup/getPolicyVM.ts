@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const policy = azure.backup.getPolicyVM({
+ * const policy = pulumi.output(azure.backup.getPolicyVM({
  *     name: "policy",
  *     recoveryVaultName: "recoveryVault",
  *     resourceGroupName: "resourceGroup",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.

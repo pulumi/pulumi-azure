@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleApi = azure.apimanagement.getApi({
+ * const exampleApi = pulumi.output(azure.apimanagement.getApi({
  *     apiManagementName: "example-apim",
  *     apiName: "my-api",
  *     resourceGroupName: "search-service",
- * });
+ * }, { async: true }));
  * const exampleApiPolicy = new azure.apimanagement.ApiPolicy("example", {
  *     apiManagementName: exampleApi.apiManagementName,
  *     apiName: exampleApi.name,
