@@ -71,6 +71,9 @@ export class Assignment extends pulumi.CustomResource {
      * The ID of the Policy Definition to be applied at the specified Scope.
      */
     public readonly policyDefinitionId!: pulumi.Output<string>;
+    /**
+     * The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+     */
     public readonly scope!: pulumi.Output<string>;
 
     /**
@@ -159,6 +162,9 @@ export interface AssignmentState {
      * The ID of the Policy Definition to be applied at the specified Scope.
      */
     readonly policyDefinitionId?: pulumi.Input<string>;
+    /**
+     * The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+     */
     readonly scope?: pulumi.Input<string>;
 }
 
@@ -198,5 +204,8 @@ export interface AssignmentArgs {
      * The ID of the Policy Definition to be applied at the specified Scope.
      */
     readonly policyDefinitionId: pulumi.Input<string>;
+    /**
+     * The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+     */
     readonly scope: pulumi.Input<string>;
 }

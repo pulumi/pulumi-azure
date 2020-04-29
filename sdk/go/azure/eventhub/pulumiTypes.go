@@ -153,17 +153,32 @@ func (o DomainInputMappingDefaultValuesPtrOutput) Elem() DomainInputMappingDefau
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainInputMappingFields struct {
@@ -336,32 +351,62 @@ func (o DomainInputMappingFieldsPtrOutput) Elem() DomainInputMappingFieldsOutput
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) EventTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Topic }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Topic
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventHubCaptureDescription struct {
@@ -533,33 +578,63 @@ func (o EventHubCaptureDescriptionPtrOutput) Elem() EventHubCaptureDescriptionOu
 }
 
 // A `destination` block as defined below.
-func (o EventHubCaptureDescriptionPtrOutput) Destination() EventHubCaptureDescriptionDestinationOutput {
-	return o.ApplyT(func(v EventHubCaptureDescription) EventHubCaptureDescriptionDestination { return v.Destination }).(EventHubCaptureDescriptionDestinationOutput)
+func (o EventHubCaptureDescriptionPtrOutput) Destination() EventHubCaptureDescriptionDestinationPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescription) *EventHubCaptureDescriptionDestination {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(EventHubCaptureDescriptionDestinationPtrOutput)
 }
 
 // Specifies if the Capture Description is Enabled.
-func (o EventHubCaptureDescriptionPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v EventHubCaptureDescription) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o EventHubCaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
-func (o EventHubCaptureDescriptionPtrOutput) Encoding() pulumi.StringOutput {
-	return o.ApplyT(func(v EventHubCaptureDescription) string { return v.Encoding }).(pulumi.StringOutput)
+func (o EventHubCaptureDescriptionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
 func (o EventHubCaptureDescriptionPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *EventHubCaptureDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
 func (o EventHubCaptureDescriptionPtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EventHubCaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *EventHubCaptureDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeLimitInBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
 func (o EventHubCaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EventHubCaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EventHubCaptureDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipEmptyArchives
+	}).(pulumi.BoolPtrOutput)
 }
 
 type EventHubCaptureDescriptionDestination struct {
@@ -608,6 +683,48 @@ func (i EventHubCaptureDescriptionDestinationArgs) ToEventHubCaptureDescriptionD
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionDestinationOutput)
 }
 
+func (i EventHubCaptureDescriptionDestinationArgs) ToEventHubCaptureDescriptionDestinationPtrOutput() EventHubCaptureDescriptionDestinationPtrOutput {
+	return i.ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i EventHubCaptureDescriptionDestinationArgs) ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(ctx context.Context) EventHubCaptureDescriptionDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionDestinationOutput).ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(ctx)
+}
+
+// EventHubCaptureDescriptionDestinationPtrInput is an input type that accepts EventHubCaptureDescriptionDestinationArgs, EventHubCaptureDescriptionDestinationPtr and EventHubCaptureDescriptionDestinationPtrOutput values.
+// You can construct a concrete instance of `EventHubCaptureDescriptionDestinationPtrInput` via:
+//
+// 		 EventHubCaptureDescriptionDestinationArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EventHubCaptureDescriptionDestinationPtrInput interface {
+	pulumi.Input
+
+	ToEventHubCaptureDescriptionDestinationPtrOutput() EventHubCaptureDescriptionDestinationPtrOutput
+	ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(context.Context) EventHubCaptureDescriptionDestinationPtrOutput
+}
+
+type eventHubCaptureDescriptionDestinationPtrType EventHubCaptureDescriptionDestinationArgs
+
+func EventHubCaptureDescriptionDestinationPtr(v *EventHubCaptureDescriptionDestinationArgs) EventHubCaptureDescriptionDestinationPtrInput {
+	return (*eventHubCaptureDescriptionDestinationPtrType)(v)
+}
+
+func (*eventHubCaptureDescriptionDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubCaptureDescriptionDestination)(nil)).Elem()
+}
+
+func (i *eventHubCaptureDescriptionDestinationPtrType) ToEventHubCaptureDescriptionDestinationPtrOutput() EventHubCaptureDescriptionDestinationPtrOutput {
+	return i.ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventHubCaptureDescriptionDestinationPtrType) ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(ctx context.Context) EventHubCaptureDescriptionDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubCaptureDescriptionDestinationPtrOutput)
+}
+
 type EventHubCaptureDescriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventHubCaptureDescriptionDestinationOutput) ElementType() reflect.Type {
@@ -620,6 +737,16 @@ func (o EventHubCaptureDescriptionDestinationOutput) ToEventHubCaptureDescriptio
 
 func (o EventHubCaptureDescriptionDestinationOutput) ToEventHubCaptureDescriptionDestinationOutputWithContext(ctx context.Context) EventHubCaptureDescriptionDestinationOutput {
 	return o
+}
+
+func (o EventHubCaptureDescriptionDestinationOutput) ToEventHubCaptureDescriptionDestinationPtrOutput() EventHubCaptureDescriptionDestinationPtrOutput {
+	return o.ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o EventHubCaptureDescriptionDestinationOutput) ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(ctx context.Context) EventHubCaptureDescriptionDestinationPtrOutput {
+	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) *EventHubCaptureDescriptionDestination {
+		return &v
+	}).(EventHubCaptureDescriptionDestinationPtrOutput)
 }
 
 // The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
@@ -640,6 +767,64 @@ func (o EventHubCaptureDescriptionDestinationOutput) Name() pulumi.StringOutput 
 // The ID of the Blob Storage Account where messages should be archived.
 func (o EventHubCaptureDescriptionDestinationOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+type EventHubCaptureDescriptionDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventHubCaptureDescriptionDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubCaptureDescriptionDestination)(nil)).Elem()
+}
+
+func (o EventHubCaptureDescriptionDestinationPtrOutput) ToEventHubCaptureDescriptionDestinationPtrOutput() EventHubCaptureDescriptionDestinationPtrOutput {
+	return o
+}
+
+func (o EventHubCaptureDescriptionDestinationPtrOutput) ToEventHubCaptureDescriptionDestinationPtrOutputWithContext(ctx context.Context) EventHubCaptureDescriptionDestinationPtrOutput {
+	return o
+}
+
+func (o EventHubCaptureDescriptionDestinationPtrOutput) Elem() EventHubCaptureDescriptionDestinationOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) EventHubCaptureDescriptionDestination { return *v }).(EventHubCaptureDescriptionDestinationOutput)
+}
+
+// The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o EventHubCaptureDescriptionDestinationPtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ArchiveNameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Container within the Blob Storage Account where messages should be archived.
+func (o EventHubCaptureDescriptionDestinationPtrOutput) BlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BlobContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+func (o EventHubCaptureDescriptionDestinationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Blob Storage Account where messages should be archived.
+func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventHubNamespaceNetworkRulesets struct {
@@ -786,18 +971,31 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) Elem() EventHubNamespaceNetwo
 }
 
 // The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
-func (o EventHubNamespaceNetworkRulesetsPtrOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
+func (o EventHubNamespaceNetworkRulesetsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultAction
+	}).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipRule` blocks as defined below.
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) IpRules() EventHubNamespaceNetworkRulesetsIpRuleArrayOutput {
-	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule { return v.IpRules }).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
+	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
 }
 
 // One or more `virtualNetworkRule` blocks as defined below.
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) VirtualNetworkRules() EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput {
-	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+		if v == nil {
+			return nil
+		}
 		return v.VirtualNetworkRules
 	}).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput)
 }
@@ -1144,8 +1342,13 @@ func (o EventSubscriptionEventhubEndpointPtrOutput) Elem() EventSubscriptionEven
 }
 
 // Specifies the id of the eventhub where the Event Subscription will receive events.
-func (o EventSubscriptionEventhubEndpointPtrOutput) EventhubId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) string { return v.EventhubId }).(pulumi.StringOutput)
+func (o EventSubscriptionEventhubEndpointPtrOutput) EventhubId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionEventhubEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventhubId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionHybridConnectionEndpoint struct {
@@ -1274,8 +1477,13 @@ func (o EventSubscriptionHybridConnectionEndpointPtrOutput) Elem() EventSubscrip
 }
 
 // Specifies the id of the hybrid connection where the Event Subscription will receive events.
-func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) string { return v.HybridConnectionId }).(pulumi.StringOutput)
+func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionHybridConnectionEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HybridConnectionId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionRetryPolicy struct {
@@ -1411,13 +1619,23 @@ func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPoli
 }
 
 // Specifies the time to live (in minutes) for events.
-func (o EventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntOutput {
-	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
+func (o EventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EventTimeToLive
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the maximum number of delivery retry attempts for events.
-func (o EventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntOutput {
-	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.MaxDeliveryAttempts }).(pulumi.IntOutput)
+func (o EventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxDeliveryAttempts
+	}).(pulumi.IntPtrOutput)
 }
 
 type EventSubscriptionStorageBlobDeadLetterDestination struct {
@@ -1555,13 +1773,23 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() Event
 }
 
 // Specifies the id of the storage account id where the storage blob is located.
-func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Storage blob container that is the destination of the deadletter events
-func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageBlobContainerName }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageBlobContainerName
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionStorageQueueEndpoint struct {
@@ -1697,13 +1925,23 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscription
 }
 
 // Specifies the name of the storage queue where the Event Subscriptio will receive events.
-func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueueName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the id of the storage account id where the storage queue is located.
-func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionSubjectFilter struct {
@@ -1849,17 +2087,32 @@ func (o EventSubscriptionSubjectFilterPtrOutput) Elem() EventSubscriptionSubject
 
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
 func (o EventSubscriptionSubjectFilterPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaseSensitive
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path prefix.
 func (o EventSubscriptionSubjectFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectBeginsWith
+	}).(pulumi.StringPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path suffix.
 func (o EventSubscriptionSubjectFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectEndsWith
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionWebhookEndpoint struct {
@@ -1986,8 +2239,13 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebho
 }
 
 // Specifies the url of the webhook where the Event Subscription will receive events.
-func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
+func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 type SubscriptionRuleCorrelationFilter struct {
@@ -2178,42 +2436,82 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) Elem() SubscriptionRuleCorre
 
 // Content type of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the correlation.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CorrelationId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Application specific label.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.Label }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identifier of the message.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) MessageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Address of the queue to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyTo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyTo
+	}).(pulumi.StringPtrOutput)
 }
 
 // Session identifier to reply to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyToSessionId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Session identifier.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) SessionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Address to send to.
 func (o SubscriptionRuleCorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.To }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -2224,6 +2522,7 @@ func init() {
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionOutput{})
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionDestinationOutput{})
+	pulumi.RegisterOutputType(EventHubCaptureDescriptionDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsPtrOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleOutput{})

@@ -31,7 +31,7 @@ type GetPlatformImageArgs struct {
 
 // A collection of values returned by getPlatformImage.
 type GetPlatformImageResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
 	Location  string `pulumi:"location"`
 	Offer     string `pulumi:"offer"`

@@ -48,7 +48,7 @@ namespace Pulumi.Azure.PrivateLink
     public sealed class GetServiceEndpointConnectionsResult
     {
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Location;

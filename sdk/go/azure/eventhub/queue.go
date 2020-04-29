@@ -11,6 +11,10 @@ import (
 )
 
 // Manages a ServiceBus Queue.
+//
+//
+//
+// Deprecated: azure.Queue has been deprecated in favour of azure.Queue
 type Queue struct {
 	pulumi.CustomResourceState
 

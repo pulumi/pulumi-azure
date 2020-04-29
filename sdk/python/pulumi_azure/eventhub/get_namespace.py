@@ -56,7 +56,7 @@ class GetNamespaceResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if kafka_enabled and not isinstance(kafka_enabled, bool):
             raise TypeError("Expected argument 'kafka_enabled' to be a bool")

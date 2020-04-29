@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string HyperVGeneration;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

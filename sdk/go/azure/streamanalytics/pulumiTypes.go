@@ -233,8 +233,13 @@ func (o FunctionJavaScriptUDFOutputPtrOutput) Elem() FunctionJavaScriptUDFOutput
 }
 
 // The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
-func (o FunctionJavaScriptUDFOutputPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionJavaScriptUDFOutput) string { return v.Type }).(pulumi.StringOutput)
+func (o FunctionJavaScriptUDFOutputPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionJavaScriptUDFOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type OutputBlobSerialization struct {
@@ -389,22 +394,42 @@ func (o OutputBlobSerializationPtrOutput) Elem() OutputBlobSerializationOutput {
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o OutputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
 func (o OutputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 func (o OutputBlobSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputBlobSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o OutputBlobSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OutputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o OutputBlobSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type OutputEventHubSerialization struct {
@@ -559,22 +584,42 @@ func (o OutputEventHubSerializationPtrOutput) Elem() OutputEventHubSerialization
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o OutputEventHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
 func (o OutputEventHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 func (o OutputEventHubSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputEventHubSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o OutputEventHubSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OutputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o OutputEventHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputEventHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type OutputServiceBusQueueSerialization struct {
@@ -729,22 +774,42 @@ func (o OutputServiceBusQueueSerializationPtrOutput) Elem() OutputServiceBusQueu
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o OutputServiceBusQueueSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
 func (o OutputServiceBusQueueSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 func (o OutputServiceBusQueueSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputServiceBusQueueSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o OutputServiceBusQueueSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OutputServiceBusQueueSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o OutputServiceBusQueueSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputServiceBusQueueSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type OutputServicebusTopicSerialization struct {
@@ -899,22 +964,42 @@ func (o OutputServicebusTopicSerializationPtrOutput) Elem() OutputServicebusTopi
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o OutputServicebusTopicSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
 func (o OutputServicebusTopicSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 func (o OutputServicebusTopicSerializationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OutputServicebusTopicSerialization) *string { return v.Format }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o OutputServicebusTopicSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OutputServicebusTopicSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o OutputServicebusTopicSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputServicebusTopicSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ReferenceInputBlobSerialization struct {
@@ -1060,17 +1145,32 @@ func (o ReferenceInputBlobSerializationPtrOutput) Elem() ReferenceInputBlobSeria
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o ReferenceInputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ReferenceInputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 func (o ReferenceInputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ReferenceInputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
-func (o ReferenceInputBlobSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ReferenceInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o ReferenceInputBlobSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceInputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type StreamInputBlobSerialization struct {
@@ -1216,17 +1316,32 @@ func (o StreamInputBlobSerializationPtrOutput) Elem() StreamInputBlobSerializati
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o StreamInputBlobSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputBlobSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *StreamInputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
 func (o StreamInputBlobSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputBlobSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *StreamInputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o StreamInputBlobSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamInputBlobSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o StreamInputBlobSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamInputBlobSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type StreamInputEventHubSerialization struct {
@@ -1372,17 +1487,32 @@ func (o StreamInputEventHubSerializationPtrOutput) Elem() StreamInputEventHubSer
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o StreamInputEventHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputEventHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *StreamInputEventHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
 func (o StreamInputEventHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputEventHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *StreamInputEventHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o StreamInputEventHubSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamInputEventHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o StreamInputEventHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamInputEventHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type StreamInputIotHubSerialization struct {
@@ -1528,17 +1658,32 @@ func (o StreamInputIotHubSerializationPtrOutput) Elem() StreamInputIotHubSeriali
 
 // The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 func (o StreamInputIotHubSerializationPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputIotHubSerialization) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *StreamInputIotHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
 }
 
 // The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
 func (o StreamInputIotHubSerializationPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamInputIotHubSerialization) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *StreamInputIotHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
 }
 
 // The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
-func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamInputIotHubSerialization) string { return v.Type }).(pulumi.StringOutput)
+func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamInputIotHubSerialization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

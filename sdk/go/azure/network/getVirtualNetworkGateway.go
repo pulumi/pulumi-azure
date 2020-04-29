@@ -40,7 +40,7 @@ type LookupVirtualNetworkGatewayResult struct {
 	EnableBgp bool `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network Gateway.
 	Generation string `pulumi:"generation"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// One or two `ipConfiguration` blocks documented below.
 	IpConfigurations []GetVirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`

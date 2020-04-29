@@ -35,7 +35,7 @@ type GetServiceResult struct {
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// Does the Private Link Service support the Proxy Protocol?
 	EnableProxyProtocol bool `pulumi:"enableProxyProtocol"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
 	LoadBalancerFrontendIpConfigurationIds []string `pulumi:"loadBalancerFrontendIpConfigurationIds"`

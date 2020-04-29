@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: "test",
  *     namespaceName: azurerm_eventhub_namespace_testName,
  *     resourceGroupName: azurerm_resource_group_testName,
- * }));
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_authorization_rule.html.markdown.
@@ -100,7 +100,7 @@ export interface GetAuthorizationRuleResult {
     readonly secondaryKey: string;
     readonly send?: boolean;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

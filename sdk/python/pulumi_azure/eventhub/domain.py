@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.Domain has been deprecated in favour of azure.Domain", DeprecationWarning)
 class Domain(pulumi.CustomResource):
     endpoint: pulumi.Output[str]
     """
@@ -61,11 +62,14 @@ class Domain(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
+    warnings.warn("azure.Domain has been deprecated in favour of azure.Domain", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Domain
 
 
+
+        Deprecated: azure.Domain has been deprecated in favour of azure.Domain
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,6 +96,7 @@ class Domain(pulumi.CustomResource):
           * `subject` (`pulumi.Input[str]`) - Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
           * `topic` (`pulumi.Input[str]`) - Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
+        pulumi.log.warn("Domain is deprecated: azure.Domain has been deprecated in favour of azure.Domain")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

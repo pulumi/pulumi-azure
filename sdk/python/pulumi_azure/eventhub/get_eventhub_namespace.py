@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace", DeprecationWarning)
 class GetEventhubNamespaceResult:
     """
     A collection of values returned by getEventhubNamespace.
@@ -56,7 +57,7 @@ class GetEventhubNamespaceResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if kafka_enabled and not isinstance(kafka_enabled, bool):
             raise TypeError("Expected argument 'kafka_enabled' to be a bool")
@@ -118,10 +119,13 @@ def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
 
 
 
+    Deprecated: azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace
+
 
     :param str name: The name of the EventHub Namespace.
     :param str resource_group_name: The Name of the Resource Group where the EventHub Namespace exists.
     """
+    pulumi.log.warn("get_eventhub_namespace is deprecated: azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace")
     __args__ = dict()
 
 

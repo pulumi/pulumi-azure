@@ -45,7 +45,7 @@ type GetAccountSASResult struct {
 	ConnectionString string `pulumi:"connectionString"`
 	Expiry           string `pulumi:"expiry"`
 	HttpsOnly        *bool  `pulumi:"httpsOnly"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id            string                     `pulumi:"id"`
 	Permissions   GetAccountSASPermissions   `pulumi:"permissions"`
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`

@@ -29,7 +29,7 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// The FQDN of the SignalR service.
 	Hostname string `pulumi:"hostname"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress string `pulumi:"ipAddress"`

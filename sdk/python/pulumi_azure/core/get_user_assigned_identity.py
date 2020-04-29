@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity", DeprecationWarning)
 class GetUserAssignedIdentityResult:
     """
     A collection of values returned by getUserAssignedIdentity.
@@ -24,7 +25,7 @@ class GetUserAssignedIdentityResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -68,10 +69,13 @@ def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing User Assigned Identity.
 
+    Deprecated: azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity
+
 
     :param str name: The name of the User Assigned Identity.
     :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.
     """
+    pulumi.log.warn("get_user_assigned_identity is deprecated: azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity")
     __args__ = dict()
 
 

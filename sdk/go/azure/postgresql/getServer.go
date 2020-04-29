@@ -31,7 +31,7 @@ type LookupServerResult struct {
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The fully qualified domain name of the PostgreSQL Server.
 	Fqdn string `pulumi:"fqdn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of the Resource Group in which the PostgreSQL Server exists.
 	Location          string `pulumi:"location"`

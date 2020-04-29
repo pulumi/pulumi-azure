@@ -29,7 +29,7 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri string `pulumi:"dataIngestionUri"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string            `pulumi:"id"`
 	Location          string            `pulumi:"location"`
 	Name              string            `pulumi:"name"`

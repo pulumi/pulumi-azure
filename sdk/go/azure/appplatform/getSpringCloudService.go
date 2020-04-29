@@ -29,7 +29,7 @@ type LookupSpringCloudServiceArgs struct {
 type LookupSpringCloudServiceResult struct {
 	// A `configServerGitSetting` block as defined below.
 	ConfigServerGitSettings []GetSpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSettings"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of Spring Cloud Service.
 	Location string `pulumi:"location"`

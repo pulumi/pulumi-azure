@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
  */
+/** @deprecated azure.Domain has been deprecated in favour of azure.Domain */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra
@@ -22,6 +23,7 @@ export class Domain extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DomainState, opts?: pulumi.CustomResourceOptions): Domain {
+        pulumi.log.warn("Domain is deprecated: azure.Domain has been deprecated in favour of azure.Domain")
         return new Domain(name, <any>state, { ...opts, id: id });
     }
 
@@ -87,8 +89,11 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.Domain has been deprecated in favour of azure.Domain */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.Domain has been deprecated in favour of azure.Domain */
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Domain is deprecated: azure.Domain has been deprecated in favour of azure.Domain")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DomainState | undefined;

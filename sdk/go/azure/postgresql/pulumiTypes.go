@@ -154,21 +154,41 @@ func (o ServerStorageProfilePtrOutput) Elem() ServerStorageProfileOutput {
 }
 
 func (o ServerStorageProfilePtrOutput) AutoGrow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *string { return v.AutoGrow }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoGrow
+	}).(pulumi.StringPtrOutput)
 }
 
 // Backup retention days for the server, supported values are between `7` and `35` days.
 func (o ServerStorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackupRetentionDays
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o ServerStorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRedundantBackup
+	}).(pulumi.StringPtrOutput)
 }
 
 // Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
 func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerStorageProfile) *int { return v.StorageMb }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServerStorageProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageMb
+	}).(pulumi.IntPtrOutput)
 }
 
 func init() {

@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.storage.getStorageContainer({
+ * const example = pulumi.output(azure.storage.getStorageContainer({
  *     name: "example-container-name",
  *     storageAccountName: "example-storage-account-name",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
@@ -85,7 +85,7 @@ export interface GetStorageContainerResult {
     readonly resourceManagerId: string;
     readonly storageAccountName: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -30,7 +30,8 @@ type Assignment struct {
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
-	Scope              pulumi.StringOutput `pulumi:"scope"`
+	// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+	Scope pulumi.StringOutput `pulumi:"scope"`
 }
 
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +84,8 @@ type assignmentState struct {
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	Scope              *string `pulumi:"scope"`
+	// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+	Scope *string `pulumi:"scope"`
 }
 
 type AssignmentState struct {
@@ -103,7 +105,8 @@ type AssignmentState struct {
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringPtrInput
-	Scope              pulumi.StringPtrInput
+	// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+	Scope pulumi.StringPtrInput
 }
 
 func (AssignmentState) ElementType() reflect.Type {
@@ -127,7 +130,8 @@ type assignmentArgs struct {
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	Scope              string `pulumi:"scope"`
+	// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Assignment resource.
@@ -148,7 +152,8 @@ type AssignmentArgs struct {
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition to be applied at the specified Scope.
 	PolicyDefinitionId pulumi.StringInput
-	Scope              pulumi.StringInput
+	// The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+	Scope pulumi.StringInput
 }
 
 func (AssignmentArgs) ElementType() reflect.Type {

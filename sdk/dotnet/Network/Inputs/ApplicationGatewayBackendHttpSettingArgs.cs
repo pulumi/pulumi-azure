@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<bool>? PickHostNameFromBackendAddress { get; set; }
 
         /// <summary>
-        /// The port used for this Frontend Port.
+        /// The port which should be used for this Backend HTTP Settings Collection.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? ProbeName { get; set; }
 
         /// <summary>
-        /// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+        /// The Protocol which should be used. Possible values are `Http` and `Https`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

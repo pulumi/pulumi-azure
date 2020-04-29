@@ -31,7 +31,7 @@ type GetServerResult struct {
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The fully qualified domain name of the SQL Server.
 	Fqdn string `pulumi:"fqdn"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
 	Identities []GetServerIdentity `pulumi:"identities"`

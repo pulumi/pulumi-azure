@@ -162,22 +162,42 @@ func (o WorkspaceCustomParametersPtrOutput) Elem() WorkspaceCustomParametersOutp
 
 // Are public IP Addresses not allowed?
 func (o WorkspaceCustomParametersPtrOutput) NoPublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomParameters) *bool { return v.NoPublicIp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoPublicIp
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
 func (o WorkspaceCustomParametersPtrOutput) PrivateSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PrivateSubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateSubnetName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
 func (o WorkspaceCustomParametersPtrOutput) PublicSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.PublicSubnetName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicSubnetName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Virtual Network where this Databricks Cluster should be created.
 func (o WorkspaceCustomParametersPtrOutput) VirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceCustomParameters) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WorkspaceCustomParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkId
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

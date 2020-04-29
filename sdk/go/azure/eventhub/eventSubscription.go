@@ -11,6 +11,10 @@ import (
 )
 
 // Manages an EventGrid Event Subscription
+//
+//
+//
+// Deprecated: azure.EventSubscription has been deprecated in favour of azure.EventSubscription
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

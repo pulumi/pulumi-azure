@@ -10,6 +10,10 @@ import (
 )
 
 // Manages a Management Group.
+//
+//
+//
+// Deprecated: azure.ManagementGroup has been deprecated in favour of azure.Group
 type ManagementGroup struct {
 	pulumi.CustomResourceState
 

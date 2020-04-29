@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.getManagementGroup has been deprecated in favour of azure.getGroup", DeprecationWarning)
 class GetManagementGroupResult:
     """
     A collection of values returned by getManagementGroup.
@@ -27,7 +28,7 @@ class GetManagementGroupResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -63,10 +64,13 @@ def get_management_group(group_id=None,name=None,opts=None):
 
 
 
+    Deprecated: azure.getManagementGroup has been deprecated in favour of azure.getGroup
+
 
     :param str group_id: Specifies the name or UUID of this Management Group.
     :param str name: Specifies the name or UUID of this Management Group.
     """
+    pulumi.log.warn("get_management_group is deprecated: azure.getManagementGroup has been deprecated in favour of azure.getGroup")
     __args__ = dict()
 
 

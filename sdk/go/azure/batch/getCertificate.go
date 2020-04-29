@@ -32,7 +32,7 @@ type LookupCertificateResult struct {
 	AccountName string `pulumi:"accountName"`
 	// The format of the certificate, such as `Cer` or `Pfx`.
 	Format string `pulumi:"format"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The public key of the certificate.

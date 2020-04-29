@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFactoryGithubConfigurationResult> GithubConfigurations;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

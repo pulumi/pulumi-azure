@@ -13,7 +13,12 @@ namespace Pulumi.Azure.EventHub
     /// Manages an EventGrid Topic
     /// 
     /// &gt; **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: azure.EventGridTopic has been deprecated in favour of azure.Topic
     /// </summary>
+    [Obsolete(@"azure.EventGridTopic has been deprecated in favour of azure.Topic")]
     public partial class EventGridTopic : Pulumi.CustomResource
     {
         /// <summary>

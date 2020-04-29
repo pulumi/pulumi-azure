@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule", DeprecationWarning)
 class EventHubAuthorizationRule(pulumi.CustomResource):
     eventhub_name: pulumi.Output[str]
     """
@@ -54,11 +55,14 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     """
     Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
     """
+    warnings.warn("azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
 
 
+
+        Deprecated: azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -70,6 +74,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
         """
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

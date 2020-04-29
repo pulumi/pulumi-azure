@@ -9,8 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Role
 {
+    [Obsolete(@"azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition")]
     public static class GetRoleDefinition
     {
+        /// <summary>
+        /// 
+        /// Deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition
+        /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }
@@ -39,7 +44,7 @@ namespace Pulumi.Azure.Role
         public readonly ImmutableArray<string> AssignableScopes;
         public readonly string Description;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;

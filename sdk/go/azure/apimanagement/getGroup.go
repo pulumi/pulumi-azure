@@ -36,7 +36,7 @@ type LookupGroupResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// The identifier of the external Group.
 	ExternalId string `pulumi:"externalId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`

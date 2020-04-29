@@ -53,10 +53,10 @@ class ApplicationGateway(pulumi.CustomResource):
       * `name` (`str`) - The name of the Backend HTTP Settings Collection.
       * `path` (`str`) - The Path which should be used as a prefix for all HTTP requests.
       * `pickHostNameFromBackendAddress` (`bool`) - Whether host header should be picked from the host name of the backend server. Defaults to `false`.
-      * `port` (`float`) - The port used for this Frontend Port.
+      * `port` (`float`) - The port which should be used for this Backend HTTP Settings Collection.
       * `probe_id` (`str`) - The ID of the associated Probe.
       * `probeName` (`str`) - The name of an associated HTTP Probe.
-      * `protocol` (`str`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+      * `protocol` (`str`) - The Protocol which should be used. Possible values are `Http` and `Https`.
       * `requestTimeout` (`float`) - The request timeout in seconds, which must be between 1 and 86400 seconds.
       * `trustedRootCertificateNames` (`list`) - A list of `trusted_root_certificate` names.
     """
@@ -379,10 +379,10 @@ class ApplicationGateway(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - The name of the Backend HTTP Settings Collection.
           * `path` (`pulumi.Input[str]`) - The Path which should be used as a prefix for all HTTP requests.
           * `pickHostNameFromBackendAddress` (`pulumi.Input[bool]`) - Whether host header should be picked from the host name of the backend server. Defaults to `false`.
-          * `port` (`pulumi.Input[float]`) - The port used for this Frontend Port.
+          * `port` (`pulumi.Input[float]`) - The port which should be used for this Backend HTTP Settings Collection.
           * `probe_id` (`pulumi.Input[str]`) - The ID of the associated Probe.
           * `probeName` (`pulumi.Input[str]`) - The name of an associated HTTP Probe.
-          * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol which should be used. Possible values are `Http` and `Https`.
           * `requestTimeout` (`pulumi.Input[float]`) - The request timeout in seconds, which must be between 1 and 86400 seconds.
           * `trustedRootCertificateNames` (`pulumi.Input[list]`) - A list of `trusted_root_certificate` names.
 
@@ -717,10 +717,10 @@ class ApplicationGateway(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - The name of the Backend HTTP Settings Collection.
           * `path` (`pulumi.Input[str]`) - The Path which should be used as a prefix for all HTTP requests.
           * `pickHostNameFromBackendAddress` (`pulumi.Input[bool]`) - Whether host header should be picked from the host name of the backend server. Defaults to `false`.
-          * `port` (`pulumi.Input[float]`) - The port used for this Frontend Port.
+          * `port` (`pulumi.Input[float]`) - The port which should be used for this Backend HTTP Settings Collection.
           * `probe_id` (`pulumi.Input[str]`) - The ID of the associated Probe.
           * `probeName` (`pulumi.Input[str]`) - The name of an associated HTTP Probe.
-          * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
+          * `protocol` (`pulumi.Input[str]`) - The Protocol which should be used. Possible values are `Http` and `Https`.
           * `requestTimeout` (`pulumi.Input[float]`) - The request timeout in seconds, which must be between 1 and 86400 seconds.
           * `trustedRootCertificateNames` (`pulumi.Input[list]`) - A list of `trusted_root_certificate` names.
 

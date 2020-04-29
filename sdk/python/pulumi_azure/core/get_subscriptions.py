@@ -24,7 +24,7 @@ class GetSubscriptionsResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if subscriptions and not isinstance(subscriptions, list):
             raise TypeError("Expected argument 'subscriptions' to be a list")

@@ -33,7 +33,7 @@ class GetApiResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if is_current and not isinstance(is_current, bool):
             raise TypeError("Expected argument 'is_current' to be a bool")

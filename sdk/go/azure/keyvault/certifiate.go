@@ -11,6 +11,8 @@ import (
 )
 
 // Manages a Key Vault Certificate.
+//
+// Deprecated: azure.Certifiate has been deprecated in favour of azure.Certificate
 type Certifiate struct {
 	pulumi.CustomResourceState
 

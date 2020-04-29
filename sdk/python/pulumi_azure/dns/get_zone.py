@@ -18,7 +18,7 @@ class GetZoneResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
             raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")

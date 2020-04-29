@@ -31,7 +31,7 @@ type LookupDatabaseResult struct {
 	Collation string `pulumi:"collation"`
 	// The id of the elastic pool containing this database.
 	ElasticPoolId string `pulumi:"elasticPoolId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The license type to apply for this database.
 	LicenseType string `pulumi:"licenseType"`

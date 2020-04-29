@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.iot.getDps({
+ * const example = pulumi.output(azure.iot.getDps({
  *     name: "iotHubDpsTest",
  *     resourceGroupName: "iothubDpsRg",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
@@ -83,7 +83,7 @@ export interface GetDpsResult {
     readonly serviceOperationsHostName: string;
     readonly tags?: {[key: string]: string};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -8,6 +8,10 @@ import (
 )
 
 // Use this data source to access information about an existing ServiceBus Namespace.
+//
+//
+//
+// Deprecated: azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace
 func GetServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespaceArgs, opts ...pulumi.InvokeOption) (*GetServiceBusNamespaceResult, error) {
 	var rv GetServiceBusNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, &rv, opts...)
@@ -39,7 +43,7 @@ type GetServiceBusNamespaceResult struct {
 	DefaultSecondaryConnectionString string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of the Resource Group in which the ServiceBus Namespace exists.
 	Location          string `pulumi:"location"`

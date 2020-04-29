@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */
+/** @deprecated azure.Assignment has been deprecated in favour of azure.Assignment */
 export class Assignment extends pulumi.CustomResource {
     /**
      * Get an existing Assignment resource's state with the given name, ID, and optional extra
@@ -19,6 +20,7 @@ export class Assignment extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssignmentState, opts?: pulumi.CustomResourceOptions): Assignment {
+        pulumi.log.warn("Assignment is deprecated: azure.Assignment has been deprecated in favour of azure.Assignment")
         return new Assignment(name, <any>state, { ...opts, id: id });
     }
 
@@ -72,8 +74,11 @@ export class Assignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.Assignment has been deprecated in favour of azure.Assignment */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.Assignment has been deprecated in favour of azure.Assignment */
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Assignment is deprecated: azure.Assignment has been deprecated in favour of azure.Assignment")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AssignmentState | undefined;

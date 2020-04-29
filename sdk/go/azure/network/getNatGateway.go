@@ -31,7 +31,7 @@ type LookupNatGatewayArgs struct {
 
 // A collection of values returned by getNatGateway.
 type LookupNatGatewayResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The idle timeout in minutes which is used for the NAT Gateway.
 	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`

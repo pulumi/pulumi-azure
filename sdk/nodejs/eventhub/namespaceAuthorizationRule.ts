@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule.html.markdown.
  */
+/** @deprecated azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing NamespaceAuthorizationRule resource's state with the given name, ID, and optional extra
@@ -22,6 +23,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): NamespaceAuthorizationRule {
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule")
         return new NamespaceAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -87,8 +89,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule */
     constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule */
     constructor(name: string, argsOrState?: NamespaceAuthorizationRuleArgs | NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NamespaceAuthorizationRuleState | undefined;

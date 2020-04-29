@@ -48,7 +48,7 @@ class GetKubernetesClusterResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if kube_admin_config_raw and not isinstance(kube_admin_config_raw, str):
             raise TypeError("Expected argument 'kube_admin_config_raw' to be a str")

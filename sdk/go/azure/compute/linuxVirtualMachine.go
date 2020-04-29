@@ -61,8 +61,9 @@ type LinuxVirtualMachine struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan     LinuxVirtualMachinePlanPtrOutput `pulumi:"plan"`
-	Priority pulumi.StringPtrOutput           `pulumi:"priority"`
+	Plan LinuxVirtualMachinePlanPtrOutput `pulumi:"plan"`
+	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
@@ -173,8 +174,9 @@ type linuxVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk *LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan     *LinuxVirtualMachinePlan `pulumi:"plan"`
-	Priority *string                  `pulumi:"priority"`
+	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
+	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority *string `pulumi:"priority"`
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A list of Private IP Addresses assigned to this Virtual Machine.
@@ -243,7 +245,8 @@ type LinuxVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan     LinuxVirtualMachinePlanPtrInput
+	Plan LinuxVirtualMachinePlanPtrInput
+	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// The Primary Private IP Address assigned to this Virtual Machine.
 	PrivateIpAddress pulumi.StringPtrInput
@@ -317,8 +320,9 @@ type linuxVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan     *LinuxVirtualMachinePlan `pulumi:"plan"`
-	Priority *string                  `pulumi:"priority"`
+	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
+	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority *string `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
@@ -378,7 +382,8 @@ type LinuxVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
-	Plan     LinuxVirtualMachinePlanPtrInput
+	Plan LinuxVirtualMachinePlanPtrInput
+	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent pulumi.BoolPtrInput

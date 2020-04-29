@@ -51,7 +51,7 @@ class GetPoolResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if max_tasks_per_node and not isinstance(max_tasks_per_node, float):
             raise TypeError("Expected argument 'max_tasks_per_node' to be a float")

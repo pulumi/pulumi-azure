@@ -156,18 +156,33 @@ func (o ServiceAuthenticationConfigurationPtrOutput) Elem() ServiceAuthenticatio
 
 // The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
 func (o ServiceAuthenticationConfigurationPtrOutput) Audience() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *string { return v.Audience }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
 // Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
 func (o ServiceAuthenticationConfigurationPtrOutput) Authority() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *string { return v.Authority }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authority
+	}).(pulumi.StringPtrOutput)
 }
 
 // Enables the 'SMART on FHIR' option for mobile and web implementations.
 func (o ServiceAuthenticationConfigurationPtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *bool { return v.SmartProxyEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmartProxyEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ServiceCorsConfiguration struct {
@@ -331,27 +346,52 @@ func (o ServiceCorsConfigurationPtrOutput) Elem() ServiceCorsConfigurationOutput
 
 // If credentials are allowed via CORS.
 func (o ServiceCorsConfigurationPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceCorsConfiguration) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *ServiceCorsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A set of headers to be allowed via CORS.
 func (o ServiceCorsConfigurationPtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ServiceCorsConfiguration) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ServiceCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHeaders
+	}).(pulumi.StringArrayOutput)
 }
 
 // The methods to be allowed via CORS.
 func (o ServiceCorsConfigurationPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ServiceCorsConfiguration) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ServiceCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
 }
 
 // A set of origins to be allowed via CORS.
 func (o ServiceCorsConfigurationPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ServiceCorsConfiguration) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ServiceCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
 }
 
 // The max age to be allowed via CORS.
 func (o ServiceCorsConfigurationPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceCorsConfiguration) *int { return v.MaxAgeInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ServiceCorsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAgeInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetServiceAuthenticationConfiguration struct {

@@ -27,7 +27,7 @@ type GetSubscriptionArgs struct {
 type GetSubscriptionResult struct {
 	// The subscription display name.
 	DisplayName string `pulumi:"displayName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The subscription location placement ID.
 	LocationPlacementId string `pulumi:"locationPlacementId"`

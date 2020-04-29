@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
+    [Obsolete(@"azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace")]
     public static class GetEventhubNamespace
     {
         /// <summary>
@@ -16,6 +17,8 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
+        /// 
+        /// Deprecated: azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace
         /// </summary>
         public static Task<GetEventhubNamespaceResult> InvokeAsync(GetEventhubNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceArgs(), options.WithVersion());
@@ -72,7 +75,7 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string DefaultSecondaryKey;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool KafkaEnabled;

@@ -251,18 +251,33 @@ func (o AccountConsistencyPolicyPtrOutput) Elem() AccountConsistencyPolicyOutput
 }
 
 // The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
-func (o AccountConsistencyPolicyPtrOutput) ConsistencyLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountConsistencyPolicy) string { return v.ConsistencyLevel }).(pulumi.StringOutput)
+func (o AccountConsistencyPolicyPtrOutput) ConsistencyLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountConsistencyPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConsistencyLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AccountConsistencyPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AccountConsistencyPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxStalenessPrefix
+	}).(pulumi.IntPtrOutput)
 }
 
 type AccountGeoLocation struct {

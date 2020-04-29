@@ -37,7 +37,7 @@ type GetClusterResult struct {
 	Gateways []GetClusterGateway `pulumi:"gateways"`
 	// The HTTPS Endpoint for this HDInsight Cluster.
 	HttpsEndpoint string `pulumi:"httpsEndpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
 	Kind string `pulumi:"kind"`

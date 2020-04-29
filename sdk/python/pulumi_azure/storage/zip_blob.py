@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.", DeprecationWarning)
 class ZipBlob(pulumi.CustomResource):
     access_tier: pulumi.Output[str]
     content: pulumi.Output[pulumi.Archive]
@@ -23,6 +24,7 @@ class ZipBlob(pulumi.CustomResource):
     storage_container_name: pulumi.Output[str]
     type: pulumi.Output[str]
     url: pulumi.Output[str]
+    warnings.warn("ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, access_tier=None, content=None, content_type=None, metadata=None, name=None, parallelism=None, size=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
 
@@ -31,6 +33,7 @@ class ZipBlob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
+        pulumi.log.warn("ZipBlob is deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Compute
         public readonly bool ExcludeFromLatest;
         public readonly string GalleryName;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string ImageName;

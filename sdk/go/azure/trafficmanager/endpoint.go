@@ -11,6 +11,10 @@ import (
 )
 
 // Manages a Traffic Manager Endpoint.
+//
+//
+//
+// Deprecated: azure.Endpoint has been deprecated in favour of azure.TrafficManagerEndpoint
 type Endpoint struct {
 	pulumi.CustomResourceState
 

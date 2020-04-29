@@ -35,6 +35,9 @@ class WebTest(pulumi.CustomResource):
     A list of where to physically run the tests from to give global coverage for accessibility of your application.
     """
     kind: pulumi.Output[str]
+    """
+    = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource group.
@@ -72,6 +75,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[float] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
         :param pulumi.Input[list] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
@@ -141,6 +145,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[float] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
         :param pulumi.Input[list] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.

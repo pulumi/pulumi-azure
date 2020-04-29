@@ -11,7 +11,12 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a ServiceBus Namespace.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: azure.Namespace has been deprecated in favour of azure.Namespace
     /// </summary>
+    [Obsolete(@"azure.Namespace has been deprecated in favour of azure.Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>

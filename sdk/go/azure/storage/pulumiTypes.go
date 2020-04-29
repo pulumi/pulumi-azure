@@ -146,12 +146,20 @@ func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
 
 // A `corsRule` block as defined below.
 func (o AccountBlobPropertiesPtrOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
-	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
+	return o.ApplyT(func(v *AccountBlobProperties) []AccountBlobPropertiesCorsRule {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
 // A `deleteRetentionPolicy` block as defined below.
 func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
+	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
+		if v == nil {
+			return nil
+		}
 		return v.DeleteRetentionPolicy
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
@@ -421,7 +429,12 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Elem() AccountBlobP
 
 // Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AccountBlobPropertiesDeleteRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
 }
 
 type AccountCustomDomain struct {
@@ -557,13 +570,23 @@ func (o AccountCustomDomainPtrOutput) Elem() AccountCustomDomainOutput {
 }
 
 // The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
-func (o AccountCustomDomainPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
+func (o AccountCustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountCustomDomain) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // Should the Custom Domain Name be validated by using indirect CNAME validation?
 func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccountCustomDomain) *bool { return v.UseSubdomain }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *AccountCustomDomain) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSubdomain
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AccountIdentity struct {
@@ -709,17 +732,32 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 
 // The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
-func (o AccountIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type AccountNetworkRulesType struct {
@@ -878,22 +916,42 @@ func (o AccountNetworkRulesTypePtrOutput) Elem() AccountNetworkRulesTypeOutput {
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
 // any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 func (o AccountNetworkRulesTypePtrOutput) Bypasses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.Bypasses }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Bypasses
+	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-func (o AccountNetworkRulesTypePtrOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
+func (o AccountNetworkRulesTypePtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkRulesType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultAction
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpRules
+	}).(pulumi.StringArrayOutput)
 }
 
 // A list of resource ids for subnets.
 func (o AccountNetworkRulesTypePtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkSubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type AccountQueueProperties struct {
@@ -1048,22 +1106,42 @@ func (o AccountQueuePropertiesPtrOutput) Elem() AccountQueuePropertiesOutput {
 
 // A `corsRule` block as defined above.
 func (o AccountQueuePropertiesPtrOutput) CorsRules() AccountQueuePropertiesCorsRuleArrayOutput {
-	return o.ApplyT(func(v AccountQueueProperties) []AccountQueuePropertiesCorsRule { return v.CorsRules }).(AccountQueuePropertiesCorsRuleArrayOutput)
+	return o.ApplyT(func(v *AccountQueueProperties) []AccountQueuePropertiesCorsRule {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
 // A `hourMetrics` block as defined below.
 func (o AccountQueuePropertiesPtrOutput) HourMetrics() AccountQueuePropertiesHourMetricsPtrOutput {
-	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesHourMetrics { return v.HourMetrics }).(AccountQueuePropertiesHourMetricsPtrOutput)
+	return o.ApplyT(func(v *AccountQueueProperties) *AccountQueuePropertiesHourMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.HourMetrics
+	}).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
 // A `logging` block as defined below.
 func (o AccountQueuePropertiesPtrOutput) Logging() AccountQueuePropertiesLoggingPtrOutput {
-	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesLogging { return v.Logging }).(AccountQueuePropertiesLoggingPtrOutput)
+	return o.ApplyT(func(v *AccountQueueProperties) *AccountQueuePropertiesLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
 // A `minuteMetrics` block as defined below.
 func (o AccountQueuePropertiesPtrOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsPtrOutput {
-	return o.ApplyT(func(v AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics { return v.MinuteMetrics }).(AccountQueuePropertiesMinuteMetricsPtrOutput)
+	return o.ApplyT(func(v *AccountQueueProperties) *AccountQueuePropertiesMinuteMetrics {
+		if v == nil {
+			return nil
+		}
+		return v.MinuteMetrics
+	}).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
 type AccountQueuePropertiesCorsRule struct {
@@ -1355,23 +1433,43 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) Elem() AccountQueuePropertie
 }
 
 // Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
-func (o AccountQueuePropertiesHourMetricsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o AccountQueuePropertiesHourMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) IncludeApis() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeApis
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesHourMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPolicyDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // The version of storage analytics to configure. Changing this forces a new resource.
-func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesHourMetrics) string { return v.Version }).(pulumi.StringOutput)
+func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesHourMetrics) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type AccountQueuePropertiesLogging struct {
@@ -1534,28 +1632,53 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLog
 }
 
 // Indicates whether all delete requests should be logged. Changing this forces a new resource.
-func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
+func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Delete
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether all read requests should be logged. Changing this forces a new resource.
-func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
+func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Read
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesLoggingPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesLogging) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPolicyDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // The version of storage analytics to configure. Changing this forces a new resource.
-func (o AccountQueuePropertiesLoggingPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesLogging) string { return v.Version }).(pulumi.StringOutput)
+func (o AccountQueuePropertiesLoggingPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether all write requests should be logged. Changing this forces a new resource.
-func (o AccountQueuePropertiesLoggingPtrOutput) Write() pulumi.BoolOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesLogging) bool { return v.Write }).(pulumi.BoolOutput)
+func (o AccountQueuePropertiesLoggingPtrOutput) Write() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesLogging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Write
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AccountQueuePropertiesMinuteMetrics struct {
@@ -1709,23 +1832,43 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Elem() AccountQueuePropert
 }
 
 // Indicates whether minute metrics are enabled for the Queue service. Changing this forces a new resource.
-func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether metrics should generate summary statistics for called API operations.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) IncludeApis() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *bool { return v.IncludeApis }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeApis
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the number of days that logs will be retained. Changing this forces a new resource.
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) RetentionPolicyDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) *int { return v.RetentionPolicyDays }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPolicyDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // The version of storage analytics to configure. Changing this forces a new resource.
-func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
+func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountQueuePropertiesMinuteMetrics) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type AccountStaticWebsite struct {
@@ -1862,12 +2005,22 @@ func (o AccountStaticWebsitePtrOutput) Elem() AccountStaticWebsiteOutput {
 
 // The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 func (o AccountStaticWebsitePtrOutput) Error404Document() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AccountStaticWebsite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Error404Document
+	}).(pulumi.StringPtrOutput)
 }
 
 // The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
 func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AccountStaticWebsite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexDocument
+	}).(pulumi.StringPtrOutput)
 }
 
 type ManagementPolicyRule struct {
@@ -2207,21 +2360,30 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRul
 
 // The age in days after last modification to delete the blob. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
+		if v == nil {
+			return nil
+		}
 		return v.DeleteAfterDaysSinceModificationGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
+		if v == nil {
+			return nil
+		}
 		return v.TierToArchiveAfterDaysSinceModificationGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
 // The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
+		if v == nil {
+			return nil
+		}
 		return v.TierToCoolAfterDaysSinceModificationGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
@@ -2351,7 +2513,12 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) Elem() ManagementPolicyRul
 
 // The age in days after create to delete the snaphot. Must be at least 0.
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteAfterDaysSinceCreationGreaterThan
+	}).(pulumi.IntPtrOutput)
 }
 
 type ManagementPolicyRuleFilters struct {
@@ -2488,12 +2655,22 @@ func (o ManagementPolicyRuleFiltersPtrOutput) Elem() ManagementPolicyRuleFilters
 
 // An array of predefined values. Only `blockBlob` is supported.
 func (o ManagementPolicyRuleFiltersPtrOutput) BlobTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // An array of strings for prefixes to be matched.
 func (o ManagementPolicyRuleFiltersPtrOutput) PrefixMatches() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ManagementPolicyRuleFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixMatches
+	}).(pulumi.StringArrayOutput)
 }
 
 type ShareAcl struct {

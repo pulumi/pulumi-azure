@@ -34,7 +34,7 @@ type LookupCertificateResult struct {
 	FriendlyName string `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames []string `pulumi:"hostNames"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The issue date for the certificate.
 	IssueDate string `pulumi:"issueDate"`

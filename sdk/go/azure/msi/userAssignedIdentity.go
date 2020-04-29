@@ -11,6 +11,10 @@ import (
 )
 
 // Manages a user assigned identity.
+//
+//
+//
+// Deprecated: azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 

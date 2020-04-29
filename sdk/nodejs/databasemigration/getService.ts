@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.databasemigration.getService({
+ * const example = pulumi.output(azure.databasemigration.getService({
  *     name: "example-dms",
  *     resourceGroupName: "example-rg",
- * });
+ * }, { async: true }));
  * 
  * export const azurermDmsId = example.id;
  * ```
@@ -77,7 +77,7 @@ export interface GetServiceResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

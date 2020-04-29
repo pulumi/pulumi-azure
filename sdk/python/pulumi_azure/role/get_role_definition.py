@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition", DeprecationWarning)
 class GetRoleDefinitionResult:
     """
     A collection of values returned by getRoleDefinition.
@@ -24,7 +25,7 @@ class GetRoleDefinitionResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -58,8 +59,10 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
 
 def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
-    Use this data source to access information about an existing resource.
+
+    Deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition
     """
+    pulumi.log.warn("get_role_definition is deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition")
     __args__ = dict()
 
 

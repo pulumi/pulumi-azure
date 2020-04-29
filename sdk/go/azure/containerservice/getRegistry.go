@@ -33,7 +33,7 @@ type LookupRegistryResult struct {
 	AdminPassword string `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername string `pulumi:"adminUsername"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Container Registry exists.
 	Location string `pulumi:"location"`

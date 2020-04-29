@@ -24,7 +24,7 @@ class GetKeyResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if key_opts and not isinstance(key_opts, list):
             raise TypeError("Expected argument 'key_opts' to be a list")

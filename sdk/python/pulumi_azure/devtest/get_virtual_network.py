@@ -24,7 +24,7 @@ class GetVirtualNetworkResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if lab_name and not isinstance(lab_name, str):
             raise TypeError("Expected argument 'lab_name' to be a str")

@@ -11,7 +11,12 @@ namespace Pulumi.Azure.Role
 {
     /// <summary>
     /// Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: azure.Definition has been deprecated in favour of azure.RoleDefinition
     /// </summary>
+    [Obsolete(@"azure.Definition has been deprecated in favour of azure.RoleDefinition")]
     public partial class Definition : Pulumi.CustomResource
     {
         /// <summary>

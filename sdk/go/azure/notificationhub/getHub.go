@@ -33,7 +33,7 @@ type LookupHubResult struct {
 	ApnsCredentials []GetHubApnsCredential `pulumi:"apnsCredentials"`
 	// A `gcmCredential` block as defined below.
 	GcmCredentials []GetHubGcmCredential `pulumi:"gcmCredentials"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Notification Hub exists.
 	Location          string `pulumi:"location"`

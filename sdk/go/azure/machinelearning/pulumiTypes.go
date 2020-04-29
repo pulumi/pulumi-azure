@@ -153,17 +153,32 @@ func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
 
 // The (Client) ID of the Service Principal.
 func (o WorkspaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Tenant the Service Principal is assigned in.
 func (o WorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *WorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is `SystemAssigned`.
-func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

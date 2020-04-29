@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
  */
+/** @deprecated azure.ManagementGroup has been deprecated in favour of azure.Group */
 export class ManagementGroup extends pulumi.CustomResource {
     /**
      * Get an existing ManagementGroup resource's state with the given name, ID, and optional extra
@@ -20,6 +21,7 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ManagementGroupState, opts?: pulumi.CustomResourceOptions): ManagementGroup {
+        pulumi.log.warn("ManagementGroup is deprecated: azure.ManagementGroup has been deprecated in favour of azure.Group")
         return new ManagementGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -65,8 +67,11 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.ManagementGroup has been deprecated in favour of azure.Group */
     constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.ManagementGroup has been deprecated in favour of azure.Group */
     constructor(name: string, argsOrState?: ManagementGroupArgs | ManagementGroupState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ManagementGroup is deprecated: azure.ManagementGroup has been deprecated in favour of azure.Group")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ManagementGroupState | undefined;

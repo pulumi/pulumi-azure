@@ -32,7 +32,7 @@ type LookupPolicySetDefinitionResult struct {
 	// The Description of the Policy Set Definition.
 	Description string `pulumi:"description"`
 	DisplayName string `pulumi:"displayName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                  string  `pulumi:"id"`
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// Any Metadata defined in the Policy Set Definition.

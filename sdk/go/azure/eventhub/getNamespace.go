@@ -41,7 +41,7 @@ type LookupNamespaceResult struct {
 	DefaultSecondaryConnectionString string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
 	KafkaEnabled bool   `pulumi:"kafkaEnabled"`
 	// The Azure location where the EventHub Namespace exists

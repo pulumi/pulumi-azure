@@ -30,7 +30,7 @@ class GetDpsResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if id_scope and not isinstance(id_scope, str):
             raise TypeError("Expected argument 'id_scope' to be a str")

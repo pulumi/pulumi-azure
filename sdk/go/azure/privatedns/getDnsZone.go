@@ -29,7 +29,7 @@ type GetDnsZoneArgs struct {
 
 // A collection of values returned by getDnsZone.
 type GetDnsZoneResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Maximum number of recordsets that can be created in this Private Zone.
 	MaxNumberOfRecordSets int `pulumi:"maxNumberOfRecordSets"`

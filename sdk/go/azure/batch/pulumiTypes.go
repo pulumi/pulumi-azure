@@ -143,13 +143,23 @@ func (o AccountKeyVaultReferencePtrOutput) Elem() AccountKeyVaultReferenceOutput
 }
 
 // The Azure identifier of the Azure KeyVault to use.
-func (o AccountKeyVaultReferencePtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
+func (o AccountKeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountKeyVaultReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The HTTPS URL of the Azure KeyVault to use.
-func (o AccountKeyVaultReferencePtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountKeyVaultReference) string { return v.Url }).(pulumi.StringOutput)
+func (o AccountKeyVaultReferencePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountKeyVaultReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 type PoolAutoScale struct {
@@ -286,12 +296,22 @@ func (o PoolAutoScalePtrOutput) Elem() PoolAutoScaleOutput {
 
 // The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
 func (o PoolAutoScalePtrOutput) EvaluationInterval() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolAutoScale) *string { return v.EvaluationInterval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolAutoScale) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationInterval
+	}).(pulumi.StringPtrOutput)
 }
 
 // The autoscale formula that needs to be used for scaling the Batch pool.
-func (o PoolAutoScalePtrOutput) Formula() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolAutoScale) string { return v.Formula }).(pulumi.StringOutput)
+func (o PoolAutoScalePtrOutput) Formula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolAutoScale) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Formula
+	}).(pulumi.StringPtrOutput)
 }
 
 type PoolCertificate struct {
@@ -556,14 +576,22 @@ func (o PoolContainerConfigurationPtrOutput) Elem() PoolContainerConfigurationOu
 
 // Additional container registries from which container images can be pulled by the pool's VMs.
 func (o PoolContainerConfigurationPtrOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
-	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
+	return o.ApplyT(func(v *PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
+		if v == nil {
+			return nil
+		}
 		return v.ContainerRegistries
 	}).(PoolContainerConfigurationContainerRegistryArrayOutput)
 }
 
 // The type of container configuration. Possible value is `DockerCompatible`.
 func (o PoolContainerConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolContainerConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolContainerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type PoolContainerConfigurationContainerRegistry struct {
@@ -826,17 +854,32 @@ func (o PoolFixedScalePtrOutput) Elem() PoolFixedScaleOutput {
 
 // The timeout for resize operations. Defaults to `PT15M`.
 func (o PoolFixedScalePtrOutput) ResizeTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolFixedScale) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResizeTimeout
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of nodes in the Batch pool. Defaults to `1`.
 func (o PoolFixedScalePtrOutput) TargetDedicatedNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetDedicatedNodes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *PoolFixedScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDedicatedNodes
+	}).(pulumi.IntPtrOutput)
 }
 
 // The number of low priority nodes in the Batch pool. Defaults to `0`.
 func (o PoolFixedScalePtrOutput) TargetLowPriorityNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PoolFixedScale) *int { return v.TargetLowPriorityNodes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *PoolFixedScale) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetLowPriorityNodes
+	}).(pulumi.IntPtrOutput)
 }
 
 type PoolNetworkConfiguration struct {
@@ -984,19 +1027,32 @@ func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput
 
 // A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationPtrOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
-	return o.ApplyT(func(v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
+	return o.ApplyT(func(v *PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
+		if v == nil {
+			return nil
+		}
 		return v.EndpointConfigurations
 	}).(PoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
 // A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationPtrOutput) PublicIps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *PoolNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIps
+	}).(pulumi.StringArrayOutput)
 }
 
 // The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
-func (o PoolNetworkConfigurationPtrOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+func (o PoolNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 type PoolNetworkConfigurationEndpointConfiguration struct {
@@ -1424,33 +1480,63 @@ func (o PoolStartTaskPtrOutput) Elem() PoolStartTaskOutput {
 }
 
 // The command line executed by the start task.
-func (o PoolStartTaskPtrOutput) CommandLine() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolStartTask) string { return v.CommandLine }).(pulumi.StringOutput)
+func (o PoolStartTaskPtrOutput) CommandLine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolStartTask) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CommandLine
+	}).(pulumi.StringPtrOutput)
 }
 
 // A map of strings (key,value) that represents the environment variables to set in the start task.
 func (o PoolStartTaskPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+	return o.ApplyT(func(v *PoolStartTask) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringMapOutput)
 }
 
 // The number of retry count. Defaults to `1`.
 func (o PoolStartTaskPtrOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *PoolStartTask) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTaskRetryCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o PoolStartTaskPtrOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
-	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
+	return o.ApplyT(func(v *PoolStartTask) []PoolStartTaskResourceFile {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceFiles
+	}).(PoolStartTaskResourceFileArrayOutput)
 }
 
 // A `userIdentity` block that describes the user identity under which the start task runs.
-func (o PoolStartTaskPtrOutput) UserIdentity() PoolStartTaskUserIdentityOutput {
-	return o.ApplyT(func(v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
+func (o PoolStartTaskPtrOutput) UserIdentity() PoolStartTaskUserIdentityPtrOutput {
+	return o.ApplyT(func(v *PoolStartTask) *PoolStartTaskUserIdentity {
+		if v == nil {
+			return nil
+		}
+		return &v.UserIdentity
+	}).(PoolStartTaskUserIdentityPtrOutput)
 }
 
 // A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
 func (o PoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PoolStartTask) *bool { return v.WaitForSuccess }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *PoolStartTask) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WaitForSuccess
+	}).(pulumi.BoolPtrOutput)
 }
 
 type PoolStartTaskResourceFile struct {
@@ -1635,6 +1721,48 @@ func (i PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityOutput)
 }
 
+func (i PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityPtrOutput() PoolStartTaskUserIdentityPtrOutput {
+	return i.ToPoolStartTaskUserIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityOutput).ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx)
+}
+
+// PoolStartTaskUserIdentityPtrInput is an input type that accepts PoolStartTaskUserIdentityArgs, PoolStartTaskUserIdentityPtr and PoolStartTaskUserIdentityPtrOutput values.
+// You can construct a concrete instance of `PoolStartTaskUserIdentityPtrInput` via:
+//
+// 		 PoolStartTaskUserIdentityArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type PoolStartTaskUserIdentityPtrInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskUserIdentityPtrOutput() PoolStartTaskUserIdentityPtrOutput
+	ToPoolStartTaskUserIdentityPtrOutputWithContext(context.Context) PoolStartTaskUserIdentityPtrOutput
+}
+
+type poolStartTaskUserIdentityPtrType PoolStartTaskUserIdentityArgs
+
+func PoolStartTaskUserIdentityPtr(v *PoolStartTaskUserIdentityArgs) PoolStartTaskUserIdentityPtrInput {
+	return (*poolStartTaskUserIdentityPtrType)(v)
+}
+
+func (*poolStartTaskUserIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolStartTaskUserIdentity)(nil)).Elem()
+}
+
+func (i *poolStartTaskUserIdentityPtrType) ToPoolStartTaskUserIdentityPtrOutput() PoolStartTaskUserIdentityPtrOutput {
+	return i.ToPoolStartTaskUserIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *poolStartTaskUserIdentityPtrType) ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskUserIdentityPtrOutput)
+}
+
 type PoolStartTaskUserIdentityOutput struct{ *pulumi.OutputState }
 
 func (PoolStartTaskUserIdentityOutput) ElementType() reflect.Type {
@@ -1649,6 +1777,16 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityOutputWithCo
 	return o
 }
 
+func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutput() PoolStartTaskUserIdentityPtrOutput {
+	return o.ToPoolStartTaskUserIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityPtrOutput {
+	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentity {
+		return &v
+	}).(PoolStartTaskUserIdentityPtrOutput)
+}
+
 // A `autoUser` block that describes the user identity under which the start task runs.
 func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser { return v.AutoUser }).(PoolStartTaskUserIdentityAutoUserPtrOutput)
@@ -1657,6 +1795,44 @@ func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAut
 // The username to be used by the Batch pool start task.
 func (o PoolStartTaskUserIdentityOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentity) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type PoolStartTaskUserIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (PoolStartTaskUserIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolStartTaskUserIdentity)(nil)).Elem()
+}
+
+func (o PoolStartTaskUserIdentityPtrOutput) ToPoolStartTaskUserIdentityPtrOutput() PoolStartTaskUserIdentityPtrOutput {
+	return o
+}
+
+func (o PoolStartTaskUserIdentityPtrOutput) ToPoolStartTaskUserIdentityPtrOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityPtrOutput {
+	return o
+}
+
+func (o PoolStartTaskUserIdentityPtrOutput) Elem() PoolStartTaskUserIdentityOutput {
+	return o.ApplyT(func(v *PoolStartTaskUserIdentity) PoolStartTaskUserIdentity { return *v }).(PoolStartTaskUserIdentityOutput)
+}
+
+// A `autoUser` block that describes the user identity under which the start task runs.
+func (o PoolStartTaskUserIdentityPtrOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
+	return o.ApplyT(func(v *PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser {
+		if v == nil {
+			return nil
+		}
+		return v.AutoUser
+	}).(PoolStartTaskUserIdentityAutoUserPtrOutput)
+}
+
+// The username to be used by the Batch pool start task.
+func (o PoolStartTaskUserIdentityPtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolStartTaskUserIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
 }
 
 type PoolStartTaskUserIdentityAutoUser struct {
@@ -1793,12 +1969,22 @@ func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Elem() PoolStartTaskUserIden
 
 // The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolStartTaskUserIdentityAutoUser) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ElevationLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 // The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
 func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolStartTaskUserIdentityAutoUser) *string { return v.Scope }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolStartTaskUserIdentityAutoUser) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
 }
 
 type PoolStorageImageReference struct {
@@ -1966,27 +2152,52 @@ func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutp
 // Specifies the ID of the Custom Image which the virtual machines should be created from. Changing this forces a new resource to be created. See [official documentation](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) for more details.
 // ---
 func (o PoolStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolStorageImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolStorageImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Offer
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolStorageImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolStorageImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sku
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
 func (o PoolStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *PoolStorageImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetAccountKeyVaultReference struct {
@@ -3558,6 +3769,7 @@ func init() {
 	pulumi.RegisterOutputType(PoolStartTaskResourceFileOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskResourceFileArrayOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityOutput{})
+	pulumi.RegisterOutputType(PoolStartTaskUserIdentityPtrOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityAutoUserOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityAutoUserPtrOutput{})
 	pulumi.RegisterOutputType(PoolStorageImageReferenceOutput{})

@@ -143,13 +143,23 @@ func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
 }
 
 // Specifies the node count for the cluster. Boundaries depend on the sku name.
-func (o ClusterSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
+func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterSku) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
-func (o ClusterSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterSku) string { return v.Name }).(pulumi.StringOutput)
+func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

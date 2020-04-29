@@ -37,7 +37,7 @@ type LookupJobResult struct {
 	EventsOutOfOrderMaxDelayInSeconds int `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
 	// The policy which should be applied to events which arrive out of order in the input event stream.
 	EventsOutOfOrderPolicy string `pulumi:"eventsOutOfOrderPolicy"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId string `pulumi:"jobId"`

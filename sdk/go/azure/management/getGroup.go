@@ -30,7 +30,7 @@ type LookupGroupResult struct {
 	// A friendly name for the Management Group.
 	DisplayName string `pulumi:"displayName"`
 	GroupId     string `pulumi:"groupId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The ID of any Parent Management Group.

@@ -29,7 +29,7 @@ type LookupUserAssignedIdentityArgs struct {
 type LookupUserAssignedIdentityResult struct {
 	// The Client ID of the User Assigned Identity.
 	ClientId string `pulumi:"clientId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the User Assigned Identity exists.
 	Location string `pulumi:"location"`

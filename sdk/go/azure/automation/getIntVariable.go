@@ -34,7 +34,7 @@ type LookupIntVariableResult struct {
 	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted. Defaults to `false`.
 	Encrypted bool `pulumi:"encrypted"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`

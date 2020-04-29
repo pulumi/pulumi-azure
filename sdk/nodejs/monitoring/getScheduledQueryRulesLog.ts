@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.monitoring.getScheduledQueryRulesLog({
+ * const example = pulumi.output(azure.monitoring.getScheduledQueryRulesLog({
  *     name: "tfex-queryrule",
  *     resourceGroupName: "example-rg",
- * });
+ * }, { async: true }));
  * 
  * export const queryRuleId = example.id;
  * ```
@@ -84,7 +84,7 @@ export interface GetScheduledQueryRulesLogResult {
     readonly resourceGroupName: string;
     readonly tags: {[key: string]: string};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

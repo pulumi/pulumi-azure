@@ -43,7 +43,7 @@ type LookupAppServiceResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS?
 	HttpsOnly bool `pulumi:"httpsOnly"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the App Service exists.
 	Location string `pulumi:"location"`

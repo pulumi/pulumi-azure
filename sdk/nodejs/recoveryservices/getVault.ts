@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const vault = azure.recoveryservices.getVault({
+ * const vault = pulumi.output(azure.recoveryservices.getVault({
  *     name: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.markdown.
@@ -70,7 +70,7 @@ export interface GetVaultResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

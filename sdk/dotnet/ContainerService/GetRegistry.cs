@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

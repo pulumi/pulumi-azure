@@ -29,7 +29,7 @@ type LookupSharedAccessPolicyArgs struct {
 
 // A collection of values returned by getSharedAccessPolicy.
 type LookupSharedAccessPolicyResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	IothubName string `pulumi:"iothubName"`
 	Name       string `pulumi:"name"`

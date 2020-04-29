@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
  */
+/** @deprecated azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing EventHubAuthorizationRule resource's state with the given name, ID, and optional extra
@@ -22,6 +23,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): EventHubAuthorizationRule {
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule")
         return new EventHubAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -91,8 +93,11 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule */
     constructor(name: string, args: EventHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule */
     constructor(name: string, argsOrState?: EventHubAuthorizationRuleArgs | EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.EventHubAuthorizationRule has been deprecated in favour of azure.AuthorizationRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventHubAuthorizationRuleState | undefined;

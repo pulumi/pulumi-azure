@@ -343,70 +343,140 @@ func (o CacheRedisConfigurationPtrOutput) Elem() CacheRedisConfigurationOutput {
 }
 
 func (o CacheRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.AofBackupEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AofBackupEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofStorageConnectionString0
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
 }
 
 // If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 func (o CacheRedisConfigurationPtrOutput) EnableAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.EnableAuthentication }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAuthentication
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Returns the max number of connected clients at the same time.
 func (o CacheRedisConfigurationPtrOutput) Maxclients() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.Maxclients }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Maxclients
+	}).(pulumi.IntPtrOutput)
 }
 
 // Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxfragmentationmemoryReserved() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxfragmentationmemoryReserved }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxfragmentationmemoryReserved
+	}).(pulumi.IntPtrOutput)
 }
 
 // The max-memory delta for this Redis instance. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryDelta }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryDelta
+	}).(pulumi.IntPtrOutput)
 }
 
 // How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryPolicy
+	}).(pulumi.StringPtrOutput)
 }
 
 // Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryReserved() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryReserved }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxmemoryReserved
+	}).(pulumi.IntPtrOutput)
 }
 
 // Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.NotifyKeyspaceEvents }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotifyKeyspaceEvents
+	}).(pulumi.StringPtrOutput)
 }
 
 // Is Backup Enabled? Only supported on Premium SKU's.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.RdbBackupEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupFrequency() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupFrequency }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupFrequency
+	}).(pulumi.IntPtrOutput)
 }
 
 // The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.RdbBackupMaxSnapshotCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RdbBackupMaxSnapshotCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RdbStorageConnectionString
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetCachePatchSchedule struct {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
+    [Obsolete(@"azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace")]
     public static class GetServiceBusNamespace
     {
         /// <summary>
@@ -16,6 +17,8 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
+        /// 
+        /// Deprecated: azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace
         /// </summary>
         public static Task<GetServiceBusNamespaceResult> InvokeAsync(GetServiceBusNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args ?? new GetServiceBusNamespaceArgs(), options.WithVersion());
@@ -68,7 +71,7 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string DefaultSecondaryKey;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

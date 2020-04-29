@@ -33,7 +33,7 @@ type LookupRoleDefinitionResult struct {
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// the Description of the built-in Role.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// a `permissions` block as documented below.

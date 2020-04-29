@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly bool HasLegalHold;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

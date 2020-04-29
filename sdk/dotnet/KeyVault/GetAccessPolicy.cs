@@ -46,7 +46,7 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly ImmutableArray<string> CertificatePermissions;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

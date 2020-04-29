@@ -33,7 +33,7 @@ type LookupWorkflowResult struct {
 	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Logic App Workflow exists.
 	Location string `pulumi:"location"`

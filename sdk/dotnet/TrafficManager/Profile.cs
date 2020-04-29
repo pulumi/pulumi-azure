@@ -11,7 +11,12 @@ namespace Pulumi.Azure.TrafficManager
 {
     /// <summary>
     /// Manages a Traffic Manager Profile to which multiple endpoints can be attached.
+    /// 
+    /// 
+    /// 
+    /// Deprecated: azure.Profile has been deprecated in favour of azure.TrafficManagerProfile
     /// </summary>
+    [Obsolete(@"azure.Profile has been deprecated in favour of azure.TrafficManagerProfile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>

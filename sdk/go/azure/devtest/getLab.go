@@ -33,7 +33,7 @@ type LookupLabResult struct {
 	DefaultPremiumStorageAccountId string `pulumi:"defaultPremiumStorageAccountId"`
 	// The ID of the Default Storage Account for this Dev Test Lab.
 	DefaultStorageAccountId string `pulumi:"defaultStorageAccountId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The ID of the Key used for this Dev Test Lab.
 	KeyVaultId string `pulumi:"keyVaultId"`

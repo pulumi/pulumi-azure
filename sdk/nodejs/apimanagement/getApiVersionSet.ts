@@ -70,7 +70,7 @@ export interface GetApiVersionSetResult {
     readonly versionQueryName: string;
     readonly versioningScheme: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

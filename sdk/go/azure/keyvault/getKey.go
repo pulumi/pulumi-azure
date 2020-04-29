@@ -29,7 +29,7 @@ type LookupKeyArgs struct {
 type LookupKeyResult struct {
 	// The RSA public exponent of this Key Vault Key.
 	E string `pulumi:"e"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of JSON web key operations assigned to this Key Vault Key
 	KeyOpts []string `pulumi:"keyOpts"`

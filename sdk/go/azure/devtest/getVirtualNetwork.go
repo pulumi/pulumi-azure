@@ -31,7 +31,7 @@ type LookupVirtualNetworkArgs struct {
 type LookupVirtualNetworkResult struct {
 	// The list of subnets enabled for the virtual network as defined below.
 	AllowedSubnets []GetVirtualNetworkAllowedSubnet `pulumi:"allowedSubnets"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	LabName           string `pulumi:"labName"`
 	Name              string `pulumi:"name"`

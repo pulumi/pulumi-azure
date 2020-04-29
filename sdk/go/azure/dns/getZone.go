@@ -29,7 +29,7 @@ type LookupZoneArgs struct {
 
 // A collection of values returned by getZone.
 type LookupZoneResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Maximum number of Records in the zone.
 	MaxNumberOfRecordSets int    `pulumi:"maxNumberOfRecordSets"`

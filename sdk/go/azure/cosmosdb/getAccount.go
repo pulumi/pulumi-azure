@@ -37,7 +37,7 @@ type LookupAccountResult struct {
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint     string                  `pulumi:"endpoint"`
 	GeoLocations []GetAccountGeoLocation `pulumi:"geoLocations"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The current IP Filter for this CosmosDB account
 	IpRangeFilter string `pulumi:"ipRangeFilter"`

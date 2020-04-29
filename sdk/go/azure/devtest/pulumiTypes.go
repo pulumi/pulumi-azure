@@ -161,23 +161,43 @@ func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Elem() LinuxVirtualMa
 }
 
 // The Offer of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Offer }).(pulumi.StringOutput)
+func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Offer
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
 }
 
 // The SKU of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Sku }).(pulumi.StringOutput)
+func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sku
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Version of the Gallery Image. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
+func (o LinuxVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type LinuxVirtualMachineInboundNatRule struct {
@@ -421,8 +441,13 @@ func (o ScheduleDailyRecurrencePtrOutput) Elem() ScheduleDailyRecurrenceOutput {
 }
 
 // The time each day when the schedule takes effect.
-func (o ScheduleDailyRecurrencePtrOutput) Time() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleDailyRecurrence) string { return v.Time }).(pulumi.StringOutput)
+func (o ScheduleDailyRecurrencePtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleDailyRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduleHourlyRecurrence struct {
@@ -544,8 +569,13 @@ func (o ScheduleHourlyRecurrencePtrOutput) Elem() ScheduleHourlyRecurrenceOutput
 	return o.ApplyT(func(v *ScheduleHourlyRecurrence) ScheduleHourlyRecurrence { return *v }).(ScheduleHourlyRecurrenceOutput)
 }
 
-func (o ScheduleHourlyRecurrencePtrOutput) Minute() pulumi.IntOutput {
-	return o.ApplyT(func(v ScheduleHourlyRecurrence) int { return v.Minute }).(pulumi.IntOutput)
+func (o ScheduleHourlyRecurrencePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduleHourlyRecurrence) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
 }
 
 type ScheduleNotificationSettings struct {
@@ -691,17 +721,32 @@ func (o ScheduleNotificationSettingsPtrOutput) Elem() ScheduleNotificationSettin
 
 // The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
 func (o ScheduleNotificationSettingsPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScheduleNotificationSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ScheduleNotificationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // Time in minutes before event at which notification will be sent.
 func (o ScheduleNotificationSettingsPtrOutput) TimeInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ScheduleNotificationSettings) *int { return v.TimeInMinutes }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *ScheduleNotificationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 // The webhook URL to which the notification will be sent.
 func (o ScheduleNotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScheduleNotificationSettings) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ScheduleNotificationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebhookUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduleWeeklyRecurrence struct {
@@ -837,13 +882,23 @@ func (o ScheduleWeeklyRecurrencePtrOutput) Elem() ScheduleWeeklyRecurrenceOutput
 }
 
 // The time when the schedule takes effect.
-func (o ScheduleWeeklyRecurrencePtrOutput) Time() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleWeeklyRecurrence) string { return v.Time }).(pulumi.StringOutput)
+func (o ScheduleWeeklyRecurrencePtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleWeeklyRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o ScheduleWeeklyRecurrencePtrOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ScheduleWeeklyRecurrence) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *ScheduleWeeklyRecurrence) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
 }
 
 type VirtualNetworkSubnet struct {
@@ -989,17 +1044,32 @@ func (o VirtualNetworkSubnetPtrOutput) Elem() VirtualNetworkSubnetOutput {
 
 // Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 func (o VirtualNetworkSubnetPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkSubnet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
 func (o VirtualNetworkSubnetPtrOutput) UseInVirtualMachineCreation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UseInVirtualMachineCreation }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkSubnet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UseInVirtualMachineCreation
+	}).(pulumi.StringPtrOutput)
 }
 
 // Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
 func (o VirtualNetworkSubnetPtrOutput) UsePublicIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UsePublicIpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *VirtualNetworkSubnet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsePublicIpAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineGalleryImageReference struct {
@@ -1155,23 +1225,43 @@ func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Elem() WindowsVirtu
 }
 
 // The Offer of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Offer }).(pulumi.StringOutput)
+func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Offer
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Publisher }).(pulumi.StringOutput)
+func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
 }
 
 // The SKU of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Sku }).(pulumi.StringOutput)
+func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sku
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Version of the Gallery Image. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineGalleryImageReference) string { return v.Version }).(pulumi.StringOutput)
+func (o WindowsVirtualMachineGalleryImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineGalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type WindowsVirtualMachineInboundNatRule struct {

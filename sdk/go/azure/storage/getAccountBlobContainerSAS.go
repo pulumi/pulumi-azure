@@ -58,7 +58,7 @@ type GetAccountBlobContainerSASResult struct {
 	ContentType        *string `pulumi:"contentType"`
 	Expiry             string  `pulumi:"expiry"`
 	HttpsOnly          *bool   `pulumi:"httpsOnly"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id          string                                `pulumi:"id"`
 	IpAddress   *string                               `pulumi:"ipAddress"`
 	Permissions GetAccountBlobContainerSASPermissions `pulumi:"permissions"`

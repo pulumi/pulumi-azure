@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageDataDiskResult> DataDisks;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

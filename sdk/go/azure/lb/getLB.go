@@ -29,7 +29,7 @@ type GetLBArgs struct {
 type GetLBResult struct {
 	// (Optional) A `frontendIpConfiguration` block as documented below.
 	FrontendIpConfigurations []GetLBFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Load Balancer exists.
 	Location string `pulumi:"location"`

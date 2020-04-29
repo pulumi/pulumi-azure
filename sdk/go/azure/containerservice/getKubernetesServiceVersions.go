@@ -29,7 +29,7 @@ type GetKubernetesServiceVersionsArgs struct {
 
 // A collection of values returned by getKubernetesServiceVersions.
 type GetKubernetesServiceVersionsResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
 	IncludePreview *bool  `pulumi:"includePreview"`
 	// The most recent version available. If `includePreview == false`, this is the most recent non-preview version available.

@@ -29,7 +29,7 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// The Endpoint for this Auomation Account.
 	Endpoint string `pulumi:"endpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The Primary Access Key for the Automation Account.

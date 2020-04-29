@@ -324,22 +324,42 @@ func (o IoTHubFallbackRoutePtrOutput) Elem() IoTHubFallbackRouteOutput {
 
 // The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
 func (o IoTHubFallbackRoutePtrOutput) Condition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Condition }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *IoTHubFallbackRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Condition
+	}).(pulumi.StringPtrOutput)
 }
 
 // Used to specify whether the fallback route is enabled.
 func (o IoTHubFallbackRoutePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v IoTHubFallbackRoute) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *IoTHubFallbackRoute) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 func (o IoTHubFallbackRoutePtrOutput) EndpointNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v IoTHubFallbackRoute) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *IoTHubFallbackRoute) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointNames
+	}).(pulumi.StringArrayOutput)
 }
 
 // The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
 func (o IoTHubFallbackRoutePtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Source }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *IoTHubFallbackRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
 }
 
 type IoTHubFileUpload struct {
@@ -520,38 +540,73 @@ func (o IoTHubFileUploadPtrOutput) Elem() IoTHubFileUploadOutput {
 }
 
 // The connection string for the Azure Storage account to which files are uploaded.
-func (o IoTHubFileUploadPtrOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ConnectionString }).(pulumi.StringOutput)
+func (o IoTHubFileUploadPtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubFileUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionString
+	}).(pulumi.StringPtrOutput)
 }
 
 // The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
-func (o IoTHubFileUploadPtrOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ContainerName }).(pulumi.StringOutput)
+func (o IoTHubFileUploadPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubFileUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
 func (o IoTHubFileUploadPtrOutput) DefaultTtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.DefaultTtl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *IoTHubFileUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTtl
+	}).(pulumi.StringPtrOutput)
 }
 
 // The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
 func (o IoTHubFileUploadPtrOutput) LockDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.LockDuration }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *IoTHubFileUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LockDuration
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
 func (o IoTHubFileUploadPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *IoTHubFileUpload) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeliveryCount
+	}).(pulumi.IntPtrOutput)
 }
 
 // Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
 func (o IoTHubFileUploadPtrOutput) Notifications() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) *bool { return v.Notifications }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *IoTHubFileUpload) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Notifications
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
 func (o IoTHubFileUploadPtrOutput) SasTtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.SasTtl }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *IoTHubFileUpload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasTtl
+	}).(pulumi.StringPtrOutput)
 }
 
 type IoTHubIpFilterRule struct {
@@ -1065,13 +1120,23 @@ func (o IoTHubSkuPtrOutput) Elem() IoTHubSkuOutput {
 }
 
 // The number of provisioned IoT Hub units.
-func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v IoTHubSku) int { return v.Capacity }).(pulumi.IntOutput)
+func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IoTHubSku) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
-func (o IoTHubSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
+func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type IotHubDpsLinkedHub struct {
@@ -1342,13 +1407,23 @@ func (o IotHubDpsSkuPtrOutput) Elem() IotHubDpsSkuOutput {
 }
 
 // The number of provisioned IoT Device Provisioning Service units.
-func (o IotHubDpsSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v IotHubDpsSku) int { return v.Capacity }).(pulumi.IntOutput)
+func (o IotHubDpsSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IotHubDpsSku) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 // The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
-func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubDpsSku) string { return v.Name }).(pulumi.StringOutput)
+func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDpsSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

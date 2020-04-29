@@ -27,7 +27,7 @@ type LookupNetworkWatcherArgs struct {
 
 // A collection of values returned by getNetworkWatcher.
 type LookupNetworkWatcherResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The supported Azure location where the resource exists.
 	Location          string `pulumi:"location"`

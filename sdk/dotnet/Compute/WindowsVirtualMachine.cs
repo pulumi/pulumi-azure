@@ -144,6 +144,9 @@ namespace Pulumi.Azure.Compute
         [Output("plan")]
         public Output<Outputs.WindowsVirtualMachinePlan?> Plan { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
 
@@ -421,6 +424,9 @@ namespace Pulumi.Azure.Compute
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachinePlanArgs>? Plan { get; set; }
 
+        /// <summary>
+        /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
@@ -647,6 +653,9 @@ namespace Pulumi.Azure.Compute
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachinePlanGetArgs>? Plan { get; set; }
 
+        /// <summary>
+        /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 

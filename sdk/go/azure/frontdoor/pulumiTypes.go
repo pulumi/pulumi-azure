@@ -1967,43 +1967,72 @@ func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) Elem() Front
 
 // The name of the Key Vault secret representing the full certificate PFX.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
 		return v.AzureKeyVaultCertificateSecretName
 	}).(pulumi.StringPtrOutput)
 }
 
 // The version of the Key Vault secret representing the full certificate PFX.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
 		return v.AzureKeyVaultCertificateSecretVersion
 	}).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Key Vault containing the SSL certificate.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
 		return v.AzureKeyVaultCertificateVaultId
 	}).(pulumi.StringPtrOutput)
 }
 
 // Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateSource
+	}).(pulumi.StringPtrOutput)
 }
 
 // Minimum client TLS version supported.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumTlsVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Provisioning state of the Front Door.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
 }
 
 // Provisioning substate of the Front Door
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningSubstate
+	}).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorRoutingRule struct {
@@ -2345,35 +2374,63 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) Elem() FrontdoorRo
 }
 
 // Specifies the name of the Backend Pool to forward the incoming traffic to.
-func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) BackendPoolName() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
+func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) BackendPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BackendPoolName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheEnabled }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CacheEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheQueryParameterStripDirective() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string {
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
 		return v.CacheQueryParameterStripDirective
 	}).(pulumi.StringPtrOutput)
 }
 
 // Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheUseDynamicCompression() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *bool { return v.CacheUseDynamicCompression }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CacheUseDynamicCompression
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CustomForwardingPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CustomForwardingPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomForwardingPath
+	}).(pulumi.StringPtrOutput)
 }
 
 // Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ForwardingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardingProtocol
+	}).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorRoutingRuleRedirectConfiguration struct {
@@ -2548,32 +2605,62 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) Elem() FrontdoorRout
 
 // The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomFragment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFragment
+	}).(pulumi.StringPtrOutput)
 }
 
 // Set this to change the URL for the redirection.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomHost() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomHost }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomHost
+	}).(pulumi.StringPtrOutput)
 }
 
 // The path to retain as per the incoming request, or update in the URL for the redirection.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPath
+	}).(pulumi.StringPtrOutput)
 }
 
 // Replace any existing query string from the incoming request URL.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomQueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomQueryString
+	}).(pulumi.StringPtrOutput)
 }
 
 // Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
-func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
+func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectProtocol
+	}).(pulumi.StringPtrOutput)
 }
 
 // Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
-func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
+func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectType
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

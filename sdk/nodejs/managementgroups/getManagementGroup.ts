@@ -10,7 +10,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
+/** @deprecated azure.getManagementGroup has been deprecated in favour of azure.getGroup */
 export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
+    pulumi.log.warn("getManagementGroup is deprecated: azure.getManagementGroup has been deprecated in favour of azure.getGroup")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -60,7 +62,7 @@ export interface GetManagementGroupResult {
      */
     readonly subscriptionIds: string[];
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -61,6 +61,9 @@ export class WebTest extends pulumi.CustomResource {
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
     public readonly geoLocations!: pulumi.Output<string[]>;
+    /**
+     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+     */
     public readonly kind!: pulumi.Output<string>;
     /**
      * The location of the resource group.
@@ -183,6 +186,9 @@ export interface WebTestState {
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
     readonly geoLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+     */
     readonly kind?: pulumi.Input<string>;
     /**
      * The location of the resource group.
@@ -237,6 +243,9 @@ export interface WebTestArgs {
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
     readonly geoLocations: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
+     */
     readonly kind: pulumi.Input<string>;
     /**
      * The location of the resource group.

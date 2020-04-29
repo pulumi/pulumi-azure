@@ -41,7 +41,7 @@ type LookupDatabaseResult struct {
 	ElasticPoolName string `pulumi:"elasticPoolName"`
 	// The ID of the failover group the database belongs to.
 	FailoverGroupId string `pulumi:"failoverGroupId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The location of the Resource Group in which the SQL Server exists.
 	Location string `pulumi:"location"`

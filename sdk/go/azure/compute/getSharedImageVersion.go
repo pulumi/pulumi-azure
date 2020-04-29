@@ -34,7 +34,7 @@ type LookupSharedImageVersionResult struct {
 	// Is this Image Version excluded from the `latest` filter?
 	ExcludeFromLatest bool   `pulumi:"excludeFromLatest"`
 	GalleryName       string `pulumi:"galleryName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
 	ImageName string `pulumi:"imageName"`
 	// The supported Azure location where the Shared Image Gallery exists.

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing User Assigned Identity.
+//
+// Deprecated: azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity
 func GetUserAssignedIdentity(ctx *pulumi.Context, args *GetUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*GetUserAssignedIdentityResult, error) {
 	var rv GetUserAssignedIdentityResult
 	err := ctx.Invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, &rv, opts...)
@@ -29,7 +31,7 @@ type GetUserAssignedIdentityArgs struct {
 type GetUserAssignedIdentityResult struct {
 	// The Client ID of the User Assigned Identity.
 	ClientId string `pulumi:"clientId"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the User Assigned Identity exists.
 	Location string `pulumi:"location"`

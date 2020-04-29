@@ -27,7 +27,7 @@ type LookupApplicationSecurityGroupArgs struct {
 
 // A collection of values returned by getApplicationSecurityGroup.
 type LookupApplicationSecurityGroupResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The supported Azure location where the Application Security Group exists.
 	Location          string `pulumi:"location"`

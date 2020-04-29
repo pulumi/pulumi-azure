@@ -153,17 +153,32 @@ func (o DomainInputMappingDefaultValuesPtrOutput) Elem() DomainInputMappingDefau
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingDefaultValuesPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingDefaultValues) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainInputMappingFields struct {
@@ -336,32 +351,62 @@ func (o DomainInputMappingFieldsPtrOutput) Elem() DomainInputMappingFieldsOutput
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) DataVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) EventTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) EventType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 func (o DomainInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainInputMappingFields) *string { return v.Topic }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *DomainInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Topic
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionEventhubEndpoint struct {
@@ -488,8 +533,13 @@ func (o EventSubscriptionEventhubEndpointPtrOutput) Elem() EventSubscriptionEven
 }
 
 // Specifies the id of the eventhub where the Event Subscription will receive events.
-func (o EventSubscriptionEventhubEndpointPtrOutput) EventhubId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) string { return v.EventhubId }).(pulumi.StringOutput)
+func (o EventSubscriptionEventhubEndpointPtrOutput) EventhubId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionEventhubEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventhubId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionHybridConnectionEndpoint struct {
@@ -618,8 +668,13 @@ func (o EventSubscriptionHybridConnectionEndpointPtrOutput) Elem() EventSubscrip
 }
 
 // Specifies the id of the hybrid connection where the Event Subscription will receive events.
-func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) string { return v.HybridConnectionId }).(pulumi.StringOutput)
+func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionHybridConnectionEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HybridConnectionId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionRetryPolicy struct {
@@ -755,13 +810,23 @@ func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPoli
 }
 
 // Specifies the time to live (in minutes) for events.
-func (o EventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntOutput {
-	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
+func (o EventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EventTimeToLive
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the maximum number of delivery retry attempts for events.
-func (o EventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntOutput {
-	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.MaxDeliveryAttempts }).(pulumi.IntOutput)
+func (o EventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxDeliveryAttempts
+	}).(pulumi.IntPtrOutput)
 }
 
 type EventSubscriptionStorageBlobDeadLetterDestination struct {
@@ -899,13 +964,23 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() Event
 }
 
 // Specifies the id of the storage account id where the storage blob is located.
-func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Storage blob container that is the destination of the deadletter events
-func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageBlobContainerName }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageBlobDeadLetterDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageBlobContainerName
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionStorageQueueEndpoint struct {
@@ -1041,13 +1116,23 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscription
 }
 
 // Specifies the name of the storage queue where the Event Subscriptio will receive events.
-func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.QueueName
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the id of the storage account id where the storage queue is located.
-func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
+func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionSubjectFilter struct {
@@ -1193,17 +1278,32 @@ func (o EventSubscriptionSubjectFilterPtrOutput) Elem() EventSubscriptionSubject
 
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
 func (o EventSubscriptionSubjectFilterPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CaseSensitive
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path prefix.
 func (o EventSubscriptionSubjectFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectBeginsWith
+	}).(pulumi.StringPtrOutput)
 }
 
 // A string to filter events for an event subscription based on a resource path suffix.
 func (o EventSubscriptionSubjectFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectEndsWith
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionWebhookEndpoint struct {
@@ -1330,8 +1430,13 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebho
 }
 
 // Specifies the url of the webhook where the Event Subscription will receive events.
-func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
+func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -35,7 +35,7 @@ type LookupStoreResult struct {
 	FirewallAllowAzureIps string `pulumi:"firewallAllowAzureIps"`
 	// the state of the firewall, such as `Enabled` or `Disabled`.
 	FirewallState string `pulumi:"firewallState"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`

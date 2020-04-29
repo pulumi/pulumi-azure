@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ManagementGroups
 {
+    [Obsolete(@"azure.getManagementGroup has been deprecated in favour of azure.getGroup")]
     public static class GetManagementGroup
     {
         /// <summary>
@@ -16,6 +17,8 @@ namespace Pulumi.Azure.ManagementGroups
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
+        /// 
+        /// Deprecated: azure.getManagementGroup has been deprecated in favour of azure.getGroup
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());
@@ -51,7 +54,7 @@ namespace Pulumi.Azure.ManagementGroups
         public readonly string DisplayName;
         public readonly string GroupId;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;

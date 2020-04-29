@@ -11,6 +11,10 @@ import (
 )
 
 // Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
+//
+//
+//
+// Deprecated: azure.EventHubConsumerGroup has been deprecated in favour of azure.ConsumerGroup
 type EventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 

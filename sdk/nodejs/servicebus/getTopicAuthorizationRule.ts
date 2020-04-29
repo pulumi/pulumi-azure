@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.servicebus.getTopicAuthorizationRule({
+ * const example = pulumi.output(azure.servicebus.getTopicAuthorizationRule({
  *     name: "example-tfex_name",
  *     namespaceName: "example-namespace",
  *     resourceGroupName: "example-resources",
  *     topicName: "example-servicebus_topic",
- * });
+ * }, { async: true }));
  * 
  * export const servicebusAuthorizationRuleId = azurem_servicebus_topic_authorization_rule_example.id;
  * ```
@@ -95,7 +95,7 @@ export interface GetTopicAuthorizationRuleResult {
     readonly send: boolean;
     readonly topicName: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

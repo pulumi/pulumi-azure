@@ -139,12 +139,22 @@ func (o ModuleModuleLinkPtrOutput) Elem() ModuleModuleLinkOutput {
 }
 
 func (o ModuleModuleLinkPtrOutput) Hash() ModuleModuleLinkHashPtrOutput {
-	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
+	return o.ApplyT(func(v *ModuleModuleLink) *ModuleModuleLinkHash {
+		if v == nil {
+			return nil
+		}
+		return v.Hash
+	}).(ModuleModuleLinkHashPtrOutput)
 }
 
 // The uri of the module content (zip or nupkg).
-func (o ModuleModuleLinkPtrOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
+func (o ModuleModuleLinkPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleModuleLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
 }
 
 type ModuleModuleLinkHash struct {
@@ -272,12 +282,22 @@ func (o ModuleModuleLinkHashPtrOutput) Elem() ModuleModuleLinkHashOutput {
 	return o.ApplyT(func(v *ModuleModuleLinkHash) ModuleModuleLinkHash { return *v }).(ModuleModuleLinkHashOutput)
 }
 
-func (o ModuleModuleLinkHashPtrOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o ModuleModuleLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleModuleLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Value }).(pulumi.StringOutput)
+func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModuleModuleLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 type RunBookPublishContentLink struct {
@@ -415,16 +435,31 @@ func (o RunBookPublishContentLinkPtrOutput) Elem() RunBookPublishContentLinkOutp
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
-	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
+	return o.ApplyT(func(v *RunBookPublishContentLink) *RunBookPublishContentLinkHash {
+		if v == nil {
+			return nil
+		}
+		return v.Hash
+	}).(RunBookPublishContentLinkHashPtrOutput)
 }
 
 // The uri of the runbook content.
-func (o RunBookPublishContentLinkPtrOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v RunBookPublishContentLink) string { return v.Uri }).(pulumi.StringOutput)
+func (o RunBookPublishContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookPublishContentLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RunBookPublishContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RunBookPublishContentLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type RunBookPublishContentLinkHash struct {
@@ -552,12 +587,22 @@ func (o RunBookPublishContentLinkHashPtrOutput) Elem() RunBookPublishContentLink
 	return o.ApplyT(func(v *RunBookPublishContentLinkHash) RunBookPublishContentLinkHash { return *v }).(RunBookPublishContentLinkHashOutput)
 }
 
-func (o RunBookPublishContentLinkHashPtrOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o RunBookPublishContentLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookPublishContentLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o RunBookPublishContentLinkHashPtrOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Value }).(pulumi.StringOutput)
+func (o RunBookPublishContentLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookPublishContentLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduleMonthlyOccurrence struct {

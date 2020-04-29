@@ -29,7 +29,7 @@ type LookupConfigurationStoreArgs struct {
 type LookupConfigurationStoreResult struct {
 	// The Endpoint used to access this App Configuration.
 	Endpoint string `pulumi:"endpoint"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the App Configuration exists.
 	Location string `pulumi:"location"`

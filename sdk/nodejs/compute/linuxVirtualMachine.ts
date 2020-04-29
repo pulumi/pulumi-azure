@@ -125,6 +125,9 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.compute.LinuxVirtualMachinePlan | undefined>;
+    /**
+     * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+     */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
      * The Primary Private IP Address assigned to this Virtual Machine.
@@ -372,6 +375,9 @@ export interface LinuxVirtualMachineState {
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     readonly plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan>;
+    /**
+     * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+     */
     readonly priority?: pulumi.Input<string>;
     /**
      * The Primary Private IP Address assigned to this Virtual Machine.
@@ -511,6 +517,9 @@ export interface LinuxVirtualMachineArgs {
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     readonly plan?: pulumi.Input<inputs.compute.LinuxVirtualMachinePlan>;
+    /**
+     * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+     */
     readonly priority?: pulumi.Input<string>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.

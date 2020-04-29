@@ -32,7 +32,7 @@ type GetDpsResult struct {
 	AllocationPolicy string `pulumi:"allocationPolicy"`
 	// The device endpoint of the IoT Device Provisioning Service.
 	DeviceProvisioningHostName string `pulumi:"deviceProvisioningHostName"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The unique identifier of the IoT Device Provisioning Service.
 	IdScope string `pulumi:"idScope"`

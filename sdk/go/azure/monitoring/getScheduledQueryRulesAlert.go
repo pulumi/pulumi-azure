@@ -39,7 +39,7 @@ type LookupScheduledQueryRulesAlertResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// Frequency at which rule condition should be evaluated.
 	Frequency int `pulumi:"frequency"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`

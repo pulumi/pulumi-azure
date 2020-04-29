@@ -180,32 +180,62 @@ func (o AccountActiveDirectoryPtrOutput) Elem() AccountActiveDirectoryOutput {
 
 // A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
 func (o AccountActiveDirectoryPtrOutput) DnsServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AccountActiveDirectory) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v *AccountActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
 }
 
 // The name of the Active Directory domain.
-func (o AccountActiveDirectoryPtrOutput) Domain() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Domain }).(pulumi.StringOutput)
+func (o AccountActiveDirectoryPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Domain
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Organizational Unit (OU) within the Active Directory Domain.
 func (o AccountActiveDirectoryPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnit
+	}).(pulumi.StringPtrOutput)
 }
 
 // The password associated with the `username`.
-func (o AccountActiveDirectoryPtrOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+func (o AccountActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
 }
 
 // The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
-func (o AccountActiveDirectoryPtrOutput) SmbServerName() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountActiveDirectory) string { return v.SmbServerName }).(pulumi.StringOutput)
+func (o AccountActiveDirectoryPtrOutput) SmbServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SmbServerName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Username of Active Directory Domain Administrator.
-func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 type VolumeExportPolicyRule struct {

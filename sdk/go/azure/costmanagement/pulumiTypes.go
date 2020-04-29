@@ -152,18 +152,33 @@ func (o ResourceGroupExportDeliveryInfoPtrOutput) Elem() ResourceGroupExportDeli
 }
 
 // The name of the container where exports will be uploaded.
-func (o ResourceGroupExportDeliveryInfoPtrOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.ContainerName }).(pulumi.StringOutput)
+func (o ResourceGroupExportDeliveryInfoPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The path of the directory where exports will be uploaded.
-func (o ResourceGroupExportDeliveryInfoPtrOutput) RootFolderPath() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.RootFolderPath }).(pulumi.StringOutput)
+func (o ResourceGroupExportDeliveryInfoPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootFolderPath
+	}).(pulumi.StringPtrOutput)
 }
 
 // The storage account id where exports will be delivered.
-func (o ResourceGroupExportDeliveryInfoPtrOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupExportDeliveryInfo) string { return v.StorageAccountId }).(pulumi.StringOutput)
+func (o ResourceGroupExportDeliveryInfoPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupExportDeliveryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceGroupExportQuery struct {
@@ -299,13 +314,23 @@ func (o ResourceGroupExportQueryPtrOutput) Elem() ResourceGroupExportQueryOutput
 }
 
 // The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `YearToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastYear`, `Custom`.
-func (o ResourceGroupExportQueryPtrOutput) TimeFrame() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.TimeFrame }).(pulumi.StringOutput)
+func (o ResourceGroupExportQueryPtrOutput) TimeFrame() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupExportQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeFrame
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of the query.
-func (o ResourceGroupExportQueryPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupExportQuery) string { return v.Type }).(pulumi.StringOutput)
+func (o ResourceGroupExportQueryPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupExportQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.compute.getSharedImageGallery({
+ * const example = pulumi.output(azure.compute.getSharedImageGallery({
  *     name: "my-image-gallery",
  *     resourceGroupName: "example-resources",
- * });
+ * }, { async: true }));
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
@@ -73,7 +73,7 @@ export interface GetSharedImageGalleryResult {
      */
     readonly uniqueName: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

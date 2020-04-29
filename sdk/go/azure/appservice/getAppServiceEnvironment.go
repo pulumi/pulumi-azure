@@ -29,7 +29,7 @@ type GetAppServiceEnvironmentArgs struct {
 type GetAppServiceEnvironmentResult struct {
 	// The number of app instances per App Service Environment Front End
 	FrontEndScaleFactor int `pulumi:"frontEndScaleFactor"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the App Service Environment exists
 	Location string `pulumi:"location"`

@@ -27,7 +27,7 @@ type LookupVaultArgs struct {
 
 // A collection of values returned by getVault.
 type LookupVaultResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the resource resides.
 	Location          string `pulumi:"location"`

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.Certifiate has been deprecated in favour of azure.Certificate", DeprecationWarning)
 class Certifiate(pulumi.CustomResource):
     certificate: pulumi.Output[dict]
     """
@@ -80,9 +81,12 @@ class Certifiate(pulumi.CustomResource):
     """
     The current version of the Key Vault Certificate.
     """
+    warnings.warn("azure.Certifiate has been deprecated in favour of azure.Certificate", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, certificate=None, certificate_policy=None, key_vault_id=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Certificate.
+
+        Deprecated: azure.Certifiate has been deprecated in favour of azure.Certificate
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +134,7 @@ class Certifiate(pulumi.CustomResource):
 
             * `validityInMonths` (`pulumi.Input[float]`) - The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         """
+        pulumi.log.warn("Certifiate is deprecated: azure.Certifiate has been deprecated in favour of azure.Certificate")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

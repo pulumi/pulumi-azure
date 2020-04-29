@@ -11,6 +11,10 @@ import (
 )
 
 // Manages an Azure Container Registry Webhook.
+//
+//
+//
+// Deprecated: azure.RegistryWebook has been deprecated in favour of azure.RegistryWebhook
 type RegistryWebook struct {
 	pulumi.CustomResourceState
 

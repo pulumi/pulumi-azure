@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+warnings.warn("azure.getGeographicalLocation has been deprecated in favour of azure.getTrafficManager", DeprecationWarning)
 class GetGeographicalLocationResult:
     """
     A collection of values returned by getGeographicalLocation.
@@ -18,7 +19,7 @@ class GetGeographicalLocationResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -36,9 +37,12 @@ def get_geographical_location(name=None,opts=None):
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
+    Deprecated: azure.getGeographicalLocation has been deprecated in favour of azure.getTrafficManager
+
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """
+    pulumi.log.warn("get_geographical_location is deprecated: azure.getGeographicalLocation has been deprecated in favour of azure.getTrafficManager")
     __args__ = dict()
 
 
