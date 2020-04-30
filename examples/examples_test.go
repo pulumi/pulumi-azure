@@ -30,7 +30,7 @@ func TestAccDurableFunctions(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "durable-functions"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -40,7 +40,7 @@ func TestAccEventgrid(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "eventgrid"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -65,7 +65,7 @@ func TestAccHttpExternal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "http-external"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -75,7 +75,7 @@ func TestAccHttpMulti(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "http-multi"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -85,7 +85,7 @@ func TestAccIot(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "iot"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -95,7 +95,7 @@ func TestAccQueue(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "queue"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -105,7 +105,7 @@ func TestAccTimer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "timer"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -138,7 +138,7 @@ func TestAccHttp(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "http"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "Hello World!")
 			}),
@@ -151,7 +151,7 @@ func TestAccBlob(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "blob"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "A File from Blob Storage")
 			}),
@@ -200,7 +200,7 @@ func TestAccTable(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "table"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)
@@ -266,7 +266,7 @@ func TestAccCosmosDb(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "cosmosdb"),
-			//RunUpdateTest: true, // temporarily disabled as upgrade tests are not able to run until we release 2.0.0
+			RunUpdateTest: true
 		})
 
 	integration.ProgramTest(t, &test)

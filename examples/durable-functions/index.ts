@@ -3,17 +3,15 @@
 import * as azure from "@pulumi/azure";
 import * as df from 'durable-functions';
 
-const resourceGroup = new azure.core.ResourceGroup("chedDurable", {
-    location: azure.Locations.WestEurope
-});
+const resourceGroup = new azure.core.ResourceGroup("durable-example");
 
 var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
     resourceGroup,
     functions: [
         new azure.appservice.DurableActivityFunction("SayHello", {
             activityInputName: "name",
-            callback: (context) => {
-                context.done(null, "Hello, " + context.bindings.name);
+            callback: async(context) => {
+                return "Hello, " + context.bindings.name;
             }
         }),
         new azure.appservice.DurableOrchestratorFunction("orch", {
@@ -22,6 +20,7 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
                 output.push(yield context.df.callActivity("SayHello", "Tokyo"));
                 output.push(yield context.df.callActivity("SayHello", "Seattle"));
                 output.push(yield context.df.callActivity("SayHello", "London"));
+
                 return output;
             })
         }),
@@ -41,18 +40,18 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
         }),
         new azure.appservice.HttpFunction("hello", {
             route: "hello/{id}",
-            callback: async (con, req) => {
-                const client = df.getClient(con);
-                client.startNew("orch", req.params.id);
+            callback: async (context, request) => {
+                const client = df.getClient(context);
+                client.startNew("orch", request.params.id);
 
-                return client.waitForCompletionOrCreateCheckStatusResponse(req, req.params.id, 5000, 100);
+                return client.waitForCompletionOrCreateCheckStatusResponse(request, request.params.id, 5000, 100);
             },
             inputs: [new azure.appservice.DurableOrchestrationClientInputBindingSettings("starter")]
         }),
         new azure.appservice.HttpFunction("viewCount", {
             route: "views",
-            callback: async (con, req) => {
-                const client = df.getClient(con);
+            callback: async (context, request) => {
+                const client = df.getClient(context);
                 const entityId = new df.EntityId("counter", "myCounter");
                 await client.signalEntity(entityId, "add");
                 const stateResponse = await client.readEntityState(entityId);
@@ -66,4 +65,8 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
     ]
 });
 
+
+// You can test the deployed durable functions by making HTTP calls to the HTTP triggered durable client functions:
+// - GET {url}/api/hello/world --> should return "Hello, world"
+// - GET {url}/api/views --> should return a ever increasing counter
 export const url = app.endpoint;
