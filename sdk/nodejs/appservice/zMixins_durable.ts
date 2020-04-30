@@ -15,7 +15,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as mod from ".";
 
-
 export interface DurableOrchestratorFunctionContext extends mod.Context<mod.Result> {
     df: any
 }
@@ -54,13 +53,40 @@ export interface DurableActivityFunctionArgs<TActivityInputBinding> extends mod.
 }
 
 /**
- * Azure Durable Orchestrator Function
+ * Azure Durable Activity Function
  */
 export class DurableActivityFunction<TActivityInputBinding> extends mod.Function<DurableActivityFunctionContext<TActivityInputBinding>, void, void> {
     constructor(name: string, args: DurableActivityFunctionArgs<TActivityInputBinding>) {
         const trigger = {
             name: args.activityInputName,
             type: "activityTrigger",
+            direction: "in"
+        } as mod.InputBindingDefinition;
+
+        super(name, trigger, args);
+    }
+}
+
+export interface DurableEntityFunctionContext extends mod.Context<mod.Result> {
+    df: any
+}
+
+export interface DurableEntityFunctionArgs extends mod.CallbackFunctionArgs<DurableEntityFunctionContext, void, void> {
+}
+
+/**
+ * Azure Durable Entity Function
+ */
+export class DurableEntityFunction extends mod.Function<DurableEntityFunctionContext, void, void> {
+    constructor(name: string, args: DurableEntityFunctionArgs) {
+
+        if(args.callback){
+            throw new Error("Durable entity functions need to use the [callbackFactory]");
+        }
+        
+        const trigger = {
+            name: "context",
+            type: "entityTrigger",
             direction: "in"
         } as mod.InputBindingDefinition;
 
@@ -76,6 +102,20 @@ export class DurableOrchestrationClientInputBindingSettings implements mod.Input
         this.binding = {
             name,
             type: "orchestrationClient",
+            direction: "in"
+        }
+        this.settings = {};
+    }
+}
+
+export class DurableEntityClientInputBindingSettings implements mod.InputBindingSettings {
+    binding: pulumi.Input<mod.InputBindingDefinition>;
+    settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string) {
+        this.binding = {
+            name,
+            type: "durableClient",
             direction: "in"
         }
         this.settings = {};
