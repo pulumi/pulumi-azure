@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Sql.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

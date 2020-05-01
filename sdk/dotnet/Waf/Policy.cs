@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Waf
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `custom_rules` blocks as defined below.
         /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.PolicyCustomRule>> CustomRules { get; private set; } = null!;
@@ -27,13 +27,19 @@ namespace Pulumi.Azure.Waf
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A `managed_rules` blocks as defined below.
+        /// </summary>
+        [Output("managedRules")]
+        public Output<Outputs.PolicyManagedRules> ManagedRules { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `policy_setting` block as defined below.
+        /// A `policy_settings` block as defined below.
         /// </summary>
         [Output("policySettings")]
         public Output<Outputs.PolicyPolicySettings?> PolicySettings { get; private set; } = null!;
@@ -100,7 +106,7 @@ namespace Pulumi.Azure.Waf
         private InputList<Inputs.PolicyCustomRuleArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `custom_rules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyCustomRuleArgs> CustomRules
         {
@@ -115,13 +121,19 @@ namespace Pulumi.Azure.Waf
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `managed_rules` blocks as defined below.
+        /// </summary>
+        [Input("managedRules", required: true)]
+        public Input<Inputs.PolicyManagedRulesArgs> ManagedRules { get; set; } = null!;
+
+        /// <summary>
         /// The name of the policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `policy_setting` block as defined below.
+        /// A `policy_settings` block as defined below.
         /// </summary>
         [Input("policySettings")]
         public Input<Inputs.PolicyPolicySettingsArgs>? PolicySettings { get; set; }
@@ -155,7 +167,7 @@ namespace Pulumi.Azure.Waf
         private InputList<Inputs.PolicyCustomRuleGetArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `custom_rules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyCustomRuleGetArgs> CustomRules
         {
@@ -170,13 +182,19 @@ namespace Pulumi.Azure.Waf
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `managed_rules` blocks as defined below.
+        /// </summary>
+        [Input("managedRules")]
+        public Input<Inputs.PolicyManagedRulesGetArgs>? ManagedRules { get; set; }
+
+        /// <summary>
         /// The name of the policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `policy_setting` block as defined below.
+        /// A `policy_settings` block as defined below.
         /// </summary>
         [Input("policySettings")]
         public Input<Inputs.PolicyPolicySettingsGetArgs>? PolicySettings { get; set; }

@@ -27,8 +27,8 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// A `retention_policy` block as defined below.
         /// </summary>
-        [Input("retentionPolicy", required: true)]
-        public Input<Inputs.DiagnosticSettingLogRetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
+        [Input("retentionPolicy")]
+        public Input<Inputs.DiagnosticSettingLogRetentionPolicyArgs>? RetentionPolicy { get; set; }
 
         public DiagnosticSettingLogArgs()
         {

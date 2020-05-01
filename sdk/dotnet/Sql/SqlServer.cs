@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// Manages a SQL Azure Database Server.
+    /// Manages a Microsoft SQL Azure Database Server.
     /// </summary>
     public partial class SqlServer : Pulumi.CustomResource
     {
@@ -57,13 +57,13 @@ namespace Pulumi.Azure.Sql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -163,13 +163,13 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -242,13 +242,13 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

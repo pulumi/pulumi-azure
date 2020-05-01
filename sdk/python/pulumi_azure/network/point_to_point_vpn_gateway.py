@@ -16,7 +16,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
       * `name` (`str`) - The Name which should be used for this Connection Configuration.
       * `vpnClientAddressPool` (`dict`) - A `vpn_client_address_pool` block as defined below.
-        * `addressPrefixes` (`list`) - A list of CIDR Ranges which should be used as Address Prefixes.
+        * `address_prefixes` (`list`) - A list of CIDR Ranges which should be used as Address Prefixes.
     """
     location: pulumi.Output[str]
     """
@@ -67,7 +67,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
           * `name` (`pulumi.Input[str]`) - The Name which should be used for this Connection Configuration.
           * `vpnClientAddressPool` (`pulumi.Input[dict]`) - A `vpn_client_address_pool` block as defined below.
-            * `addressPrefixes` (`pulumi.Input[list]`) - A list of CIDR Ranges which should be used as Address Prefixes.
+            * `address_prefixes` (`pulumi.Input[list]`) - A list of CIDR Ranges which should be used as Address Prefixes.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,7 +132,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
           * `name` (`pulumi.Input[str]`) - The Name which should be used for this Connection Configuration.
           * `vpnClientAddressPool` (`pulumi.Input[dict]`) - A `vpn_client_address_pool` block as defined below.
-            * `addressPrefixes` (`pulumi.Input[list]`) - A list of CIDR Ranges which should be used as Address Prefixes.
+            * `address_prefixes` (`pulumi.Input[list]`) - A list of CIDR Ranges which should be used as Address Prefixes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

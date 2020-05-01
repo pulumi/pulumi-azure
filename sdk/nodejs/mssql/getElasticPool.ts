@@ -50,6 +50,10 @@ export interface GetElasticPoolArgs {
  */
 export interface GetElasticPoolResult {
     /**
+     * The license type to apply for this database.
+     */
+    readonly licenseType: string;
+    /**
      * Specifies the supported Azure location where the resource exists.
      */
     readonly location: string;

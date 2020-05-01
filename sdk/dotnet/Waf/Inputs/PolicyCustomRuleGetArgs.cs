@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyCustomRuleGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Actions
+        /// Type of action.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyCustomRuleMatchConditionGetArgs>? _matchConditions;
 
         /// <summary>
-        /// One or more `match_condition` block defined below.
+        /// One or more `match_conditions` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyCustomRuleMatchConditionGetArgs> MatchConditions
         {
@@ -31,19 +31,19 @@ namespace Pulumi.Azure.Waf.Inputs
         }
 
         /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
+        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// Describes the type of rule
+        /// Describes the type of rule.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;

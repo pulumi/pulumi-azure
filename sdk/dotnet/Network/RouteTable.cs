@@ -9,9 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Network
 {
-    /// <summary>
-    /// Manages a Route Table
-    /// </summary>
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>

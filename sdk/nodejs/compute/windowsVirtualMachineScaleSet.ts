@@ -74,7 +74,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics | undefined>;
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */
     public readonly computerNamePrefix!: pulumi.Output<string>;
     /**
@@ -381,7 +381,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     readonly bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics>;
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */
     readonly computerNamePrefix?: pulumi.Input<string>;
     /**
@@ -556,7 +556,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     readonly bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics>;
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */
     readonly computerNamePrefix?: pulumi.Input<string>;
     /**

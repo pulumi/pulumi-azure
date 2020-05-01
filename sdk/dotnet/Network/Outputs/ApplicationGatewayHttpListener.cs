@@ -38,6 +38,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? HostName;
         /// <summary>
+        /// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+        /// </summary>
+        public readonly ImmutableArray<string> HostNames;
+        /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string? Id;
@@ -76,6 +80,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? hostName,
 
+            ImmutableArray<string> hostNames,
+
             string? id,
 
             string name,
@@ -94,6 +100,7 @@ namespace Pulumi.Azure.Network.Outputs
             FrontendPortId = frontendPortId;
             FrontendPortName = frontendPortName;
             HostName = hostName;
+            HostNames = hostNames;
             Id = id;
             Name = name;
             Protocol = protocol;

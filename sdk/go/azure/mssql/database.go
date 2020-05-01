@@ -24,6 +24,8 @@ type Database struct {
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
 	ElasticPoolId pulumi.StringPtrOutput `pulumi:"elasticPoolId"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// The max size of the database in gigabytes.
@@ -93,6 +95,8 @@ type databaseState struct {
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The max size of the database in gigabytes.
@@ -132,6 +136,8 @@ type DatabaseState struct {
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
 	ElasticPoolId pulumi.StringPtrInput
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// The max size of the database in gigabytes.
@@ -175,6 +181,8 @@ type databaseArgs struct {
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The max size of the database in gigabytes.
@@ -215,6 +223,8 @@ type DatabaseArgs struct {
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
 	ElasticPoolId pulumi.StringPtrInput
+	// A `extendedAuditingPolicy` block as defined below.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// The max size of the database in gigabytes.

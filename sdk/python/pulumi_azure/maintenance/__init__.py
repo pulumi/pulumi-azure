@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .configuration import *
+from .get_configuration import *

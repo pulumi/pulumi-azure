@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Route Table
 type RouteTable struct {
 	pulumi.CustomResourceState
 

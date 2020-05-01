@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A `retention_policy` block as defined below.
         /// </summary>
-        public readonly Outputs.DiagnosticSettingLogRetentionPolicy RetentionPolicy;
+        public readonly Outputs.DiagnosticSettingLogRetentionPolicy? RetentionPolicy;
 
         [OutputConstructor]
         private DiagnosticSettingLog(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             bool? enabled,
 
-            Outputs.DiagnosticSettingLogRetentionPolicy retentionPolicy)
+            Outputs.DiagnosticSettingLogRetentionPolicy? retentionPolicy)
         {
             Category = category;
             Enabled = enabled;

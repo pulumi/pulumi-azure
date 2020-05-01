@@ -27,6 +27,7 @@ from .identity_provider_google import *
 from .identity_provider_microsoft import *
 from .identity_provider_twitter import *
 from .logger import *
+from .named_value import *
 from .open_id_connect_provider import *
 from .product import *
 from .product_api import *

@@ -25,7 +25,7 @@ export namespace analysisservices {
 export namespace apimanagement {
     export interface ApiImport {
         /**
-         * The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+         * The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
          */
         contentFormat: string;
         /**
@@ -3713,6 +3713,48 @@ export namespace compute {
     export interface GetSharedImageVersionTargetRegion {
         /**
          * The name of the Image Version.
+         */
+        name: string;
+        /**
+         * The number of replicas of the Image Version to be created per region.
+         */
+        regionalReplicaCount: number;
+        /**
+         * The storage account type for the image version.
+         */
+        storageAccountType: string;
+    }
+
+    export interface GetSharedImageVersionsImage {
+        /**
+         * Is this Image Version excluded from the `latest` filter?
+         */
+        excludeFromLatest: boolean;
+        /**
+         * The supported Azure location where the Shared Image Gallery exists.
+         */
+        location: string;
+        /**
+         * The ID of the Managed Image which was the source of this Shared Image Version.
+         */
+        managedImageId: string;
+        /**
+         * The Azure Region in which this Image Version exists.
+         */
+        name: string;
+        /**
+         * A mapping of tags assigned to the Shared Image.
+         */
+        tags: {[key: string]: string};
+        /**
+         * One or more `targetRegion` blocks as documented below.
+         */
+        targetRegions: outputs.compute.GetSharedImageVersionsImageTargetRegion[];
+    }
+
+    export interface GetSharedImageVersionsImageTargetRegion {
+        /**
+         * The Azure Region in which this Image Version exists.
          */
         name: string;
         /**
@@ -9857,6 +9899,29 @@ export namespace machinelearning {
 }
 
 export namespace managedapplication {
+    export interface ApplicationPlan {
+        /**
+         * Specifies the name of the plan from the marketplace.
+         */
+        name: string;
+        /**
+         * Specifies the product of the plan from the marketplace.
+         */
+        product: string;
+        /**
+         * Specifies the promotion code to use with the plan.
+         */
+        promotionCode?: string;
+        /**
+         * Specifies the publisher of the plan.
+         */
+        publisher: string;
+        /**
+         * Specifies the version of the plan from the marketplace.
+         */
+        version: string;
+    }
+
     export interface DefinitionAuthorization {
         /**
          * Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
@@ -10342,7 +10407,7 @@ export namespace monitoring {
         /**
          * A `retentionPolicy` block as defined below.
          */
-        retentionPolicy: outputs.monitoring.DiagnosticSettingLogRetentionPolicy;
+        retentionPolicy?: outputs.monitoring.DiagnosticSettingLogRetentionPolicy;
     }
 
     export interface DiagnosticSettingLogRetentionPolicy {
@@ -10368,7 +10433,7 @@ export namespace monitoring {
         /**
          * A `retentionPolicy` block as defined below.
          */
-        retentionPolicy: outputs.monitoring.DiagnosticSettingMetricRetentionPolicy;
+        retentionPolicy?: outputs.monitoring.DiagnosticSettingMetricRetentionPolicy;
     }
 
     export interface DiagnosticSettingMetricRetentionPolicy {
@@ -10770,6 +10835,25 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseExtendedAuditingPolicy {
+        /**
+         * Specifies the number of days to retain logs for in the storage account.
+         */
+        retentionInDays?: number;
+        /**
+         * Specifies the access key to use for the auditing storage account.
+         */
+        storageAccountAccessKey: string;
+        /**
+         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
+        storageAccountAccessKeyIsSecondary?: boolean;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         */
+        storageEndpoint: string;
+    }
+
     export interface DatabaseThreatDetectionPolicy {
         /**
          * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -10840,6 +10924,40 @@ export namespace mssql {
          * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
          */
         tier: string;
+    }
+
+    export interface ServerExtendedAuditingPolicy {
+        /**
+         * (Optional) Specifies the number of days to retain logs for in the storage account.
+         */
+        retentionInDays?: number;
+        /**
+         * (Required)  Specifies the access key to use for the auditing storage account.
+         */
+        storageAccountAccessKey: string;
+        /**
+         * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
+        storageAccountAccessKeyIsSecondary?: boolean;
+        /**
+         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         */
+        storageEndpoint: string;
+    }
+
+    export interface ServerIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: string;
     }
 
     export interface ServerVulnerabilityAssessmentRecurringScans {
@@ -11205,6 +11323,10 @@ export namespace network {
          * The Hostname which should be used for this HTTP Listener.
          */
         hostName?: string;
+        /**
+         * A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+         */
+        hostNames?: string[];
         /**
          * The ID of the Rewrite Rule Set
          */
@@ -11731,6 +11853,14 @@ export namespace network {
          * A list of Advertised Public Prefixes
          */
         advertisedPublicPrefixes: string[];
+        /**
+         * The CustomerASN of the peering
+         */
+        customerAsn?: number;
+        /**
+         * The RoutingRegistryName of the configuration
+         */
+        routingRegistryName?: string;
     }
 
     export interface ExpressRouteCircuitSku {
@@ -13852,7 +13982,7 @@ export namespace sql {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
          */
         type: string;
     }
@@ -14584,34 +14714,34 @@ export namespace trafficmanager {
 export namespace waf {
     export interface PolicyCustomRule {
         /**
-         * Type of Actions
+         * Type of action.
          */
         action: string;
         /**
-         * One or more `matchCondition` block defined below.
+         * One or more `matchConditions` blocks as defined below.
          */
         matchConditions: outputs.waf.PolicyCustomRuleMatchCondition[];
         /**
-         * The name of the policy. Changing this forces a new resource to be created.
+         * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
          */
         name?: string;
         /**
-         * Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+         * Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
          */
         priority: number;
         /**
-         * Describes the type of rule
+         * Describes the type of rule.
          */
         ruleType: string;
     }
 
     export interface PolicyCustomRuleMatchCondition {
         /**
-         * Match value
+         * A list of match values.
          */
         matchValues: string[];
         /**
-         * One or more `matchVariable` block defined below.
+         * One or more `matchVariables` blocks as defined below.
          */
         matchVariables: outputs.waf.PolicyCustomRuleMatchConditionMatchVariable[];
         /**
@@ -14619,7 +14749,7 @@ export namespace waf {
          */
         negationCondition?: boolean;
         /**
-         * Describes operator to be matched
+         * Describes operator to be matched.
          */
         operator: string;
     }
@@ -14633,6 +14763,55 @@ export namespace waf {
          * The name of the Match Variable
          */
         variableName: string;
+    }
+
+    export interface PolicyManagedRules {
+        /**
+         * One or more `exclusion` block defined below.
+         */
+        exclusions?: outputs.waf.PolicyManagedRulesExclusion[];
+        /**
+         * One or more `managedRuleSet` block defined below.
+         */
+        managedRuleSets: outputs.waf.PolicyManagedRulesManagedRuleSet[];
+    }
+
+    export interface PolicyManagedRulesExclusion {
+        matchVariable: string;
+        /**
+         * Describes field of the matchVariable collection.
+         */
+        selector: string;
+        /**
+         * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+         */
+        selectorMatchOperator: string;
+    }
+
+    export interface PolicyManagedRulesManagedRuleSet {
+        /**
+         * One or more `ruleGroupOverride` block defined below.
+         */
+        ruleGroupOverrides?: outputs.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverride[];
+        /**
+         * The rule set type.
+         */
+        type?: string;
+        /**
+         * The rule set version.
+         */
+        version: string;
+    }
+
+    export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
+        /**
+         * One or more Rule ID's
+         */
+        disabledRules: string[];
+        /**
+         * The name of the Rule Group
+         */
+        ruleGroupName: string;
     }
 
     export interface PolicyPolicySettings {

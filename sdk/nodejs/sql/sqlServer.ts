@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a SQL Azure Database Server.
+ * Manages a Microsoft SQL Azure Database Server.
  * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
@@ -68,11 +68,11 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -177,11 +177,11 @@ export interface SqlServerState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -223,11 +223,11 @@ export interface SqlServerArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

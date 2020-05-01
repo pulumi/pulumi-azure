@@ -108,6 +108,7 @@ const (
 	azureRedis               = "Redis"               // RedisCache
 	azureRelay               = "Relay"               // Relay
 	azureSecurityCenter      = "SecurityCenter"      // Security Center
+	azureSentinel            = "Sentinel"            // Sentinel
 	azureServiceBus          = "ServiceBus"          // ServiceBus
 	azureServiceFabric       = "ServiceFabric"       // Service Fabric
 	azureSearch              = "Search"              // Search
@@ -368,6 +369,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_identity_provider_facebook":  {Tok: azureResource(azureAPIManagement, "IdentityProviderFacebook")},
 			"azurerm_api_management_identity_provider_twitter":   {Tok: azureResource(azureAPIManagement, "IdentityProviderTwitter")},
 			"azurerm_api_management_identity_provider_microsoft": {Tok: azureResource(azureAPIManagement, "IdentityProviderMicrosoft")},
+			"azurerm_api_management_named_value":                 {Tok: azureResource(azureAPIManagement, "NamedValue")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -853,6 +855,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_mssql_database":        {Tok: azureResource(azureMSSQL, "Database")},
 			"azurerm_mssql_virtual_machine": {Tok: azureResource(azureMSSQL, "VirtualMachine")},
+			"azurerm_mssql_server":          {Tok: azureResource(azureMSSQL, "Server")},
 
 			// MySQL
 			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
@@ -1277,6 +1280,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_machine_learning_workspace": {Tok: azureResource(azureMachineLearning, "Workspace")},
 
 			// Managed Applications
+			"azurerm_managed_application":            {Tok: azureResource(azureManagedApplication, "Application")},
 			"azurerm_managed_application_definition": {Tok: azureResource(azureManagedApplication, "Definition")},
 
 			// Maintenance
@@ -1285,6 +1289,11 @@ func Provider() tfbridge.ProviderInfo {
 			// Servicebus
 			"azurerm_servicebus_namespace_network_rule_set": {
 				Tok: azureResource(azureServiceBus, "NamespaceNetworkRuleSet"),
+			},
+
+			// Sentinel
+			"azurerm_sentinel_alert_rule_ms_security_incident": {
+				Tok: azureResource(azureSentinel, "AlertRuleMsSecurityIncident"),
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
@@ -1430,6 +1439,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_set_definition":                   {Tok: azureDataSource(azurePolicy, "getPolicySetDefinition")},
 			"azurerm_platform_image":                          {Tok: azureDataSource(azureCompute, "getPlatformImage")},
 			"azurerm_managed_disk":                            {Tok: azureDataSource(azureCompute, "getManagedDisk")},
+			"azurerm_shared_image_versions":                   {Tok: azureDataSource(azureCompute, "getSharedImageVersions")},
 			"azurerm_backup_policy_vm":                        {Tok: azureDataSource(azureBackup, "getPolicyVM")},
 			"azurerm_storage_account":                         {Tok: azureDataSource(azureStorage, "getAccount")},
 			"azurerm_storage_account_sas":                     {Tok: azureDataSource(azureStorage, "getAccountSAS")},
@@ -1488,6 +1498,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_managed_application_definition": {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
 			"azurerm_spring_cloud_service":           {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
 			"azurerm_private_dns_zone":               {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
+			"azurerm_sentinel_alert_rule":            {Tok: azureDataSource(azureSentinel, "getAlertRule")},
+			"azurerm_maintenance_configuration":      {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			AsyncDataSources: true,
@@ -1501,6 +1513,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"@azure/ms-rest-nodeauth":       "^3.0.0",
 				"azure-functions-ts-essentials": "^1.3.2",
+				"moment":                        "2.24.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				Files: []string{},

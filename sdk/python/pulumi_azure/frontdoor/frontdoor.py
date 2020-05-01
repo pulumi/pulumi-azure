@@ -50,6 +50,10 @@ class Frontdoor(pulumi.CustomResource):
       * `loadBalancingName` (`str`) - Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
       * `name` (`str`) - Specifies the name of the Backend Pool.
     """
+    backend_pools_send_receive_timeout_seconds: pulumi.Output[float]
+    """
+    Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+    """
     cname: pulumi.Output[str]
     """
     The host that each frontendEndpoint must CNAME to.
@@ -126,7 +130,7 @@ class Frontdoor(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_pool_health_probes=None, backend_pool_load_balancings=None, backend_pools=None, enforce_backend_pools_certificate_name_check=None, friendly_name=None, frontend_endpoints=None, load_balancer_enabled=None, location=None, name=None, resource_group_name=None, routing_rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_pool_health_probes=None, backend_pool_load_balancings=None, backend_pools=None, backend_pools_send_receive_timeout_seconds=None, enforce_backend_pools_certificate_name_check=None, friendly_name=None, frontend_endpoints=None, load_balancer_enabled=None, location=None, name=None, resource_group_name=None, routing_rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Front Door instance.
 
@@ -144,6 +148,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[list] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[list] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
         :param pulumi.Input[list] backend_pools: A `backend_pool` block as defined below.
+        :param pulumi.Input[float] backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
         :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[list] frontend_endpoints: A `frontend_endpoint` block as defined below.
@@ -256,6 +261,7 @@ class Frontdoor(pulumi.CustomResource):
             if backend_pools is None:
                 raise TypeError("Missing required property 'backend_pools'")
             __props__['backend_pools'] = backend_pools
+            __props__['backend_pools_send_receive_timeout_seconds'] = backend_pools_send_receive_timeout_seconds
             if enforce_backend_pools_certificate_name_check is None:
                 raise TypeError("Missing required property 'enforce_backend_pools_certificate_name_check'")
             __props__['enforce_backend_pools_certificate_name_check'] = enforce_backend_pools_certificate_name_check
@@ -281,7 +287,7 @@ class Frontdoor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_pool_health_probes=None, backend_pool_load_balancings=None, backend_pools=None, cname=None, enforce_backend_pools_certificate_name_check=None, friendly_name=None, frontend_endpoints=None, load_balancer_enabled=None, location=None, name=None, resource_group_name=None, routing_rules=None, tags=None):
+    def get(resource_name, id, opts=None, backend_pool_health_probes=None, backend_pool_load_balancings=None, backend_pools=None, backend_pools_send_receive_timeout_seconds=None, cname=None, enforce_backend_pools_certificate_name_check=None, friendly_name=None, frontend_endpoints=None, load_balancer_enabled=None, location=None, name=None, resource_group_name=None, routing_rules=None, tags=None):
         """
         Get an existing Frontdoor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -292,6 +298,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[list] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[list] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
         :param pulumi.Input[list] backend_pools: A `backend_pool` block as defined below.
+        :param pulumi.Input[float] backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
         :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
         :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
@@ -386,6 +393,7 @@ class Frontdoor(pulumi.CustomResource):
         __props__["backend_pool_health_probes"] = backend_pool_health_probes
         __props__["backend_pool_load_balancings"] = backend_pool_load_balancings
         __props__["backend_pools"] = backend_pools
+        __props__["backend_pools_send_receive_timeout_seconds"] = backend_pools_send_receive_timeout_seconds
         __props__["cname"] = cname
         __props__["enforce_backend_pools_certificate_name_check"] = enforce_backend_pools_certificate_name_check
         __props__["friendly_name"] = friendly_name

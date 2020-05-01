@@ -13,12 +13,18 @@ class GetElasticPoolResult:
     """
     A collection of values returned by getElasticPool.
     """
-    def __init__(__self__, id=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, tags=None, zone_redundant=None):
+    def __init__(__self__, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, tags=None, zone_redundant=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         The provider-assigned unique ID for this managed resource.
+        """
+        if license_type and not isinstance(license_type, str):
+            raise TypeError("Expected argument 'license_type' to be a str")
+        __self__.license_type = license_type
+        """
+        The license type to apply for this database.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -78,6 +84,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             yield self
         return GetElasticPoolResult(
             id=self.id,
+            license_type=self.license_type,
             location=self.location,
             max_size_bytes=self.max_size_bytes,
             max_size_gb=self.max_size_gb,
@@ -114,6 +121,7 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
 
     return AwaitableGetElasticPoolResult(
         id=__ret__.get('id'),
+        license_type=__ret__.get('licenseType'),
         location=__ret__.get('location'),
         max_size_bytes=__ret__.get('maxSizeBytes'),
         max_size_gb=__ret__.get('maxSizeGb'),

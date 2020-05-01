@@ -59,6 +59,10 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly backendPoolLoadBalancings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolLoadBalancing[]>;
     /**
+     * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+     */
+    public readonly backendPoolsSendReceiveTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
      * The host that each frontendEndpoint must CNAME to.
      */
     public /*out*/ readonly cname!: pulumi.Output<string>;
@@ -111,6 +115,7 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["backendPools"] = state ? state.backendPools : undefined;
             inputs["backendPoolHealthProbes"] = state ? state.backendPoolHealthProbes : undefined;
             inputs["backendPoolLoadBalancings"] = state ? state.backendPoolLoadBalancings : undefined;
+            inputs["backendPoolsSendReceiveTimeoutSeconds"] = state ? state.backendPoolsSendReceiveTimeoutSeconds : undefined;
             inputs["cname"] = state ? state.cname : undefined;
             inputs["enforceBackendPoolsCertificateNameCheck"] = state ? state.enforceBackendPoolsCertificateNameCheck : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
@@ -147,6 +152,7 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["backendPools"] = args ? args.backendPools : undefined;
             inputs["backendPoolHealthProbes"] = args ? args.backendPoolHealthProbes : undefined;
             inputs["backendPoolLoadBalancings"] = args ? args.backendPoolLoadBalancings : undefined;
+            inputs["backendPoolsSendReceiveTimeoutSeconds"] = args ? args.backendPoolsSendReceiveTimeoutSeconds : undefined;
             inputs["enforceBackendPoolsCertificateNameCheck"] = args ? args.enforceBackendPoolsCertificateNameCheck : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
@@ -185,6 +191,10 @@ export interface FrontdoorState {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     readonly backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    /**
+     * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+     */
+    readonly backendPoolsSendReceiveTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The host that each frontendEndpoint must CNAME to.
      */
@@ -240,6 +250,10 @@ export interface FrontdoorArgs {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     readonly backendPoolLoadBalancings: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    /**
+     * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+     */
+    readonly backendPoolsSendReceiveTimeoutSeconds?: pulumi.Input<number>;
     /**
      * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */

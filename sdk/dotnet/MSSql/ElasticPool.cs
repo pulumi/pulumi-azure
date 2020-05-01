@@ -10,10 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql
 {
     /// <summary>
-    /// Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
+    /// Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        /// </summary>
+        [Output("licenseType")]
+        public Output<string> LicenseType { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -121,6 +127,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class ElasticPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -193,6 +205,12 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ElasticPoolState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>

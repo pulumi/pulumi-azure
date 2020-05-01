@@ -11,15 +11,15 @@ import (
 )
 
 type PolicyCustomRule struct {
-	// Type of Actions
+	// Type of action.
 	Action string `pulumi:"action"`
-	// One or more `matchCondition` block defined below.
+	// One or more `matchConditions` blocks as defined below.
 	MatchConditions []PolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
-	// The name of the policy. Changing this forces a new resource to be created.
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 	Priority int `pulumi:"priority"`
-	// Describes the type of rule
+	// Describes the type of rule.
 	RuleType string `pulumi:"ruleType"`
 }
 
@@ -36,15 +36,15 @@ type PolicyCustomRuleInput interface {
 }
 
 type PolicyCustomRuleArgs struct {
-	// Type of Actions
+	// Type of action.
 	Action pulumi.StringInput `pulumi:"action"`
-	// One or more `matchCondition` block defined below.
+	// One or more `matchConditions` blocks as defined below.
 	MatchConditions PolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
-	// The name of the policy. Changing this forces a new resource to be created.
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// Describes the type of rule
+	// Describes the type of rule.
 	RuleType pulumi.StringInput `pulumi:"ruleType"`
 }
 
@@ -100,27 +100,27 @@ func (o PolicyCustomRuleOutput) ToPolicyCustomRuleOutputWithContext(ctx context.
 	return o
 }
 
-// Type of Actions
+// Type of action.
 func (o PolicyCustomRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// One or more `matchCondition` block defined below.
+// One or more `matchConditions` blocks as defined below.
 func (o PolicyCustomRuleOutput) MatchConditions() PolicyCustomRuleMatchConditionArrayOutput {
 	return o.ApplyT(func(v PolicyCustomRule) []PolicyCustomRuleMatchCondition { return v.MatchConditions }).(PolicyCustomRuleMatchConditionArrayOutput)
 }
 
-// The name of the policy. Changing this forces a new resource to be created.
+// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 func (o PolicyCustomRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyCustomRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 func (o PolicyCustomRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyCustomRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Describes the type of rule
+// Describes the type of rule.
 func (o PolicyCustomRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -146,13 +146,13 @@ func (o PolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleOu
 }
 
 type PolicyCustomRuleMatchCondition struct {
-	// Match value
+	// A list of match values.
 	MatchValues []string `pulumi:"matchValues"`
-	// One or more `matchVariable` block defined below.
+	// One or more `matchVariables` blocks as defined below.
 	MatchVariables []PolicyCustomRuleMatchConditionMatchVariable `pulumi:"matchVariables"`
 	// Describes if this is negate condition or not
 	NegationCondition *bool `pulumi:"negationCondition"`
-	// Describes operator to be matched
+	// Describes operator to be matched.
 	Operator string `pulumi:"operator"`
 }
 
@@ -169,13 +169,13 @@ type PolicyCustomRuleMatchConditionInput interface {
 }
 
 type PolicyCustomRuleMatchConditionArgs struct {
-	// Match value
+	// A list of match values.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
-	// One or more `matchVariable` block defined below.
+	// One or more `matchVariables` blocks as defined below.
 	MatchVariables PolicyCustomRuleMatchConditionMatchVariableArrayInput `pulumi:"matchVariables"`
 	// Describes if this is negate condition or not
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
-	// Describes operator to be matched
+	// Describes operator to be matched.
 	Operator pulumi.StringInput `pulumi:"operator"`
 }
 
@@ -231,12 +231,12 @@ func (o PolicyCustomRuleMatchConditionOutput) ToPolicyCustomRuleMatchConditionOu
 	return o
 }
 
-// Match value
+// A list of match values.
 func (o PolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
 
-// One or more `matchVariable` block defined below.
+// One or more `matchVariables` blocks as defined below.
 func (o PolicyCustomRuleMatchConditionOutput) MatchVariables() PolicyCustomRuleMatchConditionMatchVariableArrayOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []PolicyCustomRuleMatchConditionMatchVariable {
 		return v.MatchVariables
@@ -248,7 +248,7 @@ func (o PolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtr
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Describes operator to be matched
+// Describes operator to be matched.
 func (o PolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -379,6 +379,499 @@ func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyCustomRuleMatchConditionMatchVariable {
 		return vs[0].([]PolicyCustomRuleMatchConditionMatchVariable)[vs[1].(int)]
 	}).(PolicyCustomRuleMatchConditionMatchVariableOutput)
+}
+
+type PolicyManagedRules struct {
+	// One or more `exclusion` block defined below.
+	Exclusions []PolicyManagedRulesExclusion `pulumi:"exclusions"`
+	// One or more `managedRuleSet` block defined below.
+	ManagedRuleSets []PolicyManagedRulesManagedRuleSet `pulumi:"managedRuleSets"`
+}
+
+// PolicyManagedRulesInput is an input type that accepts PolicyManagedRulesArgs and PolicyManagedRulesOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesInput` via:
+//
+// 		 PolicyManagedRulesArgs{...}
+//
+type PolicyManagedRulesInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesOutput() PolicyManagedRulesOutput
+	ToPolicyManagedRulesOutputWithContext(context.Context) PolicyManagedRulesOutput
+}
+
+type PolicyManagedRulesArgs struct {
+	// One or more `exclusion` block defined below.
+	Exclusions PolicyManagedRulesExclusionArrayInput `pulumi:"exclusions"`
+	// One or more `managedRuleSet` block defined below.
+	ManagedRuleSets PolicyManagedRulesManagedRuleSetArrayInput `pulumi:"managedRuleSets"`
+}
+
+func (PolicyManagedRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRules)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesArgs) ToPolicyManagedRulesOutput() PolicyManagedRulesOutput {
+	return i.ToPolicyManagedRulesOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesArgs) ToPolicyManagedRulesOutputWithContext(ctx context.Context) PolicyManagedRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesOutput)
+}
+
+func (i PolicyManagedRulesArgs) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
+	return i.ToPolicyManagedRulesPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesArgs) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesOutput).ToPolicyManagedRulesPtrOutputWithContext(ctx)
+}
+
+// PolicyManagedRulesPtrInput is an input type that accepts PolicyManagedRulesArgs, PolicyManagedRulesPtr and PolicyManagedRulesPtrOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesPtrInput` via:
+//
+// 		 PolicyManagedRulesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type PolicyManagedRulesPtrInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput
+	ToPolicyManagedRulesPtrOutputWithContext(context.Context) PolicyManagedRulesPtrOutput
+}
+
+type policyManagedRulesPtrType PolicyManagedRulesArgs
+
+func PolicyManagedRulesPtr(v *PolicyManagedRulesArgs) PolicyManagedRulesPtrInput {
+	return (*policyManagedRulesPtrType)(v)
+}
+
+func (*policyManagedRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyManagedRules)(nil)).Elem()
+}
+
+func (i *policyManagedRulesPtrType) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
+	return i.ToPolicyManagedRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *policyManagedRulesPtrType) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesPtrOutput)
+}
+
+type PolicyManagedRulesOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRules)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesOutput) ToPolicyManagedRulesOutput() PolicyManagedRulesOutput {
+	return o
+}
+
+func (o PolicyManagedRulesOutput) ToPolicyManagedRulesOutputWithContext(ctx context.Context) PolicyManagedRulesOutput {
+	return o
+}
+
+func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
+	return o.ToPolicyManagedRulesPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRules) *PolicyManagedRules {
+		return &v
+	}).(PolicyManagedRulesPtrOutput)
+}
+
+// One or more `exclusion` block defined below.
+func (o PolicyManagedRulesOutput) Exclusions() PolicyManagedRulesExclusionArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesExclusion { return v.Exclusions }).(PolicyManagedRulesExclusionArrayOutput)
+}
+
+// One or more `managedRuleSet` block defined below.
+func (o PolicyManagedRulesOutput) ManagedRuleSets() PolicyManagedRulesManagedRuleSetArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesManagedRuleSet { return v.ManagedRuleSets }).(PolicyManagedRulesManagedRuleSetArrayOutput)
+}
+
+type PolicyManagedRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyManagedRules)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesPtrOutput) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
+	return o
+}
+
+func (o PolicyManagedRulesPtrOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
+	return o
+}
+
+func (o PolicyManagedRulesPtrOutput) Elem() PolicyManagedRulesOutput {
+	return o.ApplyT(func(v *PolicyManagedRules) PolicyManagedRules { return *v }).(PolicyManagedRulesOutput)
+}
+
+// One or more `exclusion` block defined below.
+func (o PolicyManagedRulesPtrOutput) Exclusions() PolicyManagedRulesExclusionArrayOutput {
+	return o.ApplyT(func(v *PolicyManagedRules) []PolicyManagedRulesExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.Exclusions
+	}).(PolicyManagedRulesExclusionArrayOutput)
+}
+
+// One or more `managedRuleSet` block defined below.
+func (o PolicyManagedRulesPtrOutput) ManagedRuleSets() PolicyManagedRulesManagedRuleSetArrayOutput {
+	return o.ApplyT(func(v *PolicyManagedRules) []PolicyManagedRulesManagedRuleSet {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedRuleSets
+	}).(PolicyManagedRulesManagedRuleSetArrayOutput)
+}
+
+type PolicyManagedRulesExclusion struct {
+	MatchVariable string `pulumi:"matchVariable"`
+	// Describes field of the matchVariable collection.
+	Selector string `pulumi:"selector"`
+	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+	SelectorMatchOperator string `pulumi:"selectorMatchOperator"`
+}
+
+// PolicyManagedRulesExclusionInput is an input type that accepts PolicyManagedRulesExclusionArgs and PolicyManagedRulesExclusionOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExclusionInput` via:
+//
+// 		 PolicyManagedRulesExclusionArgs{...}
+//
+type PolicyManagedRulesExclusionInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExclusionOutput() PolicyManagedRulesExclusionOutput
+	ToPolicyManagedRulesExclusionOutputWithContext(context.Context) PolicyManagedRulesExclusionOutput
+}
+
+type PolicyManagedRulesExclusionArgs struct {
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Describes field of the matchVariable collection.
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+	SelectorMatchOperator pulumi.StringInput `pulumi:"selectorMatchOperator"`
+}
+
+func (PolicyManagedRulesExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExclusion)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExclusionArgs) ToPolicyManagedRulesExclusionOutput() PolicyManagedRulesExclusionOutput {
+	return i.ToPolicyManagedRulesExclusionOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExclusionArgs) ToPolicyManagedRulesExclusionOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionOutput)
+}
+
+// PolicyManagedRulesExclusionArrayInput is an input type that accepts PolicyManagedRulesExclusionArray and PolicyManagedRulesExclusionArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExclusionArrayInput` via:
+//
+// 		 PolicyManagedRulesExclusionArray{ PolicyManagedRulesExclusionArgs{...} }
+//
+type PolicyManagedRulesExclusionArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExclusionArrayOutput() PolicyManagedRulesExclusionArrayOutput
+	ToPolicyManagedRulesExclusionArrayOutputWithContext(context.Context) PolicyManagedRulesExclusionArrayOutput
+}
+
+type PolicyManagedRulesExclusionArray []PolicyManagedRulesExclusionInput
+
+func (PolicyManagedRulesExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExclusion)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExclusionArray) ToPolicyManagedRulesExclusionArrayOutput() PolicyManagedRulesExclusionArrayOutput {
+	return i.ToPolicyManagedRulesExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExclusionArray) ToPolicyManagedRulesExclusionArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionArrayOutput)
+}
+
+type PolicyManagedRulesExclusionOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExclusion)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExclusionOutput) ToPolicyManagedRulesExclusionOutput() PolicyManagedRulesExclusionOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionOutput) ToPolicyManagedRulesExclusionOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// Describes field of the matchVariable collection.
+func (o PolicyManagedRulesExclusionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusion) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+func (o PolicyManagedRulesExclusionOutput) SelectorMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusion) string { return v.SelectorMatchOperator }).(pulumi.StringOutput)
+}
+
+type PolicyManagedRulesExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExclusion)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExclusionArrayOutput) ToPolicyManagedRulesExclusionArrayOutput() PolicyManagedRulesExclusionArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionArrayOutput) ToPolicyManagedRulesExclusionArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesExclusion {
+		return vs[0].([]PolicyManagedRulesExclusion)[vs[1].(int)]
+	}).(PolicyManagedRulesExclusionOutput)
+}
+
+type PolicyManagedRulesManagedRuleSet struct {
+	// One or more `ruleGroupOverride` block defined below.
+	RuleGroupOverrides []PolicyManagedRulesManagedRuleSetRuleGroupOverride `pulumi:"ruleGroupOverrides"`
+	// The rule set type.
+	Type *string `pulumi:"type"`
+	// The rule set version.
+	Version string `pulumi:"version"`
+}
+
+// PolicyManagedRulesManagedRuleSetInput is an input type that accepts PolicyManagedRulesManagedRuleSetArgs and PolicyManagedRulesManagedRuleSetOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetInput` via:
+//
+// 		 PolicyManagedRulesManagedRuleSetArgs{...}
+//
+type PolicyManagedRulesManagedRuleSetInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesManagedRuleSetOutput() PolicyManagedRulesManagedRuleSetOutput
+	ToPolicyManagedRulesManagedRuleSetOutputWithContext(context.Context) PolicyManagedRulesManagedRuleSetOutput
+}
+
+type PolicyManagedRulesManagedRuleSetArgs struct {
+	// One or more `ruleGroupOverride` block defined below.
+	RuleGroupOverrides PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput `pulumi:"ruleGroupOverrides"`
+	// The rule set type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The rule set version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PolicyManagedRulesManagedRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesManagedRuleSet)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesManagedRuleSetArgs) ToPolicyManagedRulesManagedRuleSetOutput() PolicyManagedRulesManagedRuleSetOutput {
+	return i.ToPolicyManagedRulesManagedRuleSetOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesManagedRuleSetArgs) ToPolicyManagedRulesManagedRuleSetOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetOutput)
+}
+
+// PolicyManagedRulesManagedRuleSetArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetArray and PolicyManagedRulesManagedRuleSetArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetArrayInput` via:
+//
+// 		 PolicyManagedRulesManagedRuleSetArray{ PolicyManagedRulesManagedRuleSetArgs{...} }
+//
+type PolicyManagedRulesManagedRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesManagedRuleSetArrayOutput() PolicyManagedRulesManagedRuleSetArrayOutput
+	ToPolicyManagedRulesManagedRuleSetArrayOutputWithContext(context.Context) PolicyManagedRulesManagedRuleSetArrayOutput
+}
+
+type PolicyManagedRulesManagedRuleSetArray []PolicyManagedRulesManagedRuleSetInput
+
+func (PolicyManagedRulesManagedRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesManagedRuleSet)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesManagedRuleSetArray) ToPolicyManagedRulesManagedRuleSetArrayOutput() PolicyManagedRulesManagedRuleSetArrayOutput {
+	return i.ToPolicyManagedRulesManagedRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesManagedRuleSetArray) ToPolicyManagedRulesManagedRuleSetArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetArrayOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesManagedRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesManagedRuleSet)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesManagedRuleSetOutput) ToPolicyManagedRulesManagedRuleSetOutput() PolicyManagedRulesManagedRuleSetOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetOutput) ToPolicyManagedRulesManagedRuleSetOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetOutput {
+	return o
+}
+
+// One or more `ruleGroupOverride` block defined below.
+func (o PolicyManagedRulesManagedRuleSetOutput) RuleGroupOverrides() PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) []PolicyManagedRulesManagedRuleSetRuleGroupOverride {
+		return v.RuleGroupOverrides
+	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput)
+}
+
+// The rule set type.
+func (o PolicyManagedRulesManagedRuleSetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The rule set version.
+func (o PolicyManagedRulesManagedRuleSetOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesManagedRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesManagedRuleSet)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesManagedRuleSetArrayOutput) ToPolicyManagedRulesManagedRuleSetArrayOutput() PolicyManagedRulesManagedRuleSetArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetArrayOutput) ToPolicyManagedRulesManagedRuleSetArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesManagedRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesManagedRuleSet {
+		return vs[0].([]PolicyManagedRulesManagedRuleSet)[vs[1].(int)]
+	}).(PolicyManagedRulesManagedRuleSetOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
+	// One or more Rule ID's
+	DisabledRules []string `pulumi:"disabledRules"`
+	// The name of the Rule Group
+	RuleGroupName string `pulumi:"ruleGroupName"`
+}
+
+// PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs and PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput` via:
+//
+// 		 PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{...}
+//
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutputWithContext(context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs struct {
+	// One or more Rule ID's
+	DisabledRules pulumi.StringArrayInput `pulumi:"disabledRules"`
+	// The name of the Rule Group
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+}
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverride)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput {
+	return i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput)
+}
+
+// PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray and PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput` via:
+//
+// 		 PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{ PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{...} }
+//
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutputWithContext(context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray []PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesManagedRuleSetRuleGroupOverride)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput {
+	return i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverride)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput {
+	return o
+}
+
+// One or more Rule ID's
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) DisabledRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []string { return v.DisabledRules }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Rule Group
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesManagedRuleSetRuleGroupOverride)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesManagedRuleSetRuleGroupOverride {
+		return vs[0].([]PolicyManagedRulesManagedRuleSetRuleGroupOverride)[vs[1].(int)]
+	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput)
 }
 
 type PolicyPolicySettings struct {
@@ -540,6 +1033,14 @@ func init() {
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionArrayOutput{})
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionMatchVariableOutput{})
 	pulumi.RegisterOutputType(PolicyCustomRuleMatchConditionMatchVariableArrayOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesPtrOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExclusionOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExclusionArrayOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput{})
 	pulumi.RegisterOutputType(PolicyPolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicyPolicySettingsPtrOutput{})
 }

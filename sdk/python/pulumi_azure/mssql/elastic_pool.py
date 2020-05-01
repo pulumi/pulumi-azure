@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class ElasticPool(pulumi.CustomResource):
+    license_type: pulumi.Output[str]
+    """
+    Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -58,14 +62,15 @@ class ElasticPool(pulumi.CustomResource):
     """
     Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
-        Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
+        Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
 
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
@@ -106,6 +111,7 @@ class ElasticPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['license_type'] = license_type
             __props__['location'] = location
             __props__['max_size_bytes'] = max_size_bytes
             __props__['max_size_gb'] = max_size_gb
@@ -131,7 +137,7 @@ class ElasticPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None):
+    def get(resource_name, id, opts=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None):
         """
         Get an existing ElasticPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,6 +145,7 @@ class ElasticPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
@@ -166,6 +173,7 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["license_type"] = license_type
         __props__["location"] = location
         __props__["max_size_bytes"] = max_size_bytes
         __props__["max_size_gb"] = max_size_gb

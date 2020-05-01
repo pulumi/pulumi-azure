@@ -17118,6 +17118,267 @@ func (o GetSharedImageVersionTargetRegionArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetSharedImageVersionTargetRegionOutput)
 }
 
+type GetSharedImageVersionsImage struct {
+	// Is this Image Version excluded from the `latest` filter?
+	ExcludeFromLatest bool `pulumi:"excludeFromLatest"`
+	// The supported Azure location where the Shared Image Gallery exists.
+	Location string `pulumi:"location"`
+	// The ID of the Managed Image which was the source of this Shared Image Version.
+	ManagedImageId string `pulumi:"managedImageId"`
+	// The Azure Region in which this Image Version exists.
+	Name string `pulumi:"name"`
+	// A mapping of tags assigned to the Shared Image.
+	Tags map[string]string `pulumi:"tags"`
+	// One or more `targetRegion` blocks as documented below.
+	TargetRegions []GetSharedImageVersionsImageTargetRegion `pulumi:"targetRegions"`
+}
+
+// GetSharedImageVersionsImageInput is an input type that accepts GetSharedImageVersionsImageArgs and GetSharedImageVersionsImageOutput values.
+// You can construct a concrete instance of `GetSharedImageVersionsImageInput` via:
+//
+// 		 GetSharedImageVersionsImageArgs{...}
+//
+type GetSharedImageVersionsImageInput interface {
+	pulumi.Input
+
+	ToGetSharedImageVersionsImageOutput() GetSharedImageVersionsImageOutput
+	ToGetSharedImageVersionsImageOutputWithContext(context.Context) GetSharedImageVersionsImageOutput
+}
+
+type GetSharedImageVersionsImageArgs struct {
+	// Is this Image Version excluded from the `latest` filter?
+	ExcludeFromLatest pulumi.BoolInput `pulumi:"excludeFromLatest"`
+	// The supported Azure location where the Shared Image Gallery exists.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The ID of the Managed Image which was the source of this Shared Image Version.
+	ManagedImageId pulumi.StringInput `pulumi:"managedImageId"`
+	// The Azure Region in which this Image Version exists.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A mapping of tags assigned to the Shared Image.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// One or more `targetRegion` blocks as documented below.
+	TargetRegions GetSharedImageVersionsImageTargetRegionArrayInput `pulumi:"targetRegions"`
+}
+
+func (GetSharedImageVersionsImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharedImageVersionsImage)(nil)).Elem()
+}
+
+func (i GetSharedImageVersionsImageArgs) ToGetSharedImageVersionsImageOutput() GetSharedImageVersionsImageOutput {
+	return i.ToGetSharedImageVersionsImageOutputWithContext(context.Background())
+}
+
+func (i GetSharedImageVersionsImageArgs) ToGetSharedImageVersionsImageOutputWithContext(ctx context.Context) GetSharedImageVersionsImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageVersionsImageOutput)
+}
+
+// GetSharedImageVersionsImageArrayInput is an input type that accepts GetSharedImageVersionsImageArray and GetSharedImageVersionsImageArrayOutput values.
+// You can construct a concrete instance of `GetSharedImageVersionsImageArrayInput` via:
+//
+// 		 GetSharedImageVersionsImageArray{ GetSharedImageVersionsImageArgs{...} }
+//
+type GetSharedImageVersionsImageArrayInput interface {
+	pulumi.Input
+
+	ToGetSharedImageVersionsImageArrayOutput() GetSharedImageVersionsImageArrayOutput
+	ToGetSharedImageVersionsImageArrayOutputWithContext(context.Context) GetSharedImageVersionsImageArrayOutput
+}
+
+type GetSharedImageVersionsImageArray []GetSharedImageVersionsImageInput
+
+func (GetSharedImageVersionsImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharedImageVersionsImage)(nil)).Elem()
+}
+
+func (i GetSharedImageVersionsImageArray) ToGetSharedImageVersionsImageArrayOutput() GetSharedImageVersionsImageArrayOutput {
+	return i.ToGetSharedImageVersionsImageArrayOutputWithContext(context.Background())
+}
+
+func (i GetSharedImageVersionsImageArray) ToGetSharedImageVersionsImageArrayOutputWithContext(ctx context.Context) GetSharedImageVersionsImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageVersionsImageArrayOutput)
+}
+
+type GetSharedImageVersionsImageOutput struct{ *pulumi.OutputState }
+
+func (GetSharedImageVersionsImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharedImageVersionsImage)(nil)).Elem()
+}
+
+func (o GetSharedImageVersionsImageOutput) ToGetSharedImageVersionsImageOutput() GetSharedImageVersionsImageOutput {
+	return o
+}
+
+func (o GetSharedImageVersionsImageOutput) ToGetSharedImageVersionsImageOutputWithContext(ctx context.Context) GetSharedImageVersionsImageOutput {
+	return o
+}
+
+// Is this Image Version excluded from the `latest` filter?
+func (o GetSharedImageVersionsImageOutput) ExcludeFromLatest() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImage) bool { return v.ExcludeFromLatest }).(pulumi.BoolOutput)
+}
+
+// The supported Azure location where the Shared Image Gallery exists.
+func (o GetSharedImageVersionsImageOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImage) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The ID of the Managed Image which was the source of this Shared Image Version.
+func (o GetSharedImageVersionsImageOutput) ManagedImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImage) string { return v.ManagedImageId }).(pulumi.StringOutput)
+}
+
+// The Azure Region in which this Image Version exists.
+func (o GetSharedImageVersionsImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Shared Image.
+func (o GetSharedImageVersionsImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImage) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// One or more `targetRegion` blocks as documented below.
+func (o GetSharedImageVersionsImageOutput) TargetRegions() GetSharedImageVersionsImageTargetRegionArrayOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImage) []GetSharedImageVersionsImageTargetRegion { return v.TargetRegions }).(GetSharedImageVersionsImageTargetRegionArrayOutput)
+}
+
+type GetSharedImageVersionsImageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSharedImageVersionsImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharedImageVersionsImage)(nil)).Elem()
+}
+
+func (o GetSharedImageVersionsImageArrayOutput) ToGetSharedImageVersionsImageArrayOutput() GetSharedImageVersionsImageArrayOutput {
+	return o
+}
+
+func (o GetSharedImageVersionsImageArrayOutput) ToGetSharedImageVersionsImageArrayOutputWithContext(ctx context.Context) GetSharedImageVersionsImageArrayOutput {
+	return o
+}
+
+func (o GetSharedImageVersionsImageArrayOutput) Index(i pulumi.IntInput) GetSharedImageVersionsImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImageVersionsImage {
+		return vs[0].([]GetSharedImageVersionsImage)[vs[1].(int)]
+	}).(GetSharedImageVersionsImageOutput)
+}
+
+type GetSharedImageVersionsImageTargetRegion struct {
+	// The Azure Region in which this Image Version exists.
+	Name string `pulumi:"name"`
+	// The number of replicas of the Image Version to be created per region.
+	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
+	// The storage account type for the image version.
+	StorageAccountType string `pulumi:"storageAccountType"`
+}
+
+// GetSharedImageVersionsImageTargetRegionInput is an input type that accepts GetSharedImageVersionsImageTargetRegionArgs and GetSharedImageVersionsImageTargetRegionOutput values.
+// You can construct a concrete instance of `GetSharedImageVersionsImageTargetRegionInput` via:
+//
+// 		 GetSharedImageVersionsImageTargetRegionArgs{...}
+//
+type GetSharedImageVersionsImageTargetRegionInput interface {
+	pulumi.Input
+
+	ToGetSharedImageVersionsImageTargetRegionOutput() GetSharedImageVersionsImageTargetRegionOutput
+	ToGetSharedImageVersionsImageTargetRegionOutputWithContext(context.Context) GetSharedImageVersionsImageTargetRegionOutput
+}
+
+type GetSharedImageVersionsImageTargetRegionArgs struct {
+	// The Azure Region in which this Image Version exists.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of replicas of the Image Version to be created per region.
+	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
+	// The storage account type for the image version.
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+}
+
+func (GetSharedImageVersionsImageTargetRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharedImageVersionsImageTargetRegion)(nil)).Elem()
+}
+
+func (i GetSharedImageVersionsImageTargetRegionArgs) ToGetSharedImageVersionsImageTargetRegionOutput() GetSharedImageVersionsImageTargetRegionOutput {
+	return i.ToGetSharedImageVersionsImageTargetRegionOutputWithContext(context.Background())
+}
+
+func (i GetSharedImageVersionsImageTargetRegionArgs) ToGetSharedImageVersionsImageTargetRegionOutputWithContext(ctx context.Context) GetSharedImageVersionsImageTargetRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageVersionsImageTargetRegionOutput)
+}
+
+// GetSharedImageVersionsImageTargetRegionArrayInput is an input type that accepts GetSharedImageVersionsImageTargetRegionArray and GetSharedImageVersionsImageTargetRegionArrayOutput values.
+// You can construct a concrete instance of `GetSharedImageVersionsImageTargetRegionArrayInput` via:
+//
+// 		 GetSharedImageVersionsImageTargetRegionArray{ GetSharedImageVersionsImageTargetRegionArgs{...} }
+//
+type GetSharedImageVersionsImageTargetRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetSharedImageVersionsImageTargetRegionArrayOutput() GetSharedImageVersionsImageTargetRegionArrayOutput
+	ToGetSharedImageVersionsImageTargetRegionArrayOutputWithContext(context.Context) GetSharedImageVersionsImageTargetRegionArrayOutput
+}
+
+type GetSharedImageVersionsImageTargetRegionArray []GetSharedImageVersionsImageTargetRegionInput
+
+func (GetSharedImageVersionsImageTargetRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharedImageVersionsImageTargetRegion)(nil)).Elem()
+}
+
+func (i GetSharedImageVersionsImageTargetRegionArray) ToGetSharedImageVersionsImageTargetRegionArrayOutput() GetSharedImageVersionsImageTargetRegionArrayOutput {
+	return i.ToGetSharedImageVersionsImageTargetRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSharedImageVersionsImageTargetRegionArray) ToGetSharedImageVersionsImageTargetRegionArrayOutputWithContext(ctx context.Context) GetSharedImageVersionsImageTargetRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSharedImageVersionsImageTargetRegionArrayOutput)
+}
+
+type GetSharedImageVersionsImageTargetRegionOutput struct{ *pulumi.OutputState }
+
+func (GetSharedImageVersionsImageTargetRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSharedImageVersionsImageTargetRegion)(nil)).Elem()
+}
+
+func (o GetSharedImageVersionsImageTargetRegionOutput) ToGetSharedImageVersionsImageTargetRegionOutput() GetSharedImageVersionsImageTargetRegionOutput {
+	return o
+}
+
+func (o GetSharedImageVersionsImageTargetRegionOutput) ToGetSharedImageVersionsImageTargetRegionOutputWithContext(ctx context.Context) GetSharedImageVersionsImageTargetRegionOutput {
+	return o
+}
+
+// The Azure Region in which this Image Version exists.
+func (o GetSharedImageVersionsImageTargetRegionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImageTargetRegion) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of replicas of the Image Version to be created per region.
+func (o GetSharedImageVersionsImageTargetRegionOutput) RegionalReplicaCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImageTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
+}
+
+// The storage account type for the image version.
+func (o GetSharedImageVersionsImageTargetRegionOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSharedImageVersionsImageTargetRegion) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+type GetSharedImageVersionsImageTargetRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSharedImageVersionsImageTargetRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSharedImageVersionsImageTargetRegion)(nil)).Elem()
+}
+
+func (o GetSharedImageVersionsImageTargetRegionArrayOutput) ToGetSharedImageVersionsImageTargetRegionArrayOutput() GetSharedImageVersionsImageTargetRegionArrayOutput {
+	return o
+}
+
+func (o GetSharedImageVersionsImageTargetRegionArrayOutput) ToGetSharedImageVersionsImageTargetRegionArrayOutputWithContext(ctx context.Context) GetSharedImageVersionsImageTargetRegionArrayOutput {
+	return o
+}
+
+func (o GetSharedImageVersionsImageTargetRegionArrayOutput) Index(i pulumi.IntInput) GetSharedImageVersionsImageTargetRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSharedImageVersionsImageTargetRegion {
+		return vs[0].([]GetSharedImageVersionsImageTargetRegion)[vs[1].(int)]
+	}).(GetSharedImageVersionsImageTargetRegionOutput)
+}
+
 type GetSnapshotEncryptionSetting struct {
 	DiskEncryptionKeys []GetSnapshotEncryptionSettingDiskEncryptionKey `pulumi:"diskEncryptionKeys"`
 	Enabled            bool                                            `pulumi:"enabled"`
@@ -17659,6 +17920,10 @@ func init() {
 	pulumi.RegisterOutputType(GetSharedImageIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageVersionTargetRegionOutput{})
 	pulumi.RegisterOutputType(GetSharedImageVersionTargetRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetSharedImageVersionsImageOutput{})
+	pulumi.RegisterOutputType(GetSharedImageVersionsImageArrayOutput{})
+	pulumi.RegisterOutputType(GetSharedImageVersionsImageTargetRegionOutput{})
+	pulumi.RegisterOutputType(GetSharedImageVersionsImageTargetRegionArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotEncryptionSettingOutput{})
 	pulumi.RegisterOutputType(GetSnapshotEncryptionSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotEncryptionSettingDiskEncryptionKeyOutput{})

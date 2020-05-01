@@ -8,6 +8,7 @@ from .database_vulnerability_assessment_rule_baseline import *
 from .elastic_pool import *
 from .get_database import *
 from .get_elastic_pool import *
+from .server import *
 from .server_security_alert_policy import *
 from .server_vulnerability_assessment import *
 from .virtual_machine import *

@@ -47,6 +47,9 @@ export class Server extends pulumi.CustomResource {
      * The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     */
     public readonly autoGrowEnabled!: pulumi.Output<boolean>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
@@ -69,7 +72,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly geoRedundantBackupEnabled!: pulumi.Output<boolean>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -96,10 +99,10 @@ export class Server extends pulumi.CustomResource {
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
      */
     public readonly skuName!: pulumi.Output<string>;
-    /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-     */
     public readonly sslEnforcement!: pulumi.Output<string>;
+    /**
+     * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     */
     public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
     /**
      * The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
@@ -210,6 +213,9 @@ export interface ServerState {
      * The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     */
     readonly autoGrowEnabled?: pulumi.Input<boolean>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
@@ -232,7 +238,7 @@ export interface ServerState {
      */
     readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */
     readonly infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -259,12 +265,10 @@ export interface ServerState {
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
      */
     readonly skuName?: pulumi.Input<string>;
-    /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-     * 
-     * @deprecated this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
-     */
     readonly sslEnforcement?: pulumi.Input<string>;
+    /**
+     * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     */
     readonly sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
      * The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
@@ -297,6 +301,9 @@ export interface ServerArgs {
      * The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     */
     readonly autoGrowEnabled?: pulumi.Input<boolean>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
@@ -315,7 +322,7 @@ export interface ServerArgs {
      */
     readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */
     readonly infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -342,12 +349,10 @@ export interface ServerArgs {
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
      */
     readonly skuName: pulumi.Input<string>;
-    /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-     * 
-     * @deprecated this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
-     */
     readonly sslEnforcement?: pulumi.Input<string>;
+    /**
+     * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     */
     readonly sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
      * The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.

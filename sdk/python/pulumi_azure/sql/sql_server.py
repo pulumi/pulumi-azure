@@ -41,7 +41,7 @@ class SqlServer(pulumi.CustomResource):
 
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-      * `type` (`str`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+      * `type` (`str`) - Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
     """
     location: pulumi.Output[str]
     """
@@ -49,11 +49,11 @@ class SqlServer(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the SQL Server. This needs to be globally unique within Azure.
+    The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to create the SQL Server.
+    The name of the resource group in which to create the Microsoft SQL Server.
     """
     tags: pulumi.Output[dict]
     """
@@ -65,7 +65,7 @@ class SqlServer(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, connection_policy=None, extended_auditing_policy=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a SQL Azure Database Server.
+        Manages a Microsoft SQL Azure Database Server.
 
 
 
@@ -77,8 +77,8 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the SQL Server. This needs to be globally unique within Azure.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 
@@ -93,7 +93,7 @@ class SqlServer(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -153,8 +153,8 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the SQL Server. This needs to be globally unique within Azure.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SQL Server.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 
@@ -169,7 +169,7 @@ class SqlServer(pulumi.CustomResource):
 
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

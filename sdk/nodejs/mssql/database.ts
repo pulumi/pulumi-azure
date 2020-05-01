@@ -60,6 +60,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly elasticPoolId!: pulumi.Output<string | undefined>;
     /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.mssql.DatabaseExtendedAuditingPolicy | undefined>;
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
     public readonly licenseType!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class Database extends pulumi.CustomResource {
             inputs["createMode"] = state ? state.createMode : undefined;
             inputs["creationSourceDatabaseId"] = state ? state.creationSourceDatabaseId : undefined;
             inputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
+            inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
             inputs["minCapacity"] = state ? state.minCapacity : undefined;
@@ -152,6 +157,7 @@ export class Database extends pulumi.CustomResource {
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["creationSourceDatabaseId"] = args ? args.creationSourceDatabaseId : undefined;
             inputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
+            inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
             inputs["minCapacity"] = args ? args.minCapacity : undefined;
@@ -201,6 +207,10 @@ export interface DatabaseState {
      * Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
      */
     readonly elasticPoolId?: pulumi.Input<string>;
+    /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
@@ -279,6 +289,10 @@ export interface DatabaseArgs {
      * Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
      */
     readonly elasticPoolId?: pulumi.Input<string>;
+    /**
+     * A `extendedAuditingPolicy` block as defined below.
+     */
+    readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
