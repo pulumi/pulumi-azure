@@ -40,6 +40,12 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableArray<Outputs.FrontdoorBackendPool>> BackendPools { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        /// </summary>
+        [Output("backendPoolsSendReceiveTimeoutSeconds")]
+        public Output<int?> BackendPoolsSendReceiveTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// The host that each frontendEndpoint must CNAME to.
         /// </summary>
         [Output("cname")]
@@ -179,6 +185,12 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
+        /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        /// </summary>
+        [Input("backendPoolsSendReceiveTimeoutSeconds")]
+        public Input<int>? BackendPoolsSendReceiveTimeoutSeconds { get; set; }
+
+        /// <summary>
         /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         /// </summary>
         [Input("enforceBackendPoolsCertificateNameCheck", required: true)]
@@ -289,6 +301,12 @@ namespace Pulumi.Azure.FrontDoor
             get => _backendPools ?? (_backendPools = new InputList<Inputs.FrontdoorBackendPoolGetArgs>());
             set => _backendPools = value;
         }
+
+        /// <summary>
+        /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        /// </summary>
+        [Input("backendPoolsSendReceiveTimeoutSeconds")]
+        public Input<int>? BackendPoolsSendReceiveTimeoutSeconds { get; set; }
 
         /// <summary>
         /// The host that each frontendEndpoint must CNAME to.

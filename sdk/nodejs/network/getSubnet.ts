@@ -50,9 +50,13 @@ export interface GetSubnetArgs {
  */
 export interface GetSubnetResult {
     /**
-     * The address prefix used for the subnet.
+     * (Deprecated) The address prefix used for the subnet.
      */
     readonly addressPrefix: string;
+    /**
+     * The address prefixes for the subnet.
+     */
+    readonly addressPrefixes: string[];
     /**
      * Enable or Disable network policies for the private link endpoint on the subnet.
      */

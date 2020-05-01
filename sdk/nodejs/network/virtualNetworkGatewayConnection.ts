@@ -105,9 +105,8 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly routingWeight!: pulumi.Output<number>;
     /**
-     * The shared IPSec key. A key must be provided if a
-     * Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-     * connections do not need a shared key.
+     * The shared IPSec key. A key could be provided if a
+     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
     public readonly sharedKey!: pulumi.Output<string | undefined>;
     /**
@@ -274,9 +273,8 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     readonly routingWeight?: pulumi.Input<number>;
     /**
-     * The shared IPSec key. A key must be provided if a
-     * Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-     * connections do not need a shared key.
+     * The shared IPSec key. A key could be provided if a
+     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
     readonly sharedKey?: pulumi.Input<string>;
     /**
@@ -375,9 +373,8 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     readonly routingWeight?: pulumi.Input<number>;
     /**
-     * The shared IPSec key. A key must be provided if a
-     * Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-     * connections do not need a shared key.
+     * The shared IPSec key. A key could be provided if a
+     * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
     readonly sharedKey?: pulumi.Input<string>;
     /**

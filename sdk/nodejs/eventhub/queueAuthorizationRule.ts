@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule.html.markdown.
  */
-/** @deprecated azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule */
+/** @deprecated azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing QueueAuthorizationRule resource's state with the given name, ID, and optional extra
@@ -23,7 +23,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): QueueAuthorizationRule {
-        pulumi.log.warn("QueueAuthorizationRule is deprecated: azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule")
+        pulumi.log.warn("QueueAuthorizationRule is deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule")
         return new QueueAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -93,11 +93,11 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule */
+    /** @deprecated azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule */
     constructor(name: string, args: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule */
+    /** @deprecated azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule */
     constructor(name: string, argsOrState?: QueueAuthorizationRuleArgs | QueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("QueueAuthorizationRule is deprecated: azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule")
+        pulumi.log.warn("QueueAuthorizationRule is deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as QueueAuthorizationRuleState | undefined;

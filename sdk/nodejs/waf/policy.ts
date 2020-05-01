@@ -40,7 +40,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `customRule` blocks as defined below.
+     * One or more `customRules` blocks as defined below.
      */
     public readonly customRules!: pulumi.Output<outputs.waf.PolicyCustomRule[] | undefined>;
     /**
@@ -48,11 +48,15 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A `managedRules` blocks as defined below.
+     */
+    public readonly managedRules!: pulumi.Output<outputs.waf.PolicyManagedRules>;
+    /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `policySetting` block as defined below.
+     * A `policySettings` block as defined below.
      */
     public readonly policySettings!: pulumi.Output<outputs.waf.PolicyPolicySettings | undefined>;
     /**
@@ -78,17 +82,22 @@ export class Policy extends pulumi.CustomResource {
             const state = argsOrState as PolicyState | undefined;
             inputs["customRules"] = state ? state.customRules : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["managedRules"] = state ? state.managedRules : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["policySettings"] = state ? state.policySettings : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
+            if (!args || args.managedRules === undefined) {
+                throw new Error("Missing required property 'managedRules'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRules"] = args ? args.customRules : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedRules"] = args ? args.managedRules : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -110,7 +119,7 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     /**
-     * One or more `customRule` blocks as defined below.
+     * One or more `customRules` blocks as defined below.
      */
     readonly customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
     /**
@@ -118,11 +127,15 @@ export interface PolicyState {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * A `managedRules` blocks as defined below.
+     */
+    readonly managedRules?: pulumi.Input<inputs.waf.PolicyManagedRules>;
+    /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `policySetting` block as defined below.
+     * A `policySettings` block as defined below.
      */
     readonly policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
     /**
@@ -140,7 +153,7 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * One or more `customRule` blocks as defined below.
+     * One or more `customRules` blocks as defined below.
      */
     readonly customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
     /**
@@ -148,11 +161,15 @@ export interface PolicyArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * A `managedRules` blocks as defined below.
+     */
+    readonly managedRules: pulumi.Input<inputs.waf.PolicyManagedRules>;
+    /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `policySetting` block as defined below.
+     * A `policySettings` block as defined below.
      */
     readonly policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
     /**

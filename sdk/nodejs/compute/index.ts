@@ -19,6 +19,7 @@ export * from "./getPlatformImage";
 export * from "./getSharedImage";
 export * from "./getSharedImageGallery";
 export * from "./getSharedImageVersion";
+export * from "./getSharedImageVersions";
 export * from "./getSnapshot";
 export * from "./getVirtualMachine";
 export * from "./image";

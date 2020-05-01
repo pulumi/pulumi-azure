@@ -52,9 +52,13 @@ namespace Pulumi.Azure.Network
     public sealed class GetSubnetResult
     {
         /// <summary>
-        /// The address prefix used for the subnet.
+        /// (Deprecated) The address prefix used for the subnet.
         /// </summary>
         public readonly string AddressPrefix;
+        /// <summary>
+        /// The address prefixes for the subnet.
+        /// </summary>
+        public readonly ImmutableArray<string> AddressPrefixes;
         /// <summary>
         /// Enable or Disable network policies for the private link endpoint on the subnet.
         /// </summary>
@@ -87,6 +91,8 @@ namespace Pulumi.Azure.Network
         private GetSubnetResult(
             string addressPrefix,
 
+            ImmutableArray<string> addressPrefixes,
+
             bool enforcePrivateLinkEndpointNetworkPolicies,
 
             bool enforcePrivateLinkServiceNetworkPolicies,
@@ -106,6 +112,7 @@ namespace Pulumi.Azure.Network
             string virtualNetworkName)
         {
             AddressPrefix = addressPrefix;
+            AddressPrefixes = addressPrefixes;
             EnforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
             EnforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
             Id = id;

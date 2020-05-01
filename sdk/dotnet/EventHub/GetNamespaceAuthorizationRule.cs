@@ -31,7 +31,7 @@ namespace Pulumi.Azure.EventHub
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the EventHub Namespace. 
+        /// Specifies the name of the EventHub Namespace.
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
@@ -64,9 +64,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly bool Manage;
         public readonly string Name;
-        /// <summary>
-        /// The name of the EventHub Namespace. 
-        /// </summary>
         public readonly string NamespaceName;
         /// <summary>
         /// The Primary Connection String for the Event Hubs authorization Rule.

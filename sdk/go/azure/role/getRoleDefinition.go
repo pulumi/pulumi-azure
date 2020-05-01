@@ -8,7 +8,7 @@ import (
 )
 
 //
-// Deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition
+// Deprecated: azure.role.getRoleDefinition has been deprecated in favour of azure.authorization.getRoleDefinition
 func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*GetRoleDefinitionResult, error) {
 	var rv GetRoleDefinitionResult
 	err := ctx.Invoke("azure:role/getRoleDefinition:getRoleDefinition", args, &rv, opts...)

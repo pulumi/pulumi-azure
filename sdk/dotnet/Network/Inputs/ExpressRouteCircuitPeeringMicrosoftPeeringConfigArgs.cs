@@ -24,6 +24,18 @@ namespace Pulumi.Azure.Network.Inputs
             set => _advertisedPublicPrefixes = value;
         }
 
+        /// <summary>
+        /// The CustomerASN of the peering
+        /// </summary>
+        [Input("customerAsn")]
+        public Input<int>? CustomerAsn { get; set; }
+
+        /// <summary>
+        /// The RoutingRegistryName of the configuration
+        /// </summary>
+        [Input("routingRegistryName")]
+        public Input<string>? RoutingRegistryName { get; set; }
+
         public ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs()
         {
         }

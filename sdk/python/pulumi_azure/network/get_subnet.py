@@ -13,12 +13,18 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         __self__.address_prefix = address_prefix
         """
-        The address prefix used for the subnet.
+        (Deprecated) The address prefix used for the subnet.
+        """
+        if address_prefixes and not isinstance(address_prefixes, list):
+            raise TypeError("Expected argument 'address_prefixes' to be a list")
+        __self__.address_prefixes = address_prefixes
+        """
+        The address prefixes for the subnet.
         """
         if enforce_private_link_endpoint_network_policies and not isinstance(enforce_private_link_endpoint_network_policies, bool):
             raise TypeError("Expected argument 'enforce_private_link_endpoint_network_policies' to be a bool")
@@ -72,6 +78,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             yield self
         return GetSubnetResult(
             address_prefix=self.address_prefix,
+            address_prefixes=self.address_prefixes,
             enforce_private_link_endpoint_network_policies=self.enforce_private_link_endpoint_network_policies,
             enforce_private_link_service_network_policies=self.enforce_private_link_service_network_policies,
             id=self.id,
@@ -107,6 +114,7 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
 
     return AwaitableGetSubnetResult(
         address_prefix=__ret__.get('addressPrefix'),
+        address_prefixes=__ret__.get('addressPrefixes'),
         enforce_private_link_endpoint_network_policies=__ret__.get('enforcePrivateLinkEndpointNetworkPolicies'),
         enforce_private_link_service_network_policies=__ret__.get('enforcePrivateLinkServiceNetworkPolicies'),
         id=__ret__.get('id'),

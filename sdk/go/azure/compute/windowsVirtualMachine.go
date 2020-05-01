@@ -38,7 +38,7 @@ type WindowsVirtualMachine struct {
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
-	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrOutput `pulumi:"customData"`
@@ -160,7 +160,7 @@ type windowsVirtualMachineState struct {
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
@@ -237,7 +237,7 @@ type WindowsVirtualMachineState struct {
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrInput
-	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput
@@ -318,7 +318,7 @@ type windowsVirtualMachineArgs struct {
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
@@ -386,7 +386,7 @@ type WindowsVirtualMachineArgs struct {
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrInput
-	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput

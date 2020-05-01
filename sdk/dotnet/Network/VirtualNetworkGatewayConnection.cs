@@ -104,9 +104,8 @@ namespace Pulumi.Azure.Network
         public Output<int> RoutingWeight { get; private set; } = null!;
 
         /// <summary>
-        /// The shared IPSec key. A key must be provided if a
-        /// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-        /// connections do not need a shared key.
+        /// The shared IPSec key. A key could be provided if a
+        /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
         [Output("sharedKey")]
         public Output<string?> SharedKey { get; private set; } = null!;
@@ -279,9 +278,8 @@ namespace Pulumi.Azure.Network
         public Input<int>? RoutingWeight { get; set; }
 
         /// <summary>
-        /// The shared IPSec key. A key must be provided if a
-        /// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-        /// connections do not need a shared key.
+        /// The shared IPSec key. A key could be provided if a
+        /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
         [Input("sharedKey")]
         public Input<string>? SharedKey { get; set; }
@@ -421,9 +419,8 @@ namespace Pulumi.Azure.Network
         public Input<int>? RoutingWeight { get; set; }
 
         /// <summary>
-        /// The shared IPSec key. A key must be provided if a
-        /// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-        /// connections do not need a shared key.
+        /// The shared IPSec key. A key could be provided if a
+        /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
         [Input("sharedKey")]
         public Input<string>? SharedKey { get; set; }

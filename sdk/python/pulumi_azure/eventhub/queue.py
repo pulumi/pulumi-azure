@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.Queue has been deprecated in favour of azure.Queue", DeprecationWarning)
+warnings.warn("azure.eventhub.Queue has been deprecated in favour of azure.servicebus.Queue", DeprecationWarning)
 class Queue(pulumi.CustomResource):
     auto_delete_on_idle: pulumi.Output[str]
     """
@@ -86,14 +86,14 @@ class Queue(pulumi.CustomResource):
     The name of the resource group in which to
     create the namespace. Changing this forces a new resource to be created.
     """
-    warnings.warn("azure.Queue has been deprecated in favour of azure.Queue", DeprecationWarning)
+    warnings.warn("azure.eventhub.Queue has been deprecated in favour of azure.servicebus.Queue", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_express=None, enable_partitioning=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Queue.
 
 
 
-        Deprecated: azure.Queue has been deprecated in favour of azure.Queue
+        Deprecated: azure.eventhub.Queue has been deprecated in favour of azure.servicebus.Queue
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace. Changing this forces a new resource to be created.
         """
-        pulumi.log.warn("Queue is deprecated: azure.Queue has been deprecated in favour of azure.Queue")
+        pulumi.log.warn("Queue is deprecated: azure.eventhub.Queue has been deprecated in favour of azure.servicebus.Queue")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

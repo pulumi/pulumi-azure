@@ -25,6 +25,12 @@ namespace Pulumi.Azure.Network
         public Output<string> AddressPrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The address prefixes to use for the subnet.
+        /// </summary>
+        [Output("addressPrefixes")]
+        public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `delegation` blocks as defined below.
         /// </summary>
         [Output("delegations")]
@@ -115,8 +121,20 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The address prefix to use for the subnet.
         /// </summary>
-        [Input("addressPrefix", required: true)]
-        public Input<string> AddressPrefix { get; set; } = null!;
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        [Input("addressPrefixes")]
+        private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// The address prefixes to use for the subnet.
+        /// </summary>
+        public InputList<string> AddressPrefixes
+        {
+            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
+            set => _addressPrefixes = value;
+        }
 
         [Input("delegations")]
         private InputList<Inputs.SubnetDelegationArgs>? _delegations;
@@ -184,6 +202,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
+
+        [Input("addressPrefixes")]
+        private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// The address prefixes to use for the subnet.
+        /// </summary>
+        public InputList<string> AddressPrefixes
+        {
+            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
+            set => _addressPrefixes = value;
+        }
 
         [Input("delegations")]
         private InputList<Inputs.SubnetDelegationGetArgs>? _delegations;

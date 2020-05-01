@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
  */
-/** @deprecated azure.Profile has been deprecated in favour of azure.TrafficManagerProfile */
+/** @deprecated azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile */
 export class Profile extends pulumi.CustomResource {
     /**
      * Get an existing Profile resource's state with the given name, ID, and optional extra
@@ -23,7 +23,7 @@ export class Profile extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProfileState, opts?: pulumi.CustomResourceOptions): Profile {
-        pulumi.log.warn("Profile is deprecated: azure.Profile has been deprecated in favour of azure.TrafficManagerProfile")
+        pulumi.log.warn("Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile")
         return new Profile(name, <any>state, { ...opts, id: id });
     }
 
@@ -81,11 +81,11 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.Profile has been deprecated in favour of azure.TrafficManagerProfile */
+    /** @deprecated azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile */
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.Profile has been deprecated in favour of azure.TrafficManagerProfile */
+    /** @deprecated azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile */
     constructor(name: string, argsOrState?: ProfileArgs | ProfileState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Profile is deprecated: azure.Profile has been deprecated in favour of azure.TrafficManagerProfile")
+        pulumi.log.warn("Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ProfileState | undefined;

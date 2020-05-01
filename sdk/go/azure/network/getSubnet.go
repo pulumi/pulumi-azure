@@ -29,8 +29,10 @@ type LookupSubnetArgs struct {
 
 // A collection of values returned by getSubnet.
 type LookupSubnetResult struct {
-	// The address prefix used for the subnet.
+	// (Deprecated) The address prefix used for the subnet.
 	AddressPrefix string `pulumi:"addressPrefix"`
+	// The address prefixes for the subnet.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Enable or Disable network policies for the private link endpoint on the subnet.
 	EnforcePrivateLinkEndpointNetworkPolicies bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
 	// Enable or Disable network policies for the private link service on the subnet.

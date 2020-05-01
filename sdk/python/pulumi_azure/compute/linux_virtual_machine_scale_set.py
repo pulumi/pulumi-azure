@@ -53,7 +53,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     """
     computer_name_prefix: pulumi.Output[str]
     """
-    The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+    The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
     """
     custom_data: pulumi.Output[str]
     """
@@ -266,7 +266,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[dict] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[dict] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[list] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
@@ -499,7 +499,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[dict] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[dict] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[list] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule", DeprecationWarning)
+warnings.warn("azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule", DeprecationWarning)
 class SubscriptionRule(pulumi.CustomResource):
     action: pulumi.Output[str]
     """
@@ -56,12 +56,12 @@ class SubscriptionRule(pulumi.CustomResource):
     """
     The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
     """
-    warnings.warn("azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule", DeprecationWarning)
+    warnings.warn("azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, action=None, correlation_filter=None, filter_type=None, name=None, namespace_name=None, resource_group_name=None, sql_filter=None, subscription_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Subscription Rule.
 
-        Deprecated: azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule
+        Deprecated: azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,7 +86,7 @@ class SubscriptionRule(pulumi.CustomResource):
           * `sessionId` (`pulumi.Input[str]`) - Session identifier.
           * `to` (`pulumi.Input[str]`) - Address to send to.
         """
-        pulumi.log.warn("SubscriptionRule is deprecated: azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule")
+        pulumi.log.warn("SubscriptionRule is deprecated: azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

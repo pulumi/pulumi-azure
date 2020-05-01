@@ -14,13 +14,15 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// One or more `customRule` blocks as defined below.
+	// One or more `customRules` blocks as defined below.
 	CustomRules PolicyCustomRuleArrayOutput `pulumi:"customRules"`
 	// Resource location. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `managedRules` blocks as defined below.
+	ManagedRules PolicyManagedRulesOutput `pulumi:"managedRules"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `policySetting` block as defined below.
+	// A `policySettings` block as defined below.
 	PolicySettings PolicyPolicySettingsPtrOutput `pulumi:"policySettings"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -31,6 +33,9 @@ type Policy struct {
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
 	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
+	if args == nil || args.ManagedRules == nil {
+		return nil, errors.New("missing required argument 'ManagedRules'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -59,13 +64,15 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// One or more `customRule` blocks as defined below.
+	// One or more `customRules` blocks as defined below.
 	CustomRules []PolicyCustomRule `pulumi:"customRules"`
 	// Resource location. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `managedRules` blocks as defined below.
+	ManagedRules *PolicyManagedRules `pulumi:"managedRules"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `policySetting` block as defined below.
+	// A `policySettings` block as defined below.
 	PolicySettings *PolicyPolicySettings `pulumi:"policySettings"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -74,13 +81,15 @@ type policyState struct {
 }
 
 type PolicyState struct {
-	// One or more `customRule` blocks as defined below.
+	// One or more `customRules` blocks as defined below.
 	CustomRules PolicyCustomRuleArrayInput
 	// Resource location. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `managedRules` blocks as defined below.
+	ManagedRules PolicyManagedRulesPtrInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `policySetting` block as defined below.
+	// A `policySettings` block as defined below.
 	PolicySettings PolicyPolicySettingsPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -93,13 +102,15 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// One or more `customRule` blocks as defined below.
+	// One or more `customRules` blocks as defined below.
 	CustomRules []PolicyCustomRule `pulumi:"customRules"`
 	// Resource location. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `managedRules` blocks as defined below.
+	ManagedRules PolicyManagedRules `pulumi:"managedRules"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `policySetting` block as defined below.
+	// A `policySettings` block as defined below.
 	PolicySettings *PolicyPolicySettings `pulumi:"policySettings"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -109,13 +120,15 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// One or more `customRule` blocks as defined below.
+	// One or more `customRules` blocks as defined below.
 	CustomRules PolicyCustomRuleArrayInput
 	// Resource location. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `managedRules` blocks as defined below.
+	ManagedRules PolicyManagedRulesInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `policySetting` block as defined below.
+	// A `policySettings` block as defined below.
 	PolicySettings PolicyPolicySettingsPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

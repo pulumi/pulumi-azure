@@ -14,6 +14,10 @@ class Subnet(pulumi.CustomResource):
     """
     The address prefix to use for the subnet.
     """
+    address_prefixes: pulumi.Output[list]
+    """
+    The address prefixes to use for the subnet.
+    """
     delegations: pulumi.Output[list]
     """
     One or more `delegation` blocks as defined below.
@@ -47,7 +51,7 @@ class Subnet(pulumi.CustomResource):
     """
     The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, address_prefix=None, delegations=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, name=None, resource_group_name=None, service_endpoints=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address_prefix=None, address_prefixes=None, delegations=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, name=None, resource_group_name=None, service_endpoints=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
 
@@ -60,6 +64,7 @@ class Subnet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
+        :param pulumi.Input[list] address_prefixes: The address prefixes to use for the subnet.
         :param pulumi.Input[list] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
@@ -92,9 +97,8 @@ class Subnet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address_prefix is None:
-                raise TypeError("Missing required property 'address_prefix'")
             __props__['address_prefix'] = address_prefix
+            __props__['address_prefixes'] = address_prefixes
             __props__['delegations'] = delegations
             __props__['enforce_private_link_endpoint_network_policies'] = enforce_private_link_endpoint_network_policies
             __props__['enforce_private_link_service_network_policies'] = enforce_private_link_service_network_policies
@@ -113,7 +117,7 @@ class Subnet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address_prefix=None, delegations=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, name=None, resource_group_name=None, service_endpoints=None, virtual_network_name=None):
+    def get(resource_name, id, opts=None, address_prefix=None, address_prefixes=None, delegations=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, name=None, resource_group_name=None, service_endpoints=None, virtual_network_name=None):
         """
         Get an existing Subnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -122,6 +126,7 @@ class Subnet(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
+        :param pulumi.Input[list] address_prefixes: The address prefixes to use for the subnet.
         :param pulumi.Input[list] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
@@ -142,6 +147,7 @@ class Subnet(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["address_prefix"] = address_prefix
+        __props__["address_prefixes"] = address_prefixes
         __props__["delegations"] = delegations
         __props__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
         __props__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies

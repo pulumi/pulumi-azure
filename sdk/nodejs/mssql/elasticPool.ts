@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
+ * Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
  * 
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
@@ -39,6 +39,10 @@ export class ElasticPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticPool.__pulumiType;
     }
 
+    /**
+     * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     */
+    public readonly licenseType!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -92,6 +96,7 @@ export class ElasticPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
+            inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
             inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
@@ -116,6 +121,7 @@ export class ElasticPool extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
@@ -142,6 +148,10 @@ export class ElasticPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ElasticPool resources.
  */
 export interface ElasticPoolState {
+    /**
+     * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     */
+    readonly licenseType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -188,6 +198,10 @@ export interface ElasticPoolState {
  * The set of arguments for constructing a ElasticPool resource.
  */
 export interface ElasticPoolArgs {
+    /**
+     * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     */
+    readonly licenseType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

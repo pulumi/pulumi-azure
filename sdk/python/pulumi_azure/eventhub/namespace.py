@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.Namespace has been deprecated in favour of azure.Namespace", DeprecationWarning)
+warnings.warn("azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace", DeprecationWarning)
 class Namespace(pulumi.CustomResource):
     capacity: pulumi.Output[float]
     """
@@ -59,14 +59,14 @@ class Namespace(pulumi.CustomResource):
     """
     Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
     """
-    warnings.warn("azure.Namespace has been deprecated in favour of azure.Namespace", DeprecationWarning)
+    warnings.warn("azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, capacity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Namespace.
 
 
 
-        Deprecated: azure.Namespace has been deprecated in favour of azure.Namespace
+        Deprecated: azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,7 +80,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
-        pulumi.log.warn("Namespace is deprecated: azure.Namespace has been deprecated in favour of azure.Namespace")
+        pulumi.log.warn("Namespace is deprecated: azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

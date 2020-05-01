@@ -12,9 +12,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
  */
-/** @deprecated azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace */
+/** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace */
 export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> {
-    pulumi.log.warn("getServiceBusNamespace is deprecated: azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace")
+    pulumi.log.warn("getServiceBusNamespace is deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace")
     if (!opts) {
         opts = {}
     }

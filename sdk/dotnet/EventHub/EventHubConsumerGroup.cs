@@ -14,9 +14,9 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// 
     /// 
-    /// Deprecated: azure.EventHubConsumerGroup has been deprecated in favour of azure.ConsumerGroup
+    /// Deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup
     /// </summary>
-    [Obsolete(@"azure.EventHubConsumerGroup has been deprecated in favour of azure.ConsumerGroup")]
+    [Obsolete(@"azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup")]
     public partial class EventHubConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>

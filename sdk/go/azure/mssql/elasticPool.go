@@ -10,10 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
+// Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
+	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -76,6 +78,8 @@ func GetElasticPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ElasticPool resources.
 type elasticPoolState struct {
+	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -99,6 +103,8 @@ type elasticPoolState struct {
 }
 
 type ElasticPoolState struct {
+	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -126,6 +132,8 @@ func (ElasticPoolState) ElementType() reflect.Type {
 }
 
 type elasticPoolArgs struct {
+	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -150,6 +158,8 @@ type elasticPoolArgs struct {
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
+	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.

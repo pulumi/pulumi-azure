@@ -19,6 +19,9 @@ class Server(pulumi.CustomResource):
     The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
     """
     auto_grow_enabled: pulumi.Output[bool]
+    """
+    Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+    """
     backup_retention_days: pulumi.Output[float]
     """
     Backup retention days for the server, supported values are between `7` and `35` days.
@@ -41,7 +44,7 @@ class Server(pulumi.CustomResource):
     """
     infrastructure_encryption_enabled: pulumi.Output[bool]
     """
-    Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+    Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
     """
     location: pulumi.Output[str]
     """
@@ -68,10 +71,10 @@ class Server(pulumi.CustomResource):
     Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
     """
     ssl_enforcement: pulumi.Output[str]
-    """
-    Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-    """
     ssl_enforcement_enabled: pulumi.Output[bool]
+    """
+    Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+    """
     ssl_minimal_tls_version_enforced: pulumi.Output[str]
     """
     The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
@@ -99,18 +102,19 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+        :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         :param pulumi.Input[float] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
         :param pulumi.Input[str] creation_source_server_id: For creation modes other then default the source server ID to use.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
-        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-        :param pulumi.Input[str] ssl_enforcement: Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
+        :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         :param pulumi.Input[float] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.  
@@ -185,19 +189,20 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
+        :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         :param pulumi.Input[float] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
         :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
         :param pulumi.Input[str] creation_source_server_id: For creation modes other then default the source server ID to use.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Server.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
-        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-        :param pulumi.Input[str] ssl_enforcement: Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
+        :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         :param pulumi.Input[float] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.  

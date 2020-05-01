@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.EventSubscription has been deprecated in favour of azure.EventSubscription
+// Deprecated: azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

@@ -26,6 +26,7 @@ export * from "./identityProviderGoogle";
 export * from "./identityProviderMicrosoft";
 export * from "./identityProviderTwitter";
 export * from "./logger";
+export * from "./namedValue";
 export * from "./openIdConnectProvider";
 export * from "./product";
 export * from "./productApi";

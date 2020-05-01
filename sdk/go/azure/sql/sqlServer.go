@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a SQL Azure Database Server.
+// Manages a Microsoft SQL Azure Database Server.
 type SqlServer struct {
 	pulumi.CustomResourceState
 
@@ -28,9 +28,9 @@ type SqlServer struct {
 	Identity SqlServerIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -92,9 +92,9 @@ type sqlServerState struct {
 	Identity *SqlServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -117,9 +117,9 @@ type SqlServerState struct {
 	Identity SqlServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -144,9 +144,9 @@ type sqlServerArgs struct {
 	Identity *SqlServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,9 +168,9 @@ type SqlServerArgs struct {
 	Identity SqlServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the SQL Server. This needs to be globally unique within Azure.
+	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the SQL Server.
+	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

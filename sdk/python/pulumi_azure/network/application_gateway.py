@@ -113,6 +113,7 @@ class ApplicationGateway(pulumi.CustomResource):
       * `frontendPortId` (`str`) - The ID of the associated Frontend Port.
       * `frontendPortName` (`str`) - The Name of the Frontend Port use for this HTTP Listener.
       * `host_name` (`str`) - The Hostname which should be used for this HTTP Listener.
+      * `host_names` (`list`) - A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
       * `id` (`str`) - The ID of the Rewrite Rule Set
       * `name` (`str`) - The Name of the HTTP Listener.
       * `protocol` (`str`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
@@ -425,6 +426,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.
           * `frontendPortName` (`pulumi.Input[str]`) - The Name of the Frontend Port use for this HTTP Listener.
           * `host_name` (`pulumi.Input[str]`) - The Hostname which should be used for this HTTP Listener.
+          * `host_names` (`pulumi.Input[list]`) - A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The Name of the HTTP Listener.
           * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
@@ -763,6 +765,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.
           * `frontendPortName` (`pulumi.Input[str]`) - The Name of the Frontend Port use for this HTTP Listener.
           * `host_name` (`pulumi.Input[str]`) - The Hostname which should be used for this HTTP Listener.
+          * `host_names` (`pulumi.Input[list]`) - A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The Name of the HTTP Listener.
           * `protocol` (`pulumi.Input[str]`) - The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.

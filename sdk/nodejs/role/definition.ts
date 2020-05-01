@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition.html.markdown.
  */
-/** @deprecated azure.Definition has been deprecated in favour of azure.RoleDefinition */
+/** @deprecated azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition */
 export class Definition extends pulumi.CustomResource {
     /**
      * Get an existing Definition resource's state with the given name, ID, and optional extra
@@ -23,7 +23,7 @@ export class Definition extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefinitionState, opts?: pulumi.CustomResourceOptions): Definition {
-        pulumi.log.warn("Definition is deprecated: azure.Definition has been deprecated in favour of azure.RoleDefinition")
+        pulumi.log.warn("Definition is deprecated: azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition")
         return new Definition(name, <any>state, { ...opts, id: id });
     }
 
@@ -73,11 +73,11 @@ export class Definition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.Definition has been deprecated in favour of azure.RoleDefinition */
+    /** @deprecated azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition */
     constructor(name: string, args: DefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.Definition has been deprecated in favour of azure.RoleDefinition */
+    /** @deprecated azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition */
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Definition is deprecated: azure.Definition has been deprecated in favour of azure.RoleDefinition")
+        pulumi.log.warn("Definition is deprecated: azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DefinitionState | undefined;

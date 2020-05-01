@@ -1314,7 +1314,7 @@ type SqlServerIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1335,7 +1335,7 @@ type SqlServerIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1427,7 +1427,7 @@ func (o SqlServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
 func (o SqlServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1470,7 +1470,7 @@ func (o SqlServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
 func (o SqlServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerIdentity) *string {
 		if v == nil {

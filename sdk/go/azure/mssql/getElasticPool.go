@@ -31,6 +31,8 @@ type LookupElasticPoolArgs struct {
 type LookupElasticPoolResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The license type to apply for this database.
+	LicenseType string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
 	// The max data size of the elastic pool in bytes.

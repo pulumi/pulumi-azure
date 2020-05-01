@@ -36,7 +36,7 @@ export interface GetNamespaceAuthorizationRuleArgs {
      */
     readonly name: string;
     /**
-     * The name of the EventHub Namespace. 
+     * Specifies the name of the EventHub Namespace.
      */
     readonly namespaceName: string;
     /**
@@ -58,9 +58,6 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly manage: boolean;
     readonly name: string;
-    /**
-     * The name of the EventHub Namespace. 
-     */
     readonly namespaceName: string;
     /**
      * The Primary Connection String for the Event Hubs authorization Rule.

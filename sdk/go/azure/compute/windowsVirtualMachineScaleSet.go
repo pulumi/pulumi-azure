@@ -34,7 +34,7 @@ type WindowsVirtualMachineScaleSet struct {
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
 	ComputerNamePrefix pulumi.StringOutput `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrOutput `pulumi:"customData"`
@@ -170,7 +170,7 @@ type windowsVirtualMachineScaleSetState struct {
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData *string `pulumi:"customData"`
@@ -258,7 +258,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
 	ComputerNamePrefix pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrInput
@@ -350,7 +350,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData *string `pulumi:"customData"`
@@ -437,7 +437,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
 	ComputerNamePrefix pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrInput

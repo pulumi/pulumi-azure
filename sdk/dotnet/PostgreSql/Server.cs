@@ -26,6 +26,9 @@ namespace Pulumi.Azure.PostgreSql
         [Output("administratorLoginPassword")]
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        /// </summary>
         [Output("autoGrowEnabled")]
         public Output<bool> AutoGrowEnabled { get; private set; } = null!;
 
@@ -60,7 +63,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<bool> GeoRedundantBackupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("infrastructureEncryptionEnabled")]
         public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
@@ -101,12 +104,12 @@ namespace Pulumi.Azure.PostgreSql
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-        /// </summary>
         [Output("sslEnforcement")]
         public Output<string> SslEnforcement { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// </summary>
         [Output("sslEnforcementEnabled")]
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
 
@@ -195,6 +198,9 @@ namespace Pulumi.Azure.PostgreSql
         [Input("administratorLoginPassword")]
         public Input<string>? AdministratorLoginPassword { get; set; }
 
+        /// <summary>
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        /// </summary>
         [Input("autoGrowEnabled")]
         public Input<bool>? AutoGrowEnabled { get; set; }
 
@@ -223,7 +229,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
-        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
@@ -264,12 +270,12 @@ namespace Pulumi.Azure.PostgreSql
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-        /// </summary>
         [Input("sslEnforcement")]
         public Input<string>? SslEnforcement { get; set; }
 
+        /// <summary>
+        /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// </summary>
         [Input("sslEnforcementEnabled")]
         public Input<bool>? SslEnforcementEnabled { get; set; }
 
@@ -325,6 +331,9 @@ namespace Pulumi.Azure.PostgreSql
         [Input("administratorLoginPassword")]
         public Input<string>? AdministratorLoginPassword { get; set; }
 
+        /// <summary>
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        /// </summary>
         [Input("autoGrowEnabled")]
         public Input<bool>? AutoGrowEnabled { get; set; }
 
@@ -359,7 +368,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
-        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
@@ -400,12 +409,12 @@ namespace Pulumi.Azure.PostgreSql
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
-        /// <summary>
-        /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-        /// </summary>
         [Input("sslEnforcement")]
         public Input<string>? SslEnforcement { get; set; }
 
+        /// <summary>
+        /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// </summary>
         [Input("sslEnforcementEnabled")]
         public Input<bool>? SslEnforcementEnabled { get; set; }
 

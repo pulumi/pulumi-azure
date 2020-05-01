@@ -55,9 +55,8 @@ type VirtualNetworkGatewayConnection struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntOutput `pulumi:"routingWeight"`
-	// The shared IPSec key. A key must be provided if a
-	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-	// connections do not need a shared key.
+	// The shared IPSec key. A key could be provided if a
+	// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
 	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -155,9 +154,8 @@ type virtualNetworkGatewayConnectionState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
 	RoutingWeight *int `pulumi:"routingWeight"`
-	// The shared IPSec key. A key must be provided if a
-	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-	// connections do not need a shared key.
+	// The shared IPSec key. A key could be provided if a
+	// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -219,9 +217,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntPtrInput
-	// The shared IPSec key. A key must be provided if a
-	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-	// connections do not need a shared key.
+	// The shared IPSec key. A key could be provided if a
+	// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -287,9 +284,8 @@ type virtualNetworkGatewayConnectionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
 	RoutingWeight *int `pulumi:"routingWeight"`
-	// The shared IPSec key. A key must be provided if a
-	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-	// connections do not need a shared key.
+	// The shared IPSec key. A key could be provided if a
+	// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -352,9 +348,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The routing weight. Defaults to `10`.
 	RoutingWeight pulumi.IntPtrInput
-	// The shared IPSec key. A key must be provided if a
-	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-	// connections do not need a shared key.
+	// The shared IPSec key. A key could be provided if a
+	// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

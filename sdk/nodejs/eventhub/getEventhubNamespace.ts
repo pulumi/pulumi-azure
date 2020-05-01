@@ -12,9 +12,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
  */
-/** @deprecated azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace */
+/** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
-    pulumi.log.warn("getEventhubNamespace is deprecated: azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace")
+    pulumi.log.warn("getEventhubNamespace is deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace")
     if (!opts) {
         opts = {}
     }

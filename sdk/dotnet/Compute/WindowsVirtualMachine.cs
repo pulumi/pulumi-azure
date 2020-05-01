@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("computerName")]
         public Output<string> ComputerName { get; private set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerName")]
         public Input<string>? ComputerName { get; set; }
@@ -570,7 +570,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerName")]
         public Input<string>? ComputerName { get; set; }

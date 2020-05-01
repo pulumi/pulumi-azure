@@ -18,7 +18,8 @@ type Server struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
-	AutoGrowEnabled            pulumi.BoolOutput      `pulumi:"autoGrowEnabled"`
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	AutoGrowEnabled pulumi.BoolOutput `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
@@ -29,7 +30,7 @@ type Server struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
 	GeoRedundantBackupEnabled pulumi.BoolOutput `pulumi:"geoRedundantBackupEnabled"`
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -42,10 +43,10 @@ type Server struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-	SslEnforcement        pulumi.StringOutput `pulumi:"sslEnforcement"`
-	SslEnforcementEnabled pulumi.BoolOutput   `pulumi:"sslEnforcementEnabled"`
+	SkuName        pulumi.StringOutput `pulumi:"skuName"`
+	SslEnforcement pulumi.StringOutput `pulumi:"sslEnforcement"`
+	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrOutput `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
@@ -98,7 +99,8 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	AutoGrowEnabled            *bool   `pulumi:"autoGrowEnabled"`
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
@@ -109,7 +111,7 @@ type serverState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -122,10 +124,10 @@ type serverState struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName *string `pulumi:"skuName"`
-	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-	SslEnforcement        *string `pulumi:"sslEnforcement"`
-	SslEnforcementEnabled *bool   `pulumi:"sslEnforcementEnabled"`
+	SkuName        *string `pulumi:"skuName"`
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	SslEnforcementEnabled *bool `pulumi:"sslEnforcementEnabled"`
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
@@ -142,7 +144,8 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	AutoGrowEnabled            pulumi.BoolPtrInput
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	AutoGrowEnabled pulumi.BoolPtrInput
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
@@ -153,7 +156,7 @@ type ServerState struct {
 	Fqdn pulumi.StringPtrInput
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -166,9 +169,9 @@ type ServerState struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName pulumi.StringPtrInput
-	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-	SslEnforcement        pulumi.StringPtrInput
+	SkuName        pulumi.StringPtrInput
+	SslEnforcement pulumi.StringPtrInput
+	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolPtrInput
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
@@ -190,7 +193,8 @@ type serverArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	AutoGrowEnabled            *bool   `pulumi:"autoGrowEnabled"`
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
@@ -199,7 +203,7 @@ type serverArgs struct {
 	CreationSourceServerId *string `pulumi:"creationSourceServerId"`
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -212,10 +216,10 @@ type serverArgs struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName string `pulumi:"skuName"`
-	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-	SslEnforcement        *string `pulumi:"sslEnforcement"`
-	SslEnforcementEnabled *bool   `pulumi:"sslEnforcementEnabled"`
+	SkuName        string  `pulumi:"skuName"`
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	SslEnforcementEnabled *bool `pulumi:"sslEnforcementEnabled"`
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
@@ -233,7 +237,8 @@ type ServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	AutoGrowEnabled            pulumi.BoolPtrInput
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	AutoGrowEnabled pulumi.BoolPtrInput
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
@@ -242,7 +247,7 @@ type ServerArgs struct {
 	CreationSourceServerId pulumi.StringPtrInput
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier.
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`.
+	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -255,9 +260,9 @@ type ServerArgs struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName pulumi.StringInput
-	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-	SslEnforcement        pulumi.StringPtrInput
+	SkuName        pulumi.StringInput
+	SslEnforcement pulumi.StringPtrInput
+	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolPtrInput
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput

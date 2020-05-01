@@ -45,6 +45,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> ElasticPoolId { get; private set; } = null!;
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Output("extendedAuditingPolicy")]
+        public Output<Outputs.DatabaseExtendedAuditingPolicy?> ExtendedAuditingPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Output("licenseType")]
@@ -199,6 +205,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Input("extendedAuditingPolicy")]
+        public Input<Inputs.DatabaseExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Input("licenseType")]
@@ -318,6 +330,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("elasticPoolId")]
         public Input<string>? ElasticPoolId { get; set; }
+
+        /// <summary>
+        /// A `extended_auditing_policy` block as defined below.
+        /// </summary>
+        [Input("extendedAuditingPolicy")]
+        public Input<Inputs.DatabaseExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
 
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.

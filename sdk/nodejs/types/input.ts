@@ -43,7 +43,7 @@ export namespace analysisservices {
 export namespace apimanagement {
     export interface ApiImport {
         /**
-         * The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+         * The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
          */
         contentFormat: pulumi.Input<string>;
         /**
@@ -8622,6 +8622,29 @@ export namespace machinelearning {
 }
 
 export namespace managedapplication {
+    export interface ApplicationPlan {
+        /**
+         * Specifies the name of the plan from the marketplace.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the product of the plan from the marketplace.
+         */
+        product: pulumi.Input<string>;
+        /**
+         * Specifies the promotion code to use with the plan.
+         */
+        promotionCode?: pulumi.Input<string>;
+        /**
+         * Specifies the publisher of the plan.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * Specifies the version of the plan from the marketplace.
+         */
+        version: pulumi.Input<string>;
+    }
+
     export interface DefinitionAuthorization {
         /**
          * Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
@@ -9088,7 +9111,7 @@ export namespace monitoring {
         /**
          * A `retentionPolicy` block as defined below.
          */
-        retentionPolicy: pulumi.Input<inputs.monitoring.DiagnosticSettingLogRetentionPolicy>;
+        retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingLogRetentionPolicy>;
     }
 
     export interface DiagnosticSettingLogRetentionPolicy {
@@ -9114,7 +9137,7 @@ export namespace monitoring {
         /**
          * A `retentionPolicy` block as defined below.
          */
-        retentionPolicy: pulumi.Input<inputs.monitoring.DiagnosticSettingMetricRetentionPolicy>;
+        retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingMetricRetentionPolicy>;
     }
 
     export interface DiagnosticSettingMetricRetentionPolicy {
@@ -9260,6 +9283,25 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseExtendedAuditingPolicy {
+        /**
+         * Specifies the number of days to retain logs for in the storage account.
+         */
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * Specifies the access key to use for the auditing storage account.
+         */
+        storageAccountAccessKey: pulumi.Input<string>;
+        /**
+         * Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
+        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         */
+        storageEndpoint: pulumi.Input<string>;
+    }
+
     export interface DatabaseThreatDetectionPolicy {
         /**
          * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -9330,6 +9372,40 @@ export namespace mssql {
          * The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
          */
         tier: pulumi.Input<string>;
+    }
+
+    export interface ServerExtendedAuditingPolicy {
+        /**
+         * (Optional) Specifies the number of days to retain logs for in the storage account.
+         */
+        retentionInDays?: pulumi.Input<number>;
+        /**
+         * (Required)  Specifies the access key to use for the auditing storage account.
+         */
+        storageAccountAccessKey: pulumi.Input<string>;
+        /**
+         * (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
+         */
+        storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+        /**
+         * (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
+         */
+        storageEndpoint: pulumi.Input<string>;
+    }
+
+    export interface ServerIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface ServerVulnerabilityAssessmentRecurringScans {
@@ -9695,6 +9771,10 @@ export namespace network {
          * The Hostname which should be used for this HTTP Listener.
          */
         hostName?: pulumi.Input<string>;
+        /**
+         * A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+         */
+        hostNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The ID of the Rewrite Rule Set
          */
@@ -10221,6 +10301,14 @@ export namespace network {
          * A list of Advertised Public Prefixes
          */
         advertisedPublicPrefixes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The CustomerASN of the peering
+         */
+        customerAsn?: pulumi.Input<number>;
+        /**
+         * The RoutingRegistryName of the configuration
+         */
+        routingRegistryName?: pulumi.Input<string>;
     }
 
     export interface ExpressRouteCircuitSku {
@@ -11794,7 +11882,7 @@ export namespace sql {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the SQL Server. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -12456,34 +12544,34 @@ export namespace trafficmanager {
 export namespace waf {
     export interface PolicyCustomRule {
         /**
-         * Type of Actions
+         * Type of action.
          */
         action: pulumi.Input<string>;
         /**
-         * One or more `matchCondition` block defined below.
+         * One or more `matchConditions` blocks as defined below.
          */
         matchConditions: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRuleMatchCondition>[]>;
         /**
-         * The name of the policy. Changing this forces a new resource to be created.
+         * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
          */
         name?: pulumi.Input<string>;
         /**
-         * Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+         * Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
          */
         priority: pulumi.Input<number>;
         /**
-         * Describes the type of rule
+         * Describes the type of rule.
          */
         ruleType: pulumi.Input<string>;
     }
 
     export interface PolicyCustomRuleMatchCondition {
         /**
-         * Match value
+         * A list of match values.
          */
         matchValues: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * One or more `matchVariable` block defined below.
+         * One or more `matchVariables` blocks as defined below.
          */
         matchVariables: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRuleMatchConditionMatchVariable>[]>;
         /**
@@ -12491,7 +12579,7 @@ export namespace waf {
          */
         negationCondition?: pulumi.Input<boolean>;
         /**
-         * Describes operator to be matched
+         * Describes operator to be matched.
          */
         operator: pulumi.Input<string>;
     }
@@ -12505,6 +12593,55 @@ export namespace waf {
          * The name of the Match Variable
          */
         variableName: pulumi.Input<string>;
+    }
+
+    export interface PolicyManagedRules {
+        /**
+         * One or more `exclusion` block defined below.
+         */
+        exclusions?: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesExclusion>[]>;
+        /**
+         * One or more `managedRuleSet` block defined below.
+         */
+        managedRuleSets: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesManagedRuleSet>[]>;
+    }
+
+    export interface PolicyManagedRulesExclusion {
+        matchVariable: pulumi.Input<string>;
+        /**
+         * Describes field of the matchVariable collection.
+         */
+        selector: pulumi.Input<string>;
+        /**
+         * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+         */
+        selectorMatchOperator: pulumi.Input<string>;
+    }
+
+    export interface PolicyManagedRulesManagedRuleSet {
+        /**
+         * One or more `ruleGroupOverride` block defined below.
+         */
+        ruleGroupOverrides?: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverride>[]>;
+        /**
+         * The rule set type.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The rule set version.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
+        /**
+         * One or more Rule ID's
+         */
+        disabledRules: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Rule Group
+         */
+        ruleGroupName: pulumi.Input<string>;
     }
 
     export interface PolicyPolicySettings {

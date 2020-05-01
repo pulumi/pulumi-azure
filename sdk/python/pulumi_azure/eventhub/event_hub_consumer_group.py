@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.EventHubConsumerGroup has been deprecated in favour of azure.ConsumerGroup", DeprecationWarning)
+warnings.warn("azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup", DeprecationWarning)
 class EventHubConsumerGroup(pulumi.CustomResource):
     eventhub_name: pulumi.Output[str]
     """
@@ -31,14 +31,14 @@ class EventHubConsumerGroup(pulumi.CustomResource):
     """
     Specifies the user metadata.
     """
-    warnings.warn("azure.EventHubConsumerGroup has been deprecated in favour of azure.ConsumerGroup", DeprecationWarning)
+    warnings.warn("azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, eventhub_name=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
 
 
 
-        Deprecated: azure.EventHubConsumerGroup has been deprecated in favour of azure.ConsumerGroup
+        Deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -48,7 +48,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_metadata: Specifies the user metadata.
         """
-        pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.EventHubConsumerGroup has been deprecated in favour of azure.ConsumerGroup")
+        pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

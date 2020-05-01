@@ -38,9 +38,6 @@ class GetNamespaceAuthorizationRuleResult:
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
         __self__.namespace_name = namespace_name
-        """
-        The name of the EventHub Namespace. 
-        """
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
         __self__.primary_connection_string = primary_connection_string
@@ -100,7 +97,7 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
 
 
     :param str name: The name of the EventHub Authorization Rule resource. 
-    :param str namespace_name: The name of the EventHub Namespace. 
+    :param str namespace_name: Specifies the name of the EventHub Namespace.
     :param str resource_group_name: The name of the resource group in which the EventHub Namespace exists.
     """
     __args__ = dict()

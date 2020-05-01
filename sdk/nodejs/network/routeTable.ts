@@ -6,12 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Route Table
- * 
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
- */
 export class RouteTable extends pulumi.CustomResource {
     /**
      * Get an existing RouteTable resource's state with the given name, ID, and optional extra

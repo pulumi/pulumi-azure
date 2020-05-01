@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace", DeprecationWarning)
+warnings.warn("azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace", DeprecationWarning)
 class GetServiceBusNamespaceResult:
     """
     A collection of values returned by getServiceBusNamespace.
@@ -108,13 +108,13 @@ def get_service_bus_namespace(name=None,resource_group_name=None,opts=None):
 
 
 
-    Deprecated: azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace
+    Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace
 
 
     :param str name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     """
-    pulumi.log.warn("get_service_bus_namespace is deprecated: azure.getServiceBusNamespace has been deprecated in favour of azure.getNamespace")
+    pulumi.log.warn("get_service_bus_namespace is deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace")
     __args__ = dict()
 
 

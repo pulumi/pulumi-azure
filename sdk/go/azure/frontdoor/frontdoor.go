@@ -27,6 +27,8 @@ type Frontdoor struct {
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayOutput `pulumi:"backendPoolLoadBalancings"`
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayOutput `pulumi:"backendPools"`
+	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrOutput `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// The host that each frontendEndpoint must CNAME to.
 	Cname pulumi.StringOutput `pulumi:"cname"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
@@ -103,6 +105,8 @@ type frontdoorState struct {
 	BackendPoolLoadBalancings []FrontdoorBackendPoolLoadBalancing `pulumi:"backendPoolLoadBalancings"`
 	// A `backendPool` block as defined below.
 	BackendPools []FrontdoorBackendPool `pulumi:"backendPools"`
+	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// The host that each frontendEndpoint must CNAME to.
 	Cname *string `pulumi:"cname"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
@@ -131,6 +135,8 @@ type FrontdoorState struct {
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayInput
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayInput
+	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput
 	// The host that each frontendEndpoint must CNAME to.
 	Cname pulumi.StringPtrInput
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
@@ -163,6 +169,8 @@ type frontdoorArgs struct {
 	BackendPoolLoadBalancings []FrontdoorBackendPoolLoadBalancing `pulumi:"backendPoolLoadBalancings"`
 	// A `backendPool` block as defined below.
 	BackendPools []FrontdoorBackendPool `pulumi:"backendPools"`
+	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 	EnforceBackendPoolsCertificateNameCheck bool `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 	// A friendly name for the Front Door service.
@@ -190,6 +198,8 @@ type FrontdoorArgs struct {
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayInput
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayInput
+	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 	EnforceBackendPoolsCertificateNameCheck pulumi.BoolInput
 	// A friendly name for the Front Door service.

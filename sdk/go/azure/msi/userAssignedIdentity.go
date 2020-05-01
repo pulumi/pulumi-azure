@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity
+// Deprecated: azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 

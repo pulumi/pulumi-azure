@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         /// </summary>
         [Output("computerNamePrefix")]
         public Output<string> ComputerNamePrefix { get; private set; } = null!;
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
@@ -668,7 +668,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }

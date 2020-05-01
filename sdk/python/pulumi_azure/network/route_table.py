@@ -45,10 +45,7 @@ class RouteTable(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, disable_bgp_route_propagation=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Route Table
-
-
-
+        Create a RouteTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.

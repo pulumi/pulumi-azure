@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
  */
-/** @deprecated azure.Namespace has been deprecated in favour of azure.Namespace */
+/** @deprecated azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace */
 export class Namespace extends pulumi.CustomResource {
     /**
      * Get an existing Namespace resource's state with the given name, ID, and optional extra
@@ -23,7 +23,7 @@ export class Namespace extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamespaceState, opts?: pulumi.CustomResourceOptions): Namespace {
-        pulumi.log.warn("Namespace is deprecated: azure.Namespace has been deprecated in favour of azure.Namespace")
+        pulumi.log.warn("Namespace is deprecated: azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace")
         return new Namespace(name, <any>state, { ...opts, id: id });
     }
 
@@ -97,11 +97,11 @@ export class Namespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.Namespace has been deprecated in favour of azure.Namespace */
+    /** @deprecated azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.Namespace has been deprecated in favour of azure.Namespace */
+    /** @deprecated azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace */
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Namespace is deprecated: azure.Namespace has been deprecated in favour of azure.Namespace")
+        pulumi.log.warn("Namespace is deprecated: azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NamespaceState | undefined;

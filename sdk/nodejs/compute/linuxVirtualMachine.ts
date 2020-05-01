@@ -78,7 +78,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.LinuxVirtualMachineBootDiagnostics | undefined>;
     /**
-     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
     public readonly computerName!: pulumi.Output<string>;
     /**
@@ -328,7 +328,7 @@ export interface LinuxVirtualMachineState {
      */
     readonly bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
     /**
-     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
     readonly computerName?: pulumi.Input<string>;
     /**
@@ -470,7 +470,7 @@ export interface LinuxVirtualMachineArgs {
      */
     readonly bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
     /**
-     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. Changing this forces a new resource to be created.
+     * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
     readonly computerName?: pulumi.Input<string>;
     /**

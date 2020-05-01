@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
  */
-/** @deprecated azure.ManangementLock has been deprecated in favour of azure.Lock */
+/** @deprecated azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock */
 export class ManangementLock extends pulumi.CustomResource {
     /**
      * Get an existing ManangementLock resource's state with the given name, ID, and optional extra
@@ -20,7 +20,7 @@ export class ManangementLock extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ManangementLockState, opts?: pulumi.CustomResourceOptions): ManangementLock {
-        pulumi.log.warn("ManangementLock is deprecated: azure.ManangementLock has been deprecated in favour of azure.Lock")
+        pulumi.log.warn("ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock")
         return new ManangementLock(name, <any>state, { ...opts, id: id });
     }
 
@@ -62,11 +62,11 @@ export class ManangementLock extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.ManangementLock has been deprecated in favour of azure.Lock */
+    /** @deprecated azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock */
     constructor(name: string, args: ManangementLockArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.ManangementLock has been deprecated in favour of azure.Lock */
+    /** @deprecated azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock */
     constructor(name: string, argsOrState?: ManangementLockArgs | ManangementLockState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManangementLock is deprecated: azure.ManangementLock has been deprecated in favour of azure.Lock")
+        pulumi.log.warn("ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ManangementLockState | undefined;

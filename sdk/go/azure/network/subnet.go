@@ -20,6 +20,8 @@ type Subnet struct {
 
 	// The address prefix to use for the subnet.
 	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
+	// The address prefixes to use for the subnet.
+	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
 	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
@@ -39,9 +41,6 @@ type Subnet struct {
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
 func NewSubnet(ctx *pulumi.Context,
 	name string, args *SubnetArgs, opts ...pulumi.ResourceOption) (*Subnet, error) {
-	if args == nil || args.AddressPrefix == nil {
-		return nil, errors.New("missing required argument 'AddressPrefix'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -75,6 +74,8 @@ func GetSubnet(ctx *pulumi.Context,
 type subnetState struct {
 	// The address prefix to use for the subnet.
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// The address prefixes to use for the subnet.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
 	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
@@ -94,6 +95,8 @@ type subnetState struct {
 type SubnetState struct {
 	// The address prefix to use for the subnet.
 	AddressPrefix pulumi.StringPtrInput
+	// The address prefixes to use for the subnet.
+	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
 	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
@@ -116,7 +119,9 @@ func (SubnetState) ElementType() reflect.Type {
 
 type subnetArgs struct {
 	// The address prefix to use for the subnet.
-	AddressPrefix string `pulumi:"addressPrefix"`
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// The address prefixes to use for the subnet.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
 	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
@@ -136,7 +141,9 @@ type subnetArgs struct {
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
 	// The address prefix to use for the subnet.
-	AddressPrefix pulumi.StringInput
+	AddressPrefix pulumi.StringPtrInput
+	// The address prefixes to use for the subnet.
+	AddressPrefixes pulumi.StringArrayInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
 	// Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.

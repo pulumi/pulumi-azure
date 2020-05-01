@@ -26,7 +26,7 @@ class Api(pulumi.CustomResource):
     """
     A `import` block as documented below.
 
-      * `contentFormat` (`str`) - The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+      * `contentFormat` (`str`) - The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
       * `contentValue` (`str`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
       * `wsdlSelector` (`dict`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
         * `endpointName` (`str`) - The name of endpoint (port) to import from WSDL.
@@ -108,7 +108,7 @@ class Api(pulumi.CustomResource):
 
         The **import_** object supports the following:
 
-          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
           * `contentValue` (`pulumi.Input[str]`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
           * `wsdlSelector` (`pulumi.Input[dict]`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
             * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.
@@ -198,7 +198,7 @@ class Api(pulumi.CustomResource):
 
         The **import_** object supports the following:
 
-          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
           * `contentValue` (`pulumi.Input[str]`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
           * `wsdlSelector` (`pulumi.Input[dict]`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
             * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.

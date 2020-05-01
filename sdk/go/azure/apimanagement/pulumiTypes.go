@@ -11,7 +11,7 @@ import (
 )
 
 type ApiImport struct {
-	// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+	// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 	ContentFormat string `pulumi:"contentFormat"`
 	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
 	ContentValue string `pulumi:"contentValue"`
@@ -32,7 +32,7 @@ type ApiImportInput interface {
 }
 
 type ApiImportArgs struct {
-	// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+	// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 	ContentFormat pulumi.StringInput `pulumi:"contentFormat"`
 	// The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
 	ContentValue pulumi.StringInput `pulumi:"contentValue"`
@@ -118,7 +118,7 @@ func (o ApiImportOutput) ToApiImportPtrOutputWithContext(ctx context.Context) Ap
 	}).(ApiImportPtrOutput)
 }
 
-// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 func (o ApiImportOutput) ContentFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiImport) string { return v.ContentFormat }).(pulumi.StringOutput)
 }
@@ -151,7 +151,7 @@ func (o ApiImportPtrOutput) Elem() ApiImportOutput {
 	return o.ApplyT(func(v *ApiImport) ApiImport { return *v }).(ApiImportOutput)
 }
 
-// The format of the content from which the API Definition should be imported. Possible values are: `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
 func (o ApiImportPtrOutput) ContentFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiImport) *string {
 		if v == nil {

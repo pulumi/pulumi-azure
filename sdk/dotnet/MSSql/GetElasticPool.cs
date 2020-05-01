@@ -56,6 +56,10 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The license type to apply for this database.
+        /// </summary>
+        public readonly string LicenseType;
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists.
         /// </summary>
         public readonly string Location;
@@ -91,6 +95,8 @@ namespace Pulumi.Azure.MSSql
         private GetElasticPoolResult(
             string id,
 
+            string licenseType,
+
             string location,
 
             int maxSizeBytes,
@@ -112,6 +118,7 @@ namespace Pulumi.Azure.MSSql
             bool zoneRedundant)
         {
             Id = id;
+            LicenseType = licenseType;
             Location = location;
             MaxSizeBytes = maxSizeBytes;
             MaxSizeGb = maxSizeGb;

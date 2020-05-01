@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.Topic has been deprecated in favour of azure.Topic", DeprecationWarning)
+warnings.warn("azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic", DeprecationWarning)
 class Topic(pulumi.CustomResource):
     auto_delete_on_idle: pulumi.Output[str]
     """
@@ -79,7 +79,7 @@ class Topic(pulumi.CustomResource):
     Boolean flag which controls whether the Topic
     supports ordering. Defaults to false.
     """
-    warnings.warn("azure.Topic has been deprecated in favour of azure.Topic", DeprecationWarning)
+    warnings.warn("azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Topic.
@@ -88,7 +88,7 @@ class Topic(pulumi.CustomResource):
 
 
 
-        Deprecated: azure.Topic has been deprecated in favour of azure.Topic
+        Deprecated: azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +122,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
         """
-        pulumi.log.warn("Topic is deprecated: azure.Topic has been deprecated in favour of azure.Topic")
+        pulumi.log.warn("Topic is deprecated: azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

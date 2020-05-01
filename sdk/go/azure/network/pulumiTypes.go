@@ -1404,6 +1404,8 @@ type ApplicationGatewayHttpListener struct {
 	FrontendPortName string `pulumi:"frontendPortName"`
 	// The Hostname which should be used for this HTTP Listener.
 	HostName *string `pulumi:"hostName"`
+	// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+	HostNames []string `pulumi:"hostNames"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
 	// The Name of the HTTP Listener.
@@ -1443,6 +1445,8 @@ type ApplicationGatewayHttpListenerArgs struct {
 	FrontendPortName pulumi.StringInput `pulumi:"frontendPortName"`
 	// The Hostname which should be used for this HTTP Listener.
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Name of the HTTP Listener.
@@ -1539,6 +1543,11 @@ func (o ApplicationGatewayHttpListenerOutput) FrontendPortName() pulumi.StringOu
 // The Hostname which should be used for this HTTP Listener.
 func (o ApplicationGatewayHttpListenerOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+func (o ApplicationGatewayHttpListenerOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationGatewayHttpListener) []string { return v.HostNames }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the Rewrite Rule Set
@@ -4657,6 +4666,10 @@ func (o ApplicationGatewayWafConfigurationExclusionArrayOutput) Index(i pulumi.I
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfig struct {
 	// A list of Advertised Public Prefixes
 	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
+	// The CustomerASN of the peering
+	CustomerAsn *int `pulumi:"customerAsn"`
+	// The RoutingRegistryName of the configuration
+	RoutingRegistryName *string `pulumi:"routingRegistryName"`
 }
 
 // ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput is an input type that accepts ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs and ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput values.
@@ -4674,6 +4687,10 @@ type ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput interface {
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs struct {
 	// A list of Advertised Public Prefixes
 	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
+	// The CustomerASN of the peering
+	CustomerAsn pulumi.IntPtrInput `pulumi:"customerAsn"`
+	// The RoutingRegistryName of the configuration
+	RoutingRegistryName pulumi.StringPtrInput `pulumi:"routingRegistryName"`
 }
 
 func (ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs) ElementType() reflect.Type {
@@ -4759,6 +4776,16 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) AdvertisedPublic
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
 }
 
+// The CustomerASN of the peering
+func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) CustomerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *int { return v.CustomerAsn }).(pulumi.IntPtrOutput)
+}
+
+// The RoutingRegistryName of the configuration
+func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) RoutingRegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *string { return v.RoutingRegistryName }).(pulumi.StringPtrOutput)
+}
+
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) ElementType() reflect.Type {
@@ -4787,6 +4814,26 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) AdvertisedPub
 		}
 		return v.AdvertisedPublicPrefixes
 	}).(pulumi.StringArrayOutput)
+}
+
+// The CustomerASN of the peering
+func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) CustomerAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerAsn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The RoutingRegistryName of the configuration
+func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) RoutingRegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingRegistryName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ExpressRouteCircuitSku struct {

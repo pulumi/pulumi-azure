@@ -17,11 +17,26 @@ namespace Pulumi.Azure.Network.Outputs
         /// A list of Advertised Public Prefixes
         /// </summary>
         public readonly ImmutableArray<string> AdvertisedPublicPrefixes;
+        /// <summary>
+        /// The CustomerASN of the peering
+        /// </summary>
+        public readonly int? CustomerAsn;
+        /// <summary>
+        /// The RoutingRegistryName of the configuration
+        /// </summary>
+        public readonly string? RoutingRegistryName;
 
         [OutputConstructor]
-        private ExpressRouteCircuitPeeringMicrosoftPeeringConfig(ImmutableArray<string> advertisedPublicPrefixes)
+        private ExpressRouteCircuitPeeringMicrosoftPeeringConfig(
+            ImmutableArray<string> advertisedPublicPrefixes,
+
+            int? customerAsn,
+
+            string? routingRegistryName)
         {
             AdvertisedPublicPrefixes = advertisedPublicPrefixes;
+            CustomerAsn = customerAsn;
+            RoutingRegistryName = routingRegistryName;
         }
     }
 }

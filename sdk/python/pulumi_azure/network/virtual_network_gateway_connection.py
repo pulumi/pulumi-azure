@@ -96,9 +96,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     """
     shared_key: pulumi.Output[str]
     """
-    The shared IPSec key. A key must be provided if a
-    Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-    connections do not need a shared key.
+    The shared IPSec key. A key could be provided if a
+    Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
     """
     tags: pulumi.Output[dict]
     """
@@ -161,9 +160,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the connection Changing the name forces a new resource to be created.
         :param pulumi.Input[float] routing_weight: The routing weight. Defaults to `10`.
-        :param pulumi.Input[str] shared_key: The shared IPSec key. A key must be provided if a
-               Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-               connections do not need a shared key.
+        :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
+               Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
                (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -282,9 +280,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the connection Changing the name forces a new resource to be created.
         :param pulumi.Input[float] routing_weight: The routing weight. Defaults to `10`.
-        :param pulumi.Input[str] shared_key: The shared IPSec key. A key must be provided if a
-               Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-               connections do not need a shared key.
+        :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
+               Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
                (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
  */
-/** @deprecated azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule */
+/** @deprecated azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule */
 export class SubscriptionRule extends pulumi.CustomResource {
     /**
      * Get an existing SubscriptionRule resource's state with the given name, ID, and optional extra
@@ -22,7 +22,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubscriptionRuleState, opts?: pulumi.CustomResourceOptions): SubscriptionRule {
-        pulumi.log.warn("SubscriptionRule is deprecated: azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule")
+        pulumi.log.warn("SubscriptionRule is deprecated: azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule")
         return new SubscriptionRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -84,11 +84,11 @@ export class SubscriptionRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule */
+    /** @deprecated azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule */
     constructor(name: string, args: SubscriptionRuleArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule */
+    /** @deprecated azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule */
     constructor(name: string, argsOrState?: SubscriptionRuleArgs | SubscriptionRuleState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SubscriptionRule is deprecated: azure.SubscriptionRule has been deprecated in favour of azure.SubscriptionRule")
+        pulumi.log.warn("SubscriptionRule is deprecated: azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SubscriptionRuleState | undefined;

@@ -21,7 +21,7 @@ func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespace
 type LookupNamespaceAuthorizationRuleArgs struct {
 	// The name of the EventHub Authorization Rule resource.
 	Name string `pulumi:"name"`
-	// The name of the EventHub Namespace.
+	// Specifies the name of the EventHub Namespace.
 	NamespaceName string `pulumi:"namespaceName"`
 	// The name of the resource group in which the EventHub Namespace exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -34,9 +34,8 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	// Does this Authorization Rule have permissions to Listen to the Event Hub?
 	Listen bool `pulumi:"listen"`
 	// Does this Authorization Rule have permissions to Manage to the Event Hub?
-	Manage bool   `pulumi:"manage"`
-	Name   string `pulumi:"name"`
-	// The name of the EventHub Namespace.
+	Manage        bool   `pulumi:"manage"`
+	Name          string `pulumi:"name"`
 	NamespaceName string `pulumi:"namespaceName"`
 	// The Primary Connection String for the Event Hubs authorization Rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`

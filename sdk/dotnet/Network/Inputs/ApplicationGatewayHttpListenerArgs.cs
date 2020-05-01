@@ -54,6 +54,18 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
+        [Input("hostNames")]
+        private InputList<string>? _hostNames;
+
+        /// <summary>
+        /// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+        /// </summary>
+        public InputList<string> HostNames
+        {
+            get => _hostNames ?? (_hostNames = new InputList<string>());
+            set => _hostNames = value;
+        }
+
         /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>

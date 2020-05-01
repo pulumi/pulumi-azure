@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyCustomRule
     {
         /// <summary>
-        /// Type of Actions
+        /// Type of action.
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// One or more `match_condition` block defined below.
+        /// One or more `match_conditions` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyCustomRuleMatchCondition> MatchConditions;
         /// <summary>
-        /// The name of the policy. Changing this forces a new resource to be created.
+        /// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+        /// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// Describes the type of rule
+        /// Describes the type of rule.
         /// </summary>
         public readonly string RuleType;
 

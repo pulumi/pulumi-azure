@@ -48,6 +48,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly addressPrefix!: pulumi.Output<string>;
     /**
+     * The address prefixes to use for the subnet.
+     */
+    public readonly addressPrefixes!: pulumi.Output<string[]>;
+    /**
      * One or more `delegation` blocks as defined below.
      */
     public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
@@ -89,6 +93,7 @@ export class Subnet extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as SubnetState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
+            inputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
             inputs["delegations"] = state ? state.delegations : undefined;
             inputs["enforcePrivateLinkEndpointNetworkPolicies"] = state ? state.enforcePrivateLinkEndpointNetworkPolicies : undefined;
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
@@ -98,9 +103,6 @@ export class Subnet extends pulumi.CustomResource {
             inputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
-            if (!args || args.addressPrefix === undefined) {
-                throw new Error("Missing required property 'addressPrefix'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -108,6 +110,7 @@ export class Subnet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            inputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
             inputs["delegations"] = args ? args.delegations : undefined;
             inputs["enforcePrivateLinkEndpointNetworkPolicies"] = args ? args.enforcePrivateLinkEndpointNetworkPolicies : undefined;
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
@@ -133,8 +136,14 @@ export class Subnet extends pulumi.CustomResource {
 export interface SubnetState {
     /**
      * The address prefix to use for the subnet.
+     * 
+     * @deprecated Use the `address_prefixes` property instead.
      */
     readonly addressPrefix?: pulumi.Input<string>;
+    /**
+     * The address prefixes to use for the subnet.
+     */
+    readonly addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `delegation` blocks as defined below.
      */
@@ -171,8 +180,14 @@ export interface SubnetState {
 export interface SubnetArgs {
     /**
      * The address prefix to use for the subnet.
+     * 
+     * @deprecated Use the `address_prefixes` property instead.
      */
-    readonly addressPrefix: pulumi.Input<string>;
+    readonly addressPrefix?: pulumi.Input<string>;
+    /**
+     * The address prefixes to use for the subnet.
+     */
+    readonly addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `delegation` blocks as defined below.
      */
