@@ -14,9 +14,9 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// 
     /// 
-    /// Deprecated: azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule
+    /// Deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule
     /// </summary>
-    [Obsolete(@"azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule")]
+    [Obsolete(@"azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

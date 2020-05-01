@@ -6,9 +6,9 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/** @deprecated azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition */
+/** @deprecated azure.role.getRoleDefinition has been deprecated in favour of azure.authorization.getRoleDefinition */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
-    pulumi.log.warn("getRoleDefinition is deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition")
+    pulumi.log.warn("getRoleDefinition is deprecated: azure.role.getRoleDefinition has been deprecated in favour of azure.authorization.getRoleDefinition")
     args = args || {};
     if (!opts) {
         opts = {}

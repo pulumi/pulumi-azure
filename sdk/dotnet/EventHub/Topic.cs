@@ -16,9 +16,9 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// 
     /// 
-    /// Deprecated: azure.Topic has been deprecated in favour of azure.Topic
+    /// Deprecated: azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic
     /// </summary>
-    [Obsolete(@"azure.Topic has been deprecated in favour of azure.Topic")]
+    [Obsolete(@"azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic")]
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>

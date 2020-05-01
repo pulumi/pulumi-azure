@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.Domain has been deprecated in favour of azure.Domain
+// Deprecated: azure.eventhub.Domain has been deprecated in favour of azure.eventgrid.Domain
 type Domain struct {
 	pulumi.CustomResourceState
 

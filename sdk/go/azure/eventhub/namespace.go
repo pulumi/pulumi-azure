@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.Namespace has been deprecated in favour of azure.Namespace
+// Deprecated: azure.eventhub.Namespace has been deprecated in favour of azure.servicebus.Namespace
 type Namespace struct {
 	pulumi.CustomResourceState
 

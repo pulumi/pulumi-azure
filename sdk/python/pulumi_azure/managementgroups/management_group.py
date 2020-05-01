@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.ManagementGroup has been deprecated in favour of azure.Group", DeprecationWarning)
+warnings.warn("azure.managementgroups.ManagementGroup has been deprecated in favour of azure.management.Group", DeprecationWarning)
 class ManagementGroup(pulumi.CustomResource):
     display_name: pulumi.Output[str]
     """
@@ -31,14 +31,14 @@ class ManagementGroup(pulumi.CustomResource):
     """
     A list of Subscription GUIDs which should be assigned to the Management Group.
     """
-    warnings.warn("azure.ManagementGroup has been deprecated in favour of azure.Group", DeprecationWarning)
+    warnings.warn("azure.managementgroups.ManagementGroup has been deprecated in favour of azure.management.Group", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, display_name=None, group_id=None, name=None, parent_management_group_id=None, subscription_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Management Group.
 
 
 
-        Deprecated: azure.ManagementGroup has been deprecated in favour of azure.Group
+        Deprecated: azure.managementgroups.ManagementGroup has been deprecated in favour of azure.management.Group
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -48,7 +48,7 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[list] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
         """
-        pulumi.log.warn("ManagementGroup is deprecated: azure.ManagementGroup has been deprecated in favour of azure.Group")
+        pulumi.log.warn("ManagementGroup is deprecated: azure.managementgroups.ManagementGroup has been deprecated in favour of azure.management.Group")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

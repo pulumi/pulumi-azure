@@ -14,9 +14,9 @@ namespace Pulumi.Azure.TrafficManager
     /// 
     /// 
     /// 
-    /// Deprecated: azure.Profile has been deprecated in favour of azure.TrafficManagerProfile
+    /// Deprecated: azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile
     /// </summary>
-    [Obsolete(@"azure.Profile has been deprecated in favour of azure.TrafficManagerProfile")]
+    [Obsolete(@"azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile")]
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>

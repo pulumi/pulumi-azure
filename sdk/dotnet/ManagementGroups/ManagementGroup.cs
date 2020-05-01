@@ -14,9 +14,9 @@ namespace Pulumi.Azure.ManagementGroups
     /// 
     /// 
     /// 
-    /// Deprecated: azure.ManagementGroup has been deprecated in favour of azure.Group
+    /// Deprecated: azure.managementgroups.ManagementGroup has been deprecated in favour of azure.management.Group
     /// </summary>
-    [Obsolete(@"azure.ManagementGroup has been deprecated in favour of azure.Group")]
+    [Obsolete(@"azure.managementgroups.ManagementGroup has been deprecated in favour of azure.management.Group")]
     public partial class ManagementGroup : Pulumi.CustomResource
     {
         /// <summary>

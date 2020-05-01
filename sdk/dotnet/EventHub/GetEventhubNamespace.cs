@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
-    [Obsolete(@"azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace")]
+    [Obsolete(@"azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace")]
     public static class GetEventhubNamespace
     {
         /// <summary>
@@ -18,7 +18,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% examples %}}
         /// {{% /examples %}}
         /// 
-        /// Deprecated: azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace
+        /// Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace
         /// </summary>
         public static Task<GetEventhubNamespaceResult> InvokeAsync(GetEventhubNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventhubNamespaceResult>("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args ?? new GetEventhubNamespaceArgs(), options.WithVersion());

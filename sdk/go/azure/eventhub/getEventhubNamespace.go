@@ -11,7 +11,7 @@ import (
 //
 //
 //
-// Deprecated: azure.getEventhubNamespace has been deprecated in favour of azure.getNamespace
+// Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
 	var rv GetEventhubNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, &rv, opts...)

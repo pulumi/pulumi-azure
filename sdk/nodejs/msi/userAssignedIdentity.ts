@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.markdown.
  */
-/** @deprecated azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity */
+/** @deprecated azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
      * Get an existing UserAssignedIdentity resource's state with the given name, ID, and optional extra
@@ -37,7 +37,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserAssignedIdentityState, opts?: pulumi.CustomResourceOptions): UserAssignedIdentity {
-        pulumi.log.warn("UserAssignedIdentity is deprecated: azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity")
+        pulumi.log.warn("UserAssignedIdentity is deprecated: azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity")
         return new UserAssignedIdentity(name, <any>state, { ...opts, id: id });
     }
 
@@ -90,11 +90,11 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity */
+    /** @deprecated azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity */
     constructor(name: string, args: UserAssignedIdentityArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity */
+    /** @deprecated azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity */
     constructor(name: string, argsOrState?: UserAssignedIdentityArgs | UserAssignedIdentityState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("UserAssignedIdentity is deprecated: azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity")
+        pulumi.log.warn("UserAssignedIdentity is deprecated: azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as UserAssignedIdentityState | undefined;

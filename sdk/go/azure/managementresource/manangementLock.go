@@ -12,7 +12,7 @@ import (
 
 // Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 //
-// Deprecated: azure.ManangementLock has been deprecated in favour of azure.Lock
+// Deprecated: azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock
 type ManangementLock struct {
 	pulumi.CustomResourceState
 

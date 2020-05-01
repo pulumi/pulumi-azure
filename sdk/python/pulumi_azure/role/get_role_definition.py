@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition", DeprecationWarning)
+warnings.warn("azure.role.getRoleDefinition has been deprecated in favour of azure.authorization.getRoleDefinition", DeprecationWarning)
 class GetRoleDefinitionResult:
     """
     A collection of values returned by getRoleDefinition.
@@ -60,9 +60,9 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
 def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
 
-    Deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition
+    Deprecated: azure.role.getRoleDefinition has been deprecated in favour of azure.authorization.getRoleDefinition
     """
-    pulumi.log.warn("get_role_definition is deprecated: azure.getRoleDefinition has been deprecated in favour of azure.getRoleDefinition")
+    pulumi.log.warn("get_role_definition is deprecated: azure.role.getRoleDefinition has been deprecated in favour of azure.authorization.getRoleDefinition")
     __args__ = dict()
 
 

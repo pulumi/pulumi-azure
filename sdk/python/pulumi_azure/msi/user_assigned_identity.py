@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity", DeprecationWarning)
+warnings.warn("azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity", DeprecationWarning)
 class UserAssignedIdentity(pulumi.CustomResource):
     client_id: pulumi.Output[str]
     """
@@ -38,14 +38,14 @@ class UserAssignedIdentity(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    warnings.warn("azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity", DeprecationWarning)
+    warnings.warn("azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a user assigned identity.
 
 
 
-        Deprecated: azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity
+        Deprecated: azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -57,7 +57,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                create the user assigned identity.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.log.warn("UserAssignedIdentity is deprecated: azure.UserAssignedIdentity has been deprecated in favour of azure.UserAssignedIdentity")
+        pulumi.log.warn("UserAssignedIdentity is deprecated: azure.msi.UserAssignedIdentity has been deprecated in favour of azure.authorization.UserAssignedIdentity")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

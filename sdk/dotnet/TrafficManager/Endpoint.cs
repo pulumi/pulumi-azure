@@ -14,9 +14,9 @@ namespace Pulumi.Azure.TrafficManager
     /// 
     /// 
     /// 
-    /// Deprecated: azure.Endpoint has been deprecated in favour of azure.TrafficManagerEndpoint
+    /// Deprecated: azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint
     /// </summary>
-    [Obsolete(@"azure.Endpoint has been deprecated in favour of azure.TrafficManagerEndpoint")]
+    [Obsolete(@"azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>

@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.RegistryWebook has been deprecated in favour of azure.RegistryWebhook
+// Deprecated: azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook
 type RegistryWebook struct {
 	pulumi.CustomResourceState
 

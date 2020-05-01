@@ -11,9 +11,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
  */
-/** @deprecated azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity */
+/** @deprecated azure.core.getUserAssignedIdentity has been deprecated in favour of azure.authorization.getUserAssignedIdentity */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
-    pulumi.log.warn("getUserAssignedIdentity is deprecated: azure.getUserAssignedIdentity has been deprecated in favour of azure.getUserAssignedIdentity")
+    pulumi.log.warn("getUserAssignedIdentity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favour of azure.authorization.getUserAssignedIdentity")
     if (!opts) {
         opts = {}
     }

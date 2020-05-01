@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule", DeprecationWarning)
+warnings.warn("azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule", DeprecationWarning)
 class NamespaceAuthorizationRule(pulumi.CustomResource):
     listen: pulumi.Output[bool]
     """
@@ -51,14 +51,14 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     """
     Grants send access to this this Authorization Rule. Defaults to `false`.
     """
-    warnings.warn("azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule", DeprecationWarning)
+    warnings.warn("azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 
 
 
-        Deprecated: azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule
+        Deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -69,7 +69,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
-        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.NamespaceAuthorizationRule has been deprecated in favour of azure.NamespaceAuthorizationRule")
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

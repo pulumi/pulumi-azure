@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.TopicAuthorizationRule has been deprecated in favour of azure.TopicAuthorizationRule
+// Deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
 

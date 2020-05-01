@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.Subscription has been deprecated in favour of azure.Subscription
+// Deprecated: azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription
 type Subscription struct {
 	pulumi.CustomResourceState
 

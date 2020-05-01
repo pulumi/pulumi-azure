@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.QueueAuthorizationRule has been deprecated in favour of azure.QueueAuthorizationRule
+// Deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule
 type QueueAuthorizationRule struct {
 	pulumi.CustomResourceState
 

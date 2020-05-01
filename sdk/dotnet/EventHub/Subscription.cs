@@ -14,9 +14,9 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// 
     /// 
-    /// Deprecated: azure.Subscription has been deprecated in favour of azure.Subscription
+    /// Deprecated: azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription
     /// </summary>
-    [Obsolete(@"azure.Subscription has been deprecated in favour of azure.Subscription")]
+    [Obsolete(@"azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
