@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.8.0 of the AzureRM Terraform Provider
-* Upgrade to pulumi-terraform-bridge v2.1.1
+_(none)_
 
 ---
+
+## 3.4.0 (2020-05-01)
+* Upgrade to v2.8.0 of the AzureRM Terraform Provider
+* Upgrade to pulumi-terraform-bridge v2.1.1
 
 ## 3.3.0 (2020-04-29)
 * Regenerate datasource examples to be async
