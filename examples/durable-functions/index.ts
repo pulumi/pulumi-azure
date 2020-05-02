@@ -10,7 +10,7 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
     functions: [
         new azure.appservice.DurableActivityFunction("SayHello", {
             activityInputName: "name",
-            callback: async(context) => {
+            callback: async context => {
                 return "Hello, " + context.bindings.name;
             }
         }),
