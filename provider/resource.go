@@ -1502,7 +1502,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_maintenance_configuration":      {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.0", // so we can access strongly typed node definitions.
 			},
