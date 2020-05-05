@@ -11,6 +11,50 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ * });
+ * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
+ *     namespaceName: exampleNamespace.name,
+ *     topicName: exampleTopic.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     listen: false,
+ *     send: true,
+ *     manage: false,
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "B1",
+ *         tier: "Basic",
+ *         capacity: "1",
+ *     },
+ *     tags: {
+ *         purpose: "example",
+ *     },
+ * });
+ * const exampleEndpointServicebusTopic = new azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     iothubName: exampleIoTHub.name,
+ *     connectionString: exampleTopicAuthorizationRule.primaryConnectionString,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_servicebus_topic.html.markdown.
  */

@@ -9,6 +9,56 @@ import * as utilities from "../utilities";
 /**
  * Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ *     policyType: "Custom",
+ *     mode: "All",
+ *     displayName: "my-policy-definition",
+ *     policyRule: `	{
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "in": "[parameters('allowedLocations')]"
+ *       }
+ *     },
+ *     "then": {
+ *       "effect": "audit"
+ *     }
+ *   }
+ * `,
+ *     parameters: `	{
+ *     "allowedLocations": {
+ *       "type": "Array",
+ *       "metadata": {
+ *         "description": "The list of allowed locations for resources.",
+ *         "displayName": "Allowed locations",
+ *         "strongType": "location"
+ *       }
+ *     }
+ *   }
+ * `,
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAssignment = new azure.policy.Assignment("exampleAssignment", {
+ *     scope: exampleResourceGroup.id,
+ *     policyDefinitionId: exampleDefinition.id,
+ *     description: "Policy Assignment created via an Acceptance Test",
+ *     displayName: "My Example Policy Assignment",
+ *     parameters: `{
+ *   "allowedLocations": {
+ *     "value": [ "West Europe" ]
+ *   }
+ * }
+ * `,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
  */

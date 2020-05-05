@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Disk Snapshot.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Empty",
+ *     diskSizeGb: "10",
+ * });
+ * const exampleSnapshot = new azure.compute.Snapshot("exampleSnapshot", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     createOption: "Copy",
+ *     sourceUri: exampleManagedDisk.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
  */

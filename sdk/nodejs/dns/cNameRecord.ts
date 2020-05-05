@@ -9,6 +9,45 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS CNAME Records within Azure DNS.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     record: "contoso.com",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Alias Record)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const target = new azure.dns.CNameRecord("target", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     record: "contoso.com",
+ * });
+ * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     targetResourceId: target.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_cname_record.html.markdown.
  */

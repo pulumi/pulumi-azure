@@ -158,6 +158,101 @@ class Slot(pulumi.CustomResource):
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 
+
+        ## Example Usage (.net 4.x)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server",
+            keepers={
+                "azi_id": 1,
+            },
+            byte_length=8)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config={
+                "dotnetFrameworkVersion": "v4.0",
+            },
+            app_settings={
+                "SOME_KEY": "some-value",
+            },
+            connection_string=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }])
+        example_slot = azure.appservice.Slot("exampleSlot",
+            app_service_name=example_app_service.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config={
+                "dotnetFrameworkVersion": "v4.0",
+            },
+            app_settings={
+                "SOME_KEY": "some-value",
+            },
+            connection_string=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }])
+        ```
+
+        ## Example Usage (Java 1.8)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server",
+            keepers={
+                "azi_id": 1,
+            },
+            byte_length=8)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config={
+                "javaVersion": "1.8",
+                "javaContainer": "JETTY",
+                "javaContainerVersion": "9.3",
+            })
+        example_slot = azure.appservice.Slot("exampleSlot",
+            app_service_name=example_app_service.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config={
+                "javaVersion": "1.8",
+                "javaContainer": "JETTY",
+                "javaContainerVersion": "9.3",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.

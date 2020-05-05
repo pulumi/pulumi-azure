@@ -9,6 +9,48 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to Blob Storage.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("exampleOutputBlob", {
+ *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountKey: exampleAccount.primaryAccessKey,
+ *     storageContainerName: exampleContainer.name,
+ *     pathPattern: "some-pattern",
+ *     dateFormat: "yyyy-MM-dd",
+ *     timeFormat: "HH",
+ *     serialization: {
+ *         type: "Csv",
+ *         encoding: "UTF8",
+ *         fieldDelimiter: ",",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_blob.html.markdown.
  */

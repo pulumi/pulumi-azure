@@ -43,6 +43,36 @@ class AnalyticsSolution(pulumi.CustomResource):
         """
         Manages a Log Analytics (formally Operational Insights) Solution.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        workspace = random.RandomId("workspace",
+            keepers={
+                "group_name": example_resource_group.name,
+            },
+            byte_length=8)
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+            solution_name="ContainerInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            workspace_resource_id=example_analytics_workspace.id,
+            workspace_name=example_analytics_workspace.name,
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/ContainerInsights",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

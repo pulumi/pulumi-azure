@@ -58,6 +58,34 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_queue = azure.servicebus.Queue("exampleQueue",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            enable_partitioning=True)
+        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule",
+            namespace_name=example_namespace.name,
+            queue_name=example_queue.name,
+            resource_group_name=example_resource_group.name,
+            listen=True,
+            send=True,
+            manage=False)
+        ```
 
 
         :param str resource_name: The name of the resource.

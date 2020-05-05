@@ -9,6 +9,43 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to a ServiceBus Queue.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     sku: "Standard",
+ * });
+ * const exampleQueue = new azure.servicebus.Queue("exampleQueue", {
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     namespaceName: exampleNamespace.name,
+ *     enablePartitioning: true,
+ * });
+ * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", {
+ *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ *     queueName: exampleQueue.name,
+ *     servicebusNamespace: exampleNamespace.name,
+ *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
+ *     sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *     serialization: {
+ *         format: "Avro",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_queue.html.markdown.
  */

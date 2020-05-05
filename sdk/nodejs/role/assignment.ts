@@ -6,6 +6,97 @@ import * as utilities from "../utilities";
 
 /**
  * Assigns a given Principal (User or Application) to a given Role.
+ * 
+ * ## Example Usage (using a built-in Role)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const primary = azure.core.getSubscription({});
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionName: "Reader",
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ * });
+ * ```
+ * 
+ * ## Example Usage (Custom Role & Service Principal)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const primary = azure.core.getSubscription({});
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.then(primary => primary.id),
+ *     permissions: [{
+ *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+ *         notActions: [],
+ *     }],
+ *     assignableScopes: [primary.then(primary => primary.id)],
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     name: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionId: exampleRoleDefinition.id,
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ * });
+ * ```
+ * 
+ * ## Example Usage (Custom Role & User)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const primary = azure.core.getSubscription({});
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.then(primary => primary.id),
+ *     permissions: [{
+ *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+ *         notActions: [],
+ *     }],
+ *     assignableScopes: [primary.then(primary => primary.id)],
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     name: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionId: exampleRoleDefinition.id,
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
+ * });
+ * ```
+ * 
+ * ## Example Usage (Custom Role & Management Group)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const primary = azure.core.getSubscription({});
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleGroup = azure.management.getGroup({});
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.then(primary => primary.id),
+ *     permissions: [{
+ *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+ *         notActions: [],
+ *     }],
+ *     assignableScopes: [primary.then(primary => primary.id)],
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     name: "00000000-0000-0000-0000-000000000000",
+ *     scope: data.azurerm_management_group.primary.id,
+ *     roleDefinitionId: exampleRoleDefinition.id,
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */

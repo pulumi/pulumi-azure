@@ -103,6 +103,113 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         Manages an Azure Front Door Web Application Firewall Policy instance.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
+        example_firewall_policy = azure.frontdoor.FirewallPolicy("exampleFirewallPolicy",
+            resource_group_name=example_resource_group.name,
+            enabled=True,
+            mode="Prevention",
+            redirect_url="https://www.contoso.com",
+            custom_block_response_status_code=403,
+            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+            custom_rule=[
+                {
+                    "name": "Rule1",
+                    "enabled": True,
+                    "priority": 1,
+                    "rateLimitDurationInMinutes": 1,
+                    "rateLimitThreshold": 10,
+                    "type": "MatchRule",
+                    "action": "Block",
+                    "match_condition": [{
+                        "matchVariable": "RemoteAddr",
+                        "operator": "IPMatch",
+                        "negationCondition": False,
+                        "matchValues": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                    }],
+                },
+                {
+                    "name": "Rule2",
+                    "enabled": True,
+                    "priority": 2,
+                    "rateLimitDurationInMinutes": 1,
+                    "rateLimitThreshold": 10,
+                    "type": "MatchRule",
+                    "action": "Block",
+                    "match_condition": [
+                        {
+                            "matchVariable": "RemoteAddr",
+                            "operator": "IPMatch",
+                            "negationCondition": False,
+                            "matchValues": ["192.168.1.0/24"],
+                        },
+                        {
+                            "matchVariable": "RequestHeader",
+                            "selector": "UserAgent",
+                            "operator": "Contains",
+                            "negationCondition": False,
+                            "matchValues": ["windows"],
+                            "transforms": [
+                                "Lowercase",
+                                "Trim",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            managed_rule=[
+                {
+                    "type": "DefaultRuleSet",
+                    "version": "1.0",
+                    "exclusion": [{
+                        "matchVariable": "QueryStringArgNames",
+                        "operator": "Equals",
+                        "selector": "not_suspicious",
+                    }],
+                    "override": [
+                        {
+                            "ruleGroupName": "PHP",
+                            "rule": [{
+                                "ruleId": "933100",
+                                "enabled": False,
+                                "action": "Block",
+                            }],
+                        },
+                        {
+                            "ruleGroupName": "SQLI",
+                            "exclusion": [{
+                                "matchVariable": "QueryStringArgNames",
+                                "operator": "Equals",
+                                "selector": "really_not_suspicious",
+                            }],
+                            "rule": [{
+                                "ruleId": "942200",
+                                "action": "Block",
+                                "exclusion": [{
+                                    "matchVariable": "QueryStringArgNames",
+                                    "operator": "Equals",
+                                    "selector": "innocent",
+                                }],
+                            }],
+                        },
+                    ],
+                },
+                {
+                    "type": "Microsoft_BotManagerRuleSet",
+                    "version": "1.0",
+                },
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

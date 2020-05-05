@@ -44,6 +44,51 @@ class Route(pulumi.CustomResource):
 
         > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resourcs - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            resource_group_name=example_resource_group.name,
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku={
+                "name": "S1",
+                "capacity": "1",
+            },
+            tags={
+                "purpose": "testing",
+            })
+        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("exampleEndpointStorageContainer",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            connection_string=example_account.primary_blob_connection_string,
+            batch_frequency_in_seconds=60,
+            max_chunk_size_in_bytes=10485760,
+            container_name=example_container.name,
+            encoding="Avro",
+            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}")
+        example_route = azure.iot.Route("exampleRoute",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            source="DeviceMessages",
+            condition="true",
+            endpoint_names=[example_endpoint_storage_container.name],
+            enabled=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

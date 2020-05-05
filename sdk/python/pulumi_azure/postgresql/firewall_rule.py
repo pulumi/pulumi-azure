@@ -35,6 +35,38 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a PostgreSQL Server
 
+        ## Example Usage (Single IP Address)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer")
+        # ...
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="40.112.8.12",
+            end_ip_address="40.112.8.12")
+        ```
+
+        ## Example Usage (IP Range)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer")
+        # ...
+        example_firewall_rule = azure.postgresql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="40.112.0.0",
+            end_ip_address="40.112.255.255")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.

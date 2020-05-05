@@ -62,6 +62,84 @@ class Extension(pulumi.CustomResource):
 
         > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.0.2.0/24")
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configuration=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            tags={
+                "environment": "staging",
+            })
+        example_container = azure.storage.Container("exampleContainer",
+            resource_group_name=example_resource_group.name,
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_F2",
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "UbuntuServer",
+                "sku": "16.04-LTS",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "myosdisk1",
+                "vhdUri": pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}/myosdisk1.vhd"),
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+            },
+            os_profile={
+                "computerName": "hostname",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            },
+            tags={
+                "environment": "staging",
+            })
+        example_extension = azure.compute.Extension("exampleExtension",
+            virtual_machine_id=example_virtual_machine.id,
+            publisher="Microsoft.Azure.Extensions",
+            type="CustomScript",
+            type_handler_version="2.0",
+            settings=\"\"\"	{
+        		"commandToExecute": "hostname && uptime"
+        	}
+        \"\"\",
+            tags={
+                "environment": "Production",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

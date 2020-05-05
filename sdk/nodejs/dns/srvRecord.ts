@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS SRV Records within Azure DNS.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleSrvRecord = new azure.dns.SrvRecord("exampleSrvRecord", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     record: [{
+ *         priority: 1,
+ *         weight: 5,
+ *         port: 8080,
+ *         target: "target1.contoso.com",
+ *     }],
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_srv_record.html.markdown.
  */

@@ -38,6 +38,65 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         Manages an Azure Storage Account Management Policy.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="BlobStorage")
+        example_management_policy = azure.storage.ManagementPolicy("exampleManagementPolicy",
+            storage_account_id=example_account.id,
+            rule=[
+                {
+                    "name": "rule1",
+                    "enabled": True,
+                    "filters": {
+                        "prefixMatches": ["container1/prefix1"],
+                        "blobTypes": ["blockBlob"],
+                    },
+                    "actions": {
+                        "base_blob": {
+                            "tierToCoolAfterDaysSinceModificationGreaterThan": 10,
+                            "tierToArchiveAfterDaysSinceModificationGreaterThan": 50,
+                            "deleteAfterDaysSinceModificationGreaterThan": 100,
+                        },
+                        "snapshot": {
+                            "deleteAfterDaysSinceCreationGreaterThan": 30,
+                        },
+                    },
+                },
+                {
+                    "name": "rule2",
+                    "enabled": False,
+                    "filters": {
+                        "prefixMatches": [
+                            "container2/prefix1",
+                            "container2/prefix2",
+                        ],
+                        "blobTypes": ["blockBlob"],
+                    },
+                    "actions": {
+                        "base_blob": {
+                            "tierToCoolAfterDaysSinceModificationGreaterThan": 11,
+                            "tierToArchiveAfterDaysSinceModificationGreaterThan": 51,
+                            "deleteAfterDaysSinceModificationGreaterThan": 101,
+                        },
+                        "snapshot": {
+                            "deleteAfterDaysSinceCreationGreaterThan": 31,
+                        },
+                    },
+                },
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

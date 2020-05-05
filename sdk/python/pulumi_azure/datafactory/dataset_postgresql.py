@@ -62,6 +62,27 @@ class DatasetPostgresql(pulumi.CustomResource):
         """
         Manages a PostgreSQL Dataset inside a Azure Data Factory.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_postgresql = azure.datafactory.LinkedServicePostgresql("exampleLinkedServicePostgresql",
+            resource_group_name=example_resource_group.name,
+            data_factory_name=example_factory.name,
+            connection_string="Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example")
+        example_dataset_postgresql = azure.datafactory.DatasetPostgresql("exampleDatasetPostgresql",
+            resource_group_name=example_resource_group.name,
+            data_factory_name=example_factory.name,
+            linked_service_name=example_linked_service_postgresql.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

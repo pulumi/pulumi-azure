@@ -9,6 +9,48 @@ import * as utilities from "../utilities";
 /**
  * Manages a Traffic Manager Endpoint.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const server = new random.RandomId("server", {
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ *     byteLength: 8,
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     trafficRoutingMethod: "Weighted",
+ *     dns_config: {
+ *         relativeName: server.hex,
+ *         ttl: 100,
+ *     },
+ *     monitor_config: {
+ *         protocol: "http",
+ *         port: 80,
+ *         path: "/",
+ *         intervalInSeconds: 30,
+ *         timeoutInSeconds: 9,
+ *         toleratedNumberOfFailures: 3,
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleTrafficManagerEndpoint = new azure.network.TrafficManagerEndpoint("exampleTrafficManagerEndpoint", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     profileName: exampleTrafficManagerProfile.name,
+ *     type: "externalEndpoints",
+ *     weight: 100,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
  */

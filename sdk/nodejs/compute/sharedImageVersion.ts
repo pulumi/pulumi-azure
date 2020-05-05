@@ -9,6 +9,36 @@ import * as utilities from "../utilities";
 /**
  * Manages a Version of a Shared Image within a Shared Image Gallery.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const existingImage = azure.compute.getImage({
+ *     name: "search-api",
+ *     resourceGroupName: "packerimages",
+ * });
+ * const existingSharedImage = azure.compute.getSharedImage({
+ *     name: "existing-image",
+ *     galleryName: "existingGallery",
+ *     resourceGroupName: "existing-resources",
+ * });
+ * const example = new azure.compute.SharedImageVersion("example", {
+ *     galleryName: existingSharedImage.then(existingSharedImage => existingSharedImage.galleryName),
+ *     imageName: existingSharedImage.then(existingSharedImage => existingSharedImage.name),
+ *     resourceGroupName: existingSharedImage.then(existingSharedImage => existingSharedImage.resourceGroupName),
+ *     location: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
+ *     managedImageId: existingImage.then(existingImage => existingImage.id),
+ *     target_region: [{
+ *         name: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
+ *         regionalReplicaCount: "5",
+ *         storageAccountType: "Standard_LRS",
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
  */

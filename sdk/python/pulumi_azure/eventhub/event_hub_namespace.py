@@ -77,6 +77,24 @@ class EventHubNamespace(pulumi.CustomResource):
         """
         Manages an EventHub Namespace.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

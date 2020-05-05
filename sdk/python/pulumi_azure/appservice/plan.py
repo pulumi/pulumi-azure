@@ -63,6 +63,75 @@ class Plan(pulumi.CustomResource):
         """
         Manages an App Service Plan component.
 
+        ## Example Usage (Dedicated)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
+        ```
+
+        ## Example Usage (Shared / Consumption Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="FunctionApp",
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            })
+        ```
+
+        ## Example Usage (Linux)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Linux",
+            reserved=True,
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
+        ```
+
+        ## Example Usage (Windows Container)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="xenon",
+            is_xenon=True,
+            sku={
+                "tier": "PremiumContainer",
+                "size": "PC2",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.

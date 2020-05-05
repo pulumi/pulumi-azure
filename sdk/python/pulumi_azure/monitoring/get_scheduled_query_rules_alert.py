@@ -129,6 +129,18 @@ def get_scheduled_query_rules_alert(name=None,resource_group_name=None,opts=None
     """
     Use this data source to access the properties of an AlertingAction scheduled query rule.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.monitoring.get_scheduled_query_rules_alert(name="tfex-queryrule",
+        resource_group_name="example-rg")
+    pulumi.export("queryRuleId", example.id)
+    ```
 
 
 

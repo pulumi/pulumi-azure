@@ -9,6 +9,43 @@ import * as utilities from "../utilities";
 /**
  * Manages a Firewall Rule associated with a Redis Cache.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const server = new random.RandomId("server", {
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ *     byteLength: 8,
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCache = new azure.redis.Cache("exampleCache", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     capacity: 1,
+ *     family: "P",
+ *     skuName: "Premium",
+ *     enableNonSslPort: false,
+ *     redis_configuration: {
+ *         maxclients: 256,
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ * });
+ * const exampleFirewallRule = new azure.redis.FirewallRule("exampleFirewallRule", {
+ *     redisCacheName: exampleCache.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     startIp: "1.2.3.4",
+ *     endIp: "2.3.4.5",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_firewall_rule.html.markdown.
  */

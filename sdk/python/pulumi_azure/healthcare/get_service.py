@@ -83,6 +83,19 @@ def get_service(location=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Healthcare Service
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.healthcare.get_service(name="example-healthcare_service",
+        resource_group_name="example-resources",
+        location="westus2")
+    pulumi.export("healthcareServiceId", example.id)
+    ```
 
 
 

@@ -36,6 +36,24 @@ class Profile(pulumi.CustomResource):
         """
         Manages a CDN Profile to create a collection of CDN Endpoints.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_profile = azure.cdn.Profile("exampleProfile",
+            location="West US",
+            resource_group_name=example_resource_group.name,
+            sku="Standard_Verizon",
+            tags={
+                "environment": "Production",
+                "cost_center": "MSFT",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

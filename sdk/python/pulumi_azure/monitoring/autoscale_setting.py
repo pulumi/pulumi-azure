@@ -89,7 +89,226 @@ class AutoscaleSetting(pulumi.CustomResource):
         """
         Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
+        # ...
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            target_resource_id=example_scale_set.id,
+            profile=[{
+                "name": "defaultProfile",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rule": [
+                    {
+                        "metric_trigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 75,
+                        },
+                        "scale_action": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": "1",
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metric_trigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 25,
+                        },
+                        "scale_action": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": "1",
+                            "cooldown": "PT1M",
+                        },
+                    },
+                ],
+            }],
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
+        ```
+
+        ## Example Usage (repeating on weekends)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+            location=example_resource_group.location,
+            notification={
+                "email": {
+                    "customEmails": ["admin@contoso.com"],
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                },
+            },
+            profiles=[{
+                "capacity": {
+                    "default": 1,
+                    "maximum": 10,
+                    "minimum": 1,
+                },
+                "name": "Weekends",
+                "recurrence": {
+                    "days": [
+                        "Saturday",
+                        "Sunday",
+                    ],
+                    "frequency": "Week",
+                    "hours": 12,
+                    "minutes": 0,
+                    "timezone": "Pacific Standard Time",
+                },
+                "rule": [
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "operator": "GreaterThan",
+                            "statistic": "Average",
+                            "threshold": 90,
+                            "timeAggregation": "Average",
+                            "timeGrain": "PT1M",
+                            "timeWindow": "PT5M",
+                        },
+                        "scaleAction": {
+                            "cooldown": "PT1M",
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": "2",
+                        },
+                    },
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "operator": "LessThan",
+                            "statistic": "Average",
+                            "threshold": 10,
+                            "timeAggregation": "Average",
+                            "timeGrain": "PT1M",
+                            "timeWindow": "PT5M",
+                        },
+                        "scaleAction": {
+                            "cooldown": "PT1M",
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": "2",
+                        },
+                    },
+                ],
+            }],
+            resource_group_name=example_resource_group.name,
+            target_resource_id=example_scale_set.id)
+        ```
+
+        ## Example Usage (for fixed dates)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
+        # ...
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+            enabled=True,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            target_resource_id=example_scale_set.id,
+            profile=[{
+                "name": "forJuly",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rule": [
+                    {
+                        "metric_trigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 90,
+                        },
+                        "scale_action": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": "2",
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metric_trigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 10,
+                        },
+                        "scale_action": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": "2",
+                            "cooldown": "PT1M",
+                        },
+                    },
+                ],
+                "fixed_date": {
+                    "timezone": "Pacific Standard Time",
+                    "start": "2020-07-01T00:00:00Z",
+                    "end": "2020-07-31T23:59:59Z",
+                },
+            }],
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

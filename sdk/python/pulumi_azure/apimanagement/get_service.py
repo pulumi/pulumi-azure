@@ -138,6 +138,18 @@ def get_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing API Management Service.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_service(name="search-api",
+        resource_group_name="search-service")
+    pulumi.export("apiManagementId", example.id)
+    ```
 
 
 

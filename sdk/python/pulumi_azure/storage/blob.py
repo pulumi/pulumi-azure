@@ -68,6 +68,29 @@ class Blob(pulumi.CustomResource):
         """
         Manages a Blob within a Storage Container.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_blob = azure.storage.Blob("exampleBlob",
+            storage_account_name=example_account.name,
+            storage_container_name=example_container.name,
+            type="Block",
+            source=pulumi.FileAsset("some-local-file.zip"))
+        ```
 
 
         :param str resource_name: The name of the resource.

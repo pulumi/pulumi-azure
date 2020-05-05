@@ -28,6 +28,30 @@ class ActiveSlot(pulumi.CustomResource):
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server")
+        # ...
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup")
+        # ...
+        example_plan = azure.appservice.Plan("examplePlan")
+        # ...
+        example_app_service = azure.appservice.AppService("exampleAppService")
+        # ...
+        example_slot = azure.appservice.Slot("exampleSlot")
+        # ...
+        example_active_slot = azure.appservice.ActiveSlot("exampleActiveSlot",
+            resource_group_name=example_resource_group.name,
+            app_service_name=example_app_service.name,
+            app_service_slot_name=example_slot.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

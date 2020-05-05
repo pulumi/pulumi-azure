@@ -217,6 +217,39 @@ class AppService(pulumi.CustomResource):
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config={
+                "dotnetFrameworkVersion": "v4.0",
+                "scmType": "LocalGit",
+            },
+            app_settings={
+                "SOME_KEY": "some-value",
+            },
+            connection_string=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

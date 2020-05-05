@@ -9,6 +9,61 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Policy Remediation at the specified Scope.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ *     policyType: "Custom",
+ *     mode: "All",
+ *     displayName: "my-policy-definition",
+ *     policyRule: `    {
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "in": "[parameters('allowedLocations')]"
+ *       }
+ *     },
+ *     "then": {
+ *       "effect": "audit"
+ *     }
+ *   }
+ * `,
+ *     parameters: `    {
+ *     "allowedLocations": {
+ *       "type": "Array",
+ *       "metadata": {
+ *         "description": "The list of allowed locations for resources.",
+ *         "displayName": "Allowed locations",
+ *         "strongType": "location"
+ *       }
+ *     }
+ *   }
+ * `,
+ * });
+ * const exampleAssignment = new azure.policy.Assignment("exampleAssignment", {
+ *     scope: exampleResourceGroup.id,
+ *     policyDefinitionId: exampleDefinition.id,
+ *     description: "Policy Assignment created via an Acceptance Test",
+ *     displayName: "My Example Policy Assignment",
+ *     parameters: `{
+ *   "allowedLocations": {
+ *     "value": [ "West Europe" ]
+ *   }
+ * }
+ * `,
+ * });
+ * const exampleRemediation = new azure.policy.Remediation("exampleRemediation", {
+ *     scope: exampleAssignment.scope,
+ *     policyAssignmentId: exampleAssignment.id,
+ *     locationFilters: ["West Europe"],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_remediation.html.markdown.
  */

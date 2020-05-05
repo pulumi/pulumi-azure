@@ -121,6 +121,31 @@ class ApiOperation(pulumi.CustomResource):
         """
         Manages an API Operation within an API Management Service.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_api = azure.apimanagement.get_api(name="search-api",
+            api_management_name="search-api-management",
+            resource_group_name="search-service",
+            revision="2")
+        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
+            operation_id="user-delete",
+            api_name=example_api.name,
+            api_management_name=example_api.api_management_name,
+            resource_group_name=example_api.resource_group_name,
+            display_name="Delete User Operation",
+            method="DELETE",
+            url_template="/users/{id}/delete",
+            description="This can only be done by the logged in user.",
+            response=[{
+                "statusCode": 200,
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

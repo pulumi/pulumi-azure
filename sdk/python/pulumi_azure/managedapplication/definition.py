@@ -65,6 +65,28 @@ class Definition(pulumi.CustomResource):
         """
         Manages a Managed Application Definition.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.managedapplication.Definition("exampleDefinition",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            lock_level="ReadOnly",
+            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+            display_name="TestManagedApplicationDefinition",
+            description="Test Managed Application Definition",
+            authorization=[{
+                "servicePrincipalId": current.object_id,
+                "roleDefinitionId": "a094b430-dad3-424d-ae58-13f72fd72591",
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

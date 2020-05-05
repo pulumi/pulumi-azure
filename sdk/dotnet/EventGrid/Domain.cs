@@ -96,7 +96,11 @@ namespace Pulumi.Azure.EventGrid
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/domain:Domain"} },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azure:eventhub/domain:Domain"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

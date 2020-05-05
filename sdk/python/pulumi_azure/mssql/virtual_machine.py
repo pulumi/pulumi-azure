@@ -63,6 +63,30 @@ class VirtualMachine(pulumi.CustomResource):
         """
         Manages a Microsoft SQL Virtual Machine
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_virtual_machine = azure.compute.get_virtual_machine(name="example-vm",
+            resource_group_name="example-resources")
+        example_mssql_virtual_machine_virtual_machine = azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine",
+            virtual_machine_id=example_virtual_machine.id,
+            sql_license_type="PAYG",
+            r_services_enabled=True,
+            sql_connectivity_port=1433,
+            sql_connectivity_type="PRIVATE",
+            sql_connectivity_update_password="Password1234!",
+            sql_connectivity_update_username="sqllogin",
+            auto_patching={
+                "dayOfWeek": "Sunday",
+                "maintenanceWindowDurationInMinutes": 60,
+                "maintenanceWindowStartingHour": 2,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

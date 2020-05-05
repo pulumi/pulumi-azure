@@ -82,6 +82,18 @@ def get_insights(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Application Insights component.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appinsights.get_insights(name="production",
+        resource_group_name="networking")
+    pulumi.export("applicationInsightsInstrumentationKey", example.instrumentation_key)
+    ```
 
 
 

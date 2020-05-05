@@ -142,6 +142,18 @@ def get_app_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing App Service.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.appservice.get_app_service(name="search-app-service",
+        resource_group_name="search-service")
+    pulumi.export("appServiceId", example.id)
+    ```
 
 
 

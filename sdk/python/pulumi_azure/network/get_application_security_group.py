@@ -54,6 +54,18 @@ def get_application_security_group(name=None,resource_group_name=None,opts=None)
     """
     Use this data source to access information about an existing Application Security Group.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_application_security_group(name="tf-appsecuritygroup",
+        resource_group_name="my-resource-group")
+    pulumi.export("applicationSecurityGroupId", example.id)
+    ```
 
 
 

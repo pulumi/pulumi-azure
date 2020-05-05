@@ -15,6 +15,53 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const internal = new azure.network.Subnet("internal", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleWindowsVirtualMachineScaleSet = new azure.compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Standard_F2",
+ *     instances: 1,
+ *     adminPassword: "P@55w0rd1234!",
+ *     adminUsername: "adminuser",
+ *     source_image_reference: {
+ *         publisher: "MicrosoftWindowsServer",
+ *         offer: "WindowsServer",
+ *         sku: "2016-Datacenter-Server-Core",
+ *         version: "latest",
+ *     },
+ *     os_disk: {
+ *         storageAccountType: "Standard_LRS",
+ *         caching: "ReadWrite",
+ *     },
+ *     network_interface: [{
+ *         name: "example",
+ *         primary: true,
+ *         ip_configuration: [{
+ *             name: "internal",
+ *             primary: true,
+ *             subnetId: internal.id,
+ *         }],
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine_scale_set.html.markdown.
  */

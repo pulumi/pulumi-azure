@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS A Records within Azure Private DNS.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleARecord = new azure.privatedns.ARecord("exampleARecord", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     records: ["10.0.180.17"],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_a_record.html.markdown.
  */

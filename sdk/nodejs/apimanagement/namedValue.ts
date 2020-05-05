@@ -10,6 +10,29 @@ import * as utilities from "../utilities";
  * Manages an API Management Named Value.
  * 
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "pub1",
+ *     publisherEmail: "pub1@email.com",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleNamedValue = new azure.apimanagement.NamedValue("exampleNamedValue", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     displayName: "ExampleProperty",
+ *     value: "Example Value",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_named_value.html.markdown.
  */

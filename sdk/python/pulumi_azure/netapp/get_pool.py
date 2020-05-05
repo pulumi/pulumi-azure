@@ -66,6 +66,19 @@ def get_pool(account_name=None,name=None,resource_group_name=None,opts=None):
     Uses this data source to access information about an existing NetApp Pool.
 
 
+    ## NetApp Pool Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.netapp.get_pool(resource_group_name="acctestRG",
+        account_name="acctestnetappaccount",
+        name="acctestnetapppool")
+    pulumi.export("netappPoolId", example.id)
+    ```
+
+
     :param str account_name: The name of the NetApp account where the NetApp pool exists.
     :param str name: The name of the NetApp Pool.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Pool exists.

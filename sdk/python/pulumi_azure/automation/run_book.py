@@ -65,6 +65,33 @@ class RunBook(pulumi.CustomResource):
         """
         Manages a Automation Runbook.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=[{
+                "name": "Basic",
+            }])
+        example_run_book = azure.automation.RunBook("exampleRunBook",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            log_verbose="true",
+            log_progress="true",
+            description="This is an example runbook",
+            runbook_type="PowerShellWorkflow",
+            publish_content_link={
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

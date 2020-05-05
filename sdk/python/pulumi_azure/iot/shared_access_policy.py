@@ -58,6 +58,28 @@ class SharedAccessPolicy(pulumi.CustomResource):
         """
         Manages an IotHub Shared Access Policy
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku={
+                "name": "S1",
+                "capacity": "1",
+            })
+        example_shared_access_policy = azure.iot.SharedAccessPolicy("exampleSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            registry_read=True,
+            registry_write=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

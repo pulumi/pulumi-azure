@@ -50,6 +50,25 @@ class AnalyticsItem(pulumi.CustomResource):
         """
         Manages an Application Insights Analytics Item component.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_analytics_item = azure.appinsights.AnalyticsItem("exampleAnalyticsItem",
+            application_insights_id=example_insights.id,
+            content="requests //simple example query",
+            scope="shared",
+            type="query")
+        ```
 
 
         :param str resource_name: The name of the resource.

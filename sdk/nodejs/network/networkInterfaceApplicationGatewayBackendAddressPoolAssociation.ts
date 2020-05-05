@@ -9,6 +9,100 @@ import * as utilities from "../utilities";
 /**
  * Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const frontend = new azure.network.Subnet("frontend", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.1.0/24",
+ * });
+ * const backend = new azure.network.Subnet("backend", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Dynamic",
+ * });
+ * const backendAddressPoolName = exampleVirtualNetwork.name.apply(name => `${name}-beap`);
+ * const frontendPortName = exampleVirtualNetwork.name.apply(name => `${name}-feport`);
+ * const frontendIpConfigurationName = exampleVirtualNetwork.name.apply(name => `${name}-feip`);
+ * const httpSettingName = exampleVirtualNetwork.name.apply(name => `${name}-be-htst`);
+ * const listenerName = exampleVirtualNetwork.name.apply(name => `${name}-httplstn`);
+ * const requestRoutingRuleName = exampleVirtualNetwork.name.apply(name => `${name}-rqrt`);
+ * const network = new azure.network.ApplicationGateway("network", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "Standard_Small",
+ *         tier: "Standard",
+ *         capacity: 2,
+ *     },
+ *     gateway_ip_configuration: [{
+ *         name: "my-gateway-ip-configuration",
+ *         subnetId: frontend.id,
+ *     }],
+ *     frontend_port: [{
+ *         name: frontendPortName,
+ *         port: 80,
+ *     }],
+ *     frontend_ip_configuration: [{
+ *         name: frontendIpConfigurationName,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ *     backend_address_pool: [{
+ *         name: backendAddressPoolName,
+ *     }],
+ *     backend_http_settings: [{
+ *         name: httpSettingName,
+ *         cookieBasedAffinity: "Disabled",
+ *         port: 80,
+ *         protocol: "Http",
+ *         requestTimeout: 1,
+ *     }],
+ *     http_listener: [{
+ *         name: listenerName,
+ *         frontendIpConfigurationName: frontendIpConfigurationName,
+ *         frontendPortName: frontendPortName,
+ *         protocol: "Http",
+ *     }],
+ *     request_routing_rule: [{
+ *         name: requestRoutingRuleName,
+ *         ruleType: "Basic",
+ *         httpListenerName: listenerName,
+ *         backendAddressPoolName: backendAddressPoolName,
+ *         backendHttpSettingsName: httpSettingName,
+ *     }],
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ip_configuration: [{
+ *         name: "testconfiguration1",
+ *         subnetId: frontend.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", {
+ *     networkInterfaceId: exampleNetworkInterface.id,
+ *     ipConfigurationName: "testconfiguration1",
+ *     backendAddressPoolId: network.backendAddressPools.apply(backendAddressPools => backendAddressPools[0].id),
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown.
  */

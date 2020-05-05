@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure Data Lake Analytics Firewall Rule.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleStore = new azure.datalake.Store("exampleStore", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleAnalyticsAccount = new azure.datalake.AnalyticsAccount("exampleAnalyticsAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     defaultStoreAccountName: exampleStore.name,
+ * });
+ * const exampleAnalyticsFirewallRule = new azure.datalake.AnalyticsFirewallRule("exampleAnalyticsFirewallRule", {
+ *     accountName: azurerm_data_lake_analytics.example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     startIpAddress: "1.2.3.4",
+ *     endIpAddress: "2.3.4.5",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_firewall_rule.html.markdown.
  */

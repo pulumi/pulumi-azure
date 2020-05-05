@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Manages an HTTP Action within a Logic App Workflow
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const exampleWorkflow = new azure.logicapps.Workflow("exampleWorkflow", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleActionHttp = new azure.logicapps.ActionHttp("exampleActionHttp", {
+ *     logicAppId: exampleWorkflow.id,
+ *     method: "GET",
+ *     uri: "http://example.com/some-webhook",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_http.html.markdown.
  */

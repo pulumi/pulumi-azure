@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Load Balancer Resource.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ * });
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     frontend_ip_configuration: [{
+ *         name: "PublicIPAddress",
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
  */

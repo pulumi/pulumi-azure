@@ -36,6 +36,33 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         """
         Manages an ExpressRoute Circuit Authorization.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            service_provider_name="Equinix",
+            peering_location="Silicon Valley",
+            bandwidth_in_mbps=50,
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
+            allow_classic_operations=False,
+            tags={
+                "environment": "Production",
+            })
+        example_express_route_circuit_authorization = azure.network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization",
+            express_route_circuit_name=example_express_route_circuit.name,
+            resource_group_name=example_resource_group.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

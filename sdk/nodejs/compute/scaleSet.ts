@@ -12,6 +12,214 @@ import * as utilities from "../utilities";
  * ## Disclaimers
  * 
  * > **Note:** The `azure.compute.ScaleSet` resource has been superseded by the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources. The existing `azure.compute.ScaleSet` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
+ * 
+ * ## Example Usage with Managed Disks (Recommended)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     domainNameLabel: exampleResourceGroup.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     frontend_ip_configuration: [{
+ *         name: "PublicIPAddress",
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const bpepool = new azure.lb.BackendAddressPool("bpepool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     loadbalancerId: exampleLoadBalancer.id,
+ * });
+ * const lbnatpool = new azure.lb.NatPool("lbnatpool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     protocol: "Tcp",
+ *     frontendPortStart: 50000,
+ *     frontendPortEnd: 50119,
+ *     backendPort: 22,
+ *     frontendIpConfigurationName: "PublicIPAddress",
+ * });
+ * const exampleProbe = new azure.lb.Probe("exampleProbe", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     protocol: "Http",
+ *     requestPath: "/health",
+ *     port: 8080,
+ * });
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automaticOsUpgrade: true,
+ *     upgradePolicyMode: "Rolling",
+ *     rolling_upgrade_policy: {
+ *         maxBatchInstancePercent: 20,
+ *         maxUnhealthyInstancePercent: 20,
+ *         maxUnhealthyUpgradedInstancePercent: 5,
+ *         pauseTimeBetweenBatches: "PT0S",
+ *     },
+ *     healthProbeId: exampleProbe.id,
+ *     sku: {
+ *         name: "Standard_F2",
+ *         tier: "Standard",
+ *         capacity: 2,
+ *     },
+ *     storage_profile_image_reference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storage_profile_os_disk: {
+ *         name: "",
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *     },
+ *     storage_profile_data_disk: [{
+ *         lun: 0,
+ *         caching: "ReadWrite",
+ *         createOption: "Empty",
+ *         diskSizeGb: 10,
+ *     }],
+ *     os_profile: {
+ *         computerNamePrefix: "testvm",
+ *         adminUsername: "myadmin",
+ *     },
+ *     os_profile_linux_config: {
+ *         disablePasswordAuthentication: true,
+ *         ssh_keys: [{
+ *             path: "/home/myadmin/.ssh/authorized_keys",
+ *             keyData: fs.readFileSync("~/.ssh/demo_key.pub"),
+ *         }],
+ *     },
+ *     network_profile: [{
+ *         name: "mynetworkprofile",
+ *         primary: true,
+ *         ip_configuration: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *             loadBalancerBackendAddressPoolIds: [bpepool.id],
+ *             loadBalancerInboundNatRulesIds: [lbnatpool.id],
+ *         }],
+ *     }],
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage with Unmanaged Disks
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "westus",
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     upgradePolicyMode: "Manual",
+ *     sku: {
+ *         name: "Standard_F2",
+ *         tier: "Standard",
+ *         capacity: 2,
+ *     },
+ *     os_profile: {
+ *         computerNamePrefix: "testvm",
+ *         adminUsername: "myadmin",
+ *     },
+ *     os_profile_linux_config: {
+ *         disablePasswordAuthentication: true,
+ *         ssh_keys: [{
+ *             path: "/home/myadmin/.ssh/authorized_keys",
+ *             keyData: fs.readFileSync("~/.ssh/demo_key.pub"),
+ *         }],
+ *     },
+ *     network_profile: [{
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *         ip_configuration: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *     }],
+ *     storage_profile_os_disk: {
+ *         name: "osDiskProfile",
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         vhdContainers: [pulumi.all([exampleAccount.primaryBlobEndpoint, exampleContainer.name]).apply(([primaryBlobEndpoint, name]) => `${primaryBlobEndpoint}${name}`)],
+ *     },
+ *     storage_profile_image_reference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example of storageProfileImageReference with id
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleImage = new azure.compute.Image("exampleImage", {});
+ * // ...
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {storage_profile_image_reference: {
+ *     id: exampleImage.id,
+ * }});
+ * // ...
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
  */

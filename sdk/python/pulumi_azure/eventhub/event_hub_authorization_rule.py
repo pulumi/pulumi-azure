@@ -60,6 +60,36 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location="West US",
+            resource_group_name=example_resource_group.name,
+            sku="Basic",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=2)
+        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            listen=True,
+            send=False,
+            manage=False)
+        ```
 
 
         Deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule

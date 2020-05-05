@@ -9,6 +9,40 @@ import * as utilities from "../utilities";
 /**
  * Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westeurope"});
+ * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * const exampleElasticPool = new azure.mssql.ElasticPool("exampleElasticPool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     serverName: exampleSqlServer.name,
+ *     licenseType: "LicenseIncluded",
+ *     maxSizeGb: 756,
+ *     sku: {
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *         family: "Gen5",
+ *         capacity: 4,
+ *     },
+ *     per_database_settings: {
+ *         minCapacity: 0.25,
+ *         maxCapacity: 4,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
  */

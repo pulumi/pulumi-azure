@@ -88,6 +88,27 @@ class AuthorizationServer(pulumi.CustomResource):
         Manages an Authorization Server within an API Management Service.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_api = azure.apimanagement.get_api(name="search-api",
+            api_management_name="search-api-management",
+            resource_group_name="search-service",
+            revision="2")
+        example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
+            api_management_name=data["apimanagement.Service"]["example"]["name"],
+            resource_group_name=data["apimanagement.Service"]["example"]["resource_group_name"],
+            display_name="Test Server",
+            authorization_endpoint="https://example.mydomain.com/client/authorize",
+            client_id="42424242-4242-4242-4242-424242424242",
+            client_registration_endpoint="https://example.mydomain.com/client/register",
+            grant_types=["authorizationCode"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,32 @@ import * as utilities from "../utilities";
 /**
  * Manages Azure Batch Application instance.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleBatch/accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     poolAllocationMode: "BatchService",
+ *     storageAccountId: exampleAccount.id,
+ * });
+ * const exampleApplication = new azure.batch.Application("exampleApplication", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleBatch / accountAccount.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
  */

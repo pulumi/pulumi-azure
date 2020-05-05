@@ -7,6 +7,32 @@ import * as utilities from "../utilities";
 /**
  * Manages a HTTP Request Trigger within a Logic App Workflow
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const exampleWorkflow = new azure.logicapps.Workflow("exampleWorkflow", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleTriggerHttpRequest = new azure.logicapps.TriggerHttpRequest("exampleTriggerHttpRequest", {
+ *     logicAppId: exampleWorkflow.id,
+ *     schema: `{
+ *     "type": "object",
+ *     "properties": {
+ *         "hello": {
+ *             "type": "string"
+ *         }
+ *     }
+ * }
+ * `,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_http_request.html.markdown.
  */

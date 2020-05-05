@@ -104,6 +104,18 @@ def get_maria_db_server(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing MariaDB Server.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    db_server = azure.mariadb.get_maria_db_server(name="mariadb-server",
+        resource_group_name=azurerm_mariadb_server["example"]["resource_group_name"])
+    pulumi.export("mariadbServerId", data["mariadb.Server"]["example"]["id"])
+    ```
 
 
 

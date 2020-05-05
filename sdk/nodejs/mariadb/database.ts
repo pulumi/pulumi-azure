@@ -7,6 +7,36 @@ import * as utilities from "../utilities";
 /**
  * Manages a MariaDB Database within a MariaDB Server
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westeurope"});
+ * const exampleServer = new azure.mariadb.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "B_Gen5_2",
+ *     storage_profile: {
+ *         storageMb: 51200,
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     administratorLogin: "acctestun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     version: "10.2",
+ *     sslEnforcement: "Enabled",
+ * });
+ * const exampleDatabase = new azure.mariadb.Database("exampleDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     charset: "utf8",
+ *     collation: "utf8GeneralCi",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_database.html.markdown.
  */

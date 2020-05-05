@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure App Configuration.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
+ *     resourceGroupName: rg.name,
+ *     location: rg.location,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_configuration.html.markdown.
  */

@@ -50,6 +50,23 @@ class LinkedServiceMysql(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between MySQL and Azure Data Factory.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql",
+            resource_group_name=example_resource_group.name,
+            data_factory_name=example_factory.name,
+            connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
+        ```
 
 
         :param str resource_name: The name of the resource.

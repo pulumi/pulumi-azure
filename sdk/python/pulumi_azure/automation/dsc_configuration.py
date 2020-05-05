@@ -47,6 +47,27 @@ class DscConfiguration(pulumi.CustomResource):
         """
         Manages a Automation DSC Configuration.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=[{
+                "name": "Basic",
+            }])
+        example_dsc_configuration = azure.automation.DscConfiguration("exampleDscConfiguration",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            location=example_resource_group.location,
+            content_embedded="configuration test {}")
+        ```
 
 
         :param str resource_name: The name of the resource.

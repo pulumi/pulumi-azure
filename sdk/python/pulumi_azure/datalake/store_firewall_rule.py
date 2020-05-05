@@ -34,6 +34,24 @@ class StoreFirewallRule(pulumi.CustomResource):
         """
         Manages a Azure Data Lake Store Firewall Rule.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_store = azure.datalake.Store("exampleStore",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_store_firewall_rule = azure.datalake.StoreFirewallRule("exampleStoreFirewallRule",
+            account_name=example_store.name,
+            resource_group_name=example_resource_group.name,
+            start_ip_address="1.2.3.4",
+            end_ip_address="2.3.4.5")
+        ```
 
 
         :param str resource_name: The name of the resource.

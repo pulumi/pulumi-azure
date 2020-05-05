@@ -65,6 +65,31 @@ class Schedule(pulumi.CustomResource):
         """
         Manages a Automation Schedule.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=[{
+                "name": "Basic",
+            }])
+        example_schedule = azure.automation.Schedule("exampleSchedule",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            frequency="Week",
+            interval=1,
+            timezone="Central Europe Standard Time",
+            start_time="2014-04-15T18:00:15+02:00",
+            description="This is an example schedule",
+            week_days=["Friday"])
+        ```
 
 
         :param str resource_name: The name of the resource.

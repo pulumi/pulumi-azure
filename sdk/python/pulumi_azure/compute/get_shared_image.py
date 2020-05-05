@@ -107,6 +107,18 @@ def get_shared_image(gallery_name=None,name=None,resource_group_name=None,opts=N
     """
     Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_shared_image(gallery_name="my-image-gallery",
+        name="my-image",
+        resource_group_name="example-resources")
+    ```
 
 
 

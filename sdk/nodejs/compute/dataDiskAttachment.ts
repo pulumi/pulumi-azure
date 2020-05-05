@@ -13,6 +13,77 @@ import * as utilities from "../utilities";
  * 
  * > **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storageDataDisk` block in the `azure.compute.VirtualMachine` resource.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const config = new pulumi.Config();
+ * const prefix = config.get("prefix") || "example";
+ * const vmName = `${prefix}-vm`;
+ * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West Europe"});
+ * const mainVirtualNetwork = new azure.network.VirtualNetwork("mainVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: mainResourceGroup.location,
+ *     resourceGroupName: mainResourceGroup.name,
+ * });
+ * const internal = new azure.network.Subnet("internal", {
+ *     resourceGroupName: mainResourceGroup.name,
+ *     virtualNetworkName: mainVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
+ *     location: mainResourceGroup.location,
+ *     resourceGroupName: mainResourceGroup.name,
+ *     ip_configuration: [{
+ *         name: "internal",
+ *         subnetId: internal.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
+ *     location: mainResourceGroup.location,
+ *     resourceGroupName: mainResourceGroup.name,
+ *     networkInterfaceIds: [mainNetworkInterface.id],
+ *     vmSize: "Standard_F2",
+ *     storage_image_reference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storage_os_disk: {
+ *         name: "myosdisk1",
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *     },
+ *     os_profile: {
+ *         computerName: vmName,
+ *         adminUsername: "testadmin",
+ *         adminPassword: "Password1234!",
+ *     },
+ *     os_profile_linux_config: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ * });
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
+ *     location: mainResourceGroup.location,
+ *     resourceGroupName: mainResourceGroup.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Empty",
+ *     diskSizeGb: 10,
+ * });
+ * const exampleDataDiskAttachment = new azure.compute.DataDiskAttachment("exampleDataDiskAttachment", {
+ *     managedDiskId: exampleManagedDisk.id,
+ *     virtualMachineId: exampleVirtualMachine.id,
+ *     lun: "10",
+ *     caching: "ReadWrite",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_data_disk_attachment.html.markdown.
  */

@@ -9,6 +9,32 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West US"});
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
+ *     sku: "Standard",
+ * });
+ * const sa = new azure.storage.Account("sa", {
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const container = new azure.backup.ContainerStorageAccount("container", {
+ *     resourceGroupName: rg.name,
+ *     recoveryVaultName: vault.name,
+ *     storageAccountId: sa.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_container_storage_account.html.markdown.
  */

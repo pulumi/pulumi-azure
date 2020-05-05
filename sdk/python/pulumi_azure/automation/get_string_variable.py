@@ -66,6 +66,19 @@ def get_string_variable(automation_account_name=None,name=None,resource_group_na
     Use this data source to access information about an existing Automation String Variable.
 
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.automation.get_string_variable(name="tfex-example-var",
+        resource_group_name="tfex-example-rg",
+        automation_account_name="tfex-example-account")
+    pulumi.export("variableId", example.id)
+    ```
 
 
 

@@ -30,6 +30,29 @@ class ProductApi(pulumi.CustomResource):
         """
         Manages an API Management API Assignment to a Product.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_service = azure.apimanagement.get_service(name="example-api",
+            resource_group_name="example-resources")
+        example_api = azure.apimanagement.get_api(name="search-api",
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name,
+            revision="2")
+        example_product = azure.apimanagement.get_product(product_id="my-product",
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name)
+        example_product_api = azure.apimanagement.ProductApi("exampleProductApi",
+            api_name=example_api.name,
+            product_id=example_product.product_id,
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name)
+        ```
 
 
         :param str resource_name: The name of the resource.

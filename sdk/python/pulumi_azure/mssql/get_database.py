@@ -103,6 +103,18 @@ def get_database(name=None,server_id=None,opts=None):
     """
     Use this data source to access information about an existing SQL database.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_database(name="example-mssql-db",
+        server_id="example-mssql-server-id")
+    pulumi.export("databaseId", example.id)
+    ```
 
 
 

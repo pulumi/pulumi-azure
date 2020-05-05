@@ -8,6 +8,55 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a managed disk.
+ * 
+ * ## Example Usage with Create Empty
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
+ *     location: "West US 2",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Empty",
+ *     diskSizeGb: "1",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage with Create Copy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = new azure.core.ResourceGroup("example", {location: "West US 2"});
+ * const source = new azure.compute.ManagedDisk("source", {
+ *     location: "West US 2",
+ *     resourceGroupName: example.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Empty",
+ *     diskSizeGb: "1",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const copy = new azure.compute.ManagedDisk("copy", {
+ *     location: "West US 2",
+ *     resourceGroupName: example.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Copy",
+ *     sourceResourceId: source.id,
+ *     diskSizeGb: "1",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
  */

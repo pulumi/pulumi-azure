@@ -55,6 +55,17 @@ def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource
     """
     Use this data source to access information about a set of existing Public IP Addresses.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_public_i_ps(attached=False,
+        resource_group_name="pip-test")
+    ```
 
 
 

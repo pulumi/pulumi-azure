@@ -50,6 +50,25 @@ class Hub(pulumi.CustomResource):
         """
         Manages a Notification Hub within a Notification Hub Namespace.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="Australia East")
+        example_namespace = azure.notificationhub.Namespace("exampleNamespace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            namespace_type="NotificationHub",
+            sku_name="Free")
+        example_hub = azure.notificationhub.Hub("exampleHub",
+            namespace_name=example_namespace.name,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -89,6 +89,45 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
 
     Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    rg = azure.core.ResourceGroup("rg", location="westus")
+    storage = azure.storage.Account("storage",
+        resource_group_name=rg.name,
+        location=rg.location,
+        account_tier="Standard",
+        account_replication_type="LRS")
+    container = azure.storage.Container("container",
+        resource_group_name=rg.name,
+        storage_account_name=storage.name,
+        container_access_type="private")
+    example = pulumi.Output.all(storage.primary_connection_string, container.name).apply(lambda primary_connection_string, name: azure.storage.get_account_blob_container_sas(connection_string=primary_connection_string,
+        container_name=name,
+        https_only=True,
+        ip_address="168.1.5.65",
+        start="2018-03-21",
+        expiry="2018-03-21",
+        permissions={
+            "read": True,
+            "add": True,
+            "create": False,
+            "write": False,
+            "delete": True,
+            "list": True,
+        },
+        cache_control="max-age=5",
+        content_disposition="inline",
+        content_encoding="deflate",
+        content_language="en-US",
+        content_type="application/json"))
+    pulumi.export("sasUrlQueryString", example.sas)
+    ```
 
 
 

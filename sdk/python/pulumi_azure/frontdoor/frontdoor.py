@@ -141,6 +141,54 @@ class Frontdoor(pulumi.CustomResource):
         * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
         * Use Front Door for application layer security and DDoS protection for your application.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="EastUS2")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            resource_group_name=example_resource_group.name,
+            enforce_backend_pools_certificate_name_check=False,
+            routing_rule=[{
+                "name": "exampleRoutingRule1",
+                "acceptedProtocols": [
+                    "Http",
+                    "Https",
+                ],
+                "patternsToMatches": ["/*"],
+                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "forwarding_configuration": {
+                    "forwardingProtocol": "MatchRequest",
+                    "backendPoolName": "exampleBackendBing",
+                },
+            }],
+            backend_pool_load_balancing=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
+            backend_pool_health_probe=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pool=[{
+                "name": "exampleBackendBing",
+                "backend": [{
+                    "hostHeader": "www.bing.com",
+                    "address": "www.bing.com",
+                    "httpPort": 80,
+                    "httpsPort": 443,
+                }],
+                "loadBalancingName": "exampleLoadBalancingSettings1",
+                "healthProbeName": "exampleHealthProbeSetting1",
+            }],
+            frontend_endpoint=[{
+                "name": "exampleFrontendEndpoint1",
+                "hostName": "example-FrontDoor.azurefd.net",
+                "customHttpsProvisioningEnabled": False,
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -8,6 +8,39 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a custom virtual machine image that can be used to create virtual machines.
+ * 
+ * ## Example Usage Creating from VHD
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleImage = new azure.compute.Image("exampleImage", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     os_disk: {
+ *         osType: "Linux",
+ *         osState: "Generalized",
+ *         blobUri: "{blob_uri}",
+ *         sizeGb: 30,
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage Creating from Virtual Machine (VM must be generalized beforehand)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleImage = new azure.compute.Image("exampleImage", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sourceVirtualMachineId: "{vm_id}",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
  */

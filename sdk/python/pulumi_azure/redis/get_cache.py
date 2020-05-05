@@ -165,6 +165,16 @@ def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Redis Cache
 
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.redis.get_cache(name="myrediscache",
+        resource_group_name="redis-cache")
+    pulumi.export("primaryAccessKey", example.primary_access_key)
+    pulumi.export("hostname", example.hostname)
+    ```
+
 
     :param str name: The name of the Redis cache
     :param str resource_group_name: The name of the resource group the Redis cache instance is located in.

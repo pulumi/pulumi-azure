@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a Connection for a Virtual Hub.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["172.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const test = new azure.network.VirtualWan("test", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     virtualWanId: azurerm_virtual_wan.example.id,
+ *     addressPrefix: "10.0.1.0/24",
+ * });
+ * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("exampleVirtualHubConnection", {
+ *     virtualHubId: exampleVirtualHub.id,
+ *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub_connection.html.markdown.
  */

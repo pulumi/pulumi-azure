@@ -42,6 +42,49 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         """
         Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
+        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary_resource_group.location,
+            resource_group_name=secondary_resource_group.name,
+            sku="Standard")
+        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=primary_resource_group.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=secondary_resource_group.location)
+        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=primary_fabric.name)
+        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=secondary_fabric.name)
+        policy = azure.siterecovery.ReplicationPolicy("policy",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_point_retention_in_minutes=24 * 60,
+            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+        container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=primary_fabric.name,
+            recovery_source_protection_container_name=primary_protection_container.name,
+            recovery_target_protection_container_id=secondary_protection_container.id,
+            recovery_replication_policy_id=policy.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

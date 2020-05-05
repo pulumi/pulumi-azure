@@ -37,6 +37,16 @@ def get_geographical_location(name=None,opts=None):
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
+    ## Example Usage (World)
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_traffic_manager(name="World")
+    pulumi.export("locationCode", example.id)
+    ```
+
     Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favour of azure.network.getTrafficManager
 
 

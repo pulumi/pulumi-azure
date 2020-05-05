@@ -65,6 +65,19 @@ def get_virtual_network(lab_name=None,name=None,resource_group_name=None,opts=No
     """
     Use this data source to access information about an existing Dev Test Lab Virtual Network.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.devtest.get_virtual_network(name="example-network",
+        lab_name="examplelab",
+        resource_group_name="example-resource")
+    pulumi.export("labSubnetName", example.allowed_subnets[0]["lab_subnet_name"])
+    ```
 
 
 

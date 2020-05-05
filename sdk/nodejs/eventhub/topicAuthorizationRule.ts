@@ -9,6 +9,36 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ * });
+ * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
+ *     namespaceName: exampleNamespace.name,
+ *     topicName: exampleTopic.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     listen: true,
+ *     send: false,
+ *     manage: false,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
  */

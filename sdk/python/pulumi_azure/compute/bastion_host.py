@@ -44,6 +44,37 @@ class BastionHost(pulumi.CustomResource):
 
         > **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["192.168.1.0/24"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="192.168.1.224/27")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_bastion_host = azure.compute.BastionHost("exampleBastionHost",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configuration={
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

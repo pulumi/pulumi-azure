@@ -58,6 +58,18 @@ def get_kubernetes_service_versions(include_preview=None,location=None,version_p
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.containerservice.get_kubernetes_service_versions(location="West Europe")
+    pulumi.export("versions", current.versions)
+    pulumi.export("latestVersion", current.latest_version)
+    ```
 
 
 
