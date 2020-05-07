@@ -30,7 +30,7 @@ func TestAccDurableFunctions(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "durable-functions"),
-			RunUpdateTest: true,
+			RunUpdateTest: false,
 		})
 
 	integration.ProgramTest(t, &test)
