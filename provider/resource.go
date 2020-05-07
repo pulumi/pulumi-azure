@@ -1525,6 +1525,7 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"kind.ts",
 							"zMixins.ts",
+							"zMixins_durable.ts",
 							"zMixins_http.ts",
 							"zMixins_timer.ts",
 						},

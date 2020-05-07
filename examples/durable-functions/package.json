@@ -1,0 +1,19 @@
+{
+    "name": "azure-acr",
+    "version": "0.1.0",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/azure": "latest",
+        "@pulumi/pulumi": "dev",
+        "durable-functions": "^1.3.3",
+        "mime-types": "^2.1.19"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.0"
+    },
+    "license": "Apache 2.0"
+}
