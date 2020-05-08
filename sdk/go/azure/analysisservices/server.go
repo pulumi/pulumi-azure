@@ -26,7 +26,7 @@ type Server struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the firewall rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode pulumi.StringOutput `pulumi:"querypoolConnectionMode"`
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -83,7 +83,7 @@ type serverState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the firewall rule.
 	Name *string `pulumi:"name"`
-	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -107,7 +107,7 @@ type ServerState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the firewall rule.
 	Name pulumi.StringPtrInput
-	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode pulumi.StringPtrInput
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -135,7 +135,7 @@ type serverArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the firewall rule.
 	Name *string `pulumi:"name"`
-	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -158,7 +158,7 @@ type ServerArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the firewall rule.
 	Name pulumi.StringPtrInput
-	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+	// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
 	QuerypoolConnectionMode pulumi.StringPtrInput
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

@@ -78,7 +78,7 @@ class GetAppServiceResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        The name of the Connection String.
+        The name for this IP Restriction.
         """
         if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
             raise TypeError("Expected argument 'outbound_ip_addresses' to be a str")

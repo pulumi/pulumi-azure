@@ -48,7 +48,7 @@ class Namespace(pulumi.CustomResource):
     """
     sku: pulumi.Output[str]
     """
-    Defines which tier to use. Options are basic, standard or premium.
+    Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -72,7 +72,7 @@ class Namespace(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
-        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
@@ -137,7 +137,7 @@ class Namespace(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
-        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """

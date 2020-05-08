@@ -64,7 +64,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
      */
     public readonly querypoolConnectionMode!: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export interface ServerState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
      */
     readonly querypoolConnectionMode?: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface ServerArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+     * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
      */
     readonly querypoolConnectionMode?: pulumi.Input<string>;
     /**

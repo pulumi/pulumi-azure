@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class EventHubNamespaceNetworkRulesetsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;

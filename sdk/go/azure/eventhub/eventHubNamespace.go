@@ -21,11 +21,17 @@ type EventHubNamespace struct {
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringOutput `pulumi:"defaultPrimaryConnectionString"`
+	// The alias of the primary connection string for the authorization
+	// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	DefaultPrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"defaultPrimaryConnectionStringAlias"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringOutput `pulumi:"defaultPrimaryKey"`
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
+	// The alias of the secondary connection string for the
+	// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	DefaultSecondaryConnectionStringAlias pulumi.StringOutput `pulumi:"defaultSecondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -85,11 +91,17 @@ type eventHubNamespaceState struct {
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString *string `pulumi:"defaultPrimaryConnectionString"`
+	// The alias of the primary connection string for the authorization
+	// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	DefaultPrimaryConnectionStringAlias *string `pulumi:"defaultPrimaryConnectionStringAlias"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey *string `pulumi:"defaultPrimaryKey"`
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString *string `pulumi:"defaultSecondaryConnectionString"`
+	// The alias of the secondary connection string for the
+	// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	DefaultSecondaryConnectionStringAlias *string `pulumi:"defaultSecondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -116,11 +128,17 @@ type EventHubNamespaceState struct {
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringPtrInput
+	// The alias of the primary connection string for the authorization
+	// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	DefaultPrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey pulumi.StringPtrInput
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString pulumi.StringPtrInput
+	// The alias of the secondary connection string for the
+	// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+	DefaultSecondaryConnectionStringAlias pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

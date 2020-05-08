@@ -161,9 +161,12 @@ class AppService(pulumi.CustomResource):
       * `defaultDocuments` (`list`) - The ordering of default documents to load, if an address isn't specified.
       * `dotnetFrameworkVersion` (`str`) - The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
       * `ftpsState` (`str`) - State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+      * `healthCheckPath` (`str`) - The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
       * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
       * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
         * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `name` (`str`) - The name for this IP Restriction.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
       * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -330,9 +333,12 @@ class AppService(pulumi.CustomResource):
           * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
           * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+          * `healthCheckPath` (`pulumi.Input[str]`) - The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -532,9 +538,12 @@ class AppService(pulumi.CustomResource):
           * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
           * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+          * `healthCheckPath` (`pulumi.Input[str]`) - The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.

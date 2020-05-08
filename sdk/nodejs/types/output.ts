@@ -1438,6 +1438,10 @@ export namespace appservice {
          */
         ftpsState: string;
         /**
+         * The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+         */
+        healthCheckPath?: string;
+        /**
          * Is HTTP2 Enabled on this App Service? Defaults to `false`.
          */
         http2Enabled?: boolean;
@@ -1523,6 +1527,14 @@ export namespace appservice {
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
+        /**
+         * The name for this IP Restriction.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority: number;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -1831,6 +1843,240 @@ export namespace appservice {
         username: string;
     }
 
+    export interface FunctionAppSlotAuthSettings {
+        /**
+         * An `activeDirectory` block as defined below.
+         */
+        activeDirectory?: outputs.appservice.FunctionAppSlotAuthSettingsActiveDirectory;
+        /**
+         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+         */
+        additionalLoginParams?: {[key: string]: string};
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
+         */
+        allowedExternalRedirectUrls?: string[];
+        /**
+         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+         */
+        defaultProvider?: string;
+        /**
+         * Is Authentication enabled?
+         */
+        enabled: boolean;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: outputs.appservice.FunctionAppSlotAuthSettingsFacebook;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: outputs.appservice.FunctionAppSlotAuthSettingsGoogle;
+        /**
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         */
+        issuer?: string;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: outputs.appservice.FunctionAppSlotAuthSettingsMicrosoft;
+        /**
+         * The runtime version of the Authentication/Authorization module.
+         */
+        runtimeVersion?: string;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         */
+        tokenRefreshExtensionHours?: number;
+        /**
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         */
+        tokenStoreEnabled?: boolean;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: outputs.appservice.FunctionAppSlotAuthSettingsTwitter;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+         */
+        unauthenticatedClientAction?: string;
+    }
+
+    export interface FunctionAppSlotAuthSettingsActiveDirectory {
+        /**
+         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: string[];
+        /**
+         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+         */
+        clientId: string;
+        /**
+         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+         */
+        clientSecret?: string;
+    }
+
+    export interface FunctionAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login
+         */
+        appId: string;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
+        appSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface FunctionAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: string;
+        /**
+         * The client secret associated with the Google web application.
+         */
+        clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface FunctionAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: string;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: string;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         */
+        oauthScopes?: string[];
+    }
+
+    export interface FunctionAppSlotAuthSettingsTwitter {
+        consumerKey: string;
+        consumerSecret: string;
+    }
+
+    export interface FunctionAppSlotConnectionString {
+        /**
+         * The name of the Connection String.
+         */
+        name: string;
+        /**
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         */
+        type: string;
+        /**
+         * The value for the Connection String.
+         */
+        value: string;
+    }
+
+    export interface FunctionAppSlotIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
+        type: string;
+    }
+
+    export interface FunctionAppSlotSiteConfig {
+        /**
+         * Should the Function App be loaded at all times? Defaults to `false`.
+         */
+        alwaysOn?: boolean;
+        /**
+         * A `cors` block as defined below.
+         */
+        cors: outputs.appservice.FunctionAppSlotSiteConfigCors;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         */
+        ftpsState: string;
+        /**
+         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
+        /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        ipRestrictions: outputs.appservice.FunctionAppSlotSiteConfigIpRestriction[];
+        /**
+         * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+         */
+        linuxFxVersion: string;
+        /**
+         * The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+         */
+        minTlsVersion: string;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+         */
+        preWarmedInstanceCount?: number;
+        /**
+         * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+         */
+        use32BitWorkerProcess?: boolean;
+        /**
+         * Should WebSockets be enabled?
+         */
+        websocketsEnabled?: boolean;
+    }
+
+    export interface FunctionAppSlotSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
+        allowedOrigins: string[];
+        /**
+         * Are credentials supported?
+         */
+        supportCredentials?: boolean;
+    }
+
+    export interface FunctionAppSlotSiteConfigIpRestriction {
+        /**
+         * The IP Address CIDR notation used for this IP Restriction.
+         */
+        ipAddress?: string;
+        /**
+         * The Subnet ID used for this IP Restriction.
+         */
+        subnetId?: string;
+    }
+
+    export interface FunctionAppSlotSiteCredential {
+        /**
+         * The password associated with the username, which can be used to publish to this App Service.
+         */
+        password: string;
+        /**
+         * The username which can be used to publish to this App Service
+         */
+        username: string;
+    }
+
     export interface GetAppServiceConnectionString {
         /**
          * The name of the App Service.
@@ -1886,6 +2132,10 @@ export namespace appservice {
          * State of FTP / FTPS service for this AppService.
          */
         ftpsState: string;
+        /**
+         * The health check path to be pinged by App Service.
+         */
+        healthCheckPath: string;
         /**
          * Is HTTP2 Enabled on this App Service?
          */
@@ -1972,6 +2222,14 @@ export namespace appservice {
          * The IP Address used for this IP Restriction.
          */
         ipAddress: string;
+        /**
+         * The name of the App Service.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction.
+         */
+        priority: number;
         virtualNetworkSubnetId: string;
     }
 
@@ -2289,6 +2547,7 @@ export namespace appservice {
          */
         dotnetFrameworkVersion?: string;
         ftpsState: string;
+        healthCheckPath?: string;
         /**
          * Is HTTP2 Enabled on this App Service? Defaults to `false`.
          */
@@ -2369,6 +2628,11 @@ export namespace appservice {
          * The IP Address used for this IP Restriction.
          */
         ipAddress?: string;
+        /**
+         * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         */
+        name: string;
+        priority: number;
         /**
          * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -3979,6 +4243,10 @@ export namespace compute {
          */
         caching: string;
         /**
+         * The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+         */
+        createOption?: string;
+        /**
          * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
          */
         diskEncryptionSetId?: string;
@@ -5120,6 +5388,10 @@ export namespace compute {
          * The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
          */
         caching: string;
+        /**
+         * The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+         */
+        createOption?: string;
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
          */
@@ -6820,6 +7092,38 @@ export namespace datafactory {
     }
 }
 
+export namespace datashare {
+    export interface AccountIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+    export interface GetAccountIdentity {
+        /**
+         * The ID of the Principal (Client) in Azure Active Directory.
+         */
+        principalId: string;
+        /**
+         * The ID of the Azure Active Directory Tenant.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the Data Share Account.
+         */
+        type: string;
+    }
+}
+
 export namespace devtest {
     export interface GetVirtualNetworkAllowedSubnet {
         /**
@@ -7235,7 +7539,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesets {
         /**
-         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
          */
         defaultAction: string;
         /**
@@ -7994,6 +8298,78 @@ export namespace hdinsight {
         password: string;
         /**
          * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface HadoopClusterMetastores {
+        /**
+         * An `ambari` block as defined below.
+         */
+        ambari?: outputs.hdinsight.HadoopClusterMetastoresAmbari;
+        /**
+         * A `hive` block as defined below.
+         */
+        hive?: outputs.hdinsight.HadoopClusterMetastoresHive;
+        /**
+         * An `oozie` block as defined below.
+         */
+        oozie?: outputs.hdinsight.HadoopClusterMetastoresOozie;
+    }
+
+    export interface HadoopClusterMetastoresAmbari {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface HadoopClusterMetastoresHive {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface HadoopClusterMetastoresOozie {
+        /**
+         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
          */
         username: string;
     }

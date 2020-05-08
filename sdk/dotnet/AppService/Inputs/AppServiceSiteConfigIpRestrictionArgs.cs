@@ -19,6 +19,18 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
+        /// The name for this IP Restriction.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
+        /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>
         [Input("virtualNetworkSubnetId")]

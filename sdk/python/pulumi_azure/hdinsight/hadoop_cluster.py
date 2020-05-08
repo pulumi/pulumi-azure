@@ -36,6 +36,28 @@ class HadoopCluster(pulumi.CustomResource):
     """
     Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
     """
+    metastores: pulumi.Output[dict]
+    """
+    A `metastores` block as defined below.
+
+      * `ambari` (`dict`) - An `ambari` block as defined below.
+        * `database_name` (`str`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        * `password` (`str`) - The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        * `server` (`str`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+        * `username` (`str`) - The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+      * `hive` (`dict`) - A `hive` block as defined below.
+        * `database_name` (`str`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+        * `password` (`str`) - The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        * `server` (`str`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+        * `username` (`str`) - The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+      * `oozie` (`dict`) - An `oozie` block as defined below.
+        * `database_name` (`str`) - The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+        * `password` (`str`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+        * `server` (`str`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+        * `username` (`str`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+    """
     name: pulumi.Output[str]
     """
     Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
@@ -112,7 +134,7 @@ class HadoopCluster(pulumi.CustomResource):
     Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
     """
     tls_min_version: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, metastores=None, name=None, resource_group_name=None, roles=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a HDInsight Hadoop Cluster.
 
@@ -124,6 +146,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] component_version: A `component_version` block as defined below.
         :param pulumi.Input[dict] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] metastores: A `metastores` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
@@ -141,6 +164,26 @@ class HadoopCluster(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
           * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
           * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
+
+        The **metastores** object supports the following:
+
+          * `ambari` (`pulumi.Input[dict]`) - An `ambari` block as defined below.
+            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+          * `hive` (`pulumi.Input[dict]`) - A `hive` block as defined below.
+            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+          * `oozie` (`pulumi.Input[dict]`) - An `oozie` block as defined below.
+            * `database_name` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
 
         The **roles** object supports the following:
 
@@ -218,6 +261,7 @@ class HadoopCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gateway'")
             __props__['gateway'] = gateway
             __props__['location'] = location
+            __props__['metastores'] = metastores
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -241,7 +285,7 @@ class HadoopCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None):
+    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, metastores=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None):
         """
         Get an existing HadoopCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -254,6 +298,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] metastores: A `metastores` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
@@ -272,6 +317,26 @@ class HadoopCluster(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
           * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
           * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
+
+        The **metastores** object supports the following:
+
+          * `ambari` (`pulumi.Input[dict]`) - An `ambari` block as defined below.
+            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+          * `hive` (`pulumi.Input[dict]`) - A `hive` block as defined below.
+            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+          * `oozie` (`pulumi.Input[dict]`) - An `oozie` block as defined below.
+            * `database_name` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+            * `password` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+            * `username` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
 
         The **roles** object supports the following:
 
@@ -331,6 +396,7 @@ class HadoopCluster(pulumi.CustomResource):
         __props__["gateway"] = gateway
         __props__["https_endpoint"] = https_endpoint
         __props__["location"] = location
+        __props__["metastores"] = metastores
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["roles"] = roles

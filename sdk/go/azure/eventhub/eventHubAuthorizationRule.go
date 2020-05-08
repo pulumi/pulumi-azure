@@ -30,12 +30,16 @@ type EventHubAuthorizationRule struct {
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The Primary Connection String for the Event Hubs authorization Rule.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+	// The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
+	PrimaryConnectionStringAlias pulumi.StringOutput `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the Event Hubs authorization Rule.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+	// The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
+	SecondaryConnectionStringAlias pulumi.StringOutput `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
@@ -91,12 +95,16 @@ type eventHubAuthorizationRuleState struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The Primary Connection String for the Event Hubs authorization Rule.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
+	// The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
+	PrimaryConnectionStringAlias *string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the Event Hubs authorization Rule.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
+	// The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
+	SecondaryConnectionStringAlias *string `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
@@ -116,12 +124,16 @@ type EventHubAuthorizationRuleState struct {
 	NamespaceName pulumi.StringPtrInput
 	// The Primary Connection String for the Event Hubs authorization Rule.
 	PrimaryConnectionString pulumi.StringPtrInput
+	// The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
+	PrimaryConnectionStringAlias pulumi.StringPtrInput
 	// The Primary Key for the Event Hubs authorization Rule.
 	PrimaryKey pulumi.StringPtrInput
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
+	// The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
+	SecondaryConnectionStringAlias pulumi.StringPtrInput
 	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey pulumi.StringPtrInput
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.

@@ -51,7 +51,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
         /// </summary>
         [Output("querypoolConnectionMode")]
         public Output<string> QuerypoolConnectionMode { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
         /// </summary>
         [Input("querypoolConnectionMode")]
         public Input<string>? QuerypoolConnectionMode { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
         /// </summary>
         [Input("querypoolConnectionMode")]
         public Input<string>? QuerypoolConnectionMode { get; set; }

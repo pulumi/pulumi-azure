@@ -60,6 +60,10 @@ export class HadoopCluster extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A `metastores` block as defined below.
+     */
+    public readonly metastores!: pulumi.Output<outputs.hdinsight.HadoopClusterMetastores | undefined>;
+    /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             inputs["gateway"] = state ? state.gateway : undefined;
             inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["metastores"] = state ? state.metastores : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
@@ -143,6 +148,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             inputs["componentVersion"] = args ? args.componentVersion : undefined;
             inputs["gateway"] = args ? args.gateway : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metastores"] = args ? args.metastores : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
@@ -189,6 +195,10 @@ export interface HadoopClusterState {
      * Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `metastores` block as defined below.
+     */
+    readonly metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
     /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */
@@ -244,6 +254,10 @@ export interface HadoopClusterArgs {
      * Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `metastores` block as defined below.
+     */
+    readonly metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
     /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */

@@ -828,7 +828,7 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAccountId() pulum
 }
 
 type EventHubNamespaceNetworkRulesets struct {
-	// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+	// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules []EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRules"`
@@ -849,7 +849,7 @@ type EventHubNamespaceNetworkRulesetsInput interface {
 }
 
 type EventHubNamespaceNetworkRulesetsArgs struct {
-	// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+	// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules EventHubNamespaceNetworkRulesetsIpRuleArrayInput `pulumi:"ipRules"`
@@ -935,7 +935,7 @@ func (o EventHubNamespaceNetworkRulesetsOutput) ToEventHubNamespaceNetworkRulese
 	}).(EventHubNamespaceNetworkRulesetsPtrOutput)
 }
 
-// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 func (o EventHubNamespaceNetworkRulesetsOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
@@ -970,7 +970,7 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) Elem() EventHubNamespaceNetwo
 	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) EventHubNamespaceNetworkRulesets { return *v }).(EventHubNamespaceNetworkRulesetsOutput)
 }
 
-// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) *string {
 		if v == nil {

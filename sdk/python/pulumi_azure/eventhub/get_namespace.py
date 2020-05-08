@@ -13,7 +13,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None):
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'auto_inflate_enabled' to be a bool")
         __self__.auto_inflate_enabled = auto_inflate_enabled
@@ -33,6 +33,13 @@ class GetNamespaceResult:
         The primary connection string for the authorization
         rule `RootManageSharedAccessKey`.
         """
+        if default_primary_connection_string_alias and not isinstance(default_primary_connection_string_alias, str):
+            raise TypeError("Expected argument 'default_primary_connection_string_alias' to be a str")
+        __self__.default_primary_connection_string_alias = default_primary_connection_string_alias
+        """
+        The alias of the primary connection string for the authorization
+        rule `RootManageSharedAccessKey`.
+        """
         if default_primary_key and not isinstance(default_primary_key, str):
             raise TypeError("Expected argument 'default_primary_key' to be a str")
         __self__.default_primary_key = default_primary_key
@@ -44,6 +51,13 @@ class GetNamespaceResult:
         __self__.default_secondary_connection_string = default_secondary_connection_string
         """
         The secondary connection string for the
+        authorization rule `RootManageSharedAccessKey`.
+        """
+        if default_secondary_connection_string_alias and not isinstance(default_secondary_connection_string_alias, str):
+            raise TypeError("Expected argument 'default_secondary_connection_string_alias' to be a str")
+        __self__.default_secondary_connection_string_alias = default_secondary_connection_string_alias
+        """
+        The alias of the secondary connection string for the
         authorization rule `RootManageSharedAccessKey`.
         """
         if default_secondary_key and not isinstance(default_secondary_key, str):
@@ -100,8 +114,10 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             auto_inflate_enabled=self.auto_inflate_enabled,
             capacity=self.capacity,
             default_primary_connection_string=self.default_primary_connection_string,
+            default_primary_connection_string_alias=self.default_primary_connection_string_alias,
             default_primary_key=self.default_primary_key,
             default_secondary_connection_string=self.default_secondary_connection_string,
+            default_secondary_connection_string_alias=self.default_secondary_connection_string_alias,
             default_secondary_key=self.default_secondary_key,
             id=self.id,
             kafka_enabled=self.kafka_enabled,
@@ -137,8 +153,10 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
         auto_inflate_enabled=__ret__.get('autoInflateEnabled'),
         capacity=__ret__.get('capacity'),
         default_primary_connection_string=__ret__.get('defaultPrimaryConnectionString'),
+        default_primary_connection_string_alias=__ret__.get('defaultPrimaryConnectionStringAlias'),
         default_primary_key=__ret__.get('defaultPrimaryKey'),
         default_secondary_connection_string=__ret__.get('defaultSecondaryConnectionString'),
+        default_secondary_connection_string_alias=__ret__.get('defaultSecondaryConnectionStringAlias'),
         default_secondary_key=__ret__.get('defaultSecondaryKey'),
         id=__ret__.get('id'),
         kafka_enabled=__ret__.get('kafkaEnabled'),

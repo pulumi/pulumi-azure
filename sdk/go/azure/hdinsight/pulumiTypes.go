@@ -1818,6 +1818,747 @@ func (o HadoopClusterGatewayPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HadoopClusterMetastores struct {
+	// An `ambari` block as defined below.
+	Ambari *HadoopClusterMetastoresAmbari `pulumi:"ambari"`
+	// A `hive` block as defined below.
+	Hive *HadoopClusterMetastoresHive `pulumi:"hive"`
+	// An `oozie` block as defined below.
+	Oozie *HadoopClusterMetastoresOozie `pulumi:"oozie"`
+}
+
+// HadoopClusterMetastoresInput is an input type that accepts HadoopClusterMetastoresArgs and HadoopClusterMetastoresOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresInput` via:
+//
+// 		 HadoopClusterMetastoresArgs{...}
+//
+type HadoopClusterMetastoresInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresOutput() HadoopClusterMetastoresOutput
+	ToHadoopClusterMetastoresOutputWithContext(context.Context) HadoopClusterMetastoresOutput
+}
+
+type HadoopClusterMetastoresArgs struct {
+	// An `ambari` block as defined below.
+	Ambari HadoopClusterMetastoresAmbariPtrInput `pulumi:"ambari"`
+	// A `hive` block as defined below.
+	Hive HadoopClusterMetastoresHivePtrInput `pulumi:"hive"`
+	// An `oozie` block as defined below.
+	Oozie HadoopClusterMetastoresOoziePtrInput `pulumi:"oozie"`
+}
+
+func (HadoopClusterMetastoresArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastores)(nil)).Elem()
+}
+
+func (i HadoopClusterMetastoresArgs) ToHadoopClusterMetastoresOutput() HadoopClusterMetastoresOutput {
+	return i.ToHadoopClusterMetastoresOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresArgs) ToHadoopClusterMetastoresOutputWithContext(ctx context.Context) HadoopClusterMetastoresOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOutput)
+}
+
+func (i HadoopClusterMetastoresArgs) ToHadoopClusterMetastoresPtrOutput() HadoopClusterMetastoresPtrOutput {
+	return i.ToHadoopClusterMetastoresPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresArgs) ToHadoopClusterMetastoresPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOutput).ToHadoopClusterMetastoresPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterMetastoresPtrInput is an input type that accepts HadoopClusterMetastoresArgs, HadoopClusterMetastoresPtr and HadoopClusterMetastoresPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresPtrInput` via:
+//
+// 		 HadoopClusterMetastoresArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type HadoopClusterMetastoresPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresPtrOutput() HadoopClusterMetastoresPtrOutput
+	ToHadoopClusterMetastoresPtrOutputWithContext(context.Context) HadoopClusterMetastoresPtrOutput
+}
+
+type hadoopClusterMetastoresPtrType HadoopClusterMetastoresArgs
+
+func HadoopClusterMetastoresPtr(v *HadoopClusterMetastoresArgs) HadoopClusterMetastoresPtrInput {
+	return (*hadoopClusterMetastoresPtrType)(v)
+}
+
+func (*hadoopClusterMetastoresPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastores)(nil)).Elem()
+}
+
+func (i *hadoopClusterMetastoresPtrType) ToHadoopClusterMetastoresPtrOutput() HadoopClusterMetastoresPtrOutput {
+	return i.ToHadoopClusterMetastoresPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterMetastoresPtrType) ToHadoopClusterMetastoresPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresPtrOutput)
+}
+
+type HadoopClusterMetastoresOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastores)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresOutput) ToHadoopClusterMetastoresOutput() HadoopClusterMetastoresOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresOutput) ToHadoopClusterMetastoresOutputWithContext(ctx context.Context) HadoopClusterMetastoresOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresOutput) ToHadoopClusterMetastoresPtrOutput() HadoopClusterMetastoresPtrOutput {
+	return o.ToHadoopClusterMetastoresPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterMetastoresOutput) ToHadoopClusterMetastoresPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresPtrOutput {
+	return o.ApplyT(func(v HadoopClusterMetastores) *HadoopClusterMetastores {
+		return &v
+	}).(HadoopClusterMetastoresPtrOutput)
+}
+
+// An `ambari` block as defined below.
+func (o HadoopClusterMetastoresOutput) Ambari() HadoopClusterMetastoresAmbariPtrOutput {
+	return o.ApplyT(func(v HadoopClusterMetastores) *HadoopClusterMetastoresAmbari { return v.Ambari }).(HadoopClusterMetastoresAmbariPtrOutput)
+}
+
+// A `hive` block as defined below.
+func (o HadoopClusterMetastoresOutput) Hive() HadoopClusterMetastoresHivePtrOutput {
+	return o.ApplyT(func(v HadoopClusterMetastores) *HadoopClusterMetastoresHive { return v.Hive }).(HadoopClusterMetastoresHivePtrOutput)
+}
+
+// An `oozie` block as defined below.
+func (o HadoopClusterMetastoresOutput) Oozie() HadoopClusterMetastoresOoziePtrOutput {
+	return o.ApplyT(func(v HadoopClusterMetastores) *HadoopClusterMetastoresOozie { return v.Oozie }).(HadoopClusterMetastoresOoziePtrOutput)
+}
+
+type HadoopClusterMetastoresPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastores)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresPtrOutput) ToHadoopClusterMetastoresPtrOutput() HadoopClusterMetastoresPtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresPtrOutput) ToHadoopClusterMetastoresPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresPtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresPtrOutput) Elem() HadoopClusterMetastoresOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastores) HadoopClusterMetastores { return *v }).(HadoopClusterMetastoresOutput)
+}
+
+// An `ambari` block as defined below.
+func (o HadoopClusterMetastoresPtrOutput) Ambari() HadoopClusterMetastoresAmbariPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastores) *HadoopClusterMetastoresAmbari {
+		if v == nil {
+			return nil
+		}
+		return v.Ambari
+	}).(HadoopClusterMetastoresAmbariPtrOutput)
+}
+
+// A `hive` block as defined below.
+func (o HadoopClusterMetastoresPtrOutput) Hive() HadoopClusterMetastoresHivePtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastores) *HadoopClusterMetastoresHive {
+		if v == nil {
+			return nil
+		}
+		return v.Hive
+	}).(HadoopClusterMetastoresHivePtrOutput)
+}
+
+// An `oozie` block as defined below.
+func (o HadoopClusterMetastoresPtrOutput) Oozie() HadoopClusterMetastoresOoziePtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastores) *HadoopClusterMetastoresOozie {
+		if v == nil {
+			return nil
+		}
+		return v.Oozie
+	}).(HadoopClusterMetastoresOoziePtrOutput)
+}
+
+type HadoopClusterMetastoresAmbari struct {
+	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	DatabaseName string `pulumi:"databaseName"`
+	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	Password string `pulumi:"password"`
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	Server string `pulumi:"server"`
+	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	Username string `pulumi:"username"`
+}
+
+// HadoopClusterMetastoresAmbariInput is an input type that accepts HadoopClusterMetastoresAmbariArgs and HadoopClusterMetastoresAmbariOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresAmbariInput` via:
+//
+// 		 HadoopClusterMetastoresAmbariArgs{...}
+//
+type HadoopClusterMetastoresAmbariInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresAmbariOutput() HadoopClusterMetastoresAmbariOutput
+	ToHadoopClusterMetastoresAmbariOutputWithContext(context.Context) HadoopClusterMetastoresAmbariOutput
+}
+
+type HadoopClusterMetastoresAmbariArgs struct {
+	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+	Server pulumi.StringInput `pulumi:"server"`
+	// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (HadoopClusterMetastoresAmbariArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastoresAmbari)(nil)).Elem()
+}
+
+func (i HadoopClusterMetastoresAmbariArgs) ToHadoopClusterMetastoresAmbariOutput() HadoopClusterMetastoresAmbariOutput {
+	return i.ToHadoopClusterMetastoresAmbariOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresAmbariArgs) ToHadoopClusterMetastoresAmbariOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresAmbariOutput)
+}
+
+func (i HadoopClusterMetastoresAmbariArgs) ToHadoopClusterMetastoresAmbariPtrOutput() HadoopClusterMetastoresAmbariPtrOutput {
+	return i.ToHadoopClusterMetastoresAmbariPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresAmbariArgs) ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresAmbariOutput).ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterMetastoresAmbariPtrInput is an input type that accepts HadoopClusterMetastoresAmbariArgs, HadoopClusterMetastoresAmbariPtr and HadoopClusterMetastoresAmbariPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresAmbariPtrInput` via:
+//
+// 		 HadoopClusterMetastoresAmbariArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type HadoopClusterMetastoresAmbariPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresAmbariPtrOutput() HadoopClusterMetastoresAmbariPtrOutput
+	ToHadoopClusterMetastoresAmbariPtrOutputWithContext(context.Context) HadoopClusterMetastoresAmbariPtrOutput
+}
+
+type hadoopClusterMetastoresAmbariPtrType HadoopClusterMetastoresAmbariArgs
+
+func HadoopClusterMetastoresAmbariPtr(v *HadoopClusterMetastoresAmbariArgs) HadoopClusterMetastoresAmbariPtrInput {
+	return (*hadoopClusterMetastoresAmbariPtrType)(v)
+}
+
+func (*hadoopClusterMetastoresAmbariPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastoresAmbari)(nil)).Elem()
+}
+
+func (i *hadoopClusterMetastoresAmbariPtrType) ToHadoopClusterMetastoresAmbariPtrOutput() HadoopClusterMetastoresAmbariPtrOutput {
+	return i.ToHadoopClusterMetastoresAmbariPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterMetastoresAmbariPtrType) ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresAmbariPtrOutput)
+}
+
+type HadoopClusterMetastoresAmbariOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresAmbariOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastoresAmbari)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariOutput() HadoopClusterMetastoresAmbariOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariPtrOutput() HadoopClusterMetastoresAmbariPtrOutput {
+	return o.ToHadoopClusterMetastoresAmbariPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariPtrOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) *HadoopClusterMetastoresAmbari {
+		return &v
+	}).(HadoopClusterMetastoresAmbariPtrOutput)
+}
+
+// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresAmbari) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type HadoopClusterMetastoresAmbariPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresAmbariPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastoresAmbari)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresAmbariPtrOutput) ToHadoopClusterMetastoresAmbariPtrOutput() HadoopClusterMetastoresAmbariPtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresAmbariPtrOutput) ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariPtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresAmbariPtrOutput) Elem() HadoopClusterMetastoresAmbariOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) HadoopClusterMetastoresAmbari { return *v }).(HadoopClusterMetastoresAmbariOutput)
+}
+
+// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariPtrOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Server
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresAmbariPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresAmbari) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterMetastoresHive struct {
+	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	DatabaseName string `pulumi:"databaseName"`
+	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	Password string `pulumi:"password"`
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	Server string `pulumi:"server"`
+	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	Username string `pulumi:"username"`
+}
+
+// HadoopClusterMetastoresHiveInput is an input type that accepts HadoopClusterMetastoresHiveArgs and HadoopClusterMetastoresHiveOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresHiveInput` via:
+//
+// 		 HadoopClusterMetastoresHiveArgs{...}
+//
+type HadoopClusterMetastoresHiveInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresHiveOutput() HadoopClusterMetastoresHiveOutput
+	ToHadoopClusterMetastoresHiveOutputWithContext(context.Context) HadoopClusterMetastoresHiveOutput
+}
+
+type HadoopClusterMetastoresHiveArgs struct {
+	// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+	Server pulumi.StringInput `pulumi:"server"`
+	// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (HadoopClusterMetastoresHiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastoresHive)(nil)).Elem()
+}
+
+func (i HadoopClusterMetastoresHiveArgs) ToHadoopClusterMetastoresHiveOutput() HadoopClusterMetastoresHiveOutput {
+	return i.ToHadoopClusterMetastoresHiveOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresHiveArgs) ToHadoopClusterMetastoresHiveOutputWithContext(ctx context.Context) HadoopClusterMetastoresHiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresHiveOutput)
+}
+
+func (i HadoopClusterMetastoresHiveArgs) ToHadoopClusterMetastoresHivePtrOutput() HadoopClusterMetastoresHivePtrOutput {
+	return i.ToHadoopClusterMetastoresHivePtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresHiveArgs) ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresHivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresHiveOutput).ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx)
+}
+
+// HadoopClusterMetastoresHivePtrInput is an input type that accepts HadoopClusterMetastoresHiveArgs, HadoopClusterMetastoresHivePtr and HadoopClusterMetastoresHivePtrOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresHivePtrInput` via:
+//
+// 		 HadoopClusterMetastoresHiveArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type HadoopClusterMetastoresHivePtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresHivePtrOutput() HadoopClusterMetastoresHivePtrOutput
+	ToHadoopClusterMetastoresHivePtrOutputWithContext(context.Context) HadoopClusterMetastoresHivePtrOutput
+}
+
+type hadoopClusterMetastoresHivePtrType HadoopClusterMetastoresHiveArgs
+
+func HadoopClusterMetastoresHivePtr(v *HadoopClusterMetastoresHiveArgs) HadoopClusterMetastoresHivePtrInput {
+	return (*hadoopClusterMetastoresHivePtrType)(v)
+}
+
+func (*hadoopClusterMetastoresHivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastoresHive)(nil)).Elem()
+}
+
+func (i *hadoopClusterMetastoresHivePtrType) ToHadoopClusterMetastoresHivePtrOutput() HadoopClusterMetastoresHivePtrOutput {
+	return i.ToHadoopClusterMetastoresHivePtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterMetastoresHivePtrType) ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresHivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresHivePtrOutput)
+}
+
+type HadoopClusterMetastoresHiveOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresHiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastoresHive)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHiveOutput() HadoopClusterMetastoresHiveOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHiveOutputWithContext(ctx context.Context) HadoopClusterMetastoresHiveOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHivePtrOutput() HadoopClusterMetastoresHivePtrOutput {
+	return o.ToHadoopClusterMetastoresHivePtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresHivePtrOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresHive) *HadoopClusterMetastoresHive {
+		return &v
+	}).(HadoopClusterMetastoresHivePtrOutput)
+}
+
+// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHiveOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHiveOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHiveOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHiveOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresHive) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type HadoopClusterMetastoresHivePtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresHivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastoresHive)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresHivePtrOutput) ToHadoopClusterMetastoresHivePtrOutput() HadoopClusterMetastoresHivePtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresHivePtrOutput) ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresHivePtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresHivePtrOutput) Elem() HadoopClusterMetastoresHiveOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresHive) HadoopClusterMetastoresHive { return *v }).(HadoopClusterMetastoresHiveOutput)
+}
+
+// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHivePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHivePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHivePtrOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Server
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresHivePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresHive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterMetastoresOozie struct {
+	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	DatabaseName string `pulumi:"databaseName"`
+	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	Password string `pulumi:"password"`
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	Server string `pulumi:"server"`
+	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	Username string `pulumi:"username"`
+}
+
+// HadoopClusterMetastoresOozieInput is an input type that accepts HadoopClusterMetastoresOozieArgs and HadoopClusterMetastoresOozieOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresOozieInput` via:
+//
+// 		 HadoopClusterMetastoresOozieArgs{...}
+//
+type HadoopClusterMetastoresOozieInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresOozieOutput() HadoopClusterMetastoresOozieOutput
+	ToHadoopClusterMetastoresOozieOutputWithContext(context.Context) HadoopClusterMetastoresOozieOutput
+}
+
+type HadoopClusterMetastoresOozieArgs struct {
+	// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+	Server pulumi.StringInput `pulumi:"server"`
+	// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (HadoopClusterMetastoresOozieArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastoresOozie)(nil)).Elem()
+}
+
+func (i HadoopClusterMetastoresOozieArgs) ToHadoopClusterMetastoresOozieOutput() HadoopClusterMetastoresOozieOutput {
+	return i.ToHadoopClusterMetastoresOozieOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresOozieArgs) ToHadoopClusterMetastoresOozieOutputWithContext(ctx context.Context) HadoopClusterMetastoresOozieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOozieOutput)
+}
+
+func (i HadoopClusterMetastoresOozieArgs) ToHadoopClusterMetastoresOoziePtrOutput() HadoopClusterMetastoresOoziePtrOutput {
+	return i.ToHadoopClusterMetastoresOoziePtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterMetastoresOozieArgs) ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresOoziePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOozieOutput).ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx)
+}
+
+// HadoopClusterMetastoresOoziePtrInput is an input type that accepts HadoopClusterMetastoresOozieArgs, HadoopClusterMetastoresOoziePtr and HadoopClusterMetastoresOoziePtrOutput values.
+// You can construct a concrete instance of `HadoopClusterMetastoresOoziePtrInput` via:
+//
+// 		 HadoopClusterMetastoresOozieArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type HadoopClusterMetastoresOoziePtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterMetastoresOoziePtrOutput() HadoopClusterMetastoresOoziePtrOutput
+	ToHadoopClusterMetastoresOoziePtrOutputWithContext(context.Context) HadoopClusterMetastoresOoziePtrOutput
+}
+
+type hadoopClusterMetastoresOoziePtrType HadoopClusterMetastoresOozieArgs
+
+func HadoopClusterMetastoresOoziePtr(v *HadoopClusterMetastoresOozieArgs) HadoopClusterMetastoresOoziePtrInput {
+	return (*hadoopClusterMetastoresOoziePtrType)(v)
+}
+
+func (*hadoopClusterMetastoresOoziePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastoresOozie)(nil)).Elem()
+}
+
+func (i *hadoopClusterMetastoresOoziePtrType) ToHadoopClusterMetastoresOoziePtrOutput() HadoopClusterMetastoresOoziePtrOutput {
+	return i.ToHadoopClusterMetastoresOoziePtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterMetastoresOoziePtrType) ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresOoziePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOoziePtrOutput)
+}
+
+type HadoopClusterMetastoresOozieOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresOozieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterMetastoresOozie)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOozieOutput() HadoopClusterMetastoresOozieOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOozieOutputWithContext(ctx context.Context) HadoopClusterMetastoresOozieOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOoziePtrOutput() HadoopClusterMetastoresOoziePtrOutput {
+	return o.ToHadoopClusterMetastoresOoziePtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresOoziePtrOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresOozie) *HadoopClusterMetastoresOozie {
+		return &v
+	}).(HadoopClusterMetastoresOoziePtrOutput)
+}
+
+// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOozieOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOozieOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOozieOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOozieOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterMetastoresOozie) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type HadoopClusterMetastoresOoziePtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterMetastoresOoziePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterMetastoresOozie)(nil)).Elem()
+}
+
+func (o HadoopClusterMetastoresOoziePtrOutput) ToHadoopClusterMetastoresOoziePtrOutput() HadoopClusterMetastoresOoziePtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresOoziePtrOutput) ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresOoziePtrOutput {
+	return o
+}
+
+func (o HadoopClusterMetastoresOoziePtrOutput) Elem() HadoopClusterMetastoresOozieOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) HadoopClusterMetastoresOozie { return *v }).(HadoopClusterMetastoresOozieOutput)
+}
+
+// The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOoziePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOoziePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOoziePtrOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Server
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+func (o HadoopClusterMetastoresOoziePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterMetastoresOozie) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
 type HadoopClusterRoles struct {
 	// A `edgeNode` block as defined below.
 	EdgeNode *HadoopClusterRolesEdgeNode `pulumi:"edgeNode"`
@@ -12158,6 +12899,14 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterGatewayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterGatewayPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresAmbariOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresAmbariPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresHiveOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresHivePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresOozieOutput{})
+	pulumi.RegisterOutputType(HadoopClusterMetastoresOoziePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeOutput{})

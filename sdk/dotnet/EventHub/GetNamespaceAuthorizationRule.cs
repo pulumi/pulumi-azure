@@ -70,6 +70,10 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string PrimaryConnectionString;
         /// <summary>
+        /// The alias of the Primary Connection String for the Event Hubs authorization Rule.
+        /// </summary>
+        public readonly string PrimaryConnectionStringAlias;
+        /// <summary>
         /// The Primary Key for the Event Hubs authorization Rule.
         /// </summary>
         public readonly string PrimaryKey;
@@ -78,6 +82,10 @@ namespace Pulumi.Azure.EventHub
         /// The Secondary Connection String for the Event Hubs authorization Rule.
         /// </summary>
         public readonly string SecondaryConnectionString;
+        /// <summary>
+        /// The alias of the Secondary Connection String for the Event Hubs authorization Rule.
+        /// </summary>
+        public readonly string SecondaryConnectionStringAlias;
         /// <summary>
         /// The Secondary Key for the Event Hubs authorization Rule.
         /// </summary>
@@ -101,11 +109,15 @@ namespace Pulumi.Azure.EventHub
 
             string primaryConnectionString,
 
+            string primaryConnectionStringAlias,
+
             string primaryKey,
 
             string resourceGroupName,
 
             string secondaryConnectionString,
+
+            string secondaryConnectionStringAlias,
 
             string secondaryKey,
 
@@ -117,9 +129,11 @@ namespace Pulumi.Azure.EventHub
             Name = name;
             NamespaceName = namespaceName;
             PrimaryConnectionString = primaryConnectionString;
+            PrimaryConnectionStringAlias = primaryConnectionStringAlias;
             PrimaryKey = primaryKey;
             ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;
+            SecondaryConnectionStringAlias = secondaryConnectionStringAlias;
             SecondaryKey = secondaryKey;
             Send = send;
         }

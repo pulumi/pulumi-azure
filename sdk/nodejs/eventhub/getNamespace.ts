@@ -58,6 +58,11 @@ export interface GetNamespaceResult {
      */
     readonly defaultPrimaryConnectionString: string;
     /**
+     * The alias of the primary connection string for the authorization
+     * rule `RootManageSharedAccessKey`.
+     */
+    readonly defaultPrimaryConnectionStringAlias: string;
+    /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
     readonly defaultPrimaryKey: string;
@@ -66,6 +71,11 @@ export interface GetNamespaceResult {
      * authorization rule `RootManageSharedAccessKey`.
      */
     readonly defaultSecondaryConnectionString: string;
+    /**
+     * The alias of the secondary connection string for the
+     * authorization rule `RootManageSharedAccessKey`.
+     */
+    readonly defaultSecondaryConnectionStringAlias: string;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */

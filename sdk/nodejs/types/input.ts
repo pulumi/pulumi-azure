@@ -1169,6 +1169,10 @@ export namespace appservice {
          */
         ftpsState?: pulumi.Input<string>;
         /**
+         * The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
          * Is HTTP2 Enabled on this App Service? Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
@@ -1254,6 +1258,14 @@ export namespace appservice {
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: pulumi.Input<string>;
+        /**
+         * The name for this IP Restriction.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: pulumi.Input<number>;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -1562,6 +1574,240 @@ export namespace appservice {
         username?: pulumi.Input<string>;
     }
 
+    export interface FunctionAppSlotAuthSettings {
+        /**
+         * An `activeDirectory` block as defined below.
+         */
+        activeDirectory?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettingsActiveDirectory>;
+        /**
+         * Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+         */
+        additionalLoginParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * External URLs that can be redirected to as part of logging in or logging out of the app.
+         */
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+         */
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Is Authentication enabled?
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `facebook` block as defined below.
+         */
+        facebook?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettingsFacebook>;
+        /**
+         * A `google` block as defined below.
+         */
+        google?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettingsGoogle>;
+        /**
+         * Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * A `microsoft` block as defined below.
+         */
+        microsoft?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettingsMicrosoft>;
+        /**
+         * The runtime version of the Authentication/Authorization module.
+         */
+        runtimeVersion?: pulumi.Input<string>;
+        /**
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         */
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        /**
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         */
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        /**
+         * A `twitter` block as defined below.
+         */
+        twitter?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettingsTwitter>;
+        /**
+         * The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+         */
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSlotAuthSettingsActiveDirectory {
+        /**
+         * Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         */
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+         */
+        clientSecret?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSlotAuthSettingsFacebook {
+        /**
+         * The App ID of the Facebook app used for login
+         */
+        appId: pulumi.Input<string>;
+        /**
+         * The App Secret of the Facebook app used for Facebook Login.
+         */
+        appSecret: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FunctionAppSlotAuthSettingsGoogle {
+        /**
+         * The OpenID Connect Client ID for the Google web application.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret associated with the Google web application.
+         */
+        clientSecret: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FunctionAppSlotAuthSettingsMicrosoft {
+        /**
+         * The OAuth 2.0 client ID that was created for the app used for authentication.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 client secret that was created for the app used for authentication.
+         */
+        clientSecret: pulumi.Input<string>;
+        /**
+         * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+         */
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FunctionAppSlotAuthSettingsTwitter {
+        consumerKey: pulumi.Input<string>;
+        consumerSecret: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSlotConnectionString {
+        /**
+         * The name of the Connection String.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The value for the Connection String.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSlotIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSlotSiteConfig {
+        /**
+         * Should the Function App be loaded at all times? Defaults to `false`.
+         */
+        alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * A `cors` block as defined below.
+         */
+        cors?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigCors>;
+        /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
+         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: pulumi.Input<boolean>;
+        /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigIpRestriction>[]>;
+        /**
+         * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+         */
+        linuxFxVersion?: pulumi.Input<string>;
+        /**
+         * The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+         */
+        minTlsVersion?: pulumi.Input<string>;
+        /**
+         * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+         */
+        preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+         */
+        use32BitWorkerProcess?: pulumi.Input<boolean>;
+        /**
+         * Should WebSockets be enabled?
+         */
+        websocketsEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface FunctionAppSlotSiteConfigCors {
+        /**
+         * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Are credentials supported?
+         */
+        supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface FunctionAppSlotSiteConfigIpRestriction {
+        /**
+         * The IP Address CIDR notation used for this IP Restriction.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The Subnet ID used for this IP Restriction.
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSlotSiteCredential {
+        /**
+         * The password associated with the username, which can be used to publish to this App Service.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * The username which can be used to publish to this App Service
+         */
+        username?: pulumi.Input<string>;
+    }
+
     export interface PlanSku {
         /**
          * Specifies the number of workers associated with this App Service Plan.
@@ -1821,6 +2067,7 @@ export namespace appservice {
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         ftpsState?: pulumi.Input<string>;
+        healthCheckPath?: pulumi.Input<string>;
         /**
          * Is HTTP2 Enabled on this App Service? Defaults to `false`.
          */
@@ -1901,6 +2148,11 @@ export namespace appservice {
          * The IP Address used for this IP Restriction.
          */
         ipAddress?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        priority?: pulumi.Input<number>;
         /**
          * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -3286,6 +3538,10 @@ export namespace compute {
          */
         caching: pulumi.Input<string>;
         /**
+         * The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+         */
+        createOption?: pulumi.Input<string>;
+        /**
          * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
          */
         diskEncryptionSetId?: pulumi.Input<string>;
@@ -4427,6 +4683,10 @@ export namespace compute {
          * The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
          */
         caching: pulumi.Input<string>;
+        /**
+         * The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+         */
+        createOption?: pulumi.Input<string>;
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
          */
@@ -5711,6 +5971,23 @@ export namespace datafactory {
     }
 }
 
+export namespace datashare {
+    export interface AccountIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace devtest {
     export interface LinuxVirtualMachineGalleryImageReference {
         /**
@@ -6091,7 +6368,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesets {
         /**
-         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+         * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
          */
         defaultAction: pulumi.Input<string>;
         /**
@@ -6835,6 +7112,78 @@ export namespace hdinsight {
         password: pulumi.Input<string>;
         /**
          * The username used for the Ambari Portal. Changing this forces a new resource to be created.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterMetastores {
+        /**
+         * An `ambari` block as defined below.
+         */
+        ambari?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastoresAmbari>;
+        /**
+         * A `hive` block as defined below.
+         */
+        hive?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastoresHive>;
+        /**
+         * An `oozie` block as defined below.
+         */
+        oozie?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastoresOozie>;
+    }
+
+    export interface HadoopClusterMetastoresAmbari {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         */
+        server: pulumi.Input<string>;
+        /**
+         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterMetastoresHive {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         */
+        server: pulumi.Input<string>;
+        /**
+         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterMetastoresOozie {
+        /**
+         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         */
+        server: pulumi.Input<string>;
+        /**
+         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
          */
         username: pulumi.Input<string>;
     }

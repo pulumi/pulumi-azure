@@ -29,7 +29,7 @@ type RunBook struct {
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The published runbook content link.
-	PublishContentLink RunBookPublishContentLinkOutput `pulumi:"publishContentLink"`
+	PublishContentLink RunBookPublishContentLinkPtrOutput `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
@@ -49,9 +49,6 @@ func NewRunBook(ctx *pulumi.Context,
 	}
 	if args == nil || args.LogVerbose == nil {
 		return nil, errors.New("missing required argument 'LogVerbose'")
-	}
-	if args == nil || args.PublishContentLink == nil {
-		return nil, errors.New("missing required argument 'PublishContentLink'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -153,7 +150,7 @@ type runBookArgs struct {
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The published runbook content link.
-	PublishContentLink RunBookPublishContentLink `pulumi:"publishContentLink"`
+	PublishContentLink *RunBookPublishContentLink `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
@@ -179,7 +176,7 @@ type RunBookArgs struct {
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The published runbook content link.
-	PublishContentLink RunBookPublishContentLinkInput
+	PublishContentLink RunBookPublishContentLinkPtrInput
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.

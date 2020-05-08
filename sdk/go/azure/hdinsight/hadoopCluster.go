@@ -24,6 +24,8 @@ type HadoopCluster struct {
 	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores HadoopClusterMetastoresPtrOutput `pulumi:"metastores"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -99,6 +101,8 @@ type hadoopClusterState struct {
 	HttpsEndpoint *string `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *HadoopClusterMetastores `pulumi:"metastores"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -129,6 +133,8 @@ type HadoopClusterState struct {
 	HttpsEndpoint pulumi.StringPtrInput
 	// Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores HadoopClusterMetastoresPtrInput
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -161,6 +167,8 @@ type hadoopClusterArgs struct {
 	Gateway HadoopClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *HadoopClusterMetastores `pulumi:"metastores"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -188,6 +196,8 @@ type HadoopClusterArgs struct {
 	Gateway HadoopClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores HadoopClusterMetastoresPtrInput
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.

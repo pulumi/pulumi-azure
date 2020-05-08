@@ -17,15 +17,29 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The IP Address used for this IP Restriction.
         /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// The name of the App Service.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// The priority for this IP Restriction.
+        /// </summary>
+        public readonly int Priority;
         public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetAppServiceSiteConfigIpRestrictionResult(
             string ipAddress,
 
+            string name,
+
+            int priority,
+
             string virtualNetworkSubnetId)
         {
             IpAddress = ipAddress;
+            Name = name;
+            Priority = priority;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }

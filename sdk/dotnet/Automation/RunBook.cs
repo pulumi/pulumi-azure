@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Automation
         /// The published runbook content link.
         /// </summary>
         [Output("publishContentLink")]
-        public Output<Outputs.RunBookPublishContentLink> PublishContentLink { get; private set; } = null!;
+        public Output<Outputs.RunBookPublishContentLink?> PublishContentLink { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
@@ -171,8 +171,8 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The published runbook content link.
         /// </summary>
-        [Input("publishContentLink", required: true)]
-        public Input<Inputs.RunBookPublishContentLinkArgs> PublishContentLink { get; set; } = null!;
+        [Input("publishContentLink")]
+        public Input<Inputs.RunBookPublishContentLinkArgs>? PublishContentLink { get; set; }
 
         /// <summary>
         /// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.

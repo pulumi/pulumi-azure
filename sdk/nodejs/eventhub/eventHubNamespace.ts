@@ -53,6 +53,11 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultPrimaryConnectionString!: pulumi.Output<string>;
     /**
+     * The alias of the primary connection string for the authorization
+     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     */
+    public /*out*/ readonly defaultPrimaryConnectionStringAlias!: pulumi.Output<string>;
+    /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
@@ -61,6 +66,11 @@ export class EventHubNamespace extends pulumi.CustomResource {
      * authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultSecondaryConnectionString!: pulumi.Output<string>;
+    /**
+     * The alias of the secondary connection string for the
+     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     */
+    public /*out*/ readonly defaultSecondaryConnectionStringAlias!: pulumi.Output<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
@@ -109,8 +119,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["autoInflateEnabled"] = state ? state.autoInflateEnabled : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
+            inputs["defaultPrimaryConnectionStringAlias"] = state ? state.defaultPrimaryConnectionStringAlias : undefined;
             inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             inputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
+            inputs["defaultSecondaryConnectionStringAlias"] = state ? state.defaultSecondaryConnectionStringAlias : undefined;
             inputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maximumThroughputUnits"] = state ? state.maximumThroughputUnits : undefined;
@@ -137,8 +149,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultPrimaryConnectionString"] = undefined /*out*/;
+            inputs["defaultPrimaryConnectionStringAlias"] = undefined /*out*/;
             inputs["defaultPrimaryKey"] = undefined /*out*/;
             inputs["defaultSecondaryConnectionString"] = undefined /*out*/;
+            inputs["defaultSecondaryConnectionStringAlias"] = undefined /*out*/;
             inputs["defaultSecondaryKey"] = undefined /*out*/;
         }
         if (!opts) {
@@ -170,6 +184,11 @@ export interface EventHubNamespaceState {
      */
     readonly defaultPrimaryConnectionString?: pulumi.Input<string>;
     /**
+     * The alias of the primary connection string for the authorization
+     * rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     */
+    readonly defaultPrimaryConnectionStringAlias?: pulumi.Input<string>;
+    /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
     readonly defaultPrimaryKey?: pulumi.Input<string>;
@@ -178,6 +197,11 @@ export interface EventHubNamespaceState {
      * authorization rule `RootManageSharedAccessKey`.
      */
     readonly defaultSecondaryConnectionString?: pulumi.Input<string>;
+    /**
+     * The alias of the secondary connection string for the
+     * authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+     */
+    readonly defaultSecondaryConnectionStringAlias?: pulumi.Input<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */

@@ -23,6 +23,11 @@ class EventHubNamespace(pulumi.CustomResource):
     The primary connection string for the authorization
     rule `RootManageSharedAccessKey`.
     """
+    default_primary_connection_string_alias: pulumi.Output[str]
+    """
+    The alias of the primary connection string for the authorization
+    rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+    """
     default_primary_key: pulumi.Output[str]
     """
     The primary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -31,6 +36,11 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     The secondary connection string for the
     authorization rule `RootManageSharedAccessKey`.
+    """
+    default_secondary_connection_string_alias: pulumi.Output[str]
+    """
+    The alias of the secondary connection string for the
+    authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
     """
     default_secondary_key: pulumi.Output[str]
     """
@@ -52,7 +62,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     A `network_rulesets` block as defined below.
 
-      * `default_action` (`str`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+      * `default_action` (`str`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
       * `ip_rules` (`list`) - One or more `ip_rule` blocks as defined below.
         * `action` (`str`) - The action to take when the rule is  matched. Possible values are `Allow`.
         * `ipMask` (`str`) - The ip mask to match on.
@@ -93,7 +103,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
         The **network_rulesets** object supports the following:
 
-          * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+          * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
           * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
             * `action` (`pulumi.Input[str]`) - The action to take when the rule is  matched. Possible values are `Allow`.
             * `ipMask` (`pulumi.Input[str]`) - The ip mask to match on.
@@ -133,8 +143,10 @@ class EventHubNamespace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['default_primary_connection_string'] = None
+            __props__['default_primary_connection_string_alias'] = None
             __props__['default_primary_key'] = None
             __props__['default_secondary_connection_string'] = None
+            __props__['default_secondary_connection_string_alias'] = None
             __props__['default_secondary_key'] = None
         super(EventHubNamespace, __self__).__init__(
             'azure:eventhub/eventHubNamespace:EventHubNamespace',
@@ -143,7 +155,7 @@ class EventHubNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None):
         """
         Get an existing EventHubNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -155,9 +167,13 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_primary_connection_string_alias: The alias of the primary connection string for the authorization
+               rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the
                authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_secondary_connection_string_alias: The alias of the secondary connection string for the
+               authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -169,7 +185,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
         The **network_rulesets** object supports the following:
 
-          * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+          * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
           * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
             * `action` (`pulumi.Input[str]`) - The action to take when the rule is  matched. Possible values are `Allow`.
             * `ipMask` (`pulumi.Input[str]`) - The ip mask to match on.
@@ -185,8 +201,10 @@ class EventHubNamespace(pulumi.CustomResource):
         __props__["auto_inflate_enabled"] = auto_inflate_enabled
         __props__["capacity"] = capacity
         __props__["default_primary_connection_string"] = default_primary_connection_string
+        __props__["default_primary_connection_string_alias"] = default_primary_connection_string_alias
         __props__["default_primary_key"] = default_primary_key
         __props__["default_secondary_connection_string"] = default_secondary_connection_string
+        __props__["default_secondary_connection_string_alias"] = default_secondary_connection_string_alias
         __props__["default_secondary_key"] = default_secondary_key
         __props__["location"] = location
         __props__["maximum_throughput_units"] = maximum_throughput_units

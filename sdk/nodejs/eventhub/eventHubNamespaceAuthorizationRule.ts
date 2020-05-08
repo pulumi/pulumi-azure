@@ -60,6 +60,10 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
+     * The alias of the Primary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
+     */
+    public /*out*/ readonly primaryConnectionStringAlias!: pulumi.Output<string>;
+    /**
      * The Primary Key for the Authorization Rule.
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
@@ -71,6 +75,10 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
      * The Secondary Connection String for the Authorization Rule.
      */
     public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    /**
+     * The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
+     */
+    public /*out*/ readonly secondaryConnectionStringAlias!: pulumi.Output<string>;
     /**
      * The Secondary Key for the Authorization Rule.
      */
@@ -97,9 +105,11 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            inputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            inputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["send"] = state ? state.send : undefined;
         } else {
@@ -117,8 +127,10 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["send"] = args ? args.send : undefined;
             inputs["primaryConnectionString"] = undefined /*out*/;
+            inputs["primaryConnectionStringAlias"] = undefined /*out*/;
             inputs["primaryKey"] = undefined /*out*/;
             inputs["secondaryConnectionString"] = undefined /*out*/;
+            inputs["secondaryConnectionStringAlias"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
         if (!opts) {
@@ -157,6 +169,10 @@ export interface EventHubNamespaceAuthorizationRuleState {
      */
     readonly primaryConnectionString?: pulumi.Input<string>;
     /**
+     * The alias of the Primary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
+     */
+    readonly primaryConnectionStringAlias?: pulumi.Input<string>;
+    /**
      * The Primary Key for the Authorization Rule.
      */
     readonly primaryKey?: pulumi.Input<string>;
@@ -168,6 +184,10 @@ export interface EventHubNamespaceAuthorizationRuleState {
      * The Secondary Connection String for the Authorization Rule.
      */
     readonly secondaryConnectionString?: pulumi.Input<string>;
+    /**
+     * The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled.
+     */
+    readonly secondaryConnectionStringAlias?: pulumi.Input<string>;
     /**
      * The Secondary Key for the Authorization Rule.
      */
