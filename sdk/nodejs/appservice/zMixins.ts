@@ -576,7 +576,8 @@ function createFunctionAppParts(name: string,
         ...resourceGroupArgs,
 
         appServicePlanId: plan.id,
-        storageConnectionString: account.primaryConnectionString,
+        storageAccountName: account.name,
+        storageAccountAccessKey: account.primaryAccessKey,
         version: args.version || "~3",
 
         appSettings: pulumi.output(args.appSettings).apply(settings => {
