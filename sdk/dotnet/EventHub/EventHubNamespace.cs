@@ -34,6 +34,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultPrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
+        /// The alias of the primary connection string for the authorization
+        /// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// </summary>
+        [Output("defaultPrimaryConnectionStringAlias")]
+        public Output<string> DefaultPrimaryConnectionStringAlias { get; private set; } = null!;
+
+        /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Output("defaultPrimaryKey")]
@@ -45,6 +52,13 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("defaultSecondaryConnectionString")]
         public Output<string> DefaultSecondaryConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// The alias of the secondary connection string for the
+        /// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// </summary>
+        [Output("defaultSecondaryConnectionStringAlias")]
+        public Output<string> DefaultSecondaryConnectionStringAlias { get; private set; } = null!;
 
         /// <summary>
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -227,6 +241,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DefaultPrimaryConnectionString { get; set; }
 
         /// <summary>
+        /// The alias of the primary connection string for the authorization
+        /// rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// </summary>
+        [Input("defaultPrimaryConnectionStringAlias")]
+        public Input<string>? DefaultPrimaryConnectionStringAlias { get; set; }
+
+        /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         [Input("defaultPrimaryKey")]
@@ -238,6 +259,13 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("defaultSecondaryConnectionString")]
         public Input<string>? DefaultSecondaryConnectionString { get; set; }
+
+        /// <summary>
+        /// The alias of the secondary connection string for the
+        /// authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
+        /// </summary>
+        [Input("defaultSecondaryConnectionStringAlias")]
+        public Input<string>? DefaultSecondaryConnectionStringAlias { get; set; }
 
         /// <summary>
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.

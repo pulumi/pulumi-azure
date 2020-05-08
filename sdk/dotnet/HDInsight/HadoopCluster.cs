@@ -45,6 +45,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Output("metastores")]
+        public Output<Outputs.HadoopClusterMetastores?> Metastores { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -166,6 +172,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.HadoopClusterMetastoresArgs>? Metastores { get; set; }
+
+        /// <summary>
         /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -258,6 +270,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.HadoopClusterMetastoresGetArgs>? Metastores { get; set; }
 
         /// <summary>
         /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.

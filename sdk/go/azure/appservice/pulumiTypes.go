@@ -2853,6 +2853,8 @@ type AppServiceSiteConfig struct {
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState *string `pulumi:"ftpsState"`
+	// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A list of objects representing ip restrictions as defined below.
@@ -2915,6 +2917,8 @@ type AppServiceSiteConfigArgs struct {
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A list of objects representing ip restrictions as defined below.
@@ -3061,6 +3065,11 @@ func (o AppServiceSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOut
 // State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 func (o AppServiceSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
+}
+
+// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+func (o AppServiceSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
 // Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -3232,6 +3241,16 @@ func (o AppServiceSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.FtpsState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+func (o AppServiceSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3560,6 +3579,10 @@ func (o AppServiceSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOu
 type AppServiceSiteConfigIpRestriction struct {
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3579,6 +3602,10 @@ type AppServiceSiteConfigIpRestrictionInput interface {
 type AppServiceSiteConfigIpRestrictionArgs struct {
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3638,6 +3665,16 @@ func (o AppServiceSiteConfigIpRestrictionOutput) ToAppServiceSiteConfigIpRestric
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o AppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name for this IP Restriction.
+func (o AppServiceSiteConfigIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+func (o AppServiceSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -6337,6 +6374,2196 @@ func (o FunctionAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) FunctionA
 	}).(FunctionAppSiteCredentialOutput)
 }
 
+type FunctionAppSlotAuthSettings struct {
+	// An `activeDirectory` block as defined below.
+	ActiveDirectory *FunctionAppSlotAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams map[string]string `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls []string `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled bool `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook *FunctionAppSlotAuthSettingsFacebook `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google *FunctionAppSlotAuthSettingsGoogle `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer *string `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft *FunctionAppSlotAuthSettingsMicrosoft `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter *FunctionAppSlotAuthSettingsTwitter `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
+}
+
+// FunctionAppSlotAuthSettingsInput is an input type that accepts FunctionAppSlotAuthSettingsArgs and FunctionAppSlotAuthSettingsOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsArgs{...}
+//
+type FunctionAppSlotAuthSettingsInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsOutput() FunctionAppSlotAuthSettingsOutput
+	ToFunctionAppSlotAuthSettingsOutputWithContext(context.Context) FunctionAppSlotAuthSettingsOutput
+}
+
+type FunctionAppSlotAuthSettingsArgs struct {
+	// An `activeDirectory` block as defined below.
+	ActiveDirectory FunctionAppSlotAuthSettingsActiveDirectoryPtrInput `pulumi:"activeDirectory"`
+	// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+	AdditionalLoginParams pulumi.StringMapInput `pulumi:"additionalLoginParams"`
+	// External URLs that can be redirected to as part of logging in or logging out of the app.
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+	DefaultProvider pulumi.StringPtrInput `pulumi:"defaultProvider"`
+	// Is Authentication enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `facebook` block as defined below.
+	Facebook FunctionAppSlotAuthSettingsFacebookPtrInput `pulumi:"facebook"`
+	// A `google` block as defined below.
+	Google FunctionAppSlotAuthSettingsGooglePtrInput `pulumi:"google"`
+	// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// A `microsoft` block as defined below.
+	Microsoft FunctionAppSlotAuthSettingsMicrosoftPtrInput `pulumi:"microsoft"`
+	// The runtime version of the Authentication/Authorization module.
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+	TokenRefreshExtensionHours pulumi.Float64PtrInput `pulumi:"tokenRefreshExtensionHours"`
+	// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+	TokenStoreEnabled pulumi.BoolPtrInput `pulumi:"tokenStoreEnabled"`
+	// A `twitter` block as defined below.
+	Twitter FunctionAppSlotAuthSettingsTwitterPtrInput `pulumi:"twitter"`
+	// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+	UnauthenticatedClientAction pulumi.StringPtrInput `pulumi:"unauthenticatedClientAction"`
+}
+
+func (FunctionAppSlotAuthSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettings)(nil)).Elem()
+}
+
+func (i FunctionAppSlotAuthSettingsArgs) ToFunctionAppSlotAuthSettingsOutput() FunctionAppSlotAuthSettingsOutput {
+	return i.ToFunctionAppSlotAuthSettingsOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsArgs) ToFunctionAppSlotAuthSettingsOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsOutput)
+}
+
+func (i FunctionAppSlotAuthSettingsArgs) ToFunctionAppSlotAuthSettingsPtrOutput() FunctionAppSlotAuthSettingsPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsArgs) ToFunctionAppSlotAuthSettingsPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsOutput).ToFunctionAppSlotAuthSettingsPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotAuthSettingsPtrInput is an input type that accepts FunctionAppSlotAuthSettingsArgs, FunctionAppSlotAuthSettingsPtr and FunctionAppSlotAuthSettingsPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsPtrInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotAuthSettingsPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsPtrOutput() FunctionAppSlotAuthSettingsPtrOutput
+	ToFunctionAppSlotAuthSettingsPtrOutputWithContext(context.Context) FunctionAppSlotAuthSettingsPtrOutput
+}
+
+type functionAppSlotAuthSettingsPtrType FunctionAppSlotAuthSettingsArgs
+
+func FunctionAppSlotAuthSettingsPtr(v *FunctionAppSlotAuthSettingsArgs) FunctionAppSlotAuthSettingsPtrInput {
+	return (*functionAppSlotAuthSettingsPtrType)(v)
+}
+
+func (*functionAppSlotAuthSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettings)(nil)).Elem()
+}
+
+func (i *functionAppSlotAuthSettingsPtrType) ToFunctionAppSlotAuthSettingsPtrOutput() FunctionAppSlotAuthSettingsPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotAuthSettingsPtrType) ToFunctionAppSlotAuthSettingsPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettings)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsOutput) ToFunctionAppSlotAuthSettingsOutput() FunctionAppSlotAuthSettingsOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsOutput) ToFunctionAppSlotAuthSettingsOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsOutput) ToFunctionAppSlotAuthSettingsPtrOutput() FunctionAppSlotAuthSettingsPtrOutput {
+	return o.ToFunctionAppSlotAuthSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotAuthSettingsOutput) ToFunctionAppSlotAuthSettingsPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettings {
+		return &v
+	}).(FunctionAppSlotAuthSettingsPtrOutput)
+}
+
+// An `activeDirectory` block as defined below.
+func (o FunctionAppSlotAuthSettingsOutput) ActiveDirectory() FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsActiveDirectory {
+		return v.ActiveDirectory
+	}).(FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput)
+}
+
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+func (o FunctionAppSlotAuthSettingsOutput) AdditionalLoginParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) map[string]string { return v.AdditionalLoginParams }).(pulumi.StringMapOutput)
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o FunctionAppSlotAuthSettingsOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) []string { return v.AllowedExternalRedirectUrls }).(pulumi.StringArrayOutput)
+}
+
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+func (o FunctionAppSlotAuthSettingsOutput) DefaultProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *string { return v.DefaultProvider }).(pulumi.StringPtrOutput)
+}
+
+// Is Authentication enabled?
+func (o FunctionAppSlotAuthSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `facebook` block as defined below.
+func (o FunctionAppSlotAuthSettingsOutput) Facebook() FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsFacebook { return v.Facebook }).(FunctionAppSlotAuthSettingsFacebookPtrOutput)
+}
+
+// A `google` block as defined below.
+func (o FunctionAppSlotAuthSettingsOutput) Google() FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsGoogle { return v.Google }).(FunctionAppSlotAuthSettingsGooglePtrOutput)
+}
+
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+func (o FunctionAppSlotAuthSettingsOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// A `microsoft` block as defined below.
+func (o FunctionAppSlotAuthSettingsOutput) Microsoft() FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsMicrosoft { return v.Microsoft }).(FunctionAppSlotAuthSettingsMicrosoftPtrOutput)
+}
+
+// The runtime version of the Authentication/Authorization module.
+func (o FunctionAppSlotAuthSettingsOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+func (o FunctionAppSlotAuthSettingsOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *float64 { return v.TokenRefreshExtensionHours }).(pulumi.Float64PtrOutput)
+}
+
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+func (o FunctionAppSlotAuthSettingsOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *bool { return v.TokenStoreEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `twitter` block as defined below.
+func (o FunctionAppSlotAuthSettingsOutput) Twitter() FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsTwitter { return v.Twitter }).(FunctionAppSlotAuthSettingsTwitterPtrOutput)
+}
+
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+func (o FunctionAppSlotAuthSettingsOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettings) *string { return v.UnauthenticatedClientAction }).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettings)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsPtrOutput) ToFunctionAppSlotAuthSettingsPtrOutput() FunctionAppSlotAuthSettingsPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsPtrOutput) ToFunctionAppSlotAuthSettingsPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsPtrOutput) Elem() FunctionAppSlotAuthSettingsOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) FunctionAppSlotAuthSettings { return *v }).(FunctionAppSlotAuthSettingsOutput)
+}
+
+// An `activeDirectory` block as defined below.
+func (o FunctionAppSlotAuthSettingsPtrOutput) ActiveDirectory() FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsActiveDirectory {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectory
+	}).(FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput)
+}
+
+// Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+func (o FunctionAppSlotAuthSettingsPtrOutput) AdditionalLoginParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalLoginParams
+	}).(pulumi.StringMapOutput)
+}
+
+// External URLs that can be redirected to as part of logging in or logging out of the app.
+func (o FunctionAppSlotAuthSettingsPtrOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedExternalRedirectUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+func (o FunctionAppSlotAuthSettingsPtrOutput) DefaultProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is Authentication enabled?
+func (o FunctionAppSlotAuthSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `facebook` block as defined below.
+func (o FunctionAppSlotAuthSettingsPtrOutput) Facebook() FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsFacebook {
+		if v == nil {
+			return nil
+		}
+		return v.Facebook
+	}).(FunctionAppSlotAuthSettingsFacebookPtrOutput)
+}
+
+// A `google` block as defined below.
+func (o FunctionAppSlotAuthSettingsPtrOutput) Google() FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsGoogle {
+		if v == nil {
+			return nil
+		}
+		return v.Google
+	}).(FunctionAppSlotAuthSettingsGooglePtrOutput)
+}
+
+// Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
+func (o FunctionAppSlotAuthSettingsPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `microsoft` block as defined below.
+func (o FunctionAppSlotAuthSettingsPtrOutput) Microsoft() FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsMicrosoft {
+		if v == nil {
+			return nil
+		}
+		return v.Microsoft
+	}).(FunctionAppSlotAuthSettingsMicrosoftPtrOutput)
+}
+
+// The runtime version of the Authentication/Authorization module.
+func (o FunctionAppSlotAuthSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+func (o FunctionAppSlotAuthSettingsPtrOutput) TokenRefreshExtensionHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TokenRefreshExtensionHours
+	}).(pulumi.Float64PtrOutput)
+}
+
+// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+func (o FunctionAppSlotAuthSettingsPtrOutput) TokenStoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TokenStoreEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `twitter` block as defined below.
+func (o FunctionAppSlotAuthSettingsPtrOutput) Twitter() FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *FunctionAppSlotAuthSettingsTwitter {
+		if v == nil {
+			return nil
+		}
+		return v.Twitter
+	}).(FunctionAppSlotAuthSettingsTwitterPtrOutput)
+}
+
+// The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+func (o FunctionAppSlotAuthSettingsPtrOutput) UnauthenticatedClientAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnauthenticatedClientAction
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsActiveDirectory struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+	AllowedAudiences []string `pulumi:"allowedAudiences"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId string `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret *string `pulumi:"clientSecret"`
+}
+
+// FunctionAppSlotAuthSettingsActiveDirectoryInput is an input type that accepts FunctionAppSlotAuthSettingsActiveDirectoryArgs and FunctionAppSlotAuthSettingsActiveDirectoryOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsActiveDirectoryInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsActiveDirectoryArgs{...}
+//
+type FunctionAppSlotAuthSettingsActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsActiveDirectoryOutput() FunctionAppSlotAuthSettingsActiveDirectoryOutput
+	ToFunctionAppSlotAuthSettingsActiveDirectoryOutputWithContext(context.Context) FunctionAppSlotAuthSettingsActiveDirectoryOutput
+}
+
+type FunctionAppSlotAuthSettingsActiveDirectoryArgs struct {
+	// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+}
+
+func (FunctionAppSlotAuthSettingsActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsActiveDirectory)(nil)).Elem()
+}
+
+func (i FunctionAppSlotAuthSettingsActiveDirectoryArgs) ToFunctionAppSlotAuthSettingsActiveDirectoryOutput() FunctionAppSlotAuthSettingsActiveDirectoryOutput {
+	return i.ToFunctionAppSlotAuthSettingsActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsActiveDirectoryArgs) ToFunctionAppSlotAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsActiveDirectoryOutput)
+}
+
+func (i FunctionAppSlotAuthSettingsActiveDirectoryArgs) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutput() FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsActiveDirectoryArgs) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsActiveDirectoryOutput).ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotAuthSettingsActiveDirectoryPtrInput is an input type that accepts FunctionAppSlotAuthSettingsActiveDirectoryArgs, FunctionAppSlotAuthSettingsActiveDirectoryPtr and FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsActiveDirectoryPtrInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsActiveDirectoryArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotAuthSettingsActiveDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutput() FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput
+	ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(context.Context) FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput
+}
+
+type functionAppSlotAuthSettingsActiveDirectoryPtrType FunctionAppSlotAuthSettingsActiveDirectoryArgs
+
+func FunctionAppSlotAuthSettingsActiveDirectoryPtr(v *FunctionAppSlotAuthSettingsActiveDirectoryArgs) FunctionAppSlotAuthSettingsActiveDirectoryPtrInput {
+	return (*functionAppSlotAuthSettingsActiveDirectoryPtrType)(v)
+}
+
+func (*functionAppSlotAuthSettingsActiveDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsActiveDirectory)(nil)).Elem()
+}
+
+func (i *functionAppSlotAuthSettingsActiveDirectoryPtrType) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutput() FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotAuthSettingsActiveDirectoryPtrType) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsActiveDirectory)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ToFunctionAppSlotAuthSettingsActiveDirectoryOutput() FunctionAppSlotAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ToFunctionAppSlotAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutput() FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return o.ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsActiveDirectory) *FunctionAppSlotAuthSettingsActiveDirectory {
+		return &v
+	}).(FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput)
+}
+
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsActiveDirectory) []string { return v.AllowedAudiences }).(pulumi.StringArrayOutput)
+}
+
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsActiveDirectory) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+func (o FunctionAppSlotAuthSettingsActiveDirectoryOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsActiveDirectory) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsActiveDirectory)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutput() FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) ToFunctionAppSlotAuthSettingsActiveDirectoryPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) Elem() FunctionAppSlotAuthSettingsActiveDirectoryOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsActiveDirectory) FunctionAppSlotAuthSettingsActiveDirectory {
+		return *v
+	}).(FunctionAppSlotAuthSettingsActiveDirectoryOutput)
+}
+
+// Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAudiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+func (o FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsFacebook struct {
+	// The App ID of the Facebook app used for login
+	AppId string `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret string `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// FunctionAppSlotAuthSettingsFacebookInput is an input type that accepts FunctionAppSlotAuthSettingsFacebookArgs and FunctionAppSlotAuthSettingsFacebookOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsFacebookInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsFacebookArgs{...}
+//
+type FunctionAppSlotAuthSettingsFacebookInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsFacebookOutput() FunctionAppSlotAuthSettingsFacebookOutput
+	ToFunctionAppSlotAuthSettingsFacebookOutputWithContext(context.Context) FunctionAppSlotAuthSettingsFacebookOutput
+}
+
+type FunctionAppSlotAuthSettingsFacebookArgs struct {
+	// The App ID of the Facebook app used for login
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The App Secret of the Facebook app used for Facebook Login.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (FunctionAppSlotAuthSettingsFacebookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsFacebook)(nil)).Elem()
+}
+
+func (i FunctionAppSlotAuthSettingsFacebookArgs) ToFunctionAppSlotAuthSettingsFacebookOutput() FunctionAppSlotAuthSettingsFacebookOutput {
+	return i.ToFunctionAppSlotAuthSettingsFacebookOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsFacebookArgs) ToFunctionAppSlotAuthSettingsFacebookOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsFacebookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsFacebookOutput)
+}
+
+func (i FunctionAppSlotAuthSettingsFacebookArgs) ToFunctionAppSlotAuthSettingsFacebookPtrOutput() FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsFacebookArgs) ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsFacebookOutput).ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotAuthSettingsFacebookPtrInput is an input type that accepts FunctionAppSlotAuthSettingsFacebookArgs, FunctionAppSlotAuthSettingsFacebookPtr and FunctionAppSlotAuthSettingsFacebookPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsFacebookPtrInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsFacebookArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotAuthSettingsFacebookPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsFacebookPtrOutput() FunctionAppSlotAuthSettingsFacebookPtrOutput
+	ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(context.Context) FunctionAppSlotAuthSettingsFacebookPtrOutput
+}
+
+type functionAppSlotAuthSettingsFacebookPtrType FunctionAppSlotAuthSettingsFacebookArgs
+
+func FunctionAppSlotAuthSettingsFacebookPtr(v *FunctionAppSlotAuthSettingsFacebookArgs) FunctionAppSlotAuthSettingsFacebookPtrInput {
+	return (*functionAppSlotAuthSettingsFacebookPtrType)(v)
+}
+
+func (*functionAppSlotAuthSettingsFacebookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsFacebook)(nil)).Elem()
+}
+
+func (i *functionAppSlotAuthSettingsFacebookPtrType) ToFunctionAppSlotAuthSettingsFacebookPtrOutput() FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotAuthSettingsFacebookPtrType) ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsFacebookPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsFacebookOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsFacebookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsFacebook)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsFacebookOutput) ToFunctionAppSlotAuthSettingsFacebookOutput() FunctionAppSlotAuthSettingsFacebookOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsFacebookOutput) ToFunctionAppSlotAuthSettingsFacebookOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsFacebookOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsFacebookOutput) ToFunctionAppSlotAuthSettingsFacebookPtrOutput() FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return o.ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotAuthSettingsFacebookOutput) ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsFacebook) *FunctionAppSlotAuthSettingsFacebook {
+		return &v
+	}).(FunctionAppSlotAuthSettingsFacebookPtrOutput)
+}
+
+// The App ID of the Facebook app used for login
+func (o FunctionAppSlotAuthSettingsFacebookOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsFacebook) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The App Secret of the Facebook app used for Facebook Login.
+func (o FunctionAppSlotAuthSettingsFacebookOutput) AppSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsFacebook) string { return v.AppSecret }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+func (o FunctionAppSlotAuthSettingsFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsFacebook) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotAuthSettingsFacebookPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsFacebookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsFacebook)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) ToFunctionAppSlotAuthSettingsFacebookPtrOutput() FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) ToFunctionAppSlotAuthSettingsFacebookPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsFacebookPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) Elem() FunctionAppSlotAuthSettingsFacebookOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsFacebook) FunctionAppSlotAuthSettingsFacebook { return *v }).(FunctionAppSlotAuthSettingsFacebookOutput)
+}
+
+// The App ID of the Facebook app used for login
+func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsFacebook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The App Secret of the Facebook app used for Facebook Login.
+func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) AppSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsFacebook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+func (o FunctionAppSlotAuthSettingsFacebookPtrOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsFacebook) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotAuthSettingsGoogle struct {
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId string `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// FunctionAppSlotAuthSettingsGoogleInput is an input type that accepts FunctionAppSlotAuthSettingsGoogleArgs and FunctionAppSlotAuthSettingsGoogleOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsGoogleInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsGoogleArgs{...}
+//
+type FunctionAppSlotAuthSettingsGoogleInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsGoogleOutput() FunctionAppSlotAuthSettingsGoogleOutput
+	ToFunctionAppSlotAuthSettingsGoogleOutputWithContext(context.Context) FunctionAppSlotAuthSettingsGoogleOutput
+}
+
+type FunctionAppSlotAuthSettingsGoogleArgs struct {
+	// The OpenID Connect Client ID for the Google web application.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret associated with the Google web application.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (FunctionAppSlotAuthSettingsGoogleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsGoogle)(nil)).Elem()
+}
+
+func (i FunctionAppSlotAuthSettingsGoogleArgs) ToFunctionAppSlotAuthSettingsGoogleOutput() FunctionAppSlotAuthSettingsGoogleOutput {
+	return i.ToFunctionAppSlotAuthSettingsGoogleOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsGoogleArgs) ToFunctionAppSlotAuthSettingsGoogleOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsGoogleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsGoogleOutput)
+}
+
+func (i FunctionAppSlotAuthSettingsGoogleArgs) ToFunctionAppSlotAuthSettingsGooglePtrOutput() FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsGoogleArgs) ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsGoogleOutput).ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotAuthSettingsGooglePtrInput is an input type that accepts FunctionAppSlotAuthSettingsGoogleArgs, FunctionAppSlotAuthSettingsGooglePtr and FunctionAppSlotAuthSettingsGooglePtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsGooglePtrInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsGoogleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotAuthSettingsGooglePtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsGooglePtrOutput() FunctionAppSlotAuthSettingsGooglePtrOutput
+	ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(context.Context) FunctionAppSlotAuthSettingsGooglePtrOutput
+}
+
+type functionAppSlotAuthSettingsGooglePtrType FunctionAppSlotAuthSettingsGoogleArgs
+
+func FunctionAppSlotAuthSettingsGooglePtr(v *FunctionAppSlotAuthSettingsGoogleArgs) FunctionAppSlotAuthSettingsGooglePtrInput {
+	return (*functionAppSlotAuthSettingsGooglePtrType)(v)
+}
+
+func (*functionAppSlotAuthSettingsGooglePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsGoogle)(nil)).Elem()
+}
+
+func (i *functionAppSlotAuthSettingsGooglePtrType) ToFunctionAppSlotAuthSettingsGooglePtrOutput() FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotAuthSettingsGooglePtrType) ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsGooglePtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsGoogleOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsGoogleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsGoogle)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsGoogleOutput) ToFunctionAppSlotAuthSettingsGoogleOutput() FunctionAppSlotAuthSettingsGoogleOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsGoogleOutput) ToFunctionAppSlotAuthSettingsGoogleOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsGoogleOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsGoogleOutput) ToFunctionAppSlotAuthSettingsGooglePtrOutput() FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return o.ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotAuthSettingsGoogleOutput) ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsGoogle) *FunctionAppSlotAuthSettingsGoogle {
+		return &v
+	}).(FunctionAppSlotAuthSettingsGooglePtrOutput)
+}
+
+// The OpenID Connect Client ID for the Google web application.
+func (o FunctionAppSlotAuthSettingsGoogleOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsGoogle) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The client secret associated with the Google web application.
+func (o FunctionAppSlotAuthSettingsGoogleOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsGoogle) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+func (o FunctionAppSlotAuthSettingsGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsGoogle) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotAuthSettingsGooglePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsGooglePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsGoogle)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsGooglePtrOutput) ToFunctionAppSlotAuthSettingsGooglePtrOutput() FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsGooglePtrOutput) ToFunctionAppSlotAuthSettingsGooglePtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsGooglePtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsGooglePtrOutput) Elem() FunctionAppSlotAuthSettingsGoogleOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsGoogle) FunctionAppSlotAuthSettingsGoogle { return *v }).(FunctionAppSlotAuthSettingsGoogleOutput)
+}
+
+// The OpenID Connect Client ID for the Google web application.
+func (o FunctionAppSlotAuthSettingsGooglePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsGoogle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret associated with the Google web application.
+func (o FunctionAppSlotAuthSettingsGooglePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsGoogle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+func (o FunctionAppSlotAuthSettingsGooglePtrOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsGoogle) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotAuthSettingsMicrosoft struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId string `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes []string `pulumi:"oauthScopes"`
+}
+
+// FunctionAppSlotAuthSettingsMicrosoftInput is an input type that accepts FunctionAppSlotAuthSettingsMicrosoftArgs and FunctionAppSlotAuthSettingsMicrosoftOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsMicrosoftInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsMicrosoftArgs{...}
+//
+type FunctionAppSlotAuthSettingsMicrosoftInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsMicrosoftOutput() FunctionAppSlotAuthSettingsMicrosoftOutput
+	ToFunctionAppSlotAuthSettingsMicrosoftOutputWithContext(context.Context) FunctionAppSlotAuthSettingsMicrosoftOutput
+}
+
+type FunctionAppSlotAuthSettingsMicrosoftArgs struct {
+	// The OAuth 2.0 client ID that was created for the app used for authentication.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OAuth 2.0 client secret that was created for the app used for authentication.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (FunctionAppSlotAuthSettingsMicrosoftArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsMicrosoft)(nil)).Elem()
+}
+
+func (i FunctionAppSlotAuthSettingsMicrosoftArgs) ToFunctionAppSlotAuthSettingsMicrosoftOutput() FunctionAppSlotAuthSettingsMicrosoftOutput {
+	return i.ToFunctionAppSlotAuthSettingsMicrosoftOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsMicrosoftArgs) ToFunctionAppSlotAuthSettingsMicrosoftOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsMicrosoftOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsMicrosoftOutput)
+}
+
+func (i FunctionAppSlotAuthSettingsMicrosoftArgs) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutput() FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsMicrosoftArgs) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsMicrosoftOutput).ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotAuthSettingsMicrosoftPtrInput is an input type that accepts FunctionAppSlotAuthSettingsMicrosoftArgs, FunctionAppSlotAuthSettingsMicrosoftPtr and FunctionAppSlotAuthSettingsMicrosoftPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsMicrosoftPtrInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsMicrosoftArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotAuthSettingsMicrosoftPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsMicrosoftPtrOutput() FunctionAppSlotAuthSettingsMicrosoftPtrOutput
+	ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(context.Context) FunctionAppSlotAuthSettingsMicrosoftPtrOutput
+}
+
+type functionAppSlotAuthSettingsMicrosoftPtrType FunctionAppSlotAuthSettingsMicrosoftArgs
+
+func FunctionAppSlotAuthSettingsMicrosoftPtr(v *FunctionAppSlotAuthSettingsMicrosoftArgs) FunctionAppSlotAuthSettingsMicrosoftPtrInput {
+	return (*functionAppSlotAuthSettingsMicrosoftPtrType)(v)
+}
+
+func (*functionAppSlotAuthSettingsMicrosoftPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsMicrosoft)(nil)).Elem()
+}
+
+func (i *functionAppSlotAuthSettingsMicrosoftPtrType) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutput() FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotAuthSettingsMicrosoftPtrType) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsMicrosoftPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsMicrosoftOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsMicrosoftOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsMicrosoft)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ToFunctionAppSlotAuthSettingsMicrosoftOutput() FunctionAppSlotAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ToFunctionAppSlotAuthSettingsMicrosoftOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutput() FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return o.ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsMicrosoft) *FunctionAppSlotAuthSettingsMicrosoft {
+		return &v
+	}).(FunctionAppSlotAuthSettingsMicrosoftPtrOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsMicrosoft) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 client secret that was created for the app used for authentication.
+func (o FunctionAppSlotAuthSettingsMicrosoftOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsMicrosoft) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+func (o FunctionAppSlotAuthSettingsMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsMicrosoft) []string { return v.OauthScopes }).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotAuthSettingsMicrosoftPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsMicrosoftPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsMicrosoft)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutput() FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) ToFunctionAppSlotAuthSettingsMicrosoftPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsMicrosoftPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) Elem() FunctionAppSlotAuthSettingsMicrosoftOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsMicrosoft) FunctionAppSlotAuthSettingsMicrosoft { return *v }).(FunctionAppSlotAuthSettingsMicrosoftOutput)
+}
+
+// The OAuth 2.0 client ID that was created for the app used for authentication.
+func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsMicrosoft) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 client secret that was created for the app used for authentication.
+func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsMicrosoft) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+func (o FunctionAppSlotAuthSettingsMicrosoftPtrOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsMicrosoft) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotAuthSettingsTwitter struct {
+	ConsumerKey    string `pulumi:"consumerKey"`
+	ConsumerSecret string `pulumi:"consumerSecret"`
+}
+
+// FunctionAppSlotAuthSettingsTwitterInput is an input type that accepts FunctionAppSlotAuthSettingsTwitterArgs and FunctionAppSlotAuthSettingsTwitterOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsTwitterInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsTwitterArgs{...}
+//
+type FunctionAppSlotAuthSettingsTwitterInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsTwitterOutput() FunctionAppSlotAuthSettingsTwitterOutput
+	ToFunctionAppSlotAuthSettingsTwitterOutputWithContext(context.Context) FunctionAppSlotAuthSettingsTwitterOutput
+}
+
+type FunctionAppSlotAuthSettingsTwitterArgs struct {
+	ConsumerKey    pulumi.StringInput `pulumi:"consumerKey"`
+	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
+}
+
+func (FunctionAppSlotAuthSettingsTwitterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsTwitter)(nil)).Elem()
+}
+
+func (i FunctionAppSlotAuthSettingsTwitterArgs) ToFunctionAppSlotAuthSettingsTwitterOutput() FunctionAppSlotAuthSettingsTwitterOutput {
+	return i.ToFunctionAppSlotAuthSettingsTwitterOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsTwitterArgs) ToFunctionAppSlotAuthSettingsTwitterOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsTwitterOutput)
+}
+
+func (i FunctionAppSlotAuthSettingsTwitterArgs) ToFunctionAppSlotAuthSettingsTwitterPtrOutput() FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotAuthSettingsTwitterArgs) ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsTwitterOutput).ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotAuthSettingsTwitterPtrInput is an input type that accepts FunctionAppSlotAuthSettingsTwitterArgs, FunctionAppSlotAuthSettingsTwitterPtr and FunctionAppSlotAuthSettingsTwitterPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotAuthSettingsTwitterPtrInput` via:
+//
+// 		 FunctionAppSlotAuthSettingsTwitterArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotAuthSettingsTwitterPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotAuthSettingsTwitterPtrOutput() FunctionAppSlotAuthSettingsTwitterPtrOutput
+	ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(context.Context) FunctionAppSlotAuthSettingsTwitterPtrOutput
+}
+
+type functionAppSlotAuthSettingsTwitterPtrType FunctionAppSlotAuthSettingsTwitterArgs
+
+func FunctionAppSlotAuthSettingsTwitterPtr(v *FunctionAppSlotAuthSettingsTwitterArgs) FunctionAppSlotAuthSettingsTwitterPtrInput {
+	return (*functionAppSlotAuthSettingsTwitterPtrType)(v)
+}
+
+func (*functionAppSlotAuthSettingsTwitterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsTwitter)(nil)).Elem()
+}
+
+func (i *functionAppSlotAuthSettingsTwitterPtrType) ToFunctionAppSlotAuthSettingsTwitterPtrOutput() FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return i.ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotAuthSettingsTwitterPtrType) ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotAuthSettingsTwitterPtrOutput)
+}
+
+type FunctionAppSlotAuthSettingsTwitterOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsTwitterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotAuthSettingsTwitter)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterOutput) ToFunctionAppSlotAuthSettingsTwitterOutput() FunctionAppSlotAuthSettingsTwitterOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterOutput) ToFunctionAppSlotAuthSettingsTwitterOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsTwitterOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterOutput) ToFunctionAppSlotAuthSettingsTwitterPtrOutput() FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return o.ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterOutput) ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsTwitter) *FunctionAppSlotAuthSettingsTwitter {
+		return &v
+	}).(FunctionAppSlotAuthSettingsTwitterPtrOutput)
+}
+func (o FunctionAppSlotAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsTwitter) string { return v.ConsumerKey }).(pulumi.StringOutput)
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterOutput) ConsumerSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotAuthSettingsTwitter) string { return v.ConsumerSecret }).(pulumi.StringOutput)
+}
+
+type FunctionAppSlotAuthSettingsTwitterPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotAuthSettingsTwitterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotAuthSettingsTwitter)(nil)).Elem()
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ToFunctionAppSlotAuthSettingsTwitterPtrOutput() FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ToFunctionAppSlotAuthSettingsTwitterPtrOutputWithContext(ctx context.Context) FunctionAppSlotAuthSettingsTwitterPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) Elem() FunctionAppSlotAuthSettingsTwitterOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsTwitter) FunctionAppSlotAuthSettingsTwitter { return *v }).(FunctionAppSlotAuthSettingsTwitterOutput)
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ConsumerKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsTwitter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConsumerKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionAppSlotAuthSettingsTwitterPtrOutput) ConsumerSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotAuthSettingsTwitter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConsumerSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotConnectionString struct {
+	// The name of the Connection String.
+	Name string `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type string `pulumi:"type"`
+	// The value for the Connection String.
+	Value string `pulumi:"value"`
+}
+
+// FunctionAppSlotConnectionStringInput is an input type that accepts FunctionAppSlotConnectionStringArgs and FunctionAppSlotConnectionStringOutput values.
+// You can construct a concrete instance of `FunctionAppSlotConnectionStringInput` via:
+//
+// 		 FunctionAppSlotConnectionStringArgs{...}
+//
+type FunctionAppSlotConnectionStringInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotConnectionStringOutput() FunctionAppSlotConnectionStringOutput
+	ToFunctionAppSlotConnectionStringOutputWithContext(context.Context) FunctionAppSlotConnectionStringOutput
+}
+
+type FunctionAppSlotConnectionStringArgs struct {
+	// The name of the Connection String.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the Connection String.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FunctionAppSlotConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotConnectionString)(nil)).Elem()
+}
+
+func (i FunctionAppSlotConnectionStringArgs) ToFunctionAppSlotConnectionStringOutput() FunctionAppSlotConnectionStringOutput {
+	return i.ToFunctionAppSlotConnectionStringOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotConnectionStringArgs) ToFunctionAppSlotConnectionStringOutputWithContext(ctx context.Context) FunctionAppSlotConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotConnectionStringOutput)
+}
+
+// FunctionAppSlotConnectionStringArrayInput is an input type that accepts FunctionAppSlotConnectionStringArray and FunctionAppSlotConnectionStringArrayOutput values.
+// You can construct a concrete instance of `FunctionAppSlotConnectionStringArrayInput` via:
+//
+// 		 FunctionAppSlotConnectionStringArray{ FunctionAppSlotConnectionStringArgs{...} }
+//
+type FunctionAppSlotConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotConnectionStringArrayOutput() FunctionAppSlotConnectionStringArrayOutput
+	ToFunctionAppSlotConnectionStringArrayOutputWithContext(context.Context) FunctionAppSlotConnectionStringArrayOutput
+}
+
+type FunctionAppSlotConnectionStringArray []FunctionAppSlotConnectionStringInput
+
+func (FunctionAppSlotConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotConnectionString)(nil)).Elem()
+}
+
+func (i FunctionAppSlotConnectionStringArray) ToFunctionAppSlotConnectionStringArrayOutput() FunctionAppSlotConnectionStringArrayOutput {
+	return i.ToFunctionAppSlotConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotConnectionStringArray) ToFunctionAppSlotConnectionStringArrayOutputWithContext(ctx context.Context) FunctionAppSlotConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotConnectionStringArrayOutput)
+}
+
+type FunctionAppSlotConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotConnectionString)(nil)).Elem()
+}
+
+func (o FunctionAppSlotConnectionStringOutput) ToFunctionAppSlotConnectionStringOutput() FunctionAppSlotConnectionStringOutput {
+	return o
+}
+
+func (o FunctionAppSlotConnectionStringOutput) ToFunctionAppSlotConnectionStringOutputWithContext(ctx context.Context) FunctionAppSlotConnectionStringOutput {
+	return o
+}
+
+// The name of the Connection String.
+func (o FunctionAppSlotConnectionStringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotConnectionString) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+func (o FunctionAppSlotConnectionStringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotConnectionString) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value for the Connection String.
+func (o FunctionAppSlotConnectionStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotConnectionString) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FunctionAppSlotConnectionStringArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotConnectionString)(nil)).Elem()
+}
+
+func (o FunctionAppSlotConnectionStringArrayOutput) ToFunctionAppSlotConnectionStringArrayOutput() FunctionAppSlotConnectionStringArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotConnectionStringArrayOutput) ToFunctionAppSlotConnectionStringArrayOutputWithContext(ctx context.Context) FunctionAppSlotConnectionStringArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotConnectionStringArrayOutput) Index(i pulumi.IntInput) FunctionAppSlotConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlotConnectionString {
+		return vs[0].([]FunctionAppSlotConnectionString)[vs[1].(int)]
+	}).(FunctionAppSlotConnectionStringOutput)
+}
+
+type FunctionAppSlotIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	Type string `pulumi:"type"`
+}
+
+// FunctionAppSlotIdentityInput is an input type that accepts FunctionAppSlotIdentityArgs and FunctionAppSlotIdentityOutput values.
+// You can construct a concrete instance of `FunctionAppSlotIdentityInput` via:
+//
+// 		 FunctionAppSlotIdentityArgs{...}
+//
+type FunctionAppSlotIdentityInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotIdentityOutput() FunctionAppSlotIdentityOutput
+	ToFunctionAppSlotIdentityOutputWithContext(context.Context) FunctionAppSlotIdentityOutput
+}
+
+type FunctionAppSlotIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FunctionAppSlotIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotIdentity)(nil)).Elem()
+}
+
+func (i FunctionAppSlotIdentityArgs) ToFunctionAppSlotIdentityOutput() FunctionAppSlotIdentityOutput {
+	return i.ToFunctionAppSlotIdentityOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotIdentityArgs) ToFunctionAppSlotIdentityOutputWithContext(ctx context.Context) FunctionAppSlotIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotIdentityOutput)
+}
+
+func (i FunctionAppSlotIdentityArgs) ToFunctionAppSlotIdentityPtrOutput() FunctionAppSlotIdentityPtrOutput {
+	return i.ToFunctionAppSlotIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotIdentityArgs) ToFunctionAppSlotIdentityPtrOutputWithContext(ctx context.Context) FunctionAppSlotIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotIdentityOutput).ToFunctionAppSlotIdentityPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotIdentityPtrInput is an input type that accepts FunctionAppSlotIdentityArgs, FunctionAppSlotIdentityPtr and FunctionAppSlotIdentityPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotIdentityPtrInput` via:
+//
+// 		 FunctionAppSlotIdentityArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotIdentityPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotIdentityPtrOutput() FunctionAppSlotIdentityPtrOutput
+	ToFunctionAppSlotIdentityPtrOutputWithContext(context.Context) FunctionAppSlotIdentityPtrOutput
+}
+
+type functionAppSlotIdentityPtrType FunctionAppSlotIdentityArgs
+
+func FunctionAppSlotIdentityPtr(v *FunctionAppSlotIdentityArgs) FunctionAppSlotIdentityPtrInput {
+	return (*functionAppSlotIdentityPtrType)(v)
+}
+
+func (*functionAppSlotIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotIdentity)(nil)).Elem()
+}
+
+func (i *functionAppSlotIdentityPtrType) ToFunctionAppSlotIdentityPtrOutput() FunctionAppSlotIdentityPtrOutput {
+	return i.ToFunctionAppSlotIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotIdentityPtrType) ToFunctionAppSlotIdentityPtrOutputWithContext(ctx context.Context) FunctionAppSlotIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotIdentityPtrOutput)
+}
+
+type FunctionAppSlotIdentityOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotIdentity)(nil)).Elem()
+}
+
+func (o FunctionAppSlotIdentityOutput) ToFunctionAppSlotIdentityOutput() FunctionAppSlotIdentityOutput {
+	return o
+}
+
+func (o FunctionAppSlotIdentityOutput) ToFunctionAppSlotIdentityOutputWithContext(ctx context.Context) FunctionAppSlotIdentityOutput {
+	return o
+}
+
+func (o FunctionAppSlotIdentityOutput) ToFunctionAppSlotIdentityPtrOutput() FunctionAppSlotIdentityPtrOutput {
+	return o.ToFunctionAppSlotIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotIdentityOutput) ToFunctionAppSlotIdentityPtrOutputWithContext(ctx context.Context) FunctionAppSlotIdentityPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotIdentity) *FunctionAppSlotIdentity {
+		return &v
+	}).(FunctionAppSlotIdentityPtrOutput)
+}
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+func (o FunctionAppSlotIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o FunctionAppSlotIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o FunctionAppSlotIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+func (o FunctionAppSlotIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAppSlotIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FunctionAppSlotIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotIdentity)(nil)).Elem()
+}
+
+func (o FunctionAppSlotIdentityPtrOutput) ToFunctionAppSlotIdentityPtrOutput() FunctionAppSlotIdentityPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotIdentityPtrOutput) ToFunctionAppSlotIdentityPtrOutputWithContext(ctx context.Context) FunctionAppSlotIdentityPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotIdentityPtrOutput) Elem() FunctionAppSlotIdentityOutput {
+	return o.ApplyT(func(v *FunctionAppSlotIdentity) FunctionAppSlotIdentity { return *v }).(FunctionAppSlotIdentityOutput)
+}
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+func (o FunctionAppSlotIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o FunctionAppSlotIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o FunctionAppSlotIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+func (o FunctionAppSlotIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotSiteConfig struct {
+	// Should the Function App be loaded at all times? Defaults to `false`.
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// A `cors` block as defined below.
+	Cors *FunctionAppSlotSiteConfigCors `pulumi:"cors"`
+	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	FtpsState *string `pulumi:"ftpsState"`
+	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions []FunctionAppSlotSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
+	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+}
+
+// FunctionAppSlotSiteConfigInput is an input type that accepts FunctionAppSlotSiteConfigArgs and FunctionAppSlotSiteConfigOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigInput` via:
+//
+// 		 FunctionAppSlotSiteConfigArgs{...}
+//
+type FunctionAppSlotSiteConfigInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigOutput() FunctionAppSlotSiteConfigOutput
+	ToFunctionAppSlotSiteConfigOutputWithContext(context.Context) FunctionAppSlotSiteConfigOutput
+}
+
+type FunctionAppSlotSiteConfigArgs struct {
+	// Should the Function App be loaded at all times? Defaults to `false`.
+	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	// A `cors` block as defined below.
+	Cors FunctionAppSlotSiteConfigCorsPtrInput `pulumi:"cors"`
+	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
+	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions FunctionAppSlotSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
+	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled pulumi.BoolPtrInput `pulumi:"websocketsEnabled"`
+}
+
+func (FunctionAppSlotSiteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfig)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigArgs) ToFunctionAppSlotSiteConfigOutput() FunctionAppSlotSiteConfigOutput {
+	return i.ToFunctionAppSlotSiteConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigArgs) ToFunctionAppSlotSiteConfigOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigOutput)
+}
+
+func (i FunctionAppSlotSiteConfigArgs) ToFunctionAppSlotSiteConfigPtrOutput() FunctionAppSlotSiteConfigPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigArgs) ToFunctionAppSlotSiteConfigPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigOutput).ToFunctionAppSlotSiteConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotSiteConfigPtrInput is an input type that accepts FunctionAppSlotSiteConfigArgs, FunctionAppSlotSiteConfigPtr and FunctionAppSlotSiteConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigPtrInput` via:
+//
+// 		 FunctionAppSlotSiteConfigArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotSiteConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigPtrOutput() FunctionAppSlotSiteConfigPtrOutput
+	ToFunctionAppSlotSiteConfigPtrOutputWithContext(context.Context) FunctionAppSlotSiteConfigPtrOutput
+}
+
+type functionAppSlotSiteConfigPtrType FunctionAppSlotSiteConfigArgs
+
+func FunctionAppSlotSiteConfigPtr(v *FunctionAppSlotSiteConfigArgs) FunctionAppSlotSiteConfigPtrInput {
+	return (*functionAppSlotSiteConfigPtrType)(v)
+}
+
+func (*functionAppSlotSiteConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfig)(nil)).Elem()
+}
+
+func (i *functionAppSlotSiteConfigPtrType) ToFunctionAppSlotSiteConfigPtrOutput() FunctionAppSlotSiteConfigPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotSiteConfigPtrType) ToFunctionAppSlotSiteConfigPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfig)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigOutput) ToFunctionAppSlotSiteConfigOutput() FunctionAppSlotSiteConfigOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigOutput) ToFunctionAppSlotSiteConfigOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigOutput) ToFunctionAppSlotSiteConfigPtrOutput() FunctionAppSlotSiteConfigPtrOutput {
+	return o.ToFunctionAppSlotSiteConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotSiteConfigOutput) ToFunctionAppSlotSiteConfigPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfig {
+		return &v
+	}).(FunctionAppSlotSiteConfigPtrOutput)
+}
+
+// Should the Function App be loaded at all times? Defaults to `false`.
+func (o FunctionAppSlotSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
+}
+
+// A `cors` block as defined below.
+func (o FunctionAppSlotSiteConfigOutput) Cors() FunctionAppSlotSiteConfigCorsPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfigCors { return v.Cors }).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+func (o FunctionAppSlotSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+func (o FunctionAppSlotSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o FunctionAppSlotSiteConfigOutput) IpRestrictions() FunctionAppSlotSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) []FunctionAppSlotSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSlotSiteConfigIpRestrictionArrayOutput)
+}
+
+// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+func (o FunctionAppSlotSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
+}
+
+// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+func (o FunctionAppSlotSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+func (o FunctionAppSlotSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+func (o FunctionAppSlotSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+// Should WebSockets be enabled?
+func (o FunctionAppSlotSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfig)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) ToFunctionAppSlotSiteConfigPtrOutput() FunctionAppSlotSiteConfigPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) ToFunctionAppSlotSiteConfigPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) Elem() FunctionAppSlotSiteConfigOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) FunctionAppSlotSiteConfig { return *v }).(FunctionAppSlotSiteConfigOutput)
+}
+
+// Should the Function App be loaded at all times? Defaults to `false`.
+func (o FunctionAppSlotSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlwaysOn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `cors` block as defined below.
+func (o FunctionAppSlotSiteConfigPtrOutput) Cors() FunctionAppSlotSiteConfigCorsPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfigCors {
+		if v == nil {
+			return nil
+		}
+		return v.Cors
+	}).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+func (o FunctionAppSlotSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FtpsState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+func (o FunctionAppSlotSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Http2Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o FunctionAppSlotSiteConfigPtrOutput) IpRestrictions() FunctionAppSlotSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) []FunctionAppSlotSiteConfigIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.IpRestrictions
+	}).(FunctionAppSlotSiteConfigIpRestrictionArrayOutput)
+}
+
+// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+func (o FunctionAppSlotSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxFxVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+func (o FunctionAppSlotSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+func (o FunctionAppSlotSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreWarmedInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+func (o FunctionAppSlotSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Use32BitWorkerProcess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should WebSockets be enabled?
+func (o FunctionAppSlotSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WebsocketsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigCors struct {
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials *bool `pulumi:"supportCredentials"`
+}
+
+// FunctionAppSlotSiteConfigCorsInput is an input type that accepts FunctionAppSlotSiteConfigCorsArgs and FunctionAppSlotSiteConfigCorsOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigCorsInput` via:
+//
+// 		 FunctionAppSlotSiteConfigCorsArgs{...}
+//
+type FunctionAppSlotSiteConfigCorsInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigCorsOutput() FunctionAppSlotSiteConfigCorsOutput
+	ToFunctionAppSlotSiteConfigCorsOutputWithContext(context.Context) FunctionAppSlotSiteConfigCorsOutput
+}
+
+type FunctionAppSlotSiteConfigCorsArgs struct {
+	// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
+}
+
+func (FunctionAppSlotSiteConfigCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigCors)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigCorsArgs) ToFunctionAppSlotSiteConfigCorsOutput() FunctionAppSlotSiteConfigCorsOutput {
+	return i.ToFunctionAppSlotSiteConfigCorsOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigCorsArgs) ToFunctionAppSlotSiteConfigCorsOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigCorsOutput)
+}
+
+func (i FunctionAppSlotSiteConfigCorsArgs) ToFunctionAppSlotSiteConfigCorsPtrOutput() FunctionAppSlotSiteConfigCorsPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigCorsArgs) ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigCorsOutput).ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotSiteConfigCorsPtrInput is an input type that accepts FunctionAppSlotSiteConfigCorsArgs, FunctionAppSlotSiteConfigCorsPtr and FunctionAppSlotSiteConfigCorsPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigCorsPtrInput` via:
+//
+// 		 FunctionAppSlotSiteConfigCorsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type FunctionAppSlotSiteConfigCorsPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigCorsPtrOutput() FunctionAppSlotSiteConfigCorsPtrOutput
+	ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(context.Context) FunctionAppSlotSiteConfigCorsPtrOutput
+}
+
+type functionAppSlotSiteConfigCorsPtrType FunctionAppSlotSiteConfigCorsArgs
+
+func FunctionAppSlotSiteConfigCorsPtr(v *FunctionAppSlotSiteConfigCorsArgs) FunctionAppSlotSiteConfigCorsPtrInput {
+	return (*functionAppSlotSiteConfigCorsPtrType)(v)
+}
+
+func (*functionAppSlotSiteConfigCorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfigCors)(nil)).Elem()
+}
+
+func (i *functionAppSlotSiteConfigCorsPtrType) ToFunctionAppSlotSiteConfigCorsPtrOutput() FunctionAppSlotSiteConfigCorsPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotSiteConfigCorsPtrType) ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigCorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigCorsOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigCors)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigCorsOutput) ToFunctionAppSlotSiteConfigCorsOutput() FunctionAppSlotSiteConfigCorsOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigCorsOutput) ToFunctionAppSlotSiteConfigCorsOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigCorsOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigCorsOutput) ToFunctionAppSlotSiteConfigCorsPtrOutput() FunctionAppSlotSiteConfigCorsPtrOutput {
+	return o.ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotSiteConfigCorsOutput) ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigCorsPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigCors) *FunctionAppSlotSiteConfigCors {
+		return &v
+	}).(FunctionAppSlotSiteConfigCorsPtrOutput)
+}
+
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+func (o FunctionAppSlotSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Are credentials supported?
+func (o FunctionAppSlotSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigCorsPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigCorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfigCors)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigCorsPtrOutput) ToFunctionAppSlotSiteConfigCorsPtrOutput() FunctionAppSlotSiteConfigCorsPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigCorsPtrOutput) ToFunctionAppSlotSiteConfigCorsPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigCorsPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigCorsPtrOutput) Elem() FunctionAppSlotSiteConfigCorsOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigCors) FunctionAppSlotSiteConfigCors { return *v }).(FunctionAppSlotSiteConfigCorsOutput)
+}
+
+// A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+func (o FunctionAppSlotSiteConfigCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigCors) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// Are credentials supported?
+func (o FunctionAppSlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigCors) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SupportCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigIpRestriction struct {
+	// The IP Address CIDR notation used for this IP Restriction.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The Subnet ID used for this IP Restriction.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// FunctionAppSlotSiteConfigIpRestrictionInput is an input type that accepts FunctionAppSlotSiteConfigIpRestrictionArgs and FunctionAppSlotSiteConfigIpRestrictionOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigIpRestrictionInput` via:
+//
+// 		 FunctionAppSlotSiteConfigIpRestrictionArgs{...}
+//
+type FunctionAppSlotSiteConfigIpRestrictionInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigIpRestrictionOutput() FunctionAppSlotSiteConfigIpRestrictionOutput
+	ToFunctionAppSlotSiteConfigIpRestrictionOutputWithContext(context.Context) FunctionAppSlotSiteConfigIpRestrictionOutput
+}
+
+type FunctionAppSlotSiteConfigIpRestrictionArgs struct {
+	// The IP Address CIDR notation used for this IP Restriction.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The Subnet ID used for this IP Restriction.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (FunctionAppSlotSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionArgs) ToFunctionAppSlotSiteConfigIpRestrictionOutput() FunctionAppSlotSiteConfigIpRestrictionOutput {
+	return i.ToFunctionAppSlotSiteConfigIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionArgs) ToFunctionAppSlotSiteConfigIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigIpRestrictionOutput)
+}
+
+// FunctionAppSlotSiteConfigIpRestrictionArrayInput is an input type that accepts FunctionAppSlotSiteConfigIpRestrictionArray and FunctionAppSlotSiteConfigIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigIpRestrictionArrayInput` via:
+//
+// 		 FunctionAppSlotSiteConfigIpRestrictionArray{ FunctionAppSlotSiteConfigIpRestrictionArgs{...} }
+//
+type FunctionAppSlotSiteConfigIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigIpRestrictionArrayOutput() FunctionAppSlotSiteConfigIpRestrictionArrayOutput
+	ToFunctionAppSlotSiteConfigIpRestrictionArrayOutputWithContext(context.Context) FunctionAppSlotSiteConfigIpRestrictionArrayOutput
+}
+
+type FunctionAppSlotSiteConfigIpRestrictionArray []FunctionAppSlotSiteConfigIpRestrictionInput
+
+func (FunctionAppSlotSiteConfigIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionArray) ToFunctionAppSlotSiteConfigIpRestrictionArrayOutput() FunctionAppSlotSiteConfigIpRestrictionArrayOutput {
+	return i.ToFunctionAppSlotSiteConfigIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionArray) ToFunctionAppSlotSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigIpRestrictionArrayOutput)
+}
+
+type FunctionAppSlotSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) ToFunctionAppSlotSiteConfigIpRestrictionOutput() FunctionAppSlotSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) ToFunctionAppSlotSiteConfigIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionOutput {
+	return o
+}
+
+// The IP Address CIDR notation used for this IP Restriction.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The Subnet ID used for this IP Restriction.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionArrayOutput) ToFunctionAppSlotSiteConfigIpRestrictionArrayOutput() FunctionAppSlotSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionArrayOutput) ToFunctionAppSlotSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) FunctionAppSlotSiteConfigIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlotSiteConfigIpRestriction {
+		return vs[0].([]FunctionAppSlotSiteConfigIpRestriction)[vs[1].(int)]
+	}).(FunctionAppSlotSiteConfigIpRestrictionOutput)
+}
+
+type FunctionAppSlotSiteCredential struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password *string `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username *string `pulumi:"username"`
+}
+
+// FunctionAppSlotSiteCredentialInput is an input type that accepts FunctionAppSlotSiteCredentialArgs and FunctionAppSlotSiteCredentialOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteCredentialInput` via:
+//
+// 		 FunctionAppSlotSiteCredentialArgs{...}
+//
+type FunctionAppSlotSiteCredentialInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteCredentialOutput() FunctionAppSlotSiteCredentialOutput
+	ToFunctionAppSlotSiteCredentialOutputWithContext(context.Context) FunctionAppSlotSiteCredentialOutput
+}
+
+type FunctionAppSlotSiteCredentialArgs struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (FunctionAppSlotSiteCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteCredential)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteCredentialArgs) ToFunctionAppSlotSiteCredentialOutput() FunctionAppSlotSiteCredentialOutput {
+	return i.ToFunctionAppSlotSiteCredentialOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteCredentialArgs) ToFunctionAppSlotSiteCredentialOutputWithContext(ctx context.Context) FunctionAppSlotSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteCredentialOutput)
+}
+
+// FunctionAppSlotSiteCredentialArrayInput is an input type that accepts FunctionAppSlotSiteCredentialArray and FunctionAppSlotSiteCredentialArrayOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteCredentialArrayInput` via:
+//
+// 		 FunctionAppSlotSiteCredentialArray{ FunctionAppSlotSiteCredentialArgs{...} }
+//
+type FunctionAppSlotSiteCredentialArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteCredentialArrayOutput() FunctionAppSlotSiteCredentialArrayOutput
+	ToFunctionAppSlotSiteCredentialArrayOutputWithContext(context.Context) FunctionAppSlotSiteCredentialArrayOutput
+}
+
+type FunctionAppSlotSiteCredentialArray []FunctionAppSlotSiteCredentialInput
+
+func (FunctionAppSlotSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotSiteCredential)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteCredentialArray) ToFunctionAppSlotSiteCredentialArrayOutput() FunctionAppSlotSiteCredentialArrayOutput {
+	return i.ToFunctionAppSlotSiteCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteCredentialArray) ToFunctionAppSlotSiteCredentialArrayOutputWithContext(ctx context.Context) FunctionAppSlotSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteCredentialArrayOutput)
+}
+
+type FunctionAppSlotSiteCredentialOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteCredential)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteCredentialOutput) ToFunctionAppSlotSiteCredentialOutput() FunctionAppSlotSiteCredentialOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteCredentialOutput) ToFunctionAppSlotSiteCredentialOutputWithContext(ctx context.Context) FunctionAppSlotSiteCredentialOutput {
+	return o
+}
+
+// The password associated with the username, which can be used to publish to this App Service.
+func (o FunctionAppSlotSiteCredentialOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The username which can be used to publish to this App Service
+func (o FunctionAppSlotSiteCredentialOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotSiteCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotSiteCredential)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteCredentialArrayOutput) ToFunctionAppSlotSiteCredentialArrayOutput() FunctionAppSlotSiteCredentialArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteCredentialArrayOutput) ToFunctionAppSlotSiteCredentialArrayOutputWithContext(ctx context.Context) FunctionAppSlotSiteCredentialArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteCredentialArrayOutput) Index(i pulumi.IntInput) FunctionAppSlotSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlotSiteCredential {
+		return vs[0].([]FunctionAppSlotSiteCredential)[vs[1].(int)]
+	}).(FunctionAppSlotSiteCredentialOutput)
+}
+
 type PlanSku struct {
 	// Specifies the number of workers associated with this App Service Plan.
 	Capacity *int `pulumi:"capacity"`
@@ -8940,6 +11167,7 @@ type SlotSiteConfig struct {
 	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
 	FtpsState              *string `pulumi:"ftpsState"`
+	HealthCheckPath        *string `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A list of objects representing ip restrictions as defined below.
@@ -9000,6 +11228,7 @@ type SlotSiteConfigArgs struct {
 	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
 	DotnetFrameworkVersion pulumi.StringPtrInput `pulumi:"dotnetFrameworkVersion"`
 	FtpsState              pulumi.StringPtrInput `pulumi:"ftpsState"`
+	HealthCheckPath        pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A list of objects representing ip restrictions as defined below.
@@ -9144,6 +11373,10 @@ func (o SlotSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
 
 func (o SlotSiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
 // Is HTTP2 Enabled on this App Service? Defaults to `false`.
@@ -9313,6 +11546,15 @@ func (o SlotSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.FtpsState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheckPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9639,6 +11881,9 @@ func (o SlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 type SlotSiteConfigIpRestriction struct {
 	// The IP Address used for this IP Restriction.
 	IpAddress *string `pulumi:"ipAddress"`
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	Name     *string `pulumi:"name"`
+	Priority *int    `pulumi:"priority"`
 	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -9658,6 +11903,9 @@ type SlotSiteConfigIpRestrictionInput interface {
 type SlotSiteConfigIpRestrictionArgs struct {
 	// The IP Address used for this IP Restriction.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Priority pulumi.IntPtrInput    `pulumi:"priority"`
 	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -9717,6 +11965,15 @@ func (o SlotSiteConfigIpRestrictionOutput) ToSlotSiteConfigIpRestrictionOutputWi
 // The IP Address used for this IP Restriction.
 func (o SlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+func (o SlotSiteConfigIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
 // (Optional.The Virtual Network Subnet ID used for this IP Restriction.
@@ -10053,6 +12310,8 @@ type GetAppServiceSiteConfig struct {
 	DotnetFrameworkVersion string `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this AppService.
 	FtpsState string `pulumi:"ftpsState"`
+	// The health check path to be pinged by App Service.
+	HealthCheckPath string `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service?
 	Http2Enabled bool `pulumi:"http2Enabled"`
 	// One or more `ipRestriction` blocks as defined above.
@@ -10114,6 +12373,8 @@ type GetAppServiceSiteConfigArgs struct {
 	DotnetFrameworkVersion pulumi.StringInput `pulumi:"dotnetFrameworkVersion"`
 	// State of FTP / FTPS service for this AppService.
 	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	// The health check path to be pinged by App Service.
+	HealthCheckPath pulumi.StringInput `pulumi:"healthCheckPath"`
 	// Is HTTP2 Enabled on this App Service?
 	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
 	// One or more `ipRestriction` blocks as defined above.
@@ -10230,6 +12491,11 @@ func (o GetAppServiceSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringOut
 // State of FTP / FTPS service for this AppService.
 func (o GetAppServiceSiteConfigOutput) FtpsState() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+// The health check path to be pinged by App Service.
+func (o GetAppServiceSiteConfigOutput) HealthCheckPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfig) string { return v.HealthCheckPath }).(pulumi.StringOutput)
 }
 
 // Is HTTP2 Enabled on this App Service?
@@ -10447,7 +12713,11 @@ func (o GetAppServiceSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetAppSe
 
 type GetAppServiceSiteConfigIpRestriction struct {
 	// The IP Address used for this IP Restriction.
-	IpAddress              string `pulumi:"ipAddress"`
+	IpAddress string `pulumi:"ipAddress"`
+	// The name of the App Service.
+	Name string `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority               int    `pulumi:"priority"`
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -10465,7 +12735,11 @@ type GetAppServiceSiteConfigIpRestrictionInput interface {
 
 type GetAppServiceSiteConfigIpRestrictionArgs struct {
 	// The IP Address used for this IP Restriction.
-	IpAddress              pulumi.StringInput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The name of the App Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority               pulumi.IntInput    `pulumi:"priority"`
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -10524,6 +12798,16 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) ToGetAppServiceSiteConfigIpR
 // The IP Address used for this IP Restriction.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of the App Service.
+func (o GetAppServiceSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority for this IP Restriction.
+func (o GetAppServiceSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 func (o GetAppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
@@ -11176,6 +13460,30 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsFacebookOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsFacebookPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsGoogleOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsGooglePtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsMicrosoftOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsMicrosoftPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsTwitterOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsTwitterPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotConnectionStringOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotIdentityOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotIdentityPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigCorsOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigCorsPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteCredentialOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(PlanSkuOutput{})
 	pulumi.RegisterOutputType(PlanSkuPtrOutput{})
 	pulumi.RegisterOutputType(SlotAuthSettingsOutput{})

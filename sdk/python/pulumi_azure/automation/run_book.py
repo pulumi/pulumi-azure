@@ -120,8 +120,6 @@ class RunBook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_verbose'")
             __props__['log_verbose'] = log_verbose
             __props__['name'] = name
-            if publish_content_link is None:
-                raise TypeError("Missing required property 'publish_content_link'")
             __props__['publish_content_link'] = publish_content_link
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

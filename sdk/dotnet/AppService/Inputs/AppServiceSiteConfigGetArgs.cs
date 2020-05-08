@@ -58,6 +58,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? FtpsState { get; set; }
 
         /// <summary>
+        /// The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
+        /// </summary>
+        [Input("healthCheckPath")]
+        public Input<string>? HealthCheckPath { get; set; }
+
+        /// <summary>
         /// Is HTTP2 Enabled on this App Service? Defaults to `false`.
         /// </summary>
         [Input("http2Enabled")]

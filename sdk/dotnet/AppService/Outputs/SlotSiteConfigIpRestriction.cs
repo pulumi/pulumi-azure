@@ -18,6 +18,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
+        /// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? Name;
+        public readonly int? Priority;
+        /// <summary>
         /// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>
         public readonly string? VirtualNetworkSubnetId;
@@ -26,9 +31,15 @@ namespace Pulumi.Azure.AppService.Outputs
         private SlotSiteConfigIpRestriction(
             string? ipAddress,
 
+            string? name,
+
+            int? priority,
+
             string? virtualNetworkSubnetId)
         {
             IpAddress = ipAddress;
+            Name = name;
+            Priority = priority;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }

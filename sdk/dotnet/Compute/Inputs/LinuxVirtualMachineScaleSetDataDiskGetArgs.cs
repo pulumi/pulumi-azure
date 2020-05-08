@@ -19,6 +19,12 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Caching { get; set; } = null!;
 
         /// <summary>
+        /// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+        /// </summary>
+        [Input("createOption")]
+        public Input<string>? CreateOption { get; set; }
+
+        /// <summary>
         /// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
         /// </summary>
         [Input("diskEncryptionSetId")]

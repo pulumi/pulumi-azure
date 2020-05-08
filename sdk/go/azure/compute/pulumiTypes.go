@@ -2506,6 +2506,8 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri()
 type LinuxVirtualMachineScaleSetDataDisk struct {
 	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
@@ -2533,6 +2535,8 @@ type LinuxVirtualMachineScaleSetDataDiskInput interface {
 type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
@@ -2600,6 +2604,11 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) ToLinuxVirtualMachineScaleSet
 // The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
@@ -13820,6 +13829,8 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri
 type WindowsVirtualMachineScaleSetDataDisk struct {
 	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching string `pulumi:"caching"`
+	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
@@ -13847,6 +13858,8 @@ type WindowsVirtualMachineScaleSetDataDiskInput interface {
 type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
+	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
@@ -13914,6 +13927,11 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) ToWindowsVirtualMachineScal
 // The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.

@@ -9,6 +9,7 @@ export * from "./certificateOrder";
 export * from "./customHostnameBinding";
 export * from "./environment";
 export * from "./functionApp";
+export * from "./functionAppSlot";
 export * from "./getAppService";
 export * from "./getAppServiceEnvironment";
 export * from "./getAppServicePlan";

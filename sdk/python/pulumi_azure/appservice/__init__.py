@@ -10,6 +10,7 @@ from .certificate_order import *
 from .custom_hostname_binding import *
 from .environment import *
 from .function_app import *
+from .function_app_slot import *
 from .get_app_service import *
 from .get_app_service_environment import *
 from .get_app_service_plan import *

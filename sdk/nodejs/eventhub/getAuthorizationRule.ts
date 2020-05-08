@@ -86,6 +86,10 @@ export interface GetAuthorizationRuleResult {
      */
     readonly primaryConnectionString: string;
     /**
+     * The alias of the Primary Connection String for the Event Hubs Authorization Rule.
+     */
+    readonly primaryConnectionStringAlias: string;
+    /**
      * The Primary Key for the Event Hubs Authorization Rule.
      */
     readonly primaryKey: string;
@@ -94,6 +98,10 @@ export interface GetAuthorizationRuleResult {
      * The Secondary Connection String for the Event Hubs Authorization Rule.
      */
     readonly secondaryConnectionString: string;
+    /**
+     * The alias of the Secondary Connection String for the Event Hubs Authorization Rule.
+     */
+    readonly secondaryConnectionStringAlias: string;
     /**
      * The Secondary Key for the Event Hubs Authorization Rule.
      */

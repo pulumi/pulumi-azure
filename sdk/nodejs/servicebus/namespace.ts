@@ -74,7 +74,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Defines which tier to use. Options are basic, standard or premium.
+     * Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface NamespaceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Defines which tier to use. Options are basic, standard or premium.
+     * Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
      */
     readonly sku?: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface NamespaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Defines which tier to use. Options are basic, standard or premium.
+     * Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
      */
     readonly sku: pulumi.Input<string>;
     /**

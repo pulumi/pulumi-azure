@@ -35,6 +35,10 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     """
     The Primary Connection String for the Event Hubs authorization Rule.
     """
+    primary_connection_string_alias: pulumi.Output[str]
+    """
+    The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
+    """
     primary_key: pulumi.Output[str]
     """
     The Primary Key for the Event Hubs authorization Rule.
@@ -46,6 +50,10 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     secondary_connection_string: pulumi.Output[str]
     """
     The Secondary Connection String for the Event Hubs Authorization Rule.
+    """
+    secondary_connection_string_alias: pulumi.Output[str]
+    """
+    The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
     """
     secondary_key: pulumi.Output[str]
     """
@@ -106,8 +114,10 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['send'] = send
             __props__['primary_connection_string'] = None
+            __props__['primary_connection_string_alias'] = None
             __props__['primary_key'] = None
             __props__['secondary_connection_string'] = None
+            __props__['secondary_connection_string_alias'] = None
             __props__['secondary_key'] = None
         super(EventHubAuthorizationRule, __self__).__init__(
             'azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule',
@@ -116,7 +126,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
+    def get(resource_name, id, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None, send=None):
         """
         Get an existing EventHubAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -130,9 +140,11 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the Event Hubs authorization Rule.
+        :param pulumi.Input[str] primary_connection_string_alias: The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] primary_key: The Primary Key for the Event Hubs authorization Rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the Event Hubs Authorization Rule.
+        :param pulumi.Input[str] secondary_connection_string_alias: The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] secondary_key: The Secondary Key for the Event Hubs Authorization Rule.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
         """
@@ -146,9 +158,11 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name
         __props__["primary_connection_string"] = primary_connection_string
+        __props__["primary_connection_string_alias"] = primary_connection_string_alias
         __props__["primary_key"] = primary_key
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_connection_string"] = secondary_connection_string
+        __props__["secondary_connection_string_alias"] = secondary_connection_string_alias
         __props__["secondary_key"] = secondary_key
         __props__["send"] = send
         return EventHubAuthorizationRule(resource_name, opts=opts, __props__=__props__)

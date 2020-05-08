@@ -86,7 +86,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the Connection String.
+        /// The name for this IP Restriction.
         /// </summary>
         public readonly string Name;
         /// <summary>

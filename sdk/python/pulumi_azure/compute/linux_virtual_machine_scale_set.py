@@ -64,6 +64,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     One or more `data_disk` blocks as defined below.
 
       * `caching` (`str`) - The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+      * `create_option` (`str`) - The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
       * `disk_encryption_set_id` (`str`) - The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
       * `disk_size_gb` (`float`) - The size of the Data Disk which should be created.
       * `lun` (`float`) - The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -324,6 +325,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         The **data_disks** object supports the following:
 
           * `caching` (`pulumi.Input[str]`) - The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `create_option` (`pulumi.Input[str]`) - The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
           * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
           * `disk_size_gb` (`pulumi.Input[float]`) - The size of the Data Disk which should be created.
           * `lun` (`pulumi.Input[float]`) - The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -558,6 +560,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         The **data_disks** object supports the following:
 
           * `caching` (`pulumi.Input[str]`) - The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+          * `create_option` (`pulumi.Input[str]`) - The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
           * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
           * `disk_size_gb` (`pulumi.Input[float]`) - The size of the Data Disk which should be created.
           * `lun` (`pulumi.Input[float]`) - The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.

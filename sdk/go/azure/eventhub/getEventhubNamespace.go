@@ -38,11 +38,17 @@ type GetEventhubNamespaceResult struct {
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString string `pulumi:"defaultPrimaryConnectionString"`
+	// The alias of the primary connection string for the authorization
+	// rule `RootManageSharedAccessKey`.
+	DefaultPrimaryConnectionStringAlias string `pulumi:"defaultPrimaryConnectionStringAlias"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultPrimaryKey string `pulumi:"defaultPrimaryKey"`
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryConnectionString string `pulumi:"defaultSecondaryConnectionString"`
+	// The alias of the secondary connection string for the
+	// authorization rule `RootManageSharedAccessKey`.
+	DefaultSecondaryConnectionStringAlias string `pulumi:"defaultSecondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
 	// The provider-assigned unique ID for this managed resource.

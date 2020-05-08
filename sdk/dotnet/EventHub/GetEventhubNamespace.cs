@@ -62,6 +62,11 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly string DefaultPrimaryConnectionString;
         /// <summary>
+        /// The alias of the primary connection string for the authorization
+        /// rule `RootManageSharedAccessKey`.
+        /// </summary>
+        public readonly string DefaultPrimaryConnectionStringAlias;
+        /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         public readonly string DefaultPrimaryKey;
@@ -70,6 +75,11 @@ namespace Pulumi.Azure.EventHub
         /// authorization rule `RootManageSharedAccessKey`.
         /// </summary>
         public readonly string DefaultSecondaryConnectionString;
+        /// <summary>
+        /// The alias of the secondary connection string for the
+        /// authorization rule `RootManageSharedAccessKey`.
+        /// </summary>
+        public readonly string DefaultSecondaryConnectionStringAlias;
         /// <summary>
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
@@ -106,9 +116,13 @@ namespace Pulumi.Azure.EventHub
 
             string defaultPrimaryConnectionString,
 
+            string defaultPrimaryConnectionStringAlias,
+
             string defaultPrimaryKey,
 
             string defaultSecondaryConnectionString,
+
+            string defaultSecondaryConnectionStringAlias,
 
             string defaultSecondaryKey,
 
@@ -131,8 +145,10 @@ namespace Pulumi.Azure.EventHub
             AutoInflateEnabled = autoInflateEnabled;
             Capacity = capacity;
             DefaultPrimaryConnectionString = defaultPrimaryConnectionString;
+            DefaultPrimaryConnectionStringAlias = defaultPrimaryConnectionStringAlias;
             DefaultPrimaryKey = defaultPrimaryKey;
             DefaultSecondaryConnectionString = defaultSecondaryConnectionString;
+            DefaultSecondaryConnectionStringAlias = defaultSecondaryConnectionStringAlias;
             DefaultSecondaryKey = defaultSecondaryKey;
             Id = id;
             KafkaEnabled = kafkaEnabled;

@@ -38,6 +38,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string FtpsState;
         /// <summary>
+        /// The health check path to be pinged by App Service.
+        /// </summary>
+        public readonly string HealthCheckPath;
+        /// <summary>
         /// Is HTTP2 Enabled on this App Service?
         /// </summary>
         public readonly bool Http2Enabled;
@@ -120,6 +124,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string ftpsState,
 
+            string healthCheckPath,
+
             bool http2Enabled,
 
             ImmutableArray<Outputs.GetAppServiceSiteConfigIpRestrictionResult> ipRestrictions,
@@ -160,6 +166,7 @@ namespace Pulumi.Azure.AppService.Outputs
             DefaultDocuments = defaultDocuments;
             DotnetFrameworkVersion = dotnetFrameworkVersion;
             FtpsState = ftpsState;
+            HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
             IpRestrictions = ipRestrictions;
             JavaContainer = javaContainer;

@@ -44,11 +44,15 @@ type LookupAuthorizationRuleResult struct {
 	NamespaceName string `pulumi:"namespaceName"`
 	// The Primary Connection String for the Event Hubs Authorization Rule.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
+	// The alias of the Primary Connection String for the Event Hubs Authorization Rule.
+	PrimaryConnectionStringAlias string `pulumi:"primaryConnectionStringAlias"`
 	// The Primary Key for the Event Hubs Authorization Rule.
 	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
+	// The alias of the Secondary Connection String for the Event Hubs Authorization Rule.
+	SecondaryConnectionStringAlias string `pulumi:"secondaryConnectionStringAlias"`
 	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey string `pulumi:"secondaryKey"`
 	Send         *bool  `pulumi:"send"`

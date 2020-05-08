@@ -70,7 +70,7 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * The published runbook content link.
      */
-    public readonly publishContentLink!: pulumi.Output<outputs.automation.RunBookPublishContentLink>;
+    public readonly publishContentLink!: pulumi.Output<outputs.automation.RunBookPublishContentLink | undefined>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */
@@ -117,9 +117,6 @@ export class RunBook extends pulumi.CustomResource {
             }
             if (!args || args.logVerbose === undefined) {
                 throw new Error("Missing required property 'logVerbose'");
-            }
-            if (!args || args.publishContentLink === undefined) {
-                throw new Error("Missing required property 'publishContentLink'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -235,7 +232,7 @@ export interface RunBookArgs {
     /**
      * The published runbook content link.
      */
-    readonly publishContentLink: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
+    readonly publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */

@@ -72,7 +72,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Defines which tier to use. Options are basic, standard or premium.
+        /// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Defines which tier to use. Options are basic, standard or premium.
+        /// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Defines which tier to use. Options are basic, standard or premium.
+        /// Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

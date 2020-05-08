@@ -19,6 +19,15 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
+        /// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
+        /// <summary>
         /// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>
         [Input("virtualNetworkSubnetId")]

@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./alertRuleMsSecurityIncident";
+export * from "./alertRuleScheduled";
 export * from "./getAlertRule";

@@ -47,7 +47,7 @@ type LookupAppServiceResult struct {
 	Id string `pulumi:"id"`
 	// The Azure location where the App Service exists.
 	Location string `pulumi:"location"`
-	// The name of the Connection String.
+	// The name for this IP Restriction.
 	Name string `pulumi:"name"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`

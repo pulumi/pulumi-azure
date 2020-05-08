@@ -81,7 +81,7 @@ export interface GetAppServiceResult {
      */
     readonly location: string;
     /**
-     * The name of the Connection String.
+     * The name for this IP Restriction.
      */
     readonly name: string;
     /**

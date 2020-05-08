@@ -64,6 +64,10 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly primaryConnectionString: string;
     /**
+     * The alias of the Primary Connection String for the Event Hubs authorization Rule.
+     */
+    readonly primaryConnectionStringAlias: string;
+    /**
      * The Primary Key for the Event Hubs authorization Rule.
      */
     readonly primaryKey: string;
@@ -72,6 +76,10 @@ export interface GetNamespaceAuthorizationRuleResult {
      * The Secondary Connection String for the Event Hubs authorization Rule.
      */
     readonly secondaryConnectionString: string;
+    /**
+     * The alias of the Secondary Connection String for the Event Hubs authorization Rule.
+     */
+    readonly secondaryConnectionStringAlias: string;
     /**
      * The Secondary Key for the Event Hubs authorization Rule.
      */

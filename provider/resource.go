@@ -65,6 +65,7 @@ const (
 	azureDatabaseMigration   = "DatabaseMigration"   // Database Migration
 	azureDataFactory         = "DataFactory"         // Data Factory
 	azureDatalake            = "DataLake"            // Data Lake
+	azureDataShare           = "DataShare"           // DataShare
 	azureDataBricks          = "DataBricks"          // DataBricks
 	azureDevSpace            = "DevSpace"            // DevSpace
 	azureDevTest             = "DevTest"             // Dev Test Labs
@@ -461,6 +462,7 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				}},
+			"azurerm_function_app_slot":                {Tok: azureResource(azureAppService, "FunctionAppSlot")},
 			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
 			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
 			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
@@ -652,6 +654,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store":                   {Tok: azureResource(azureDatalake, "Store")},
 			"azurerm_data_lake_store_file":              {Tok: azureResource(azureDatalake, "StoreFile")},
 			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
+
+			// DataShare
+			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
 
 			// DevSpace
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
@@ -1311,6 +1316,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_ms_security_incident": {
 				Tok: azureResource(azureSentinel, "AlertRuleMsSecurityIncident"),
 			},
+			"azurerm_sentinel_alert_rule_scheduled": {
+				Tok: azureResource(azureSentinel, "AlertRuleScheduled"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1355,6 +1363,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_registry":           {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":             {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":              {Tok: azureDataSource(azureDatalake, "getStore")},
+			"azurerm_data_share_account":           {Tok: azureDataSource(azureDataShare, "getAccount")},
 			"azurerm_dev_test_lab":                 {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":     {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 			"azurerm_image":                        {Tok: azureDataSource(azureCompute, "getImage")},
