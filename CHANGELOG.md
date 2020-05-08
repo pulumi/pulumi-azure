@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform-bridge v2.2.0
+* Fix `error404document` mapping on `azure.storage.Account`
 
 ---
 
