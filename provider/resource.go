@@ -1099,7 +1099,23 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_signalr_service": {Tok: azureResource(azureSignalr, "Service")},
 
 			// Storage
-			"azurerm_storage_account": {Tok: azureResource(azureStorage, "Account")},
+			"azurerm_storage_account": {
+				Tok: azureResource(azureStorage, "Account"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"static_website": {
+						Name: "staticWebsite",
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								// By default, this gets reverse-mapped to `error404_document` by the
+								// bridge's naming logic, so we force it to the correct mapping here.
+								"error_404_document": {
+									Name: "error404Document",
+								},
+							},
+						},
+					},
+				},
+			},
 			"azurerm_storage_blob": {
 				Tok: azureResource(azureStorage, "Blob"),
 				Fields: map[string]*tfbridge.SchemaInfo{
