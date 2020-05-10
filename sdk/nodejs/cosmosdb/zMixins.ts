@@ -137,6 +137,13 @@ export interface CosmosChangeFeedSubscriptionArgs extends GetCosmosDBFunctionArg
     resourceGroupName?: pulumi.Input<string>;
 }
 
+export interface GetCosmosDBPrimaryConnectionStringArgs {
+    /**
+     * CosmosDB Account.
+     */
+    account: Account;
+}
+
 declare module "./account" {
     interface Account {
         /**
@@ -155,6 +162,12 @@ declare module "./account" {
          * Function.
          */
         getChangeFeedFunction(name: string, args: GetCosmosDBFunctionArgs): CosmosDBFunction;
+        
+        /**
+         * Computes the primary connection string for a CosmosDB account. When using the default GlobalDocumentDB as 
+         * kind for a CosmosDB account this value is empty. Refer to https://www.pulumi.com/docs/reference/pkg/nodejs/pulumi/azure/cosmosdb/#Account-connectionStrings
+         */
+        getPrimaryConnectionString(args: GetCosmosDBPrimaryConnectionStringArgs): string;
     }
 }
 
@@ -219,4 +232,8 @@ export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContex
 
         super(name, trigger, args, appSettings);
     }
+}
+
+Account.prototype.getPrimaryConnectionString = function(this: Account, args){
+    return pulumi.all([args.account.endpoint, args.account.primaryMasterKey]).apply(([accountEndpoint, key]) => `AccountEndpoint=${accountEndpoint};AccountKey=${key};`)
 }
