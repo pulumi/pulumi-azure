@@ -6,6 +6,7 @@ CHANGELOG
 * Fix `error404document` mapping on `azure.storage.Account`
 * Upgrade to v2.9.0 of the AzureRM Terraform Provider
 * Update ArchiveFunctionApp to pass correct params to FunctionApp
+* Add NodeJS function to build CosmosDB Primary Connection String for SQL Accounts
 
 ---
 
