@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.5.0 (2020-05-12)
 * Upgrade to pulumi-terraform-bridge v2.3.1
 * Fix `error404document` mapping on `azure.storage.Account`
 * Upgrade to v2.9.0 of the AzureRM Terraform Provider
 * Update ArchiveFunctionApp to pass correct params to FunctionApp
-
----
 
 ## 3.4.0 (2020-05-01)
 * Upgrade to v2.8.0 of the AzureRM Terraform Provider
