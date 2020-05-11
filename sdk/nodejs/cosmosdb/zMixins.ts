@@ -167,7 +167,7 @@ declare module "./account" {
          * Computes the primary connection string for a CosmosDB account. When using the default GlobalDocumentDB as 
          * kind for a CosmosDB account this value is empty. Refer to https://www.pulumi.com/docs/reference/pkg/nodejs/pulumi/azure/cosmosdb/#Account-connectionStrings
          */
-        getPrimaryConnectionString(args: GetCosmosDBPrimaryConnectionStringArgs): string;
+        getPrimaryConnectionString(args: GetCosmosDBPrimaryConnectionStringArgs): pulumi.Output<string>;
     }
 }
 
