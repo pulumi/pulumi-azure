@@ -34,6 +34,35 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West US")
+        vnet = azure.network.VirtualNetwork("vnet",
+            address_spaces=["10.7.29.0/29"],
+            location=example.location,
+            resource_group_name=example.name)
+        subnet = azure.network.Subnet("subnet",
+            resource_group_name=example.name,
+            virtual_network_name=vnet.name,
+            address_prefix="10.7.29.0/29",
+            service_endpoints=["Microsoft.Sql"])
+        sqlserver = azure.sql.SqlServer("sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            resource_group_name=example.name,
+            server_name=sqlserver.name,
+            subnet_id=subnet.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

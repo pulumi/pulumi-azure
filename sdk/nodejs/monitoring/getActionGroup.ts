@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access the properties of an Action Group.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.monitoring.getActionGroup({
+ *     resourceGroupName: "example-rg",
+ *     name: "tfex-actiongroup",
+ * });
+ * export const actionGroupId = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
  */

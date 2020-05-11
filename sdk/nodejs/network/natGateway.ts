@@ -9,6 +9,38 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure NAT Gateway.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus2"});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ *     zones: ["1"],
+ * });
+ * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("examplePublicIpPrefix", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     prefixLength: 30,
+ *     zones: ["1"],
+ * });
+ * const exampleNatGateway = new azure.network.NatGateway("exampleNatGateway", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publicIpAddressIds: [examplePublicIp.id],
+ *     publicIpPrefixIds: [examplePublicIpPrefix.id],
+ *     skuName: "Standard",
+ *     idleTimeoutInMinutes: 10,
+ *     zones: ["1"],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/nat_gateway.html.markdown.
  */

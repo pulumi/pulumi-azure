@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing CDN Profile.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.cdn.getProfile({
+ *     name: "myfirstcdnprofile",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const cdnProfileId = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
  */

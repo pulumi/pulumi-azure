@@ -103,6 +103,18 @@ def get_lab(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dev Test Lab.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.devtest.get_lab(name="example-lab",
+        resource_group_name="example-resources")
+    pulumi.export("uniqueIdentifier", example.unique_identifier)
+    ```
 
 
 

@@ -61,6 +61,18 @@ def get_profile(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing CDN Profile.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.cdn.get_profile(name="myfirstcdnprofile",
+        resource_group_name="example-resources")
+    pulumi.export("cdnProfileId", example.id)
+    ```
 
 
 

@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Private DNS Zone.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.privatedns.getDnsZone({
+ *     name: "contoso.internal",
+ *     resourceGroupName: "contoso-dns",
+ * });
+ * export const privateDnsZoneId = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_dns_zone.html.markdown.
  */

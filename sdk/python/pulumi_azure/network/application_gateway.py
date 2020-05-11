@@ -314,6 +314,83 @@ class ApplicationGateway(pulumi.CustomResource):
         """
         Manages an Application Gateway.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.254.0.0/16"])
+        frontend = azure.network.Subnet("frontend",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.254.0.0/24")
+        backend = azure.network.Subnet("backend",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.254.2.0/24")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Dynamic")
+        backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
+        frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
+        frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")
+        http_setting_name = example_virtual_network.name.apply(lambda name: f"{name}-be-htst")
+        listener_name = example_virtual_network.name.apply(lambda name: f"{name}-httplstn")
+        request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
+        redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
+        network = azure.network.ApplicationGateway("network",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku={
+                "name": "Standard_Small",
+                "tier": "Standard",
+                "capacity": 2,
+            },
+            gateway_ip_configuration=[{
+                "name": "my-gateway-ip-configuration",
+                "subnetId": frontend.id,
+            }],
+            frontend_port=[{
+                "name": frontend_port_name,
+                "port": 80,
+            }],
+            frontend_ip_configuration=[{
+                "name": frontend_ip_configuration_name,
+                "publicIpAddressId": example_public_ip.id,
+            }],
+            backend_address_pool=[{
+                "name": backend_address_pool_name,
+            }],
+            backend_http_settings=[{
+                "name": http_setting_name,
+                "cookieBasedAffinity": "Disabled",
+                "path": "/path1/",
+                "port": 80,
+                "protocol": "Http",
+                "requestTimeout": 1,
+            }],
+            http_listener=[{
+                "name": listener_name,
+                "frontendIpConfigurationName": frontend_ip_configuration_name,
+                "frontendPortName": frontend_port_name,
+                "protocol": "Http",
+            }],
+            request_routing_rule=[{
+                "name": request_routing_rule_name,
+                "ruleType": "Basic",
+                "httpListenerName": listener_name,
+                "backendAddressPoolName": backend_address_pool_name,
+                "backendHttpSettingsName": http_setting_name,
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

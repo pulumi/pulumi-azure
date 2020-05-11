@@ -58,6 +58,38 @@ class DatabasePrincipal(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Database Principal
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        rg = azure.core.ResourceGroup("rg", location="East US")
+        cluster = azure.kusto.Cluster("cluster",
+            location=rg.location,
+            resource_group_name=rg.name,
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
+        database = azure.kusto.Database("database",
+            resource_group_name=rg.name,
+            location=rg.location,
+            cluster_name=cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        principal = azure.kusto.DatabasePrincipal("principal",
+            resource_group_name=rg.name,
+            cluster_name=cluster.name,
+            database_name=azurerm_kusto_database["test"]["name"],
+            role="Viewer",
+            type="User",
+            client_id=current.tenant_id,
+            object_id=current.client_id)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -30,6 +30,22 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
         """
         Manages an Application Security Group.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_application_security_group = azure.network.ApplicationSecurityGroup("exampleApplicationSecurityGroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Hello": "World",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,30 @@ import * as utilities from "../utilities";
 /**
  * Manages a PostgreSQL Dataset inside a Azure Data Factory.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedServicePostgresql = new azure.datafactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
+ * });
+ * const exampleDatasetPostgresql = new azure.datafactory.DatasetPostgresql("exampleDatasetPostgresql", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     linkedServiceName: exampleLinkedServicePostgresql.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_postgresql.html.markdown.
  */

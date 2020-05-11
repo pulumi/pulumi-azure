@@ -39,6 +39,22 @@ class PTRRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS PTR Records within Azure Private DNS.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_ptr_record = azure.privatedns.PTRRecord("examplePTRRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=["test.example.com"])
+        ```
 
 
         :param str resource_name: The name of the resource.

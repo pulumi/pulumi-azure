@@ -62,6 +62,17 @@ def get_management_group(group_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
+    pulumi.export("displayName", example.display_name)
+    ```
 
 
     Deprecated: azure.managementgroups.getManagementGroup has been deprecated in favour of azure.management.getGroup

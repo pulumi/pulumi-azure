@@ -65,6 +65,30 @@ class SpringCloudService(pulumi.CustomResource):
         """
         Manages an Azure Spring Cloud Service.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="Southeast Asia")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            config_server_git_setting={
+                "uri": "https://github.com/Azure-Samples/piggymetrics",
+                "label": "config",
+                "searchPaths": [
+                    "dir1",
+                    "dir2",
+                ],
+            },
+            tags={
+                "Env": "staging",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

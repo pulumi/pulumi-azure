@@ -8,6 +8,57 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a NetApp Volume.
+ * 
+ * ## NetApp Volume Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ *     delegation: [{
+ *         name: "netapp",
+ *         service_delegation: {
+ *             name: "Microsoft.Netapp/volumes",
+ *             actions: [
+ *                 "Microsoft.Network/networkinterfaces/*",
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * const exampleAccount = new azure.netapp.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePool = new azure.netapp.Pool("examplePool", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     serviceLevel: "Premium",
+ *     sizeInTb: 4,
+ * });
+ * const exampleVolume = new azure.netapp.Volume("exampleVolume", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     poolName: examplePool.name,
+ *     volumePath: "my-unique-file-path",
+ *     serviceLevel: "Premium",
+ *     subnetId: exampleSubnet.id,
+ *     protocols: ["NFSv4.1"],
+ *     storageQuotaInGb: 100,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_volume.html.markdown.
  */

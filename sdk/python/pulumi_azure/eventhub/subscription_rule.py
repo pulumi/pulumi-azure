@@ -61,6 +61,73 @@ class SubscriptionRule(pulumi.CustomResource):
         """
         Manages a ServiceBus Subscription Rule.
 
+        ## Example Usage (SQL Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            topic_name=example_topic.name,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            topic_name=example_topic.name,
+            subscription_name=example_subscription.name,
+            filter_type="SqlFilter",
+            sql_filter="colour = 'red'")
+        ```
+
+        ## Example Usage (Correlation Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            topic_name=example_topic.name,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("exampleSubscriptionRule",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            topic_name=example_topic.name,
+            subscription_name=example_subscription.name,
+            filter_type="CorrelationFilter",
+            correlation_filter={
+                "correlationId": "high",
+                "label": "red",
+            })
+        ```
+
         Deprecated: azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule
 
         :param str resource_name: The name of the resource.

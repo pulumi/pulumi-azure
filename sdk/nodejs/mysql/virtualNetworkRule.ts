@@ -11,6 +11,46 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** MySQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/mysql/concepts-data-access-and-security-vnet)
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const internal = new azure.network.Subnet("internal", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.7.29.0/29",
+ *     serviceEndpoints: ["Microsoft.Sql"],
+ * });
+ * const exampleServer = new azure.mysql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     administratorLogin: "mysqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     version: "5.7",
+ *     sslEnforcement: "Enabled",
+ *     skuName: "GP_Gen5_2",
+ *     storage_profile: {
+ *         storageMb: 5120,
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ * });
+ * const exampleVirtualNetworkRule = new azure.mysql.VirtualNetworkRule("exampleVirtualNetworkRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     subnetId: internal.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_virtual_network_rule.html.markdown.
  */

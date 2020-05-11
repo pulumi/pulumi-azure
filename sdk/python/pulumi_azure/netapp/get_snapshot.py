@@ -59,6 +59,20 @@ def get_snapshot(account_name=None,name=None,pool_name=None,resource_group_name=
     """
     Uses this data source to access information about an existing NetApp Snapshot.
 
+    ## NetApp Snapshot Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.netapp.get_snapshot(resource_group_name="acctestRG",
+        name="acctestnetappsnapshot",
+        account_name="acctestnetappaccount",
+        pool_name="acctestnetapppool",
+        volume_name="acctestnetappvolume")
+    pulumi.export("netappSnapshotId", data["netapp.Snapshot"]["example"]["id"])
+    ```
+
 
     :param str account_name: The name of the NetApp Account where the NetApp Pool exists.
     :param str name: The name of the NetApp Snapshot.

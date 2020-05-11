@@ -67,6 +67,29 @@ class Server(pulumi.CustomResource):
         """
         Manages a MySQL Server.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mysql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="B_Gen5_2",
+            storage_profile={
+                "storageMb": 5120,
+                "backupRetentionDays": 7,
+                "geoRedundantBackup": "Disabled",
+            },
+            administrator_login="mysqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            version="5.7",
+            ssl_enforcement="Enabled")
+        ```
 
 
         :param str resource_name: The name of the resource.

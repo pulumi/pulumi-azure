@@ -75,6 +75,18 @@ def get_availability_set(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Availability Set.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_availability_set(name="tf-appsecuritygroup",
+        resource_group_name="my-resource-group")
+    pulumi.export("availabilitySetId", example.id)
+    ```
 
 
 

@@ -9,6 +9,47 @@ import * as utilities from "../utilities";
 /**
  * Create a failover group of databases on a collection of Azure SQL servers.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "uksouth"});
+ * const primary = new azure.sql.SqlServer("primary", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "sqladmin",
+ *     administratorLoginPassword: `pa$$w0rd`,
+ * });
+ * const secondary = new azure.sql.SqlServer("secondary", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "northeurope",
+ *     version: "12.0",
+ *     administratorLogin: "sqladmin",
+ *     administratorLoginPassword: `pa$$w0rd`,
+ * });
+ * const db1 = new azure.sql.Database("db1", {
+ *     resourceGroupName: primary.resourceGroupName,
+ *     location: primary.location,
+ *     serverName: primary.name,
+ * });
+ * const exampleFailoverGroup = new azure.sql.FailoverGroup("exampleFailoverGroup", {
+ *     resourceGroupName: primary.resourceGroupName,
+ *     serverName: primary.name,
+ *     databases: [db1.id],
+ *     partner_servers: [{
+ *         id: secondary.id,
+ *     }],
+ *     read_write_endpoint_failover_policy: {
+ *         mode: "Automatic",
+ *         graceMinutes: 60,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
  */

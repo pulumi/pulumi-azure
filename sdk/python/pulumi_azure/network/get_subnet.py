@@ -93,6 +93,19 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_subnet(name="backend",
+        virtual_network_name="production",
+        resource_group_name="networking")
+    pulumi.export("subnetId", example.id)
+    ```
 
 
 

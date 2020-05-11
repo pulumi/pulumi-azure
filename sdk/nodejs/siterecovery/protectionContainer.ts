@@ -7,6 +7,32 @@ import * as utilities from "../utilities";
 /**
  * Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const primary = new azure.core.ResourceGroup("primary", {location: "West US"});
+ * const secondary = new azure.core.ResourceGroup("secondary", {location: "East US"});
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: secondary.location,
+ *     resourceGroupName: secondary.name,
+ *     sku: "Standard",
+ * });
+ * const fabric = new azure.siterecovery.Fabric("fabric", {
+ *     resourceGroupName: secondary.name,
+ *     recoveryVaultName: vault.name,
+ *     location: primary.location,
+ * });
+ * const protection-container = new azure.siterecovery.ProtectionContainer("protection-container", {
+ *     resourceGroupName: secondary.name,
+ *     recoveryVaultName: vault.name,
+ *     recoveryFabricName: fabric.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container.html.markdown.
  */

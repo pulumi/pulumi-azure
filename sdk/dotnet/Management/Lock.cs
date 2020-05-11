@@ -60,7 +60,11 @@ namespace Pulumi.Azure.Management
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:managementresource/manangementLock:ManangementLock"} },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azure:managementresource/manangementLock:ManangementLock"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

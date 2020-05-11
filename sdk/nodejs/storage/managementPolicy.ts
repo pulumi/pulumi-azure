@@ -9,6 +9,67 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Storage Account Management Policy.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westus"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "BlobStorage",
+ * });
+ * const exampleManagementPolicy = new azure.storage.ManagementPolicy("exampleManagementPolicy", {
+ *     storageAccountId: exampleAccount.id,
+ *     rule: [
+ *         {
+ *             name: "rule1",
+ *             enabled: true,
+ *             filters: {
+ *                 prefixMatches: ["container1/prefix1"],
+ *                 blobTypes: ["blockBlob"],
+ *             },
+ *             actions: {
+ *                 base_blob: {
+ *                     tierToCoolAfterDaysSinceModificationGreaterThan: 10,
+ *                     tierToArchiveAfterDaysSinceModificationGreaterThan: 50,
+ *                     deleteAfterDaysSinceModificationGreaterThan: 100,
+ *                 },
+ *                 snapshot: {
+ *                     deleteAfterDaysSinceCreationGreaterThan: 30,
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             name: "rule2",
+ *             enabled: false,
+ *             filters: {
+ *                 prefixMatches: [
+ *                     "container2/prefix1",
+ *                     "container2/prefix2",
+ *                 ],
+ *                 blobTypes: ["blockBlob"],
+ *             },
+ *             actions: {
+ *                 base_blob: {
+ *                     tierToCoolAfterDaysSinceModificationGreaterThan: 11,
+ *                     tierToArchiveAfterDaysSinceModificationGreaterThan: 51,
+ *                     deleteAfterDaysSinceModificationGreaterThan: 101,
+ *                 },
+ *                 snapshot: {
+ *                     deleteAfterDaysSinceCreationGreaterThan: 31,
+ *                 },
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
  */

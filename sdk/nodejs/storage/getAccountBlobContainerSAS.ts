@@ -11,6 +11,49 @@ import * as utilities from "../utilities";
  * 
  * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {location: "westus"});
+ * const storage = new azure.storage.Account("storage", {
+ *     resourceGroupName: rg.name,
+ *     location: rg.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const container = new azure.storage.Container("container", {
+ *     resourceGroupName: rg.name,
+ *     storageAccountName: storage.name,
+ *     containerAccessType: "private",
+ * });
+ * const example = pulumi.all([storage.primaryConnectionString, container.name]).apply(([primaryConnectionString, name]) => azure.storage.getAccountBlobContainerSAS({
+ *     connectionString: primaryConnectionString,
+ *     containerName: name,
+ *     httpsOnly: true,
+ *     ipAddress: "168.1.5.65",
+ *     start: "2018-03-21",
+ *     expiry: "2018-03-21",
+ *     permissions: {
+ *         read: true,
+ *         add: true,
+ *         create: false,
+ *         write: false,
+ *         "delete": true,
+ *         list: true,
+ *     },
+ *     cacheControl: "max-age=5",
+ *     contentDisposition: "inline",
+ *     contentEncoding: "deflate",
+ *     contentLanguage: "en-US",
+ *     contentType: "application/json",
+ * }));
+ * export const sasUrlQueryString = example.sas;
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
  */

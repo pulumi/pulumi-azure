@@ -54,6 +54,35 @@ class NatGateway(pulumi.CustomResource):
         """
         Manages a Azure NAT Gateway.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus2")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard",
+            zones=["1"])
+        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            prefix_length=30,
+            zones=["1"])
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            public_ip_address_ids=[example_public_ip.id],
+            public_ip_prefix_ids=[example_public_ip_prefix.id],
+            sku_name="Standard",
+            idle_timeout_in_minutes=10,
+            zones=["1"])
+        ```
 
 
         :param str resource_name: The name of the resource.

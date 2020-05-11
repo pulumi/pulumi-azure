@@ -184,6 +184,65 @@ class VirtualMachine(pulumi.CustomResource):
 
         > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
+        ## Example Usage (from an Azure Platform Image)
+
+        This example provisions a Virtual Machine with Managed Disks.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        config = pulumi.Config()
+        prefix = config.get("prefix")
+        if prefix is None:
+            prefix = "tfvmex"
+        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West US 2")
+        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=main_resource_group.location,
+            resource_group_name=main_resource_group.name)
+        internal = azure.network.Subnet("internal",
+            resource_group_name=main_resource_group.name,
+            virtual_network_name=main_virtual_network.name,
+            address_prefix="10.0.2.0/24")
+        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
+            location=main_resource_group.location,
+            resource_group_name=main_resource_group.name,
+            ip_configuration=[{
+                "name": "testconfiguration1",
+                "subnetId": internal.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
+        main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
+            location=main_resource_group.location,
+            resource_group_name=main_resource_group.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_DS1_v2",
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "UbuntuServer",
+                "sku": "16.04-LTS",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "myosdisk1",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Standard_LRS",
+            },
+            os_profile={
+                "computerName": "hostname",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            },
+            tags={
+                "environment": "staging",
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block.

@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service Certificate Order.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCertificateOrder = new azure.appservice.CertificateOrder("exampleCertificateOrder", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "global",
+ *     distinguishedName: "CN=example.com",
+ *     productType: "Standard",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
  */

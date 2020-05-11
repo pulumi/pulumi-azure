@@ -7,6 +7,35 @@ import * as utilities from "../utilities";
 /**
  * Manages a PostgreSQL Database within a PostgreSQL Server
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.postgresql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "B_Gen5_2",
+ *     storageMb: 5120,
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackupEnabled: false,
+ *     autoGrowEnabled: true,
+ *     administratorLogin: "psqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     version: "9.5",
+ *     sslEnforcementEnabled: true,
+ * });
+ * const exampleDatabase = new azure.postgresql.Database("exampleDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     charset: "UTF8",
+ *     collation: "English_United States.1252",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_database.html.markdown.
  */

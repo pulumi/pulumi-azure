@@ -72,6 +72,19 @@ def get_project(name=None,resource_group_name=None,service_name=None,opts=None):
     """
     Use this data source to access information about an existing Database Migration Project.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databasemigration.get_project(name="example-dbms-project",
+        resource_group_name="example-rg",
+        service_name="example-dbms")
+    pulumi.export("name", example.name)
+    ```
 
 
 

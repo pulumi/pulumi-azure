@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Maps Account.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.maps.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "S1",
+ *     tags: {
+ *         environment: "Test",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/maps_account.html.markdown.
  */

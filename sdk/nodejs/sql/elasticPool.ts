@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azure.mssql.ElasticPool version instead.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * const exampleElasticPool = new azure.sql.ElasticPool("exampleElasticPool", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     serverName: exampleSqlServer.name,
+ *     edition: "Basic",
+ *     dtu: 50,
+ *     dbDtuMin: 0,
+ *     dbDtuMax: 5,
+ *     poolSize: 5000,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
  */

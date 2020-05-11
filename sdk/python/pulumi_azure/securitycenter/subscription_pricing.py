@@ -22,6 +22,16 @@ class SubscriptionPricing(pulumi.CustomResource):
 
         > **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.SubscriptionPricing("example", tier="Standard")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,30 @@ import * as utilities from "../utilities";
 /**
  * Manages an IotHub Device Provisioning Service Shared Access Policy
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleIotHubDps = new azure.iot.IotHubDps("exampleIotHubDps", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "S1",
+ *         capacity: "1",
+ *     },
+ * });
+ * const exampleDpsSharedAccessPolicy = new azure.iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     iothubDpsName: exampleIotHubDps.name,
+ *     enrollmentWrite: true,
+ *     enrollmentRead: true,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_shared_access_policy.html.markdown.
  */

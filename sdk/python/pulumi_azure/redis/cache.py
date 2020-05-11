@@ -122,6 +122,26 @@ class Cache(pulumi.CustomResource):
         """
         Manages a Redis Cache.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        # NOTE: the Name used for Redis needs to be globally unique
+        example_cache = azure.redis.Cache("exampleCache",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            capacity=2,
+            family="C",
+            sku_name="Standard",
+            enable_non_ssl_port=False,
+            minimum_tls_version="1.2",
+            redis_configuration={})
+        ```
 
         ## Default Redis Configuration Values
 

@@ -14,6 +14,91 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ip_configuration: [{
+ *         name: "testconfiguration1",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     vmSize: "Standard_F2",
+ *     storage_image_reference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storage_os_disk: {
+ *         name: "myosdisk1",
+ *         vhdUri: pulumi.interpolate`${exampleAccount.primaryBlobEndpoint}${exampleContainer.name}/myosdisk1.vhd`,
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *     },
+ *     os_profile: {
+ *         computerName: "hostname",
+ *         adminUsername: "testadmin",
+ *         adminPassword: "Password1234!",
+ *     },
+ *     os_profile_linux_config: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const exampleExtension = new azure.compute.Extension("exampleExtension", {
+ *     virtualMachineId: exampleVirtualMachine.id,
+ *     publisher: "Microsoft.Azure.Extensions",
+ *     type: "CustomScript",
+ *     typeHandlerVersion: "2.0",
+ *     settings: `	{
+ * 		"commandToExecute": "hostname && uptime"
+ * 	}
+ * `,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
  */

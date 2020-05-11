@@ -93,6 +93,19 @@ def get_product(api_management_name=None,product_id=None,resource_group_name=Non
     """
     Use this data source to access information about an existing API Management Product.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_product(product_id="my-product",
+        api_management_name="example-apim",
+        resource_group_name="search-service")
+    pulumi.export("productTerms", example.terms)
+    ```
 
 
 

@@ -42,6 +42,24 @@ class Pool(pulumi.CustomResource):
         """
         Manages a Pool within a NetApp Account.
 
+        ## NetApp Pool Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            account_name=example_account.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_level="Premium",
+            size_in_tb=4)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.

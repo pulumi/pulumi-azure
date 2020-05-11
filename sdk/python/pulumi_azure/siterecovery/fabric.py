@@ -30,6 +30,25 @@ class Fabric(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery Replication Fabric within a Recovery Services vault. Only Azure fabrics are supported at this time. Replication Fabrics serve as a container within an Azure region for other Site Recovery resources such as protection containers, protected items, network mappings.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.ResourceGroup("primary", location="West US")
+        secondary = azure.core.ResourceGroup("secondary", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
+            sku="Standard")
+        fabric = azure.siterecovery.Fabric("fabric",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            location=primary.location)
+        ```
 
 
         :param str resource_name: The name of the resource.

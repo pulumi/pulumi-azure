@@ -7,6 +7,45 @@ import * as utilities from "../utilities";
 /**
  * Enables you to manage DNS A Records within Azure DNS.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleARecord = new azure.dns.ARecord("exampleARecord", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     records: ["10.0.180.17"],
+ * });
+ * ```
+ * 
+ * ## Example Usage (Alias Record)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Dynamic",
+ *     ipVersion: "IPv4",
+ * });
+ * const exampleARecord = new azure.dns.ARecord("exampleARecord", {
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     targetResourceId: examplePublicIp.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_a_record.html.markdown.
  */

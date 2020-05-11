@@ -39,6 +39,25 @@ class AAAARecord(pulumi.CustomResource):
         """
         Enables you to manage DNS AAAA Records within Azure Private DNS.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West US")
+        test_zone = azure.privatedns.Zone("testZone", resource_group_name=test_resource_group.name)
+        test_aaaa_record = azure.privatedns.AAAARecord("testAAAARecord",
+            zone_name=test_zone.name,
+            resource_group_name=test_resource_group.name,
+            ttl=300,
+            records=[
+                "fd5d:70bc:930e:d008:0000:0000:0000:7334",
+                "fd5d:70bc:930e:d008::7335",
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -54,6 +54,29 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+            namespace_name=example_namespace.name,
+            resource_group_name=example_resource_group.name,
+            listen=True,
+            send=True,
+            manage=False)
+        ```
 
 
         :param str resource_name: The name of the resource.

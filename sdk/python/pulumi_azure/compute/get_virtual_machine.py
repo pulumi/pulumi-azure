@@ -40,6 +40,18 @@ def get_virtual_machine(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Machine.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_virtual_machine(name="production",
+        resource_group_name="networking")
+    pulumi.export("virtualMachineId", example.id)
+    ```
 
 
 

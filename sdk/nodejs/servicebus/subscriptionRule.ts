@@ -8,6 +8,81 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Subscription Rule.
+ * 
+ * ## Example Usage (SQL Filter)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ *     enablePartitioning: true,
+ * });
+ * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ *     topicName: exampleTopic.name,
+ *     maxDeliveryCount: 1,
+ * });
+ * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("exampleSubscriptionRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ *     topicName: exampleTopic.name,
+ *     subscriptionName: exampleSubscription.name,
+ *     filterType: "SqlFilter",
+ *     sqlFilter: "colour = 'red'",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Correlation Filter)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ *     enablePartitioning: true,
+ * });
+ * const exampleSubscription = new azure.servicebus.Subscription("exampleSubscription", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ *     topicName: exampleTopic.name,
+ *     maxDeliveryCount: 1,
+ * });
+ * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("exampleSubscriptionRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: exampleNamespace.name,
+ *     topicName: exampleTopic.name,
+ *     subscriptionName: exampleSubscription.name,
+ *     filterType: "CorrelationFilter",
+ *     correlation_filter: {
+ *         correlationId: "high",
+ *         label: "red",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
  */

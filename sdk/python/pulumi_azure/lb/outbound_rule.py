@@ -55,6 +55,38 @@ class OutboundRule(pulumi.CustomResource):
 
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location="West US",
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            location="West US",
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configuration=[{
+                "name": "PublicIPAddress",
+                "publicIpAddressId": example_public_ip.id,
+            }])
+        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool",
+            resource_group_name=example_resource_group.name,
+            loadbalancer_id=example_load_balancer.id)
+        example_outbound_rule = azure.lb.OutboundRule("exampleOutboundRule",
+            resource_group_name=example_resource_group.name,
+            loadbalancer_id=example_load_balancer.id,
+            protocol="Tcp",
+            backend_address_pool_id=example_backend_address_pool.id,
+            frontend_ip_configuration=[{
+                "name": "PublicIPAddress",
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

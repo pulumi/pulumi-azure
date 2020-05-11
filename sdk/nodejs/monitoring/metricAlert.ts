@@ -9,6 +9,50 @@ import * as utilities from "../utilities";
 /**
  * Manages a Metric Alert within Azure Monitor.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West US"});
+ * const toMonitor = new azure.storage.Account("toMonitor", {
+ *     resourceGroupName: mainResourceGroup.name,
+ *     location: mainResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
+ *     resourceGroupName: mainResourceGroup.name,
+ *     shortName: "exampleact",
+ *     webhook_receiver: [{
+ *         name: "callmyapi",
+ *         serviceUri: "http://example.com/alert",
+ *     }],
+ * });
+ * const example = new azure.monitoring.MetricAlert("example", {
+ *     resourceGroupName: mainResourceGroup.name,
+ *     scopes: [toMonitor.id],
+ *     description: "Action will be triggered when Transactions count is greater than 50.",
+ *     criteria: [{
+ *         metricNamespace: "Microsoft.Storage/storageAccounts",
+ *         metricName: "Transactions",
+ *         aggregation: "Total",
+ *         operator: "GreaterThan",
+ *         threshold: 50,
+ *         dimension: [{
+ *             name: "ApiName",
+ *             operator: "Include",
+ *             values: ["*"],
+ *         }],
+ *     }],
+ *     action: [{
+ *         actionGroupId: mainActionGroup.id,
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
  */

@@ -74,6 +74,24 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         """
         Manages an Azure Data Factory Managed Integration Runtime.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged",
+            data_factory_name=example_factory.name,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            node_size="Standard_D8_v3")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -22,6 +22,45 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         """
         Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="uksouth")
+        test_virtual_network = azure.network.VirtualNetwork("testVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name)
+        test1 = azure.network.Subnet("test1",
+            resource_group_name=test_resource_group.name,
+            virtual_network_name=test_virtual_network.name,
+            address_prefix="10.0.1.0/24",
+            delegation=[{
+                "name": "acctestdelegation",
+                "service_delegation": {
+                    "name": "Microsoft.Web/serverFarms",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
+                },
+            }])
+        test_plan = azure.appservice.Plan("testPlan",
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name,
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
+        test_app_service = azure.appservice.AppService("testAppService",
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name,
+            app_service_plan_id=test_plan.id)
+        test_virtual_network_swift_connection = azure.appservice.VirtualNetworkSwiftConnection("testVirtualNetworkSwiftConnection",
+            app_service_id=test_app_service.id,
+            subnet_id=test1.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

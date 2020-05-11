@@ -76,6 +76,19 @@ def get_api_version_set(api_management_name=None,name=None,resource_group_name=N
     """
     Uses this data source to access information about an API Version Set within an API Management Service.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_api_version_set(resource_group_name="example-resources",
+        api_management_name="example-api",
+        name="example-api-version-set")
+    pulumi.export("apiManagementApiVersionSetId", example.id)
+    ```
 
 
 

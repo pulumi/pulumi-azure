@@ -89,6 +89,39 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_enabled=True,
+            purge_protection_enabled=False,
+            sku_name="standard",
+            access_policy=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": ["get"],
+                "secretPermissions": ["get"],
+                "storagePermissions": ["get"],
+            }],
+            network_acls={
+                "defaultAction": "Deny",
+                "bypass": "AzureServices",
+            },
+            tags={
+                "environment": "Testing",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

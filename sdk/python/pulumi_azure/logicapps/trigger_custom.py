@@ -26,6 +26,29 @@ class TriggerCustom(pulumi.CustomResource):
         """
         Manages a Custom Trigger within a Logic App Workflow
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_custom = azure.logicapps.TriggerCustom("exampleTriggerCustom",
+            logic_app_id=example_workflow.id,
+            body=\"\"\"{
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1
+          },
+          "type": "Recurrence"
+        }
+        \"\"\")
+        ```
 
 
         :param str resource_name: The name of the resource.

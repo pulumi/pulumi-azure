@@ -59,6 +59,19 @@ def get_consume_group(eventhub_name=None,name=None,namespace_name=None,resource_
     """
     Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    test = azure.eventhub.get_consume_group(eventhub_name=azurerm_eventhub["test"]["name"],
+        name=azurerm_eventhub_consumer_group["test"]["name"],
+        namespace_name=azurerm_eventhub_namespace["test"]["name"],
+        resource_group_name=azurerm_resource_group["test"]["name"])
+    ```
 
 
 

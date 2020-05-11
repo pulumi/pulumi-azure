@@ -82,6 +82,19 @@ def get_express_route_circuit(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing ExpressRoute circuit.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_express_route_circuit(resource_group_name=azurerm_resource_group["example"]["name"],
+        name=azurerm_express_route_circuit["example"]["name"])
+    pulumi.export("expressRouteCircuitId", example.id)
+    pulumi.export("serviceKey", example.service_key)
+    ```
 
 
 

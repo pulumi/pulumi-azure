@@ -28,6 +28,18 @@ class SourceCodeToken(pulumi.CustomResource):
 
         > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.appservice.SourceCodeToken("example",
+            token="7e57735e77e577e57",
+            type="GitHub")
+        ```
 
 
         :param str resource_name: The name of the resource.

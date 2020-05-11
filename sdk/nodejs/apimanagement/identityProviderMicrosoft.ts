@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Microsoft Identity Provider.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@mycompany.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleIdentityProviderMicrosoft = new azure.apimanagement.IdentityProviderMicrosoft("exampleIdentityProviderMicrosoft", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     clientId: "00000000-0000-0000-0000-000000000000",
+ *     clientSecret: "00000000000000000000000000000000",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_microsoft.html.markdown.
  */

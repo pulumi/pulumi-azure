@@ -51,6 +51,19 @@ def get_service_tags(location=None,location_filter=None,service=None,opts=None):
     """
     Use this data source to access information about Service Tags.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_service_tags(location="West Europe",
+        service="AzureKeyVault",
+        location_filter="northeurope")
+    pulumi.export("addressPrefixes", data["azurerm_service_tags"]["example"]["address_prefixes"])
+    ```
 
 
 

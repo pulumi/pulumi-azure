@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Service Diagnostic.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
+ * const testService = new azure.apimanagement.Service("testService", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@mycompany.io",
+ *     skuName: "Developer_1",
+ * });
+ * const testDiagnostic = new azure.apimanagement.Diagnostic("testDiagnostic", {
+ *     identifier: "applicationinsights",
+ *     resourceGroupName: testResourceGroup.name,
+ *     apiManagementName: testService.name,
+ *     enabled: true,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_diagnostic.html.markdown.
  */

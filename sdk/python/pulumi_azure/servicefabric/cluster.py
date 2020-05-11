@@ -146,6 +146,31 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Service Fabric Cluster.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.servicefabric.Cluster("exampleCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            reliability_level="Bronze",
+            upgrade_mode="Manual",
+            cluster_code_version="6.5.639.9590",
+            vm_image="Windows",
+            management_endpoint="https://example:80",
+            node_type=[{
+                "name": "first",
+                "instanceCount": 3,
+                "isPrimary": True,
+                "clientEndpointPort": 2020,
+                "httpEndpointPort": 80,
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

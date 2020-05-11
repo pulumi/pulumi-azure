@@ -54,6 +54,53 @@ class EventhubDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="East US")
+        cluster = azure.kusto.Cluster("cluster",
+            location=rg.location,
+            resource_group_name=rg.name,
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
+        database = azure.kusto.Database("database",
+            resource_group_name=rg.name,
+            location=rg.location,
+            cluster_name=cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        eventhub_ns = azure.eventhub.EventHubNamespace("eventhubNs",
+            location=rg.location,
+            resource_group_name=rg.name,
+            sku="Standard")
+        eventhub = azure.eventhub.EventHub("eventhub",
+            namespace_name=eventhub_ns.name,
+            resource_group_name=rg.name,
+            partition_count=1,
+            message_retention=1)
+        consumer_group = azure.eventhub.ConsumerGroup("consumerGroup",
+            namespace_name=eventhub_ns.name,
+            eventhub_name=eventhub.name,
+            resource_group_name=rg.name)
+        eventhub_connection = azure.kusto.EventhubDataConnection("eventhubConnection",
+            resource_group_name=rg.name,
+            location=rg.location,
+            cluster_name=cluster.name,
+            database_name=database.name,
+            eventhub_id=azurerm_eventhub["evenhub"]["id"],
+            consumer_group=consumer_group.name,
+            table_name="my-table",
+            mapping_rule_name="my-table-mapping",
+            data_format="JSON")
+        #(Optional)
+        ```
 
 
         :param str resource_name: The name of the resource.

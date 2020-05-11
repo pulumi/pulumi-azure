@@ -9,6 +9,114 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Front Door Web Application Firewall Policy instance.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
+ * const exampleFirewallPolicy = new azure.frontdoor.FirewallPolicy("exampleFirewallPolicy", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     enabled: true,
+ *     mode: "Prevention",
+ *     redirectUrl: "https://www.contoso.com",
+ *     customBlockResponseStatusCode: 403,
+ *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+ *     custom_rule: [
+ *         {
+ *             name: "Rule1",
+ *             enabled: true,
+ *             priority: 1,
+ *             rateLimitDurationInMinutes: 1,
+ *             rateLimitThreshold: 10,
+ *             type: "MatchRule",
+ *             action: "Block",
+ *             match_condition: [{
+ *                 matchVariable: "RemoteAddr",
+ *                 operator: "IPMatch",
+ *                 negationCondition: false,
+ *                 matchValues: [
+ *                     "192.168.1.0/24",
+ *                     "10.0.0.0/24",
+ *                 ],
+ *             }],
+ *         },
+ *         {
+ *             name: "Rule2",
+ *             enabled: true,
+ *             priority: 2,
+ *             rateLimitDurationInMinutes: 1,
+ *             rateLimitThreshold: 10,
+ *             type: "MatchRule",
+ *             action: "Block",
+ *             match_condition: [
+ *                 {
+ *                     matchVariable: "RemoteAddr",
+ *                     operator: "IPMatch",
+ *                     negationCondition: false,
+ *                     matchValues: ["192.168.1.0/24"],
+ *                 },
+ *                 {
+ *                     matchVariable: "RequestHeader",
+ *                     selector: "UserAgent",
+ *                     operator: "Contains",
+ *                     negationCondition: false,
+ *                     matchValues: ["windows"],
+ *                     transforms: [
+ *                         "Lowercase",
+ *                         "Trim",
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     managed_rule: [
+ *         {
+ *             type: "DefaultRuleSet",
+ *             version: "1.0",
+ *             exclusion: [{
+ *                 matchVariable: "QueryStringArgNames",
+ *                 operator: "Equals",
+ *                 selector: "notSuspicious",
+ *             }],
+ *             override: [
+ *                 {
+ *                     ruleGroupName: "PHP",
+ *                     rule: [{
+ *                         ruleId: "933100",
+ *                         enabled: false,
+ *                         action: "Block",
+ *                     }],
+ *                 },
+ *                 {
+ *                     ruleGroupName: "SQLI",
+ *                     exclusion: [{
+ *                         matchVariable: "QueryStringArgNames",
+ *                         operator: "Equals",
+ *                         selector: "reallyNotSuspicious",
+ *                     }],
+ *                     rule: [{
+ *                         ruleId: "942200",
+ *                         action: "Block",
+ *                         exclusion: [{
+ *                             matchVariable: "QueryStringArgNames",
+ *                             operator: "Equals",
+ *                             selector: "innocent",
+ *                         }],
+ *                     }],
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             type: "Microsoft_BotManagerRuleSet",
+ *             version: "1.0",
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor_firewall_policy.html.markdown.
  */

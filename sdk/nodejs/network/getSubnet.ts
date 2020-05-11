@@ -9,6 +9,21 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Subnet within a Virtual Network.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.network.getSubnet({
+ *     name: "backend",
+ *     virtualNetworkName: "production",
+ *     resourceGroupName: "networking",
+ * });
+ * export const subnetId = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
  */

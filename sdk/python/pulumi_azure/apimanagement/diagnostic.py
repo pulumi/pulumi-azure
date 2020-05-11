@@ -30,6 +30,27 @@ class Diagnostic(pulumi.CustomResource):
         """
         Manages an API Management Service Diagnostic.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
+        test_service = azure.apimanagement.Service("testService",
+            location=test_resource_group.location,
+            resource_group_name=test_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@mycompany.io",
+            sku_name="Developer_1")
+        test_diagnostic = azure.apimanagement.Diagnostic("testDiagnostic",
+            identifier="applicationinsights",
+            resource_group_name=test_resource_group.name,
+            api_management_name=test_service.name,
+            enabled=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

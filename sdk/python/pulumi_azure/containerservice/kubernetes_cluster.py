@@ -204,6 +204,33 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            dns_prefix="exampleaks1",
+            default_node_pool={
+                "name": "default",
+                "nodeCount": 1,
+                "vmSize": "Standard_D2_v2",
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
+            tags={
+                "Environment": "Production",
+            })
+        pulumi.export("clientCertificate", example_kubernetes_cluster.kube_configs[0]["clientCertificate"])
+        pulumi.export("kubeConfig", example_kubernetes_cluster.kube_config_raw)
+        ```
 
 
         :param str resource_name: The name of the resource.

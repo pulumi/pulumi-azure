@@ -108,6 +108,61 @@ class SparkCluster(pulumi.CustomResource):
         """
         Manages a HDInsight Spark Cluster.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            resource_group_name=example_resource_group.name,
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_spark_cluster = azure.hdinsight.SparkCluster("exampleSparkCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_version="3.6",
+            tier="Standard",
+            component_version={
+                "spark": "2.3",
+            },
+            gateway={
+                "enabled": True,
+                "username": "acctestusrgw",
+                "password": "Password123!",
+            },
+            storage_account=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "head_node": {
+                    "vmSize": "Standard_A3",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "worker_node": {
+                    "vmSize": "Standard_A3",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "targetInstanceCount": 3,
+                },
+                "zookeeper_node": {
+                    "vmSize": "Medium",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

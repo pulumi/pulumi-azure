@@ -35,6 +35,28 @@ class ProductPolicy(pulumi.CustomResource):
         Manages an API Management Product Policy
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_product = azure.apimanagement.get_product(product_id="my-product",
+            api_management_name="example-apim",
+            resource_group_name="search-service")
+        example_product_policy = azure.apimanagement.ProductPolicy("exampleProductPolicy",
+            product_id=example_product.product_id,
+            api_management_name=example_product.api_management_name,
+            resource_group_name=example_product.resource_group_name,
+            xml_content=\"\"\"<policies>
+          <inbound>
+            <find-and-replace from="xyz" to="abc" />
+          </inbound>
+        </policies>
+        \"\"\")
+        ```
 
 
         :param str resource_name: The name of the resource.

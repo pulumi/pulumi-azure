@@ -9,6 +9,47 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Namespace Network Rule Set Set.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Premium",
+ *     capacity: 1,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["172.17.0.0/16"],
+ *     dnsServers: [
+ *         "10.0.0.4",
+ *         "10.0.0.5",
+ *     ],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "172.17.0.0/24",
+ *     serviceEndpoints: ["Microsoft.ServiceBus"],
+ * });
+ * const exampleNamespaceNetworkRuleSet = new azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", {
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     defaultAction: "Deny",
+ *     network_rules: [{
+ *         subnetId: exampleSubnet.id,
+ *         ignoreMissingVnetServiceEndpoint: false,
+ *     }],
+ *     ipRules: ["1.1.1.1"],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_network_rule_set.html.markdown.
  */

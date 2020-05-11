@@ -35,6 +35,34 @@ class Database(pulumi.CustomResource):
         """
         Manages a MariaDB Database within a MariaDB Server
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_server = azure.mariadb.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="B_Gen5_2",
+            storage_profile={
+                "storageMb": 51200,
+                "backupRetentionDays": 7,
+                "geoRedundantBackup": "Disabled",
+            },
+            administrator_login="acctestun",
+            administrator_login_password="H@Sh1CoR3!",
+            version="10.2",
+            ssl_enforcement="Enabled")
+        example_database = azure.mariadb.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            charset="utf8",
+            collation="utf8_general_ci")
+        ```
 
 
         :param str resource_name: The name of the resource.

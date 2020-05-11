@@ -9,6 +9,76 @@ import * as utilities from "../utilities";
 /**
  * Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
+ * // ...
+ * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     targetResourceId: exampleScaleSet.id,
+ *     profile: [{
+ *         name: "defaultProfile",
+ *         capacity: {
+ *             "default": 1,
+ *             minimum: 1,
+ *             maximum: 10,
+ *         },
+ *         rule: [
+ *             {
+ *                 metric_trigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "GreaterThan",
+ *                     threshold: 75,
+ *                 },
+ *                 scale_action: {
+ *                     direction: "Increase",
+ *                     type: "ChangeCount",
+ *                     value: "1",
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *             {
+ *                 metric_trigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "LessThan",
+ *                     threshold: 25,
+ *                 },
+ *                 scale_action: {
+ *                     direction: "Decrease",
+ *                     type: "ChangeCount",
+ *                     value: "1",
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *         ],
+ *     }],
+ *     notification: {
+ *         email: {
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *             customEmails: ["admin@contoso.com"],
+ *         },
+ *     },
+ * });
+ * ```
  * 
  * ## Example Usage (repeating on weekends)
  * 
@@ -87,6 +157,81 @@ import * as utilities from "../utilities";
  *     }],
  *     resourceGroupName: exampleResourceGroup.name,
  *     targetResourceId: exampleScaleSet.id,
+ * });
+ * ```
+ * 
+ * ## Example Usage (for fixed dates)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
+ * // ...
+ * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
+ *     enabled: true,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     targetResourceId: exampleScaleSet.id,
+ *     profile: [{
+ *         name: "forJuly",
+ *         capacity: {
+ *             "default": 1,
+ *             minimum: 1,
+ *             maximum: 10,
+ *         },
+ *         rule: [
+ *             {
+ *                 metric_trigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "GreaterThan",
+ *                     threshold: 90,
+ *                 },
+ *                 scale_action: {
+ *                     direction: "Increase",
+ *                     type: "ChangeCount",
+ *                     value: "2",
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *             {
+ *                 metric_trigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "LessThan",
+ *                     threshold: 10,
+ *                 },
+ *                 scale_action: {
+ *                     direction: "Decrease",
+ *                     type: "ChangeCount",
+ *                     value: "2",
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *         ],
+ *         fixed_date: {
+ *             timezone: "Pacific Standard Time",
+ *             start: "2020-07-01T00:00:00Z",
+ *             end: "2020-07-31T23:59:59Z",
+ *         },
+ *     }],
+ *     notification: {
+ *         email: {
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *             customEmails: ["admin@contoso.com"],
+ *         },
+ *     },
  * });
  * ```
  *

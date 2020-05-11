@@ -22,6 +22,27 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         """
         Manages a resources Advanced Threat Protection setting.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="northeurope")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            location=azurerm_resource_group["example"]["location"],
+            account_tier="Standard",
+            account_replication_type="LRS",
+            tags={
+                "environment": "example",
+            })
+        example_advanced_threat_protection = azure.securitycenter.AdvancedThreatProtection("exampleAdvancedThreatProtection",
+            target_resource_id=example_account.id,
+            enabled=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

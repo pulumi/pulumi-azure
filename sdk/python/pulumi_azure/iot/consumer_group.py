@@ -30,6 +30,30 @@ class ConsumerGroup(pulumi.CustomResource):
         """
         Manages a Consumer Group within an IotHub
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku={
+                "name": "S1",
+                "capacity": "1",
+            },
+            tags={
+                "purpose": "testing",
+            })
+        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+            iothub_name=example_io_t_hub.name,
+            eventhub_endpoint_name="events",
+            resource_group_name=example_resource_group.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -72,6 +72,19 @@ def get_group(api_management_name=None,name=None,resource_group_name=None,opts=N
     """
     Use this data source to access information about an existing API Management Group.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.apimanagement.get_group(name="my-group",
+        api_management_name="example-apim",
+        resource_group_name="search-service")
+    pulumi.export("groupType", example.type)
+    ```
 
 
 

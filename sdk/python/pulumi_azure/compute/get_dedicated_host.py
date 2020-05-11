@@ -58,6 +58,19 @@ def get_dedicated_host(dedicated_host_group_name=None,name=None,resource_group_n
     """
     Use this data source to access information about an existing Dedicated Host.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.compute.get_dedicated_host(name="example-host",
+        dedicated_host_group_name="example-host-group",
+        resource_group_name="example-resources")
+    pulumi.export("dedicatedHostId", example.id)
+    ```
 
 
 

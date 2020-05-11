@@ -39,6 +39,26 @@ class BoolVariable(pulumi.CustomResource):
         Manages a boolean variable in Azure Automation
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=[{
+                "name": "Basic",
+            }])
+        example_bool_variable = azure.automation.BoolVariable("exampleBoolVariable",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            value=False)
+        ```
 
 
         :param str resource_name: The name of the resource.

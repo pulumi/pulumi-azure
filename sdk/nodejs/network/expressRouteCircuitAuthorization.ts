@@ -9,6 +9,35 @@ import * as utilities from "../utilities";
 /**
  * Manages an ExpressRoute Circuit Authorization.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     serviceProviderName: "Equinix",
+ *     peeringLocation: "Silicon Valley",
+ *     bandwidthInMbps: 50,
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
+ *     allowClassicOperations: false,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleExpressRouteCircuitAuthorization = new azure.network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", {
+ *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
  */

@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
 /**
  * Manages a Pipeline inside a Azure Data Factory.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryName: exampleFactory.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_pipeline.html.markdown.
  */

@@ -54,6 +54,30 @@ class Product(pulumi.CustomResource):
         """
         Manages an API Management Product.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@exmaple.com",
+            sku_name="Developer_1")
+        example_product = azure.apimanagement.Product("exampleProduct",
+            product_id="test-product",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            display_name="Test Product",
+            subscription_required=True,
+            approval_required=True,
+            published=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

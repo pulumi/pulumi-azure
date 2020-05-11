@@ -34,6 +34,30 @@ class TriggerHttpRequest(pulumi.CustomResource):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_trigger_http_request = azure.logicapps.TriggerHttpRequest("exampleTriggerHttpRequest",
+            logic_app_id=example_workflow.id,
+            schema=\"\"\"{
+            "type": "object",
+            "properties": {
+                "hello": {
+                    "type": "string"
+                }
+            }
+        }
+        \"\"\")
+        ```
 
 
         :param str resource_name: The name of the resource.

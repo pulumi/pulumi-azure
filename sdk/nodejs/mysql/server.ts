@@ -9,6 +9,30 @@ import * as utilities from "../utilities";
 /**
  * Manages a MySQL Server.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mysql.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "B_Gen5_2",
+ *     storage_profile: {
+ *         storageMb: 5120,
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     administratorLogin: "mysqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     version: "5.7",
+ *     sslEnforcement: "Enabled",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_server.html.markdown.
  */

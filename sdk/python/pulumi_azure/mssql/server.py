@@ -71,6 +71,36 @@ class Server(pulumi.CustomResource):
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat11",
+            extended_auditing_policy={
+                "storageEndpoint": example_account.primary_blob_endpoint,
+                "storageAccountAccessKey": example_account.primary_access_key,
+                "storageAccountAccessKeyIsSecondary": True,
+                "retentionInDays": 6,
+            },
+            tags={
+                "environment": "production",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

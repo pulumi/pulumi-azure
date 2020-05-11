@@ -9,6 +9,50 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "uksouth"});
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("testVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const test1 = new azure.network.Subnet("test1", {
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ *     addressPrefix: "10.0.1.0/24",
+ *     delegation: [{
+ *         name: "acctestdelegation",
+ *         service_delegation: {
+ *             name: "Microsoft.Web/serverFarms",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *         },
+ *     }],
+ * });
+ * const testPlan = new azure.appservice.Plan("testPlan", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
+ * });
+ * const testAppService = new azure.appservice.AppService("testAppService", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     appServicePlanId: testPlan.id,
+ * });
+ * const testVirtualNetworkSwiftConnection = new azure.appservice.VirtualNetworkSwiftConnection("testVirtualNetworkSwiftConnection", {
+ *     appServiceId: testAppService.id,
+ *     subnetId: test1.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_virtual_network_swift_connection.html.markdown.
  */

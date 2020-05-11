@@ -34,6 +34,25 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         """
         Manages a Log Analytics Windows Event DataSource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_data_source_windows_event = azure.loganalytics.DataSourceWindowsEvent("exampleDataSourceWindowsEvent",
+            resource_group_name=example_resource_group.name,
+            workspace_name=example_analytics_workspace.name,
+            event_log_name="Application",
+            event_types=["error"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,55 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Watcher Flow Log.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "eastus"});
+ * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("testNetworkSecurityGroup", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testNetworkWatcher = new azure.network.NetworkWatcher("testNetworkWatcher", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testAccount = new azure.storage.Account("testAccount", {
+ *     resourceGroupName: testResourceGroup.name,
+ *     location: testResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountKind: "StorageV2",
+ *     accountReplicationType: "LRS",
+ *     enableHttpsTrafficOnly: true,
+ * });
+ * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     sku: "PerGB2018",
+ * });
+ * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog", {
+ *     networkWatcherName: testNetworkWatcher.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     networkSecurityGroupId: testNetworkSecurityGroup.id,
+ *     storageAccountId: testAccount.id,
+ *     enabled: true,
+ *     retention_policy: {
+ *         enabled: true,
+ *         days: 7,
+ *     },
+ *     traffic_analytics: {
+ *         enabled: true,
+ *         workspaceId: testAnalyticsWorkspace.workspaceId,
+ *         workspaceRegion: testAnalyticsWorkspace.location,
+ *         workspaceResourceId: testAnalyticsWorkspace.id,
+ *         intervalInMinutes: 10,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher_flow_log.html.markdown.
  */

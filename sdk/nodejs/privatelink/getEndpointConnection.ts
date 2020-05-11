@@ -11,6 +11,20 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE** Private Endpoint is currently in Public Preview.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.privatelink.getEndpointConnection({
+ *     name: "example-private-endpoint",
+ *     resourceGroupName: "example-rg",
+ * });
+ * export const privateEndpointStatus = example.then(example => example.privateServiceConnections[0].status);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_endpoint_connection.html.markdown.
  */

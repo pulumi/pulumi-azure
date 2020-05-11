@@ -109,6 +109,62 @@ class KafkaCluster(pulumi.CustomResource):
         """
         Manages a HDInsight Kafka Cluster.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            resource_group_name=example_resource_group.name,
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_kafka_cluster = azure.hdinsight.KafkaCluster("exampleKafkaCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_version="4.0",
+            tier="Standard",
+            component_version={
+                "kafka": "2.1",
+            },
+            gateway={
+                "enabled": True,
+                "username": "acctestusrgw",
+                "password": "Password123!",
+            },
+            storage_account=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "head_node": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "worker_node": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "numberOfDisksPerNode": 3,
+                    "targetInstanceCount": 3,
+                },
+                "zookeeper_node": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

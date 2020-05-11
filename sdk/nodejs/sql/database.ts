@@ -9,6 +9,46 @@ import * as utilities from "../utilities";
 /**
  * Allows you to manage an Azure SQL Database
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West US",
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     tags: {
+ *         environment: "production",
+ *     },
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleDatabase = new azure.sql.Database("exampleDatabase", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: "West US",
+ *     serverName: exampleSqlServer.name,
+ *     extended_auditing_policy: {
+ *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
+ *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *         storageAccountAccessKeyIsSecondary: true,
+ *         retentionInDays: 6,
+ *     },
+ *     tags: {
+ *         environment: "production",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
  */

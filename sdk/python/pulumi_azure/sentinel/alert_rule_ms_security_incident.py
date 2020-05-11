@@ -46,6 +46,25 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="pergb2018")
+        example_alert_rule_ms_security_incident = azure.sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident",
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            product_filter="Microsoft Cloud App Security",
+            display_name="example rule",
+            severity_filters=["High"])
+        ```
 
 
         :param str resource_name: The name of the resource.

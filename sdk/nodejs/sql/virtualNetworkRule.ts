@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = new azure.core.ResourceGroup("example", {location: "West US"});
+ * const vnet = new azure.network.VirtualNetwork("vnet", {
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const subnet = new azure.network.Subnet("subnet", {
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: vnet.name,
+ *     addressPrefix: "10.7.29.0/29",
+ *     serviceEndpoints: ["Microsoft.Sql"],
+ * });
+ * const sqlserver = new azure.sql.SqlServer("sqlserver", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
+ *     resourceGroupName: example.name,
+ *     serverName: sqlserver.name,
+ *     subnetId: subnet.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_virtual_network_rule.html.markdown.
  */

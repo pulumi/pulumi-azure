@@ -22,6 +22,36 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         """
         Associates a Route Table with a Subnet within a Virtual Network.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.0.2.0/24")
+        example_route_table = azure.network.RouteTable("exampleRouteTable",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            route=[{
+                "name": "example",
+                "addressPrefix": "10.100.0.0/14",
+                "nextHopType": "VirtualAppliance",
+                "nextHopInIpAddress": "10.10.1.1",
+            }])
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
+            subnet_id=example_subnet.id,
+            route_table_id=example_route_table.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

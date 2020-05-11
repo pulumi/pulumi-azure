@@ -163,6 +163,18 @@ def get_gateway_connection(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network Gateway Connection.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_gateway_connection(name="production",
+        resource_group_name="networking")
+    pulumi.export("virtualNetworkGatewayConnectionId", example.id)
+    ```
 
 
 

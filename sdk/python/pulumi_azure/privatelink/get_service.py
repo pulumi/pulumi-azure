@@ -101,6 +101,18 @@ def get_service(name=None,resource_group_name=None,opts=None):
 
     > **NOTE** Private Link is currently in Public Preview.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatelink.get_service(name="myPrivateLinkService",
+        resource_group_name="PrivateLinkServiceRG")
+    pulumi.export("privateLinkServiceId", example.id)
+    ```
 
 
 

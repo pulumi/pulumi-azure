@@ -54,6 +54,54 @@ class Assignment(pulumi.CustomResource):
         """
         Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition",
+            policy_rule=\"\"\"	{
+            "if": {
+              "not": {
+                "field": "location",
+                "in": "[parameters('allowedLocations')]"
+              }
+            },
+            "then": {
+              "effect": "audit"
+            }
+          }
+        \"\"\",
+            parameters=\"\"\"	{
+            "allowedLocations": {
+              "type": "Array",
+              "metadata": {
+                "description": "The list of allowed locations for resources.",
+                "displayName": "Allowed locations",
+                "strongType": "location"
+              }
+            }
+          }
+        \"\"\")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_assignment = azure.policy.Assignment("exampleAssignment",
+            scope=example_resource_group.id,
+            policy_definition_id=example_definition.id,
+            description="Policy Assignment created via an Acceptance Test",
+            display_name="My Example Policy Assignment",
+            parameters=\"\"\"{
+          "allowedLocations": {
+            "value": [ "West Europe" ]
+          }
+        }
+        \"\"\")
+        ```
 
 
         :param str resource_name: The name of the resource.

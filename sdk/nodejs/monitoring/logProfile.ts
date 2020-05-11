@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     capacity: 2,
+ * });
+ * const exampleLogProfile = new azure.monitoring.LogProfile("exampleLogProfile", {
+ *     categories: [
+ *         "Action",
+ *         "Delete",
+ *         "Write",
+ *     ],
+ *     locations: [
+ *         "westus",
+ *         "global",
+ *     ],
+ *     servicebusRuleId: pulumi.interpolate`${exampleEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
+ *     storageAccountId: exampleAccount.id,
+ *     retention_policy: {
+ *         enabled: true,
+ *         days: 7,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_log_profile.html.markdown.
  */

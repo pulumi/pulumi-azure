@@ -81,6 +81,17 @@ def get_subscription(subscription_id=None,opts=None):
     """
     Use this data source to access information about an existing Subscription.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.core.get_subscription()
+    pulumi.export("currentSubscriptionDisplayName", current.display_name)
+    ```
 
 
 

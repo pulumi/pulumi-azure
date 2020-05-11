@@ -43,7 +43,41 @@ class AaaaRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS AAAA Records within Azure DNS.
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_aaaa_record = azure.dns.AaaaRecord("exampleAaaaRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300)
+        ```
+
+        ## Example Usage (Alias Record)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic",
+            ip_version="IPv6")
+        example_aaaa_record = azure.dns.AaaaRecord("exampleAaaaRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            target_resource_id=example_public_ip.id)
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

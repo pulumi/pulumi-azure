@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.appservice.getAppServicePlan({
+ *     name: "search-app-service-plan",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const appServicePlanId = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
  */

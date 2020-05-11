@@ -26,6 +26,47 @@ class EndpointEventhub(pulumi.CustomResource):
 
         > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Basic")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            listen=False,
+            send=True,
+            manage=False)
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku={
+                "name": "B1",
+                "tier": "Basic",
+                "capacity": "1",
+            },
+            tags={
+                "purpose": "example",
+            })
+        example_endpoint_eventhub = azure.iot.EndpointEventhub("exampleEndpointEventhub",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            connection_string=example_authorization_rule.primary_connection_string)
+        ```
 
 
         :param str resource_name: The name of the resource.

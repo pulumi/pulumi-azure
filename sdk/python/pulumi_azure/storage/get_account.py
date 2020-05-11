@@ -331,6 +331,18 @@ def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Storage Account.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_account(name="packerimages",
+        resource_group_name="packer-storage")
+    pulumi.export("storageAccountTier", example.account_tier)
+    ```
 
 
 

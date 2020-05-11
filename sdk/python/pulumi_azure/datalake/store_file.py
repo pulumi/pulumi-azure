@@ -29,6 +29,23 @@ class StoreFile(pulumi.CustomResource):
         > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
         taint the resource so the `datalake.StoreFile` gets recreated with the new data.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_store = azure.datalake.Store("exampleStore",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_store_file = azure.datalake.StoreFile("exampleStoreFile",
+            local_file_path="/path/to/local/file",
+            remote_file_path="/path/created/for/remote/file",
+            resource_group_name=example_resource_group.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

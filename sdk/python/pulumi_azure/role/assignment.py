@@ -44,6 +44,90 @@ class Assignment(pulumi.CustomResource):
         """
         Assigns a given Principal (User or Application) to a given Role.
 
+        ## Example Usage (using a built-in Role)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=primary.id,
+            role_definition_name="Reader",
+            principal_id=example_client_config.object_id)
+        ```
+
+        ## Example Usage (Custom Role & Service Principal)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
+            assignable_scopes=[primary.id])
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            name="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            role_definition_id=example_role_definition.id,
+            principal_id=example_client_config.object_id)
+        ```
+
+        ## Example Usage (Custom Role & User)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
+            assignable_scopes=[primary.id])
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            name="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            role_definition_id=example_role_definition.id,
+            principal_id=example_client_config.client_id)
+        ```
+
+        ## Example Usage (Custom Role & Management Group)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_group = azure.management.get_group()
+        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
+            assignable_scopes=[primary.id])
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            name="00000000-0000-0000-0000-000000000000",
+            scope=data["management.Group"]["primary"]["id"],
+            role_definition_id=example_role_definition.id,
+            principal_id=example_client_config.client_id)
+        ```
+
         Deprecated: azure.role.Assignment has been deprecated in favour of azure.authorization.Assignment
 
         :param str resource_name: The name of the resource.

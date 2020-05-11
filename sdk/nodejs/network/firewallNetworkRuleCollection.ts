@@ -9,6 +9,60 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Rule Collection within an Azure Firewall.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "North Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.1.0/24",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ * });
+ * const exampleFirewall = new azure.network.Firewall("exampleFirewall", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ip_configuration: [{
+ *         name: "configuration",
+ *         subnetId: exampleSubnet.id,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const exampleFirewallNetworkRuleCollection = new azure.network.FirewallNetworkRuleCollection("exampleFirewallNetworkRuleCollection", {
+ *     azureFirewallName: exampleFirewall.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     priority: 100,
+ *     action: "Allow",
+ *     rule: [{
+ *         name: "testrule",
+ *         sourceAddresses: ["10.0.0.0/16"],
+ *         destinationPorts: ["53"],
+ *         destinationAddresses: [
+ *             "8.8.8.8",
+ *             "8.8.4.4",
+ *         ],
+ *         protocols: [
+ *             "TCP",
+ *             "UDP",
+ *         ],
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_network_rule_collection.html.markdown.
  */

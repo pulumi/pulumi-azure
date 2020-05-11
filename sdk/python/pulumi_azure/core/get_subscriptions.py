@@ -47,6 +47,18 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
     """
     Use this data source to access information about all the Subscriptions currently available.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    available = azure.core.get_subscriptions()
+    pulumi.export("availableSubscriptions", available.subscriptions)
+    pulumi.export("firstAvailableSubscriptionDisplayName", available.subscriptions[0]["display_name"])
+    ```
 
 
 

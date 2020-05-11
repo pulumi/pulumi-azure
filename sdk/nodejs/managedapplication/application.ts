@@ -9,6 +9,44 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Application.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const current = azure.core.getClientConfig({});
+ * const builtin = azure.authorization.getRoleDefinition({
+ *     name: "Contributor",
+ * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleDefinition = new azure.managedapplication.Definition("exampleDefinition", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     lockLevel: "ReadOnly",
+ *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+ *     displayName: "TestManagedAppDefinition",
+ *     description: "Test Managed App Definition",
+ *     authorization: [{
+ *         servicePrincipalId: current.then(current => current.objectId),
+ *         roleDefinitionId: Promise.all([builtin, builtin.then(builtin => builtin.id.split("/")).length]).then(([builtin, length]) => builtin.id.split("/")[length - 1]),
+ *     }],
+ * });
+ * const exampleApplication = new azure.managedapplication.Application("exampleApplication", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "ServiceCatalog",
+ *     managedResourceGroupName: "infrastructureGroup",
+ *     applicationDefinitionId: exampleDefinition.id,
+ *     parameters: {
+ *         location: exampleResourceGroup.location,
+ *         storageAccountNamePrefix: "storeNamePrefix",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_application.html.markdown.
  */

@@ -34,6 +34,25 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        secondary = azure.core.ResourceGroup("secondary", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
+            sku="Standard")
+        policy = azure.siterecovery.ReplicationPolicy("policy",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            recovery_point_retention_in_minutes=24 * 60,
+            application_consistent_snapshot_frequency_in_minutes=4 * 60)
+        ```
 
 
         :param str resource_name: The name of the resource.

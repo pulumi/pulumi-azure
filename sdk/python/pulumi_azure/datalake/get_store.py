@@ -86,6 +86,18 @@ def get_store(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Data Lake Store.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datalake.get_store(name="testdatalake",
+        resource_group_name="testdatalake")
+    pulumi.export("dataLakeStoreId", example.id)
+    ```
 
 
 
