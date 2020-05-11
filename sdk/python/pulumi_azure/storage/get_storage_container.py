@@ -75,6 +75,17 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
     """
     Use this data source to access information about an existing Storage Container.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.storage.get_storage_container(name="example-container-name",
+        storage_account_name="example-storage-account-name")
+    ```
 
 
 

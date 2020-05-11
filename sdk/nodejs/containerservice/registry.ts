@@ -9,6 +9,26 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Registry.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West US"});
+ * const acr = new azure.containerservice.Registry("acr", {
+ *     resourceGroupName: rg.name,
+ *     location: rg.location,
+ *     sku: "Premium",
+ *     adminEnabled: false,
+ *     georeplicationLocations: [
+ *         "East US",
+ *         "West Europe",
+ *     ],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
  */

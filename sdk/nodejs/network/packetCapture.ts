@@ -11,6 +11,88 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** This resource has been deprecated in favour of the `azure.network.NetworkConnectionMonitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleNetworkWatcher = new azure.network.NetworkWatcher("exampleNetworkWatcher", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ip_configuration: [{
+ *         name: "testconfiguration1",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     vmSize: "Standard_F2",
+ *     storage_image_reference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storage_os_disk: {
+ *         name: "osdisk",
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *     },
+ *     os_profile: {
+ *         computerName: "pctest-vm",
+ *         adminUsername: "testadmin",
+ *         adminPassword: "Password1234!",
+ *     },
+ *     os_profile_linux_config: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ * });
+ * const exampleExtension = new azure.compute.Extension("exampleExtension", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualMachineName: exampleVirtualMachine.name,
+ *     publisher: "Microsoft.Azure.NetworkWatcher",
+ *     type: "NetworkWatcherAgentLinux",
+ *     typeHandlerVersion: "1.4",
+ *     autoUpgradeMinorVersion: true,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const examplePacketCapture = new azure.network.PacketCapture("examplePacketCapture", {
+ *     networkWatcherName: exampleNetworkWatcher.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     targetResourceId: exampleVirtualMachine.id,
+ *     storage_location: {
+ *         storageAccountId: exampleAccount.id,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/packet_capture.html.markdown.
  */

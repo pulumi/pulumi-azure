@@ -9,6 +9,46 @@ import * as utilities from "../utilities";
 /**
  * Manages a Gremlin Graph within a Cosmos DB Account.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleAccount = azure.cosmosdb.getAccount({
+ *     name: "tfex-cosmosdb-account",
+ *     resourceGroupName: "tfex-cosmosdb-account-rg",
+ * });
+ * const exampleGremlinDatabase = new azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase", {
+ *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
+ *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * });
+ * const exampleGremlinGraph = new azure.cosmosdb.GremlinGraph("exampleGremlinGraph", {
+ *     resourceGroupName: azurerm_cosmosdb_account.example.resource_group_name,
+ *     accountName: azurerm_cosmosdb_account.example.name,
+ *     databaseName: exampleGremlinDatabase.name,
+ *     partitionKeyPath: "/Example",
+ *     throughput: 400,
+ *     index_policy: [{
+ *         automatic: true,
+ *         indexingMode: "Consistent",
+ *         includedPaths: ["/*"],
+ *         excludedPaths: ["/\"_etag\"/?"],
+ *     }],
+ *     conflict_resolution_policy: [{
+ *         mode: "LastWriterWins",
+ *         conflictResolutionPath: "/_ts",
+ *     }],
+ *     unique_key: [{
+ *         paths: [
+ *             "/definition/id1",
+ *             "/definition/id2",
+ *         ],
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_graph.html.markdown.
  */

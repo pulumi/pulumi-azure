@@ -51,6 +51,18 @@ def get_policy_vm(name=None,recovery_vault_name=None,resource_group_name=None,op
     """
     Use this data source to access information about an existing VM Backup Policy.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    policy = azure.backup.get_policy_vm(name="policy",
+        recovery_vault_name="recovery_vault",
+        resource_group_name="resource_group")
+    ```
 
 
 

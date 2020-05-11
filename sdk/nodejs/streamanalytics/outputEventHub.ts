@@ -9,6 +9,45 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to an EventHub.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     sku: "Standard",
+ *     capacity: 1,
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     partitionCount: 2,
+ *     messageRetention: 1,
+ * });
+ * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("exampleOutputEventHub", {
+ *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ *     eventhubName: exampleEventHub.name,
+ *     servicebusNamespace: exampleEventHubNamespace.name,
+ *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
+ *     sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *     serialization: {
+ *         type: "Avro",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_eventhub.html.markdown.
  */

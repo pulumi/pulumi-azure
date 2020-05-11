@@ -67,6 +67,22 @@ class Domain(pulumi.CustomResource):
         """
         Manages an EventGrid Domain
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
+        example_domain = azure.eventgrid.Domain("exampleDomain",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        ```
 
 
         Deprecated: azure.eventhub.Domain has been deprecated in favour of azure.eventgrid.Domain

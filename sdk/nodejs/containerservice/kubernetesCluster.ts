@@ -9,6 +9,34 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "exampleaks1",
+ *     default_node_pool: {
+ *         name: "default",
+ *         nodeCount: 1,
+ *         vmSize: "Standard_D2_v2",
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * export const clientCertificate = exampleKubernetesCluster.kubeConfigs.apply(kubeConfigs => kubeConfigs[0].clientCertificate);
+ * export const kubeConfig = exampleKubernetesCluster.kubeConfigRaw;
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
  */

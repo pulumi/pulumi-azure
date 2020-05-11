@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
 /**
  * Manages a Public IP Address.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/public_ip.html.markdown.
  */

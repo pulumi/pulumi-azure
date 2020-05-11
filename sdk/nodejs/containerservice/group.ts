@@ -9,6 +9,44 @@ import * as utilities from "../utilities";
 /**
  * Manages as an Azure Container Group instance.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleGroup = new azure.containerservice.Group("exampleGroup", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ipAddressType: "public",
+ *     dnsNameLabel: "aci-label",
+ *     osType: "Linux",
+ *     container: [
+ *         {
+ *             name: "hello-world",
+ *             image: "microsoft/aci-helloworld:latest",
+ *             cpu: "0.5",
+ *             memory: "1.5",
+ *             ports: [{
+ *                 port: 443,
+ *                 protocol: "TCP",
+ *             }],
+ *         },
+ *         {
+ *             name: "sidecar",
+ *             image: "microsoft/aci-tutorial-sidecar",
+ *             cpu: "0.5",
+ *             memory: "1.5",
+ *         },
+ *     ],
+ *     tags: {
+ *         environment: "testing",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_group.html.markdown.
  */

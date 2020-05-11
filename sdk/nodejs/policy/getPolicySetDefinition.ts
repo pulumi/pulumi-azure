@@ -9,6 +9,19 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Policy Set Definition.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.policy.getPolicySetDefinition({
+ *     displayName: "Policy Set Definition Example",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_set_definition.html.markdown.
  */

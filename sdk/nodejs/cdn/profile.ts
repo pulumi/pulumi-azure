@@ -9,6 +9,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a CDN Profile to create a collection of CDN Endpoints.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleProfile = new azure.cdn.Profile("exampleProfile", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard_Verizon",
+ *     tags: {
+ *         environment: "Production",
+ *         cost_center: "MSFT",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_profile.html.markdown.
  */

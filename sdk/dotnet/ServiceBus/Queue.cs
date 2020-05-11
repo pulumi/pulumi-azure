@@ -139,7 +139,11 @@ namespace Pulumi.Azure.ServiceBus
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:eventhub/queue:Queue"} },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azure:eventhub/queue:Queue"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

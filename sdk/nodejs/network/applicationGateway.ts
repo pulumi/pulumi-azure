@@ -9,6 +9,88 @@ import * as utilities from "../utilities";
 /**
  * Manages an Application Gateway.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressSpaces: ["10.254.0.0/16"],
+ * });
+ * const frontend = new azure.network.Subnet("frontend", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.254.0.0/24",
+ * });
+ * const backend = new azure.network.Subnet("backend", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.254.2.0/24",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     allocationMethod: "Dynamic",
+ * });
+ * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
+ * const frontendPortName = pulumi.interpolate`${exampleVirtualNetwork.name}-feport`;
+ * const frontendIpConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-feip`;
+ * const httpSettingName = pulumi.interpolate`${exampleVirtualNetwork.name}-be-htst`;
+ * const listenerName = pulumi.interpolate`${exampleVirtualNetwork.name}-httplstn`;
+ * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
+ * const redirectConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-rdrcfg`;
+ * const network = new azure.network.ApplicationGateway("network", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "Standard_Small",
+ *         tier: "Standard",
+ *         capacity: 2,
+ *     },
+ *     gateway_ip_configuration: [{
+ *         name: "my-gateway-ip-configuration",
+ *         subnetId: frontend.id,
+ *     }],
+ *     frontend_port: [{
+ *         name: frontendPortName,
+ *         port: 80,
+ *     }],
+ *     frontend_ip_configuration: [{
+ *         name: frontendIpConfigurationName,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ *     backend_address_pool: [{
+ *         name: backendAddressPoolName,
+ *     }],
+ *     backend_http_settings: [{
+ *         name: httpSettingName,
+ *         cookieBasedAffinity: "Disabled",
+ *         path: "/path1/",
+ *         port: 80,
+ *         protocol: "Http",
+ *         requestTimeout: 1,
+ *     }],
+ *     http_listener: [{
+ *         name: listenerName,
+ *         frontendIpConfigurationName: frontendIpConfigurationName,
+ *         frontendPortName: frontendPortName,
+ *         protocol: "Http",
+ *     }],
+ *     request_routing_rule: [{
+ *         name: requestRoutingRuleName,
+ *         ruleType: "Basic",
+ *         httpListenerName: listenerName,
+ *         backendAddressPoolName: backendAddressPoolName,
+ *         backendHttpSettingsName: httpSettingName,
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_gateway.html.markdown.
  */

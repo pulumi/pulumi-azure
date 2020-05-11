@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
 /**
  * Manages a local network gateway connection over which specific connections can be configured.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = new azure.core.ResourceGroup("example", {location: "West US"});
+ * const home = new azure.network.LocalNetworkGateway("home", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     gatewayAddress: "12.13.14.15",
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
  */

@@ -9,6 +9,47 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Stream Input Blob.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: azurerm_resource_group.example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleStreamInputBlob = new azure.streamanalytics.StreamInputBlob("exampleStreamInputBlob", {
+ *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountKey: exampleAccount.primaryAccessKey,
+ *     storageContainerName: exampleContainer.name,
+ *     pathPattern: "some-random-pattern",
+ *     dateFormat: "yyyy/MM/dd",
+ *     timeFormat: "HH",
+ *     serialization: {
+ *         type: "Json",
+ *         encoding: "UTF8",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_blob.html.markdown.
  */

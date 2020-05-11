@@ -36,6 +36,28 @@ class Module(pulumi.CustomResource):
         """
         Manages a Automation Module.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=[{
+                "name": "Basic",
+            }])
+        example_module = azure.automation.Module("exampleModule",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            module_link={
+                "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,47 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: azurerm_resource_group.example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const test = new azure.streamanalytics.ReferenceInputBlob("test", {
+ *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountKey: exampleAccount.primaryAccessKey,
+ *     storageContainerName: exampleContainer.name,
+ *     pathPattern: "some-random-pattern",
+ *     dateFormat: "yyyy/MM/dd",
+ *     timeFormat: "HH",
+ *     serialization: {
+ *         type: "Json",
+ *         encoding: "UTF8",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_reference_input_blob.html.markdown.
  */

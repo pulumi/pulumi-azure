@@ -8,6 +8,42 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an ExpressRoute Circuit Peering.
+ * 
+ * ## Example Usage (Creating a Microsoft Peering)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     serviceProviderName: "Equinix",
+ *     peeringLocation: "Silicon Valley",
+ *     bandwidthInMbps: 50,
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
+ *     allowClassicOperations: false,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", {
+ *     peeringType: "MicrosoftPeering",
+ *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     peerAsn: 100,
+ *     primaryPeerAddressPrefix: "123.0.0.0/30",
+ *     secondaryPeerAddressPrefix: "123.0.0.4/30",
+ *     vlanId: 300,
+ *     microsoft_peering_config: {
+ *         advertisedPublicPrefixes: ["123.1.0.0/24"],
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_peering.html.markdown.
  */

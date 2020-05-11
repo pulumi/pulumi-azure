@@ -56,6 +56,18 @@ def get_endpoint_connection(name=None,resource_group_name=None,opts=None):
 
     > **NOTE** Private Endpoint is currently in Public Preview.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.privatelink.get_endpoint_connection(name="example-private-endpoint",
+        resource_group_name="example-rg")
+    pulumi.export("privateEndpointStatus", example.private_service_connections[0]["status"])
+    ```
 
 
 

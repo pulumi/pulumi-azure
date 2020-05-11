@@ -50,6 +50,21 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Load Balancer's Backend Address Pool.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_lb = azure.lb.get_lb(name="example-lb",
+        resource_group_name="example-resources")
+    example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
+        loadbalancer_id=example_lb.id)
+    pulumi.export("backendAddressPoolId", example_backend_address_pool.id)
+    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in data["lb.BackendAddressPool"]["beap"]["backend_ip_configurations"]])
+    ```
 
 
 

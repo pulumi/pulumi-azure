@@ -36,6 +36,28 @@ class ApiOperationPolicy(pulumi.CustomResource):
         Manages an API Management API Operation Policy
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation")
+        #...
+        example_api_operation_policy = azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy",
+            api_name=example_api_operation.api_name,
+            api_management_name=example_api_operation.api_management_name,
+            resource_group_name=example_api_operation.resource_group_name,
+            operation_id=example_api_operation.operation_id,
+            xml_content=\"\"\"<policies>
+          <inbound>
+            <find-and-replace from="xyz" to="abc" />
+          </inbound>
+        </policies>
+        \"\"\")
+        ```
 
 
         :param str resource_name: The name of the resource.

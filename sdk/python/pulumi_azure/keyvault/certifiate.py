@@ -86,6 +86,113 @@ class Certifiate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
+        ## Example Usage (Generating a new certificate)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            access_policy=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "certificatePermissions": [
+                    "create",
+                    "delete",
+                    "deleteissuers",
+                    "get",
+                    "getissuers",
+                    "import",
+                    "list",
+                    "listissuers",
+                    "managecontacts",
+                    "manageissuers",
+                    "setissuers",
+                    "update",
+                ],
+                "keyPermissions": [
+                    "backup",
+                    "create",
+                    "decrypt",
+                    "delete",
+                    "encrypt",
+                    "get",
+                    "import",
+                    "list",
+                    "purge",
+                    "recover",
+                    "restore",
+                    "sign",
+                    "unwrapKey",
+                    "update",
+                    "verify",
+                    "wrapKey",
+                ],
+                "secretPermissions": [
+                    "backup",
+                    "delete",
+                    "get",
+                    "list",
+                    "purge",
+                    "recover",
+                    "restore",
+                    "set",
+                ],
+            }],
+            tags={
+                "environment": "Production",
+            })
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate_policy={
+                "issuer_parameters": {
+                    "name": "Self",
+                },
+                "key_properties": {
+                    "exportable": True,
+                    "keySize": 2048,
+                    "keyType": "RSA",
+                    "reuseKey": True,
+                },
+                "lifetime_action": [{
+                    "action": {
+                        "actionType": "AutoRenew",
+                    },
+                    "trigger": {
+                        "daysBeforeExpiry": 30,
+                    },
+                }],
+                "secret_properties": {
+                    "contentType": "application/x-pkcs12",
+                },
+                "x509_certificate_properties": {
+                    "extendedKeyUsages": ["1.3.6.1.5.5.7.3.1"],
+                    "keyUsages": [
+                        "cRLSign",
+                        "dataEncipherment",
+                        "digitalSignature",
+                        "keyAgreement",
+                        "keyCertSign",
+                        "keyEncipherment",
+                    ],
+                    "subject_alternative_names": {
+                        "dnsNames": [
+                            "internal.contoso.com",
+                            "domain.hello.world",
+                        ],
+                    },
+                    "subject": "CN=hello-world",
+                    "validityInMonths": 12,
+                },
+            })
+        ```
+
         Deprecated: azure.keyvault.Certifiate has been deprecated in favour of azure.keyvault.Certificate
 
         :param str resource_name: The name of the resource.

@@ -66,6 +66,38 @@ class ElasticPool(pulumi.CustomResource):
         """
         Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        example_elastic_pool = azure.mssql.ElasticPool("exampleElasticPool",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            server_name=example_sql_server.name,
+            license_type="LicenseIncluded",
+            max_size_gb=756,
+            sku={
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+                "family": "Gen5",
+                "capacity": 4,
+            },
+            per_database_settings={
+                "minCapacity": 0.25,
+                "maxCapacity": 4,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

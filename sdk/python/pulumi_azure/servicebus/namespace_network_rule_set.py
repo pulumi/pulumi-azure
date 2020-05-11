@@ -37,6 +37,43 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace Network Rule Set Set.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Premium",
+            capacity=1)
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["172.17.0.0/16"],
+            dns_servers=[
+                "10.0.0.4",
+                "10.0.0.5",
+            ])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="172.17.0.0/24",
+            service_endpoints=["Microsoft.ServiceBus"])
+        example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet",
+            namespace_name=example_namespace.name,
+            resource_group_name=example_resource_group.name,
+            default_action="Deny",
+            network_rules=[{
+                "subnetId": example_subnet.id,
+                "ignoreMissingVnetServiceEndpoint": False,
+            }],
+            ip_rules=["1.1.1.1"])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure SignalR service.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleService = new azure.signalr.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Free_F1",
+ *         capacity: 1,
+ *     },
+ *     cors: [{
+ *         allowedOrigins: ["http://www.example.com"],
+ *     }],
+ *     features: [{
+ *         flag: "ServiceMode",
+ *         value: "Default",
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
  */

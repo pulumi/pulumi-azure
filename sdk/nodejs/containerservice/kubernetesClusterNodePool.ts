@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "exampleaks1",
+ *     default_node_pool: {
+ *         name: "default",
+ *         nodeCount: 1,
+ *         vmSize: "Standard_D2_v2",
+ *     },
+ *     service_principal: {
+ *         clientId: "00000000-0000-0000-0000-000000000000",
+ *         clientSecret: "00000000000000000000000000000000",
+ *     },
+ * });
+ * const exampleKubernetesClusterNodePool = new azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool", {
+ *     kubernetesClusterId: exampleKubernetesCluster.id,
+ *     vmSize: "Standard_DS2_v2",
+ *     nodeCount: 1,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
  */

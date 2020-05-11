@@ -61,6 +61,32 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         Manages a virtual network peering which allows resources to access other
         resources in the linked virtual network.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West US")
+        example_1_virtual_network = azure.network.VirtualNetwork("example-1VirtualNetwork",
+            resource_group_name=example.name,
+            address_spaces=["10.0.1.0/24"],
+            location="West US")
+        example_2_virtual_network = azure.network.VirtualNetwork("example-2VirtualNetwork",
+            resource_group_name=example.name,
+            address_spaces=["10.0.2.0/24"],
+            location="West US")
+        example_1_virtual_network_peering = azure.network.VirtualNetworkPeering("example-1VirtualNetworkPeering",
+            resource_group_name=example.name,
+            virtual_network_name=example_1_virtual_network.name,
+            remote_virtual_network_id=example_2_virtual_network.id)
+        example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2VirtualNetworkPeering",
+            resource_group_name=example.name,
+            virtual_network_name=example_2_virtual_network.name,
+            remote_virtual_network_id=example_1_virtual_network.id)
+        ```
 
         ## Note
 

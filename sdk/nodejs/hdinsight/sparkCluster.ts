@@ -9,6 +9,64 @@ import * as utilities from "../utilities";
 /**
  * Manages a HDInsight Spark Cluster.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleSparkCluster = new azure.hdinsight.SparkCluster("exampleSparkCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterVersion: "3.6",
+ *     tier: "Standard",
+ *     component_version: {
+ *         spark: "2.3",
+ *     },
+ *     gateway: {
+ *         enabled: true,
+ *         username: "acctestusrgw",
+ *         password: "Password123!",
+ *     },
+ *     storage_account: [{
+ *         storageContainerId: exampleContainer.id,
+ *         storageAccountKey: exampleAccount.primaryAccessKey,
+ *         isDefault: true,
+ *     }],
+ *     roles: {
+ *         head_node: {
+ *             vmSize: "Standard_A3",
+ *             username: "acctestusrvm",
+ *             password: "AccTestvdSC4daf986!",
+ *         },
+ *         worker_node: {
+ *             vmSize: "Standard_A3",
+ *             username: "acctestusrvm",
+ *             password: "AccTestvdSC4daf986!",
+ *             targetInstanceCount: 3,
+ *         },
+ *         zookeeper_node: {
+ *             vmSize: "Medium",
+ *             username: "acctestusrvm",
+ *             password: "AccTestvdSC4daf986!",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_spark_cluster.html.markdown.
  */

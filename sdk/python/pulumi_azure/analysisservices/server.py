@@ -59,6 +59,30 @@ class Server(pulumi.CustomResource):
         """
         Manages an Analysis Services Server.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="northeurope")
+        server = azure.analysisservices.Server("server",
+            location="northeurope",
+            resource_group_name=rg.name,
+            sku="S0",
+            admin_users=["myuser@domain.tld"],
+            enable_power_bi_service=True,
+            ipv4_firewall_rule=[{
+                "name": "myRule1",
+                "rangeStart": "210.117.252.0",
+                "rangeEnd": "210.117.252.255",
+            }],
+            tags={
+                "abc": 123,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

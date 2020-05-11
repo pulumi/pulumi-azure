@@ -54,6 +54,30 @@ class User(pulumi.CustomResource):
         """
         Manages an API Management User.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@exmaple.com",
+            sku_name="Developer_1")
+        example_user = azure.apimanagement.User("exampleUser",
+            user_id="5931a75ae4bbd512288c680b",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            first_name="Example",
+            last_name="User",
+            email="user@example.com",
+            state="active")
+        ```
 
 
         :param str resource_name: The name of the resource.

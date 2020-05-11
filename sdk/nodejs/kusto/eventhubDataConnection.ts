@@ -9,6 +9,59 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {location: "East US"});
+ * const cluster = new azure.kusto.Cluster("cluster", {
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
+ *     sku: {
+ *         name: "Standard_D13_v2",
+ *         capacity: 2,
+ *     },
+ * });
+ * const database = new azure.kusto.Database("database", {
+ *     resourceGroupName: rg.name,
+ *     location: rg.location,
+ *     clusterName: cluster.name,
+ *     hotCachePeriod: "P7D",
+ *     softDeletePeriod: "P31D",
+ * });
+ * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhubNs", {
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
+ *     sku: "Standard",
+ * });
+ * const eventhub = new azure.eventhub.EventHub("eventhub", {
+ *     namespaceName: eventhubNs.name,
+ *     resourceGroupName: rg.name,
+ *     partitionCount: 1,
+ *     messageRetention: 1,
+ * });
+ * const consumerGroup = new azure.eventhub.ConsumerGroup("consumerGroup", {
+ *     namespaceName: eventhubNs.name,
+ *     eventhubName: eventhub.name,
+ *     resourceGroupName: rg.name,
+ * });
+ * const eventhubConnection = new azure.kusto.EventhubDataConnection("eventhubConnection", {
+ *     resourceGroupName: rg.name,
+ *     location: rg.location,
+ *     clusterName: cluster.name,
+ *     databaseName: database.name,
+ *     eventhubId: azurerm_eventhub.evenhub.id,
+ *     consumerGroup: consumerGroup.name,
+ *     tableName: "my-table",
+ *     mappingRuleName: "my-table-mapping",
+ *     dataFormat: "JSON",
+ * });
+ * //(Optional)
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_eventhub_data_connection.html.markdown.
  */

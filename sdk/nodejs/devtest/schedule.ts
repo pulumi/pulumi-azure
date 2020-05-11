@@ -10,6 +10,38 @@ import * as utilities from "../utilities";
  * Manages automated startup and shutdown schedules for Azure Dev Test Lab.
  * 
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const sampleResourceGroup = new azure.core.ResourceGroup("sampleResourceGroup", {location: "West US"});
+ * const sampleLab = new azure.devtest.Lab("sampleLab", {
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const sampleSchedule = new azure.devtest.Schedule("sampleSchedule", {
+ *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     labName: azurerm_dev_test_lab.example.name,
+ *     weekly_recurrence: {
+ *         time: "1100",
+ *         weekDays: [
+ *             "Monday",
+ *             "Tuesday",
+ *         ],
+ *     },
+ *     timeZoneId: "Pacific Standard Time",
+ *     taskType: "LabVmsStartupTask",
+ *     notification_settings: {},
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
  */

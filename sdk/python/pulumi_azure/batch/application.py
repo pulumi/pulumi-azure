@@ -38,6 +38,29 @@ class Application(pulumi.CustomResource):
         """
         Manages Azure Batch Application instance.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            pool_allocation_mode="BatchService",
+            storage_account_id=example_account.id)
+        example_application = azure.batch.Application("exampleApplication",
+            resource_group_name=example_resource_group.name,
+            account_name=example_batch / account_account["name"])
+        ```
 
 
         :param str resource_name: The name of the resource.

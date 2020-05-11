@@ -62,6 +62,36 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Manages a Diagnostic Setting for an existing Resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = example_resource_group.name.apply(lambda name: azure.storage.get_account(name="examplestoracc",
+            resource_group_name=name))
+        example_key_vault = example_resource_group.name.apply(lambda name: azure.keyvault.get_key_vault(name="example-vault",
+            resource_group_name=name))
+        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
+            logs=[{
+                "category": "AuditEvent",
+                "enabled": False,
+                "retentionPolicy": {
+                    "enabled": False,
+                },
+            }],
+            metrics=[{
+                "category": "AllMetrics",
+                "retentionPolicy": {
+                    "enabled": False,
+                },
+            }],
+            storage_account_id=example_account.id,
+            target_resource_id=example_key_vault.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

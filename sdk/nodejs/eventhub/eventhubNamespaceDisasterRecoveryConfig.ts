@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages an Disaster Recovery Config for an Event Hub Namespace.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const primary = new azure.eventhub.EventHubNamespace("primary", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const secondary = new azure.eventhub.EventHubNamespace("secondary", {
+ *     location: "West US",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleEventhubNamespaceDisasterRecoveryConfig = new azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     namespaceName: primary.name,
+ *     partnerNamespaceId: secondary.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_disaster_recovery_config.html.markdown.
  */

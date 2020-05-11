@@ -8,6 +8,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing User Assigned Identity.
+ * 
+ * ## Example Usage (reference an existing)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.authorization.getUserAssignedIdentity({
+ *     name: "nameOfUserAssignedIdentity",
+ *     resourceGroupName: "nameOfResourceGroup",
+ * });
+ * export const uaiClientId = example.then(example => example.clientId);
+ * export const uaiPrincipalId = example.then(example => example.principalId);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
  */

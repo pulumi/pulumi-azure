@@ -40,6 +40,32 @@ class Environment(pulumi.CustomResource):
         """
         Manages an App Service Environment.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        ase = azure.network.Subnet("ase",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.0.1.0/24")
+        gateway = azure.network.Subnet("gateway",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.0.2.0/24")
+        example_environment = azure.appservice.Environment("exampleEnvironment",
+            subnet_id=ase.id,
+            pricing_tier="I2",
+            front_end_scale_factor=10)
+        ```
 
 
         :param str resource_name: The name of the resource.

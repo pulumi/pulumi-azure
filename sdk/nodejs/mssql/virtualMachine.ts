@@ -9,6 +9,33 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft SQL Virtual Machine
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleVirtualMachine = azure.compute.getVirtualMachine({
+ *     name: "example-vm",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleMssql/virtualMachineVirtualMachine = new azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", {
+ *     virtualMachineId: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.id),
+ *     sqlLicenseType: "PAYG",
+ *     rServicesEnabled: true,
+ *     sqlConnectivityPort: 1433,
+ *     sqlConnectivityType: "PRIVATE",
+ *     sqlConnectivityUpdatePassword: "Password1234!",
+ *     sqlConnectivityUpdateUsername: "sqllogin",
+ *     auto_patching: {
+ *         dayOfWeek: "Sunday",
+ *         maintenanceWindowDurationInMinutes: 60,
+ *         maintenanceWindowStartingHour: 2,
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_virtual_machine.html.markdown.
  */

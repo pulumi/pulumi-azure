@@ -45,6 +45,55 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         """
         Manages a Network Rule Collection within an Azure Firewall.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="North Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefix="10.0.1.0/24")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_firewall = azure.network.Firewall("exampleFirewall",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configuration=[{
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            }])
+        example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("exampleFirewallNetworkRuleCollection",
+            azure_firewall_name=example_firewall.name,
+            resource_group_name=example_resource_group.name,
+            priority=100,
+            action="Allow",
+            rule=[{
+                "name": "testrule",
+                "sourceAddresses": ["10.0.0.0/16"],
+                "destinationPorts": ["53"],
+                "destinationAddresses": [
+                    "8.8.8.8",
+                    "8.8.4.4",
+                ],
+                "protocols": [
+                    "TCP",
+                    "UDP",
+                ],
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

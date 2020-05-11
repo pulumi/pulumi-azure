@@ -34,6 +34,24 @@ class Group(pulumi.CustomResource):
         """
         Manages a Management Group.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_subscription()
+        example_parent = azure.management.Group("exampleParent",
+            display_name="ParentGroup",
+            subscription_ids=[current.subscription_id])
+        example_child = azure.management.Group("exampleChild",
+            display_name="ChildGroup",
+            parent_management_group_id=example_parent.id,
+            subscription_ids=[current.subscription_id])
+        # other subscription IDs can go here
+        ```
 
 
         :param str resource_name: The name of the resource.

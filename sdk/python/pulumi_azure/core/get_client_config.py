@@ -47,6 +47,18 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
 def get_client_config(opts=None):
     """
     Use this data source to access the configuration of the AzureRM provider.
+
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    current = azure.core.get_client_config()
+    pulumi.export("accountId", current.client_id)
+    ```
     """
     __args__ = dict()
 

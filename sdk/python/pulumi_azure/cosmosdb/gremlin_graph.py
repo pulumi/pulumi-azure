@@ -61,6 +61,42 @@ class GremlinGraph(pulumi.CustomResource):
         """
         Manages a Gremlin Graph within a Cosmos DB Account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_gremlin_database = azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        example_gremlin_graph = azure.cosmosdb.GremlinGraph("exampleGremlinGraph",
+            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
+            account_name=azurerm_cosmosdb_account["example"]["name"],
+            database_name=example_gremlin_database.name,
+            partition_key_path="/Example",
+            throughput=400,
+            index_policy=[{
+                "automatic": True,
+                "indexingMode": "Consistent",
+                "includedPaths": ["/*"],
+                "excludedPaths": ["/\"_etag\"/?"],
+            }],
+            conflict_resolution_policy=[{
+                "mode": "LastWriterWins",
+                "conflictResolutionPath": "/_ts",
+            }],
+            unique_key=[{
+                "paths": [
+                    "/definition/id1",
+                    "/definition/id2",
+                ],
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

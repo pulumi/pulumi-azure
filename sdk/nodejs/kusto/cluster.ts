@@ -9,6 +9,27 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto (also known as Azure Data Explorer) Cluster
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {location: "East US"});
+ * const example = new azure.kusto.Cluster("example", {
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
+ *     sku: {
+ *         name: "Standard_D13_v2",
+ *         capacity: 2,
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_cluster.html.markdown.
  */

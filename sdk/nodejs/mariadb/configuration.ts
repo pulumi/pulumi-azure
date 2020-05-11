@@ -7,6 +7,35 @@ import * as utilities from "../utilities";
 /**
  * Sets a MariaDB Configuration value on a MariaDB Server.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mariadb.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "B_Gen5_2",
+ *     storage_profile: {
+ *         storageMb: 5120,
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     administratorLogin: "mariadbadmin",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     version: "10.2",
+ *     sslEnforcement: "Enabled",
+ * });
+ * const exampleConfiguration = new azure.mariadb.Configuration("exampleConfiguration", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     value: "600",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_configuration.html.markdown.
  */

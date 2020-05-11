@@ -9,6 +9,34 @@ import * as utilities from "../utilities";
 /**
  * Manages a Policy within a Dev Test Policy Set.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleLab = new azure.devtest.Lab("exampleLab", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tags: {
+ *         Sydney: "Australia",
+ *     },
+ * });
+ * const examplePolicy = new azure.devtest.Policy("examplePolicy", {
+ *     policySetName: "default",
+ *     labName: exampleLab.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     factData: "",
+ *     threshold: "999",
+ *     evaluatorType: "MaxValuePolicy",
+ *     tags: {
+ *         Acceptance: "Test",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_policy.html.markdown.
  */

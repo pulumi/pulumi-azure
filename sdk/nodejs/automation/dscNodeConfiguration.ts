@@ -7,6 +7,55 @@ import * as utilities from "../utilities";
 /**
  * Manages a Automation DSC Node Configuration.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: [{
+ *         name: "Basic",
+ *     }],
+ * });
+ * const exampleDscConfiguration = new azure.automation.DscConfiguration("exampleDscConfiguration", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     location: exampleResourceGroup.location,
+ *     contentEmbedded: "configuration test {}",
+ * });
+ * const exampleDscNodeConfiguration = new azure.automation.DscNodeConfiguration("exampleDscNodeConfiguration", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     contentEmbedded: `instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
+ * {
+ *   ResourceID = "[File]bla";
+ *   Ensure = "Present";
+ *   Contents = "bogus Content";
+ *   DestinationPath = "c:\\bogus.txt";
+ *   ModuleName = "PSDesiredStateConfiguration";
+ *   SourceInfo = "::3::9::file";
+ *   ModuleVersion = "1.0";
+ *   ConfigurationName = "bla";
+ * };
+ * instance of OMI_ConfigurationDocument
+ * {
+ *   Version="2.0.0";
+ *   MinimumCompatibleVersion = "1.0.0";
+ *   CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+ *   Author="bogusAuthor";
+ *   GenerationDate="06/15/2018 14:06:24";
+ *   GenerationHost="bogusComputer";
+ *   Name="test";
+ * };
+ * `,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_nodeconfiguration.html.markdown.
  */

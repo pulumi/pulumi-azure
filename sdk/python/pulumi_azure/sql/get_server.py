@@ -82,6 +82,18 @@ def get_server(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing SQL Azure Database Server.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.sql.get_server(name="examplesqlservername",
+        resource_group_name="example-resources")
+    pulumi.export("sqlServerId", example.id)
+    ```
 
 
 

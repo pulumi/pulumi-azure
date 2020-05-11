@@ -132,6 +132,18 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing EventHub Namespace.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.eventhub.get_namespace(name="search-eventhubns",
+        resource_group_name="search-service")
+    pulumi.export("eventhubNamespaceId", example.id)
+    ```
 
 
 

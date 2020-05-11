@@ -50,6 +50,17 @@ def get_resource_group(name=None,opts=None):
     """
     Use this data source to access information about an existing Resource Group.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.core.get_resource_group(name="existing")
+    pulumi.export("id", example.id)
+    ```
 
 
 

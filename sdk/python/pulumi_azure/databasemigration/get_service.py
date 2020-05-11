@@ -69,6 +69,18 @@ def get_service(name=None,resource_group_name=None,opts=None):
     Use this data source to access information about an existing Database Migration Service.
 
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.databasemigration.get_service(name="example-dms",
+        resource_group_name="example-rg")
+    pulumi.export("azurermDmsId", example.id)
+    ```
 
 
 

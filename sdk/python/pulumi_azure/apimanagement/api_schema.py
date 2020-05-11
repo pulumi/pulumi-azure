@@ -38,6 +38,26 @@ class ApiSchema(pulumi.CustomResource):
         """
         Manages an API Schema within an API Management Service.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_api = azure.apimanagement.get_api(name="search-api",
+            api_management_name="search-api-management",
+            resource_group_name="search-service",
+            revision="2")
+        example_api_schema = azure.apimanagement.ApiSchema("exampleApiSchema",
+            api_name=example_api.name,
+            api_management_name=example_api.api_management_name,
+            resource_group_name=example_api.resource_group_name,
+            schema_id="example-sche,a",
+            content_type="application/vnd.ms-azure-apim.xsd+xml",
+            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+        ```
 
 
         :param str resource_name: The name of the resource.

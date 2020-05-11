@@ -48,6 +48,27 @@ class SqlContainer(pulumi.CustomResource):
         """
         Manages a SQL Container within a Cosmos DB Account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.cosmosdb.SqlContainer("example",
+            resource_group_name=azurerm_cosmosdb_account["example"]["resource_group_name"],
+            account_name=azurerm_cosmosdb_account["example"]["name"],
+            database_name=azurerm_cosmosdb_sql_database["example"]["name"],
+            partition_key_path="/definition/id",
+            throughput=400,
+            unique_key=[{
+                "paths": [
+                    "/definition/idlong",
+                    "/definition/idshort",
+                ],
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

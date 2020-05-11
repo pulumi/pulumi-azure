@@ -53,6 +53,26 @@ class Cluster(pulumi.CustomResource):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="East US")
+        example = azure.kusto.Cluster("example",
+            location=rg.location,
+            resource_group_name=rg.name,
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            },
+            tags={
+                "Environment": "Production",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

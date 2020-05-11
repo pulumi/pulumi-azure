@@ -55,6 +55,18 @@ def get_firewall(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Azure Firewall.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_firewall(name="firewall1",
+        resource_group_name="firewall-RG")
+    pulumi.export("firewallPrivateIp", example.ip_configurations[0]["private_ip_address"])
+    ```
 
 
 

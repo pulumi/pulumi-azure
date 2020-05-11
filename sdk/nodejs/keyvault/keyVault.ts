@@ -15,6 +15,40 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     enabledForDiskEncryption: true,
+ *     tenantId: current.then(current => current.tenantId),
+ *     softDeleteEnabled: true,
+ *     purgeProtectionEnabled: false,
+ *     skuName: "standard",
+ *     access_policy: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         keyPermissions: ["get"],
+ *         secretPermissions: ["get"],
+ *         storagePermissions: ["get"],
+ *     }],
+ *     network_acls: {
+ *         defaultAction: "Deny",
+ *         bypass: "AzureServices",
+ *     },
+ *     tags: {
+ *         environment: "Testing",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
  */

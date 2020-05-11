@@ -70,6 +70,19 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         Manages an Azure App Configuration.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            resource_group_name=rg.name,
+            location=rg.location)
+        ```
 
 
         :param str resource_name: The name of the resource.

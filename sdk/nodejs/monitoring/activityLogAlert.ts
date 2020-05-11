@@ -9,6 +9,46 @@ import * as utilities from "../utilities";
 /**
  * Manages an Activity Log Alert within Azure Monitor.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West US"});
+ * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
+ *     resourceGroupName: mainResourceGroup.name,
+ *     shortName: "p0action",
+ *     webhook_receiver: [{
+ *         name: "callmyapi",
+ *         serviceUri: "http://example.com/alert",
+ *     }],
+ * });
+ * const toMonitor = new azure.storage.Account("toMonitor", {
+ *     resourceGroupName: mainResourceGroup.name,
+ *     location: mainResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "GRS",
+ * });
+ * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("mainActivityLogAlert", {
+ *     resourceGroupName: mainResourceGroup.name,
+ *     scopes: [mainResourceGroup.id],
+ *     description: "This alert will monitor a specific storage account updates.",
+ *     criteria: {
+ *         resourceId: toMonitor.id,
+ *         operationName: "Microsoft.Storage/storageAccounts/write",
+ *         category: "Recommendation",
+ *     },
+ *     action: [{
+ *         actionGroupId: mainActionGroup.id,
+ *         webhookProperties: {
+ *             from: "source",
+ *         },
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
  */

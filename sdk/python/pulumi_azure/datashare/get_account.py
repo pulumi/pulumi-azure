@@ -54,6 +54,18 @@ def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Data Share Account.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.datashare.get_account(name="example-account",
+        resource_group_name="example-resource-group")
+    pulumi.export("id", example.id)
+    ```
 
 
 

@@ -36,6 +36,32 @@ class TableEntity(pulumi.CustomResource):
         """
         Manages an Entity within a Table in an Azure Storage Account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_table = azure.storage.Table("exampleTable",
+            resource_group_name=example_resource_group.name,
+            storage_account_name=example_account.name)
+        example_table_entity = azure.storage.TableEntity("exampleTableEntity",
+            storage_account_name=example_account.name,
+            table_name=example_table.name,
+            partition_key="examplepartition",
+            row_key="exmamplerow",
+            entity={
+                "example": "sample",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

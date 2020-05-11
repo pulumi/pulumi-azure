@@ -44,6 +44,42 @@ class LogProfile(pulumi.CustomResource):
 
         > **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=2)
+        example_log_profile = azure.monitoring.LogProfile("exampleLogProfile",
+            categories=[
+                "Action",
+                "Delete",
+                "Write",
+            ],
+            locations=[
+                "westus",
+                "global",
+            ],
+            servicebus_rule_id=example_event_hub_namespace.id.apply(lambda id: f"{id}/authorizationrules/RootManageSharedAccessKey"),
+            storage_account_id=example_account.id,
+            retention_policy={
+                "enabled": True,
+                "days": 7,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

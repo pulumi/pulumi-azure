@@ -72,6 +72,18 @@ def get_dps_shared_access_policy(iothub_dps_name=None,name=None,resource_group_n
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.iot.get_dps_shared_access_policy(name="example",
+        resource_group_name=azurerm_resource_group["example"]["name"],
+        iothub_dps_name=azurerm_iothub_dps["example"]["name"])
+    ```
 
 
 

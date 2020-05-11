@@ -7,6 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Application Insights component.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.appinsights.getInsights({
+ *     name: "production",
+ *     resourceGroupName: "networking",
+ * });
+ * export const applicationInsightsInstrumentationKey = example.then(example => example.instrumentationKey);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
  */

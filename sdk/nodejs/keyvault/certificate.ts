@@ -8,6 +8,115 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Certificate.
+ * 
+ * ## Example Usage (Generating a new certificate)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     access_policy: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         certificatePermissions: [
+ *             "create",
+ *             "delete",
+ *             "deleteissuers",
+ *             "get",
+ *             "getissuers",
+ *             "import",
+ *             "list",
+ *             "listissuers",
+ *             "managecontacts",
+ *             "manageissuers",
+ *             "setissuers",
+ *             "update",
+ *         ],
+ *         keyPermissions: [
+ *             "backup",
+ *             "create",
+ *             "decrypt",
+ *             "delete",
+ *             "encrypt",
+ *             "get",
+ *             "import",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "sign",
+ *             "unwrapKey",
+ *             "update",
+ *             "verify",
+ *             "wrapKey",
+ *         ],
+ *         secretPermissions: [
+ *             "backup",
+ *             "delete",
+ *             "get",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "set",
+ *         ],
+ *     }],
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate_policy: {
+ *         issuer_parameters: {
+ *             name: "Self",
+ *         },
+ *         key_properties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: true,
+ *         },
+ *         lifetime_action: [{
+ *             action: {
+ *                 actionType: "AutoRenew",
+ *             },
+ *             trigger: {
+ *                 daysBeforeExpiry: 30,
+ *             },
+ *         }],
+ *         secret_properties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *         x509_certificate_properties: {
+ *             extendedKeyUsages: ["1.3.6.1.5.5.7.3.1"],
+ *             keyUsages: [
+ *                 "cRLSign",
+ *                 "dataEncipherment",
+ *                 "digitalSignature",
+ *                 "keyAgreement",
+ *                 "keyCertSign",
+ *                 "keyEncipherment",
+ *             ],
+ *             subject_alternative_names: {
+ *                 dnsNames: [
+ *                     "internal.contoso.com",
+ *                     "domain.hello.world",
+ *                 ],
+ *             },
+ *             subject: "CN=hello-world",
+ *             validityInMonths: 12,
+ *         },
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
  */

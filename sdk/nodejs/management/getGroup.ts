@@ -7,6 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Management Group.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.management.getGroup({
+ *     name: "00000000-0000-0000-0000-000000000000",
+ * });
+ * export const displayName = example.then(example => example.displayName);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */

@@ -115,6 +115,42 @@ class Account(pulumi.CustomResource):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        rg = azure.core.ResourceGroup("rg", location=var["resource_group_location"])
+        ri = random.RandomInteger("ri",
+            min=10000,
+            max=99999)
+        db = azure.cosmosdb.Account("db",
+            location=rg.location,
+            resource_group_name=rg.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            enable_automatic_failover=True,
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_location=[
+                {
+                    "location": var["failover_location"],
+                    "failoverPriority": 1,
+                },
+                {
+                    "prefix": ri.result.apply(lambda result: f"tfex-cosmos-db-{result}-customid"),
+                    "location": rg.location,
+                    "failoverPriority": 0,
+                },
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

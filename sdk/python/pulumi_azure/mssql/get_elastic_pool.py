@@ -100,6 +100,19 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
     """
     Use this data source to access information about an existing SQL elastic pool.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.mssql.get_elastic_pool(name="mssqlelasticpoolname",
+        resource_group_name="example-resources",
+        server_name="example-sql-server")
+    pulumi.export("elasticpoolId", example.id)
+    ```
 
 
 

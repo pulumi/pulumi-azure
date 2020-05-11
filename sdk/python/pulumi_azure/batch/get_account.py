@@ -99,6 +99,18 @@ def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Batch Account.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.batch.get_account(name="testbatchaccount",
+        resource_group_name="test")
+    pulumi.export("poolAllocationMode", example.pool_allocation_mode)
+    ```
 
 
 

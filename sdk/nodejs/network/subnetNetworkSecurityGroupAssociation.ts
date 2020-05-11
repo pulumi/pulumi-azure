@@ -9,6 +9,45 @@ import * as utilities from "../utilities";
 /**
  * Associates a Network Security Group with a Subnet within a Virtual Network.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     security_rule: [{
+ *         name: "test123",
+ *         priority: 100,
+ *         direction: "Inbound",
+ *         access: "Allow",
+ *         protocol: "Tcp",
+ *         sourcePortRange: "*",
+ *         destinationPortRange: "*",
+ *         sourceAddressPrefix: "*",
+ *         destinationAddressPrefix: "*",
+ *     }],
+ * });
+ * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", {
+ *     subnetId: exampleSubnet.id,
+ *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
  */

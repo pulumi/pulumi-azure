@@ -9,6 +9,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between a SQL Server and Azure Data Factory.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_sql_server.html.markdown.
  */

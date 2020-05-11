@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const exampleLinkedServiceDataLakeStorageGen2 = new azure.datafactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     servicePrincipalId: current.then(current => current.clientId),
+ *     servicePrincipalKey: "exampleKey",
+ *     tenant: "11111111-1111-1111-1111-111111111111",
+ *     url: "https://datalakestoragegen2",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
  */

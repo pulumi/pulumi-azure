@@ -28,6 +28,19 @@ class Agreement(pulumi.CustomResource):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        barracuda = azure.marketplace.Agreement("barracuda",
+            offer="waf",
+            plan="hourly",
+            publisher="barracudanetworks")
+        ```
 
 
         :param str resource_name: The name of the resource.

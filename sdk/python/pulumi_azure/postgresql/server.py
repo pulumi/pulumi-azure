@@ -96,6 +96,31 @@ class Server(pulumi.CustomResource):
         """
         Manages a PostgreSQL Server.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.postgresql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            administrator_login="psqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            sku_name="GP_Gen5_4",
+            version="9.6",
+            storage_mb=640000,
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=True,
+            auto_grow_enabled=True,
+            infrastructure_encryption_enabled=True,
+            public_network_access_enabled=False,
+            ssl_enforcement_enabled=True,
+            ssl_minimal_tls_version_enforced="TLS1_2")
+        ```
 
 
         :param str resource_name: The name of the resource.

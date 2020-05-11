@@ -109,6 +109,19 @@ def get_database(name=None,resource_group_name=None,server_name=None,tags=None,o
     """
     Use this data source to access information about an existing SQL Azure Database.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.sql.get_database(name="example_db",
+        server_name="example_db_server",
+        resource_group_name="example-resources")
+    pulumi.export("sqlDatabaseId", example.id)
+    ```
 
 
 

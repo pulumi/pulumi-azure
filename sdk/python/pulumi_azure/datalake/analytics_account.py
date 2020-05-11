@@ -38,6 +38,23 @@ class AnalyticsAccount(pulumi.CustomResource):
         """
         Manages an Azure Data Lake Analytics Account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_store = azure.datalake.Store("exampleStore",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_analytics_account = azure.datalake.AnalyticsAccount("exampleAnalyticsAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            default_store_account_name=example_store.name)
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -121,6 +121,18 @@ def get_key_vault(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_key_vault(name="mykeyvault",
+        resource_group_name="some-resource-group")
+    pulumi.export("vaultUri", example.vault_uri)
+    ```
 
 
 

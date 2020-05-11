@@ -174,6 +174,60 @@ class FunctionApp(pulumi.CustomResource):
         """
         Manages a Function App.
 
+        ## Example Usage (with App Service Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus2")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
+        ```
+        ## Example Usage (in a Consumption Plan)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westus2")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="FunctionApp",
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            })
+        example_function_app = azure.appservice.FunctionApp("exampleFunctionApp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.

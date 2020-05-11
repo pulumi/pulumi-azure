@@ -9,6 +9,34 @@ import * as utilities from "../utilities";
 /**
  * Associates a NAT Gateway with a Subnet within a Virtual Network.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US 2"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleNatGateway = new azure.network.NatGateway("exampleNatGateway", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnetNatGatewayAssociation = new azure.network.SubnetNatGatewayAssociation("exampleSubnetNatGatewayAssociation", {
+ *     subnetId: exampleSubnet.id,
+ *     natGatewayId: exampleNatGateway.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_nat_gateway_association.html.markdown.
  */

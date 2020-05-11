@@ -89,6 +89,18 @@ def get_key(key_vault_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault Key.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.keyvault.get_key(name="secret-sauce",
+        key_vault_id=data["keyvault.KeyVault"]["existing"]["id"])
+    pulumi.export("keyType", example.key_type)
+    ```
 
 
 

@@ -19,6 +19,57 @@ import * as utilities from "../utilities";
  * 
  * > In this release there's a known issue where the `publicIpAddress` and `publicIpAddresses` fields may not be fully populated for Dynamic Public IP's.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ip_configuration: [{
+ *         name: "internal",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_F2",
+ *     adminUsername: "adminuser",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     admin_ssh_key: [{
+ *         username: "adminuser",
+ *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *     }],
+ *     os_disk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     source_image_reference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
  */

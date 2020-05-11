@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Management Facebook Identity Provider.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     publisherName: "My Company",
+ *     publisherEmail: "company@mycompany.io",
+ *     skuName: "Developer_1",
+ * });
+ * const exampleIdentityProviderFacebook = new azure.apimanagement.IdentityProviderFacebook("exampleIdentityProviderFacebook", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     appId: "00000000000000000000000000000000",
+ *     appSecret: "00000000000000000000000000000000",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_facebook.html.markdown.
  */

@@ -9,6 +9,32 @@ import * as utilities from "../utilities";
 /**
  * Manages a Consumer Group within an IotHub
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: {
+ *         name: "S1",
+ *         capacity: "1",
+ *     },
+ *     tags: {
+ *         purpose: "testing",
+ *     },
+ * });
+ * const exampleConsumerGroup = new azure.iot.ConsumerGroup("exampleConsumerGroup", {
+ *     iothubName: exampleIoTHub.name,
+ *     eventhubEndpointName: "events",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
  */

@@ -30,6 +30,28 @@ class ProductGroup(pulumi.CustomResource):
         """
         Manages an API Management Product Assignment to a Group.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_service = azure.apimanagement.get_service(name="example-api",
+            resource_group_name="example-resources")
+        example_product = azure.apimanagement.get_product(product_id="my-product",
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name)
+        example_group = azure.apimanagement.get_group(name="my-group",
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name)
+        example_product_group = azure.apimanagement.ProductGroup("exampleProductGroup",
+            product_id=example_product.product_id,
+            group_name=example_group.name,
+            api_management_name=example_service.name,
+            resource_group_name=example_service.resource_group_name)
+        ```
 
 
         :param str resource_name: The name of the resource.

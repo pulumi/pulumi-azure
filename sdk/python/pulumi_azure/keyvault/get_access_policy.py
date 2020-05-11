@@ -57,6 +57,17 @@ def get_access_policy(name=None,opts=None):
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    contributor = azure.keyvault.get_access_policy(name="Key Management")
+    pulumi.export("accessPolicyKeyPermissions", contributor.key_permissions)
+    ```
 
 
 

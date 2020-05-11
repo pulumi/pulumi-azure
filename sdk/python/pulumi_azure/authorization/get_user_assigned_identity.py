@@ -68,6 +68,18 @@ def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing User Assigned Identity.
 
+    ## Example Usage (reference an existing)
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.authorization.get_user_assigned_identity(name="name_of_user_assigned_identity",
+        resource_group_name="name_of_resource_group")
+    pulumi.export("uaiClientId", example.client_id)
+    pulumi.export("uaiPrincipalId", example.principal_id)
+    ```
+
 
     :param str name: The name of the User Assigned Identity.
     :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.

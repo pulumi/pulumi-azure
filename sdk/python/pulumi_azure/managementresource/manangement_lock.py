@@ -32,6 +32,50 @@ class ManangementLock(pulumi.CustomResource):
         """
         Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 
+        ## Example Usage (Subscription Level Lock)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_subscription()
+        subscription_level = azure.management.Lock("subscription-level",
+            scope=current.id,
+            lock_level="CanNotDelete",
+            notes="Items can't be deleted in this subscription!")
+        ```
+
+        ## Example Usage (Resource Group Level Lock)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        resource_group_level = azure.management.Lock("resource-group-level",
+            scope=example.id,
+            lock_level="ReadOnly",
+            notes="This Resource Group is Read-Only")
+        ```
+
+        ## Example Usage (Resource Level Lock)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            idle_timeout_in_minutes=30)
+        public_ip = azure.management.Lock("public-ip",
+            scope=example_public_ip.id,
+            lock_level="CanNotDelete",
+            notes="Locked because it's needed by a third-party")
+        ```
+
         Deprecated: azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock
 
         :param str resource_name: The name of the resource.

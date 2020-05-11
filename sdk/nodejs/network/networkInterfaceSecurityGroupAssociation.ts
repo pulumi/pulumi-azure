@@ -9,6 +9,43 @@ import * as utilities from "../utilities";
 /**
  * Manages the association between a Network Interface and a Network Security Group.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefix: "10.0.2.0/24",
+ * });
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ip_configuration: [{
+ *         name: "testconfiguration1",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleNetworkInterfaceSecurityGroupAssociation = new azure.network.NetworkInterfaceSecurityGroupAssociation("exampleNetworkInterfaceSecurityGroupAssociation", {
+ *     networkInterfaceId: exampleNetworkInterface.id,
+ *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_security_group_association.html.markdown.
  */

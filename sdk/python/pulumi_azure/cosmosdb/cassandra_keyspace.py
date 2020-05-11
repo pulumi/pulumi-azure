@@ -30,6 +30,34 @@ class CassandraKeyspace(pulumi.CustomResource):
         """
         Manages a Cassandra KeySpace within a Cosmos DB Account.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.get_resource_group(name="tflex-cosmosdb-account-rg")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            offer_type="Standard",
+            capabilities=[{
+                "name": "EnableCassandra",
+            }],
+            consistency_policy={
+                "consistencyLevel": "Strong",
+            },
+            geo_location=[{
+                "location": "West US",
+                "failoverPriority": 0,
+            }])
+        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        ```
 
 
         :param str resource_name: The name of the resource.

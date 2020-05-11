@@ -48,6 +48,18 @@ def get_placement_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Proximity Placement Group.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.proximity.get_placement_group(name="tf-appsecuritygroup",
+        resource_group_name="my-resource-group")
+    pulumi.export("proximityPlacementGroupId", example.id)
+    ```
 
 
 

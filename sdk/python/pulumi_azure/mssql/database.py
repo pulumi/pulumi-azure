@@ -104,6 +104,44 @@ class Database(pulumi.CustomResource):
         """
         Manages a MS SQL Database.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        test = azure.mssql.Database("test",
+            server_id=azurerm_sql_server["test"]["id"],
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            license_type="LicenseIncluded",
+            max_size_gb=4,
+            read_scale=True,
+            sku_name="BC_Gen5_2",
+            zone_redundant=True,
+            extended_auditing_policy={
+                "storageEndpoint": example_account.primary_blob_endpoint,
+                "storageAccountAccessKey": example_account.primary_access_key,
+                "storageAccountAccessKeyIsSecondary": True,
+                "retentionInDays": 6,
+            },
+            tags={
+                "foo": "bar",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

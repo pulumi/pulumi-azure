@@ -82,6 +82,18 @@ def get_virtual_network(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.network.get_virtual_network(name="production",
+        resource_group_name="networking")
+    pulumi.export("virtualNetworkId", example.id)
+    ```
 
 
 

@@ -9,6 +9,30 @@ import * as utilities from "../utilities";
 /**
  * Manages an API Schema within an API Management Service.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * from "fs";
+ * 
+ * const exampleApi = azure.apimanagement.getApi({
+ *     name: "search-api",
+ *     apiManagementName: "search-api-management",
+ *     resourceGroupName: "search-service",
+ *     revision: "2",
+ * });
+ * const exampleApiSchema = new azure.apimanagement.ApiSchema("exampleApiSchema", {
+ *     apiName: exampleApi.then(exampleApi => exampleApi.name),
+ *     apiManagementName: exampleApi.then(exampleApi => exampleApi.apiManagementName),
+ *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
+ *     schemaId: "example-sche,a",
+ *     contentType: "application/vnd.ms-azure-apim.xsd+xml",
+ *     value: fs.readFileSync("api_management_api_schema.xml"),
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_schema.html.markdown.
  */

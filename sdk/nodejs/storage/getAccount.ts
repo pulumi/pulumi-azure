@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Storage Account.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.storage.getAccount({
+ *     name: "packerimages",
+ *     resourceGroupName: "packer-storage",
+ * });
+ * export const storageAccountTier = example.then(example => example.accountTier);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
  */

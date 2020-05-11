@@ -61,6 +61,18 @@ def get_configuration(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Maintenance Configuration.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    existing = azure.maintenance.get_configuration(name="example-mc",
+        resource_group_name="example-resources")
+    pulumi.export("id", azurerm_maintenance_configuration["existing"]["id"])
+    ```
 
 
 

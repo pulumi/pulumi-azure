@@ -42,6 +42,45 @@ class NetworkMapping(pulumi.CustomResource):
         """
         Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
+        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary_resource_group.location,
+            resource_group_name=secondary_resource_group.name,
+            sku="Standard")
+        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=primary_resource_group.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=secondary_resource_group.location)
+        # Avoids issues with crearing fabrics simultainusly
+        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
+            resource_group_name=primary_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=primary_resource_group.location)
+        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
+            resource_group_name=secondary_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=secondary_resource_group.location)
+        recovery_mapping = azure.siterecovery.NetworkMapping("recovery-mapping",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name="primary-fabric",
+            target_recovery_fabric_name="secondary-fabric",
+            source_network_id=primary_virtual_network.id,
+            target_network_id=secondary_virtual_network.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

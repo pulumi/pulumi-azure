@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing NetApp Account.
+ * 
+ * ## NetApp Account Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.netapp.getAccount({
+ *     resourceGroupName: "acctestRG",
+ *     name: "acctestnetappaccount",
+ * });
+ * export const netappAccountId = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_account.html.markdown.
  */

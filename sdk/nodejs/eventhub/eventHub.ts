@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Event Hubs as a nested resource within a Event Hubs namespace.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     capacity: 1,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 1,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
  */

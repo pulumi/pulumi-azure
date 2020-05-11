@@ -54,6 +54,37 @@ class StreamInputIotHub(pulumi.CustomResource):
         """
         Manages a Stream Analytics Stream Input IoTHub.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.get_resource_group(name="example-resources")
+        example_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=azurerm_resource_group["example"]["name"],
+            location=azurerm_resource_group["example"]["location"],
+            sku={
+                "name": "S1",
+                "capacity": "1",
+            })
+        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            endpoint="messages/events",
+            eventhub_consumer_group_name="$Default",
+            iothub_namespace=example_io_t_hub.name,
+            shared_access_policy_key=example_io_t_hub.shared_access_policies[0]["primary_key"],
+            shared_access_policy_name="iothubowner",
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

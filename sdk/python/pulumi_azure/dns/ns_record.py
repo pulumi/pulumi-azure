@@ -42,6 +42,28 @@ class NsRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS NS Records within Azure DNS.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_ns_record = azure.dns.NsRecord("exampleNsRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                "ns1.contoso.com",
+                "ns2.contoso.com",
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

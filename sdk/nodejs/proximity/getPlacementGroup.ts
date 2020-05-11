@@ -7,6 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Proximity Placement Group.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const example = azure.proximity.getPlacementGroup({
+ *     name: "tf-appsecuritygroup",
+ *     resourceGroupName: "my-resource-group",
+ * });
+ * export const proximityPlacementGroupId = example.then(example => example.id);
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
  */

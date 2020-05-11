@@ -68,6 +68,18 @@ def get_zone(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing DNS Zone.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.dns.get_zone(name="search-eventhubns",
+        resource_group_name="search-service")
+    pulumi.export("dnsZoneId", example.id)
+    ```
 
 
 

@@ -9,6 +9,52 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Stream Input EventHub.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     sku: "Standard",
+ *     capacity: 1,
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     partitionCount: 2,
+ *     messageRetention: 1,
+ * });
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     eventhubName: exampleEventHub.name,
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ * });
+ * const exampleStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("exampleStreamInputEventHub", {
+ *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
+ *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ *     eventhubConsumerGroupName: exampleConsumerGroup.name,
+ *     eventhubName: exampleEventHub.name,
+ *     servicebusNamespace: exampleEventHubNamespace.name,
+ *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
+ *     sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *     serialization: {
+ *         type: "Json",
+ *         encoding: "UTF8",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
  */

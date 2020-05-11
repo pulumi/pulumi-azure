@@ -102,6 +102,45 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
         """
         Manages a Traffic Manager Endpoint.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server",
+            keepers={
+                "azi_id": 1,
+            },
+            byte_length=8)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
+            resource_group_name=example_resource_group.name,
+            traffic_routing_method="Weighted",
+            dns_config={
+                "relativeName": server.hex,
+                "ttl": 100,
+            },
+            monitor_config={
+                "protocol": "http",
+                "port": 80,
+                "path": "/",
+                "intervalInSeconds": 30,
+                "timeoutInSeconds": 9,
+                "toleratedNumberOfFailures": 3,
+            },
+            tags={
+                "environment": "Production",
+            })
+        example_traffic_manager_endpoint = azure.network.TrafficManagerEndpoint("exampleTrafficManagerEndpoint",
+            resource_group_name=example_resource_group.name,
+            profile_name=example_traffic_manager_profile.name,
+            type="externalEndpoints",
+            weight=100)
+        ```
 
 
         :param str resource_name: The name of the resource.

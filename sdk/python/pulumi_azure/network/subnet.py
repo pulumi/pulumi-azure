@@ -59,6 +59,34 @@ class Subnet(pulumi.CustomResource):
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegation=[{
+                "name": "acctestdelegation",
+                "service_delegation": {
+                    "name": "Microsoft.ContainerInstance/containerGroups",
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                    ],
+                },
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

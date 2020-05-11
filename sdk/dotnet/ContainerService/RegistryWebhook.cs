@@ -93,7 +93,11 @@ namespace Pulumi.Azure.ContainerService
         {
             var defaultOptions = new CustomResourceOptions
             {
-                Version = Utilities.Version,                Aliases = { new Alias { Type = "azure:containerservice/registryWebook:RegistryWebook"} },
+                Version = Utilities.Version,
+                Aliases =
+                {
+                    new Alias { Type = "azure:containerservice/registryWebook:RegistryWebook"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

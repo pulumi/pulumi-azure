@@ -6,6 +6,40 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Firewall Rule for a MySQL Server
+ * 
+ * ## Example Usage (Single IP Address)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mysql.Server("exampleServer", {});
+ * // ...
+ * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     startIpAddress: "40.112.8.12",
+ *     endIpAddress: "40.112.8.12",
+ * });
+ * ```
+ * 
+ * ## Example Usage (IP Range)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mysql.Server("exampleServer", {});
+ * // ...
+ * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
+ *     startIpAddress: "40.112.0.0",
+ *     endIpAddress: "40.112.255.255",
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_firewall_rule.html.markdown.
  */

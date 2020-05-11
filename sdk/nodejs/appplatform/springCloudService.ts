@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Spring Cloud Service.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "Southeast Asia"});
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     config_server_git_setting: {
+ *         uri: "https://github.com/Azure-Samples/piggymetrics",
+ *         label: "config",
+ *         searchPaths: [
+ *             "dir1",
+ *             "dir2",
+ *         ],
+ *     },
+ *     tags: {
+ *         Env: "staging",
+ *     },
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/spring_cloud_service.html.markdown.
  */

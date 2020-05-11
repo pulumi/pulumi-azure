@@ -16,6 +16,55 @@ import * as utilities from "../utilities";
  * * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
  * * Use Front Door for application layer security and DDoS protection for your application.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "EastUS2"});
+ * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     enforceBackendPoolsCertificateNameCheck: false,
+ *     routing_rule: [{
+ *         name: "exampleRoutingRule1",
+ *         acceptedProtocols: [
+ *             "Http",
+ *             "Https",
+ *         ],
+ *         patternsToMatches: ["/*"],
+ *         frontendEndpoints: ["exampleFrontendEndpoint1"],
+ *         forwarding_configuration: {
+ *             forwardingProtocol: "MatchRequest",
+ *             backendPoolName: "exampleBackendBing",
+ *         },
+ *     }],
+ *     backend_pool_load_balancing: [{
+ *         name: "exampleLoadBalancingSettings1",
+ *     }],
+ *     backend_pool_health_probe: [{
+ *         name: "exampleHealthProbeSetting1",
+ *     }],
+ *     backend_pool: [{
+ *         name: "exampleBackendBing",
+ *         backend: [{
+ *             hostHeader: "www.bing.com",
+ *             address: "www.bing.com",
+ *             httpPort: 80,
+ *             httpsPort: 443,
+ *         }],
+ *         loadBalancingName: "exampleLoadBalancingSettings1",
+ *         healthProbeName: "exampleHealthProbeSetting1",
+ *     }],
+ *     frontend_endpoint: [{
+ *         name: "exampleFrontendEndpoint1",
+ *         hostName: "example-FrontDoor.azurefd.net",
+ *         customHttpsProvisioningEnabled: false,
+ *     }],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor.html.markdown.
  */

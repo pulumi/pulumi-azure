@@ -56,6 +56,26 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet")
+        #...
+        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            publisher="Microsoft.Azure.Extensions",
+            type="CustomScript",
+            type_handler_version="2.0",
+            settings=json.dumps({
+                "commandToExecute": "echo $HOSTNAME",
+            }))
+        ```
 
 
         :param str resource_name: The name of the resource.

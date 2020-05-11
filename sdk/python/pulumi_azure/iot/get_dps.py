@@ -79,6 +79,17 @@ def get_dps(name=None,resource_group_name=None,tags=None,opts=None):
     """
     Use this data source to access information about an existing IotHub Device Provisioning Service.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.iot.get_dps(name="iot_hub_dps_test",
+        resource_group_name="iothub_dps_rg")
+    ```
 
 
 

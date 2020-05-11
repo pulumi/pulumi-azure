@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing MariaDB Server.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const dbServer = azure.mariadb.getMariaDbServer({
+ *     name: "mariadb-server",
+ *     resourceGroupName: azurerm_mariadb_server.example.resource_group_name,
+ * });
+ * export const mariadbServerId = data.azurerm_mariadb_server.example.id;
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
  */

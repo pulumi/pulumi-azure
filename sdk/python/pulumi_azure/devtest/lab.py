@@ -58,6 +58,22 @@ class Lab(pulumi.CustomResource):
         """
         Manages a Dev Test Lab.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "Sydney": "Australia",
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.
