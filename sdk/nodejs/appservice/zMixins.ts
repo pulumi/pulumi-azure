@@ -838,7 +838,7 @@ declare module "./functionApp" {
         /**
          * Retrieve the keys associated with the Function App.
          */
-        getHostKeys(): pulumi.Output<FunctionHostKeys>;
+        getHostKeys(attempts?: number): pulumi.Output<FunctionHostKeys>;
 
         /**
          * Retrieve the keys associated with the given Function.
@@ -847,23 +847,27 @@ declare module "./functionApp" {
     }
 }
 
-FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
+FunctionApp.prototype.getHostKeys = function(this: FunctionApp, attempts?: number) {
     return this.id.apply(async id => {
+        const retryAttempts = attempts || 5
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
         const url = `https://management.azure.com${id}/host/default/listkeys?api-version=2018-02-01`;
 
         const response = await client.sendRequest({ method: "POST", url });
-        if (response.status >= 400) {
+        if(response.status < 400) {
+            const body = response.parsedBody;
+            if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
+                throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
+            }
+            return body as FunctionHostKeys;
+        }
+        if (response.status >= 400 && retryAttempts === 0) {
             throw new Error(`Failed to retrieve the host keys: ${response.bodyAsText}`);
         }
+        await new Promise(r => setTimeout(r, 10000));
 
-        const body = response.parsedBody;
-        if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
-            throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
-        }
-
-        return body as FunctionHostKeys;
+        return this.getHostKeys(retryAttempts - 1)
     });
 };
 
