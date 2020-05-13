@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Elastic Pool.
- * 
+ *
  * > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azure.mssql.ElasticPool version instead.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
  *     resourceGroupName: exampleResourceGroup.name,

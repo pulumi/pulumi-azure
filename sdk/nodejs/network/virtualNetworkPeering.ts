@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual network peering which allows resources to access other
  * resources in the linked virtual network.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.core.ResourceGroup("example", {location: "West US"});
  * const example-1VirtualNetwork = new azure.network.VirtualNetwork("example-1VirtualNetwork", {
  *     resourceGroupName: example.name,
@@ -40,9 +40,9 @@ import * as utilities from "../utilities";
  *     remoteVirtualNetworkId: example-1VirtualNetwork.id,
  * });
  * ```
- * 
+ *
  * ## Note
- * 
+ *
  * Virtual Network peerings cannot be created, updated or deleted concurrently.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock", DeprecationWarning)
+warnings.warn("azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock", DeprecationWarning)
 class ManangementLock(pulumi.CustomResource):
     lock_level: pulumi.Output[str]
     """
@@ -27,7 +27,7 @@ class ManangementLock(pulumi.CustomResource):
     """
     Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
     """
-    warnings.warn("azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock", DeprecationWarning)
+    warnings.warn("azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, lock_level=None, name=None, notes=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
@@ -76,7 +76,7 @@ class ManangementLock(pulumi.CustomResource):
             notes="Locked because it's needed by a third-party")
         ```
 
-        Deprecated: azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock
+        Deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -85,7 +85,7 @@ class ManangementLock(pulumi.CustomResource):
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         """
-        pulumi.log.warn("ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock")
+        pulumi.log.warn("ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

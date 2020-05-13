@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing ServiceBus Namespace.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.servicebus.getNamespace({
  *     name: "examplenamespace",
  *     resourceGroupName: "example-resources",
@@ -26,9 +26,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
  */
-/** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace */
+/** @deprecated azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace */
 export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> {
-    pulumi.log.warn("getServiceBusNamespace is deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace")
+    pulumi.log.warn("getServiceBusNamespace is deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace")
     if (!opts) {
         opts = {}
     }

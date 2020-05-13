@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Load Balancer NAT pool.
- * 
+ *
  * > **NOTE:** This resource cannot be used with with virtual machines, instead use the `azure.lb.NatRule` resource.
- * 
+ *
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
  *     location: "West US",

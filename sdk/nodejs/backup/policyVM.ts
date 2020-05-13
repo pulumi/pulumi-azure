@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Backup VM Backup Policy.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });

@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the subscription's Security Center Contact.
- * 
+ *
  * > **NOTE:** Owner access permission is required.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.securitycenter.Contact("example", {
  *     alertNotifications: true,
  *     alertsToAdmins: true,

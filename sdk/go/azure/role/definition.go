@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition
+// Deprecated: azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition
 type Definition struct {
 	pulumi.CustomResourceState
 

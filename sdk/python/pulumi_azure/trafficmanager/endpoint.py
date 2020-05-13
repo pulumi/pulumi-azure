@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint", DeprecationWarning)
+warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint", DeprecationWarning)
 class Endpoint(pulumi.CustomResource):
     custom_headers: pulumi.Output[list]
     """
@@ -99,7 +99,7 @@ class Endpoint(pulumi.CustomResource):
     endpoint, this must be specified for Profiles using the  `Weighted` traffic
     routing method. Supports values between 1 and 1000.
     """
-    warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint", DeprecationWarning)
+    warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, custom_headers=None, endpoint_location=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Endpoint.
@@ -145,7 +145,7 @@ class Endpoint(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint
+        Deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,7 +199,7 @@ class Endpoint(pulumi.CustomResource):
           * `last` (`pulumi.Input[str]`) - The Last IP...
           * `scope` (`pulumi.Input[float]`) - The Scope...
         """
-        pulumi.log.warn("Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint")
+        pulumi.log.warn("Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -9,19 +9,19 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Machine Extension to provide post deployment configuration
  * and run automated tasks.
- * 
+ *
  * > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
- * 
+ *
  * > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],

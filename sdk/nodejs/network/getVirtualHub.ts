@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing Virtual Hub.
- * 
+ *
  * ## Virtual Hub Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.network.getVirtualHub({
  *     name: "example-hub",
  *     resourceGroupName: "example-resources",

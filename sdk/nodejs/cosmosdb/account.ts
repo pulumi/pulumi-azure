@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CosmosDB (formally DocumentDB) Account.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const rg = new azure.core.ResourceGroup("rg", {location: var.resource_group_location});
  * const ri = new random.RandomInteger("ri", {
  *     min: 10000,

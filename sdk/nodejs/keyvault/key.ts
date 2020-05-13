@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Key.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const current = azure.core.getClientConfig({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const server = new random.RandomId("server", {

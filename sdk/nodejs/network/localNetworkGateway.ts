@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a local network gateway connection over which specific connections can be configured.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.core.ResourceGroup("example", {location: "West US"});
  * const home = new azure.network.LocalNetworkGateway("home", {
  *     resourceGroupName: example.name,

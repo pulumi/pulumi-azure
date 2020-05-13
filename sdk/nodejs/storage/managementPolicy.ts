@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Storage Account Management Policy.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westus"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,

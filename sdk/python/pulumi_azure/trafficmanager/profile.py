@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile", DeprecationWarning)
+warnings.warn("azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile", DeprecationWarning)
 class Profile(pulumi.CustomResource):
     dns_config: pulumi.Output[dict]
     """
@@ -58,7 +58,7 @@ class Profile(pulumi.CustomResource):
     """
     Specifies the algorithm used to route traffic, possible values are:
     """
-    warnings.warn("azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile", DeprecationWarning)
+    warnings.warn("azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, dns_config=None, monitor_config=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
@@ -99,7 +99,7 @@ class Profile(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile
+        Deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class Profile(pulumi.CustomResource):
           * `timeoutInSeconds` (`pulumi.Input[float]`) - The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
           * `toleratedNumberOfFailures` (`pulumi.Input[float]`) - The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
-        pulumi.log.warn("Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile")
+        pulumi.log.warn("Profile is deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

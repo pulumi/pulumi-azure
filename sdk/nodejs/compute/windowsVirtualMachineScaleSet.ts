@@ -8,21 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Windows Virtual Machine Scale Set.
- * 
+ *
  * ## Disclaimers
- * 
+ *
  * > **Note** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
- * 
+ *
  * > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     resourceGroupName: exampleResourceGroup.name,

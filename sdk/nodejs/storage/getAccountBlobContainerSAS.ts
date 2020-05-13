@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
- * 
+ *
  * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const rg = new azure.core.ResourceGroup("rg", {location: "westus"});
  * const storage = new azure.storage.Account("storage", {
  *     resourceGroupName: rg.name,

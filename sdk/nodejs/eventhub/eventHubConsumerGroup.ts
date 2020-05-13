@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
  *     location: "West US",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group.html.markdown.
  */
-/** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup */
+/** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup */
 export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**
      * Get an existing EventHubConsumerGroup resource's state with the given name, ID, and optional extra
@@ -54,7 +54,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions): EventHubConsumerGroup {
-        pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup")
+        pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup")
         return new EventHubConsumerGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -100,11 +100,11 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup */
+    /** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup */
     constructor(name: string, args: EventHubConsumerGroupArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup */
+    /** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup */
     constructor(name: string, argsOrState?: EventHubConsumerGroupArgs | EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favour of azure.eventhub.ConsumerGroup")
+        pulumi.log.warn("EventHubConsumerGroup is deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventHubConsumerGroupState | undefined;

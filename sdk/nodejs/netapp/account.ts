@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a NetApp Account.
- * 
+ *
  * > **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
- * 
+ *
  * ## NetApp Account Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });

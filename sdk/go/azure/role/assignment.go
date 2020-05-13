@@ -12,7 +12,7 @@ import (
 
 // Assigns a given Principal (User or Application) to a given Role.
 //
-// Deprecated: azure.role.Assignment has been deprecated in favour of azure.authorization.Assignment
+// Deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
 type Assignment struct {
 	pulumi.CustomResourceState
 

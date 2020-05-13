@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
  *     location: exampleResourceGroup.location,

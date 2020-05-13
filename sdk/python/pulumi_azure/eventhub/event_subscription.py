@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription", DeprecationWarning)
+warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
 class EventSubscription(pulumi.CustomResource):
     event_delivery_schema: pulumi.Output[str]
     """
@@ -82,7 +82,7 @@ class EventSubscription(pulumi.CustomResource):
 
       * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events.
     """
-    warnings.warn("azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription", DeprecationWarning)
+    warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, event_delivery_schema=None, eventhub_endpoint=None, hybrid_connection_endpoint=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Event Subscription
@@ -116,7 +116,7 @@ class EventSubscription(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription
+        Deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +167,7 @@ class EventSubscription(pulumi.CustomResource):
 
           * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
         """
-        pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription")
+        pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

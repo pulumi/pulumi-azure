@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Database
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
  *     resourceGroupName: exampleResourceGroup.name,

@@ -12,9 +12,9 @@ namespace Pulumi.Azure.ManagementResource
     /// <summary>
     /// Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
     /// 
-    /// Deprecated: azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock
+    /// Deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock
     /// </summary>
-    [Obsolete(@"azure.managementresource.ManangementLock has been deprecated in favour of azure.management.Lock")]
+    [Obsolete(@"azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock")]
     public partial class ManangementLock : Pulumi.CustomResource
     {
         /// <summary>

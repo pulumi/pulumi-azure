@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management API Policy
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleApi = pulumi.output(azure.apimanagement.getApi({
  *     apiManagementName: "example-apim",
  *     apiName: "my-api",

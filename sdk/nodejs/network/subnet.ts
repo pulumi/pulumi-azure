@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
- * 
+ *
  * > **NOTE on Virtual Networks and Subnet's:** This provider currently
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
@@ -166,7 +166,7 @@ export class Subnet extends pulumi.CustomResource {
 export interface SubnetState {
     /**
      * The address prefix to use for the subnet.
-     * 
+     *
      * @deprecated Use the `address_prefixes` property instead.
      */
     readonly addressPrefix?: pulumi.Input<string>;
@@ -210,7 +210,7 @@ export interface SubnetState {
 export interface SubnetArgs {
     /**
      * The address prefix to use for the subnet.
-     * 
+     *
      * @deprecated Use the `address_prefixes` property instead.
      */
     readonly addressPrefix?: pulumi.Input<string>;

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Diagnostic Setting for an existing Resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });

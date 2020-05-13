@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Data Factory Managed Integration Runtime.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
  * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
  *     location: exampleResourceGroup.location,

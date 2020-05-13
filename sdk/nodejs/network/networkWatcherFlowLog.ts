@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Watcher Flow Log.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "eastus"});
  * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("testNetworkSecurityGroup", {
  *     location: testResourceGroup.location,

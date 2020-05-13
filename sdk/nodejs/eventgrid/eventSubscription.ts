@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Event Subscription
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const defaultResourceGroup = new azure.core.ResourceGroup("defaultResourceGroup", {location: "West US 2"});
  * const defaultAccount = new azure.storage.Account("defaultAccount", {
  *     resourceGroupName: defaultResourceGroup.name,

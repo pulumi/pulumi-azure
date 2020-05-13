@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Point-to-Site VPN Gateway.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.network.PointToPointVpnGateway("example", {
  *     location: azurerm_resource_group.example.location,
  *     resourceGroupName: azurerm_resource_group.example.resource_group_name,

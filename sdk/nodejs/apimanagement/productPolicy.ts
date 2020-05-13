@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Product Policy
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleProduct = azure.apimanagement.getProduct({
  *     productId: "my-product",
  *     apiManagementName: "example-apim",

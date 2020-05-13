@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a certificate in an Azure Batch account.
- * 
+ *
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_certificate.html.markdown.
  */

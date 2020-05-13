@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Network Security Group with a Subnet within a Virtual Network.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],

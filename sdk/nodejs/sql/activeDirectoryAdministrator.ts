@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to set a user or group as the AD administrator for an Azure SQL server
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const current = pulumi.output(azure.core.getClientConfig({ async: true }));
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",

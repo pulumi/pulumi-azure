@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
  *     location: exampleResourceGroup.location,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule.html.markdown.
  */
-/** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule */
+/** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing NamespaceAuthorizationRule resource's state with the given name, ID, and optional extra
@@ -48,7 +48,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): NamespaceAuthorizationRule {
-        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule")
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule")
         return new NamespaceAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -114,11 +114,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule */
+    /** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule */
     constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule */
+    /** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule */
     constructor(name: string, argsOrState?: NamespaceAuthorizationRuleArgs | NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule")
+        pulumi.log.warn("NamespaceAuthorizationRule is deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NamespaceAuthorizationRuleState | undefined;

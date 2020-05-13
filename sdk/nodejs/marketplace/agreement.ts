@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Allows accepting the Legal Terms for a Marketplace Image.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const barracuda = new azure.marketplace.Agreement("barracuda", {
  *     offer: "waf",
  *     plan: "hourly",

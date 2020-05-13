@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS AAAA Records within Azure DNS.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
  * const exampleAaaaRecord = new azure.dns.AaaaRecord("exampleAaaaRecord", {
@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  *     ttl: 300,
  * });
  * ```
- * 
+ *
  * ## Example Usage (Alias Record)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {

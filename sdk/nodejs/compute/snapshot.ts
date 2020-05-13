@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Disk Snapshot.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
  *     location: exampleResourceGroup.location,

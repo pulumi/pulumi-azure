@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Kusto (also known as Azure Data Explorer) Database Principal
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const current = azure.core.getClientConfig({});
  * const rg = new azure.core.ResourceGroup("rg", {location: "East US"});
  * const cluster = new azure.kusto.Cluster("cluster", {

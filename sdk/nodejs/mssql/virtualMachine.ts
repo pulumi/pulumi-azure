@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Microsoft SQL Virtual Machine
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleVirtualMachine = azure.compute.getVirtualMachine({
  *     name: "example-vm",
  *     resourceGroupName: "example-resources",

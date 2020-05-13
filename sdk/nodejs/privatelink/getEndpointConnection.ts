@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the connection status information about an existing Private Endpoint Connection.
- * 
+ *
  * > **NOTE** Private Endpoint is currently in Public Preview.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.privatelink.getEndpointConnection({
  *     name: "example-private-endpoint",
  *     resourceGroupName: "example-rg",

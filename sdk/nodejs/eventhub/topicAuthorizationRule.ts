@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
  *     location: exampleResourceGroup.location,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
  */
-/** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule */
+/** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing TopicAuthorizationRule resource's state with the given name, ID, and optional extra
@@ -53,7 +53,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): TopicAuthorizationRule {
-        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule")
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule")
         return new TopicAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -123,11 +123,11 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule */
+    /** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule */
     constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule */
+    /** @deprecated azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule */
     constructor(name: string, argsOrState?: TopicAuthorizationRuleArgs | TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule")
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TopicAuthorizationRuleState | undefined;

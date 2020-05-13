@@ -9,13 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Core
 {
-    [Obsolete(@"azure.core.getUserAssignedIdentity has been deprecated in favour of azure.authorization.getUserAssignedIdentity")]
+    [Obsolete(@"azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity")]
     public static class GetUserAssignedIdentity
     {
         /// <summary>
         /// Use this data source to access information about an existing User Assigned Identity.
         /// 
-        /// Deprecated: azure.core.getUserAssignedIdentity has been deprecated in favour of azure.authorization.getUserAssignedIdentity
+        /// Deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());

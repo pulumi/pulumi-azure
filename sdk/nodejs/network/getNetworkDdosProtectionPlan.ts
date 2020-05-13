@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Network DDoS Protection Plan.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.network.getNetworkDdosProtectionPlan({
  *     name: azurerm_network_ddos_protection_plan.example.name,
  *     resourceGroupName: azurerm_network_ddos_protection_plan.example.resource_group_name,

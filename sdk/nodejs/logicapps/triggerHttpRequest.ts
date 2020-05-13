@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a HTTP Request Trigger within a Logic App Workflow
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
  * const exampleWorkflow = new azure.logicapps.Workflow("exampleWorkflow", {
  *     location: exampleResourceGroup.location,

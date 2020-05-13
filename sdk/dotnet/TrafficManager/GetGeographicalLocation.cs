@@ -9,13 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.TrafficManager
 {
-    [Obsolete(@"azure.trafficmanager.getGeographicalLocation has been deprecated in favour of azure.network.getTrafficManager")]
+    [Obsolete(@"azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager")]
     public static class GetGeographicalLocation
     {
         /// <summary>
         /// Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
         /// 
-        /// Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favour of azure.network.getTrafficManager
+        /// Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
         /// </summary>
         public static Task<GetGeographicalLocationResult> InvokeAsync(GetGeographicalLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? new GetGeographicalLocationArgs(), options.WithVersion());

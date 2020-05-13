@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Linked Service (connection) between MySQL and Azure Data Factory.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
  * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
  *     location: exampleResourceGroup.location,

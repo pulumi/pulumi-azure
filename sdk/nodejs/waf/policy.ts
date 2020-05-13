@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Azure Web Application Firewall Policy instance.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
  * const examplePolicy = new azure.waf.Policy("examplePolicy", {
  *     resourceGroupName: exampleResourceGroup.name,

@@ -10,13 +10,13 @@ import {Kind} from "./kind";
 
 /**
  * Manages an App Service Plan component.
- * 
+ *
  * ## Example Usage (Dedicated)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const examplePlan = new azure.appservice.Plan("examplePlan", {
  *     location: exampleResourceGroup.location,
@@ -27,13 +27,13 @@ import {Kind} from "./kind";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example Usage (Shared / Consumption Plan)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const examplePlan = new azure.appservice.Plan("examplePlan", {
  *     location: exampleResourceGroup.location,
@@ -45,13 +45,13 @@ import {Kind} from "./kind";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example Usage (Linux)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const examplePlan = new azure.appservice.Plan("examplePlan", {
  *     location: exampleResourceGroup.location,
@@ -64,13 +64,13 @@ import {Kind} from "./kind";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example Usage (Windows Container)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const examplePlan = new azure.appservice.Plan("examplePlan", {
  *     location: exampleResourceGroup.location,

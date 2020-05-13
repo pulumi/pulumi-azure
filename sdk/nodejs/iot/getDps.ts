@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing IotHub Device Provisioning Service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = pulumi.output(azure.iot.getDps({
  *     name: "iotHubDpsTest",
  *     resourceGroupName: "iothubDpsRg",

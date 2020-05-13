@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Public IP Address.
- * 
+ *
  * ## Example Usage (reference an existing)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.network.getPublicIP({
  *     name: "nameOfPublicIp",
  *     resourceGroupName: "nameOfResourceGroup",
@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  * export const domainNameLabel = example.then(example => example.domainNameLabel);
  * export const publicIpAddress = example.then(example => example.ipAddress);
  * ```
- * 
+ *
  * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],

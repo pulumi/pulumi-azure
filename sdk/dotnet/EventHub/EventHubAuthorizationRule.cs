@@ -14,9 +14,9 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// 
     /// 
-    /// Deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule
+    /// Deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule
     /// </summary>
-    [Obsolete(@"azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule")]
+    [Obsolete(@"azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule")]
     public partial class EventHubAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>

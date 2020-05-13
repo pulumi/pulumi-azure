@@ -9,7 +9,7 @@ import (
 
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 //
-// Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favour of azure.network.getTrafficManager
+// Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
 func GetGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs, opts ...pulumi.InvokeOption) (*GetGeographicalLocationResult, error) {
 	var rv GetGeographicalLocationResult
 	err := ctx.Invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, &rv, opts...)
