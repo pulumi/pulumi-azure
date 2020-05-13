@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Links an Automation Runbook and Schedule.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.automation.JobSchedule("example", {
  *     automationAccountName: "tf-automation-account",
  *     parameters: {

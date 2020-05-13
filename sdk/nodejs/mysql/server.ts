@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a MySQL Server.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServer = new azure.mysql.Server("exampleServer", {
  *     location: exampleResourceGroup.location,

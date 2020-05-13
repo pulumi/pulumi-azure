@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Redis Cache.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * // NOTE: the Name used for Redis needs to be globally unique
  * const exampleCache = new azure.redis.Cache("exampleCache", {
@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  *     redis_configuration: {},
  * });
  * ```
- * 
+ *
  * ## Default Redis Configuration Values
- * 
+ *
  * | Redis Value                     | Basic        | Standard     | Premium      |
  * | ------------------------------- | ------------ | ------------ | ------------ |
  * | enableAuthentication           | true         | true         | true         |
@@ -40,21 +40,21 @@ import * as utilities from "../utilities";
  * | maxfragmentationmemoryReserved | 2            | 50           | 200          |
  * | maxmemoryDelta                 | 2            | 50           | 200          |
  * | maxmemoryPolicy                | volatile-lru | volatile-lru | volatile-lru |
- * 
+ *
  * > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
- * 
+ *
  * ---
- * 
+ *
  * A `patchSchedule` block supports the following:
- * 
+ *
  * * `dayOfWeek` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
- * 
+ *
  * * `startHourUtc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
- * 
+ *
  * > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
- * 
+ *
  * ## Relevant Links
- * 
+ *
  *  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
  *  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
  *

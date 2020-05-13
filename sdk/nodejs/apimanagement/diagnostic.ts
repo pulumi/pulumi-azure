@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Service Diagnostic.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
  * const testService = new azure.apimanagement.Service("testService", {
  *     location: testResourceGroup.location,
@@ -132,7 +132,7 @@ export interface DiagnosticState {
     readonly apiManagementName?: pulumi.Input<string>;
     /**
      * Indicates whether a Diagnostic should receive data or not.
-     * 
+     *
      * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly enabled?: pulumi.Input<boolean>;
@@ -156,7 +156,7 @@ export interface DiagnosticArgs {
     readonly apiManagementName: pulumi.Input<string>;
     /**
      * Indicates whether a Diagnostic should receive data or not.
-     * 
+     *
      * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly enabled?: pulumi.Input<boolean>;

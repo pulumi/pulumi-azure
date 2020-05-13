@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.core.ResourceGroup("example", {location: "West US"});
  * const vnet = new azure.network.VirtualNetwork("vnet", {
  *     addressSpaces: ["10.7.29.0/29"],

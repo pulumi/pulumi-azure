@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS A Records within Azure DNS.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
  * const exampleARecord = new azure.dns.ARecord("exampleARecord", {
@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  *     records: ["10.0.180.17"],
  * });
  * ```
- * 
+ *
  * ## Example Usage (Alias Record)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {

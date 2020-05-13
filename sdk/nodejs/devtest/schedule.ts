@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages automated startup and shutdown schedules for Azure Dev Test Lab.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const sampleResourceGroup = new azure.core.ResourceGroup("sampleResourceGroup", {location: "West US"});
  * const sampleLab = new azure.devtest.Lab("sampleLab", {
  *     location: azurerm_resource_group.example.location,

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Shared Image within a Shared Image Gallery.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("exampleSharedImageGallery", {
  *     resourceGroupName: exampleResourceGroup.name,

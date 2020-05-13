@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a policy rule definition on a management group or your provider subscription.
- * 
+ *
  * Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const policy = new azure.policy.Definition("policy", {
  *     displayName: "acceptance test policy definition",
  *     metadata: `    {

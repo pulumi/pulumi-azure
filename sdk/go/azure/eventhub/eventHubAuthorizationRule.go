@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule
+// Deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule
 type EventHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing VM Backup Policy.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const policy = pulumi.output(azure.backup.getPolicyVM({
  *     name: "policy",
  *     recoveryVaultName: "recoveryVault",

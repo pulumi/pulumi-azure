@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs authorization Rule within an Event Hub.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
  *     location: "West US",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
  */
-/** @deprecated azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule */
+/** @deprecated azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing EventHubAuthorizationRule resource's state with the given name, ID, and optional extra
@@ -56,7 +56,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions): EventHubAuthorizationRule {
-        pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule")
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule")
         return new EventHubAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
@@ -134,11 +134,11 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule */
+    /** @deprecated azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule */
     constructor(name: string, args: EventHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule */
+    /** @deprecated azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule */
     constructor(name: string, argsOrState?: EventHubAuthorizationRuleArgs | EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favour of azure.eventhub.AuthorizationRule")
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventHubAuthorizationRuleState | undefined;

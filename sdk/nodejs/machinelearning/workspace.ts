@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Azure Machine Learning Workspace
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const current = azure.core.getClientConfig({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {

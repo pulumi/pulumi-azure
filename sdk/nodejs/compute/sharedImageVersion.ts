@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Version of a Shared Image within a Shared Image Gallery.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const existingImage = azure.compute.getImage({
  *     name: "search-api",
  *     resourceGroupName: "packerimages",

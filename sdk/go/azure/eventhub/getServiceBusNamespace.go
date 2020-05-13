@@ -11,7 +11,7 @@ import (
 //
 //
 //
-// Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favour of azure.servicebus.getNamespace
+// Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
 func GetServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespaceArgs, opts ...pulumi.InvokeOption) (*GetServiceBusNamespaceResult, error) {
 	var rv GetServiceBusNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, &rv, opts...)

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
+warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
 class QueueAuthorizationRule(pulumi.CustomResource):
     listen: pulumi.Output[bool]
     """
@@ -55,7 +55,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     """
     Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
     """
-    warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
+    warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, queue_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
@@ -90,7 +90,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule
+        Deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,7 +102,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
         """
-        pulumi.log.warn("QueueAuthorizationRule is deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favour of azure.servicebus.QueueAuthorizationRule")
+        pulumi.log.warn("QueueAuthorizationRule is deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IotHub Device Provisioning Service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleIotHubDps = new azure.iot.IotHubDps("exampleIotHubDps", {
  *     resourceGroupName: exampleResourceGroup.name,

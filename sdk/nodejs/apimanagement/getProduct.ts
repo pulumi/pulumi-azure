@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management Product.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.apimanagement.getProduct({
  *     productId: "my-product",
  *     apiManagementName: "example-apim",

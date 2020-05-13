@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.eventhub.Queue has been deprecated in favour of azure.servicebus.Queue
+// Deprecated: azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue
 type Queue struct {
 	pulumi.CustomResourceState
 

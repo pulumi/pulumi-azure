@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Server within an API Management Service.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleApi = azure.apimanagement.getApi({
  *     name: "search-api",
  *     apiManagementName: "search-api-management",

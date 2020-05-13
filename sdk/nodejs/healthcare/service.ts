@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Healthcare Service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.healthcare.Service("example", {
  *     accessPolicyObjectIds: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
  *     authenticationConfiguration: {

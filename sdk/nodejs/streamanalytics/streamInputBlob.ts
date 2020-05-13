@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Stream Input Blob.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });

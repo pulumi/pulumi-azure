@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = pulumi.output(azure.compute.getSharedImageVersion({
  *     galleryName: "my-image-gallery",
  *     imageName: "my-image",

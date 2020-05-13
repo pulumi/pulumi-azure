@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about existing resources.
- * 
+ *
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
  */

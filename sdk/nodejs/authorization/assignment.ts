@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Assigns a given Principal (User or Application) to a given Role.
- * 
+ *
  * ## Example Usage (using a built-in Role)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
- * 
+ *
  * ## Example Usage (Custom Role & Service Principal)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
@@ -46,13 +46,13 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
- * 
+ *
  * ## Example Usage (Custom Role & User)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
@@ -71,13 +71,13 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
  * });
  * ```
- * 
+ *
  * ## Example Usage (Custom Role & Management Group)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleGroup = azure.management.getGroup({});

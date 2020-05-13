@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Job.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleJob = new azure.streamanalytics.Job("exampleJob", {
  *     resourceGroupName: exampleResourceGroup.name,

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Firewall Rule for a MySQL Server
- * 
+ *
  * ## Example Usage (Single IP Address)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServer = new azure.mysql.Server("exampleServer", {});
  * // ...
@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.8.12",
  * });
  * ```
- * 
+ *
  * ## Example Usage (IP Range)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServer = new azure.mysql.Server("exampleServer", {});
  * // ...

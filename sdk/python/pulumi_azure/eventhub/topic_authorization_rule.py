@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
+warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
 class TopicAuthorizationRule(pulumi.CustomResource):
     listen: pulumi.Output[bool]
     """
@@ -55,7 +55,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     """
     Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
     """
-    warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
+    warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
@@ -89,7 +89,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule
+        Deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,7 +101,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[str] topic_name: Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
         """
-        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favour of azure.servicebus.TopicAuthorizationRule")
+        pulumi.log.warn("TopicAuthorizationRule is deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

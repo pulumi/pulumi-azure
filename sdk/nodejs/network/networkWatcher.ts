@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Watcher.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleNetworkWatcher = new azure.network.NetworkWatcher("exampleNetworkWatcher", {
  *     location: exampleResourceGroup.location,

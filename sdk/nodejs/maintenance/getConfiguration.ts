@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Maintenance Configuration.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const existing = azure.maintenance.getConfiguration({
  *     name: "example-mc",
  *     resourceGroupName: "example-resources",

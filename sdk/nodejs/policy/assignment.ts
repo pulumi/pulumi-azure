@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
  *     policyType: "Custom",
  *     mode: "All",

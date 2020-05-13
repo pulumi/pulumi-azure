@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a MS Teams integration for a Bot Channel
- * 
+ *
  * > **Note** A bot can only have a single MS Teams Channel associated with it.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const current = pulumi.output(azure.core.getClientConfig({ async: true }));
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",

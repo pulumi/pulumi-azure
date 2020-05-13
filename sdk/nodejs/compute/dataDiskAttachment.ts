@@ -8,19 +8,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manages attaching a Disk to a Virtual Machine.
- * 
+ *
  * > **NOTE:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
- * 
+ *
  * > **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storageDataDisk` block in the `azure.compute.VirtualMachine` resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "example";
  * const vmName = `${prefix}-vm`;

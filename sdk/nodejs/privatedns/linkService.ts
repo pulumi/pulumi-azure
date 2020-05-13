@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Private Link Service.
- * 
+ *
  * > **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     resourceGroupName: exampleResourceGroup.name,

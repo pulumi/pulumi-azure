@@ -12,9 +12,9 @@ namespace Pulumi.Azure.EventHub
     /// <summary>
     /// Manages a ServiceBus Subscription Rule.
     /// 
-    /// Deprecated: azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule
+    /// Deprecated: azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule
     /// </summary>
-    [Obsolete(@"azure.eventhub.SubscriptionRule has been deprecated in favour of azure.servicebus.SubscriptionRule")]
+    [Obsolete(@"azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule")]
     public partial class SubscriptionRule : Pulumi.CustomResource
     {
         /// <summary>

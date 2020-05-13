@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Subscription.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
  *     location: exampleResourceGroup.location,
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
  */
-/** @deprecated azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription */
+/** @deprecated azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription */
 export class Subscription extends pulumi.CustomResource {
     /**
      * Get an existing Subscription resource's state with the given name, ID, and optional extra
@@ -52,7 +52,7 @@ export class Subscription extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubscriptionState, opts?: pulumi.CustomResourceOptions): Subscription {
-        pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription")
+        pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription")
         return new Subscription(name, <any>state, { ...opts, id: id });
     }
 
@@ -130,11 +130,11 @@ export class Subscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription */
+    /** @deprecated azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription */
+    /** @deprecated azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription */
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription")
+        pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SubscriptionState | undefined;

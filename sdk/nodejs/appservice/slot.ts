@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an App Service Slot (within an App Service).
- * 
+ *
  * > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
- * 
- * 
+ *
+ *
  * ## Example Usage (.net 4.x)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const server = new random.RandomId("server", {
  *     keepers: {
  *         azi_id: 1,
@@ -68,14 +68,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * 
+ *
  * ## Example Usage (Java 1.8)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const server = new random.RandomId("server", {
  *     keepers: {
  *         azi_id: 1,

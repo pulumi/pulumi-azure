@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a virtual machine scale set.
- * 
+ *
  * ## Disclaimers
- * 
+ *
  * > **Note:** The `azure.compute.ScaleSet` resource has been superseded by the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources. The existing `azure.compute.ScaleSet` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
- * 
+ *
  * ## Example Usage with Managed Disks (Recommended)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * from "fs";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
@@ -130,14 +130,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example Usage with Unmanaged Disks
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * from "fs";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
@@ -206,13 +206,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example of storageProfileImageReference with id
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleImage = new azure.compute.Image("exampleImage", {});
  * // ...
  * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {storage_profile_image_reference: {

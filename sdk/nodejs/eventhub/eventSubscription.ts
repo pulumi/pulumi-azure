@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Event Subscription
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const defaultResourceGroup = new azure.core.ResourceGroup("defaultResourceGroup", {location: "West US 2"});
  * const defaultAccount = new azure.storage.Account("defaultAccount", {
  *     resourceGroupName: defaultResourceGroup.name,
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
  */
-/** @deprecated azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription */
+/** @deprecated azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription */
 export class EventSubscription extends pulumi.CustomResource {
     /**
      * Get an existing EventSubscription resource's state with the given name, ID, and optional extra
@@ -53,7 +53,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventSubscriptionState, opts?: pulumi.CustomResourceOptions): EventSubscription {
-        pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription")
+        pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription")
         return new EventSubscription(name, <any>state, { ...opts, id: id });
     }
 
@@ -131,11 +131,11 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription */
+    /** @deprecated azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription */
+    /** @deprecated azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription */
     constructor(name: string, argsOrState?: EventSubscriptionArgs | EventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favour of azure.eventgrid.EventSubscription")
+        pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;

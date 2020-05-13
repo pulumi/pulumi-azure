@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management API Operation Policy
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleApiOperation = new azure.apimanagement.ApiOperation("exampleApiOperation", {});
  * //...
  * const exampleApiOperationPolicy = new azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy", {

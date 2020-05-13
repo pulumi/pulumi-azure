@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS CNAME Records within Azure DNS.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
  * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     record: "contoso.com",
  * });
  * ```
- * 
+ *
  * ## Example Usage (Alias Record)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
  * const target = new azure.dns.CNameRecord("target", {

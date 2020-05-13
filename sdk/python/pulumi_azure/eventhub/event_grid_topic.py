@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic", DeprecationWarning)
+warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
 class EventGridTopic(pulumi.CustomResource):
     endpoint: pulumi.Output[str]
     """
@@ -39,7 +39,7 @@ class EventGridTopic(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic", DeprecationWarning)
+    warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Topic
@@ -64,7 +64,7 @@ class EventGridTopic(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic
+        Deprecated: azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +73,7 @@ class EventGridTopic(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.log.warn("EventGridTopic is deprecated: azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic")
+        pulumi.log.warn("EventGridTopic is deprecated: azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

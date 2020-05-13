@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Assigns a given Principal (User or Application) to a given Role.
- * 
+ *
  * ## Example Usage (using a built-in Role)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
- * 
+ *
  * ## Example Usage (Custom Role & Service Principal)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
@@ -46,13 +46,13 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
- * 
+ *
  * ## Example Usage (Custom Role & User)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
@@ -71,13 +71,13 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
  * });
  * ```
- * 
+ *
  * ## Example Usage (Custom Role & Management Group)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const primary = azure.core.getSubscription({});
  * const exampleClientConfig = azure.core.getClientConfig({});
  * const exampleGroup = azure.management.getGroup({});
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */
-/** @deprecated azure.role.Assignment has been deprecated in favour of azure.authorization.Assignment */
+/** @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment */
 export class Assignment extends pulumi.CustomResource {
     /**
      * Get an existing Assignment resource's state with the given name, ID, and optional extra
@@ -111,7 +111,7 @@ export class Assignment extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssignmentState, opts?: pulumi.CustomResourceOptions): Assignment {
-        pulumi.log.warn("Assignment is deprecated: azure.role.Assignment has been deprecated in favour of azure.authorization.Assignment")
+        pulumi.log.warn("Assignment is deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment")
         return new Assignment(name, <any>state, { ...opts, id: id });
     }
 
@@ -165,11 +165,11 @@ export class Assignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.role.Assignment has been deprecated in favour of azure.authorization.Assignment */
+    /** @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.role.Assignment has been deprecated in favour of azure.authorization.Assignment */
+    /** @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment */
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Assignment is deprecated: azure.role.Assignment has been deprecated in favour of azure.authorization.Assignment")
+        pulumi.log.warn("Assignment is deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AssignmentState | undefined;

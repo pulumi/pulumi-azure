@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favour of azure.servicebus.NamespaceAuthorizationRule
+// Deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 

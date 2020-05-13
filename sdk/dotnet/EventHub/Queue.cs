@@ -14,9 +14,9 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// 
     /// 
-    /// Deprecated: azure.eventhub.Queue has been deprecated in favour of azure.servicebus.Queue
+    /// Deprecated: azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue
     /// </summary>
-    [Obsolete(@"azure.eventhub.Queue has been deprecated in favour of azure.servicebus.Queue")]
+    [Obsolete(@"azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

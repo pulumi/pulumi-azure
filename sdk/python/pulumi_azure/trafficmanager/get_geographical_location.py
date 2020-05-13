@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.trafficmanager.getGeographicalLocation has been deprecated in favour of azure.network.getTrafficManager", DeprecationWarning)
+warnings.warn("azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager", DeprecationWarning)
 class GetGeographicalLocationResult:
     """
     A collection of values returned by getGeographicalLocation.
@@ -47,12 +47,12 @@ def get_geographical_location(name=None,opts=None):
     pulumi.export("locationCode", example.id)
     ```
 
-    Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favour of azure.network.getTrafficManager
+    Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
 
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """
-    pulumi.log.warn("get_geographical_location is deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favour of azure.network.getTrafficManager")
+    pulumi.log.warn("get_geographical_location is deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager")
     __args__ = dict()
 
 

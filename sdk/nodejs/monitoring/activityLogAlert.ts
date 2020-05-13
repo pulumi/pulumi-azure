@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Activity Log Alert within Azure Monitor.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West US"});
  * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
  *     resourceGroupName: mainResourceGroup.name,

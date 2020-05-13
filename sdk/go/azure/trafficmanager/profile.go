@@ -14,7 +14,7 @@ import (
 //
 //
 //
-// Deprecated: azure.trafficmanager.Profile has been deprecated in favour of azure.network.TrafficManagerProfile
+// Deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
 type Profile struct {
 	pulumi.CustomResourceState
 

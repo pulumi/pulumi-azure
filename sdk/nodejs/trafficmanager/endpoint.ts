@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Traffic Manager Endpoint.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const server = new random.RandomId("server", {
  *     keepers: {
  *         azi_id: 1,
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
  */
-/** @deprecated azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint */
+/** @deprecated azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint */
 export class Endpoint extends pulumi.CustomResource {
     /**
      * Get an existing Endpoint resource's state with the given name, ID, and optional extra
@@ -65,7 +65,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EndpointState, opts?: pulumi.CustomResourceOptions): Endpoint {
-        pulumi.log.warn("Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint")
+        pulumi.log.warn("Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint")
         return new Endpoint(name, <any>state, { ...opts, id: id });
     }
 
@@ -172,11 +172,11 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint */
+    /** @deprecated azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint */
+    /** @deprecated azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint */
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favour of azure.network.TrafficManagerEndpoint")
+        pulumi.log.warn("Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EndpointState | undefined;

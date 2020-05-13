@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a custom virtual machine image that can be used to create virtual machines.
- * 
+ *
  * ## Example Usage Creating from VHD
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleImage = new azure.compute.Image("exampleImage", {
  *     location: "West US",
@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example Usage Creating from Virtual Machine (VM must be generalized beforehand)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleImage = new azure.compute.Image("exampleImage", {
  *     location: "West US",

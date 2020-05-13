@@ -14,9 +14,9 @@ namespace Pulumi.Azure.Role
     /// 
     /// 
     /// 
-    /// Deprecated: azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition
+    /// Deprecated: azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition
     /// </summary>
-    [Obsolete(@"azure.role.Definition has been deprecated in favour of azure.authorization.RoleDefinition")]
+    [Obsolete(@"azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition")]
     public partial class Definition : Pulumi.CustomResource
     {
         /// <summary>

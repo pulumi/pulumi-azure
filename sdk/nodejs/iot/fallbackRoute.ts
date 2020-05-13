@@ -8,21 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IotHub Fallback Route
- * 
+ *
  * ## Disclaimers
- * 
+ *
  * > **Note:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
- * 
+ *
  * > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,

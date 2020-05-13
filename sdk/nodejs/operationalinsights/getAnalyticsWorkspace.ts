@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.operationalinsights.getAnalyticsWorkspace({
  *     name: "acctest-01",
  *     resourceGroupName: "acctest",
