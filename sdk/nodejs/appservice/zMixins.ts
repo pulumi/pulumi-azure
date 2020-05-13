@@ -860,7 +860,7 @@ FunctionApp.prototype.getHostKeys = function(this: FunctionApp, attempts?: numbe
             if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
                 throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
             }
-            return body as FunctionHostKeys;
+            return pulumi.output(body as FunctionHostKeys);
         }
         if (response.status >= 400 && retryAttempts === 0) {
             throw new Error(`Failed to retrieve the host keys: ${response.bodyAsText}`);
@@ -868,7 +868,7 @@ FunctionApp.prototype.getHostKeys = function(this: FunctionApp, attempts?: numbe
         await new Promise(r => setTimeout(r, 10000));
 
         return this.getHostKeys(retryAttempts - 1)
-    });
+    }).apply(v =>v);
 };
 
 FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
