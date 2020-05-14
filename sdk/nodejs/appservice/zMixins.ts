@@ -847,11 +847,10 @@ declare module "./functionApp" {
     }
 }
 
-async function getHostKeysWithRetries(functionAppId:string, retryAttempts: number): Promise<FunctionHostKeys> {
+async function getHostKeysWithRetries(functionAppId: string, retryAttempts: number): Promise<FunctionHostKeys> {
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
         const url = `https://management.azure.com${functionAppId}/host/default/listkeys?api-version=2018-02-01`;
-    
         const response = await client.sendRequest({ method: "POST", url });
         if (response.status >= 400 && retryAttempts === 0) {
             throw new Error(`Failed to retrieve the host keys: ${response.bodyAsText}`);
@@ -866,11 +865,11 @@ async function getHostKeysWithRetries(functionAppId:string, retryAttempts: numbe
         }
         await new Promise(r => setTimeout(r, 10000));
     
-        return getHostKeysWithRetries(functionAppId,retryAttempts - 1)
+        return getHostKeysWithRetries(functionAppId, retryAttempts - 1);
 }
 
 FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
-    return this.id.apply(async id => await getHostKeysWithRetries(id, 5))
+    return this.id.apply(async id => await getHostKeysWithRetries(id, 5));
 };
 
 FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
