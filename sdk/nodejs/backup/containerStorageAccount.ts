@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     storageAccountId: sa.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_container_storage_account.html.markdown.
  */
 export class ContainerStorageAccount extends pulumi.CustomResource {
     /**

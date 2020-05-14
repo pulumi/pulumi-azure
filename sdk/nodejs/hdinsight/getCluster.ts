@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {

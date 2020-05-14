@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     metadataEndpoint: "https://example.com/example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_openid_connect_provider.html.markdown.
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**

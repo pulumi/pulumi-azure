@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  *     addressPrefix: "10.0.1.0/24",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub.html.markdown.
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**

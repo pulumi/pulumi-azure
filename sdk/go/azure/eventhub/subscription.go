@@ -12,8 +12,6 @@ import (
 
 // Manages a ServiceBus Subscription.
 //
-//
-//
 // Deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription
 type Subscription struct {
 	pulumi.CustomResourceState

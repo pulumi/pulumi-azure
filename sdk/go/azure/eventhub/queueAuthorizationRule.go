@@ -12,8 +12,6 @@ import (
 
 // Manages an Authorization Rule for a ServiceBus Queue.
 //
-//
-//
 // Deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule
 type QueueAuthorizationRule struct {
 	pulumi.CustomResourceState

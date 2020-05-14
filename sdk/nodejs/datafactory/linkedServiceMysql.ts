@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_mysql.html.markdown.
  */
 export class LinkedServiceMysql extends pulumi.CustomResource {
     /**

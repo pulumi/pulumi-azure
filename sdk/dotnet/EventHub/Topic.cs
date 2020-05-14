@@ -13,10 +13,6 @@ namespace Pulumi.Azure.EventHub
     /// Manages a ServiceBus Topic.
     /// 
     /// **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic
     /// </summary>
     [Obsolete(@"azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic")]
     public partial class Topic : Pulumi.CustomResource

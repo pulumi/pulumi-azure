@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     contentEmbedded: "configuration test {}",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_configuration.html.markdown.
  */
 export class DscConfiguration extends pulumi.CustomResource {
     /**

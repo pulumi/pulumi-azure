@@ -59,8 +59,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_application_rule_collection.html.markdown.
  */
 export class FirewallApplicationRuleCollection extends pulumi.CustomResource {
     /**

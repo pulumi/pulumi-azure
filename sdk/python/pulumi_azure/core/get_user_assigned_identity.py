@@ -81,8 +81,6 @@ def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     pulumi.export("uaiPrincipalId", example.principal_id)
     ```
 
-    Deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
-
 
     :param str name: The name of the User Assigned Identity.
     :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.

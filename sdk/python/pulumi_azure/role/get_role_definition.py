@@ -59,8 +59,7 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
 
 def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
-
-    Deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
+    Use this data source to access information about an existing resource.
     """
     pulumi.log.warn("get_role_definition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition")
     __args__ = dict()

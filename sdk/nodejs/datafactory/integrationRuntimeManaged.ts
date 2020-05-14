@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  *     nodeSize: "Standard_D8_v3",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_integration_runtime_managed.html.markdown.
  */
 export class IntegrationRuntimeManaged extends pulumi.CustomResource {
     /**

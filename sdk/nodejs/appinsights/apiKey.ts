@@ -56,8 +56,6 @@ import * as utilities from "../utilities";
  * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
  * export const fullPermissionsApiKey = fullPermissions.apiKey;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
  */
 export class ApiKey extends pulumi.CustomResource {
     /**

@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * export const instrumentationKey = exampleInsights.instrumentationKey;
  * export const appId = exampleInsights.appId;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
  */
 export class Insights extends pulumi.CustomResource {
     /**

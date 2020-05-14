@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  *     userMetadata: "some-meta-data",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group.html.markdown.
  */
 export class ConsumerGroup extends pulumi.CustomResource {
     /**

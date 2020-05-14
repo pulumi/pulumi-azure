@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     endIpAddress: "2.3.4.5",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_firewall_rule.html.markdown.
  */
 export class AnalyticsFirewallRule extends pulumi.CustomResource {
     /**

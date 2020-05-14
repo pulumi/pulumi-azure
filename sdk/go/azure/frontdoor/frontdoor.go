@@ -39,7 +39,8 @@ type Frontdoor struct {
 	FrontendEndpoints FrontdoorFrontendEndpointArrayOutput `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"loadBalancerEnabled"`
-	Location            pulumi.StringOutput  `pulumi:"location"`
+	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -116,8 +117,9 @@ type frontdoorState struct {
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-	LoadBalancerEnabled *bool   `pulumi:"loadBalancerEnabled"`
-	Location            *string `pulumi:"location"`
+	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
+	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+	Location *string `pulumi:"location"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -147,7 +149,8 @@ type FrontdoorState struct {
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	Location            pulumi.StringPtrInput
+	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+	Location pulumi.StringPtrInput
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -178,8 +181,9 @@ type frontdoorArgs struct {
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
-	LoadBalancerEnabled *bool   `pulumi:"loadBalancerEnabled"`
-	Location            *string `pulumi:"location"`
+	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
+	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+	Location *string `pulumi:"location"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -208,7 +212,8 @@ type FrontdoorArgs struct {
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
-	Location            pulumi.StringPtrInput
+	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+	Location pulumi.StringPtrInput
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.

@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share_directory.html.markdown.
  */
 export class ShareDirectory extends pulumi.CustomResource {
     /**

@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const accessEndpoint = example.then(example => example.accessEndpoint);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
     if (!opts) {

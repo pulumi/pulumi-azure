@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const dataFactoryId = azurerm_data_factory.example.id;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_factory.html.markdown.
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
     if (!opts) {

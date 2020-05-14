@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const applicationInsightsInstrumentationKey = example.then(example => example.instrumentationKey);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {
     if (!opts) {

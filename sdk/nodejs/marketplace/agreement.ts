@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  *     publisher: "barracudanetworks",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
  */
 export class Agreement extends pulumi.CustomResource {
     /**

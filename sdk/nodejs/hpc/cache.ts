@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_2G",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hpc_cache.html.markdown.
  */
 export class Cache extends pulumi.CustomResource {
     /**

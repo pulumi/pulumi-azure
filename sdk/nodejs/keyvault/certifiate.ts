@@ -117,8 +117,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
  */
 /** @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate */
 export class Certifiate extends pulumi.CustomResource {

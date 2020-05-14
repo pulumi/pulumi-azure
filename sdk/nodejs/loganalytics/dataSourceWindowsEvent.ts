@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     eventTypes: ["error"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_datasource_windows_event.html.markdown.
  */
 export class DataSourceWindowsEvent extends pulumi.CustomResource {
     /**

@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *     ipRules: ["1.1.1.1"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_network_rule_set.html.markdown.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**

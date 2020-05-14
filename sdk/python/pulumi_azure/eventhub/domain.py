@@ -85,8 +85,6 @@ class Domain(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] input_mapping_default_values: A `input_mapping_default_values` block as defined below.

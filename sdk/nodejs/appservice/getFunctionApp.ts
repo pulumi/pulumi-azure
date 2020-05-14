@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group.example.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/function_app.html.markdown.
  */
 export function getFunctionApp(args: GetFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppResult> {
     if (!opts) {

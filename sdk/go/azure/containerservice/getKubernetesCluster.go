@@ -23,7 +23,8 @@ type LookupKubernetesClusterArgs struct {
 	Name string `pulumi:"name"`
 	// If the cluster has the Kubernetes API only exposed on internal IP addresses.
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
-	PrivateLinkEnabled    *bool `pulumi:"privateLinkEnabled"`
+	// Deprecated: Deprecated in favor of `private_cluster_enabled`
+	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 	// The name of the Resource Group in which the managed Kubernetes Cluster exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -65,7 +66,8 @@ type LookupKubernetesClusterResult struct {
 	// If the cluster has the Kubernetes API only exposed on internal IP addresses.
 	PrivateClusterEnabled bool `pulumi:"privateClusterEnabled"`
 	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
-	PrivateFqdn        string `pulumi:"privateFqdn"`
+	PrivateFqdn string `pulumi:"privateFqdn"`
+	// Deprecated: Deprecated in favor of `private_cluster_enabled`
 	PrivateLinkEnabled bool   `pulumi:"privateLinkEnabled"`
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block as documented below.

@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
  */
 export class Container extends pulumi.CustomResource {
     /**

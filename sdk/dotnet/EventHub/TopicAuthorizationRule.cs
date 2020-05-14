@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule
     /// </summary>
     [Obsolete(@"azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule")]
     public partial class TopicAuthorizationRule : Pulumi.CustomResource

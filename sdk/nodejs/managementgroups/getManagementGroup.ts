@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  * });
  * export const displayName = example.then(example => example.displayName);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
 /** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
@@ -46,7 +44,6 @@ export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.
 export interface GetManagementGroupArgs {
     /**
      * Specifies the name or UUID of this Management Group.
-     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: string;

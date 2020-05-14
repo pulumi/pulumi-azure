@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     listen: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_authorization_rule.html.markdown.
  */
 export class AuthorizationRule extends pulumi.CustomResource {
     /**

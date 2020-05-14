@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     scaleUnit: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/point_to_site_vpn_gateway.html.markdown.
  */
 export class PointToPointVpnGateway extends pulumi.CustomResource {
     /**

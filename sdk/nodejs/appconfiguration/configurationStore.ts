@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *     location: rg.location,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_configuration.html.markdown.
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**

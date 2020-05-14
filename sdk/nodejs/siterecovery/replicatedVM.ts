@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
  *
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replicated_vm.html.markdown.
  */
 export class ReplicatedVM extends pulumi.CustomResource {
     /**

@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     recoveryFabricName: fabric.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container.html.markdown.
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**

@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = azurerm_maintenance_configuration.existing.id;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maintenance_configuration.html.markdown.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
     if (!opts) {

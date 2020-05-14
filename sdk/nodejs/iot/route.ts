@@ -61,8 +61,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {
     /**

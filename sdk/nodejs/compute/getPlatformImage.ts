@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  * });
  * export const version = example.then(example => example.version);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
     if (!opts) {

@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     linkedServiceName: exampleLinkedServiceSqlServer.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_sql_server_table.html.markdown.
  */
 export class DatasetSqlServerTable extends pulumi.CustomResource {
     /**

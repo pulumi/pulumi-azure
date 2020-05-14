@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     state: "active",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**

@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     severityFilters: ["High"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sentinel_alert_rule_ms_security_incident.html.markdown.
  */
 export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
     /**

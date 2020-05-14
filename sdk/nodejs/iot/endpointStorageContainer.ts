@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *     encoding: "JSON",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_storage_container.html.markdown.
  */
 export class EndpointStorageContainer extends pulumi.CustomResource {
     /**

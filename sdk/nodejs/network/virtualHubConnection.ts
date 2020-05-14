@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_hub_connection.html.markdown.
  */
 export class VirtualHubConnection extends pulumi.CustomResource {
     /**

@@ -57,8 +57,6 @@ import * as utilities from "../utilities";
  *     recoveryReplicationPolicyId: policy.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_protection_container_mapping.html.markdown.
  */
 export class ProtectionContainerMapping extends pulumi.CustomResource {
     /**

@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const firewallPrivateIp = example.then(example => example.ipConfigurations[0].privateIpAddress);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
  */
 export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     if (!opts) {

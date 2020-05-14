@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * const example-public = new azure.dns.Zone("example-public", {resourceGroupName: example.name});
  * const example-private = new azure.privatedns.Zone("example-private", {resourceGroupName: example.name});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
  */
 export class Zone extends pulumi.CustomResource {
     /**

@@ -52,8 +52,6 @@ import * as utilities from "../utilities";
  *     targetNetworkId: secondaryVirtualNetwork.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_network_mapping.html.markdown.
  */
 export class NetworkMapping extends pulumi.CustomResource {
     /**

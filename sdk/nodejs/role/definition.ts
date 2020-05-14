@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition.html.markdown.
  */
 /** @deprecated azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition */
 export class Definition extends pulumi.CustomResource {

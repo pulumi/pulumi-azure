@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
  */
 export class SharedImageVersion extends pulumi.CustomResource {
     /**

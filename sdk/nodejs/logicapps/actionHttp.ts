@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     uri: "http://example.com/some-webhook",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_http.html.markdown.
  */
 export class ActionHttp extends pulumi.CustomResource {
     /**

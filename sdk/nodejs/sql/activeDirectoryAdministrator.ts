@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     tenantId: current.tenantId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.markdown.
  */
 export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     /**

@@ -91,8 +91,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_packet_capture.html.markdown.
  */
 export class NetworkPacketCapture extends pulumi.CustomResource {
     /**

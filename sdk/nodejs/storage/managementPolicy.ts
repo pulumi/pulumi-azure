@@ -70,8 +70,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**

@@ -14,8 +14,6 @@ import (
 //
 // **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
 //
-//
-//
 // Deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic
 type Topic struct {
 	pulumi.CustomResourceState

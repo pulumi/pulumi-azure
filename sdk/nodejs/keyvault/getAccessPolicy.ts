@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  * });
  * export const accessPolicyKeyPermissions = contributor.then(contributor => contributor.keyPermissions);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     if (!opts) {

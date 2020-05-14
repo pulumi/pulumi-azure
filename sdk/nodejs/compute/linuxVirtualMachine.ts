@@ -70,8 +70,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/linux_virtual_machine.html.markdown.
  */
 export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**

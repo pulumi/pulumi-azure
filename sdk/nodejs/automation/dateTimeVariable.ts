@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     value: "2019-04-24T21:40:54.074Z",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_datetime.html.markdown.
  */
 export class DateTimeVariable extends pulumi.CustomResource {
     /**

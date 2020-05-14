@@ -64,8 +64,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_fallback_route.html.markdown.
  */
 export class FallbackRoute extends pulumi.CustomResource {
     /**

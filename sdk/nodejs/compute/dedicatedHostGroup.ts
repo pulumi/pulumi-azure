@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     platformFaultDomainCount: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host_group.html.markdown.
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**

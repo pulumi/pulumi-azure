@@ -12,8 +12,6 @@ import (
 
 // Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 //
-//
-//
 // Deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState

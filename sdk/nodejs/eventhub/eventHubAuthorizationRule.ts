@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     manage: false,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
  */
 /** @deprecated azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {

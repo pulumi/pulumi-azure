@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     enablePartitioning: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
  */
 /** @deprecated azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic */
 export class Topic extends pulumi.CustomResource {

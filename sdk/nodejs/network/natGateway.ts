@@ -41,8 +41,6 @@ import * as utilities from "../utilities";
  *     zones: ["1"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/nat_gateway.html.markdown.
  */
 export class NatGateway extends pulumi.CustomResource {
     /**
