@@ -847,24 +847,29 @@ declare module "./functionApp" {
     }
 }
 
-FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
-    return this.id.apply(async id => {
+async function getHostKeysWithRetries(functionAppId: string, retryAttempts: number): Promise<FunctionHostKeys> {
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
-        const url = `https://management.azure.com${id}/host/default/listkeys?api-version=2018-02-01`;
-
+        const url = `https://management.azure.com${functionAppId}/host/default/listkeys?api-version=2018-02-01`;
         const response = await client.sendRequest({ method: "POST", url });
-        if (response.status >= 400) {
+        if (response.status >= 400 && retryAttempts === 0) {
             throw new Error(`Failed to retrieve the host keys: ${response.bodyAsText}`);
         }
-
-        const body = response.parsedBody;
-        if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
-            throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
+    
+        if (response.status < 400) {
+            const body = response.parsedBody;
+            if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
+                throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
+            }
+            return body as FunctionHostKeys;
         }
+        await new Promise(r => setTimeout(r, 10000));
+    
+        return getHostKeysWithRetries(functionAppId, retryAttempts - 1);
+}
 
-        return body as FunctionHostKeys;
-    });
+FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
+    return this.id.apply(async id => await getHostKeysWithRetries(id, 5));
 };
 
 FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {

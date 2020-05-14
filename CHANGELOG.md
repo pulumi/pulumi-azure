@@ -5,6 +5,9 @@ CHANGELOG
 
 ---
 
+## 3.5.2 (2020-05-14)
+* Add retries on Function App host keys
+  
 ## 3.5.1 (2020-05-13)
 * Upgrade to pulumi-terraform-bridge v2.3.2
 
