@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Spring Cloud Application.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "Southeast Asia"});
  * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
  *     resourceGroupName: exampleResourceGroup.name,

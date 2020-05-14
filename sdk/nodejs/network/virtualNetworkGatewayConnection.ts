@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a connection in an existing Virtual Network Gateway.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ### Site-to-Site connection
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     location: exampleResourceGroup.location,
@@ -62,13 +62,13 @@ import * as utilities from "../utilities";
  *     sharedKey: "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
  * });
  * ```
- * 
+ *
  * ### VNet-to-VNet connection
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const usResourceGroup = new azure.core.ResourceGroup("usResourceGroup", {location: "East US"});
  * const usVirtualNetwork = new azure.network.VirtualNetwork("usVirtualNetwork", {
  *     location: usResourceGroup.location,

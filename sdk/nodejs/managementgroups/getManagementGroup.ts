@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Management Group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.management.getGroup({
  *     name: "00000000-0000-0000-0000-000000000000",
  * });
@@ -23,9 +23,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
-/** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favour of azure.management.getGroup */
+/** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-    pulumi.log.warn("getManagementGroup is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favour of azure.management.getGroup")
+    pulumi.log.warn("getManagementGroup is deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup")
     args = args || {};
     if (!opts) {
         opts = {}
@@ -46,7 +46,7 @@ export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.
 export interface GetManagementGroupArgs {
     /**
      * Specifies the name or UUID of this Management Group.
-     * 
+     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: string;

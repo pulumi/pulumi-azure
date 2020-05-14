@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Hostname Binding within an App Service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const server = new random.RandomId("server", {
  *     keepers: {
  *         azi_id: 1,

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS AAAA Records within Azure Private DNS.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West US"});
  * const testZone = new azure.privatedns.Zone("testZone", {resourceGroupName: testResourceGroup.name});
  * const testAAAARecord = new azure.privatedns.AAAARecord("testAAAARecord", {

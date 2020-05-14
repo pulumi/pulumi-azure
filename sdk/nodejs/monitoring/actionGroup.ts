@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Action Group within Azure Monitor.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
  *     resourceGroupName: exampleResourceGroup.name,

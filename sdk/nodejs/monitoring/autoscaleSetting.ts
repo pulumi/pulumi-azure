@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
  * // ...
@@ -79,13 +79,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * 
+ *
  * ## Example Usage (repeating on weekends)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
@@ -159,13 +159,13 @@ import * as utilities from "../utilities";
  *     targetResourceId: exampleScaleSet.id,
  * });
  * ```
- * 
+ *
  * ## Example Usage (for fixed dates)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
  * // ...

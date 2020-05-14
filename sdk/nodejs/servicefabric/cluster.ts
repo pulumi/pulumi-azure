@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Service Fabric Cluster.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleCluster = new azure.servicefabric.Cluster("exampleCluster", {
  *     resourceGroupName: exampleResourceGroup.name,

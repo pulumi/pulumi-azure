@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Bot Web App.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const current = pulumi.output(azure.core.getClientConfig({ async: true }));
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",

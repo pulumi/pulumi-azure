@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "uksouth"});
  * const testVirtualNetwork = new azure.network.VirtualNetwork("testVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],

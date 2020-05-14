@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = pulumi.output(azure.kusto.getCluster({
  *     name: "kustocluster",
  *     resourceGroupName: "testResourceGroup",

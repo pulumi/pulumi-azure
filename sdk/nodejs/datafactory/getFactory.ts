@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Data Factory (Version 2).
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.datafactory.getFactory({
  *     name: azurerm_data_factory.example.name,
  *     resourceGroupName: azurerm_data_factory.example.resource_group_name,

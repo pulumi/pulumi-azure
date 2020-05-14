@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing User Assigned Identity.
- * 
+ *
  * ## Example Usage (reference an existing)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.authorization.getUserAssignedIdentity({
  *     name: "nameOfUserAssignedIdentity",
  *     resourceGroupName: "nameOfResourceGroup",

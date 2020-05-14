@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS TXT Records within Azure DNS.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
  * const exampleTxtRecord = new azure.dns.TxtRecord("exampleTxtRecord", {

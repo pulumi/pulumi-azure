@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Virtual WAN.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
  *     resourceGroupName: exampleResourceGroup.name,

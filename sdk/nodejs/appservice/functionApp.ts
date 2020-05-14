@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Function App.
- * 
+ *
  * ## Example Usage (with App Service Plan)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westus2"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
@@ -39,11 +39,11 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ## Example Usage (in a Consumption Plan)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westus2"});
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,

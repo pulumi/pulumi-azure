@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Topic.
- * 
+ *
  * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
  *     location: exampleResourceGroup.location,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
  */
-/** @deprecated azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic */
+/** @deprecated azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic */
 export class Topic extends pulumi.CustomResource {
     /**
      * Get an existing Topic resource's state with the given name, ID, and optional extra
@@ -48,7 +48,7 @@ export class Topic extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TopicState, opts?: pulumi.CustomResourceOptions): Topic {
-        pulumi.log.warn("Topic is deprecated: azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic")
+        pulumi.log.warn("Topic is deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic")
         return new Topic(name, <any>state, { ...opts, id: id });
     }
 
@@ -142,11 +142,11 @@ export class Topic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic */
+    /** @deprecated azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic */
     constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic */
+    /** @deprecated azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic */
     constructor(name: string, argsOrState?: TopicArgs | TopicState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Topic is deprecated: azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic")
+        pulumi.log.warn("Topic is deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TopicState | undefined;

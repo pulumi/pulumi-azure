@@ -8,21 +8,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Virtual Machine.
- * 
+ *
  * ## Disclaimers
- * 
+ *
  * > **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
- * 
+ *
  * > **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
- * 
+ *
  * ## Example Usage (from an Azure Platform Image)
- * 
+ *
  * This example provisions a Virtual Machine with Managed Disks.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "tfvmex";
  * const mainResourceGroup = new azure.core.ResourceGroup("mainResourceGroup", {location: "West US 2"});

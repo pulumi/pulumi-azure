@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a shared dashboard in the Azure Portal.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const config = new pulumi.Config();
  * const mdContent = config.get("mdContent") || "# Hello all :)";
  * const videoLink = config.get("videoLink") || "https://www.youtube.com/watch?v=......";

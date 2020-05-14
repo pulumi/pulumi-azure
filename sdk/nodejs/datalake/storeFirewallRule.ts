@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Azure Data Lake Store Firewall Rule.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
  * const exampleStore = new azure.datalake.Store("exampleStore", {
  *     resourceGroupName: exampleResourceGroup.name,

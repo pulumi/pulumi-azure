@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Topic
- * 
+ *
  * > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US 2"});
  * const exampleTopic = new azure.eventgrid.Topic("exampleTopic", {
  *     location: exampleResourceGroup.location,
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
  */
-/** @deprecated azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic */
+/** @deprecated azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic */
 export class EventGridTopic extends pulumi.CustomResource {
     /**
      * Get an existing EventGridTopic resource's state with the given name, ID, and optional extra
@@ -42,7 +42,7 @@ export class EventGridTopic extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventGridTopicState, opts?: pulumi.CustomResourceOptions): EventGridTopic {
-        pulumi.log.warn("EventGridTopic is deprecated: azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic")
+        pulumi.log.warn("EventGridTopic is deprecated: azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic")
         return new EventGridTopic(name, <any>state, { ...opts, id: id });
     }
 
@@ -96,11 +96,11 @@ export class EventGridTopic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic */
+    /** @deprecated azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic */
     constructor(name: string, args: EventGridTopicArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic */
+    /** @deprecated azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic */
     constructor(name: string, argsOrState?: EventGridTopicArgs | EventGridTopicState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EventGridTopic is deprecated: azure.eventhub.EventGridTopic has been deprecated in favour of azure.eventgrid.Topic")
+        pulumi.log.warn("EventGridTopic is deprecated: azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventGridTopicState | undefined;

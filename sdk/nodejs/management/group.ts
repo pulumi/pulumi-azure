@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Management Group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const current = azure.core.getSubscription({});
  * const exampleParent = new azure.management.Group("exampleParent", {
  *     displayName: "ParentGroup",
@@ -126,7 +126,7 @@ export interface GroupState {
     readonly displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-     * 
+     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;
@@ -154,7 +154,7 @@ export interface GroupArgs {
     readonly displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-     * 
+     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;

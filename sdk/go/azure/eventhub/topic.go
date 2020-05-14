@@ -16,7 +16,7 @@ import (
 //
 //
 //
-// Deprecated: azure.eventhub.Topic has been deprecated in favour of azure.servicebus.Topic
+// Deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic
 type Topic struct {
 	pulumi.CustomResourceState
 

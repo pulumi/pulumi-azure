@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Cassandra KeySpace within a Cosmos DB Account.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "tflex-cosmosdb-account-rg",
  * });

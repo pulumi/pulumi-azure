@@ -14,9 +14,9 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// 
     /// 
-    /// Deprecated: azure.eventhub.Domain has been deprecated in favour of azure.eventgrid.Domain
+    /// Deprecated: azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain
     /// </summary>
-    [Obsolete(@"azure.eventhub.Domain has been deprecated in favour of azure.eventgrid.Domain")]
+    [Obsolete(@"azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>

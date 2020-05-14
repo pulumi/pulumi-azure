@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription", DeprecationWarning)
+warnings.warn("azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription", DeprecationWarning)
 class Subscription(pulumi.CustomResource):
     auto_delete_on_idle: pulumi.Output[str]
     """
@@ -63,7 +63,7 @@ class Subscription(pulumi.CustomResource):
     """
     The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
     """
-    warnings.warn("azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription", DeprecationWarning)
+    warnings.warn("azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Subscription.
@@ -96,7 +96,7 @@ class Subscription(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription
+        Deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,7 +114,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
-        pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favour of azure.servicebus.Subscription")
+        pulumi.log.warn("Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

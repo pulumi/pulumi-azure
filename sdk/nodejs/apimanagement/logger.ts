@@ -8,16 +8,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Logger within an API Management Service.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
  *     location: exampleResourceGroup.location,

@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook", DeprecationWarning)
+warnings.warn("azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook", DeprecationWarning)
 class RegistryWebook(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
@@ -48,7 +48,7 @@ class RegistryWebook(pulumi.CustomResource):
     Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
     """
     tags: pulumi.Output[dict]
-    warnings.warn("azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook", DeprecationWarning)
+    warnings.warn("azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, actions=None, custom_headers=None, location=None, name=None, registry_name=None, resource_group_name=None, scope=None, service_uri=None, status=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Container Registry Webhook.
@@ -81,7 +81,7 @@ class RegistryWebook(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook
+        Deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -95,7 +95,7 @@ class RegistryWebook(pulumi.CustomResource):
         :param pulumi.Input[str] service_uri: Specifies the service URI for the Webhook to post notifications.
         :param pulumi.Input[str] status: Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         """
-        pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook")
+        pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Databricks Workspace
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
  *     resourceGroupName: exampleResourceGroup.name,

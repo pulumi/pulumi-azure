@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure File Share Backup Policy within a Recovery Services vault.
- * 
+ *
  * > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
  * });

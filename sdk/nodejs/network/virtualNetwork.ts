@@ -9,19 +9,19 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual network including any configured subnets. Each subnet can
  * optionally be configured with a security group to be associated with the subnet.
- * 
+ *
  * > **NOTE on Virtual Networks and Subnet's:** This provider currently
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
  *     location: exampleResourceGroup.location,

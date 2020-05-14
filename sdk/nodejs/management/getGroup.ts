@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Management Group.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.management.getGroup({
  *     name: "00000000-0000-0000-0000-000000000000",
  * });
@@ -44,7 +44,7 @@ export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Prom
 export interface GetGroupArgs {
     /**
      * Specifies the name or UUID of this Management Group.
-     * 
+     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: string;

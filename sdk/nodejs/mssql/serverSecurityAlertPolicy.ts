@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Security Alert Policy for a MSSQL Server.
- * 
+ *
  * > **NOTE** Security Alert Policy is currently only available for MS SQL databases.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
  *     resourceGroupName: exampleResourceGroup.name,

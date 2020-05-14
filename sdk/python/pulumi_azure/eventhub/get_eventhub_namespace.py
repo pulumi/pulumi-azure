@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-warnings.warn("azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace", DeprecationWarning)
+warnings.warn("azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace", DeprecationWarning)
 class GetEventhubNamespaceResult:
     """
     A collection of values returned by getEventhubNamespace.
@@ -147,13 +147,13 @@ def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
     ```
 
 
-    Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace
+    Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
 
 
     :param str name: The name of the EventHub Namespace.
     :param str resource_group_name: The Name of the Resource Group where the EventHub Namespace exists.
     """
-    pulumi.log.warn("get_eventhub_namespace is deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favour of azure.eventhub.getNamespace")
+    pulumi.log.warn("get_eventhub_namespace is deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace")
     __args__ = dict()
 
 

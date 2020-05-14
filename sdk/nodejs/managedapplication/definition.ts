@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Managed Application Definition.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const current = azure.core.getClientConfig({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleDefinition = new azure.managedapplication.Definition("exampleDefinition", {

@@ -6,21 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Database Migration Project.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = pulumi.output(azure.databasemigration.getProject({
  *     name: "example-dbms-project",
  *     resourceGroupName: "example-rg",
  *     serviceName: "example-dbms",
  * }, { async: true }));
- * 
+ *
  * export const name = example.name;
  * ```
  *

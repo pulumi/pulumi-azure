@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Container Registry Webhook.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const rg = new azure.core.ResourceGroup("rg", {location: "West US"});
  * const acr = new azure.containerservice.Registry("acr", {
  *     resourceGroupName: rg.name,
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry_webhook.html.markdown.
  */
-/** @deprecated azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook */
+/** @deprecated azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook */
 export class RegistryWebook extends pulumi.CustomResource {
     /**
      * Get an existing RegistryWebook resource's state with the given name, ID, and optional extra
@@ -51,7 +51,7 @@ export class RegistryWebook extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RegistryWebookState, opts?: pulumi.CustomResourceOptions): RegistryWebook {
-        pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook")
+        pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook")
         return new RegistryWebook(name, <any>state, { ...opts, id: id });
     }
 
@@ -114,11 +114,11 @@ export class RegistryWebook extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook */
+    /** @deprecated azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook */
     constructor(name: string, args: RegistryWebookArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook */
+    /** @deprecated azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook */
     constructor(name: string, argsOrState?: RegistryWebookArgs | RegistryWebookState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favour of azure.containerservice.RegistryWebhook")
+        pulumi.log.warn("RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RegistryWebookState | undefined;

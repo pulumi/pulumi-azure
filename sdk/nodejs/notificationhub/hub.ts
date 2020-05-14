@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Notification Hub within a Notification Hub Namespace.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "Australia East"});
  * const exampleNamespace = new azure.notificationhub.Namespace("exampleNamespace", {
  *     resourceGroupName: exampleResourceGroup.name,

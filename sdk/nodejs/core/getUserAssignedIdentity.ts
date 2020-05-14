@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing User Assigned Identity.
- * 
+ *
  * ## Example Usage (reference an existing)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = azure.authorization.getUserAssignedIdentity({
  *     name: "nameOfUserAssignedIdentity",
  *     resourceGroupName: "nameOfResourceGroup",
@@ -25,9 +25,9 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
  */
-/** @deprecated azure.core.getUserAssignedIdentity has been deprecated in favour of azure.authorization.getUserAssignedIdentity */
+/** @deprecated azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
-    pulumi.log.warn("getUserAssignedIdentity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favour of azure.authorization.getUserAssignedIdentity")
+    pulumi.log.warn("getUserAssignedIdentity is deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity")
     if (!opts) {
         opts = {}
     }
