@@ -72,6 +72,10 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
     """
+    firewall_policy_id: pulumi.Output[str]
+    """
+    The resource ID of a firewall policy.
+    """
     frontend_ip_configurations: pulumi.Output[list]
     """
     One or more `frontend_ip_configuration` blocks as defined below.
@@ -310,7 +314,7 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A collection of availability zones to spread the Application Gateway over.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, enable_http2=None, firewall_policy_id=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Gateway.
 
@@ -401,6 +405,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[str] firewall_policy_id: The resource ID of a firewall policy.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -685,6 +690,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['backend_http_settings'] = backend_http_settings
             __props__['custom_error_configurations'] = custom_error_configurations
             __props__['enable_http2'] = enable_http2
+            __props__['firewall_policy_id'] = firewall_policy_id
             if frontend_ip_configurations is None:
                 raise TypeError("Missing required property 'frontend_ip_configurations'")
             __props__['frontend_ip_configurations'] = frontend_ip_configurations
@@ -726,7 +732,7 @@ class ApplicationGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None):
+    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, enable_http2=None, firewall_policy_id=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None):
         """
         Get an existing ApplicationGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -740,6 +746,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[str] firewall_policy_id: The resource ID of a firewall policy.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -1007,6 +1014,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__["backend_http_settings"] = backend_http_settings
         __props__["custom_error_configurations"] = custom_error_configurations
         __props__["enable_http2"] = enable_http2
+        __props__["firewall_policy_id"] = firewall_policy_id
         __props__["frontend_ip_configurations"] = frontend_ip_configurations
         __props__["frontend_ports"] = frontend_ports
         __props__["gateway_ip_configurations"] = gateway_ip_configurations

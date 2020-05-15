@@ -13,14 +13,20 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class LinuxVirtualMachineScaleSetSourceImageReference
     {
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machines.
+        /// </summary>
         public readonly string Offer;
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machines.
+        /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        /// Specifies the SKU of the image used to create the virtual machines.
         /// </summary>
         public readonly string Sku;
         /// <summary>
-        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// Specifies the version of the image used to create the virtual machines.
         /// </summary>
         public readonly string Version;
 

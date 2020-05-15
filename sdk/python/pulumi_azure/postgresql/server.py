@@ -88,11 +88,23 @@ class Server(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.  
     """
+    threat_detection_policy: pulumi.Output[dict]
+    """
+    Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+
+      * `disabled_alerts` (`list`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+      * `email_account_admins` (`bool`) - Should the account administrators be emailed when this alert is triggered?
+      * `email_addresses` (`list`) - A list of email addresses which alerts should be sent to.
+      * `enabled` (`bool`) - Is the policy enabled?
+      * `retention_days` (`float`) - Specifies the number of days to keep in the Threat Detection audit logs.
+      * `storage_account_access_key` (`str`) - Specifies the identifier key of the Threat Detection audit storage account.
+      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+    """
     version: pulumi.Output[str]
     """
     Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, geo_redundant_backup_enabled=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, geo_redundant_backup_enabled=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a PostgreSQL Server.
 
@@ -143,6 +155,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         :param pulumi.Input[float] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.  
+        :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 
         The **storage_profile** object supports the following:
@@ -151,6 +164,16 @@ class Server(pulumi.CustomResource):
           * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`)
           * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+
+        The **threat_detection_policy** object supports the following:
+
+          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `email_account_admins` (`pulumi.Input[bool]`) - Should the account administrators be emailed when this alert is triggered?
+          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `enabled` (`pulumi.Input[bool]`) - Is the policy enabled?
+          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account.
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -193,6 +216,7 @@ class Server(pulumi.CustomResource):
             __props__['storage_mb'] = storage_mb
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
+            __props__['threat_detection_policy'] = threat_detection_policy
             if version is None:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
@@ -204,7 +228,7 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, fqdn=None, geo_redundant_backup_enabled=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, fqdn=None, geo_redundant_backup_enabled=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -231,6 +255,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         :param pulumi.Input[float] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.  
+        :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 
         The **storage_profile** object supports the following:
@@ -239,6 +264,16 @@ class Server(pulumi.CustomResource):
           * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`)
           * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+
+        The **threat_detection_policy** object supports the following:
+
+          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+          * `email_account_admins` (`pulumi.Input[bool]`) - Should the account administrators be emailed when this alert is triggered?
+          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
+          * `enabled` (`pulumi.Input[bool]`) - Is the policy enabled?
+          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
+          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account.
+          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -265,6 +300,7 @@ class Server(pulumi.CustomResource):
         __props__["storage_mb"] = storage_mb
         __props__["storage_profile"] = storage_profile
         __props__["tags"] = tags
+        __props__["threat_detection_policy"] = threat_detection_policy
         __props__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

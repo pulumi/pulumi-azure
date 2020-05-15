@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterNetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsServiceIp")]
         public Input<string>? DnsServiceIp { get; set; }
 
         /// <summary>
-        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? PodCidr { get; set; }
 
         /// <summary>
-        /// The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+        /// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceCidr")]
         public Input<string>? ServiceCidr { get; set; }

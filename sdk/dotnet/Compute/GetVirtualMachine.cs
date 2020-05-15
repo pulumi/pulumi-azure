@@ -49,6 +49,11 @@ namespace Pulumi.Azure.Compute
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVirtualMachineIdentityResult> Identities;
+        public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
 
@@ -56,11 +61,17 @@ namespace Pulumi.Azure.Compute
         private GetVirtualMachineResult(
             string id,
 
+            ImmutableArray<Outputs.GetVirtualMachineIdentityResult> identities,
+
+            string location,
+
             string name,
 
             string resourceGroupName)
         {
             Id = id;
+            Identities = identities;
+            Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
         }

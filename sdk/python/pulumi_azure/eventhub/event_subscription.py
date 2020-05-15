@@ -13,7 +13,7 @@ warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of 
 class EventSubscription(pulumi.CustomResource):
     event_delivery_schema: pulumi.Output[str]
     """
-    Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+    Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
     """
     eventhub_endpoint: pulumi.Output[dict]
     """
@@ -74,7 +74,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     topic_name: pulumi.Output[str]
     """
-    Specifies the name of the topic to associate with the event subscription.
+    (Optional) Specifies the name of the topic to associate with the event subscription.
     """
     webhook_endpoint: pulumi.Output[dict]
     """
@@ -118,7 +118,7 @@ class EventSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+        :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[dict] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[list] included_event_types: A list of applicable event types that need to be part of the event subscription.
@@ -129,7 +129,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input[dict] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: Specifies the name of the topic to associate with the event subscription.
+        :param pulumi.Input[str] topic_name: (Optional) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
 
         The **eventhub_endpoint** object supports the following:
@@ -213,7 +213,7 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+        :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[dict] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[list] included_event_types: A list of applicable event types that need to be part of the event subscription.
@@ -224,7 +224,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input[dict] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: Specifies the name of the topic to associate with the event subscription.
+        :param pulumi.Input[str] topic_name: (Optional) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
 
         The **eventhub_endpoint** object supports the following:

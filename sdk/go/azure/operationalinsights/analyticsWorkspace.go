@@ -24,7 +24,7 @@ type AnalyticsWorkspace struct {
 	PrimarySharedKey pulumi.StringOutput `pulumi:"primarySharedKey"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The workspace data retention in days. Possible values range between 30 and 730.
+	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays pulumi.IntOutput `pulumi:"retentionInDays"`
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey pulumi.StringOutput `pulumi:"secondarySharedKey"`
@@ -80,7 +80,7 @@ type analyticsWorkspaceState struct {
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The workspace data retention in days. Possible values range between 30 and 730.
+	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey *string `pulumi:"secondarySharedKey"`
@@ -103,7 +103,7 @@ type AnalyticsWorkspaceState struct {
 	PrimarySharedKey pulumi.StringPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The workspace data retention in days. Possible values range between 30 and 730.
+	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays pulumi.IntPtrInput
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey pulumi.StringPtrInput
@@ -126,7 +126,7 @@ type analyticsWorkspaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workspace data retention in days. Possible values range between 30 and 730.
+	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
 	Sku string `pulumi:"sku"`
@@ -142,7 +142,7 @@ type AnalyticsWorkspaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The workspace data retention in days. Possible values range between 30 and 730.
+	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays pulumi.IntPtrInput
 	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
 	Sku pulumi.StringInput

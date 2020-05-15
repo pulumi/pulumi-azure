@@ -435,6 +435,10 @@ export namespace apimanagement {
 
     export interface GetServiceHostnameConfiguration {
         /**
+         * One or more `developerPortal` blocks as documented below.
+         */
+        developerPortals: outputs.apimanagement.GetServiceHostnameConfigurationDeveloperPortal[];
+        /**
          * One or more `management` blocks as documented below.
          */
         managements: outputs.apimanagement.GetServiceHostnameConfigurationManagement[];
@@ -450,6 +454,21 @@ export namespace apimanagement {
          * One or more `scm` blocks as documented below.
          */
         scms: outputs.apimanagement.GetServiceHostnameConfigurationScm[];
+    }
+
+    export interface GetServiceHostnameConfigurationDeveloperPortal {
+        /**
+         * The Hostname used for the SCM URL.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret which contains the SSL Certificate.
+         */
+        keyVaultId: string;
+        /**
+         * Is Client Certificate Negotiation enabled?
+         */
+        negotiateClientCertificate: boolean;
     }
 
     export interface GetServiceHostnameConfigurationManagement {
@@ -516,6 +535,25 @@ export namespace apimanagement {
         negotiateClientCertificate: boolean;
     }
 
+    export interface GetServiceIdentity {
+        /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that is configured on this API Management Service.
+         */
+        type: string;
+    }
+
     export interface LoggerApplicationInsights {
         /**
          * The instrumentation key used to push data to Application Insights.
@@ -566,6 +604,10 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfiguration {
         /**
+         * One or more `developerPortal` blocks as documented below.
+         */
+        developerPortals?: outputs.apimanagement.ServiceHostnameConfigurationDeveloperPortal[];
+        /**
          * One or more `management` blocks as documented below.
          */
         managements?: outputs.apimanagement.ServiceHostnameConfigurationManagement[];
@@ -581,6 +623,29 @@ export namespace apimanagement {
          * One or more `scm` blocks as documented below.
          */
         scms?: outputs.apimanagement.ServiceHostnameConfigurationScm[];
+    }
+
+    export interface ServiceHostnameConfigurationDeveloperPortal {
+        /**
+         * One or more (up to 10) `certificate` blocks as defined below.
+         */
+        certificate?: string;
+        /**
+         * The password for the certificate.
+         */
+        certificatePassword?: string;
+        /**
+         * The Hostname to use for the Management API.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         */
+        negotiateClientCertificate?: boolean;
     }
 
     export interface ServiceHostnameConfigurationManagement {
@@ -681,6 +746,10 @@ export namespace apimanagement {
 
     export interface ServiceIdentity {
         /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
@@ -689,9 +758,9 @@ export namespace apimanagement {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
          */
-        type: string;
+        type?: string;
     }
 
     export interface ServicePolicy {
@@ -4047,6 +4116,25 @@ export namespace compute {
         sourceVaultId: string;
     }
 
+    export interface GetVirtualMachineIdentity {
+        /**
+         * The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+         */
+        identityIds: string[];
+        /**
+         * The ID of the System Managed Service Principal assigned to the Virtual Machine.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the Managed Identity assigned to the Virtual Machine.
+         */
+        type: string;
+    }
+
     export interface ImageDataDisk {
         /**
          * Specifies the URI in Azure storage of the blob that you want to use to create the image.
@@ -4131,6 +4219,10 @@ export namespace compute {
          * The ID of the System Managed Service Principal.
          */
         principalId: string;
+        /**
+         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         */
+        tenantId: string;
         /**
          * The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
@@ -4424,6 +4516,9 @@ export namespace compute {
          */
         name: string;
         product: string;
+        /**
+         * Specifies the publisher of the image used to create the virtual machines.
+         */
         publisher: string;
     }
 
@@ -4465,14 +4560,20 @@ export namespace compute {
     }
 
     export interface LinuxVirtualMachineScaleSetSourceImageReference {
+        /**
+         * Specifies the offer of the image used to create the virtual machines.
+         */
         offer: string;
+        /**
+         * Specifies the publisher of the image used to create the virtual machines.
+         */
         publisher: string;
         /**
-         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         * Specifies the SKU of the image used to create the virtual machines.
          */
         sku: string;
         /**
-         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * Specifies the version of the image used to create the virtual machines.
          */
         version: string;
     }
@@ -4507,12 +4608,21 @@ export namespace compute {
     }
 
     export interface LinuxVirtualMachineSourceImageReference {
+        /**
+         * Specifies the offer of the image used to create the virtual machines.
+         */
         offer: string;
         /**
-         * Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         * Specifies the publisher of the image used to create the virtual machines.
          */
         publisher: string;
+        /**
+         * Specifies the SKU of the image used to create the virtual machines.
+         */
         sku: string;
+        /**
+         * Specifies the version of the image used to create the virtual machines.
+         */
         version: string;
     }
 
@@ -5278,6 +5388,10 @@ export namespace compute {
          */
         principalId: string;
         /**
+         * The ID of the Tenant the System Managed Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
          * The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
@@ -5570,6 +5684,9 @@ export namespace compute {
          */
         name: string;
         product: string;
+        /**
+         * Specifies the publisher of the image used to create the virtual machines.
+         */
         publisher: string;
     }
 
@@ -5615,14 +5732,20 @@ export namespace compute {
     }
 
     export interface WindowsVirtualMachineScaleSetSourceImageReference {
+        /**
+         * Specifies the offer of the image used to create the virtual machines.
+         */
         offer: string;
+        /**
+         * Specifies the publisher of the image used to create the virtual machines.
+         */
         publisher: string;
         /**
-         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         * Specifies the SKU of the image used to create the virtual machines.
          */
         sku: string;
         /**
-         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * Specifies the version of the image used to create the virtual machines.
          */
         version: string;
     }
@@ -5672,12 +5795,21 @@ export namespace compute {
     }
 
     export interface WindowsVirtualMachineSourceImageReference {
+        /**
+         * (Optional) Specifies the offer of the image used to create the virtual machines.
+         */
         offer: string;
         /**
          * Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
          */
         publisher: string;
+        /**
+         * (Optional) Specifies the SKU of the image used to create the virtual machines.
+         */
         sku: string;
+        /**
+         * (Optional) Specifies the version of the image used to create the virtual machines.
+         */
         version: string;
     }
 
@@ -6429,11 +6561,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterNetworkProfile {
         /**
-         * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+         * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
          */
         dnsServiceIp: string;
         /**
-         * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+         * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
          */
         dockerBridgeCidr: string;
         /**
@@ -6461,7 +6593,7 @@ export namespace containerservice {
          */
         podCidr: string;
         /**
-         * The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+         * The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
          */
         serviceCidr: string;
     }
@@ -10331,22 +10463,16 @@ export namespace mariadb {
     }
 
     export interface ServerStorageProfile {
-        /**
-         * Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-         */
-        autoGrow?: string;
+        autoGrow: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
          */
-        backupRetentionDays?: number;
-        /**
-         * Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`. Changing this forces a new resource to be created.
-         */
-        geoRedundantBackup?: string;
+        backupRetentionDays: number;
+        geoRedundantBackup: string;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
          */
-        storageMb: number;
+        storageMb?: number;
     }
 }
 
@@ -11302,6 +11428,21 @@ export namespace mssql {
         tier: string;
     }
 
+    export interface ServerAzureadAdministrator {
+        /**
+         * (Required)  The login username of the Azure AD Administrator of this SQL Server.
+         */
+        loginUsername: string;
+        /**
+         * (Required) The object id of the Azure AD Administrator of this SQL Server.
+         */
+        objectId: string;
+        /**
+         * (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+         */
+        tenantId: string;
+    }
+
     export interface ServerExtendedAuditingPolicy {
         /**
          * (Optional) Specifies the number of days to retain logs for in the storage account.
@@ -11327,7 +11468,7 @@ export namespace mssql {
          */
         principalId: string;
         /**
-         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+         * (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
          */
         tenantId: string;
         /**
@@ -11388,22 +11529,16 @@ export namespace mssql {
 
 export namespace mysql {
     export interface ServerStorageProfile {
-        /**
-         * Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-         */
-        autoGrow?: string;
+        autoGrow: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
          */
-        backupRetentionDays?: number;
-        /**
-         * Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-         */
-        geoRedundantBackup?: string;
+        backupRetentionDays: number;
+        geoRedundantBackup: string;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
          */
-        storageMb: number;
+        storageMb?: number;
     }
 }
 
@@ -13574,6 +13709,37 @@ export namespace postgresql {
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
          */
         storageMb?: number;
+    }
+
+    export interface ServerThreatDetectionPolicy {
+        /**
+         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         */
+        disabledAlerts?: string[];
+        /**
+         * Should the account administrators be emailed when this alert is triggered?
+         */
+        emailAccountAdmins?: boolean;
+        /**
+         * A list of email addresses which alerts should be sent to.
+         */
+        emailAddresses?: string[];
+        /**
+         * Is the policy enabled?
+         */
+        enabled?: boolean;
+        /**
+         * Specifies the number of days to keep in the Threat Detection audit logs.
+         */
+        retentionDays?: number;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account.
+         */
+        storageAccountAccessKey?: string;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         */
+        storageEndpoint?: string;
     }
 }
 

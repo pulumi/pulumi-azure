@@ -16,6 +16,7 @@ from .event_subscription import *
 from .eventhub_namespace_disaster_recovery_config import *
 from .get_authorization_rule import *
 from .get_consume_group import *
+from .get_eventhub import *
 from .get_eventhub_namespace import *
 from .get_namespace import *
 from .get_namespace_authorization_rule import *

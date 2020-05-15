@@ -37,6 +37,8 @@ type Frontdoor struct {
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints FrontdoorFrontendEndpointArrayOutput `pulumi:"frontendEndpoints"`
+	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+	HeaderFrontdoorId pulumi.StringOutput `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"loadBalancerEnabled"`
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
@@ -116,6 +118,8 @@ type frontdoorState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints []FrontdoorFrontendEndpoint `pulumi:"frontendEndpoints"`
+	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+	HeaderFrontdoorId *string `pulumi:"headerFrontdoorId"`
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled *bool `pulumi:"loadBalancerEnabled"`
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
@@ -147,6 +151,8 @@ type FrontdoorState struct {
 	FriendlyName pulumi.StringPtrInput
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints FrontdoorFrontendEndpointArrayInput
+	// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+	HeaderFrontdoorId pulumi.StringPtrInput
 	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled pulumi.BoolPtrInput
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location

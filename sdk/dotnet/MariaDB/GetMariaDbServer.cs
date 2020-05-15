@@ -50,10 +50,6 @@ namespace Pulumi.Azure.MariaDB
         /// </summary>
         public readonly string AdministratorLogin;
         /// <summary>
-        /// The password associated with the `administrator_login` for the MariaDB Server.
-        /// </summary>
-        public readonly string AdministratorLoginPassword;
-        /// <summary>
         /// The FQDN of the MariaDB Server.
         /// </summary>
         public readonly string Fqdn;
@@ -93,8 +89,6 @@ namespace Pulumi.Azure.MariaDB
         private GetMariaDbServerResult(
             string administratorLogin,
 
-            string administratorLoginPassword,
-
             string fqdn,
 
             string id,
@@ -116,7 +110,6 @@ namespace Pulumi.Azure.MariaDB
             string version)
         {
             AdministratorLogin = administratorLogin;
-            AdministratorLoginPassword = administratorLoginPassword;
             Fqdn = fqdn;
             Id = id;
             Location = location;

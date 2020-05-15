@@ -138,8 +138,8 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A `network_profile` block as defined below.
 
-      * `dnsServiceIp` (`str`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
-      * `dockerBridgeCidr` (`str`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+      * `dnsServiceIp` (`str`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
+      * `dockerBridgeCidr` (`str`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
       * `loadBalancerProfile` (`dict`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         * `effectiveOutboundIps` (`list`) - The outcome (resource IDs) of the specified arguments.
         * `managedOutboundIpCount` (`float`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
@@ -151,7 +151,7 @@ class KubernetesCluster(pulumi.CustomResource):
       * `networkPolicy` (`str`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
       * `outboundType` (`str`) - The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
       * `podCidr` (`str`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
-      * `serviceCidr` (`str`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+      * `serviceCidr` (`str`) - The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
     """
     node_resource_group: pulumi.Output[str]
     """
@@ -306,8 +306,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **network_profile** object supports the following:
 
-          * `dnsServiceIp` (`pulumi.Input[str]`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
-          * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `dnsServiceIp` (`pulumi.Input[str]`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
+          * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
           * `loadBalancerProfile` (`pulumi.Input[dict]`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
             * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
             * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
@@ -319,7 +319,7 @@ class KubernetesCluster(pulumi.CustomResource):
           * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
           * `outboundType` (`pulumi.Input[str]`) - The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
           * `podCidr` (`pulumi.Input[str]`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
-          * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 
         The **role_based_access_control** object supports the following:
 
@@ -507,8 +507,8 @@ class KubernetesCluster(pulumi.CustomResource):
 
         The **network_profile** object supports the following:
 
-          * `dnsServiceIp` (`pulumi.Input[str]`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
-          * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `dnsServiceIp` (`pulumi.Input[str]`) - IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
+          * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
           * `loadBalancerProfile` (`pulumi.Input[dict]`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
             * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
             * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
@@ -520,7 +520,7 @@ class KubernetesCluster(pulumi.CustomResource):
           * `networkPolicy` (`pulumi.Input[str]`) - Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/en-us/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
           * `outboundType` (`pulumi.Input[str]`) - The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`.
           * `podCidr` (`pulumi.Input[str]`) - The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
-          * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. This is required when `network_plugin` is set to `azure`. Changing this forces a new resource to be created.
+          * `serviceCidr` (`pulumi.Input[str]`) - The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 
         The **role_based_access_control** object supports the following:
 

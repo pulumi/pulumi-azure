@@ -17,19 +17,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
- * const testService = new azure.apimanagement.Service("testService", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
+ * const exampleService = new azure.apimanagement.Service("exampleService", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@mycompany.io",
  *     skuName: "Developer_1",
  * });
- * const testDiagnostic = new azure.apimanagement.Diagnostic("testDiagnostic", {
+ * const exampleLogger = new azure.apimanagement.Logger("exampleLogger", {
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     application_insights: {
+ *         instrumentationKey: exampleInsights.instrumentationKey,
+ *     },
+ * });
+ * const exampleDiagnostic = new azure.apimanagement.Diagnostic("exampleDiagnostic", {
  *     identifier: "applicationinsights",
- *     resourceGroupName: testResourceGroup.name,
- *     apiManagementName: testService.name,
- *     enabled: true,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     apiManagementName: exampleService.name,
+ *     apiManagementLoggerId: exampleLogger.id,
  * });
  * ```
  */
@@ -61,12 +73,13 @@ export class Diagnostic extends pulumi.CustomResource {
     }
 
     /**
+     * The id of the target API Management Logger where the API Management Diagnostic should be saved.
+     */
+    public readonly apiManagementLoggerId!: pulumi.Output<string>;
+    /**
      * The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
      */
     public readonly apiManagementName!: pulumi.Output<string>;
-    /**
-     * Indicates whether a Diagnostic should receive data or not.
-     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -89,12 +102,16 @@ export class Diagnostic extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DiagnosticState | undefined;
+            inputs["apiManagementLoggerId"] = state ? state.apiManagementLoggerId : undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as DiagnosticArgs | undefined;
+            if (!args || args.apiManagementLoggerId === undefined) {
+                throw new Error("Missing required property 'apiManagementLoggerId'");
+            }
             if (!args || args.apiManagementName === undefined) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
@@ -104,6 +121,7 @@ export class Diagnostic extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["apiManagementLoggerId"] = args ? args.apiManagementLoggerId : undefined;
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["identifier"] = args ? args.identifier : undefined;
@@ -125,13 +143,13 @@ export class Diagnostic extends pulumi.CustomResource {
  */
 export interface DiagnosticState {
     /**
+     * The id of the target API Management Logger where the API Management Diagnostic should be saved.
+     */
+    readonly apiManagementLoggerId?: pulumi.Input<string>;
+    /**
      * The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
      */
     readonly apiManagementName?: pulumi.Input<string>;
-    /**
-     * Indicates whether a Diagnostic should receive data or not.
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
     readonly enabled?: pulumi.Input<boolean>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -148,13 +166,13 @@ export interface DiagnosticState {
  */
 export interface DiagnosticArgs {
     /**
+     * The id of the target API Management Logger where the API Management Diagnostic should be saved.
+     */
+    readonly apiManagementLoggerId: pulumi.Input<string>;
+    /**
      * The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
      */
     readonly apiManagementName: pulumi.Input<string>;
-    /**
-     * Indicates whether a Diagnostic should receive data or not.
-     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
-     */
     readonly enabled?: pulumi.Input<boolean>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.

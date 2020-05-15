@@ -70,6 +70,12 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableArray<Outputs.FrontdoorFrontendEndpoint>> FrontendEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+        /// </summary>
+        [Output("headerFrontdoorId")]
+        public Output<string> HeaderFrontdoorId { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         /// </summary>
         [Output("loadBalancerEnabled")]
@@ -337,6 +343,12 @@ namespace Pulumi.Azure.FrontDoor
             get => _frontendEndpoints ?? (_frontendEndpoints = new InputList<Inputs.FrontdoorFrontendEndpointGetArgs>());
             set => _frontendEndpoints = value;
         }
+
+        /// <summary>
+        /// The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+        /// </summary>
+        [Input("headerFrontdoorId")]
+        public Input<string>? HeaderFrontdoorId { get; set; }
 
         /// <summary>
         /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.

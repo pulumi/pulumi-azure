@@ -61,10 +61,6 @@ export interface GetMariaDbServerResult {
      */
     readonly administratorLogin: string;
     /**
-     * The password associated with the `administratorLogin` for the MariaDB Server.
-     */
-    readonly administratorLoginPassword: string;
-    /**
      * The FQDN of the MariaDB Server.
      */
     readonly fqdn: string;

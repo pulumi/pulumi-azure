@@ -37,6 +37,8 @@ type LookupServiceResult struct {
 	HostnameConfigurations []GetServiceHostnameConfiguration `pulumi:"hostnameConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// (Optional) An `identity` block as defined below.
+	Identities []GetServiceIdentity `pulumi:"identities"`
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
 	// The URL for the Management API.

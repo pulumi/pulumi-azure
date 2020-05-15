@@ -219,10 +219,10 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A `source_image_reference` block as defined below.
 
-      * `offer` (`str`)
-      * `publisher` (`str`)
-      * `sku` (`str`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-      * `version` (`str`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+      * `offer` (`str`) - Specifies the offer of the image used to create the virtual machines.
+      * `publisher` (`str`) - Specifies the publisher of the image used to create the virtual machines.
+      * `sku` (`str`) - Specifies the SKU of the image used to create the virtual machines.
+      * `version` (`str`) - Specifies the version of the image used to create the virtual machines.
     """
     tags: pulumi.Output[dict]
     """
@@ -445,7 +445,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
           * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
 
         The **rolling_upgrade_policy** object supports the following:
 
@@ -464,10 +464,10 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-          * `version` (`pulumi.Input[str]`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
 
         The **terminate_notification** object supports the following:
 
@@ -694,7 +694,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
           * `name` (`pulumi.Input[str]`) - The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
           * `product` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
 
         The **rolling_upgrade_policy** object supports the following:
 
@@ -713,10 +713,10 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`)
-          * `sku` (`pulumi.Input[str]`) - The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-          * `version` (`pulumi.Input[str]`) - The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
 
         The **terminate_notification** object supports the following:
 

@@ -71,6 +71,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
       * `identityIds` (`list`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
       * `principal_id` (`str`) - The ID of the System Managed Service Principal.
+      * `tenant_id` (`str`) - The ID of the Tenant the System Managed Service Principal is assigned in.
       * `type` (`str`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
     license_type: pulumi.Output[str]
@@ -169,10 +170,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
-      * `offer` (`str`)
+      * `offer` (`str`) - (Optional) Specifies the offer of the image used to create the virtual machines.
       * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-      * `sku` (`str`)
-      * `version` (`str`)
+      * `sku` (`str`) - (Optional) Specifies the SKU of the image used to create the virtual machines.
+      * `version` (`str`) - (Optional) Specifies the version of the image used to create the virtual machines.
     """
     tags: pulumi.Output[dict]
     """
@@ -308,6 +309,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
           * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
           * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
@@ -338,10 +340,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - (Optional) Specifies the offer of the image used to create the virtual machines.
           * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `sku` (`pulumi.Input[str]`) - (Optional) Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - (Optional) Specifies the version of the image used to create the virtual machines.
 
         The **winrm_listeners** object supports the following:
 
@@ -484,6 +486,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
           * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
           * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
@@ -514,10 +517,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - (Optional) Specifies the offer of the image used to create the virtual machines.
           * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `sku` (`pulumi.Input[str]`) - (Optional) Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - (Optional) Specifies the version of the image used to create the virtual machines.
 
         The **winrm_listeners** object supports the following:
 

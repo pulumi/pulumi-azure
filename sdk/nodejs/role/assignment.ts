@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Assigns a given Principal (User or Application) to a given Role.
+ * Assigns a given Principal (User or Group) to a given Role.
  *
  * ## Example Usage (using a built-in Role)
  *
@@ -132,7 +132,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+     * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
@@ -214,7 +214,7 @@ export interface AssignmentState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+     * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      */
     readonly principalId?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface AssignmentArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+     * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      */
     readonly principalId: pulumi.Input<string>;
     /**

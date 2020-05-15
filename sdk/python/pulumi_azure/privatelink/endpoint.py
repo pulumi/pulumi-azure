@@ -43,69 +43,7 @@ class Endpoint(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Private Endpoint.
-
-        > **NOTE** Private Endpoint is currently in Public Preview.
-
-        Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
-
-        ## Example Usage
-
-
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        service = azure.network.Subnet("service",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.1.0/24",
-            enforce_private_link_service_network_policies=True)
-        endpoint = azure.network.Subnet("endpoint",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.2.0/24",
-            enforce_private_link_endpoint_network_policies=True)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            frontend_ip_configuration=[{
-                "name": example_public_ip.name,
-                "publicIpAddressId": example_public_ip.id,
-            }])
-        example_link_service = azure.privatedns.LinkService("exampleLinkService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            nat_ip_configuration=[{
-                "name": example_public_ip.name,
-                "primary": True,
-                "subnetId": service.id,
-            }],
-            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0]["id"]])
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            subnet_id=endpoint.id,
-            private_service_connection={
-                "name": "example-privateserviceconnection",
-                "privateConnectionResourceId": example_link_service.id,
-                "isManualConnection": False,
-            })
-        ```
-
-
+        Create a Endpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.

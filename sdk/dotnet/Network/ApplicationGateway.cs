@@ -51,6 +51,12 @@ namespace Pulumi.Azure.Network
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
 
         /// <summary>
+        /// The resource ID of a firewall policy.
+        /// </summary>
+        [Output("firewallPolicyId")]
+        public Output<string?> FirewallPolicyId { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `frontend_ip_configuration` blocks as defined below.
         /// </summary>
         [Output("frontendIpConfigurations")]
@@ -275,6 +281,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
+
+        /// <summary>
+        /// The resource ID of a firewall policy.
+        /// </summary>
+        [Input("firewallPolicyId")]
+        public Input<string>? FirewallPolicyId { get; set; }
 
         [Input("frontendIpConfigurations", required: true)]
         private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationArgs>? _frontendIpConfigurations;
@@ -546,6 +558,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
+
+        /// <summary>
+        /// The resource ID of a firewall policy.
+        /// </summary>
+        [Input("firewallPolicyId")]
+        public Input<string>? FirewallPolicyId { get; set; }
 
         [Input("frontendIpConfigurations")]
         private InputList<Inputs.ApplicationGatewayFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;

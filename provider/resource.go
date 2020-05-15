@@ -1319,6 +1319,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_scheduled": {
 				Tok: azureResource(azureSentinel, "AlertRuleScheduled"),
 			},
+
+			// Eventgrid
+			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1504,6 +1507,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub_namespace_authorization_rule": {
 				Tok: azureDataSource(azureEventHub, "getNamespaceAuthorizationRule"),
 			},
+			"azurerm_eventhub":                        {Tok: azureDataSource(azureEventHub, "getEventhub")},
 			"azurerm_eventhub_authorization_rule":     {Tok: azureDataSource(azureEventHub, "getAuthorizationRule")},
 			"azurerm_eventhub_consumer_group":         {Tok: azureDataSource(azureEventHub, "getConsumeGroup")},
 			"azurerm_function_app":                    {Tok: azureDataSource(azureAppService, "getFunctionApp")},

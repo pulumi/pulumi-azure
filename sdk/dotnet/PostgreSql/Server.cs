@@ -135,6 +135,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Output("threatDetectionPolicy")]
+        public Output<Outputs.ServerThreatDetectionPolicy?> ThreatDetectionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("version")]
@@ -307,6 +313,12 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.ServerThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version", required: true)]
@@ -444,6 +456,12 @@ namespace Pulumi.Azure.PostgreSql
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.ServerThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
         /// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.

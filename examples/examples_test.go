@@ -29,7 +29,7 @@ func TestAccMinimal(t *testing.T) {
 func TestAccDurableFunctions(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "durable-functions"),
+			Dir:           path.Join(getCwd(t), "durable-functions"),
 			RunUpdateTest: false,
 		})
 
@@ -39,8 +39,8 @@ func TestAccDurableFunctions(t *testing.T) {
 func TestAccEventgrid(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "eventgrid"),
-			RunUpdateTest: true,
+			Dir:           path.Join(getCwd(t), "eventgrid"),
+			RunUpdateTest: false,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -64,7 +64,7 @@ func TestAccEventhub(t *testing.T) {
 func TestAccHttpExternal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "http-external"),
+			Dir:           path.Join(getCwd(t), "http-external"),
 			RunUpdateTest: true,
 		})
 
@@ -74,7 +74,7 @@ func TestAccHttpExternal(t *testing.T) {
 func TestAccHttpMulti(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "http-multi"),
+			Dir:           path.Join(getCwd(t), "http-multi"),
 			RunUpdateTest: true,
 		})
 
@@ -84,7 +84,7 @@ func TestAccHttpMulti(t *testing.T) {
 func TestAccIot(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "iot"),
+			Dir:           path.Join(getCwd(t), "iot"),
 			RunUpdateTest: true,
 		})
 
@@ -94,7 +94,7 @@ func TestAccIot(t *testing.T) {
 func TestAccQueue(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "queue"),
+			Dir:           path.Join(getCwd(t), "queue"),
 			RunUpdateTest: true,
 		})
 
@@ -104,7 +104,7 @@ func TestAccQueue(t *testing.T) {
 func TestAccTimer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "timer"),
+			Dir:           path.Join(getCwd(t), "timer"),
 			RunUpdateTest: true,
 		})
 
@@ -137,7 +137,7 @@ func TestAccWebserver(t *testing.T) {
 func TestAccHttp(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "http"),
+			Dir:           path.Join(getCwd(t), "http"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "Hello World!")
@@ -150,7 +150,7 @@ func TestAccHttp(t *testing.T) {
 func TestAccBlob(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "blob"),
+			Dir:           path.Join(getCwd(t), "blob"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "A File from Blob Storage")
@@ -199,7 +199,7 @@ func TestAccServicebusMigration(t *testing.T) {
 func TestAccTable(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "table"),
+			Dir:           path.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
 
@@ -265,7 +265,7 @@ func TestAccCosmosDb(t *testing.T) {
 	t.Skip("Skipping due to Azure capacity issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "cosmosdb"),
+			Dir:           path.Join(getCwd(t), "cosmosdb"),
 			RunUpdateTest: true,
 		})
 

@@ -56,6 +56,11 @@ export interface GetVirtualMachineArgs {
  * A collection of values returned by getVirtualMachine.
  */
 export interface GetVirtualMachineResult {
+    /**
+     * A `identity` block as defined below.
+     */
+    readonly identities: outputs.compute.GetVirtualMachineIdentity[];
+    readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**

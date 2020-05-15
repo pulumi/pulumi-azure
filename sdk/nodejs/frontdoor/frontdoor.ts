@@ -126,6 +126,10 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly frontendEndpoints!: pulumi.Output<outputs.frontdoor.FrontdoorFrontendEndpoint[]>;
     /**
+     * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+     */
+    public /*out*/ readonly headerFrontdoorId!: pulumi.Output<string>;
+    /**
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
@@ -167,6 +171,7 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["enforceBackendPoolsCertificateNameCheck"] = state ? state.enforceBackendPoolsCertificateNameCheck : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["frontendEndpoints"] = state ? state.frontendEndpoints : undefined;
+            inputs["headerFrontdoorId"] = state ? state.headerFrontdoorId : undefined;
             inputs["loadBalancerEnabled"] = state ? state.loadBalancerEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -210,6 +215,7 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["routingRules"] = args ? args.routingRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["cname"] = undefined /*out*/;
+            inputs["headerFrontdoorId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -258,6 +264,10 @@ export interface FrontdoorState {
      * A `frontendEndpoint` block as defined below.
      */
     readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
+    /**
+     * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+     */
+    readonly headerFrontdoorId?: pulumi.Input<string>;
     /**
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */

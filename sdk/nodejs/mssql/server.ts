@@ -33,6 +33,10 @@ import * as utilities from "../utilities";
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
+ *     azuread_administrator: {
+ *         loginUsername: "AzureAD Admin",
+ *         objectId: "00000000-0000-0000-0000-000000000000",
+ *     },
  *     extended_auditing_policy: {
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
@@ -80,6 +84,10 @@ export class Server extends pulumi.CustomResource {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     public readonly administratorLoginPassword!: pulumi.Output<string>;
+    /**
+     * An `azureadAdministrator` block as defined below.
+     */
+    public readonly azureadAdministrator!: pulumi.Output<outputs.mssql.ServerAzureadAdministrator | undefined>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
@@ -132,6 +140,7 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            inputs["azureadAdministrator"] = state ? state.azureadAdministrator : undefined;
             inputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
             inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
@@ -158,6 +167,7 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["azureadAdministrator"] = args ? args.azureadAdministrator : undefined;
             inputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
             inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -192,6 +202,10 @@ export interface ServerState {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * An `azureadAdministrator` block as defined below.
+     */
+    readonly azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
@@ -243,6 +257,10 @@ export interface ServerArgs {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword: pulumi.Input<string>;
+    /**
+     * An `azureadAdministrator` block as defined below.
+     */
+    readonly azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */

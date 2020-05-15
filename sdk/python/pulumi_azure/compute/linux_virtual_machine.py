@@ -71,6 +71,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
       * `identityIds` (`list`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
       * `principal_id` (`str`) - The ID of the System Managed Service Principal.
+      * `tenant_id` (`str`) - The ID of the Tenant the System Managed Service Principal is assigned in.
       * `type` (`str`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
     location: pulumi.Output[str]
@@ -164,10 +165,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     """
     A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
-      * `offer` (`str`)
-      * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-      * `sku` (`str`)
-      * `version` (`str`)
+      * `offer` (`str`) - Specifies the offer of the image used to create the virtual machines.
+      * `publisher` (`str`) - Specifies the publisher of the image used to create the virtual machines.
+      * `sku` (`str`) - Specifies the SKU of the image used to create the virtual machines.
+      * `version` (`str`) - Specifies the version of the image used to create the virtual machines.
     """
     tags: pulumi.Output[dict]
     """
@@ -292,6 +293,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
           * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
           * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
@@ -321,10 +323,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -454,6 +456,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
           * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
           * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
@@ -483,10 +486,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

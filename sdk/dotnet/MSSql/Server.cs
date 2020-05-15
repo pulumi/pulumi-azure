@@ -30,6 +30,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
+        /// An `azuread_administrator` block as defined below.
+        /// </summary>
+        [Output("azureadAdministrator")]
+        public Output<Outputs.ServerAzureadAdministrator?> AzureadAdministrator { get; private set; } = null!;
+
+        /// <summary>
         /// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         /// </summary>
         [Output("connectionPolicy")]
@@ -145,6 +151,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string> AdministratorLoginPassword { get; set; } = null!;
 
         /// <summary>
+        /// An `azuread_administrator` block as defined below.
+        /// </summary>
+        [Input("azureadAdministrator")]
+        public Input<Inputs.ServerAzureadAdministratorArgs>? AzureadAdministrator { get; set; }
+
+        /// <summary>
         /// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         /// </summary>
         [Input("connectionPolicy")]
@@ -219,6 +231,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("administratorLoginPassword")]
         public Input<string>? AdministratorLoginPassword { get; set; }
+
+        /// <summary>
+        /// An `azuread_administrator` block as defined below.
+        /// </summary>
+        [Input("azureadAdministrator")]
+        public Input<Inputs.ServerAzureadAdministratorGetArgs>? AzureadAdministrator { get; set; }
 
         /// <summary>
         /// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.

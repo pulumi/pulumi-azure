@@ -32,7 +32,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     """
     retention_in_days: pulumi.Output[float]
     """
-    The workspace data retention in days. Possible values range between 30 and 730.
+    The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
     """
     secondary_shared_key: pulumi.Output[str]
     """
@@ -76,7 +76,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_in_days: The workspace data retention in days. Possible values range between 30 and 730.
+        :param pulumi.Input[float] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
@@ -131,7 +131,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] portal_url: The Portal URL for the Log Analytics Workspace.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_in_days: The workspace data retention in days. Possible values range between 30 and 730.
+        :param pulumi.Input[float] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
         :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

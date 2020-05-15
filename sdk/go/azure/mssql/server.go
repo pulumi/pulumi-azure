@@ -21,6 +21,8 @@ type Server struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator ServerAzureadAdministratorPtrOutput `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrOutput `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
@@ -86,6 +88,8 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
@@ -112,6 +116,8 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
@@ -142,6 +148,8 @@ type serverArgs struct {
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
@@ -167,6 +175,8 @@ type ServerArgs struct {
 	AdministratorLogin pulumi.StringInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringInput
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.

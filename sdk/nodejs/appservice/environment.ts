@@ -85,13 +85,16 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly pricingTier!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Resource Group where the App Service Environment exists.
+     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
      */
-    public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -123,10 +126,10 @@ export class Environment extends pulumi.CustomResource {
             inputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["pricingTier"] = args ? args.pricingTier : undefined;
+            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["location"] = undefined /*out*/;
-            inputs["resourceGroupName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -161,13 +164,16 @@ export interface EnvironmentState {
      */
     readonly pricingTier?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the App Service Environment exists.
+     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -189,8 +195,15 @@ export interface EnvironmentArgs {
      */
     readonly pricingTier?: pulumi.Input<string>;
     /**
+     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+     */
+    readonly resourceGroupName?: pulumi.Input<string>;
+    /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */
     readonly subnetId: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+     */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
