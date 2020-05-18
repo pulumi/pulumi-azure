@@ -162,7 +162,7 @@ interface FunctionAppArgsBase {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
 
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
