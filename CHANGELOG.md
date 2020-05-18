@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Use FunctionAppIdentity for packagedfunctionapp args
 
 ---
 
