@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     sizeInTb: 4,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_pool.html.markdown.
  */
 export class Pool extends pulumi.CustomResource {
     /**

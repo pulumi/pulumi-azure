@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**

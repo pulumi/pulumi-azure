@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_server.html.markdown.
  */
 export class Server extends pulumi.CustomResource {
     /**

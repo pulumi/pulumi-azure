@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "my-example-resource-group",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
     if (!opts) {

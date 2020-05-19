@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     url: "https://datalakestoragegen2",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown.
  */
 export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
     /**

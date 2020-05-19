@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *     tier: "Standard",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.markdown.
  */
 export class SubscriptionPricing extends pulumi.CustomResource {
     /**

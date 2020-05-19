@@ -57,8 +57,6 @@ import * as utilities from "../utilities";
  *     connectionString: exampleAuthorizationRule.primaryConnectionString,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_eventhub.html.markdown.
  */
 export class EndpointEventhub extends pulumi.CustomResource {
     /**

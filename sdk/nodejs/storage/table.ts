@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleTable = new azure.storage.Table("exampleTable", {storageAccountName: exampleAccount.name});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
  */
 export class Table extends pulumi.CustomResource {
     /**

@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_postgresql.html.markdown.
  */
 export class LinkedServicePostgresql extends pulumi.CustomResource {
     /**

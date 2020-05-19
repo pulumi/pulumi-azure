@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing NAT Gateway.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/nat_gateway.html.markdown.
  */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     if (!opts) {

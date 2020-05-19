@@ -57,8 +57,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
  */
 export class ManagedDisk extends pulumi.CustomResource {
     /**

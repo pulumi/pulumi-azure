@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const keyType = example.then(example => example.keyType);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     if (!opts) {

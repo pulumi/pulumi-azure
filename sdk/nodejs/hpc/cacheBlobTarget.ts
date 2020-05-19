@@ -61,8 +61,6 @@ import * as utilities from "../utilities";
  *     namespacePath: "/blob_storage",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hpc_cache_blob_target.html.markdown.
  */
 export class CacheBlobTarget extends pulumi.CustomResource {
     /**

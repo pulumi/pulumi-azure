@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const netappSnapshotId = data.azurerm_netapp_snapshot.example.id;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     if (!opts) {

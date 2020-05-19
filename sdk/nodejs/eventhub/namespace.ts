@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
  */
 /** @deprecated azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace */
 export class Namespace extends pulumi.CustomResource {

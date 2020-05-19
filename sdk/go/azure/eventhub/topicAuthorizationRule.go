@@ -12,8 +12,6 @@ import (
 
 // Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 //
-//
-//
 // Deprecated: azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState

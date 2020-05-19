@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.255.255",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_firewall_rule.html.markdown.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

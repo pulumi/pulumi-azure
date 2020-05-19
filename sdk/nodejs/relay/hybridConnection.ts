@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     userMetadata: "testmetadata",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_hybrid_connection.html.markdown.
  */
 export class HybridConnection extends pulumi.CustomResource {
     /**

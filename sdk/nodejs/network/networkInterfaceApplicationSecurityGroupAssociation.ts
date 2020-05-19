@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     applicationSecurityGroupId: exampleApplicationSecurityGroup.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
  */
 export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.CustomResource {
     /**

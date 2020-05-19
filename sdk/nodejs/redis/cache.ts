@@ -57,8 +57,6 @@ import * as utilities from "../utilities";
  *
  *  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
  *  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
  */
 export class Cache extends pulumi.CustomResource {
     /**

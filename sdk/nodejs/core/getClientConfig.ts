@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig({});
  * export const accountId = current.then(current => current.clientId);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/client_config.html.markdown.
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
     if (!opts) {

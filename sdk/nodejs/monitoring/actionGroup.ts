@@ -87,8 +87,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
  */
 export class ActionGroup extends pulumi.CustomResource {
     /**

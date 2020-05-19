@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const imageId = search.then(search => search.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     if (!opts) {

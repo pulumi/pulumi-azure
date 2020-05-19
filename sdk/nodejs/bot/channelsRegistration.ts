@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     sku: "F0",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.markdown.
  */
 export class ChannelsRegistration extends pulumi.CustomResource {
     /**

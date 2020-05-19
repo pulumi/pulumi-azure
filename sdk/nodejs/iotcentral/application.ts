@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     template: "iotc-default@1.0.0",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iotcentral_application.html.markdown.
  */
 export class Application extends pulumi.CustomResource {
     /**

@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     description: "This is an example API management group.",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group.html.markdown.
  */
 export class Group extends pulumi.CustomResource {
     /**

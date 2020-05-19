@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "iothubDpsRg",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
  */
 export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsResult> {
     if (!opts) {

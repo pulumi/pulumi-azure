@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_1vCores",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_service.html.markdown.
  */
 export class Service extends pulumi.CustomResource {
     /**

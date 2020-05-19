@@ -37,8 +37,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_directline.markdown.
  */
 export class ChannelDirectLine extends pulumi.CustomResource {
     /**

@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_application_definition.html.markdown.
  */
 export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> {
     if (!opts) {

@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const actionGroupId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     if (!opts) {

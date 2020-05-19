@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const subnetId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     if (!opts) {

@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  *     targetResourceId: examplePublicIp.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_aaaa_record.html.markdown.
  */
 export class AaaaRecord extends pulumi.CustomResource {
     /**

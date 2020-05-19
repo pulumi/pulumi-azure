@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
  */
 export class LocalNetworkGateway extends pulumi.CustomResource {
     /**

@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  * });
  * // other subscription IDs can go here
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
  */
 export class Group extends pulumi.CustomResource {
     /**
@@ -126,7 +124,6 @@ export interface GroupState {
     readonly displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;
@@ -154,7 +151,6 @@ export interface GroupArgs {
     readonly displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
-     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;

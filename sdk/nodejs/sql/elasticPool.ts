@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     poolSize: 5000,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

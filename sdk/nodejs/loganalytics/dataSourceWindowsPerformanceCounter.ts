@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     intervalSeconds: 10,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_datasource_windows_performance_counter.html.markdown.
  */
 export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
     /**

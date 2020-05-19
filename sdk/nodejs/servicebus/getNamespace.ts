@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const location = example.then(example => example.location);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     if (!opts) {

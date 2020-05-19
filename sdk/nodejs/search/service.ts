@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     sku: "standard",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
  */
 export class Service extends pulumi.CustomResource {
     /**

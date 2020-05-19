@@ -62,8 +62,6 @@ import * as utilities from "../utilities";
  *     sourceStorageAccountId: protection_container.storageAccountId,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_file_share.markdown.
  */
 export class ProtectedFileShare extends pulumi.CustomResource {
     /**

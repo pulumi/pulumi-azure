@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const ddosProtectionPlanId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
  */
 export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDdosProtectionPlanResult> {
     if (!opts) {

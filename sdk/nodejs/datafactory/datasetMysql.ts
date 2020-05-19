@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     linkedServiceName: exampleLinkedServiceMysql.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
  */
 export class DatasetMysql extends pulumi.CustomResource {
     /**

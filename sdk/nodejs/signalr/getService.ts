@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "signalr-resource-group",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/signalr_service.html.markdown.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {

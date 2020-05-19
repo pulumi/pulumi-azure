@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     nextHopType: "vnetlocal",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {
     /**

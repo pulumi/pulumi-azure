@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     platformFaultDomain: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host.html.markdown.
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**

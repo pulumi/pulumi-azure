@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * export const versions = current.then(current => current.versions);
  * export const latestVersion = current.then(current => current.latestVersion);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
  */
 export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesServiceVersionsResult> {
     if (!opts) {

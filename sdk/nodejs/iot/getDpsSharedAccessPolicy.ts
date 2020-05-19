@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *     iothubDpsName: azurerm_iothub_dps.example.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps_shared_access_policy.html.markdown.
  */
 export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsSharedAccessPolicyResult> {
     if (!opts) {

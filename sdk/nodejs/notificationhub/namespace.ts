@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     skuName: "Free",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
  */
 export class Namespace extends pulumi.CustomResource {
     /**

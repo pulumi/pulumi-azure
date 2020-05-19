@@ -56,8 +56,6 @@ import * as utilities from "../utilities";
  *     connectionString: exampleQueueAuthorizationRule.primaryConnectionString,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_servicebus_queue.html.markdown.
  */
 export class EndpointServicebusQueue extends pulumi.CustomResource {
     /**

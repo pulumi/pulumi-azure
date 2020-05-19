@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const virtualNetworkGatewayConnectionId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
  */
 export function getGatewayConnection(args: GetGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayConnectionResult> {
     if (!opts) {

@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const location = example.then(example => example.location);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_security_group.html.markdown.
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
     if (!opts) {

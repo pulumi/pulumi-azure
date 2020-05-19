@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_lab.html.markdown.
  */
 export class Lab extends pulumi.CustomResource {
     /**

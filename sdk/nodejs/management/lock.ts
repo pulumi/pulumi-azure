@@ -54,8 +54,6 @@ import * as utilities from "../utilities";
  *     notes: "Locked because it's needed by a third-party",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
  */
 export class Lock extends pulumi.CustomResource {
     /**

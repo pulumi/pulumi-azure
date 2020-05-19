@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const sqlDatabaseId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     if (!opts) {

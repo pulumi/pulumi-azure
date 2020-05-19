@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsZoneId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_dns_zone.html.markdown.
  */
 export function getDnsZone(args: GetDnsZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsZoneResult> {
     if (!opts) {

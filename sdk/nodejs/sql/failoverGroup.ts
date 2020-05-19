@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_failover_group.html.markdown.
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**

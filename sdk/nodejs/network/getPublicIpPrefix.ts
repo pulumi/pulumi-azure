@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const publicIpPrefix = example.then(example => example.ipPrefix);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
  */
 export function getPublicIpPrefix(args: GetPublicIpPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpPrefixResult> {
     if (!opts) {

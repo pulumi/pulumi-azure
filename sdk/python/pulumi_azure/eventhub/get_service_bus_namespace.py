@@ -120,8 +120,6 @@ def get_service_bus_namespace(name=None,resource_group_name=None,opts=None):
     ```
 
 
-    Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
-
 
     :param str name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.

@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  * });
  * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections[0].status);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
  */
 export function getServiceEndpointConnections(args: GetServiceEndpointConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointConnectionsResult> {
     if (!opts) {

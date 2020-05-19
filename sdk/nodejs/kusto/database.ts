@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     softDeletePeriod: "P31D",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_database.html.markdown.
  */
 export class Database extends pulumi.CustomResource {
     /**

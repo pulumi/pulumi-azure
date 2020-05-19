@@ -116,8 +116,6 @@ class EventSubscription(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.

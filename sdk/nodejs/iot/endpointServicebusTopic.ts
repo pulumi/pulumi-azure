@@ -55,8 +55,6 @@ import * as utilities from "../utilities";
  *     connectionString: exampleTopicAuthorizationRule.primaryConnectionString,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_servicebus_topic.html.markdown.
  */
 export class EndpointServicebusTopic extends pulumi.CustomResource {
     /**

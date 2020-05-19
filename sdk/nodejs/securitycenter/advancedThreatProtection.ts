@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/advanced_threat_protection.html.markdown.
  */
 export class AdvancedThreatProtection extends pulumi.CustomResource {
     /**

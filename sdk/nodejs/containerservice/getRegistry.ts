@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const loginServer = example.then(example => example.loginServer);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.markdown.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     if (!opts) {

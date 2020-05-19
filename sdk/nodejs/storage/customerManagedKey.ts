@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Customer Managed Key for a Storage Account.
  *
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_customer_managed_key.html.markdown.
  */
 export class CustomerManagedKey extends pulumi.CustomResource {
     /**

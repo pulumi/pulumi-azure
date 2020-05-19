@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_reference_input_blob.html.markdown.
  */
 export class ReferenceInputBlob extends pulumi.CustomResource {
     /**

@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     value: "Hello, Basic Test.",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_string.html.markdown.
  */
 export class StringVariable extends pulumi.CustomResource {
     /**

@@ -64,8 +64,6 @@ import * as utilities from "../utilities";
  *     timezone: "UTC",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_policy_vm.markdown.
  */
 export class PolicyVM extends pulumi.CustomResource {
     /**

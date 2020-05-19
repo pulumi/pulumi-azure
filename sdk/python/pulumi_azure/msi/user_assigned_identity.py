@@ -58,8 +58,6 @@ class UserAssignedIdentity(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location/region where the user assigned identity is

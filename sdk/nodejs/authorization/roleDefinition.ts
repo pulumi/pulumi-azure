@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition.html.markdown.
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**

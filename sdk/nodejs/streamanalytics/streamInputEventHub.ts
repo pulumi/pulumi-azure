@@ -55,8 +55,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
  */
 export class StreamInputEventHub extends pulumi.CustomResource {
     /**

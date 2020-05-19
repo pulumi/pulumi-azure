@@ -97,8 +97,6 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */
 /** @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment */
 export class Assignment extends pulumi.CustomResource {

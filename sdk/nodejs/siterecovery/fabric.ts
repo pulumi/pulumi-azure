@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     location: primary.location,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_fabric.html.markdown.
  */
 export class Fabric extends pulumi.CustomResource {
     /**

@@ -70,8 +70,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_ml_services_cluster.html.markdown.
  */
 export class MLServicesCluster extends pulumi.CustomResource {
     /**

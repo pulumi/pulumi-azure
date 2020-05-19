@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *
  * export const servicebusAuthorizationRuleId = azurem_servicebus_topic_authorization_rule_example.id;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_topic_authorization_rule.html.markdown.
  */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
     if (!opts) {

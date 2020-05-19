@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const automationAccountId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {

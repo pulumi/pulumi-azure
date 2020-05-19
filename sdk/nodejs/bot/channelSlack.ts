@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     verificationToken: "exampleVerificationToken",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_slack.markdown.
  */
 export class ChannelSlack extends pulumi.CustomResource {
     /**

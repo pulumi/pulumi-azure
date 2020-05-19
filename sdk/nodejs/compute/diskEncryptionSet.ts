@@ -66,8 +66,6 @@ import * as utilities from "../utilities";
  *     keyVaultKeyId: exampleKey.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/disk_encryption_set.html.markdown.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**

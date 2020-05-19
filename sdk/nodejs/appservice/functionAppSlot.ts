@@ -44,8 +44,6 @@ import * as utilities from "../utilities";
  *     storageConnectionString: exampleAccount.primaryConnectionString,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app_slot.html.markdown.
  */
 export class FunctionAppSlot extends pulumi.CustomResource {
     /**

@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     allowedTenants: ["00000000-0000-0000-0000-000000000000"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_aad.html.markdown.
  */
 export class IdentityProviderAad extends pulumi.CustomResource {
     /**

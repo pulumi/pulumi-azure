@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     records: ["test.example.com"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_ptr_record.html.markdown.
  */
 export class PTRRecord extends pulumi.CustomResource {
     /**

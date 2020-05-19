@@ -145,8 +145,6 @@ class Endpoint(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] custom_headers: One or more `custom_header` blocks as defined below

@@ -142,8 +142,6 @@ import * as utilities from "../utilities";
  *     sharedKey: "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**

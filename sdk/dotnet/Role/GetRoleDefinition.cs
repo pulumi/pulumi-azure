@@ -12,10 +12,6 @@ namespace Pulumi.Azure.Role
     [Obsolete(@"azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition")]
     public static class GetRoleDefinition
     {
-        /// <summary>
-        /// 
-        /// Deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
-        /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithVersion());
     }

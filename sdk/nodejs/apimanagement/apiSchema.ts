@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     value: fs.readFileSync("api_management_api_schema.xml"),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_schema.html.markdown.
  */
 export class ApiSchema extends pulumi.CustomResource {
     /**

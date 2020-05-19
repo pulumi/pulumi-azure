@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const dedicatedHostId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     if (!opts) {

@@ -43,8 +43,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
  */
 export class KubernetesClusterNodePool extends pulumi.CustomResource {
     /**

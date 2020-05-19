@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/custom_provider.html.markdown.
  */
 export class CustomProvider extends pulumi.CustomResource {
     /**

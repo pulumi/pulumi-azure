@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     value: false,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_bool.html.markdown.
  */
 export class BoolVariable extends pulumi.CustomResource {
     /**

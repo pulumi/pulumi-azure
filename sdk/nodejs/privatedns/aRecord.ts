@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     records: ["10.0.180.17"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_a_record.html.markdown.
  */
 export class ARecord extends pulumi.CustomResource {
     /**

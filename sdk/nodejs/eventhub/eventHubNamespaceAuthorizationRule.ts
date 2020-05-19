@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     manage: false,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_authorization_rule.html.markdown.
  */
 export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
  */
 /** @deprecated azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain */
 export class Domain extends pulumi.CustomResource {

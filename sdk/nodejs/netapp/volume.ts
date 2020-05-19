@@ -59,8 +59,6 @@ import * as utilities from "../utilities";
  *     storageQuotaInGb: 100,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_volume.html.markdown.
  */
 export class Volume extends pulumi.CustomResource {
     /**

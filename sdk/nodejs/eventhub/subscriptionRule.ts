@@ -83,8 +83,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
  */
 /** @deprecated azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule */
 export class SubscriptionRule extends pulumi.CustomResource {

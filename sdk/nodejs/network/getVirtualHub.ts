@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const virtualHubId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_hub.html.markdown.
  */
 export function getVirtualHub(args: GetVirtualHubArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubResult> {
     if (!opts) {

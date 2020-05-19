@@ -12,8 +12,6 @@ import (
 
 // Manages a Event Hubs authorization Rule within an Event Hub.
 //
-//
-//
 // Deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule
 type EventHubAuthorizationRule struct {
 	pulumi.CustomResourceState

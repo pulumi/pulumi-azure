@@ -9,8 +9,6 @@ import (
 
 // Use this data source to access information about an existing EventHub Namespace.
 //
-//
-//
 // Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
 	var rv GetEventhubNamespaceResult

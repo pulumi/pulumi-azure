@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  *     displayName: "Parser API",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_subscription.html.markdown.
  */
 export class Subscription extends pulumi.CustomResource {
     /**

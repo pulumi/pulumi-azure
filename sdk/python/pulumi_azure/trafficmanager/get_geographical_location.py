@@ -47,8 +47,6 @@ def get_geographical_location(name=None,opts=None):
     pulumi.export("locationCode", example.id)
     ```
 
-    Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
-
 
     :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
     """

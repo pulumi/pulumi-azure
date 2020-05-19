@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing API Management User.
  *
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {

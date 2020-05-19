@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  *     quota: 50,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
  */
 export class Share extends pulumi.CustomResource {
     /**

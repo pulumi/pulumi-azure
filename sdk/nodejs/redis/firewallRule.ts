@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  *     endIp: "2.3.4.5",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_firewall_rule.html.markdown.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

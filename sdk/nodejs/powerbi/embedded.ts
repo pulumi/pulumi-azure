@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     skuName: "A1",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/powerbi_embedded.html.markdown.
  */
 export class Embedded extends pulumi.CustomResource {
     /**

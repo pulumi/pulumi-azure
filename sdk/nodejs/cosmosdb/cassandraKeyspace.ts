@@ -41,8 +41,6 @@ import * as utilities from "../utilities";
  *     throughput: 400,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown.
  */
 export class CassandraKeyspace extends pulumi.CustomResource {
     /**

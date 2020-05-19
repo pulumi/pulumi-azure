@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  *     subnetId: test1.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_virtual_network_swift_connection.html.markdown.
  */
 export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
     /**

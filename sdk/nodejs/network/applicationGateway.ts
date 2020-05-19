@@ -91,8 +91,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_gateway.html.markdown.
  */
 export class ApplicationGateway extends pulumi.CustomResource {
     /**

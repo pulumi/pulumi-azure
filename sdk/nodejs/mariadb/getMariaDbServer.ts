@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const mariadbServerId = data.azurerm_mariadb_server.example.id;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mariadb_server.html.markdown.
  */
 export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMariaDbServerResult> {
     if (!opts) {

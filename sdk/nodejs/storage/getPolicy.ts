@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     storageAccountId: azurerm_storage_account.example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     if (!opts) {

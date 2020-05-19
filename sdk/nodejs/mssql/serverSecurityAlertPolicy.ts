@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  *     retentionDays: 20,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_server_security_alert_policy.html.markdown.
  */
 export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     /**

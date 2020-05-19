@@ -11,8 +11,6 @@ namespace Pulumi.Azure.Role
 {
     /// <summary>
     /// Assigns a given Principal (User or Application) to a given Role.
-    /// 
-    /// Deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
     /// </summary>
     [Obsolete(@"azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment")]
     public partial class Assignment : Pulumi.CustomResource
