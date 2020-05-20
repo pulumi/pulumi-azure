@@ -42,6 +42,12 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-azure/sdk/go/...
 
+### .NET 
+
+To use from .NET, install using `nuget`:
+
+   $ dotnet add package Pulumi.Azure
+
 ## Concepts
 
 The `@pulumi/azure` package provides a strongly-typed means to build cloud applications that create
@@ -57,4 +63,4 @@ https://pulumi.io/quickstart/azure/setup.html).
 ## Reference
 
 For detailed reference documentation, please visit [the API docs](
-https://pulumi.io/reference/pkg/nodejs/@pulumi/azure/index.html).
+https://pulumi.io/reference/azure).
