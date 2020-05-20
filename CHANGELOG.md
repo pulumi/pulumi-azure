@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform-bridge v2.3.3
+* Avoid storing config from the environment into the state.
+  [#577](https://github.com/pulumi/pulumi-azure/pull/577)
 
 ---
 
