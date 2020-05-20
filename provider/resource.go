@@ -234,82 +234,10 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_SUBSCRIPTION_ID"},
 				},
 			},
-			"client_id": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "",
-					EnvVars: []string{"AZURE_CLIENT_ID", "ARM_CLIENT_ID"},
-				},
-			},
-			"tenant_id": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   cloudShell.tenantID,
-					EnvVars: []string{"AZURE_TENANT_ID", "ARM_TENANT_ID"},
-				},
-			},
 			"environment": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "public",
 					EnvVars: []string{"AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"},
-				},
-			},
-			"client_certificate_password": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "",
-					EnvVars: []string{"AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD"},
-				},
-			},
-			"client_certificate_path": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "",
-					EnvVars: []string{"AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH"},
-				},
-			},
-			"client_secret": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "",
-					EnvVars: []string{"AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET"},
-				},
-			},
-			"partner_id": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "",
-					EnvVars: []string{"ARM_PARTNER_ID"},
-				},
-			},
-			"skip_credentials_validation": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   false,
-					EnvVars: []string{"ARM_SKIP_CREDENTIALS_VALIDATION"},
-				},
-			},
-			"skip_provider_registration": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   false,
-					EnvVars: []string{"ARM_SKIP_PROVIDER_REGISTRATION"},
-				},
-			},
-			"use_msi": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   cloudShell.useMSI,
-					EnvVars: []string{"ARM_USE_MSI"},
-				},
-			},
-			"msi_endpoint": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   cloudShell.msiEndpoint,
-					EnvVars: []string{"ARM_MSI_ENDPOINT"},
-				},
-			},
-			"disable_terraform_partner_id": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   true,
-					EnvVars: []string{"ARM_DISABLE_TERRAFORM_PARTNER_ID"},
-				},
-			},
-			"storage_use_azuread": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   false,
-					EnvVars: []string{"ARM_STORAGE_USE_AZUREAD"},
 				},
 			},
 		},
