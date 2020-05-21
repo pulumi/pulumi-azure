@@ -42,6 +42,12 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-azure/sdk/go/...
 
+### .NET 
+
+To use from .NET, install using `dotnet add package`:
+
+   $ dotnet add package Pulumi.Azure
+
 ## Concepts
 
 The `@pulumi/azure` package provides a strongly-typed means to build cloud applications that create
@@ -52,9 +58,9 @@ including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault'
 
 There are a variety of ways credentials may be configured for the Azure provider, appropriate for
 different use cases. They are enumerated [in the quickstart guide](
-https://pulumi.io/quickstart/azure/setup.html).
+https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/).
 
 ## Reference
 
-For detailed reference documentation, please visit [the API docs](
-https://pulumi.io/reference/pkg/nodejs/@pulumi/azure/index.html).
+For further information, please visit [the Azure provider docs](https://www.pulumi.com/docs/intro/cloud-providers/azure) or for detailed reference documentation, please visit [the API docs](
+https://www.pulumi.com/docs/reference/azure).
