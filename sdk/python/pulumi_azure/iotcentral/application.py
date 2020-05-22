@@ -56,15 +56,15 @@ class Application(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_application = azure.iotcentral.Application("exampleApplication",
-            display_name="example-iotcentral-app-display-name",
-            location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku="S1",
+            location=example_resource_group.location,
             sub_domain="example-iotcentral-app-subdomain",
+            display_name="example-iotcentral-app-display-name",
+            sku="S1",
+            template="iotc-default@1.0.0",
             tags={
                 "Foo": "Bar",
-            },
-            template="iotc-default@1.0.0")
+            })
         ```
 
 

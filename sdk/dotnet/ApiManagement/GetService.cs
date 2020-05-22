@@ -66,6 +66,10 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// (Optional) An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceIdentityResult> Identities;
+        /// <summary>
         /// The location name of the additional region among Azure Data center regions.
         /// </summary>
         public readonly string Location;
@@ -120,6 +124,8 @@ namespace Pulumi.Azure.ApiManagement
 
             string id,
 
+            ImmutableArray<Outputs.GetServiceIdentityResult> identities,
+
             string location,
 
             string managementApiUrl,
@@ -149,6 +155,7 @@ namespace Pulumi.Azure.ApiManagement
             GatewayUrl = gatewayUrl;
             HostnameConfigurations = hostnameConfigurations;
             Id = id;
+            Identities = identities;
             Location = location;
             ManagementApiUrl = managementApiUrl;
             Name = name;

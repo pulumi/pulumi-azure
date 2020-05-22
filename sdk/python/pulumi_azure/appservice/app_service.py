@@ -164,6 +164,7 @@ class AppService(pulumi.CustomResource):
       * `healthCheckPath` (`str`) - The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
       * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
       * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
+        * `action` (`str`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.  
         * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
         * `name` (`str`) - The name for this IP Restriction.
         * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -369,6 +370,7 @@ class AppService(pulumi.CustomResource):
           * `healthCheckPath` (`pulumi.Input[str]`) - The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.  
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
             * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -574,6 +576,7 @@ class AppService(pulumi.CustomResource):
           * `healthCheckPath` (`pulumi.Input[str]`) - The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.  
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
             * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.

@@ -63,6 +63,10 @@ namespace Pulumi.Azure.NetApp
         /// The Azure Region where the NetApp Volume exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// A list of IPv4 Addresses which should be used to mount the volume.
+        /// </summary>
+        public readonly ImmutableArray<string> MountIpAddresses;
         public readonly string Name;
         public readonly string PoolName;
         public readonly ImmutableArray<string> Protocols;
@@ -92,6 +96,8 @@ namespace Pulumi.Azure.NetApp
 
             string location,
 
+            ImmutableArray<string> mountIpAddresses,
+
             string name,
 
             string poolName,
@@ -111,6 +117,7 @@ namespace Pulumi.Azure.NetApp
             AccountName = accountName;
             Id = id;
             Location = location;
+            MountIpAddresses = mountIpAddresses;
             Name = name;
             PoolName = poolName;
             Protocols = protocols;

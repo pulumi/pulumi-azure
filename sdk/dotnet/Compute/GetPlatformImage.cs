@@ -48,6 +48,12 @@ namespace Pulumi.Azure.Compute
         [Input("sku", required: true)]
         public string Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the Platform Image.
+        /// </summary>
+        [Input("version")]
+        public string? Version { get; set; }
+
         public GetPlatformImageArgs()
         {
         }
@@ -65,9 +71,6 @@ namespace Pulumi.Azure.Compute
         public readonly string Offer;
         public readonly string Publisher;
         public readonly string Sku;
-        /// <summary>
-        /// The latest version of the Platform Image.
-        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

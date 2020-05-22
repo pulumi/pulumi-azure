@@ -23,11 +23,12 @@ type Environment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier pulumi.StringPtrOutput `pulumi:"pricingTier"`
-	// The name of the Resource Group where the App Service Environment exists.
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-	SubnetId pulumi.StringOutput    `pulumi:"subnetId"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -70,11 +71,12 @@ type environmentState struct {
 	Name *string `pulumi:"name"`
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier *string `pulumi:"pricingTier"`
-	// The name of the Resource Group where the App Service Environment exists.
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-	SubnetId *string           `pulumi:"subnetId"`
-	Tags     map[string]string `pulumi:"tags"`
+	SubnetId *string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type EnvironmentState struct {
@@ -87,11 +89,12 @@ type EnvironmentState struct {
 	Name pulumi.StringPtrInput
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier pulumi.StringPtrInput
-	// The name of the Resource Group where the App Service Environment exists.
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags pulumi.StringMapInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -106,9 +109,12 @@ type environmentArgs struct {
 	Name *string `pulumi:"name"`
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier *string `pulumi:"pricingTier"`
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-	SubnetId string            `pulumi:"subnetId"`
-	Tags     map[string]string `pulumi:"tags"`
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -120,9 +126,12 @@ type EnvironmentArgs struct {
 	Name pulumi.StringPtrInput
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier pulumi.StringPtrInput
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
-	Tags     pulumi.StringMapInput
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags pulumi.StringMapInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {

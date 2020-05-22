@@ -26,6 +26,7 @@ export * from "./image";
 export * from "./linuxVirtualMachine";
 export * from "./linuxVirtualMachineScaleSet";
 export * from "./managedDisk";
+export * from "./orchestratedVirtualMachineScaleSet";
 export * from "./scaleSet";
 export * from "./sharedImage";
 export * from "./sharedImageGallery";

@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *
  * const sampleResourceGroup = new azure.core.ResourceGroup("sampleResourceGroup", {location: "West US"});
  * const sampleLab = new azure.devtest.Lab("sampleLab", {
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: sampleResourceGroup.location,
+ *     resourceGroupName: sampleResourceGroup.name,
  * });
  * const sampleSchedule = new azure.devtest.Schedule("sampleSchedule", {
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     labName: azurerm_dev_test_lab.example.name,
+ *     location: sampleResourceGroup.location,
+ *     resourceGroupName: sampleResourceGroup.name,
+ *     labName: sampleLab.name,
  *     weekly_recurrence: {
  *         time: "1100",
  *         weekDays: [

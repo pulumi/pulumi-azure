@@ -45,7 +45,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The workspace data retention in days. Possible values range between 30 and 730.
+        /// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int> RetentionInDays { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The workspace data retention in days. Possible values range between 30 and 730.
+        /// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The workspace data retention in days. Possible values range between 30 and 730.
+        /// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }

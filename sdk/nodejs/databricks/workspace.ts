@@ -87,6 +87,14 @@ export class Workspace extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The unique identifier of the databricks workspace in Databricks control plane.
+     */
+    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    /**
+     * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+     */
+    public /*out*/ readonly workspaceUrl!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -108,6 +116,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            inputs["workspaceUrl"] = state ? state.workspaceUrl : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -124,6 +134,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["managedResourceGroupId"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
+            inputs["workspaceUrl"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -172,6 +184,14 @@ export interface WorkspaceState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique identifier of the databricks workspace in Databricks control plane.
+     */
+    readonly workspaceId?: pulumi.Input<string>;
+    /**
+     * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+     */
+    readonly workspaceUrl?: pulumi.Input<string>;
 }
 
 /**

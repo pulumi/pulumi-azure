@@ -34,7 +34,7 @@ type Insights struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 	SamplingPercentage pulumi.Float64PtrOutput `pulumi:"samplingPercentage"`
@@ -96,7 +96,7 @@ type insightsState struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
@@ -125,7 +125,7 @@ type InsightsState struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrInput
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 	SamplingPercentage pulumi.Float64PtrInput
@@ -154,7 +154,7 @@ type insightsArgs struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
@@ -180,7 +180,7 @@ type InsightsArgs struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrInput
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 	SamplingPercentage pulumi.Float64PtrInput

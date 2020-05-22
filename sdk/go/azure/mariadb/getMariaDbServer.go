@@ -29,8 +29,6 @@ type GetMariaDbServerArgs struct {
 type GetMariaDbServerResult struct {
 	// The Administrator Login for the MariaDB Server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
-	// The password associated with the `administratorLogin` for the MariaDB Server.
-	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// The FQDN of the MariaDB Server.
 	Fqdn string `pulumi:"fqdn"`
 	// The provider-assigned unique ID for this managed resource.

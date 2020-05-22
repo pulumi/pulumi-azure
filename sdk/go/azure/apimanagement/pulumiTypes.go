@@ -3551,6 +3551,8 @@ func (o ServiceCertificateArrayOutput) Index(i pulumi.IntInput) ServiceCertifica
 }
 
 type ServiceHostnameConfiguration struct {
+	// One or more `developerPortal` blocks as documented below.
+	DeveloperPortals []ServiceHostnameConfigurationDeveloperPortal `pulumi:"developerPortals"`
 	// One or more `management` blocks as documented below.
 	Managements []ServiceHostnameConfigurationManagement `pulumi:"managements"`
 	// One or more `portal` blocks as documented below.
@@ -3574,6 +3576,8 @@ type ServiceHostnameConfigurationInput interface {
 }
 
 type ServiceHostnameConfigurationArgs struct {
+	// One or more `developerPortal` blocks as documented below.
+	DeveloperPortals ServiceHostnameConfigurationDeveloperPortalArrayInput `pulumi:"developerPortals"`
 	// One or more `management` blocks as documented below.
 	Managements ServiceHostnameConfigurationManagementArrayInput `pulumi:"managements"`
 	// One or more `portal` blocks as documented below.
@@ -3662,6 +3666,13 @@ func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationPtrOut
 	}).(ServiceHostnameConfigurationPtrOutput)
 }
 
+// One or more `developerPortal` blocks as documented below.
+func (o ServiceHostnameConfigurationOutput) DeveloperPortals() ServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationDeveloperPortal {
+		return v.DeveloperPortals
+	}).(ServiceHostnameConfigurationDeveloperPortalArrayOutput)
+}
+
 // One or more `management` blocks as documented below.
 func (o ServiceHostnameConfigurationOutput) Managements() ServiceHostnameConfigurationManagementArrayOutput {
 	return o.ApplyT(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagement { return v.Managements }).(ServiceHostnameConfigurationManagementArrayOutput)
@@ -3698,6 +3709,16 @@ func (o ServiceHostnameConfigurationPtrOutput) ToServiceHostnameConfigurationPtr
 
 func (o ServiceHostnameConfigurationPtrOutput) Elem() ServiceHostnameConfigurationOutput {
 	return o.ApplyT(func(v *ServiceHostnameConfiguration) ServiceHostnameConfiguration { return *v }).(ServiceHostnameConfigurationOutput)
+}
+
+// One or more `developerPortal` blocks as documented below.
+func (o ServiceHostnameConfigurationPtrOutput) DeveloperPortals() ServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return o.ApplyT(func(v *ServiceHostnameConfiguration) []ServiceHostnameConfigurationDeveloperPortal {
+		if v == nil {
+			return nil
+		}
+		return v.DeveloperPortals
+	}).(ServiceHostnameConfigurationDeveloperPortalArrayOutput)
 }
 
 // One or more `management` blocks as documented below.
@@ -3738,6 +3759,141 @@ func (o ServiceHostnameConfigurationPtrOutput) Scms() ServiceHostnameConfigurati
 		}
 		return v.Scms
 	}).(ServiceHostnameConfigurationScmArrayOutput)
+}
+
+type ServiceHostnameConfigurationDeveloperPortal struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate *string `pulumi:"certificate"`
+	// The password for the certificate.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+
+// ServiceHostnameConfigurationDeveloperPortalInput is an input type that accepts ServiceHostnameConfigurationDeveloperPortalArgs and ServiceHostnameConfigurationDeveloperPortalOutput values.
+// You can construct a concrete instance of `ServiceHostnameConfigurationDeveloperPortalInput` via:
+//
+// 		 ServiceHostnameConfigurationDeveloperPortalArgs{...}
+//
+type ServiceHostnameConfigurationDeveloperPortalInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationDeveloperPortalOutput() ServiceHostnameConfigurationDeveloperPortalOutput
+	ToServiceHostnameConfigurationDeveloperPortalOutputWithContext(context.Context) ServiceHostnameConfigurationDeveloperPortalOutput
+}
+
+type ServiceHostnameConfigurationDeveloperPortalArgs struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password for the certificate.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the Management API.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (ServiceHostnameConfigurationDeveloperPortalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (i ServiceHostnameConfigurationDeveloperPortalArgs) ToServiceHostnameConfigurationDeveloperPortalOutput() ServiceHostnameConfigurationDeveloperPortalOutput {
+	return i.ToServiceHostnameConfigurationDeveloperPortalOutputWithContext(context.Background())
+}
+
+func (i ServiceHostnameConfigurationDeveloperPortalArgs) ToServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx context.Context) ServiceHostnameConfigurationDeveloperPortalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationDeveloperPortalOutput)
+}
+
+// ServiceHostnameConfigurationDeveloperPortalArrayInput is an input type that accepts ServiceHostnameConfigurationDeveloperPortalArray and ServiceHostnameConfigurationDeveloperPortalArrayOutput values.
+// You can construct a concrete instance of `ServiceHostnameConfigurationDeveloperPortalArrayInput` via:
+//
+// 		 ServiceHostnameConfigurationDeveloperPortalArray{ ServiceHostnameConfigurationDeveloperPortalArgs{...} }
+//
+type ServiceHostnameConfigurationDeveloperPortalArrayInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationDeveloperPortalArrayOutput() ServiceHostnameConfigurationDeveloperPortalArrayOutput
+	ToServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(context.Context) ServiceHostnameConfigurationDeveloperPortalArrayOutput
+}
+
+type ServiceHostnameConfigurationDeveloperPortalArray []ServiceHostnameConfigurationDeveloperPortalInput
+
+func (ServiceHostnameConfigurationDeveloperPortalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (i ServiceHostnameConfigurationDeveloperPortalArray) ToServiceHostnameConfigurationDeveloperPortalArrayOutput() ServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return i.ToServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceHostnameConfigurationDeveloperPortalArray) ToServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceHostnameConfigurationDeveloperPortalArrayOutput)
+}
+
+type ServiceHostnameConfigurationDeveloperPortalOutput struct{ *pulumi.OutputState }
+
+func (ServiceHostnameConfigurationDeveloperPortalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) ToServiceHostnameConfigurationDeveloperPortalOutput() ServiceHostnameConfigurationDeveloperPortalOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) ToServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx context.Context) ServiceHostnameConfigurationDeveloperPortalOutput {
+	return o
+}
+
+// One or more (up to 10) `certificate` blocks as defined below.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The password for the certificate.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// The Hostname to use for the Management API.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceHostnameConfigurationDeveloperPortalArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceHostnameConfigurationDeveloperPortalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (o ServiceHostnameConfigurationDeveloperPortalArrayOutput) ToServiceHostnameConfigurationDeveloperPortalArrayOutput() ServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationDeveloperPortalArrayOutput) ToServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationDeveloperPortalArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationDeveloperPortalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceHostnameConfigurationDeveloperPortal {
+		return vs[0].([]ServiceHostnameConfigurationDeveloperPortal)[vs[1].(int)]
+	}).(ServiceHostnameConfigurationDeveloperPortalOutput)
 }
 
 type ServiceHostnameConfigurationManagement struct {
@@ -4290,12 +4446,14 @@ func (o ServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceIdentity struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
-	Type string `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+	Type *string `pulumi:"type"`
 }
 
 // ServiceIdentityInput is an input type that accepts ServiceIdentityArgs and ServiceIdentityOutput values.
@@ -4311,12 +4469,14 @@ type ServiceIdentityInput interface {
 }
 
 type ServiceIdentityArgs struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
-	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ServiceIdentityArgs) ElementType() reflect.Type {
@@ -4397,6 +4557,11 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	}).(ServiceIdentityPtrOutput)
 }
 
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
+func (o ServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o ServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -4407,9 +4572,9 @@ func (o ServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
-func (o ServiceIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+func (o ServiceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ServiceIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -4428,6 +4593,16 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx cont
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
 	return o.ApplyT(func(v *ServiceIdentity) ServiceIdentity { return *v }).(ServiceIdentityOutput)
+}
+
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
+func (o ServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -4450,13 +4625,13 @@ func (o ServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
 func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIdentity) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5807,6 +5982,8 @@ func (o GetServiceAdditionalLocationArrayOutput) Index(i pulumi.IntInput) GetSer
 }
 
 type GetServiceHostnameConfiguration struct {
+	// One or more `developerPortal` blocks as documented below.
+	DeveloperPortals []GetServiceHostnameConfigurationDeveloperPortal `pulumi:"developerPortals"`
 	// One or more `management` blocks as documented below.
 	Managements []GetServiceHostnameConfigurationManagement `pulumi:"managements"`
 	// One or more `portal` blocks as documented below.
@@ -5830,6 +6007,8 @@ type GetServiceHostnameConfigurationInput interface {
 }
 
 type GetServiceHostnameConfigurationArgs struct {
+	// One or more `developerPortal` blocks as documented below.
+	DeveloperPortals GetServiceHostnameConfigurationDeveloperPortalArrayInput `pulumi:"developerPortals"`
 	// One or more `management` blocks as documented below.
 	Managements GetServiceHostnameConfigurationManagementArrayInput `pulumi:"managements"`
 	// One or more `portal` blocks as documented below.
@@ -5892,6 +6071,13 @@ func (o GetServiceHostnameConfigurationOutput) ToGetServiceHostnameConfiguration
 	return o
 }
 
+// One or more `developerPortal` blocks as documented below.
+func (o GetServiceHostnameConfigurationOutput) DeveloperPortals() GetServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationDeveloperPortal {
+		return v.DeveloperPortals
+	}).(GetServiceHostnameConfigurationDeveloperPortalArrayOutput)
+}
+
 // One or more `management` blocks as documented below.
 func (o GetServiceHostnameConfigurationOutput) Managements() GetServiceHostnameConfigurationManagementArrayOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfiguration) []GetServiceHostnameConfigurationManagement {
@@ -5932,6 +6118,123 @@ func (o GetServiceHostnameConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHostnameConfiguration {
 		return vs[0].([]GetServiceHostnameConfiguration)[vs[1].(int)]
 	}).(GetServiceHostnameConfigurationOutput)
+}
+
+type GetServiceHostnameConfigurationDeveloperPortal struct {
+	// The Hostname used for the SCM URL.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret which contains the SSL Certificate.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Is Client Certificate Negotiation enabled?
+	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
+}
+
+// GetServiceHostnameConfigurationDeveloperPortalInput is an input type that accepts GetServiceHostnameConfigurationDeveloperPortalArgs and GetServiceHostnameConfigurationDeveloperPortalOutput values.
+// You can construct a concrete instance of `GetServiceHostnameConfigurationDeveloperPortalInput` via:
+//
+// 		 GetServiceHostnameConfigurationDeveloperPortalArgs{...}
+//
+type GetServiceHostnameConfigurationDeveloperPortalInput interface {
+	pulumi.Input
+
+	ToGetServiceHostnameConfigurationDeveloperPortalOutput() GetServiceHostnameConfigurationDeveloperPortalOutput
+	ToGetServiceHostnameConfigurationDeveloperPortalOutputWithContext(context.Context) GetServiceHostnameConfigurationDeveloperPortalOutput
+}
+
+type GetServiceHostnameConfigurationDeveloperPortalArgs struct {
+	// The Hostname used for the SCM URL.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret which contains the SSL Certificate.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// Is Client Certificate Negotiation enabled?
+	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (GetServiceHostnameConfigurationDeveloperPortalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (i GetServiceHostnameConfigurationDeveloperPortalArgs) ToGetServiceHostnameConfigurationDeveloperPortalOutput() GetServiceHostnameConfigurationDeveloperPortalOutput {
+	return i.ToGetServiceHostnameConfigurationDeveloperPortalOutputWithContext(context.Background())
+}
+
+func (i GetServiceHostnameConfigurationDeveloperPortalArgs) ToGetServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationDeveloperPortalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationDeveloperPortalOutput)
+}
+
+// GetServiceHostnameConfigurationDeveloperPortalArrayInput is an input type that accepts GetServiceHostnameConfigurationDeveloperPortalArray and GetServiceHostnameConfigurationDeveloperPortalArrayOutput values.
+// You can construct a concrete instance of `GetServiceHostnameConfigurationDeveloperPortalArrayInput` via:
+//
+// 		 GetServiceHostnameConfigurationDeveloperPortalArray{ GetServiceHostnameConfigurationDeveloperPortalArgs{...} }
+//
+type GetServiceHostnameConfigurationDeveloperPortalArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceHostnameConfigurationDeveloperPortalArrayOutput() GetServiceHostnameConfigurationDeveloperPortalArrayOutput
+	ToGetServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(context.Context) GetServiceHostnameConfigurationDeveloperPortalArrayOutput
+}
+
+type GetServiceHostnameConfigurationDeveloperPortalArray []GetServiceHostnameConfigurationDeveloperPortalInput
+
+func (GetServiceHostnameConfigurationDeveloperPortalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (i GetServiceHostnameConfigurationDeveloperPortalArray) ToGetServiceHostnameConfigurationDeveloperPortalArrayOutput() GetServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return i.ToGetServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceHostnameConfigurationDeveloperPortalArray) ToGetServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHostnameConfigurationDeveloperPortalArrayOutput)
+}
+
+type GetServiceHostnameConfigurationDeveloperPortalOutput struct{ *pulumi.OutputState }
+
+func (GetServiceHostnameConfigurationDeveloperPortalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (o GetServiceHostnameConfigurationDeveloperPortalOutput) ToGetServiceHostnameConfigurationDeveloperPortalOutput() GetServiceHostnameConfigurationDeveloperPortalOutput {
+	return o
+}
+
+func (o GetServiceHostnameConfigurationDeveloperPortalOutput) ToGetServiceHostnameConfigurationDeveloperPortalOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationDeveloperPortalOutput {
+	return o
+}
+
+// The Hostname used for the SCM URL.
+func (o GetServiceHostnameConfigurationDeveloperPortalOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret which contains the SSL Certificate.
+func (o GetServiceHostnameConfigurationDeveloperPortalOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationDeveloperPortal) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// Is Client Certificate Negotiation enabled?
+func (o GetServiceHostnameConfigurationDeveloperPortalOutput) NegotiateClientCertificate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationDeveloperPortal) bool { return v.NegotiateClientCertificate }).(pulumi.BoolOutput)
+}
+
+type GetServiceHostnameConfigurationDeveloperPortalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceHostnameConfigurationDeveloperPortalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceHostnameConfigurationDeveloperPortal)(nil)).Elem()
+}
+
+func (o GetServiceHostnameConfigurationDeveloperPortalArrayOutput) ToGetServiceHostnameConfigurationDeveloperPortalArrayOutput() GetServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return o
+}
+
+func (o GetServiceHostnameConfigurationDeveloperPortalArrayOutput) ToGetServiceHostnameConfigurationDeveloperPortalArrayOutputWithContext(ctx context.Context) GetServiceHostnameConfigurationDeveloperPortalArrayOutput {
+	return o
+}
+
+func (o GetServiceHostnameConfigurationDeveloperPortalArrayOutput) Index(i pulumi.IntInput) GetServiceHostnameConfigurationDeveloperPortalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHostnameConfigurationDeveloperPortal {
+		return vs[0].([]GetServiceHostnameConfigurationDeveloperPortal)[vs[1].(int)]
+	}).(GetServiceHostnameConfigurationDeveloperPortalOutput)
 }
 
 type GetServiceHostnameConfigurationManagement struct {
@@ -6411,6 +6714,132 @@ func (o GetServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetServiceHostnameConfigurationScmOutput)
 }
 
+type GetServiceIdentity struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds []string `pulumi:"identityIds"`
+	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	PrincipalId string `pulumi:"principalId"`
+	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	TenantId string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that is configured on this API Management Service.
+	Type string `pulumi:"type"`
+}
+
+// GetServiceIdentityInput is an input type that accepts GetServiceIdentityArgs and GetServiceIdentityOutput values.
+// You can construct a concrete instance of `GetServiceIdentityInput` via:
+//
+// 		 GetServiceIdentityArgs{...}
+//
+type GetServiceIdentityInput interface {
+	pulumi.Input
+
+	ToGetServiceIdentityOutput() GetServiceIdentityOutput
+	ToGetServiceIdentityOutputWithContext(context.Context) GetServiceIdentityOutput
+}
+
+type GetServiceIdentityArgs struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that is configured on this API Management Service.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceIdentity)(nil)).Elem()
+}
+
+func (i GetServiceIdentityArgs) ToGetServiceIdentityOutput() GetServiceIdentityOutput {
+	return i.ToGetServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetServiceIdentityArgs) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityOutput)
+}
+
+// GetServiceIdentityArrayInput is an input type that accepts GetServiceIdentityArray and GetServiceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetServiceIdentityArrayInput` via:
+//
+// 		 GetServiceIdentityArray{ GetServiceIdentityArgs{...} }
+//
+type GetServiceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput
+	ToGetServiceIdentityArrayOutputWithContext(context.Context) GetServiceIdentityArrayOutput
+}
+
+type GetServiceIdentityArray []GetServiceIdentityInput
+
+func (GetServiceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceIdentity)(nil)).Elem()
+}
+
+func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput {
+	return i.ToGetServiceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityArrayOutput)
+}
+
+type GetServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceIdentity)(nil)).Elem()
+}
+
+func (o GetServiceIdentityOutput) ToGetServiceIdentityOutput() GetServiceIdentityOutput {
+	return o
+}
+
+func (o GetServiceIdentityOutput) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
+	return o
+}
+
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
+func (o GetServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+func (o GetServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+func (o GetServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Specifies the type of Managed Service Identity that is configured on this API Management Service.
+func (o GetServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceIdentity)(nil)).Elem()
+}
+
+func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutput() GetServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceIdentity {
+		return vs[0].([]GetServiceIdentity)[vs[1].(int)]
+	}).(GetServiceIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiImportOutput{})
 	pulumi.RegisterOutputType(ApiImportPtrOutput{})
@@ -6462,6 +6891,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceHostnameConfigurationDeveloperPortalOutput{})
+	pulumi.RegisterOutputType(ServiceHostnameConfigurationDeveloperPortalArrayOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationManagementOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationManagementArrayOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationPortalOutput{})
@@ -6492,6 +6923,8 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceAdditionalLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceHostnameConfigurationDeveloperPortalOutput{})
+	pulumi.RegisterOutputType(GetServiceHostnameConfigurationDeveloperPortalArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationManagementOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationManagementArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationPortalOutput{})
@@ -6500,4 +6933,6 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationProxyArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationScmOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationScmArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceIdentityOutput{})
+	pulumi.RegisterOutputType(GetServiceIdentityArrayOutput{})
 }

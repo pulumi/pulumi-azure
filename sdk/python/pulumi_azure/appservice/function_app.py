@@ -162,6 +162,9 @@ class FunctionApp(pulumi.CustomResource):
     The backend storage account name which will be used by this Function App (such as the dashboard, logs).
     """
     storage_connection_string: pulumi.Output[str]
+    """
+    The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -197,8 +200,7 @@ class FunctionApp(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
+            storage_connection_string=example_account.primary_connection_string)
         ```
         ## Example Usage (in a Consumption Plan)
 
@@ -224,8 +226,7 @@ class FunctionApp(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
-            storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key)
+            storage_connection_string=example_account.primary_connection_string)
         ```
 
         :param str resource_name: The name of the resource.
@@ -247,6 +248,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_connection_string: The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 
@@ -401,6 +403,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_connection_string: The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 

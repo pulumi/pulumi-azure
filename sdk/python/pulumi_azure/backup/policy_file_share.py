@@ -59,16 +59,16 @@ class PolicyFileShare(pulumi.CustomResource):
             resource_group_name=rg.name,
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
+            resource_group_name=rg.name,
+            recovery_vault_name=vault.name,
+            timezone="UTC",
             backup={
                 "frequency": "Daily",
                 "time": "23:00",
             },
-            recovery_vault_name=vault.name,
-            resource_group_name=rg.name,
             retention_daily={
                 "count": 10,
-            },
-            timezone="UTC")
+            })
         ```
 
 

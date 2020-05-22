@@ -21,7 +21,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+        /// A list of connection strings available for this CosmosDB account.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<string>> ConnectionStrings { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<string>? _connectionStrings;
 
         /// <summary>
-        /// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+        /// A list of connection strings available for this CosmosDB account.
         /// </summary>
         public InputList<string> ConnectionStrings
         {

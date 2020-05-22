@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     offer: "UbuntuServer",
  *     sku: "16.04-LTS",
  * });
- * export const version = example.then(example => example.version);
+ * export const id = example.then(example => example.id);
  * ```
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
@@ -39,6 +39,7 @@ export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.Invok
         "offer": args.offer,
         "publisher": args.publisher,
         "sku": args.sku,
+        "version": args.version,
     }, opts);
 }
 
@@ -62,6 +63,10 @@ export interface GetPlatformImageArgs {
      * Specifies the SKU of the Platform Image.
      */
     readonly sku: string;
+    /**
+     * The version of the Platform Image.
+     */
+    readonly version?: string;
 }
 
 /**
@@ -72,9 +77,6 @@ export interface GetPlatformImageResult {
     readonly offer: string;
     readonly publisher: string;
     readonly sku: string;
-    /**
-     * The latest version of the Platform Image.
-     */
     readonly version: string;
     /**
      * The provider-assigned unique ID for this managed resource.

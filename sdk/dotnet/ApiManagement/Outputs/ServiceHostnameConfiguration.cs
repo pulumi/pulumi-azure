@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ServiceHostnameConfiguration
     {
         /// <summary>
+        /// One or more `developer_portal` blocks as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceHostnameConfigurationDeveloperPortal> DeveloperPortals;
+        /// <summary>
         /// One or more `management` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceHostnameConfigurationManagement> Managements;
@@ -32,6 +36,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
         [OutputConstructor]
         private ServiceHostnameConfiguration(
+            ImmutableArray<Outputs.ServiceHostnameConfigurationDeveloperPortal> developerPortals,
+
             ImmutableArray<Outputs.ServiceHostnameConfigurationManagement> managements,
 
             ImmutableArray<Outputs.ServiceHostnameConfigurationPortal> portals,
@@ -40,6 +46,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             ImmutableArray<Outputs.ServiceHostnameConfigurationScm> scms)
         {
+            DeveloperPortals = developerPortals;
             Managements = managements;
             Portals = portals;
             Proxies = proxies;

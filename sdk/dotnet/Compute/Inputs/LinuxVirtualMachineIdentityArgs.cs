@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
+        /// The ID of the Tenant the System Managed Service Principal is assigned in.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
         /// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         /// </summary>
         [Input("type", required: true)]

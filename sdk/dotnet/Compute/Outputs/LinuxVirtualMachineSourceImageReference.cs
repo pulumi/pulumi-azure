@@ -13,12 +13,21 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class LinuxVirtualMachineSourceImageReference
     {
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machines.
+        /// </summary>
         public readonly string Offer;
         /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+        /// Specifies the publisher of the image used to create the virtual machines.
         /// </summary>
         public readonly string Publisher;
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machines.
+        /// </summary>
         public readonly string Sku;
+        /// <summary>
+        /// Specifies the version of the image used to create the virtual machines.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

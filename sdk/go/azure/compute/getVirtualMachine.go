@@ -28,7 +28,10 @@ type LookupVirtualMachineArgs struct {
 // A collection of values returned by getVirtualMachine.
 type LookupVirtualMachineResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Id string `pulumi:"id"`
+	// A `identity` block as defined below.
+	Identities        []GetVirtualMachineIdentity `pulumi:"identities"`
+	Location          string                      `pulumi:"location"`
+	Name              string                      `pulumi:"name"`
+	ResourceGroupName string                      `pulumi:"resourceGroupName"`
 }

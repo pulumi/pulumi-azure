@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Storage.Inputs
 
         /// <summary>
         /// A list of http headers that are allowed to be executed by the origin. Valid options are
-        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         /// </summary>
         public InputList<string> AllowedMethods
         {

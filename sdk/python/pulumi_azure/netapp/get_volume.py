@@ -13,7 +13,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, id=None, location=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
+    def __init__(__self__, account_name=None, id=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         __self__.account_name = account_name
@@ -28,6 +28,12 @@ class GetVolumeResult:
         __self__.location = location
         """
         The Azure Region where the NetApp Volume exists.
+        """
+        if mount_ip_addresses and not isinstance(mount_ip_addresses, list):
+            raise TypeError("Expected argument 'mount_ip_addresses' to be a list")
+        __self__.mount_ip_addresses = mount_ip_addresses
+        """
+        A list of IPv4 Addresses which should be used to mount the volume.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -74,6 +80,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             account_name=self.account_name,
             id=self.id,
             location=self.location,
+            mount_ip_addresses=self.mount_ip_addresses,
             name=self.name,
             pool_name=self.pool_name,
             protocols=self.protocols,
@@ -123,6 +130,7 @@ def get_volume(account_name=None,name=None,pool_name=None,resource_group_name=No
         account_name=__ret__.get('accountName'),
         id=__ret__.get('id'),
         location=__ret__.get('location'),
+        mount_ip_addresses=__ret__.get('mountIpAddresses'),
         name=__ret__.get('name'),
         pool_name=__ret__.get('poolName'),
         protocols=__ret__.get('protocols'),

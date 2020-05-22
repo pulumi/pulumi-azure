@@ -17,25 +17,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleVault = new azure.recoveryservices.Vault("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const examplePolicyVM = new azure.backup.PolicyVM("example", {
+ * const examplePolicyVM = new azure.backup.PolicyVM("examplePolicyVM", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     recoveryVaultName: exampleVault.name,
+ *     timezone: "UTC",
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
- *     recoveryVaultName: exampleVault.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     retentionDaily: {
+ *     retention_daily: {
  *         count: 10,
  *     },
- *     retentionMonthly: {
+ *     retention_weekly: {
+ *         count: 42,
+ *         weekdays: [
+ *             "Sunday",
+ *             "Wednesday",
+ *             "Friday",
+ *             "Saturday",
+ *         ],
+ *     },
+ *     retention_monthly: {
  *         count: 7,
  *         weekdays: [
  *             "Sunday",
@@ -46,22 +54,12 @@ import * as utilities from "../utilities";
  *             "Last",
  *         ],
  *     },
- *     retentionWeekly: {
- *         count: 42,
- *         weekdays: [
- *             "Sunday",
- *             "Wednesday",
- *             "Friday",
- *             "Saturday",
- *         ],
- *     },
- *     retentionYearly: {
+ *     retention_yearly: {
  *         count: 77,
- *         months: ["January"],
  *         weekdays: ["Sunday"],
  *         weeks: ["Last"],
+ *         months: ["January"],
  *     },
- *     timezone: "UTC",
  * });
  * ```
  */

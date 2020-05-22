@@ -18,3 +18,4 @@ from .iot_hub_certificate import *
 from .iot_hub_dps import *
 from .route import *
 from .shared_access_policy import *
+from .time_series_insights_standard_environment import *

@@ -20,6 +20,8 @@ type Volume struct {
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A list of IPv4 Addresses which should be used to mount the volume.
+	MountIpAddresses pulumi.StringArrayOutput `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
@@ -95,6 +97,8 @@ type volumeState struct {
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A list of IPv4 Addresses which should be used to mount the volume.
+	MountIpAddresses []string `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
@@ -122,6 +126,8 @@ type VolumeState struct {
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A list of IPv4 Addresses which should be used to mount the volume.
+	MountIpAddresses pulumi.StringArrayInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.

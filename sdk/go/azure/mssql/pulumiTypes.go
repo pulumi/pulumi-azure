@@ -907,6 +907,177 @@ func (o ElasticPoolSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerAzureadAdministrator struct {
+	// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+	LoginUsername string `pulumi:"loginUsername"`
+	// (Required) The object id of the Azure AD Administrator of this SQL Server.
+	ObjectId string `pulumi:"objectId"`
+	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ServerAzureadAdministratorInput is an input type that accepts ServerAzureadAdministratorArgs and ServerAzureadAdministratorOutput values.
+// You can construct a concrete instance of `ServerAzureadAdministratorInput` via:
+//
+// 		 ServerAzureadAdministratorArgs{...}
+//
+type ServerAzureadAdministratorInput interface {
+	pulumi.Input
+
+	ToServerAzureadAdministratorOutput() ServerAzureadAdministratorOutput
+	ToServerAzureadAdministratorOutputWithContext(context.Context) ServerAzureadAdministratorOutput
+}
+
+type ServerAzureadAdministratorArgs struct {
+	// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+	LoginUsername pulumi.StringInput `pulumi:"loginUsername"`
+	// (Required) The object id of the Azure AD Administrator of this SQL Server.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ServerAzureadAdministratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureadAdministrator)(nil)).Elem()
+}
+
+func (i ServerAzureadAdministratorArgs) ToServerAzureadAdministratorOutput() ServerAzureadAdministratorOutput {
+	return i.ToServerAzureadAdministratorOutputWithContext(context.Background())
+}
+
+func (i ServerAzureadAdministratorArgs) ToServerAzureadAdministratorOutputWithContext(ctx context.Context) ServerAzureadAdministratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureadAdministratorOutput)
+}
+
+func (i ServerAzureadAdministratorArgs) ToServerAzureadAdministratorPtrOutput() ServerAzureadAdministratorPtrOutput {
+	return i.ToServerAzureadAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (i ServerAzureadAdministratorArgs) ToServerAzureadAdministratorPtrOutputWithContext(ctx context.Context) ServerAzureadAdministratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureadAdministratorOutput).ToServerAzureadAdministratorPtrOutputWithContext(ctx)
+}
+
+// ServerAzureadAdministratorPtrInput is an input type that accepts ServerAzureadAdministratorArgs, ServerAzureadAdministratorPtr and ServerAzureadAdministratorPtrOutput values.
+// You can construct a concrete instance of `ServerAzureadAdministratorPtrInput` via:
+//
+// 		 ServerAzureadAdministratorArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ServerAzureadAdministratorPtrInput interface {
+	pulumi.Input
+
+	ToServerAzureadAdministratorPtrOutput() ServerAzureadAdministratorPtrOutput
+	ToServerAzureadAdministratorPtrOutputWithContext(context.Context) ServerAzureadAdministratorPtrOutput
+}
+
+type serverAzureadAdministratorPtrType ServerAzureadAdministratorArgs
+
+func ServerAzureadAdministratorPtr(v *ServerAzureadAdministratorArgs) ServerAzureadAdministratorPtrInput {
+	return (*serverAzureadAdministratorPtrType)(v)
+}
+
+func (*serverAzureadAdministratorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerAzureadAdministrator)(nil)).Elem()
+}
+
+func (i *serverAzureadAdministratorPtrType) ToServerAzureadAdministratorPtrOutput() ServerAzureadAdministratorPtrOutput {
+	return i.ToServerAzureadAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (i *serverAzureadAdministratorPtrType) ToServerAzureadAdministratorPtrOutputWithContext(ctx context.Context) ServerAzureadAdministratorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureadAdministratorPtrOutput)
+}
+
+type ServerAzureadAdministratorOutput struct{ *pulumi.OutputState }
+
+func (ServerAzureadAdministratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAzureadAdministrator)(nil)).Elem()
+}
+
+func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorOutput() ServerAzureadAdministratorOutput {
+	return o
+}
+
+func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorOutputWithContext(ctx context.Context) ServerAzureadAdministratorOutput {
+	return o
+}
+
+func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutput() ServerAzureadAdministratorPtrOutput {
+	return o.ToServerAzureadAdministratorPtrOutputWithContext(context.Background())
+}
+
+func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutputWithContext(ctx context.Context) ServerAzureadAdministratorPtrOutput {
+	return o.ApplyT(func(v ServerAzureadAdministrator) *ServerAzureadAdministrator {
+		return &v
+	}).(ServerAzureadAdministratorPtrOutput)
+}
+
+// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+func (o ServerAzureadAdministratorOutput) LoginUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerAzureadAdministrator) string { return v.LoginUsername }).(pulumi.StringOutput)
+}
+
+// (Required) The object id of the Azure AD Administrator of this SQL Server.
+func (o ServerAzureadAdministratorOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerAzureadAdministrator) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+func (o ServerAzureadAdministratorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerAzureadAdministrator) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ServerAzureadAdministratorPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerAzureadAdministratorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerAzureadAdministrator)(nil)).Elem()
+}
+
+func (o ServerAzureadAdministratorPtrOutput) ToServerAzureadAdministratorPtrOutput() ServerAzureadAdministratorPtrOutput {
+	return o
+}
+
+func (o ServerAzureadAdministratorPtrOutput) ToServerAzureadAdministratorPtrOutputWithContext(ctx context.Context) ServerAzureadAdministratorPtrOutput {
+	return o
+}
+
+func (o ServerAzureadAdministratorPtrOutput) Elem() ServerAzureadAdministratorOutput {
+	return o.ApplyT(func(v *ServerAzureadAdministrator) ServerAzureadAdministrator { return *v }).(ServerAzureadAdministratorOutput)
+}
+
+// (Required)  The login username of the Azure AD Administrator of this SQL Server.
+func (o ServerAzureadAdministratorPtrOutput) LoginUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerAzureadAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LoginUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Required) The object id of the Azure AD Administrator of this SQL Server.
+func (o ServerAzureadAdministratorPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerAzureadAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
+func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerAzureadAdministrator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerExtendedAuditingPolicy struct {
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
@@ -1100,7 +1271,7 @@ func (o ServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPt
 type ServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
 	Type string `pulumi:"type"`
@@ -1121,7 +1292,7 @@ type ServerIdentityInput interface {
 type ServerIdentityArgs struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+	// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1210,7 +1381,7 @@ func (o ServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
 func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -1248,7 +1419,7 @@ func (o ServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+// (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
 func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {
@@ -1813,6 +1984,8 @@ func init() {
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ElasticPoolSkuOutput{})
 	pulumi.RegisterOutputType(ElasticPoolSkuPtrOutput{})
+	pulumi.RegisterOutputType(ServerAzureadAdministratorOutput{})
+	pulumi.RegisterOutputType(ServerAzureadAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyOutput{})
 	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})

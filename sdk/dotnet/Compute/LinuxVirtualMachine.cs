@@ -223,10 +223,16 @@ namespace Pulumi.Azure.Compute
         public Output<string> VirtualMachineId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("virtualMachineScaleSetId")]
+        public Output<string?> VirtualMachineScaleSetId { get; private set; } = null!;
+
+        /// <summary>
         /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zone")]
-        public Output<string?> Zone { get; private set; } = null!;
+        public Output<string> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -465,6 +471,12 @@ namespace Pulumi.Azure.Compute
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualMachineScaleSetId")]
+        public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
         /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -712,6 +724,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("virtualMachineId")]
         public Input<string>? VirtualMachineId { get; set; }
+
+        /// <summary>
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualMachineScaleSetId")]
+        public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
         /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.

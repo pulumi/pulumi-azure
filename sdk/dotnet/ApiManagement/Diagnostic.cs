@@ -15,14 +15,17 @@ namespace Pulumi.Azure.ApiManagement
     public partial class Diagnostic : Pulumi.CustomResource
     {
         /// <summary>
+        /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+        /// </summary>
+        [Output("apiManagementLoggerId")]
+        public Output<string> ApiManagementLoggerId { get; private set; } = null!;
+
+        /// <summary>
         /// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiManagementName")]
         public Output<string> ApiManagementName { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether a Diagnostic should receive data or not.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -85,14 +88,17 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class DiagnosticArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+        /// </summary>
+        [Input("apiManagementLoggerId", required: true)]
+        public Input<string> ApiManagementLoggerId { get; set; } = null!;
+
+        /// <summary>
         /// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName", required: true)]
         public Input<string> ApiManagementName { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates whether a Diagnostic should receive data or not.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -116,14 +122,17 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class DiagnosticState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+        /// </summary>
+        [Input("apiManagementLoggerId")]
+        public Input<string>? ApiManagementLoggerId { get; set; }
+
+        /// <summary>
         /// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName")]
         public Input<string>? ApiManagementName { get; set; }
 
-        /// <summary>
-        /// Indicates whether a Diagnostic should receive data or not.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

@@ -17,4 +17,5 @@ export * from "./iotHubCertificate";
 export * from "./iotHubDps";
 export * from "./route";
 export * from "./sharedAccessPolicy";
+export * from "./timeSeriesInsightsStandardEnvironment";
 export * from "./zMixins";

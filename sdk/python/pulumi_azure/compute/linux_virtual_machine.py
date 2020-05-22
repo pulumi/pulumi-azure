@@ -71,6 +71,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
       * `identityIds` (`list`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
       * `principal_id` (`str`) - The ID of the System Managed Service Principal.
+      * `tenant_id` (`str`) - The ID of the Tenant the System Managed Service Principal is assigned in.
       * `type` (`str`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
     """
     location: pulumi.Output[str]
@@ -164,10 +165,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     """
     A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
-      * `offer` (`str`)
-      * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-      * `sku` (`str`)
-      * `version` (`str`)
+      * `offer` (`str`) - Specifies the offer of the image used to create the virtual machines.
+      * `publisher` (`str`) - Specifies the publisher of the image used to create the virtual machines.
+      * `sku` (`str`) - Specifies the SKU of the image used to create the virtual machines.
+      * `version` (`str`) - Specifies the version of the image used to create the virtual machines.
     """
     tags: pulumi.Output[dict]
     """
@@ -177,11 +178,15 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     """
     A 128-bit identifier which uniquely identifies this Virtual Machine.
     """
+    virtual_machine_scale_set_id: pulumi.Output[str]
+    """
+    Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+    """
     zone: pulumi.Output[str]
     """
     The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, zone=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, virtual_machine_scale_set_id=None, zone=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Linux Virtual Machine.
 
@@ -273,6 +278,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 
         The **additional_capabilities** object supports the following:
@@ -292,6 +298,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
           * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
           * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
@@ -321,10 +328,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -381,6 +388,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__['source_image_id'] = source_image_id
             __props__['source_image_reference'] = source_image_reference
             __props__['tags'] = tags
+            __props__['virtual_machine_scale_set_id'] = virtual_machine_scale_set_id
             __props__['zone'] = zone
             __props__['private_ip_address'] = None
             __props__['private_ip_addresses'] = None
@@ -394,7 +402,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, private_ip_address=None, private_ip_addresses=None, provision_vm_agent=None, proximity_placement_group_id=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, virtual_machine_id=None, zone=None):
+    def get(resource_name, id, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, private_ip_address=None, private_ip_addresses=None, provision_vm_agent=None, proximity_placement_group_id=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, virtual_machine_id=None, virtual_machine_scale_set_id=None, zone=None):
         """
         Get an existing LinuxVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -435,6 +443,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 
         The **additional_capabilities** object supports the following:
@@ -454,6 +463,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
           * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
           * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
           * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 
         The **os_disk** object supports the following:
@@ -483,10 +493,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`)
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`)
-          * `version` (`pulumi.Input[str]`)
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -525,6 +535,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__["source_image_reference"] = source_image_reference
         __props__["tags"] = tags
         __props__["virtual_machine_id"] = virtual_machine_id
+        __props__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
         __props__["zone"] = zone
         return LinuxVirtualMachine(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

@@ -33,7 +33,7 @@ class Account(pulumi.CustomResource):
       * `corsRules` (`list`) - A `cors_rule` block as defined below.
         * `allowedHeaders` (`list`) - A list of headers that are allowed to be a part of the cross-origin request.
         * `allowedMethods` (`list`) - A list of http headers that are allowed to be executed by the origin. Valid options are
-          `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+          `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         * `allowedOrigins` (`list`) - A list of origin domains that will be allowed by CORS.
         * `exposedHeaders` (`list`) - A list of response headers that are exposed to CORS clients.
         * `maxAgeInSeconds` (`float`) - The number of seconds the client should cache a preflight response.
@@ -154,7 +154,7 @@ class Account(pulumi.CustomResource):
       * `corsRules` (`list`) - A `cors_rule` block as defined above.
         * `allowedHeaders` (`list`) - A list of headers that are allowed to be a part of the cross-origin request.
         * `allowedMethods` (`list`) - A list of http headers that are allowed to be executed by the origin. Valid options are
-          `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+          `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         * `allowedOrigins` (`list`) - A list of origin domains that will be allowed by CORS.
         * `exposedHeaders` (`list`) - A list of response headers that are exposed to CORS clients.
         * `maxAgeInSeconds` (`float`) - The number of seconds the client should cache a preflight response.
@@ -339,7 +339,7 @@ class Account(pulumi.CustomResource):
           * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined below.
             * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
             * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
-              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
             * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
             * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.
@@ -371,7 +371,7 @@ class Account(pulumi.CustomResource):
           * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined above.
             * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
             * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
-              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
             * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
             * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.
@@ -541,7 +541,7 @@ class Account(pulumi.CustomResource):
           * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined below.
             * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
             * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
-              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
             * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
             * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.
@@ -573,7 +573,7 @@ class Account(pulumi.CustomResource):
           * `corsRules` (`pulumi.Input[list]`) - A `cors_rule` block as defined above.
             * `allowedHeaders` (`pulumi.Input[list]`) - A list of headers that are allowed to be a part of the cross-origin request.
             * `allowedMethods` (`pulumi.Input[list]`) - A list of http headers that are allowed to be executed by the origin. Valid options are
-              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+              `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origin domains that will be allowed by CORS.
             * `exposedHeaders` (`pulumi.Input[list]`) - A list of response headers that are exposed to CORS clients.
             * `maxAgeInSeconds` (`pulumi.Input[float]`) - The number of seconds the client should cache a preflight response.

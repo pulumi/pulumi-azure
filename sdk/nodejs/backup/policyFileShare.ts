@@ -19,25 +19,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "West US",
- * });
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West US"});
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: rg.location,
  *     resourceGroupName: rg.name,
  *     sku: "Standard",
  * });
  * const policy = new azure.backup.PolicyFileShare("policy", {
+ *     resourceGroupName: rg.name,
+ *     recoveryVaultName: vault.name,
+ *     timezone: "UTC",
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: rg.name,
- *     retentionDaily: {
+ *     retention_daily: {
  *         count: 10,
  *     },
- *     timezone: "UTC",
  * });
  * ```
  */

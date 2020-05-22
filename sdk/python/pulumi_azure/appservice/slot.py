@@ -123,6 +123,7 @@ class Slot(pulumi.CustomResource):
       * `healthCheckPath` (`str`)
       * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
       * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
+        * `action` (`str`)
         * `ip_address` (`str`) - The IP Address used for this IP Restriction.
         * `name` (`str`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         * `priority` (`float`)
@@ -354,6 +355,7 @@ class Slot(pulumi.CustomResource):
           * `healthCheckPath` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`)
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
             * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
             * `priority` (`pulumi.Input[float]`)
@@ -528,6 +530,7 @@ class Slot(pulumi.CustomResource):
           * `healthCheckPath` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`)
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
             * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
             * `priority` (`pulumi.Input[float]`)

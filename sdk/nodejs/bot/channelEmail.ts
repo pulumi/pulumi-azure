@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note** A bot can only have a single Email Channel associated with it.
  *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = pulumi.output(azure.core.getClientConfig({ async: true }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "northeurope",
- * });
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
- *     location: "global",
- *     microsoftAppId: current.clientId,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- * });
- * const exampleBotChannelEmail = new azure.BotChannelEmail("example", {
- *     botName: exampleChannelsRegistration.name,
- *     clientId: "exampleId",
- *     clientSecret: "exampleSecret",
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     verificationToken: "exampleVerificationToken",
- * });
- * ```
  */
 export class ChannelEmail extends pulumi.CustomResource {
     /**

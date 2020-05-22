@@ -21,45 +21,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "West US",
- * });
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West US"});
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: rg.location,
  *     resourceGroupName: rg.name,
  *     sku: "Standard",
  * });
  * const sa = new azure.storage.Account("sa", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
  *     location: rg.location,
  *     resourceGroupName: rg.name,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("example", {
- *     storageAccountName: sa.name,
- * });
- * const protectionContainer = new azure.backup.ContainerStorageAccount("protection-container", {
- *     recoveryVaultName: vault.name,
+ * const exampleShare = new azure.storage.Share("exampleShare", {storageAccountName: sa.name});
+ * const protection-container = new azure.backup.ContainerStorageAccount("protection-container", {
  *     resourceGroupName: rg.name,
+ *     recoveryVaultName: vault.name,
  *     storageAccountId: sa.id,
  * });
- * const examplePolicyFileShare = new azure.backup.PolicyFileShare("example", {
+ * const examplePolicyFileShare = new azure.backup.PolicyFileShare("examplePolicyFileShare", {
+ *     resourceGroupName: rg.name,
+ *     recoveryVaultName: vault.name,
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: rg.name,
- *     retentionDaily: {
+ *     retention_daily: {
  *         count: 10,
  *     },
  * });
  * const share1 = new azure.backup.ProtectedFileShare("share1", {
- *     backupPolicyId: examplePolicyFileShare.id,
- *     recoveryVaultName: vault.name,
  *     resourceGroupName: rg.name,
+ *     recoveryVaultName: vault.name,
+ *     sourceStorageAccountId: protection-container.storageAccountId,
  *     sourceFileShareName: exampleShare.name,
- *     sourceStorageAccountId: protection_container.storageAccountId,
+ *     backupPolicyId: examplePolicyFileShare.id,
  * });
  * ```
  */

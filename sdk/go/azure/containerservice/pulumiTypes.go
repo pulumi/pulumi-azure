@@ -4153,9 +4153,9 @@ func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) KeyData() pulumi.StringPtr
 }
 
 type KubernetesClusterNetworkProfile struct {
-	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
-	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
@@ -4169,7 +4169,7 @@ type KubernetesClusterNetworkProfile struct {
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
-	// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr *string `pulumi:"serviceCidr"`
 }
 
@@ -4186,9 +4186,9 @@ type KubernetesClusterNetworkProfileInput interface {
 }
 
 type KubernetesClusterNetworkProfileArgs struct {
-	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
-	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
 	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `Standard`.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
@@ -4202,7 +4202,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 }
 
@@ -4284,12 +4284,12 @@ func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfile
 	}).(KubernetesClusterNetworkProfilePtrOutput)
 }
 
-// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
 }
 
-// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
@@ -4326,7 +4326,7 @@ func (o KubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
@@ -4349,7 +4349,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) Elem() KubernetesClusterNetwor
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) KubernetesClusterNetworkProfile { return *v }).(KubernetesClusterNetworkProfileOutput)
 }
 
-// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -4359,7 +4359,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -4429,7 +4429,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Network Range used by the Kubernetes service. This is required when `networkPlugin` is set to `azure`. Changing this forces a new resource to be created.
+// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {

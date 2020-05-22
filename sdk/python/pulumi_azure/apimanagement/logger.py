@@ -60,7 +60,7 @@ class Logger(pulumi.CustomResource):
         example_insights = azure.appinsights.Insights("exampleInsights",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            application_type="Other")
+            application_type="other")
         example_service = azure.apimanagement.Service("exampleService",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,

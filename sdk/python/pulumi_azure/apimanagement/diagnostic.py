@@ -10,14 +10,15 @@ from typing import Union
 from .. import utilities, tables
 
 class Diagnostic(pulumi.CustomResource):
+    api_management_logger_id: pulumi.Output[str]
+    """
+    The id of the target API Management Logger where the API Management Diagnostic should be saved.
+    """
     api_management_name: pulumi.Output[str]
     """
     The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
     """
     enabled: pulumi.Output[bool]
-    """
-    Indicates whether a Diagnostic should receive data or not.
-    """
     identifier: pulumi.Output[str]
     """
     The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -26,7 +27,7 @@ class Diagnostic(pulumi.CustomResource):
     """
     The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, enabled=None, identifier=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_management_logger_id=None, api_management_name=None, enabled=None, identifier=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Service Diagnostic.
 
@@ -38,25 +39,35 @@ class Diagnostic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
-        test_service = azure.apimanagement.Service("testService",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             publisher_name="My Company",
             publisher_email="company@mycompany.io",
             sku_name="Developer_1")
-        test_diagnostic = azure.apimanagement.Diagnostic("testDiagnostic",
+        example_logger = azure.apimanagement.Logger("exampleLogger",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            application_insights={
+                "instrumentationKey": example_insights.instrumentation_key,
+            })
+        example_diagnostic = azure.apimanagement.Diagnostic("exampleDiagnostic",
             identifier="applicationinsights",
-            resource_group_name=test_resource_group.name,
-            api_management_name=test_service.name,
-            enabled=True)
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            api_management_logger_id=example_logger.id)
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enabled: Indicates whether a Diagnostic should receive data or not.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -77,6 +88,9 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if api_management_logger_id is None:
+                raise TypeError("Missing required property 'api_management_logger_id'")
+            __props__['api_management_logger_id'] = api_management_logger_id
             if api_management_name is None:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
@@ -94,7 +108,7 @@ class Diagnostic(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_management_name=None, enabled=None, identifier=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, api_management_logger_id=None, api_management_name=None, enabled=None, identifier=None, resource_group_name=None):
         """
         Get an existing Diagnostic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -102,8 +116,8 @@ class Diagnostic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enabled: Indicates whether a Diagnostic should receive data or not.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -111,6 +125,7 @@ class Diagnostic(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["api_management_logger_id"] = api_management_logger_id
         __props__["api_management_name"] = api_management_name
         __props__["enabled"] = enabled
         __props__["identifier"] = identifier

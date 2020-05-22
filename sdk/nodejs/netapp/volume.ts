@@ -100,6 +100,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A list of IPv4 Addresses which should be used to mount the volume.
+     */
+    public /*out*/ readonly mountIpAddresses!: pulumi.Output<string[]>;
+    /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -151,6 +155,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["poolName"] = state ? state.poolName : undefined;
             inputs["protocols"] = state ? state.protocols : undefined;
@@ -195,6 +200,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["volumePath"] = args ? args.volumePath : undefined;
+            inputs["mountIpAddresses"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -223,6 +229,10 @@ export interface VolumeState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A list of IPv4 Addresses which should be used to mount the volume.
+     */
+    readonly mountIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */

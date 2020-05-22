@@ -13,6 +13,12 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class AppServiceSiteConfigIpRestrictionGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.  
+        /// </summary>
+        [Input("action")]
+        public Input<string>? Action { get; set; }
+
+        /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         [Input("ipAddress")]

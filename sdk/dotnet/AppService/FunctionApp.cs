@@ -146,6 +146,9 @@ namespace Pulumi.Azure.AppService
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
+        /// <summary>
+        /// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
+        /// </summary>
         [Output("storageConnectionString")]
         public Output<string> StorageConnectionString { get; private set; } = null!;
 
@@ -321,6 +324,9 @@ namespace Pulumi.Azure.AppService
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
+        /// <summary>
+        /// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
+        /// </summary>
         [Input("storageConnectionString")]
         public Input<string>? StorageConnectionString { get; set; }
 
@@ -499,6 +505,9 @@ namespace Pulumi.Azure.AppService
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
+        /// <summary>
+        /// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
+        /// </summary>
         [Input("storageConnectionString")]
         public Input<string>? StorageConnectionString { get; set; }
 

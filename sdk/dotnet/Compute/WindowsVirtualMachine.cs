@@ -235,6 +235,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> VirtualMachineId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("virtualMachineScaleSetId")]
+        public Output<string?> VirtualMachineScaleSetId { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `winrm_listener` blocks as defined below.
         /// </summary>
         [Output("winrmListeners")]
@@ -495,6 +501,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
+
+        /// <summary>
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualMachineScaleSetId")]
+        public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         [Input("winrmListeners")]
         private InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs>? _winrmListeners;
@@ -766,6 +778,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("virtualMachineId")]
         public Input<string>? VirtualMachineId { get; set; }
+
+        /// <summary>
+        /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("virtualMachineScaleSetId")]
+        public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         [Input("winrmListeners")]
         private InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs>? _winrmListeners;

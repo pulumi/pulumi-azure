@@ -27,10 +27,7 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const defaultQueue = new azure.storage.Queue("defaultQueue", {
- *     resourceGroupName: defaultResourceGroup.name,
- *     storageAccountName: defaultAccount.name,
- * });
+ * const defaultQueue = new azure.storage.Queue("defaultQueue", {storageAccountName: defaultAccount.name});
  * const defaultEventSubscription = new azure.eventgrid.EventSubscription("defaultEventSubscription", {
  *     scope: defaultResourceGroup.id,
  *     storage_queue_endpoint: {
@@ -70,7 +67,7 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+     * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
     /**
@@ -114,7 +111,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly subjectFilter!: pulumi.Output<outputs.eventhub.EventSubscriptionSubjectFilter | undefined>;
     /**
-     * Specifies the name of the topic to associate with the event subscription.
+     * (Optional) Specifies the name of the topic to associate with the event subscription.
      */
     public readonly topicName!: pulumi.Output<string>;
     /**
@@ -185,7 +182,7 @@ export class EventSubscription extends pulumi.CustomResource {
  */
 export interface EventSubscriptionState {
     /**
-     * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+     * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
@@ -229,7 +226,7 @@ export interface EventSubscriptionState {
      */
     readonly subjectFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionSubjectFilter>;
     /**
-     * Specifies the name of the topic to associate with the event subscription.
+     * (Optional) Specifies the name of the topic to associate with the event subscription.
      */
     readonly topicName?: pulumi.Input<string>;
     /**
@@ -243,7 +240,7 @@ export interface EventSubscriptionState {
  */
 export interface EventSubscriptionArgs {
     /**
-     * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+     * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
@@ -287,7 +284,7 @@ export interface EventSubscriptionArgs {
      */
     readonly subjectFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionSubjectFilter>;
     /**
-     * Specifies the name of the topic to associate with the event subscription.
+     * (Optional) Specifies the name of the topic to associate with the event subscription.
      */
     readonly topicName?: pulumi.Input<string>;
     /**

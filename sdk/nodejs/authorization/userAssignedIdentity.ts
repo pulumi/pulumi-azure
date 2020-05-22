@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "eastus",
- * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
- *     location: exampleResourceGroup.location,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
  *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  * });
  * ```
  */

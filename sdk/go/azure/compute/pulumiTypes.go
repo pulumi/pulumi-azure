@@ -1096,6 +1096,8 @@ type LinuxVirtualMachineIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	TenantId *string `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -1117,6 +1119,8 @@ type LinuxVirtualMachineIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1209,6 +1213,11 @@ func (o LinuxVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Tenant the System Managed Service Principal is assigned in.
+func (o LinuxVirtualMachineIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o LinuxVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -1249,6 +1258,16 @@ func (o LinuxVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the System Managed Service Principal is assigned in.
+func (o LinuxVirtualMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3782,8 +3801,9 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pul
 
 type LinuxVirtualMachineScaleSetPlan struct {
 	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name      string `pulumi:"name"`
-	Product   string `pulumi:"product"`
+	Name    string `pulumi:"name"`
+	Product string `pulumi:"product"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -3801,8 +3821,9 @@ type LinuxVirtualMachineScaleSetPlanInput interface {
 
 type LinuxVirtualMachineScaleSetPlanArgs struct {
 	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name      pulumi.StringInput `pulumi:"name"`
-	Product   pulumi.StringInput `pulumi:"product"`
+	Name    pulumi.StringInput `pulumi:"name"`
+	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -3893,6 +3914,7 @@ func (o LinuxVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -3934,6 +3956,7 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -4347,11 +4370,13 @@ func (o LinuxVirtualMachineScaleSetSecretCertificateArrayOutput) Index(i pulumi.
 }
 
 type LinuxVirtualMachineScaleSetSourceImageReference struct {
-	Offer     string `pulumi:"offer"`
+	// Specifies the offer of the image used to create the virtual machines.
+	Offer string `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher string `pulumi:"publisher"`
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// Specifies the SKU of the image used to create the virtual machines.
 	Sku string `pulumi:"sku"`
-	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// Specifies the version of the image used to create the virtual machines.
 	Version string `pulumi:"version"`
 }
 
@@ -4368,11 +4393,13 @@ type LinuxVirtualMachineScaleSetSourceImageReferenceInput interface {
 }
 
 type LinuxVirtualMachineScaleSetSourceImageReferenceArgs struct {
-	Offer     pulumi.StringInput `pulumi:"offer"`
+	// Specifies the offer of the image used to create the virtual machines.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// Specifies the SKU of the image used to create the virtual machines.
 	Sku pulumi.StringInput `pulumi:"sku"`
-	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// Specifies the version of the image used to create the virtual machines.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -4453,20 +4480,23 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) ToLinuxVirtualMac
 		return &v
 	}).(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
+
+// Specifies the offer of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+// Specifies the SKU of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// Specifies the version of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -4491,6 +4521,7 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() LinuxVi
 	}).(LinuxVirtualMachineScaleSetSourceImageReferenceOutput)
 }
 
+// Specifies the offer of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -4500,6 +4531,7 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -4509,7 +4541,7 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+// Specifies the SKU of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -4519,7 +4551,7 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// Specifies the version of the image used to create the virtual machines.
 func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -4891,11 +4923,14 @@ func (o LinuxVirtualMachineSecretCertificateArrayOutput) Index(i pulumi.IntInput
 }
 
 type LinuxVirtualMachineSourceImageReference struct {
+	// Specifies the offer of the image used to create the virtual machines.
 	Offer string `pulumi:"offer"`
-	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher string `pulumi:"publisher"`
-	Sku       string `pulumi:"sku"`
-	Version   string `pulumi:"version"`
+	// Specifies the SKU of the image used to create the virtual machines.
+	Sku string `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machines.
+	Version string `pulumi:"version"`
 }
 
 // LinuxVirtualMachineSourceImageReferenceInput is an input type that accepts LinuxVirtualMachineSourceImageReferenceArgs and LinuxVirtualMachineSourceImageReferenceOutput values.
@@ -4911,11 +4946,14 @@ type LinuxVirtualMachineSourceImageReferenceInput interface {
 }
 
 type LinuxVirtualMachineSourceImageReferenceArgs struct {
+	// Specifies the offer of the image used to create the virtual machines.
 	Offer pulumi.StringInput `pulumi:"offer"`
-	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku       pulumi.StringInput `pulumi:"sku"`
-	Version   pulumi.StringInput `pulumi:"version"`
+	// Specifies the SKU of the image used to create the virtual machines.
+	Sku pulumi.StringInput `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machines.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (LinuxVirtualMachineSourceImageReferenceArgs) ElementType() reflect.Type {
@@ -4995,19 +5033,23 @@ func (o LinuxVirtualMachineSourceImageReferenceOutput) ToLinuxVirtualMachineSour
 		return &v
 	}).(LinuxVirtualMachineSourceImageReferencePtrOutput)
 }
+
+// Specifies the offer of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+// Specifies the publisher of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// Specifies the SKU of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// Specifies the version of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -5030,6 +5072,7 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Elem() LinuxVirtualMac
 	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) LinuxVirtualMachineSourceImageReference { return *v }).(LinuxVirtualMachineSourceImageReferenceOutput)
 }
 
+// Specifies the offer of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -5039,7 +5082,7 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+// Specifies the publisher of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -5049,6 +5092,7 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the SKU of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -5058,6 +5102,7 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the image used to create the virtual machines.
 func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -12419,6 +12464,8 @@ type WindowsVirtualMachineIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	TenantId *string `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -12440,6 +12487,8 @@ type WindowsVirtualMachineIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the System Managed Service Principal.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The ID of the Tenant the System Managed Service Principal is assigned in.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -12532,6 +12581,11 @@ func (o WindowsVirtualMachineIdentityOutput) PrincipalId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Tenant the System Managed Service Principal is assigned in.
+func (o WindowsVirtualMachineIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
 // The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
 func (o WindowsVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -12572,6 +12626,16 @@ func (o WindowsVirtualMachineIdentityPtrOutput) PrincipalId() pulumi.StringPtrOu
 			return nil
 		}
 		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the System Managed Service Principal is assigned in.
+func (o WindowsVirtualMachineIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15105,8 +15169,9 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() p
 
 type WindowsVirtualMachineScaleSetPlan struct {
 	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name      string `pulumi:"name"`
-	Product   string `pulumi:"product"`
+	Name    string `pulumi:"name"`
+	Product string `pulumi:"product"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -15124,8 +15189,9 @@ type WindowsVirtualMachineScaleSetPlanInput interface {
 
 type WindowsVirtualMachineScaleSetPlanArgs struct {
 	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name      pulumi.StringInput `pulumi:"name"`
-	Product   pulumi.StringInput `pulumi:"product"`
+	Name    pulumi.StringInput `pulumi:"name"`
+	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -15216,6 +15282,7 @@ func (o WindowsVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -15257,6 +15324,7 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -15679,11 +15747,13 @@ func (o WindowsVirtualMachineScaleSetSecretCertificateArrayOutput) Index(i pulum
 }
 
 type WindowsVirtualMachineScaleSetSourceImageReference struct {
-	Offer     string `pulumi:"offer"`
+	// Specifies the offer of the image used to create the virtual machines.
+	Offer string `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher string `pulumi:"publisher"`
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// Specifies the SKU of the image used to create the virtual machines.
 	Sku string `pulumi:"sku"`
-	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// Specifies the version of the image used to create the virtual machines.
 	Version string `pulumi:"version"`
 }
 
@@ -15700,11 +15770,13 @@ type WindowsVirtualMachineScaleSetSourceImageReferenceInput interface {
 }
 
 type WindowsVirtualMachineScaleSetSourceImageReferenceArgs struct {
-	Offer     pulumi.StringInput `pulumi:"offer"`
+	// Specifies the offer of the image used to create the virtual machines.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// Specifies the SKU of the image used to create the virtual machines.
 	Sku pulumi.StringInput `pulumi:"sku"`
-	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// Specifies the version of the image used to create the virtual machines.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -15785,20 +15857,23 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) ToWindowsVirtua
 		return &v
 	}).(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput)
 }
+
+// Specifies the offer of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+// Specifies the SKU of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// Specifies the version of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -15823,6 +15898,7 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Elem() Windo
 	}).(WindowsVirtualMachineScaleSetSourceImageReferenceOutput)
 }
 
+// Specifies the offer of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -15832,6 +15908,7 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Offer() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the publisher of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -15841,7 +15918,7 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Publisher() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+// Specifies the SKU of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -15851,7 +15928,7 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// Specifies the version of the image used to create the virtual machines.
 func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -16340,11 +16417,14 @@ func (o WindowsVirtualMachineSecretCertificateArrayOutput) Index(i pulumi.IntInp
 }
 
 type WindowsVirtualMachineSourceImageReference struct {
+	// (Optional) Specifies the offer of the image used to create the virtual machines.
 	Offer string `pulumi:"offer"`
 	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
-	Sku       string `pulumi:"sku"`
-	Version   string `pulumi:"version"`
+	// (Optional) Specifies the SKU of the image used to create the virtual machines.
+	Sku string `pulumi:"sku"`
+	// (Optional) Specifies the version of the image used to create the virtual machines.
+	Version string `pulumi:"version"`
 }
 
 // WindowsVirtualMachineSourceImageReferenceInput is an input type that accepts WindowsVirtualMachineSourceImageReferenceArgs and WindowsVirtualMachineSourceImageReferenceOutput values.
@@ -16360,11 +16440,14 @@ type WindowsVirtualMachineSourceImageReferenceInput interface {
 }
 
 type WindowsVirtualMachineSourceImageReferenceArgs struct {
+	// (Optional) Specifies the offer of the image used to create the virtual machines.
 	Offer pulumi.StringInput `pulumi:"offer"`
 	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	Sku       pulumi.StringInput `pulumi:"sku"`
-	Version   pulumi.StringInput `pulumi:"version"`
+	// (Optional) Specifies the SKU of the image used to create the virtual machines.
+	Sku pulumi.StringInput `pulumi:"sku"`
+	// (Optional) Specifies the version of the image used to create the virtual machines.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (WindowsVirtualMachineSourceImageReferenceArgs) ElementType() reflect.Type {
@@ -16444,6 +16527,8 @@ func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachine
 		return &v
 	}).(WindowsVirtualMachineSourceImageReferencePtrOutput)
 }
+
+// (Optional) Specifies the offer of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
@@ -16453,10 +16538,12 @@ func (o WindowsVirtualMachineSourceImageReferenceOutput) Publisher() pulumi.Stri
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// (Optional) Specifies the SKU of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// (Optional) Specifies the version of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -16481,6 +16568,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Elem() WindowsVirtua
 	}).(WindowsVirtualMachineSourceImageReferenceOutput)
 }
 
+// (Optional) Specifies the offer of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -16500,6 +16588,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Specifies the SKU of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -16509,6 +16598,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Specifies the version of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -17713,6 +17803,132 @@ func (o GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulumi.
 	}).(GetSnapshotEncryptionSettingKeyEncryptionKeyOutput)
 }
 
+type GetVirtualMachineIdentity struct {
+	// The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal assigned to the Virtual Machine.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine.
+	Type string `pulumi:"type"`
+}
+
+// GetVirtualMachineIdentityInput is an input type that accepts GetVirtualMachineIdentityArgs and GetVirtualMachineIdentityOutput values.
+// You can construct a concrete instance of `GetVirtualMachineIdentityInput` via:
+//
+// 		 GetVirtualMachineIdentityArgs{...}
+//
+type GetVirtualMachineIdentityInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineIdentityOutput() GetVirtualMachineIdentityOutput
+	ToGetVirtualMachineIdentityOutputWithContext(context.Context) GetVirtualMachineIdentityOutput
+}
+
+type GetVirtualMachineIdentityArgs struct {
+	// The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal assigned to the Virtual Machine.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetVirtualMachineIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (i GetVirtualMachineIdentityArgs) ToGetVirtualMachineIdentityOutput() GetVirtualMachineIdentityOutput {
+	return i.ToGetVirtualMachineIdentityOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineIdentityArgs) ToGetVirtualMachineIdentityOutputWithContext(ctx context.Context) GetVirtualMachineIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineIdentityOutput)
+}
+
+// GetVirtualMachineIdentityArrayInput is an input type that accepts GetVirtualMachineIdentityArray and GetVirtualMachineIdentityArrayOutput values.
+// You can construct a concrete instance of `GetVirtualMachineIdentityArrayInput` via:
+//
+// 		 GetVirtualMachineIdentityArray{ GetVirtualMachineIdentityArgs{...} }
+//
+type GetVirtualMachineIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineIdentityArrayOutput() GetVirtualMachineIdentityArrayOutput
+	ToGetVirtualMachineIdentityArrayOutputWithContext(context.Context) GetVirtualMachineIdentityArrayOutput
+}
+
+type GetVirtualMachineIdentityArray []GetVirtualMachineIdentityInput
+
+func (GetVirtualMachineIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (i GetVirtualMachineIdentityArray) ToGetVirtualMachineIdentityArrayOutput() GetVirtualMachineIdentityArrayOutput {
+	return i.ToGetVirtualMachineIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineIdentityArray) ToGetVirtualMachineIdentityArrayOutputWithContext(ctx context.Context) GetVirtualMachineIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineIdentityArrayOutput)
+}
+
+type GetVirtualMachineIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (o GetVirtualMachineIdentityOutput) ToGetVirtualMachineIdentityOutput() GetVirtualMachineIdentityOutput {
+	return o
+}
+
+func (o GetVirtualMachineIdentityOutput) ToGetVirtualMachineIdentityOutputWithContext(ctx context.Context) GetVirtualMachineIdentityOutput {
+	return o
+}
+
+// The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+func (o GetVirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal assigned to the Virtual Machine.
+func (o GetVirtualMachineIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+func (o GetVirtualMachineIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type of the Managed Identity assigned to the Virtual Machine.
+func (o GetVirtualMachineIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetVirtualMachineIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineIdentity)(nil)).Elem()
+}
+
+func (o GetVirtualMachineIdentityArrayOutput) ToGetVirtualMachineIdentityArrayOutput() GetVirtualMachineIdentityArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineIdentityArrayOutput) ToGetVirtualMachineIdentityArrayOutputWithContext(ctx context.Context) GetVirtualMachineIdentityArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineIdentityArrayOutput) Index(i pulumi.IntInput) GetVirtualMachineIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualMachineIdentity {
+		return vs[0].([]GetVirtualMachineIdentity)[vs[1].(int)]
+	}).(GetVirtualMachineIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BastionHostIpConfigurationOutput{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationPtrOutput{})
@@ -17948,4 +18164,6 @@ func init() {
 	pulumi.RegisterOutputType(GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotEncryptionSettingKeyEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineIdentityOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineIdentityArrayOutput{})
 }

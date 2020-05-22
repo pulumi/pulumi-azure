@@ -12,7 +12,7 @@ from .. import utilities, tables
 class FunctionAppSlot(pulumi.CustomResource):
     app_service_plan_id: pulumi.Output[str]
     """
-    The ID of the App Service Plan within which to create this Function App.
+    The ID of the App Service Plan within which to create this Function App Slot.
     """
     app_settings: pulumi.Output[dict]
     """
@@ -78,7 +78,7 @@ class FunctionAppSlot(pulumi.CustomResource):
     """
     enable_builtin_logging: pulumi.Output[bool]
     """
-    Should the built-in logging of this Function App be enabled? Defaults to `true`.
+    Should the built-in logging of the Function App be enabled? Defaults to `true`.
     """
     enabled: pulumi.Output[bool]
     """
@@ -124,7 +124,7 @@ class FunctionAppSlot(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to create the Function App.
+    The name of the resource group in which to create the Function App Slot.
     """
     site_config: pulumi.Output[dict]
     """
@@ -149,13 +149,19 @@ class FunctionAppSlot(pulumi.CustomResource):
     """
     site_credentials: pulumi.Output[list]
     """
-    A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+    A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
 
       * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
       * `username` (`str`) - The username which can be used to publish to this App Service
     """
     storage_account_access_key: pulumi.Output[str]
+    """
+    The access key which will be used to access the backend storage account for the Function App.
+    """
     storage_account_name: pulumi.Output[str]
+    """
+    The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -191,32 +197,36 @@ class FunctionAppSlot(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
-            storage_connection_string=example_account.primary_connection_string)
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
         example_function_app_slot = azure.appservice.FunctionAppSlot("exampleFunctionAppSlot",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
             function_app_name=example_function_app.name,
-            storage_connection_string=example_account.primary_connection_string)
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[dict] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[float] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
-        :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. 
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App Slot.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by the Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 
@@ -355,14 +365,14 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[dict] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[float] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
-        :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
@@ -372,9 +382,11 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. 
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App Slot.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by the Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 

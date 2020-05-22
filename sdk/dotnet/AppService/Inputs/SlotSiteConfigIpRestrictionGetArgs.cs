@@ -12,6 +12,9 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class SlotSiteConfigIpRestrictionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("action")]
+        public Input<string>? Action { get; set; }
+
         /// <summary>
         /// The IP Address used for this IP Restriction.
         /// </summary>

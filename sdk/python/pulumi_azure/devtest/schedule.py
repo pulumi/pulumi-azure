@@ -61,12 +61,12 @@ class Schedule(pulumi.CustomResource):
 
         sample_resource_group = azure.core.ResourceGroup("sampleResourceGroup", location="West US")
         sample_lab = azure.devtest.Lab("sampleLab",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"])
+            location=sample_resource_group.location,
+            resource_group_name=sample_resource_group.name)
         sample_schedule = azure.devtest.Schedule("sampleSchedule",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            lab_name=azurerm_dev_test_lab["example"]["name"],
+            location=sample_resource_group.location,
+            resource_group_name=sample_resource_group.name,
+            lab_name=sample_lab.name,
             weekly_recurrence={
                 "time": "1100",
                 "weekDays": [

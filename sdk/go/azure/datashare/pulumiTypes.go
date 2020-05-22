@@ -181,6 +181,177 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ShareSnapshotSchedule struct {
+	// The name of the snapshot schedule.
+	Name string `pulumi:"name"`
+	// The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+	Recurrence string `pulumi:"recurrence"`
+	// The synchronization with the source data's start time.
+	StartTime string `pulumi:"startTime"`
+}
+
+// ShareSnapshotScheduleInput is an input type that accepts ShareSnapshotScheduleArgs and ShareSnapshotScheduleOutput values.
+// You can construct a concrete instance of `ShareSnapshotScheduleInput` via:
+//
+// 		 ShareSnapshotScheduleArgs{...}
+//
+type ShareSnapshotScheduleInput interface {
+	pulumi.Input
+
+	ToShareSnapshotScheduleOutput() ShareSnapshotScheduleOutput
+	ToShareSnapshotScheduleOutputWithContext(context.Context) ShareSnapshotScheduleOutput
+}
+
+type ShareSnapshotScheduleArgs struct {
+	// The name of the snapshot schedule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+	Recurrence pulumi.StringInput `pulumi:"recurrence"`
+	// The synchronization with the source data's start time.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (ShareSnapshotScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (i ShareSnapshotScheduleArgs) ToShareSnapshotScheduleOutput() ShareSnapshotScheduleOutput {
+	return i.ToShareSnapshotScheduleOutputWithContext(context.Background())
+}
+
+func (i ShareSnapshotScheduleArgs) ToShareSnapshotScheduleOutputWithContext(ctx context.Context) ShareSnapshotScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareSnapshotScheduleOutput)
+}
+
+func (i ShareSnapshotScheduleArgs) ToShareSnapshotSchedulePtrOutput() ShareSnapshotSchedulePtrOutput {
+	return i.ToShareSnapshotSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i ShareSnapshotScheduleArgs) ToShareSnapshotSchedulePtrOutputWithContext(ctx context.Context) ShareSnapshotSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareSnapshotScheduleOutput).ToShareSnapshotSchedulePtrOutputWithContext(ctx)
+}
+
+// ShareSnapshotSchedulePtrInput is an input type that accepts ShareSnapshotScheduleArgs, ShareSnapshotSchedulePtr and ShareSnapshotSchedulePtrOutput values.
+// You can construct a concrete instance of `ShareSnapshotSchedulePtrInput` via:
+//
+// 		 ShareSnapshotScheduleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ShareSnapshotSchedulePtrInput interface {
+	pulumi.Input
+
+	ToShareSnapshotSchedulePtrOutput() ShareSnapshotSchedulePtrOutput
+	ToShareSnapshotSchedulePtrOutputWithContext(context.Context) ShareSnapshotSchedulePtrOutput
+}
+
+type shareSnapshotSchedulePtrType ShareSnapshotScheduleArgs
+
+func ShareSnapshotSchedulePtr(v *ShareSnapshotScheduleArgs) ShareSnapshotSchedulePtrInput {
+	return (*shareSnapshotSchedulePtrType)(v)
+}
+
+func (*shareSnapshotSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (i *shareSnapshotSchedulePtrType) ToShareSnapshotSchedulePtrOutput() ShareSnapshotSchedulePtrOutput {
+	return i.ToShareSnapshotSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *shareSnapshotSchedulePtrType) ToShareSnapshotSchedulePtrOutputWithContext(ctx context.Context) ShareSnapshotSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareSnapshotSchedulePtrOutput)
+}
+
+type ShareSnapshotScheduleOutput struct{ *pulumi.OutputState }
+
+func (ShareSnapshotScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (o ShareSnapshotScheduleOutput) ToShareSnapshotScheduleOutput() ShareSnapshotScheduleOutput {
+	return o
+}
+
+func (o ShareSnapshotScheduleOutput) ToShareSnapshotScheduleOutputWithContext(ctx context.Context) ShareSnapshotScheduleOutput {
+	return o
+}
+
+func (o ShareSnapshotScheduleOutput) ToShareSnapshotSchedulePtrOutput() ShareSnapshotSchedulePtrOutput {
+	return o.ToShareSnapshotSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o ShareSnapshotScheduleOutput) ToShareSnapshotSchedulePtrOutputWithContext(ctx context.Context) ShareSnapshotSchedulePtrOutput {
+	return o.ApplyT(func(v ShareSnapshotSchedule) *ShareSnapshotSchedule {
+		return &v
+	}).(ShareSnapshotSchedulePtrOutput)
+}
+
+// The name of the snapshot schedule.
+func (o ShareSnapshotScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSnapshotSchedule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+func (o ShareSnapshotScheduleOutput) Recurrence() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSnapshotSchedule) string { return v.Recurrence }).(pulumi.StringOutput)
+}
+
+// The synchronization with the source data's start time.
+func (o ShareSnapshotScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareSnapshotSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type ShareSnapshotSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (ShareSnapshotSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (o ShareSnapshotSchedulePtrOutput) ToShareSnapshotSchedulePtrOutput() ShareSnapshotSchedulePtrOutput {
+	return o
+}
+
+func (o ShareSnapshotSchedulePtrOutput) ToShareSnapshotSchedulePtrOutputWithContext(ctx context.Context) ShareSnapshotSchedulePtrOutput {
+	return o
+}
+
+func (o ShareSnapshotSchedulePtrOutput) Elem() ShareSnapshotScheduleOutput {
+	return o.ApplyT(func(v *ShareSnapshotSchedule) ShareSnapshotSchedule { return *v }).(ShareSnapshotScheduleOutput)
+}
+
+// The name of the snapshot schedule.
+func (o ShareSnapshotSchedulePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShareSnapshotSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+func (o ShareSnapshotSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShareSnapshotSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Recurrence
+	}).(pulumi.StringPtrOutput)
+}
+
+// The synchronization with the source data's start time.
+func (o ShareSnapshotSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShareSnapshotSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAccountIdentity struct {
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId string `pulumi:"principalId"`
@@ -298,9 +469,130 @@ func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdenti
 	}).(GetAccountIdentityOutput)
 }
 
+type GetShareSnapshotSchedule struct {
+	// The name of this Data Share.
+	Name string `pulumi:"name"`
+	// The interval of the synchronization with the source data.
+	Recurrence string `pulumi:"recurrence"`
+	// The synchronization with the source data's start time.
+	StartTime string `pulumi:"startTime"`
+}
+
+// GetShareSnapshotScheduleInput is an input type that accepts GetShareSnapshotScheduleArgs and GetShareSnapshotScheduleOutput values.
+// You can construct a concrete instance of `GetShareSnapshotScheduleInput` via:
+//
+// 		 GetShareSnapshotScheduleArgs{...}
+//
+type GetShareSnapshotScheduleInput interface {
+	pulumi.Input
+
+	ToGetShareSnapshotScheduleOutput() GetShareSnapshotScheduleOutput
+	ToGetShareSnapshotScheduleOutputWithContext(context.Context) GetShareSnapshotScheduleOutput
+}
+
+type GetShareSnapshotScheduleArgs struct {
+	// The name of this Data Share.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The interval of the synchronization with the source data.
+	Recurrence pulumi.StringInput `pulumi:"recurrence"`
+	// The synchronization with the source data's start time.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (GetShareSnapshotScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (i GetShareSnapshotScheduleArgs) ToGetShareSnapshotScheduleOutput() GetShareSnapshotScheduleOutput {
+	return i.ToGetShareSnapshotScheduleOutputWithContext(context.Background())
+}
+
+func (i GetShareSnapshotScheduleArgs) ToGetShareSnapshotScheduleOutputWithContext(ctx context.Context) GetShareSnapshotScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetShareSnapshotScheduleOutput)
+}
+
+// GetShareSnapshotScheduleArrayInput is an input type that accepts GetShareSnapshotScheduleArray and GetShareSnapshotScheduleArrayOutput values.
+// You can construct a concrete instance of `GetShareSnapshotScheduleArrayInput` via:
+//
+// 		 GetShareSnapshotScheduleArray{ GetShareSnapshotScheduleArgs{...} }
+//
+type GetShareSnapshotScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetShareSnapshotScheduleArrayOutput() GetShareSnapshotScheduleArrayOutput
+	ToGetShareSnapshotScheduleArrayOutputWithContext(context.Context) GetShareSnapshotScheduleArrayOutput
+}
+
+type GetShareSnapshotScheduleArray []GetShareSnapshotScheduleInput
+
+func (GetShareSnapshotScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (i GetShareSnapshotScheduleArray) ToGetShareSnapshotScheduleArrayOutput() GetShareSnapshotScheduleArrayOutput {
+	return i.ToGetShareSnapshotScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetShareSnapshotScheduleArray) ToGetShareSnapshotScheduleArrayOutputWithContext(ctx context.Context) GetShareSnapshotScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetShareSnapshotScheduleArrayOutput)
+}
+
+type GetShareSnapshotScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetShareSnapshotScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (o GetShareSnapshotScheduleOutput) ToGetShareSnapshotScheduleOutput() GetShareSnapshotScheduleOutput {
+	return o
+}
+
+func (o GetShareSnapshotScheduleOutput) ToGetShareSnapshotScheduleOutputWithContext(ctx context.Context) GetShareSnapshotScheduleOutput {
+	return o
+}
+
+// The name of this Data Share.
+func (o GetShareSnapshotScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetShareSnapshotSchedule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The interval of the synchronization with the source data.
+func (o GetShareSnapshotScheduleOutput) Recurrence() pulumi.StringOutput {
+	return o.ApplyT(func(v GetShareSnapshotSchedule) string { return v.Recurrence }).(pulumi.StringOutput)
+}
+
+// The synchronization with the source data's start time.
+func (o GetShareSnapshotScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetShareSnapshotSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type GetShareSnapshotScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetShareSnapshotScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetShareSnapshotSchedule)(nil)).Elem()
+}
+
+func (o GetShareSnapshotScheduleArrayOutput) ToGetShareSnapshotScheduleArrayOutput() GetShareSnapshotScheduleArrayOutput {
+	return o
+}
+
+func (o GetShareSnapshotScheduleArrayOutput) ToGetShareSnapshotScheduleArrayOutputWithContext(ctx context.Context) GetShareSnapshotScheduleArrayOutput {
+	return o
+}
+
+func (o GetShareSnapshotScheduleArrayOutput) Index(i pulumi.IntInput) GetShareSnapshotScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetShareSnapshotSchedule {
+		return vs[0].([]GetShareSnapshotSchedule)[vs[1].(int)]
+	}).(GetShareSnapshotScheduleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ShareSnapshotScheduleOutput{})
+	pulumi.RegisterOutputType(ShareSnapshotSchedulePtrOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetShareSnapshotScheduleOutput{})
+	pulumi.RegisterOutputType(GetShareSnapshotScheduleArrayOutput{})
 }
