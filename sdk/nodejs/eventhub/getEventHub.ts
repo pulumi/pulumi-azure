@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = azure.eventhub.getEventhub({
+ * const example = azure.eventhub.getEventHub({
  *     name: "search-eventhub",
  *     resourceGroupName: "search-service",
  *     namespaceName: "search-eventhubns",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * export const eventhubId = example.then(example => example.id);
  * ```
  */
-export function getEventhub(args: GetEventhubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubResult> {
+export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,7 +33,7 @@ export function getEventhub(args: GetEventhubArgs, opts?: pulumi.InvokeOptions):
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure:eventhub/getEventhub:getEventhub", {
+    return pulumi.runtime.invoke("azure:eventhub/getEventHub:getEventHub", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
@@ -41,9 +41,9 @@ export function getEventhub(args: GetEventhubArgs, opts?: pulumi.InvokeOptions):
 }
 
 /**
- * A collection of arguments for invoking getEventhub.
+ * A collection of arguments for invoking getEventHub.
  */
-export interface GetEventhubArgs {
+export interface GetEventHubArgs {
     /**
      * The name of this EventHub.
      */
@@ -59,9 +59,9 @@ export interface GetEventhubArgs {
 }
 
 /**
- * A collection of values returned by getEventhub.
+ * A collection of values returned by getEventHub.
  */
-export interface GetEventhubResult {
+export interface GetEventHubResult {
     readonly name: string;
     readonly namespaceName: string;
     /**

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Storage.Outputs
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
         /// A list of http headers that are allowed to be executed by the origin. Valid options are
-        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        /// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>

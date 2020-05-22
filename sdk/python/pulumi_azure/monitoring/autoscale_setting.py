@@ -167,73 +167,74 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
         example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
+        # ...
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+            resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            notification={
-                "email": {
-                    "customEmails": ["admin@contoso.com"],
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                },
-            },
-            profiles=[{
+            target_resource_id=example_scale_set.id,
+            profile=[{
+                "name": "Weekends",
                 "capacity": {
                     "default": 1,
-                    "maximum": 10,
                     "minimum": 1,
+                    "maximum": 10,
                 },
-                "name": "Weekends",
+                "rule": [
+                    {
+                        "metric_trigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 90,
+                        },
+                        "scale_action": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": "2",
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metric_trigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 10,
+                        },
+                        "scale_action": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": "2",
+                            "cooldown": "PT1M",
+                        },
+                    },
+                ],
                 "recurrence": {
+                    "frequency": "Week",
+                    "timezone": "Pacific Standard Time",
                     "days": [
                         "Saturday",
                         "Sunday",
                     ],
-                    "frequency": "Week",
-                    "hours": 12,
-                    "minutes": 0,
-                    "timezone": "Pacific Standard Time",
+                    "hours": [12],
+                    "minutes": [0],
                 },
-                "rule": [
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "operator": "GreaterThan",
-                            "statistic": "Average",
-                            "threshold": 90,
-                            "timeAggregation": "Average",
-                            "timeGrain": "PT1M",
-                            "timeWindow": "PT5M",
-                        },
-                        "scaleAction": {
-                            "cooldown": "PT1M",
-                            "direction": "Increase",
-                            "type": "ChangeCount",
-                            "value": "2",
-                        },
-                    },
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "operator": "LessThan",
-                            "statistic": "Average",
-                            "threshold": 10,
-                            "timeAggregation": "Average",
-                            "timeGrain": "PT1M",
-                            "timeWindow": "PT5M",
-                        },
-                        "scaleAction": {
-                            "cooldown": "PT1M",
-                            "direction": "Decrease",
-                            "type": "ChangeCount",
-                            "value": "2",
-                        },
-                    },
-                ],
             }],
-            resource_group_name=example_resource_group.name,
-            target_resource_id=example_scale_set.id)
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
         ```
 
         ## Example Usage (for fixed dates)

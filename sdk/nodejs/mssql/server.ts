@@ -112,6 +112,9 @@ export class Server extends pulumi.CustomResource {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.
@@ -230,6 +233,9 @@ export interface ServerState {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.
@@ -281,6 +287,9 @@ export interface ServerArgs {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.

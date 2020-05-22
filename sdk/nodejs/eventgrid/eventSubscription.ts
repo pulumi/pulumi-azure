@@ -27,10 +27,7 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const defaultQueue = new azure.storage.Queue("defaultQueue", {
- *     resourceGroupName: defaultResourceGroup.name,
- *     storageAccountName: defaultAccount.name,
- * });
+ * const defaultQueue = new azure.storage.Queue("defaultQueue", {storageAccountName: defaultAccount.name});
  * const defaultEventSubscription = new azure.eventgrid.EventSubscription("defaultEventSubscription", {
  *     scope: defaultResourceGroup.id,
  *     storage_queue_endpoint: {

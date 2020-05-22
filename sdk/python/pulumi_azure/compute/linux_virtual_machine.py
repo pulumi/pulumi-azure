@@ -178,11 +178,15 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     """
     A 128-bit identifier which uniquely identifies this Virtual Machine.
     """
+    virtual_machine_scale_set_id: pulumi.Output[str]
+    """
+    Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+    """
     zone: pulumi.Output[str]
     """
     The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, zone=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, virtual_machine_scale_set_id=None, zone=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Linux Virtual Machine.
 
@@ -274,6 +278,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 
         The **additional_capabilities** object supports the following:
@@ -383,6 +388,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__['source_image_id'] = source_image_id
             __props__['source_image_reference'] = source_image_reference
             __props__['tags'] = tags
+            __props__['virtual_machine_scale_set_id'] = virtual_machine_scale_set_id
             __props__['zone'] = zone
             __props__['private_ip_address'] = None
             __props__['private_ip_addresses'] = None
@@ -396,7 +402,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, private_ip_address=None, private_ip_addresses=None, provision_vm_agent=None, proximity_placement_group_id=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, virtual_machine_id=None, zone=None):
+    def get(resource_name, id, opts=None, additional_capabilities=None, admin_password=None, admin_ssh_keys=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, disable_password_authentication=None, eviction_policy=None, identity=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, private_ip_address=None, private_ip_addresses=None, provision_vm_agent=None, proximity_placement_group_id=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, virtual_machine_id=None, virtual_machine_scale_set_id=None, zone=None):
         """
         Get an existing LinuxVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -437,6 +443,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 
         The **additional_capabilities** object supports the following:
@@ -528,6 +535,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__["source_image_reference"] = source_image_reference
         __props__["tags"] = tags
         __props__["virtual_machine_id"] = virtual_machine_id
+        __props__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
         __props__["zone"] = zone
         return LinuxVirtualMachine(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

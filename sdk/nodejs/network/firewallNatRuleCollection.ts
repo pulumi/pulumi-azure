@@ -52,10 +52,9 @@ import * as utilities from "../utilities";
  *         name: "testrule",
  *         sourceAddresses: ["10.0.0.0/16"],
  *         destinationPorts: ["53"],
- *         destinationAddresses: [
- *             "8.8.8.8",
- *             "8.8.4.4",
- *         ],
+ *         destinationAddresses: [examplePublicIp.ipAddress],
+ *         translatedPort: 53,
+ *         translatedAddress: "8.8.8.8",
  *         protocols: [
  *             "TCP",
  *             "UDP",

@@ -17,15 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const current = pulumi.output(azure.core.getClientConfig({ async: true }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "northeurope",
- * });
- * const exampleWebApp = new azure.bot.WebApp("example", {
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleWebApp = new azure.bot.WebApp("exampleWebApp", {
  *     location: "global",
- *     microsoftAppId: current.clientId,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
+ *     microsoftAppId: current.then(current => current.clientId),
  * });
  * ```
  */

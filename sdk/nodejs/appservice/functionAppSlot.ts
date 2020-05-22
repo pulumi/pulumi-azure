@@ -34,14 +34,16 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     storageConnectionString: exampleAccount.primaryConnectionString,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * const exampleFunctionAppSlot = new azure.appservice.FunctionAppSlot("exampleFunctionAppSlot", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
  *     functionAppName: exampleFunctionApp.name,
- *     storageConnectionString: exampleAccount.primaryConnectionString,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
  */
@@ -73,7 +75,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the App Service Plan within which to create this Function App.
+     * The ID of the App Service Plan within which to create this Function App Slot.
      */
     public readonly appServicePlanId!: pulumi.Output<string>;
     /**
@@ -101,7 +103,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
     /**
-     * Should the built-in logging of this Function App be enabled? Defaults to `true`.
+     * Should the built-in logging of the Function App be enabled? Defaults to `true`.
      */
     public readonly enableBuiltinLogging!: pulumi.Output<boolean | undefined>;
     /**
@@ -142,7 +144,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App Slot.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -150,10 +152,16 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly siteConfig!: pulumi.Output<outputs.appservice.FunctionAppSlotSiteConfig>;
     /**
-     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.FunctionAppSlotSiteCredential[]>;
+    /**
+     * The access key which will be used to access the backend storage account for the Function App.
+     */
     public readonly storageAccountAccessKey!: pulumi.Output<string>;
+    /**
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -260,7 +268,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
  */
 export interface FunctionAppSlotState {
     /**
-     * The ID of the App Service Plan within which to create this Function App.
+     * The ID of the App Service Plan within which to create this Function App Slot.
      */
     readonly appServicePlanId?: pulumi.Input<string>;
     /**
@@ -288,7 +296,7 @@ export interface FunctionAppSlotState {
      */
     readonly defaultHostname?: pulumi.Input<string>;
     /**
-     * Should the built-in logging of this Function App be enabled? Defaults to `true`.
+     * Should the built-in logging of the Function App be enabled? Defaults to `true`.
      */
     readonly enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
@@ -329,7 +337,7 @@ export interface FunctionAppSlotState {
      */
     readonly possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App Slot.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -337,10 +345,16 @@ export interface FunctionAppSlotState {
      */
     readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfig>;
     /**
-     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
      */
     readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotSiteCredential>[]>;
+    /**
+     * The access key which will be used to access the backend storage account for the Function App.
+     */
     readonly storageAccountAccessKey?: pulumi.Input<string>;
+    /**
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     */
     readonly storageAccountName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -357,7 +371,7 @@ export interface FunctionAppSlotState {
  */
 export interface FunctionAppSlotArgs {
     /**
-     * The ID of the App Service Plan within which to create this Function App.
+     * The ID of the App Service Plan within which to create this Function App Slot.
      */
     readonly appServicePlanId: pulumi.Input<string>;
     /**
@@ -381,7 +395,7 @@ export interface FunctionAppSlotArgs {
      */
     readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
-     * Should the built-in logging of this Function App be enabled? Defaults to `true`.
+     * Should the built-in logging of the Function App be enabled? Defaults to `true`.
      */
     readonly enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
@@ -410,14 +424,20 @@ export interface FunctionAppSlotArgs {
      */
     readonly osType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Function App.
+     * The name of the resource group in which to create the Function App Slot.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
      * A `siteConfig` object as defined below.
      */
     readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfig>;
+    /**
+     * The access key which will be used to access the backend storage account for the Function App.
+     */
     readonly storageAccountAccessKey: pulumi.Input<string>;
+    /**
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     */
     readonly storageAccountName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.

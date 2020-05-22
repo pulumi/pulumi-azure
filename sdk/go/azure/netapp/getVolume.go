@@ -35,7 +35,9 @@ type LookupVolumeResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the NetApp Volume exists.
-	Location          string   `pulumi:"location"`
+	Location string `pulumi:"location"`
+	// A list of IPv4 Addresses which should be used to mount the volume.
+	MountIpAddresses  []string `pulumi:"mountIpAddresses"`
 	Name              string   `pulumi:"name"`
 	PoolName          string   `pulumi:"poolName"`
 	Protocols         []string `pulumi:"protocols"`

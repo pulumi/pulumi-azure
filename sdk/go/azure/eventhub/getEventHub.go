@@ -8,17 +8,17 @@ import (
 )
 
 // Use this data source to access information about an existing EventHub.
-func GetEventhub(ctx *pulumi.Context, args *GetEventhubArgs, opts ...pulumi.InvokeOption) (*GetEventhubResult, error) {
-	var rv GetEventhubResult
-	err := ctx.Invoke("azure:eventhub/getEventhub:getEventhub", args, &rv, opts...)
+func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
+	var rv LookupEventHubResult
+	err := ctx.Invoke("azure:eventhub/getEventHub:getEventHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-// A collection of arguments for invoking getEventhub.
-type GetEventhubArgs struct {
+// A collection of arguments for invoking getEventHub.
+type LookupEventHubArgs struct {
 	// The name of this EventHub.
 	Name string `pulumi:"name"`
 	// The name of the EventHub Namespace where the EventHub exists.
@@ -27,8 +27,8 @@ type GetEventhubArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// A collection of values returned by getEventhub.
-type GetEventhubResult struct {
+// A collection of values returned by getEventHub.
+type LookupEventHubResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
 	Name          string `pulumi:"name"`

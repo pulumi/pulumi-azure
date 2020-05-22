@@ -1286,6 +1286,10 @@ export namespace appservice {
 
     export interface AppServiceSiteConfigIpRestriction {
         /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.  
+         */
+        action?: pulumi.Input<string>;
+        /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: pulumi.Input<string>;
@@ -2175,6 +2179,7 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigIpRestriction {
+        action?: pulumi.Input<string>;
         /**
          * The IP Address used for this IP Restriction.
          */
@@ -6061,6 +6066,21 @@ export namespace datashare {
          */
         type: pulumi.Input<string>;
     }
+
+    export interface ShareSnapshotSchedule {
+        /**
+         * The name of the snapshot schedule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+         */
+        recurrence: pulumi.Input<string>;
+        /**
+         * The synchronization with the source data's start time.
+         */
+        startTime: pulumi.Input<string>;
+    }
 }
 
 export namespace devtest {
@@ -6320,7 +6340,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionStorageQueueEndpoint {
         /**
-         * Specifies the name of the storage queue where the Event Subscriptio will receive events.
+         * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
         queueName: pulumi.Input<string>;
         /**
@@ -6516,7 +6536,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionStorageQueueEndpoint {
         /**
-         * Specifies the name of the storage queue where the Event Subscriptio will receive events.
+         * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
         queueName: pulumi.Input<string>;
         /**
@@ -10688,7 +10708,7 @@ export namespace network {
          */
         requestBodyCheck?: pulumi.Input<boolean>;
         /**
-         * The Type of the Rule Set used for this Web Application Firewall.
+         * The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
          */
         ruleSetType?: pulumi.Input<string>;
         /**
@@ -12365,7 +12385,7 @@ export namespace storage {
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of http headers that are allowed to be executed by the origin. Valid options are
-         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -12461,7 +12481,7 @@ export namespace storage {
         allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of http headers that are allowed to be executed by the origin. Valid options are
-         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -12722,15 +12742,15 @@ export namespace storage {
 
     export interface ShareAclAccessPolicy {
         /**
-         * The ISO8061 UTC time at which this Access Policy should be valid until.
+         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
         expiry: pulumi.Input<string>;
         /**
-         * The permissions which should associated with this Shared Identifier.
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
          */
         permissions: pulumi.Input<string>;
         /**
-         * The ISO8061 UTC time at which this Access Policy should be valid from.
+         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
         start: pulumi.Input<string>;
     }

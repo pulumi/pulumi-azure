@@ -231,9 +231,13 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
     /**
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     */
+    public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    public readonly zone!: pulumi.Output<string>;
 
     /**
      * Create a LinuxVirtualMachine resource with the given unique name, arguments, and options.
@@ -280,6 +284,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
             inputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as LinuxVirtualMachineArgs | undefined;
@@ -326,6 +331,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
             inputs["zone"] = args ? args.zone : undefined;
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["privateIpAddresses"] = undefined /*out*/;
@@ -481,6 +487,10 @@ export interface LinuxVirtualMachineState {
      */
     readonly virtualMachineId?: pulumi.Input<string>;
     /**
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     */
+    readonly virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
     readonly zone?: pulumi.Input<string>;
@@ -602,6 +612,10 @@ export interface LinuxVirtualMachineArgs {
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     */
+    readonly virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */

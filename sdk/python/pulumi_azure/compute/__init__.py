@@ -27,6 +27,7 @@ from .image import *
 from .linux_virtual_machine import *
 from .linux_virtual_machine_scale_set import *
 from .managed_disk import *
+from .orchestrated_virtual_machine_scale_set import *
 from .scale_set import *
 from .shared_image import *
 from .shared_image_gallery import *

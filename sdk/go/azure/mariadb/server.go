@@ -33,7 +33,8 @@ type Server struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-	Name                       pulumi.StringOutput  `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -111,8 +112,9 @@ type serverState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
@@ -153,7 +155,8 @@ type ServerState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -197,8 +200,9 @@ type serverArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
@@ -238,7 +242,8 @@ type ServerArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  *     backupRetentionDays: 7,
  *     geoRedundantBackupEnabled: true,
  *     autoGrowEnabled: true,
- *     infrastructureEncryptionEnabled: true,
  *     publicNetworkAccessEnabled: false,
  *     sslEnforcementEnabled: true,
  *     sslMinimalTlsVersionEnforced: "TLS1_2",

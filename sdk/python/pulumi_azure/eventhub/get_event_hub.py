@@ -9,9 +9,9 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-class GetEventhubResult:
+class GetEventHubResult:
     """
-    A collection of values returned by getEventhub.
+    A collection of values returned by getEventHub.
     """
     def __init__(__self__, id=None, name=None, namespace_name=None, partition_count=None, partition_ids=None, resource_group_name=None):
         if id and not isinstance(id, str):
@@ -41,12 +41,12 @@ class GetEventhubResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
-class AwaitableGetEventhubResult(GetEventhubResult):
+class AwaitableGetEventHubResult(GetEventHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetEventhubResult(
+        return GetEventHubResult(
             id=self.id,
             name=self.name,
             namespace_name=self.namespace_name,
@@ -54,7 +54,7 @@ class AwaitableGetEventhubResult(GetEventhubResult):
             partition_ids=self.partition_ids,
             resource_group_name=self.resource_group_name)
 
-def get_eventhub(name=None,namespace_name=None,resource_group_name=None,opts=None):
+def get_event_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing EventHub.
 
@@ -66,7 +66,7 @@ def get_eventhub(name=None,namespace_name=None,resource_group_name=None,opts=Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.eventhub.get_eventhub(name="search-eventhub",
+    example = azure.eventhub.get_event_hub(name="search-eventhub",
         resource_group_name="search-service",
         namespace_name="search-eventhubns")
     pulumi.export("eventhubId", example.id)
@@ -88,9 +88,9 @@ def get_eventhub(name=None,namespace_name=None,resource_group_name=None,opts=Non
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:eventhub/getEventhub:getEventhub', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('azure:eventhub/getEventHub:getEventHub', __args__, opts=opts).value
 
-    return AwaitableGetEventhubResult(
+    return AwaitableGetEventHubResult(
         id=__ret__.get('id'),
         name=__ret__.get('name'),
         namespace_name=__ret__.get('namespaceName'),

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.EventHub
 {
-    public static class GetEventhub
+    public static class GetEventHub
     {
         /// <summary>
         /// Use this data source to access information about an existing EventHub.
@@ -17,12 +17,12 @@ namespace Pulumi.Azure.EventHub
         /// {{% examples %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetEventhubResult> InvokeAsync(GetEventhubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventhubResult>("azure:eventhub/getEventhub:getEventhub", args ?? new GetEventhubArgs(), options.WithVersion());
+        public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetEventhubArgs : Pulumi.InvokeArgs
+    public sealed class GetEventHubArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this EventHub.
@@ -42,14 +42,14 @@ namespace Pulumi.Azure.EventHub
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetEventhubArgs()
+        public GetEventHubArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetEventhubResult
+    public sealed class GetEventHubResult
     {
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.EventHub
         public readonly string ResourceGroupName;
 
         [OutputConstructor]
-        private GetEventhubResult(
+        private GetEventHubResult(
             string id,
 
             string name,

@@ -27,6 +27,8 @@ type GetPlatformImageArgs struct {
 	Publisher string `pulumi:"publisher"`
 	// Specifies the SKU of the Platform Image.
 	Sku string `pulumi:"sku"`
+	// The version of the Platform Image.
+	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getPlatformImage.
@@ -37,6 +39,5 @@ type GetPlatformImageResult struct {
 	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
 	Sku       string `pulumi:"sku"`
-	// The latest version of the Platform Image.
-	Version string `pulumi:"version"`
+	Version   string `pulumi:"version"`
 }

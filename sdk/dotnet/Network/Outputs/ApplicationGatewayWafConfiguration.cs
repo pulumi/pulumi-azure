@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool? RequestBodyCheck;
         /// <summary>
-        /// The Type of the Rule Set used for this Web Application Firewall.
+        /// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
         /// </summary>
         public readonly string? RuleSetType;
         /// <summary>

@@ -18,7 +18,7 @@ class Account(pulumi.CustomResource):
     """
     connection_strings: pulumi.Output[list]
     """
-    A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+    A list of connection strings available for this CosmosDB account.
     """
     consistency_policy: pulumi.Output[dict]
     """
@@ -254,7 +254,7 @@ class Account(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] capabilities: The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-        :param pulumi.Input[list] connection_strings: A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+        :param pulumi.Input[list] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[dict] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.

@@ -62,6 +62,18 @@ namespace Pulumi.Azure.DataBricks
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the databricks workspace in Databricks control plane.
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+        /// </summary>
+        [Output("workspaceUrl")]
+        public Output<string> WorkspaceUrl { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Workspace resource with the given unique name, arguments, and options.
@@ -216,6 +228,18 @@ namespace Pulumi.Azure.DataBricks
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique identifier of the databricks workspace in Databricks control plane.
+        /// </summary>
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
+
+        /// <summary>
+        /// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+        /// </summary>
+        [Input("workspaceUrl")]
+        public Input<string>? WorkspaceUrl { get; set; }
 
         public WorkspaceState()
         {

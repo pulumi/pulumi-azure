@@ -30,6 +30,10 @@ type Workspace struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The unique identifier of the databricks workspace in Databricks control plane.
+	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+	WorkspaceUrl pulumi.StringOutput `pulumi:"workspaceUrl"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -82,6 +86,10 @@ type workspaceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique identifier of the databricks workspace in Databricks control plane.
+	WorkspaceId *string `pulumi:"workspaceId"`
+	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+	WorkspaceUrl *string `pulumi:"workspaceUrl"`
 }
 
 type WorkspaceState struct {
@@ -101,6 +109,10 @@ type WorkspaceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The unique identifier of the databricks workspace in Databricks control plane.
+	WorkspaceId pulumi.StringPtrInput
+	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+	WorkspaceUrl pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

@@ -47,6 +47,14 @@ class Workspace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
+    workspace_id: pulumi.Output[str]
+    """
+    The unique identifier of the databricks workspace in Databricks control plane.
+    """
+    workspace_url: pulumi.Output[str]
+    """
+    The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+    """
     def __init__(__self__, resource_name, opts=None, custom_parameters=None, location=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Databricks Workspace
@@ -116,6 +124,8 @@ class Workspace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['managed_resource_group_id'] = None
+            __props__['workspace_id'] = None
+            __props__['workspace_url'] = None
         super(Workspace, __self__).__init__(
             'azure:databricks/workspace:Workspace',
             resource_name,
@@ -123,7 +133,7 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, custom_parameters=None, location=None, managed_resource_group_id=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, custom_parameters=None, location=None, managed_resource_group_id=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None, workspace_id=None, workspace_url=None):
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -139,6 +149,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] workspace_id: The unique identifier of the databricks workspace in Databricks control plane.
+        :param pulumi.Input[str] workspace_url: The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
 
         The **custom_parameters** object supports the following:
 
@@ -159,6 +171,8 @@ class Workspace(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
         __props__["tags"] = tags
+        __props__["workspace_id"] = workspace_id
+        __props__["workspace_url"] = workspace_url
         return Workspace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -51,6 +51,9 @@ class Server(pulumi.CustomResource):
     Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
     """
     public_network_access_enabled: pulumi.Output[bool]
+    """
+    Whether or not public network access is allowed for this server. Defaults to `true`.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
@@ -95,17 +98,18 @@ class Server(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_server = azure.mariadb.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             administrator_login="mariadbadmin",
             administrator_login_password="H@Sh1CoR3!",
+            sku_name="B_Gen5_2",
+            storage_mb=5120,
+            version="10.2",
             auto_grow_enabled=True,
             backup_retention_days=7,
             geo_redundant_backup_enabled=False,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku_name="B_Gen5_2",
-            ssl_enforcement_enabled=True,
-            storage_mb=5120,
-            version="10.2")
+            public_network_access_enabled=False,
+            ssl_enforcement_enabled=True)
         ```
 
 
@@ -120,6 +124,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
@@ -203,6 +208,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).

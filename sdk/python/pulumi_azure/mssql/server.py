@@ -60,6 +60,9 @@ class Server(pulumi.CustomResource):
     The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
     """
     public_network_access_enabled: pulumi.Output[bool]
+    """
+    Whether or not public network access is allowed for this server. Defaults to `true`.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to create the Microsoft SQL Server.
@@ -125,6 +128,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
@@ -210,6 +214,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).

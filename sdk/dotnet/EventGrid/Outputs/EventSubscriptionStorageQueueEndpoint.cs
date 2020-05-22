@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
     public sealed class EventSubscriptionStorageQueueEndpoint
     {
         /// <summary>
-        /// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+        /// Specifies the name of the storage queue where the Event Subscription will receive events.
         /// </summary>
         public readonly string QueueName;
         /// <summary>

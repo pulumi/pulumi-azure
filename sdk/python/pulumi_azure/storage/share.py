@@ -15,9 +15,9 @@ class Share(pulumi.CustomResource):
     One or more `acl` blocks as defined below.
 
       * `access_policies` (`list`) - An `access_policy` block as defined below.
-        * `expiry` (`str`) - The ISO8061 UTC time at which this Access Policy should be valid until.
-        * `permissions` (`str`) - The permissions which should associated with this Shared Identifier.
-        * `start` (`str`) - The ISO8061 UTC time at which this Access Policy should be valid from.
+        * `expiry` (`str`) - The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        * `permissions` (`str`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+        * `start` (`str`) - The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
       * `id` (`str`) - The ID which should be used for this Shared Identifier.
     """
@@ -66,7 +66,15 @@ class Share(pulumi.CustomResource):
             account_replication_type="LRS")
         example_share = azure.storage.Share("exampleShare",
             storage_account_name=example_account.name,
-            quota=50)
+            quota=50,
+            acl=[{
+                "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                "access_policy": [{
+                    "permissions": "rwdl",
+                    "start": "2019-07-02T09:38:21.0000000Z",
+                    "expiry": "2019-07-02T10:38:21.0000000Z",
+                }],
+            }])
         ```
 
 
@@ -82,9 +90,9 @@ class Share(pulumi.CustomResource):
         The **acls** object supports the following:
 
           * `access_policies` (`pulumi.Input[list]`) - An `access_policy` block as defined below.
-            * `expiry` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid until.
-            * `permissions` (`pulumi.Input[str]`) - The permissions which should associated with this Shared Identifier.
-            * `start` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid from.
+            * `expiry` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+            * `permissions` (`pulumi.Input[str]`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+            * `start` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
           * `id` (`pulumi.Input[str]`) - The ID which should be used for this Shared Identifier.
         """
@@ -141,9 +149,9 @@ class Share(pulumi.CustomResource):
         The **acls** object supports the following:
 
           * `access_policies` (`pulumi.Input[list]`) - An `access_policy` block as defined below.
-            * `expiry` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid until.
-            * `permissions` (`pulumi.Input[str]`) - The permissions which should associated with this Shared Identifier.
-            * `start` (`pulumi.Input[str]`) - The ISO8061 UTC time at which this Access Policy should be valid from.
+            * `expiry` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+            * `permissions` (`pulumi.Input[str]`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+            * `start` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
           * `id` (`pulumi.Input[str]`) - The ID which should be used for this Shared Identifier.
         """

@@ -74,6 +74,9 @@ namespace Pulumi.Azure.MariaDB
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -225,6 +228,9 @@ namespace Pulumi.Azure.MariaDB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -349,6 +355,9 @@ namespace Pulumi.Azure.MariaDB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

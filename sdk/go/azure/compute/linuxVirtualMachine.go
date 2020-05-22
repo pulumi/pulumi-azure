@@ -90,8 +90,10 @@ type LinuxVirtualMachine struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-	Zone pulumi.StringPtrOutput `pulumi:"zone"`
+	Zone pulumi.StringOutput `pulumi:"zone"`
 }
 
 // NewLinuxVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -203,6 +205,8 @@ type linuxVirtualMachineState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone *string `pulumi:"zone"`
 }
@@ -274,6 +278,8 @@ type LinuxVirtualMachineState struct {
 	Tags pulumi.StringMapInput
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringPtrInput
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone pulumi.StringPtrInput
 }
@@ -339,6 +345,8 @@ type linuxVirtualMachineArgs struct {
 	SourceImageReference *LinuxVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone *string `pulumi:"zone"`
 }
@@ -401,6 +409,8 @@ type LinuxVirtualMachineArgs struct {
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 	Zone pulumi.StringPtrInput
 }

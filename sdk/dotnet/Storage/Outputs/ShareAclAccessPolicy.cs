@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ShareAclAccessPolicy
     {
         /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid until.
+        /// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         public readonly string Expiry;
         /// <summary>
-        /// The permissions which should associated with this Shared Identifier.
+        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
         /// </summary>
         public readonly string Permissions;
         /// <summary>
-        /// The ISO8061 UTC time at which this Access Policy should be valid from.
+        /// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         public readonly string Start;
 

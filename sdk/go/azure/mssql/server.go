@@ -34,7 +34,8 @@ type Server struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       pulumi.StringOutput  `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -101,8 +102,9 @@ type serverState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -129,7 +131,8 @@ type ServerState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringPtrInput
@@ -159,8 +162,9 @@ type serverArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -186,7 +190,8 @@ type ServerArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringInput

@@ -187,6 +187,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     A 128-bit identifier which uniquely identifies this Virtual Machine.
     """
+    virtual_machine_scale_set_id: pulumi.Output[str]
+    """
+    Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+    """
     winrm_listeners: pulumi.Output[list]
     """
     One or more `winrm_listener` blocks as defined below.
@@ -198,7 +202,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, winrm_listeners=None, zone=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, virtual_machine_scale_set_id=None, winrm_listeners=None, zone=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Windows Virtual Machine.
 
@@ -289,6 +293,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[list] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 
@@ -409,6 +414,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__['source_image_reference'] = source_image_reference
             __props__['tags'] = tags
             __props__['timezone'] = timezone
+            __props__['virtual_machine_scale_set_id'] = virtual_machine_scale_set_id
             __props__['winrm_listeners'] = winrm_listeners
             __props__['zone'] = zone
             __props__['private_ip_address'] = None
@@ -423,7 +429,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, private_ip_address=None, private_ip_addresses=None, provision_vm_agent=None, proximity_placement_group_id=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, virtual_machine_id=None, winrm_listeners=None, zone=None):
+    def get(resource_name, id, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, private_ip_address=None, private_ip_addresses=None, provision_vm_agent=None, proximity_placement_group_id=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, virtual_machine_id=None, virtual_machine_scale_set_id=None, winrm_listeners=None, zone=None):
         """
         Get an existing WindowsVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -466,6 +472,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[list] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
 
@@ -566,6 +573,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["timezone"] = timezone
         __props__["virtual_machine_id"] = virtual_machine_id
+        __props__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
         __props__["winrm_listeners"] = winrm_listeners
         __props__["zone"] = zone
         return WindowsVirtualMachine(resource_name, opts=opts, __props__=__props__)

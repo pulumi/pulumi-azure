@@ -51,16 +51,16 @@ class Account(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.netapp.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             active_directory={
+                "username": "aduser",
+                "password": "aduserpwd",
+                "smbServerName": "SMBSERVER",
                 "dnsServers": ["1.2.3.4"],
                 "domain": "westcentralus.com",
                 "organizationalUnit": "OU=FirstLevel",
-                "password": "aduserpwd",
-                "smbServerName": "SMBSERVER",
-                "username": "aduser",
-            },
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+            })
         ```
 
         :param str resource_name: The name of the resource.

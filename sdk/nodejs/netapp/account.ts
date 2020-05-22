@@ -17,20 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.netapp.Account("example", {
- *     activeDirectory: {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.netapp.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     active_directory: {
+ *         username: "aduser",
+ *         password: "aduserpwd",
+ *         smbServerName: "SMBSERVER",
  *         dnsServers: ["1.2.3.4"],
  *         domain: "westcentralus.com",
  *         organizationalUnit: "OU=FirstLevel",
- *         password: "aduserpwd",
- *         smbServerName: "SMBSERVER",
- *         username: "aduser",
  *     },
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  */

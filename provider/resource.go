@@ -629,6 +629,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine_scale_set_extension": {Tok: azureResource(azureCompute, "VirtualMachineScaleSetExtension")},
 			"azurerm_windows_virtual_machine":             {Tok: azureResource(azureCompute, "WindowsVirtualMachine")},
 			"azurerm_windows_virtual_machine_scale_set":   {Tok: azureResource(azureCompute, "WindowsVirtualMachineScaleSet")},
+			"azurerm_orchestrated_virtual_machine_scale_set": {
+				Tok: azureResource(azureCompute, "OrchestratedVirtualMachineScaleSet"),
+			},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -657,6 +660,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
+			"azurerm_data_share":         {Tok: azureResource(azureDataShare, "Share")},
 
 			// DevSpace
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
@@ -723,6 +727,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_dps_certificate":            {Tok: azureResource(azureIot, "IotHubCertificate")},
 			"azurerm_iothub_fallback_route":             {Tok: azureResource(azureIot, "FallbackRoute")},
 			"azurerm_iothub_dps_shared_access_policy":   {Tok: azureResource(azureIot, "DpsSharedAccessPolicy")},
+			"azurerm_iot_time_series_insights_standard_environment": {
+				Tok: azureResource(azureIot, "TimeSeriesInsightsStandardEnvironment"),
+			},
 
 			// KeyVault
 			"azurerm_key_vault":               {Tok: azureResource(azureKeyVault, "KeyVault")},
@@ -1367,6 +1374,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_account":             {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":              {Tok: azureDataSource(azureDatalake, "getStore")},
 			"azurerm_data_share_account":           {Tok: azureDataSource(azureDataShare, "getAccount")},
+			"azurerm_data_share":                   {Tok: azureDataSource(azureDataShare, "getShare")},
 			"azurerm_dev_test_lab":                 {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":     {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 			"azurerm_image":                        {Tok: azureDataSource(azureCompute, "getImage")},
@@ -1507,7 +1515,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub_namespace_authorization_rule": {
 				Tok: azureDataSource(azureEventHub, "getNamespaceAuthorizationRule"),
 			},
-			"azurerm_eventhub":                        {Tok: azureDataSource(azureEventHub, "getEventhub")},
+			"azurerm_eventhub":                        {Tok: azureDataSource(azureEventHub, "getEventHub")},
 			"azurerm_eventhub_authorization_rule":     {Tok: azureDataSource(azureEventHub, "getAuthorizationRule")},
 			"azurerm_eventhub_consumer_group":         {Tok: azureDataSource(azureEventHub, "getConsumeGroup")},
 			"azurerm_function_app":                    {Tok: azureDataSource(azureAppService, "getFunctionApp")},

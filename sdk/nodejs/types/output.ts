@@ -1593,6 +1593,10 @@ export namespace appservice {
 
     export interface AppServiceSiteConfigIpRestriction {
         /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.  
+         */
+        action?: string;
+        /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
@@ -2288,6 +2292,10 @@ export namespace appservice {
 
     export interface GetAppServiceSiteConfigIpRestriction {
         /**
+         * Does this restriction `Allow` or `Deny` access for this IP range?
+         */
+        action: string;
+        /**
          * The IP Address used for this IP Restriction.
          */
         ipAddress: string;
@@ -2693,6 +2701,7 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigIpRestriction {
+        action?: string;
         /**
          * The IP Address used for this IP Restriction.
          */
@@ -7254,6 +7263,36 @@ export namespace datashare {
          */
         type: string;
     }
+
+    export interface GetShareSnapshotSchedule {
+        /**
+         * The name of this Data Share.
+         */
+        name: string;
+        /**
+         * The interval of the synchronization with the source data.
+         */
+        recurrence: string;
+        /**
+         * The synchronization with the source data's start time.
+         */
+        startTime: string;
+    }
+
+    export interface ShareSnapshotSchedule {
+        /**
+         * The name of the snapshot schedule.
+         */
+        name: string;
+        /**
+         * The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+         */
+        recurrence: string;
+        /**
+         * The synchronization with the source data's start time.
+         */
+        startTime: string;
+    }
 }
 
 export namespace devtest {
@@ -7548,7 +7587,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionStorageQueueEndpoint {
         /**
-         * Specifies the name of the storage queue where the Event Subscriptio will receive events.
+         * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
         queueName: string;
         /**
@@ -7744,7 +7783,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionStorageQueueEndpoint {
         /**
-         * Specifies the name of the storage queue where the Event Subscriptio will receive events.
+         * Specifies the name of the storage queue where the Event Subscription will receive events.
          */
         queueName: string;
         /**
@@ -12324,7 +12363,7 @@ export namespace network {
          */
         requestBodyCheck?: boolean;
         /**
-         * The Type of the Rule Set used for this Web Application Firewall.
+         * The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
          */
         ruleSetType?: string;
         /**
@@ -14549,7 +14588,7 @@ export namespace storage {
         allowedHeaders: string[];
         /**
          * A list of http headers that are allowed to be executed by the origin. Valid options are
-         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: string[];
         /**
@@ -14645,7 +14684,7 @@ export namespace storage {
         allowedHeaders: string[];
         /**
          * A list of http headers that are allowed to be executed by the origin. Valid options are
-         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
          */
         allowedMethods: string[];
         /**
@@ -14976,15 +15015,15 @@ export namespace storage {
 
     export interface ShareAclAccessPolicy {
         /**
-         * The ISO8061 UTC time at which this Access Policy should be valid until.
+         * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
         expiry: string;
         /**
-         * The permissions which should associated with this Shared Identifier.
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
          */
         permissions: string;
         /**
-         * The ISO8061 UTC time at which this Access Policy should be valid from.
+         * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
         start: string;
     }

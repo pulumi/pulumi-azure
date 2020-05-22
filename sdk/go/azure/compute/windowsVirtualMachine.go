@@ -94,6 +94,8 @@ type WindowsVirtualMachine struct {
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayOutput `pulumi:"winrmListeners"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -216,6 +218,8 @@ type windowsVirtualMachineState struct {
 	Timezone *string `pulumi:"timezone"`
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -293,6 +297,8 @@ type WindowsVirtualMachineState struct {
 	Timezone pulumi.StringPtrInput
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringPtrInput
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -364,6 +370,8 @@ type windowsVirtualMachineArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners []WindowsVirtualMachineWinrmListener `pulumi:"winrmListeners"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -432,6 +440,8 @@ type WindowsVirtualMachineArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
+	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayInput
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.

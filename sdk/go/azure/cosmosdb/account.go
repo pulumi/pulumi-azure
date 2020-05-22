@@ -16,7 +16,7 @@ type Account struct {
 
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Capabilities AccountCapabilityArrayOutput `pulumi:"capabilities"`
-	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
@@ -102,7 +102,7 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
-	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings []string `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
@@ -149,7 +149,7 @@ type accountState struct {
 type AccountState struct {
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Capabilities AccountCapabilityArrayInput
-	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayInput
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput

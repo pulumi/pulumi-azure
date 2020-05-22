@@ -14,6 +14,10 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetAppServiceSiteConfigIpRestrictionResult
     {
         /// <summary>
+        /// Does this restriction `Allow` or `Deny` access for this IP range?
+        /// </summary>
+        public readonly string Action;
+        /// <summary>
         /// The IP Address used for this IP Restriction.
         /// </summary>
         public readonly string IpAddress;
@@ -29,6 +33,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
         [OutputConstructor]
         private GetAppServiceSiteConfigIpRestrictionResult(
+            string action,
+
             string ipAddress,
 
             string name,
@@ -37,6 +43,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string virtualNetworkSubnetId)
         {
+            Action = action;
             IpAddress = ipAddress;
             Name = name;
             Priority = priority;

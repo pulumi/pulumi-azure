@@ -78,9 +78,9 @@ class WebApp(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
         example_web_app = azure.bot.WebApp("exampleWebApp",
             location="global",
-            microsoft_app_id=current.client_id,
             resource_group_name=example_resource_group.name,
-            sku="F0")
+            sku="F0",
+            microsoft_app_id=current.client_id)
         ```
 
 

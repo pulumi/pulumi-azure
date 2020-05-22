@@ -17,21 +17,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleServer = new azure.mariadb.Server("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mariadb.Server("exampleServer", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     administratorLogin: "mariadbadmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     skuName: "B_Gen5_2",
+ *     storageMb: 5120,
+ *     version: "10.2",
  *     autoGrowEnabled: true,
  *     backupRetentionDays: 7,
  *     geoRedundantBackupEnabled: false,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
+ *     publicNetworkAccessEnabled: false,
  *     sslEnforcementEnabled: true,
- *     storageMb: 5120,
- *     version: "10.2",
  * });
  * ```
  */
@@ -102,6 +101,9 @@ export class Server extends pulumi.CustomResource {
      * Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
@@ -253,6 +255,9 @@ export interface ServerState {
      * Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
@@ -326,6 +331,9 @@ export interface ServerArgs {
      * Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.

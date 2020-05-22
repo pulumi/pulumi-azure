@@ -307,7 +307,7 @@ class ApplicationGateway(pulumi.CustomResource):
       * `firewallMode` (`str`) - The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
       * `maxRequestBodySizeKb` (`float`) - The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
       * `requestBodyCheck` (`bool`) - Is Request Body Inspection enabled?  Defaults to `true`.
-      * `ruleSetType` (`str`) - The Type of the Rule Set used for this Web Application Firewall.
+      * `ruleSetType` (`str`) - The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
       * `ruleSetVersion` (`str`) - The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
     """
     zones: pulumi.Output[list]
@@ -660,7 +660,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `firewallMode` (`pulumi.Input[str]`) - The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
           * `maxRequestBodySizeKb` (`pulumi.Input[float]`) - The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
           * `requestBodyCheck` (`pulumi.Input[bool]`) - Is Request Body Inspection enabled?  Defaults to `true`.
-          * `ruleSetType` (`pulumi.Input[str]`) - The Type of the Rule Set used for this Web Application Firewall.
+          * `ruleSetType` (`pulumi.Input[str]`) - The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
           * `ruleSetVersion` (`pulumi.Input[str]`) - The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
         """
         if __name__ is not None:
@@ -1001,7 +1001,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `firewallMode` (`pulumi.Input[str]`) - The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
           * `maxRequestBodySizeKb` (`pulumi.Input[float]`) - The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
           * `requestBodyCheck` (`pulumi.Input[bool]`) - Is Request Body Inspection enabled?  Defaults to `true`.
-          * `ruleSetType` (`pulumi.Input[str]`) - The Type of the Rule Set used for this Web Application Firewall.
+          * `ruleSetType` (`pulumi.Input[str]`) - The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
           * `ruleSetVersion` (`pulumi.Input[str]`) - The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
