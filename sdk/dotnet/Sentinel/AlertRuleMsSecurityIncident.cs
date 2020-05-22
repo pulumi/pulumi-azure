@@ -11,6 +11,43 @@ namespace Pulumi.Azure.Sentinel
 {
     /// <summary>
     /// Manages a Sentinel MS Security Incident Alert Rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "pergb2018",
+    ///         });
+    ///         var exampleAlertRuleMsSecurityIncident = new Azure.Sentinel.AlertRuleMsSecurityIncident("exampleAlertRuleMsSecurityIncident", new Azure.Sentinel.AlertRuleMsSecurityIncidentArgs
+    ///         {
+    ///             LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///             ProductFilter = "Microsoft Cloud App Security",
+    ///             DisplayName = "example rule",
+    ///             SeverityFilters = 
+    ///             {
+    ///                 "High",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AlertRuleMsSecurityIncident : Pulumi.CustomResource
     {

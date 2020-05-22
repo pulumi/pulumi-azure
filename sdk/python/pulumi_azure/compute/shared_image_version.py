@@ -76,7 +76,7 @@ class SharedImageVersion(pulumi.CustomResource):
             target_region=[{
                 "name": existing_shared_image.location,
                 "regionalReplicaCount": "5",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             }])
         ```
 

@@ -15,6 +15,33 @@ namespace Pulumi.Azure.ApiManagement
         /// Use this data source to access information about an existing API Management API.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
+        ///         {
+        ///             Name = "search-api",
+        ///             ApiManagementName = "search-api-management",
+        ///             ResourceGroupName = "search-service",
+        ///             Revision = "2",
+        ///         }));
+        ///         this.ApiManagementApiId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("apiManagementApiId")]
+        ///     public Output&lt;string&gt; ApiManagementApiId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)

@@ -38,10 +38,10 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         {
             inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
-            inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
+            inputs["clientCertificatePassword"] = pulumi.secret((args ? args.clientCertificatePassword : undefined) || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") || ""));
             inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") || "");
             inputs["clientId"] = (args ? args.clientId : undefined) || (utilities.getEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID") || "");
-            inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") || "");
+            inputs["clientSecret"] = pulumi.secret((args ? args.clientSecret : undefined) || (utilities.getEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") || ""));
             inputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
             inputs["disableTerraformPartnerId"] = pulumi.output((args ? args.disableTerraformPartnerId : undefined) || (utilities.getEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") || true)).apply(JSON.stringify);
             inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");

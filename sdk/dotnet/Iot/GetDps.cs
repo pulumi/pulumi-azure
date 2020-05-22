@@ -15,6 +15,28 @@ namespace Pulumi.Azure.Iot
         /// Use this data source to access information about an existing IotHub Device Provisioning Service.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Iot.GetDps.InvokeAsync(new Azure.Iot.GetDpsArgs
+        ///         {
+        ///             Name = "iot_hub_dps_test",
+        ///             ResourceGroupName = "iothub_dps_rg",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDpsResult> InvokeAsync(GetDpsArgs args, InvokeOptions? options = null)

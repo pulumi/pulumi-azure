@@ -11,6 +11,35 @@ namespace Pulumi.Azure.Bot
 {
     /// <summary>
     /// Manages a Bot Channels Registration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
+    ///         {
+    ///             Location = "global",
+    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "F0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ChannelsRegistration : Pulumi.CustomResource
     {

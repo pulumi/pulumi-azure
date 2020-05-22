@@ -11,6 +11,42 @@ namespace Pulumi.Azure.Management
 {
     /// <summary>
     /// Manages a Management Group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
+    ///         var exampleParent = new Azure.Management.Group("exampleParent", new Azure.Management.GroupArgs
+    ///         {
+    ///             DisplayName = "ParentGroup",
+    ///             SubscriptionIds = 
+    ///             {
+    ///                 current.Apply(current =&gt; current.SubscriptionId),
+    ///             },
+    ///         });
+    ///         var exampleChild = new Azure.Management.Group("exampleChild", new Azure.Management.GroupArgs
+    ///         {
+    ///             DisplayName = "ChildGroup",
+    ///             ParentManagementGroupId = exampleParent.Id,
+    ///             SubscriptionIds = 
+    ///             {
+    ///                 current.Apply(current =&gt; current.SubscriptionId),
+    ///             },
+    ///         });
+    ///         // other subscription IDs can go here
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

@@ -13,6 +13,56 @@ namespace Pulumi.Azure.Network
     /// Manages a virtual network peering which allows resources to access other
     /// resources in the linked virtual network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var example-1VirtualNetwork = new Azure.Network.VirtualNetwork("example-1VirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             ResourceGroupName = example.Name,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
+    ///             Location = "West US",
+    ///         });
+    ///         var example-2VirtualNetwork = new Azure.Network.VirtualNetwork("example-2VirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             ResourceGroupName = example.Name,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///             Location = "West US",
+    ///         });
+    ///         var example-1VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-1VirtualNetworkPeering", new Azure.Network.VirtualNetworkPeeringArgs
+    ///         {
+    ///             ResourceGroupName = example.Name,
+    ///             VirtualNetworkName = example-1VirtualNetwork.Name,
+    ///             RemoteVirtualNetworkId = example-2VirtualNetwork.Id,
+    ///         });
+    ///         var example-2VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-2VirtualNetworkPeering", new Azure.Network.VirtualNetworkPeeringArgs
+    ///         {
+    ///             ResourceGroupName = example.Name,
+    ///             VirtualNetworkName = example-2VirtualNetwork.Name,
+    ///             RemoteVirtualNetworkId = example-1VirtualNetwork.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Note
     /// 

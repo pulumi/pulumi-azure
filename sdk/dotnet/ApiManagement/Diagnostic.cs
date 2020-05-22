@@ -11,6 +11,42 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management Service Diagnostic.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var testService = new Azure.ApiManagement.Service("testService", new Azure.ApiManagement.ServiceArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             PublisherName = "My Company",
+    ///             PublisherEmail = "company@mycompany.io",
+    ///             SkuName = "Developer_1",
+    ///         });
+    ///         var testDiagnostic = new Azure.ApiManagement.Diagnostic("testDiagnostic", new Azure.ApiManagement.DiagnosticArgs
+    ///         {
+    ///             Identifier = "applicationinsights",
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             ApiManagementName = testService.Name,
+    ///             Enabled = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Diagnostic : Pulumi.CustomResource
     {

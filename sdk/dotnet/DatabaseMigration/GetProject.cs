@@ -15,6 +15,32 @@ namespace Pulumi.Azure.DatabaseMigration
         /// Use this data source to access information about an existing Database Migration Project.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DatabaseMigration.GetProject.InvokeAsync(new Azure.DatabaseMigration.GetProjectArgs
+        ///         {
+        ///             Name = "example-dbms-project",
+        ///             ResourceGroupName = "example-rg",
+        ///             ServiceName = "example-dbms",
+        ///         }));
+        ///         this.Name = example.Apply(example =&gt; example.Name);
+        ///     }
+        /// 
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)

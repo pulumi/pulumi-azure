@@ -11,6 +11,50 @@ namespace Pulumi.Azure.Backup
 {
     /// <summary>
     /// Manages Azure Backup for an Azure VM
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new Azure.RecoveryServices.VaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard",
+    ///         });
+    ///         var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new Azure.Backup.PolicyVMArgs
+    ///         {
+    ///             Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
+    ///             {
+    ///                 Frequency = "Daily",
+    ///                 Time = "23:00",
+    ///             },
+    ///             RecoveryVaultName = exampleVault.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var vm1 = new Azure.Backup.ProtectedVM("vm1", new Azure.Backup.ProtectedVMArgs
+    ///         {
+    ///             BackupPolicyId = examplePolicyVM.Id,
+    ///             RecoveryVaultName = exampleVault.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SourceVmId = azurerm_virtual_machine.Example.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProtectedVM : Pulumi.CustomResource
     {

@@ -13,6 +13,40 @@ namespace Pulumi.Azure.Compute
     /// Manages an Extension for a Virtual Machine Scale Set.
     /// 
     /// &gt; **NOTE:** This resource is not intended to be used with the `azure.compute.ScaleSet` resource - instead it's intended for this to be used with the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new Azure.Compute.LinuxVirtualMachineScaleSetArgs
+    ///         {
+    ///         });
+    ///         //...
+    ///         var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", new Azure.Compute.VirtualMachineScaleSetExtensionArgs
+    ///         {
+    ///             VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
+    ///             Publisher = "Microsoft.Azure.Extensions",
+    ///             Type = "CustomScript",
+    ///             TypeHandlerVersion = "2.0",
+    ///             Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "commandToExecute", "echo $HOSTNAME" },
+    ///             }),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualMachineScaleSetExtension : Pulumi.CustomResource
     {

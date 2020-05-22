@@ -15,6 +15,31 @@ namespace Pulumi.Azure.AppPlatform
         /// Use this data source to access information about an existing Spring Cloud Service.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppPlatform.GetSpringCloudService.InvokeAsync(new Azure.AppPlatform.GetSpringCloudServiceArgs
+        ///         {
+        ///             Name = azurerm_spring_cloud_service.Example.Name,
+        ///             ResourceGroupName = azurerm_spring_cloud_service.Example.Resource_group_name,
+        ///         }));
+        ///         this.SpringCloudServiceId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("springCloudServiceId")]
+        ///     public Output&lt;string&gt; SpringCloudServiceId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSpringCloudServiceResult> InvokeAsync(GetSpringCloudServiceArgs args, InvokeOptions? options = null)

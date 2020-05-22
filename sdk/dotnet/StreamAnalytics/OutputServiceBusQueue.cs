@@ -11,6 +11,57 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Output to a ServiceBus Queue.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         {
+    ///             Name = "example-resources",
+    ///         }));
+    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///         {
+    ///             Name = "example-job",
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         }));
+    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
+    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             Sku = "Standard",
+    ///         });
+    ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             NamespaceName = exampleNamespace.Name,
+    ///             EnablePartitioning = true,
+    ///         });
+    ///         var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", new Azure.StreamAnalytics.OutputServiceBusQueueArgs
+    ///         {
+    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
+    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
+    ///             QueueName = exampleQueue.Name,
+    ///             ServicebusNamespace = exampleNamespace.Name,
+    ///             SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
+    ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
+    ///             {
+    ///                 Format = "Avro",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OutputServiceBusQueue : Pulumi.CustomResource
     {

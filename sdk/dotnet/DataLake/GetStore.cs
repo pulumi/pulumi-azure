@@ -15,6 +15,31 @@ namespace Pulumi.Azure.DataLake
         /// Use this data source to access information about an existing Data Lake Store.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DataLake.GetStore.InvokeAsync(new Azure.DataLake.GetStoreArgs
+        ///         {
+        ///             Name = "testdatalake",
+        ///             ResourceGroupName = "testdatalake",
+        ///         }));
+        ///         this.DataLakeStoreId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("dataLakeStoreId")]
+        ///     public Output&lt;string&gt; DataLakeStoreId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStoreResult> InvokeAsync(GetStoreArgs args, InvokeOptions? options = null)

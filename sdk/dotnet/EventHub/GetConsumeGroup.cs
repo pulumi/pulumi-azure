@@ -15,6 +15,30 @@ namespace Pulumi.Azure.EventHub
         /// Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Azure.EventHub.GetConsumeGroup.InvokeAsync(new Azure.EventHub.GetConsumeGroupArgs
+        ///         {
+        ///             EventhubName = azurerm_eventhub.Test.Name,
+        ///             Name = azurerm_eventhub_consumer_group.Test.Name,
+        ///             NamespaceName = azurerm_eventhub_namespace.Test.Name,
+        ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConsumeGroupResult> InvokeAsync(GetConsumeGroupArgs args, InvokeOptions? options = null)

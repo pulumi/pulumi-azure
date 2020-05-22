@@ -15,6 +15,28 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about an existing Route Table.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetRouteTable.InvokeAsync(new Azure.Network.GetRouteTableArgs
+        ///         {
+        ///             Name = "myroutetable",
+        ///             ResourceGroupName = "some-resource-group",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs args, InvokeOptions? options = null)

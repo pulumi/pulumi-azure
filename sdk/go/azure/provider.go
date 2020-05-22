@@ -24,7 +24,7 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 	if args.ClientCertificatePassword == nil {
-		args.ClientCertificatePassword = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD").(string))
+		args.ClientCertificatePassword = pulumi.ToSecret(getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD").(string)).(pulumi.StringOutput)
 	}
 	if args.ClientCertificatePath == nil {
 		args.ClientCertificatePath = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH").(string))
@@ -33,7 +33,7 @@ func NewProvider(ctx *pulumi.Context,
 		args.ClientId = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_ID", "ARM_CLIENT_ID").(string))
 	}
 	if args.ClientSecret == nil {
-		args.ClientSecret = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET").(string))
+		args.ClientSecret = pulumi.ToSecret(getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET").(string)).(pulumi.StringOutput)
 	}
 	if args.DisableTerraformPartnerId == nil {
 		args.DisableTerraformPartnerId = pulumi.BoolPtr(getEnvOrDefault(true, parseEnvBool, "ARM_DISABLE_TERRAFORM_PARTNER_ID").(bool))

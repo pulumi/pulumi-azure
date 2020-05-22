@@ -13,6 +13,44 @@ namespace Pulumi.Azure.Bot
     /// Manages a Slack integration for a Bot Channel
     /// 
     /// &gt; **Note** A bot can only have a single Slack Channel associated with it.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
+    ///         {
+    ///             Location = "global",
+    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "F0",
+    ///         });
+    ///         var exampleChannelSlack = new Azure.Bot.ChannelSlack("exampleChannelSlack", new Azure.Bot.ChannelSlackArgs
+    ///         {
+    ///             BotName = exampleChannelsRegistration.Name,
+    ///             ClientId = "exampleId",
+    ///             ClientSecret = "exampleSecret",
+    ///             Location = exampleChannelsRegistration.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VerificationToken = "exampleVerificationToken",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ChannelSlack : Pulumi.CustomResource
     {

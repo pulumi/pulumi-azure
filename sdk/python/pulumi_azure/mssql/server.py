@@ -92,10 +92,10 @@ class Server(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             extended_auditing_policy={
-                "storageEndpoint": example_account.primary_blob_endpoint,
-                "storageAccountAccessKey": example_account.primary_access_key,
+                "storage_endpoint": example_account.primary_blob_endpoint,
+                "storage_account_access_key": example_account.primary_access_key,
                 "storageAccountAccessKeyIsSecondary": True,
-                "retentionInDays": 6,
+                "retention_in_days": 6,
             },
             tags={
                 "environment": "production",

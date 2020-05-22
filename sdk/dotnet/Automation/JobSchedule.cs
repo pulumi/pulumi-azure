@@ -11,6 +11,35 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Links an Automation Runbook and Schedule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Automation.JobSchedule("example", new Azure.Automation.JobScheduleArgs
+    ///         {
+    ///             AutomationAccountName = "tf-automation-account",
+    ///             Parameters = 
+    ///             {
+    ///                 { "resourcegroup", "tf-rgr-vm" },
+    ///                 { "vmname", "TF-VM-01" },
+    ///             },
+    ///             ResourceGroupName = "tf-rgr-automation",
+    ///             RunbookName = "Get-VirtualMachine",
+    ///             ScheduleName = "hour",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class JobSchedule : Pulumi.CustomResource
     {

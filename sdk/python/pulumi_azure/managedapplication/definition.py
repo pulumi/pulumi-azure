@@ -83,8 +83,8 @@ class Definition(pulumi.CustomResource):
             display_name="TestManagedApplicationDefinition",
             description="Test Managed Application Definition",
             authorization=[{
-                "servicePrincipalId": current.object_id,
-                "roleDefinitionId": "a094b430-dad3-424d-ae58-13f72fd72591",
+                "service_principal_id": current.object_id,
+                "role_definition_id": "a094b430-dad3-424d-ae58-13f72fd72591",
             }])
         ```
 

@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Maintenance
         /// Use this data source to access information about an existing Maintenance Configuration.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var existing = Output.Create(Azure.Maintenance.GetConfiguration.InvokeAsync(new Azure.Maintenance.GetConfigurationArgs
+        ///         {
+        ///             Name = "example-mc",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.Id = azurerm_maintenance_configuration.Existing.Id;
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)

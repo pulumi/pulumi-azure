@@ -52,7 +52,7 @@ class Account(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_account = azure.netapp.Account("exampleAccount",
             active_directory={
-                "dnsServers": ["1.2.3.4"],
+                "dns_servers": ["1.2.3.4"],
                 "domain": "westcentralus.com",
                 "organizationalUnit": "OU=FirstLevel",
                 "password": "aduserpwd",

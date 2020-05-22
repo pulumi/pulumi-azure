@@ -11,6 +11,51 @@ namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages a Custom Action within a Logic App Workflow
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "East US",
+    ///         });
+    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleActionCustom = new Azure.LogicApps.ActionCustom("exampleActionCustom", new Azure.LogicApps.ActionCustomArgs
+    ///         {
+    ///             LogicAppId = exampleWorkflow.Id,
+    ///             Body = @"{
+    ///     ""description"": ""A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old)."",
+    ///     ""inputs"": {
+    ///         ""variables"": [
+    ///             {
+    ///                 ""name"": ""ExpirationAgeInDays"",
+    ///                 ""type"": ""Integer"",
+    ///                 ""value"": -30
+    ///             }
+    ///         ]
+    ///     },
+    ///     ""runAfter"": {},
+    ///     ""type"": ""InitializeVariable""
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ActionCustom : Pulumi.CustomResource
     {

@@ -152,10 +152,10 @@ namespace Pulumi.Azure
 
         public ProviderArgs()
         {
-            ClientCertificatePassword = Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") ?? "";
+            ClientCertificatePassword = Output.CreateSecret(Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") ?? "");
             ClientCertificatePath = Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") ?? "";
             ClientId = Utilities.GetEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID") ?? "";
-            ClientSecret = Utilities.GetEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") ?? "";
+            ClientSecret = Output.CreateSecret(Utilities.GetEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") ?? "");
             DisableTerraformPartnerId = Utilities.GetEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") ?? true;
             Environment = Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
             MsiEndpoint = Utilities.GetEnv("ARM_MSI_ENDPOINT") ?? "";

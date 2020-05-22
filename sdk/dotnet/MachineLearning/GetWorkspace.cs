@@ -13,6 +13,27 @@ namespace Pulumi.Azure.MachineLearning
     {
         /// <summary>
         /// Use this data source to access information about an existing Machine Learning Workspace.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var existing = Output.Create(Azure.MachineLearning.GetWorkspace.InvokeAsync(new Azure.MachineLearning.GetWorkspaceArgs
+        ///         {
+        ///             Name = "example-workspace",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.Id = azurerm_machine_learning_workspace.Existing.Id;
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:machinelearning/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithVersion());

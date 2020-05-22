@@ -71,7 +71,7 @@ class Provider(pulumi.ProviderResource):
 
             __props__['auxiliary_tenant_ids'] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(json.dumps) if auxiliary_tenant_ids is not None else None
             if client_certificate_password is None:
-                client_certificate_password = (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PASSWORD', 'ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
+                client_certificate_password = Output.secret((utilities.get_env('AZURE_CLIENT_CERTIFICATE_PASSWORD', 'ARM_CLIENT_CERTIFICATE_PASSWORD') or ''))
             __props__['client_certificate_password'] = client_certificate_password
             if client_certificate_path is None:
                 client_certificate_path = (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PATH', 'ARM_CLIENT_CERTIFICATE_PATH') or '')
@@ -80,7 +80,7 @@ class Provider(pulumi.ProviderResource):
                 client_id = (utilities.get_env('AZURE_CLIENT_ID', 'ARM_CLIENT_ID') or '')
             __props__['client_id'] = client_id
             if client_secret is None:
-                client_secret = (utilities.get_env('AZURE_CLIENT_SECRET', 'ARM_CLIENT_SECRET') or '')
+                client_secret = Output.secret((utilities.get_env('AZURE_CLIENT_SECRET', 'ARM_CLIENT_SECRET') or ''))
             __props__['client_secret'] = client_secret
             __props__['disable_correlation_request_id'] = pulumi.Output.from_input(disable_correlation_request_id).apply(json.dumps) if disable_correlation_request_id is not None else None
             if disable_terraform_partner_id is None:

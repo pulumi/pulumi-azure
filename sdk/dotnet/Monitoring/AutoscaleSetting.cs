@@ -11,6 +11,117 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
+    /// 
+    /// 
+    /// ## Example Usage (repeating on weekends)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
+    ///         {
+    ///         });
+    ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///             {
+    ///                 Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///                 {
+    ///                     CustomEmails = 
+    ///                     {
+    ///                         "admin@contoso.com",
+    ///                     },
+    ///                     SendToSubscriptionAdministrator = true,
+    ///                     SendToSubscriptionCoAdministrator = true,
+    ///                 },
+    ///             },
+    ///             Profiles = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///                 {
+    ///                     Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                     {
+    ///                         Default = 1,
+    ///                         Maximum = 10,
+    ///                         Minimum = 1,
+    ///                     },
+    ///                     Name = "Weekends",
+    ///                     Recurrence = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRecurrenceArgs
+    ///                     {
+    ///                         Days = 
+    ///                         {
+    ///                             "Saturday",
+    ///                             "Sunday",
+    ///                         },
+    ///                         Frequency = "Week",
+    ///                         Hours = 12,
+    ///                         Minutes = 0,
+    ///                         Timezone = "Pacific Standard Time",
+    ///                     },
+    ///                     Rule = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "metricTrigger", 
+    ///                             {
+    ///                                 { "metricName", "Percentage CPU" },
+    ///                                 { "metricResourceId", exampleScaleSet.Id },
+    ///                                 { "operator", "GreaterThan" },
+    ///                                 { "statistic", "Average" },
+    ///                                 { "threshold", 90 },
+    ///                                 { "timeAggregation", "Average" },
+    ///                                 { "timeGrain", "PT1M" },
+    ///                                 { "timeWindow", "PT5M" },
+    ///                             } },
+    ///                             { "scaleAction", 
+    ///                             {
+    ///                                 { "cooldown", "PT1M" },
+    ///                                 { "direction", "Increase" },
+    ///                                 { "type", "ChangeCount" },
+    ///                                 { "value", "2" },
+    ///                             } },
+    ///                         },
+    ///                         
+    ///                         {
+    ///                             { "metricTrigger", 
+    ///                             {
+    ///                                 { "metricName", "Percentage CPU" },
+    ///                                 { "metricResourceId", exampleScaleSet.Id },
+    ///                                 { "operator", "LessThan" },
+    ///                                 { "statistic", "Average" },
+    ///                                 { "threshold", 10 },
+    ///                                 { "timeAggregation", "Average" },
+    ///                                 { "timeGrain", "PT1M" },
+    ///                                 { "timeWindow", "PT5M" },
+    ///                             } },
+    ///                             { "scaleAction", 
+    ///                             {
+    ///                                 { "cooldown", "PT1M" },
+    ///                                 { "direction", "Decrease" },
+    ///                                 { "type", "ChangeCount" },
+    ///                                 { "value", "2" },
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TargetResourceId = exampleScaleSet.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {

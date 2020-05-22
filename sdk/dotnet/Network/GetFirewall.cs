@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about an existing Azure Firewall.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetFirewall.InvokeAsync(new Azure.Network.GetFirewallArgs
+        ///         {
+        ///             Name = "firewall1",
+        ///             ResourceGroupName = "firewall-RG",
+        ///         }));
+        ///         this.FirewallPrivateIp = example.Apply(example =&gt; example.IpConfigurations[0].PrivateIpAddress);
+        ///     }
+        /// 
+        ///     [Output("firewallPrivateIp")]
+        ///     public Output&lt;string&gt; FirewallPrivateIp { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)

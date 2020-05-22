@@ -11,6 +11,39 @@ namespace Pulumi.Azure.AppInsights
 {
     /// <summary>
     /// Manages an Application Insights component.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         this.InstrumentationKey = exampleInsights.InstrumentationKey;
+    ///         this.AppId = exampleInsights.AppId;
+    ///     }
+    /// 
+    ///     [Output("instrumentationKey")]
+    ///     public Output&lt;string&gt; InstrumentationKey { get; set; }
+    ///     [Output("appId")]
+    ///     public Output&lt;string&gt; AppId { get; set; }
+    /// }
+    /// ```
     /// </summary>
     public partial class Insights : Pulumi.CustomResource
     {

@@ -98,9 +98,9 @@ class Certificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             access_policy=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "certificatePermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "certificate_permissions": [
                     "create",
                     "delete",
                     "deleteissuers",
@@ -114,7 +114,7 @@ class Certificate(pulumi.CustomResource):
                     "setissuers",
                     "update",
                 ],
-                "keyPermissions": [
+                "key_permissions": [
                     "backup",
                     "create",
                     "decrypt",
@@ -132,7 +132,7 @@ class Certificate(pulumi.CustomResource):
                     "verify",
                     "wrapKey",
                 ],
-                "secretPermissions": [
+                "secret_permissions": [
                     "backup",
                     "delete",
                     "get",
@@ -154,8 +154,8 @@ class Certificate(pulumi.CustomResource):
                 },
                 "key_properties": {
                     "exportable": True,
-                    "keySize": 2048,
-                    "keyType": "RSA",
+                    "key_size": 2048,
+                    "key_type": "RSA",
                     "reuseKey": True,
                 },
                 "lifetime_action": [{
@@ -167,7 +167,7 @@ class Certificate(pulumi.CustomResource):
                     },
                 }],
                 "secret_properties": {
-                    "contentType": "application/x-pkcs12",
+                    "content_type": "application/x-pkcs12",
                 },
                 "x509_certificate_properties": {
                     "extendedKeyUsages": ["1.3.6.1.5.5.7.3.1"],

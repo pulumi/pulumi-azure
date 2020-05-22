@@ -15,6 +15,31 @@ namespace Pulumi.Azure.AppService
         /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetAppServicePlan.InvokeAsync(new Azure.AppService.GetAppServicePlanArgs
+        ///         {
+        ///             Name = "search-app-service-plan",
+        ///             ResourceGroupName = "search-service",
+        ///         }));
+        ///         this.AppServicePlanId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("appServicePlanId")]
+        ///     public Output&lt;string&gt; AppServicePlanId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)

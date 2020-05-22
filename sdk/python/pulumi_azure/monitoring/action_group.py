@@ -142,15 +142,15 @@ class ActionGroup(pulumi.CustomResource):
             automation_runbook_receiver=[{
                 "name": "action_name_1",
                 "automationAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
-                "runbookName": "my runbook",
+                "runbook_name": "my runbook",
                 "webhookResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
                 "isGlobalRunbook": True,
-                "serviceUri": "https://s13events.azure-automation.net/webhooks?token=randomtoken",
+                "service_uri": "https://s13events.azure-automation.net/webhooks?token=randomtoken",
                 "useCommonAlertSchema": True,
             }],
             azure_app_push_receiver=[{
                 "name": "pushtoadmin",
-                "emailAddress": "admin@contoso.com",
+                "email_address": "admin@contoso.com",
             }],
             azure_function_receiver=[{
                 "name": "funcaction",
@@ -162,24 +162,24 @@ class ActionGroup(pulumi.CustomResource):
             email_receiver=[
                 {
                     "name": "sendtoadmin",
-                    "emailAddress": "admin@contoso.com",
+                    "email_address": "admin@contoso.com",
                 },
                 {
                     "name": "sendtodevops",
-                    "emailAddress": "devops@contoso.com",
+                    "email_address": "devops@contoso.com",
                     "useCommonAlertSchema": True,
                 },
             ],
             itsm_receiver=[{
                 "name": "createorupdateticket",
-                "workspaceId": "6eee3a18-aac3-40e4-b98e-1f309f329816",
+                "workspace_id": "6eee3a18-aac3-40e4-b98e-1f309f329816",
                 "connectionId": "53de6956-42b4-41ba-be3c-b154cdf17b13",
                 "ticketConfiguration": "{}",
                 "region": "southcentralus",
             }],
             logic_app_receiver=[{
                 "name": "logicappaction",
-                "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
+                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
                 "callbackUrl": "https://logicapptriggerurl/...",
                 "useCommonAlertSchema": True,
             }],
@@ -195,7 +195,7 @@ class ActionGroup(pulumi.CustomResource):
             }],
             webhook_receiver=[{
                 "name": "callmyapiaswell",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
                 "useCommonAlertSchema": True,
             }])
         ```

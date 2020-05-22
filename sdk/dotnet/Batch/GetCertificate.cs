@@ -15,6 +15,32 @@ namespace Pulumi.Azure.Batch
         /// Use this data source to access information about an existing certificate in a Batch Account.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Batch.GetCertificate.InvokeAsync(new Azure.Batch.GetCertificateArgs
+        ///         {
+        ///             Name = "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
+        ///             AccountName = "examplebatchaccount",
+        ///             ResourceGroupName = "example",
+        ///         }));
+        ///         this.Thumbprint = example.Apply(example =&gt; example.Thumbprint);
+        ///     }
+        /// 
+        ///     [Output("thumbprint")]
+        ///     public Output&lt;string&gt; Thumbprint { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)

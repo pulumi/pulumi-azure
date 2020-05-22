@@ -91,7 +91,7 @@ class Endpoint(pulumi.CustomResource):
             nat_ip_configuration=[{
                 "name": example_public_ip.name,
                 "primary": True,
-                "subnetId": service.id,
+                "subnet_id": service.id,
             }],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0]["id"]])
         example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",

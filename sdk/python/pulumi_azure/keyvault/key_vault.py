@@ -108,14 +108,14 @@ class KeyVault(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard",
             access_policy=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": ["get"],
-                "secretPermissions": ["get"],
-                "storagePermissions": ["get"],
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": ["get"],
+                "secret_permissions": ["get"],
+                "storage_permissions": ["get"],
             }],
             network_acls={
-                "defaultAction": "Deny",
+                "default_action": "Deny",
                 "bypass": "AzureServices",
             },
             tags={

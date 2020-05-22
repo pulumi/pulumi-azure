@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Sql
         /// Use this data source to access information about an existing SQL Azure Database Server.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Sql.GetServer.InvokeAsync(new Azure.Sql.GetServerArgs
+        ///         {
+        ///             Name = "examplesqlservername",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.SqlServerId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("sqlServerId")]
+        ///     public Output&lt;string&gt; SqlServerId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)

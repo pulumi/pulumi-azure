@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about an existing Azure Network DDoS Protection Plan.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetNetworkDdosProtectionPlan.InvokeAsync(new Azure.Network.GetNetworkDdosProtectionPlanArgs
+        ///         {
+        ///             Name = azurerm_network_ddos_protection_plan.Example.Name,
+        ///             ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+        ///         }));
+        ///         this.DdosProtectionPlanId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("ddosProtectionPlanId")]
+        ///     public Output&lt;string&gt; DdosProtectionPlanId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkDdosProtectionPlanResult> InvokeAsync(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)

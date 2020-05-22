@@ -79,13 +79,13 @@ class DiagnosticSetting(pulumi.CustomResource):
             logs=[{
                 "category": "AuditEvent",
                 "enabled": False,
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
             }],
             metrics=[{
                 "category": "AllMetrics",
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
             }],

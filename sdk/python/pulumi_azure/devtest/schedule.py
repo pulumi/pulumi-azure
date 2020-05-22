@@ -69,7 +69,7 @@ class Schedule(pulumi.CustomResource):
             lab_name=azurerm_dev_test_lab["example"]["name"],
             weekly_recurrence={
                 "time": "1100",
-                "weekDays": [
+                "week_days": [
                     "Monday",
                     "Tuesday",
                 ],

@@ -15,6 +15,31 @@ namespace Pulumi.Azure.AppService
         /// Use this data source to access information about an existing App Service Environment
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetAppServiceEnvironment.InvokeAsync(new Azure.AppService.GetAppServiceEnvironmentArgs
+        ///         {
+        ///             Name = "example-ase",
+        ///             ResourceGroupName = "example-rg",
+        ///         }));
+        ///         this.AppServiceEnvironmentId = data.Azurerm_app_service_environment.Id;
+        ///     }
+        /// 
+        ///     [Output("appServiceEnvironmentId")]
+        ///     public Output&lt;string&gt; AppServiceEnvironmentId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)

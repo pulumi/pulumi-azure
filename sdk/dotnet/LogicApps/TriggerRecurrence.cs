@@ -11,6 +11,38 @@ namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages a Recurrence Trigger within a Logic App Workflow
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "East US",
+    ///         });
+    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleTriggerRecurrence = new Azure.LogicApps.TriggerRecurrence("exampleTriggerRecurrence", new Azure.LogicApps.TriggerRecurrenceArgs
+    ///         {
+    ///             LogicAppId = exampleWorkflow.Id,
+    ///             Frequency = "Day",
+    ///             Interval = 1,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TriggerRecurrence : Pulumi.CustomResource
     {

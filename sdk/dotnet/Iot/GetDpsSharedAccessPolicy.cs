@@ -15,6 +15,29 @@ namespace Pulumi.Azure.Iot
         /// Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Iot.GetDpsSharedAccessPolicy.InvokeAsync(new Azure.Iot.GetDpsSharedAccessPolicyArgs
+        ///         {
+        ///             Name = "example",
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///             IothubDpsName = azurerm_iothub_dps.Example.Name,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDpsSharedAccessPolicyResult> InvokeAsync(GetDpsSharedAccessPolicyArgs args, InvokeOptions? options = null)

@@ -11,6 +11,41 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS PTR Records within Azure Private DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var examplePTRRecord = new Azure.PrivateDns.PTRRecord("examplePTRRecord", new Azure.PrivateDns.PTRRecordArgs
+    ///         {
+    ///             ZoneName = exampleZone.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 "test.example.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PTRRecord : Pulumi.CustomResource
     {

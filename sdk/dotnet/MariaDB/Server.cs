@@ -11,6 +11,44 @@ namespace Pulumi.Azure.MariaDB
 {
     /// <summary>
     /// Manages a MariaDB Server.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleServer = new Azure.MariaDB.Server("exampleServer", new Azure.MariaDB.ServerArgs
+    ///         {
+    ///             AdministratorLogin = "mariadbadmin",
+    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "B_Gen5_2",
+    ///             SslEnforcement = "Enabled",
+    ///             StorageProfile = new Azure.MariaDB.Inputs.ServerStorageProfileArgs
+    ///             {
+    ///                 AutoGrow = "Disabled",
+    ///                 BackupRetentionDays = 7,
+    ///                 GeoRedundantBackup = "Disabled",
+    ///                 StorageMb = 5120,
+    ///             },
+    ///             Version = "10.2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

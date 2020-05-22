@@ -11,6 +11,89 @@ namespace Pulumi.Azure.Backup
 {
     /// <summary>
     /// Manages an Azure Backup VM Backup Policy.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new Azure.RecoveryServices.VaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard",
+    ///         });
+    ///         var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new Azure.Backup.PolicyVMArgs
+    ///         {
+    ///             Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
+    ///             {
+    ///                 Frequency = "Daily",
+    ///                 Time = "23:00",
+    ///             },
+    ///             RecoveryVaultName = exampleVault.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             RetentionDaily = new Azure.Backup.Inputs.PolicyVMRetentionDailyArgs
+    ///             {
+    ///                 Count = 10,
+    ///             },
+    ///             RetentionMonthly = new Azure.Backup.Inputs.PolicyVMRetentionMonthlyArgs
+    ///             {
+    ///                 Count = 7,
+    ///                 Weekdays = 
+    ///                 {
+    ///                     "Sunday",
+    ///                     "Wednesday",
+    ///                 },
+    ///                 Weeks = 
+    ///                 {
+    ///                     "First",
+    ///                     "Last",
+    ///                 },
+    ///             },
+    ///             RetentionWeekly = new Azure.Backup.Inputs.PolicyVMRetentionWeeklyArgs
+    ///             {
+    ///                 Count = 42,
+    ///                 Weekdays = 
+    ///                 {
+    ///                     "Sunday",
+    ///                     "Wednesday",
+    ///                     "Friday",
+    ///                     "Saturday",
+    ///                 },
+    ///             },
+    ///             RetentionYearly = new Azure.Backup.Inputs.PolicyVMRetentionYearlyArgs
+    ///             {
+    ///                 Count = 77,
+    ///                 Months = 
+    ///                 {
+    ///                     "January",
+    ///                 },
+    ///                 Weekdays = 
+    ///                 {
+    ///                     "Sunday",
+    ///                 },
+    ///                 Weeks = 
+    ///                 {
+    ///                     "Last",
+    ///                 },
+    ///             },
+    ///             Timezone = "UTC",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PolicyVM : Pulumi.CustomResource
     {

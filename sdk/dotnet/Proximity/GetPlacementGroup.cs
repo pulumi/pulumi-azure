@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Proximity
         /// Use this data source to access information about an existing Proximity Placement Group.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Proximity.GetPlacementGroup.InvokeAsync(new Azure.Proximity.GetPlacementGroupArgs
+        ///         {
+        ///             Name = "tf-appsecuritygroup",
+        ///             ResourceGroupName = "my-resource-group",
+        ///         }));
+        ///         this.ProximityPlacementGroupId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("proximityPlacementGroupId")]
+        ///     public Output&lt;string&gt; ProximityPlacementGroupId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs args, InvokeOptions? options = null)

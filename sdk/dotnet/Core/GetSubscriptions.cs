@@ -15,6 +15,30 @@ namespace Pulumi.Azure.Core
         /// Use this data source to access information about all the Subscriptions currently available.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var available = Output.Create(Azure.Core.GetSubscriptions.InvokeAsync());
+        ///         this.AvailableSubscriptions = available.Apply(available =&gt; available.Subscriptions);
+        ///         this.FirstAvailableSubscriptionDisplayName = available.Apply(available =&gt; available.Subscriptions[0].DisplayName);
+        ///     }
+        /// 
+        ///     [Output("availableSubscriptions")]
+        ///     public Output&lt;string&gt; AvailableSubscriptions { get; set; }
+        ///     [Output("firstAvailableSubscriptionDisplayName")]
+        ///     public Output&lt;string&gt; FirstAvailableSubscriptionDisplayName { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionsResult> InvokeAsync(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)

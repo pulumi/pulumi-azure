@@ -16,6 +16,94 @@ namespace Pulumi.Azure.Core
     /// This means that when deleting the `azure.core.TemplateDeployment` resource, this provider will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
     /// One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
     /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleTemplateDeployment = new Azure.Core.TemplateDeployment("exampleTemplateDeployment", new Azure.Core.TemplateDeploymentArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TemplateBody = @"{
+    ///   ""$schema"": ""https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"",
+    ///   ""contentVersion"": ""1.0.0.0"",
+    ///   ""parameters"": {
+    ///     ""storageAccountType"": {
+    ///       ""type"": ""string"",
+    ///       ""defaultValue"": ""Standard_LRS"",
+    ///       ""allowedValues"": [
+    ///         ""Standard_LRS"",
+    ///         ""Standard_GRS"",
+    ///         ""Standard_ZRS""
+    ///       ],
+    ///       ""metadata"": {
+    ///         ""description"": ""Storage Account type""
+    ///       }
+    ///     }
+    ///   },
+    ///   ""variables"": {
+    ///     ""location"": ""[resourceGroup().location]"",
+    ///     ""storageAccountName"": ""[concat(uniquestring(resourceGroup().id), 'storage')]"",
+    ///     ""publicIPAddressName"": ""[concat('myPublicIp', uniquestring(resourceGroup().id))]"",
+    ///     ""publicIPAddressType"": ""Dynamic"",
+    ///     ""apiVersion"": ""2015-06-15"",
+    ///     ""dnsLabelPrefix"": ""example-acctest""
+    ///   },
+    ///   ""resources"": [
+    ///     {
+    ///       ""type"": ""Microsoft.Storage/storageAccounts"",
+    ///       ""name"": ""[variables('storageAccountName')]"",
+    ///       ""apiVersion"": ""[variables('apiVersion')]"",
+    ///       ""location"": ""[variables('location')]"",
+    ///       ""properties"": {
+    ///         ""accountType"": ""[parameters('storageAccountType')]""
+    ///       }
+    ///     },
+    ///     {
+    ///       ""type"": ""Microsoft.Network/publicIPAddresses"",
+    ///       ""apiVersion"": ""[variables('apiVersion')]"",
+    ///       ""name"": ""[variables('publicIPAddressName')]"",
+    ///       ""location"": ""[variables('location')]"",
+    ///       ""properties"": {
+    ///         ""publicIPAllocationMethod"": ""[variables('publicIPAddressType')]"",
+    ///         ""dnsSettings"": {
+    ///           ""domainNameLabel"": ""[variables('dnsLabelPrefix')]""
+    ///         }
+    ///       }
+    ///     }
+    ///   ],
+    ///   ""outputs"": {
+    ///     ""storageAccountName"": {
+    ///       ""type"": ""string"",
+    ///       ""value"": ""[variables('storageAccountName')]""
+    ///     }
+    ///   }
+    /// }
+    /// ",
+    ///             Parameters = 
+    ///             {
+    ///                 { "storageAccountType", "Standard_GRS" },
+    ///             },
+    ///             DeploymentMode = "Incremental",
+    ///         });
+    ///         this.StorageAccountName = exampleTemplateDeployment.Outputs.Apply(outputs =&gt; outputs.StorageAccountName);
+    ///     }
+    /// 
+    ///     [Output("storageAccountName")]
+    ///     public Output&lt;string&gt; StorageAccountName { get; set; }
+    /// }
+    /// ```
     /// 
     /// ## Note
     /// 

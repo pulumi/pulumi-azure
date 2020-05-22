@@ -81,9 +81,9 @@ class Server(pulumi.CustomResource):
             ssl_enforcement="Enabled",
             storage_profile={
                 "autoGrow": "Disabled",
-                "backupRetentionDays": 7,
+                "backup_retention_days": 7,
                 "geoRedundantBackup": "Disabled",
-                "storageMb": 5120,
+                "storage_mb": 5120,
             },
             version="10.2")
         ```

@@ -11,6 +11,42 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management Product Policy
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleProduct = Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
+    ///         {
+    ///             ProductId = "my-product",
+    ///             ApiManagementName = "example-apim",
+    ///             ResourceGroupName = "search-service",
+    ///         }));
+    ///         var exampleProductPolicy = new Azure.ApiManagement.ProductPolicy("exampleProductPolicy", new Azure.ApiManagement.ProductPolicyArgs
+    ///         {
+    ///             ProductId = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ProductId),
+    ///             ApiManagementName = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ApiManagementName),
+    ///             ResourceGroupName = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ResourceGroupName),
+    ///             XmlContent = @"&lt;policies&gt;
+    ///   &lt;inbound&gt;
+    ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
+    ///   &lt;/inbound&gt;
+    /// &lt;/policies&gt;
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProductPolicy : Pulumi.CustomResource
     {

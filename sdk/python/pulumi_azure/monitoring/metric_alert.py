@@ -95,7 +95,7 @@ class MetricAlert(pulumi.CustomResource):
             short_name="exampleact",
             webhook_receiver=[{
                 "name": "callmyapi",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
             }])
         example = azure.monitoring.MetricAlert("example",
             resource_group_name=main_resource_group.name,

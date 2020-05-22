@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Monitoring
         /// Use this data source to access the properties of an AlertingAction scheduled query rule.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Monitoring.GetScheduledQueryRulesAlert.InvokeAsync(new Azure.Monitoring.GetScheduledQueryRulesAlertArgs
+        ///         {
+        ///             Name = "tfex-queryrule",
+        ///             ResourceGroupName = "example-rg",
+        ///         }));
+        ///         this.QueryRuleId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("queryRuleId")]
+        ///     public Output&lt;string&gt; QueryRuleId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduledQueryRulesAlertResult> InvokeAsync(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)

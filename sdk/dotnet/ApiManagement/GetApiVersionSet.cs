@@ -15,6 +15,32 @@ namespace Pulumi.Azure.ApiManagement
         /// Uses this data source to access information about an API Version Set within an API Management Service.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ApiManagement.GetApiVersionSet.InvokeAsync(new Azure.ApiManagement.GetApiVersionSetArgs
+        ///         {
+        ///             ResourceGroupName = "example-resources",
+        ///             ApiManagementName = "example-api",
+        ///             Name = "example-api-version-set",
+        ///         }));
+        ///         this.ApiManagementApiVersionSetId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("apiManagementApiVersionSetId")]
+        ///     public Output&lt;string&gt; ApiManagementApiVersionSetId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)

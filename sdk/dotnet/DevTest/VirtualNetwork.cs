@@ -11,6 +11,46 @@ namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Virtual Network within a DevTest Lab.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Tags = 
+    ///             {
+    ///                 { "Sydney", "Australia" },
+    ///             },
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new Azure.DevTest.VirtualNetworkArgs
+    ///         {
+    ///             LabName = exampleLab.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
+    ///             {
+    ///                 UsePublicIpAddress = "Allow",
+    ///                 UseInVirtualMachineCreation = "Allow",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualNetwork : Pulumi.CustomResource
     {

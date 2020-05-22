@@ -219,8 +219,8 @@ class KubernetesCluster(pulumi.CustomResource):
             dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_D2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_D2_v2",
             },
             identity={
                 "type": "SystemAssigned",

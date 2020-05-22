@@ -11,6 +11,39 @@ namespace Pulumi.Azure.DataLake
 {
     /// <summary>
     /// Manages a Azure Data Lake Store Firewall Rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleStore = new Azure.DataLake.Store("exampleStore", new Azure.DataLake.StoreArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///         });
+    ///         var exampleStoreFirewallRule = new Azure.DataLake.StoreFirewallRule("exampleStoreFirewallRule", new Azure.DataLake.StoreFirewallRuleArgs
+    ///         {
+    ///             AccountName = exampleStore.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             StartIpAddress = "1.2.3.4",
+    ///             EndIpAddress = "2.3.4.5",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class StoreFirewallRule : Pulumi.CustomResource
     {

@@ -13,6 +13,29 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Public IP Prefix.
+        /// 
+        /// ## Example Usage (reference an existing)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetPublicIpPrefix.InvokeAsync(new Azure.Network.GetPublicIpPrefixArgs
+        ///         {
+        ///             Name = "name_of_public_ip",
+        ///             ResourceGroupName = "name_of_resource_group",
+        ///         }));
+        ///         this.PublicIpPrefix = example.Apply(example =&gt; example.IpPrefix);
+        ///     }
+        /// 
+        ///     [Output("publicIpPrefix")]
+        ///     public Output&lt;string&gt; PublicIpPrefix { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithVersion());

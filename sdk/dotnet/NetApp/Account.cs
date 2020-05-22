@@ -13,6 +13,42 @@ namespace Pulumi.Azure.NetApp
     /// Manages a NetApp Account.
     /// 
     /// &gt; **NOTE:** Azure allows only one active directory can be joined to a single subscription at a time for NetApp Account.
+    /// 
+    /// ## NetApp Account Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.NetApp.Account("exampleAccount", new Azure.NetApp.AccountArgs
+    ///         {
+    ///             ActiveDirectory = new Azure.NetApp.Inputs.AccountActiveDirectoryArgs
+    ///             {
+    ///                 DnsServers = 
+    ///                 {
+    ///                     "1.2.3.4",
+    ///                 },
+    ///                 Domain = "westcentralus.com",
+    ///                 OrganizationalUnit = "OU=FirstLevel",
+    ///                 Password = "aduserpwd",
+    ///                 SmbServerName = "SMBSERVER",
+    ///                 Username = "aduser",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

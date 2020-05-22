@@ -11,6 +11,49 @@ namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Policy within a Dev Test Policy Set.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Tags = 
+    ///             {
+    ///                 { "Sydney", "Australia" },
+    ///             },
+    ///         });
+    ///         var examplePolicy = new Azure.DevTest.Policy("examplePolicy", new Azure.DevTest.PolicyArgs
+    ///         {
+    ///             PolicySetName = "default",
+    ///             LabName = exampleLab.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             FactData = "",
+    ///             Threshold = "999",
+    ///             EvaluatorType = "MaxValuePolicy",
+    ///             Tags = 
+    ///             {
+    ///                 { "Acceptance", "Test" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {

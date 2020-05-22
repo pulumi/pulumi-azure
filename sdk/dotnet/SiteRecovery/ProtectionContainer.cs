@@ -11,6 +11,49 @@ namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
     /// Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = new Azure.Core.ResourceGroup("primary", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var secondary = new Azure.Core.ResourceGroup("secondary", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "East US",
+    ///         });
+    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
+    ///         {
+    ///             Location = secondary.Location,
+    ///             ResourceGroupName = secondary.Name,
+    ///             Sku = "Standard",
+    ///         });
+    ///         var fabric = new Azure.SiteRecovery.Fabric("fabric", new Azure.SiteRecovery.FabricArgs
+    ///         {
+    ///             ResourceGroupName = secondary.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             Location = primary.Location,
+    ///         });
+    ///         var protection-container = new Azure.SiteRecovery.ProtectionContainer("protection-container", new Azure.SiteRecovery.ProtectionContainerArgs
+    ///         {
+    ///             ResourceGroupName = secondary.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             RecoveryFabricName = fabric.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProtectionContainer : Pulumi.CustomResource
     {

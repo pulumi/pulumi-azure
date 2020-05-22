@@ -94,7 +94,7 @@ class ElasticPool(pulumi.CustomResource):
                 "capacity": 4,
             },
             per_database_settings={
-                "minCapacity": 0.25,
+                "min_capacity": 0.25,
                 "maxCapacity": 4,
             })
         ```

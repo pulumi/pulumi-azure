@@ -15,6 +15,27 @@ namespace Pulumi.Azure.SecurityCenter
     /// &gt; **NOTE:** This resource requires the `Owner` permission on the Subscription.
     /// 
     /// &gt; **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.SecurityCenter.SubscriptionPricing("example", new Azure.SecurityCenter.SubscriptionPricingArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SubscriptionPricing : Pulumi.CustomResource
     {

@@ -13,6 +13,29 @@ namespace Pulumi.Azure.NetApp
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Account.
+        /// 
+        /// ## NetApp Account Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.NetApp.GetAccount.InvokeAsync(new Azure.NetApp.GetAccountArgs
+        ///         {
+        ///             ResourceGroupName = "acctestRG",
+        ///             Name = "acctestnetappaccount",
+        ///         }));
+        ///         this.NetappAccountId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("netappAccountId")]
+        ///     public Output&lt;string&gt; NetappAccountId { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:netapp/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithVersion());

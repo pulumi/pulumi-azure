@@ -356,7 +356,7 @@ class ApplicationGateway(pulumi.CustomResource):
             },
             gateway_ip_configuration=[{
                 "name": "my-gateway-ip-configuration",
-                "subnetId": frontend.id,
+                "subnet_id": frontend.id,
             }],
             frontend_port=[{
                 "name": frontend_port_name,
@@ -379,7 +379,7 @@ class ApplicationGateway(pulumi.CustomResource):
             }],
             http_listener=[{
                 "name": listener_name,
-                "frontendIpConfigurationName": frontend_ip_configuration_name,
+                "frontend_ip_configuration_name": frontend_ip_configuration_name,
                 "frontendPortName": frontend_port_name,
                 "protocol": "Http",
             }],

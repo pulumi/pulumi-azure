@@ -15,6 +15,31 @@ namespace Pulumi.Azure.AppService
         /// Use this data source to access information about an existing App Service.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppService.GetAppService.InvokeAsync(new Azure.AppService.GetAppServiceArgs
+        ///         {
+        ///             Name = "search-app-service",
+        ///             ResourceGroupName = "search-service",
+        ///         }));
+        ///         this.AppServiceId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("appServiceId")]
+        ///     public Output&lt;string&gt; AppServiceId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServiceResult> InvokeAsync(GetAppServiceArgs args, InvokeOptions? options = null)

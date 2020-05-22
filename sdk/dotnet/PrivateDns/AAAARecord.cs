@@ -11,6 +11,42 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS AAAA Records within Azure Private DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var testZone = new Azure.PrivateDns.Zone("testZone", new Azure.PrivateDns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///         });
+    ///         var testAAAARecord = new Azure.PrivateDns.AAAARecord("testAAAARecord", new Azure.PrivateDns.AAAARecordArgs
+    ///         {
+    ///             ZoneName = testZone.Name,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 "fd5d:70bc:930e:d008:0000:0000:0000:7334",
+    ///                 "fd5d:70bc:930e:d008::7335",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AAAARecord : Pulumi.CustomResource
     {

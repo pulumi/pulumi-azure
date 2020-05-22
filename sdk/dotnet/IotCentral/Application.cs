@@ -11,6 +11,40 @@ namespace Pulumi.Azure.IotCentral
 {
     /// <summary>
     /// Manages an IoT Central Application
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleApplication = new Azure.IotCentral.Application("exampleApplication", new Azure.IotCentral.ApplicationArgs
+    ///         {
+    ///             DisplayName = "example-iotcentral-app-display-name",
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "S1",
+    ///             SubDomain = "example-iotcentral-app-subdomain",
+    ///             Tags = 
+    ///             {
+    ///                 { "Foo", "Bar" },
+    ///             },
+    ///             Template = "iotc-default@1.0.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

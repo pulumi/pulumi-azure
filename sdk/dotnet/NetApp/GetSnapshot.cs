@@ -13,6 +13,32 @@ namespace Pulumi.Azure.NetApp
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Snapshot.
+        /// 
+        /// ## NetApp Snapshot Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Azure.NetApp.GetSnapshot.InvokeAsync(new Azure.NetApp.GetSnapshotArgs
+        ///         {
+        ///             ResourceGroupName = "acctestRG",
+        ///             Name = "acctestnetappsnapshot",
+        ///             AccountName = "acctestnetappaccount",
+        ///             PoolName = "acctestnetapppool",
+        ///             VolumeName = "acctestnetappvolume",
+        ///         }));
+        ///         this.NetappSnapshotId = data.Azurerm_netapp_snapshot.Example.Id;
+        ///     }
+        /// 
+        ///     [Output("netappSnapshotId")]
+        ///     public Output&lt;string&gt; NetappSnapshotId { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure:netapp/getSnapshot:getSnapshot", args ?? new GetSnapshotArgs(), options.WithVersion());

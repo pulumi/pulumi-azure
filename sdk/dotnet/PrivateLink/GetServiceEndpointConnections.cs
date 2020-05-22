@@ -17,6 +17,32 @@ namespace Pulumi.Azure.PrivateLink
         /// &gt; **NOTE** Private Link is currently in Public Preview.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.PrivateLink.GetServiceEndpointConnections.InvokeAsync(new Azure.PrivateLink.GetServiceEndpointConnectionsArgs
+        ///         {
+        ///             ServiceId = azurerm_private_link_service.Example.Id,
+        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         }));
+        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateEndpointConnections[0].Status);
+        ///     }
+        /// 
+        ///     [Output("privateEndpointStatus")]
+        ///     public Output&lt;string&gt; PrivateEndpointStatus { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceEndpointConnectionsResult> InvokeAsync(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)

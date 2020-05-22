@@ -298,21 +298,21 @@ class ScaleSet(pulumi.CustomResource):
             storage_profile_os_disk={
                 "name": "",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
+                "create_option": "FromImage",
                 "managedDiskType": "Standard_LRS",
             },
             storage_profile_data_disk=[{
                 "lun": 0,
                 "caching": "ReadWrite",
-                "createOption": "Empty",
-                "diskSizeGb": 10,
+                "create_option": "Empty",
+                "disk_size_gb": 10,
             }],
             os_profile={
-                "computerNamePrefix": "testvm",
-                "adminUsername": "myadmin",
+                "computer_name_prefix": "testvm",
+                "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": True,
+                "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
                     "keyData": (lambda path: open(path).read())("~/.ssh/demo_key.pub"),
@@ -324,7 +324,7 @@ class ScaleSet(pulumi.CustomResource):
                 "ip_configuration": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                     "loadBalancerBackendAddressPoolIds": [bpepool.id],
                     "loadBalancerInboundNatRulesIds": [lbnatpool.id],
                 }],
@@ -371,11 +371,11 @@ class ScaleSet(pulumi.CustomResource):
                 "capacity": 2,
             },
             os_profile={
-                "computerNamePrefix": "testvm",
-                "adminUsername": "myadmin",
+                "computer_name_prefix": "testvm",
+                "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": True,
+                "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
                     "keyData": (lambda path: open(path).read())("~/.ssh/demo_key.pub"),
@@ -387,13 +387,13 @@ class ScaleSet(pulumi.CustomResource):
                 "ip_configuration": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             storage_profile_os_disk={
                 "name": "osDiskProfile",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
+                "create_option": "FromImage",
                 "vhdContainers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
             },
             storage_profile_image_reference={

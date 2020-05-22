@@ -13,6 +13,29 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Uses this data source to access information about an existing Virtual Hub.
+        /// 
+        /// ## Virtual Hub Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetVirtualHub.InvokeAsync(new Azure.Network.GetVirtualHubArgs
+        ///         {
+        ///             Name = "example-hub",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.VirtualHubId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("virtualHubId")]
+        ///     public Output&lt;string&gt; VirtualHubId { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());

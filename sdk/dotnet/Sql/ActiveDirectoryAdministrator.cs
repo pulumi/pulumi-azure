@@ -11,6 +11,44 @@ namespace Pulumi.Azure.Sql
 {
     /// <summary>
     /// Allows you to set a user or group as the AD administrator for an Azure SQL server
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
+    ///         {
+    ///             AdministratorLogin = "4dm1n157r470r",
+    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Version = "12.0",
+    ///         });
+    ///         var exampleActiveDirectoryAdministrator = new Azure.Sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new Azure.Sql.ActiveDirectoryAdministratorArgs
+    ///         {
+    ///             Login = "sqladmin",
+    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleSqlServer.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ActiveDirectoryAdministrator : Pulumi.CustomResource
     {

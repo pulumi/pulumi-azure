@@ -101,15 +101,15 @@ class VirtualNetwork(pulumi.CustomResource):
             subnet=[
                 {
                     "name": "subnet1",
-                    "addressPrefix": "10.0.1.0/24",
+                    "address_prefix": "10.0.1.0/24",
                 },
                 {
                     "name": "subnet2",
-                    "addressPrefix": "10.0.2.0/24",
+                    "address_prefix": "10.0.2.0/24",
                 },
                 {
                     "name": "subnet3",
-                    "addressPrefix": "10.0.3.0/24",
+                    "address_prefix": "10.0.3.0/24",
                     "securityGroup": example_network_security_group.id,
                 },
             ],
