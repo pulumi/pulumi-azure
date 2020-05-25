@@ -411,7 +411,7 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
 function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
-    return combineAppSettings([applicationSetting, ...perFunctionSettings]);
+    return combineAppSettings([{FUNCTIONS_WORKER_RUNTIME: "node"}, applicationSetting, ...perFunctionSettings]);
 }
 
 function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
