@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure/examples/v3
 
-go 1.13
+go 1.14
 
 replace (
 	github.com/Azure/go-autorest => github.com/tombuildsstuff/go-autorest v0.9.3-hashi-auth

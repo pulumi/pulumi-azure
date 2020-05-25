@@ -4478,9 +4478,7 @@ func (o InteractiveQueryClusterRolesOutput) WorkerNode() InteractiveQueryCluster
 
 // A `zookeeperNode` block as defined below.
 func (o InteractiveQueryClusterRolesOutput) ZookeeperNode() InteractiveQueryClusterRolesZookeeperNodeOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode {
-		return v.ZookeeperNode
-	}).(InteractiveQueryClusterRolesZookeeperNodeOutput)
+	return o.ApplyT(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode { return v.ZookeeperNode }).(InteractiveQueryClusterRolesZookeeperNodeOutput)
 }
 
 type InteractiveQueryClusterRolesPtrOutput struct{ *pulumi.OutputState }
