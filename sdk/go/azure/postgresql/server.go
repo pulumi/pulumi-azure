@@ -43,17 +43,21 @@ type Server struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName        pulumi.StringOutput `pulumi:"skuName"`
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringOutput `pulumi:"sslEnforcement"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrOutput `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-	StorageMb      pulumi.IntOutput           `pulumi:"storageMb"`
+	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
+	// Deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.
 	StorageProfile ServerStorageProfileOutput `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrOutput `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -124,17 +128,21 @@ type serverState struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName        *string `pulumi:"skuName"`
+	SkuName *string `pulumi:"skuName"`
+	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled *bool `pulumi:"sslEnforcementEnabled"`
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-	StorageMb      *int                  `pulumi:"storageMb"`
+	StorageMb *int `pulumi:"storageMb"`
+	// Deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.
 	StorageProfile *ServerStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
@@ -169,17 +177,21 @@ type ServerState struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName        pulumi.StringPtrInput
+	SkuName pulumi.StringPtrInput
+	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringPtrInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolPtrInput
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-	StorageMb      pulumi.IntPtrInput
+	StorageMb pulumi.IntPtrInput
+	// Deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.
 	StorageProfile ServerStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
 }
@@ -216,17 +228,21 @@ type serverArgs struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName        string  `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
+	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled *bool `pulumi:"sslEnforcementEnabled"`
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-	StorageMb      *int                  `pulumi:"storageMb"`
+	StorageMb *int `pulumi:"storageMb"`
+	// Deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.
 	StorageProfile *ServerStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
@@ -260,17 +276,21 @@ type ServerArgs struct {
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
-	SkuName        pulumi.StringInput
+	SkuName pulumi.StringInput
+	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringPtrInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
 	SslEnforcementEnabled pulumi.BoolPtrInput
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
-	StorageMb      pulumi.IntPtrInput
+	StorageMb pulumi.IntPtrInput
+	// Deprecated: all storage_profile properties have been move to the top level. This block will be removed in version 3.0 of the provider.
 	StorageProfile ServerStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
 	// Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
 	Version pulumi.StringInput
 }

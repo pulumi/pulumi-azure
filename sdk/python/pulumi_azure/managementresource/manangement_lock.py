@@ -76,8 +76,6 @@ class ManangementLock(pulumi.CustomResource):
             notes="Locked because it's needed by a third-party")
         ```
 
-        Deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.

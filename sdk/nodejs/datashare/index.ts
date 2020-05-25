@@ -4,3 +4,5 @@
 // Export members:
 export * from "./account";
 export * from "./getAccount";
+export * from "./getShare";
+export * from "./share";

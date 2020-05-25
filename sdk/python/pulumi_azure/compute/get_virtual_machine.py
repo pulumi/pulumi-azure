@@ -13,13 +13,22 @@ class GetVirtualMachineResult:
     """
     A collection of values returned by getVirtualMachine.
     """
-    def __init__(__self__, id=None, name=None, resource_group_name=None):
+    def __init__(__self__, id=None, identities=None, location=None, name=None, resource_group_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         The provider-assigned unique ID for this managed resource.
         """
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        __self__.identities = identities
+        """
+        A `identity` block as defined below.
+        """
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        __self__.location = location
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -33,6 +42,8 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             yield self
         return GetVirtualMachineResult(
             id=self.id,
+            identities=self.identities,
+            location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name)
 
@@ -71,5 +82,7 @@ def get_virtual_machine(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetVirtualMachineResult(
         id=__ret__.get('id'),
+        identities=__ret__.get('identities'),
+        location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'))

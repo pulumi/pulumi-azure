@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Automation Certificate.
  *
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
  */
 export class Certificate extends pulumi.CustomResource {
     /**

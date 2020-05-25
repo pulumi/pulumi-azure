@@ -66,8 +66,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/windows_virtual_machine.html.markdown.
  */
 export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**
@@ -237,6 +235,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
     /**
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     */
+    public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    /**
      * One or more `winrmListener` blocks as defined below.
      */
     public readonly winrmListeners!: pulumi.Output<outputs.compute.WindowsVirtualMachineWinrmListener[] | undefined>;
@@ -292,6 +294,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["timezone"] = state ? state.timezone : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            inputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
             inputs["winrmListeners"] = state ? state.winrmListeners : undefined;
             inputs["zone"] = state ? state.zone : undefined;
         } else {
@@ -344,6 +347,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
+            inputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
             inputs["winrmListeners"] = args ? args.winrmListeners : undefined;
             inputs["zone"] = args ? args.zone : undefined;
             inputs["privateIpAddress"] = undefined /*out*/;
@@ -508,6 +512,10 @@ export interface WindowsVirtualMachineState {
      */
     readonly virtualMachineId?: pulumi.Input<string>;
     /**
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     */
+    readonly virtualMachineScaleSetId?: pulumi.Input<string>;
+    /**
      * One or more `winrmListener` blocks as defined below.
      */
     readonly winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
@@ -641,6 +649,10 @@ export interface WindowsVirtualMachineArgs {
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
     readonly timezone?: pulumi.Input<string>;
+    /**
+     * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     */
+    readonly virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */

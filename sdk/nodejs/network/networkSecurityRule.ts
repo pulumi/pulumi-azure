@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_rule.html.markdown.
  */
 export class NetworkSecurityRule extends pulumi.CustomResource {
     /**

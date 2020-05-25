@@ -9,8 +9,6 @@ import (
 
 // Use this data source to access information about an existing Management Group.
 //
-//
-//
 // Deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
 func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupManagementGroupResult, error) {
 	var rv LookupManagementGroupResult
@@ -24,6 +22,8 @@ func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs,
 // A collection of arguments for invoking getManagementGroup.
 type LookupManagementGroupArgs struct {
 	// Specifies the name or UUID of this Management Group.
+	//
+	// Deprecated: Deprecated in favour of `name`
 	GroupId *string `pulumi:"groupId"`
 	// Specifies the name or UUID of this Management Group.
 	Name *string `pulumi:"name"`
@@ -33,7 +33,8 @@ type LookupManagementGroupArgs struct {
 type LookupManagementGroupResult struct {
 	// A friendly name for the Management Group.
 	DisplayName string `pulumi:"displayName"`
-	GroupId     string `pulumi:"groupId"`
+	// Deprecated: Deprecated in favour of `name`
+	GroupId string `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`

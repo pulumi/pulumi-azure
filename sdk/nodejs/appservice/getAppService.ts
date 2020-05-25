@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const appServiceId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service.html.markdown.
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
     if (!opts) {

@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  * const current = azure.core.getSubscription({});
  * export const currentSubscriptionDisplayName = current.then(current => current.displayName);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
  */
 export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     args = args || {};

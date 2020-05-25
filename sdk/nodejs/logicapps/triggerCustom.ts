@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_custom.html.markdown.
  */
 export class TriggerCustom extends pulumi.CustomResource {
     /**

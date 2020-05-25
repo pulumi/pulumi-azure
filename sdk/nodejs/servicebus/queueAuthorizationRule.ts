@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  *     manage: false,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule.html.markdown.
  */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**

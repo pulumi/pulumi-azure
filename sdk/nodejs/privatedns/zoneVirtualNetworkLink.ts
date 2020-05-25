@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     virtualNetworkId: azurerm_virtual_network.example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_zone_virtual_network_link.html.markdown.
  */
 export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
     /**

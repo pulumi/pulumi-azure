@@ -21,6 +21,9 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("product", required: true)]
         public Input<string> Product { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machines.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 

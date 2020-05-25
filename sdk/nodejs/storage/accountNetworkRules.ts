@@ -53,8 +53,6 @@ import * as utilities from "../utilities";
  *     bypasses: ["Metrics"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account_network_rules.html.markdown.
  */
 export class AccountNetworkRules extends pulumi.CustomResource {
     /**

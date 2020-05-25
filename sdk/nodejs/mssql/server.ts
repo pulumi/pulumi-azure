@@ -33,6 +33,10 @@ import * as utilities from "../utilities";
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
+ *     azuread_administrator: {
+ *         loginUsername: "AzureAD Admin",
+ *         objectId: "00000000-0000-0000-0000-000000000000",
+ *     },
  *     extended_auditing_policy: {
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
@@ -44,8 +48,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_server.html.markdown.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -83,6 +85,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
+     * An `azureadAdministrator` block as defined below.
+     */
+    public readonly azureadAdministrator!: pulumi.Output<outputs.mssql.ServerAzureadAdministrator | undefined>;
+    /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
     public readonly connectionPolicy!: pulumi.Output<string | undefined>;
@@ -106,6 +112,9 @@ export class Server extends pulumi.CustomResource {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.
@@ -134,6 +143,7 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            inputs["azureadAdministrator"] = state ? state.azureadAdministrator : undefined;
             inputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
             inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
@@ -160,6 +170,7 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["azureadAdministrator"] = args ? args.azureadAdministrator : undefined;
             inputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
             inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -195,6 +206,10 @@ export interface ServerState {
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
     /**
+     * An `azureadAdministrator` block as defined below.
+     */
+    readonly azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator>;
+    /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
     readonly connectionPolicy?: pulumi.Input<string>;
@@ -218,6 +233,9 @@ export interface ServerState {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.
@@ -246,6 +264,10 @@ export interface ServerArgs {
      */
     readonly administratorLoginPassword: pulumi.Input<string>;
     /**
+     * An `azureadAdministrator` block as defined below.
+     */
+    readonly azureadAdministrator?: pulumi.Input<inputs.mssql.ServerAzureadAdministrator>;
+    /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
     readonly connectionPolicy?: pulumi.Input<string>;
@@ -265,6 +287,9 @@ export interface ServerArgs {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
+     */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.

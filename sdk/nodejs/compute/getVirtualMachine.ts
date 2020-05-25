@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const virtualMachineId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     if (!opts) {
@@ -58,6 +56,11 @@ export interface GetVirtualMachineArgs {
  * A collection of values returned by getVirtualMachine.
  */
 export interface GetVirtualMachineResult {
+    /**
+     * A `identity` block as defined below.
+     */
+    readonly identities: outputs.compute.GetVirtualMachineIdentity[];
+    readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**

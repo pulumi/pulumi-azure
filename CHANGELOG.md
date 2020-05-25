@@ -2,6 +2,10 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to pulumi-terraform-bridge v2.3.3
+* Update to v2.11.0 of the AzureRM Terraform Provider  
+  **PLEASE NOTE:** `azure.mariaDb.getMariaDbServer` 'administratorLoginPassword' has been removed. This was
+  a property that was never available from the Azure API so was never accessible.
 * Use FunctionAppIdentity for packagedfunctionapp args
 
 ---

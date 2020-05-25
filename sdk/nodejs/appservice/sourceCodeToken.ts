@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     type: "GitHub",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_source_control_token.html.markdown.
  */
 export class SourceCodeToken extends pulumi.CustomResource {
     /**

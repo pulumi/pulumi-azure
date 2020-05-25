@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const uniqueIdentifier = example.then(example => example.uniqueIdentifier);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     if (!opts) {

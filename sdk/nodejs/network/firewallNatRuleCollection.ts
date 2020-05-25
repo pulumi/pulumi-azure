@@ -52,10 +52,9 @@ import * as utilities from "../utilities";
  *         name: "testrule",
  *         sourceAddresses: ["10.0.0.0/16"],
  *         destinationPorts: ["53"],
- *         destinationAddresses: [
- *             "8.8.8.8",
- *             "8.8.4.4",
- *         ],
+ *         destinationAddresses: [examplePublicIp.ipAddress],
+ *         translatedPort: 53,
+ *         translatedAddress: "8.8.8.8",
  *         protocols: [
  *             "TCP",
  *             "UDP",
@@ -63,8 +62,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_nat_rule_collection.html.markdown.
  */
 export class FirewallNatRuleCollection extends pulumi.CustomResource {
     /**

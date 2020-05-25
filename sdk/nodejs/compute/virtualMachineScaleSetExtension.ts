@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set_extension.html.markdown.
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**

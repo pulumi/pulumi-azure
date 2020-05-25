@@ -12,6 +12,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class ServiceHostnameConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("developerPortals")]
+        private InputList<Inputs.ServiceHostnameConfigurationDeveloperPortalArgs>? _developerPortals;
+
+        /// <summary>
+        /// One or more `developer_portal` blocks as documented below.
+        /// </summary>
+        public InputList<Inputs.ServiceHostnameConfigurationDeveloperPortalArgs> DeveloperPortals
+        {
+            get => _developerPortals ?? (_developerPortals = new InputList<Inputs.ServiceHostnameConfigurationDeveloperPortalArgs>());
+            set => _developerPortals = value;
+        }
+
         [Input("managements")]
         private InputList<Inputs.ServiceHostnameConfigurationManagementArgs>? _managements;
 

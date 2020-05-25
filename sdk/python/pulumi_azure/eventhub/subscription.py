@@ -96,8 +96,6 @@ class Subscription(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.

@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     grantTypes: ["authorizationCode"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**

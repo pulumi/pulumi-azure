@@ -34,8 +34,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     storageAccountName: exampleAccount.name,
- *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     storageConnectionString: exampleAccount.primaryConnectionString,
  * });
  * ```
  * ## Example Usage (in a Consumption Plan)
@@ -64,12 +63,9 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     storageAccountName: exampleAccount.name,
- *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
+ *     storageConnectionString: exampleAccount.primaryConnectionString,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
  */
 export class FunctionApp extends pulumi.CustomResource {
     /**
@@ -186,6 +182,9 @@ export class FunctionApp extends pulumi.CustomResource {
      * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
      */
     public readonly storageAccountName!: pulumi.Output<string>;
+    /**
+     * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
+     */
     public readonly storageConnectionString!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -370,6 +369,10 @@ export interface FunctionAppState {
      * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
      */
     readonly storageAccountName?: pulumi.Input<string>;
+    /**
+     * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
+     * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+     */
     readonly storageConnectionString?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
@@ -453,6 +456,10 @@ export interface FunctionAppArgs {
      * The backend storage account name which will be used by this Function App (such as the dashboard, logs).
      */
     readonly storageAccountName?: pulumi.Input<string>;
+    /**
+     * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
+     * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+     */
     readonly storageConnectionString?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.

@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     interval: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
  */
 export class TriggerRecurrence extends pulumi.CustomResource {
     /**

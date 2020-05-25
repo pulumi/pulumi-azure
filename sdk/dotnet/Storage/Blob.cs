@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Storage
         public Output<int?> Parallelism { get; private set; } = null!;
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. 
         /// </summary>
         [Output("size")]
         public Output<int?> Size { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Storage
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. 
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Storage
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. 
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }

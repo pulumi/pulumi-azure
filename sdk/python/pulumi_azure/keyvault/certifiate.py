@@ -193,8 +193,6 @@ class Certifiate(pulumi.CustomResource):
             })
         ```
 
-        Deprecated: azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below, used to Import an existing certificate.

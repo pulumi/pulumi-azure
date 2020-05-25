@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     apiManagementName: exampleUser.then(exampleUser => exampleUser.apiManagementName),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group_user.html.markdown.
  */
 export class GroupUser extends pulumi.CustomResource {
     /**

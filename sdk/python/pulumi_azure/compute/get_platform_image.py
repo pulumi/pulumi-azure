@@ -35,9 +35,6 @@ class GetPlatformImageResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
-        """
-        The latest version of the Platform Image.
-        """
 class AwaitableGetPlatformImageResult(GetPlatformImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -51,7 +48,7 @@ class AwaitableGetPlatformImageResult(GetPlatformImageResult):
             sku=self.sku,
             version=self.version)
 
-def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=None):
+def get_platform_image(location=None,offer=None,publisher=None,sku=None,version=None,opts=None):
     """
     Use this data source to access information about a Platform Image.
 
@@ -67,7 +64,7 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
         publisher="Canonical",
         offer="UbuntuServer",
         sku="16.04-LTS")
-    pulumi.export("version", example.version)
+    pulumi.export("id", example.id)
     ```
 
 
@@ -76,6 +73,7 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
     :param str offer: Specifies the Offer associated with the Platform Image.
     :param str publisher: Specifies the Publisher associated with the Platform Image.
     :param str sku: Specifies the SKU of the Platform Image.
+    :param str version: The version of the Platform Image.
     """
     __args__ = dict()
 
@@ -84,6 +82,7 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
     __args__['offer'] = offer
     __args__['publisher'] = publisher
     __args__['sku'] = sku
+    __args__['version'] = version
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

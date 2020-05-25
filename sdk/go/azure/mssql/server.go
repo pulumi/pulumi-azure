@@ -21,6 +21,8 @@ type Server struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator ServerAzureadAdministratorPtrOutput `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrOutput `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
@@ -32,7 +34,8 @@ type Server struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       pulumi.StringOutput  `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -86,6 +89,8 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
@@ -97,8 +102,9 @@ type serverState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -112,6 +118,8 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringPtrInput
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
@@ -123,7 +131,8 @@ type ServerState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringPtrInput
@@ -142,6 +151,8 @@ type serverArgs struct {
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
@@ -151,8 +162,9 @@ type serverArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       *string `pulumi:"name"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	Name *string `pulumi:"name"`
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -167,6 +179,8 @@ type ServerArgs struct {
 	AdministratorLogin pulumi.StringInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringInput
+	// An `azureadAdministrator` block as defined below.
+	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
@@ -176,7 +190,8 @@ type ServerArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-	Name                       pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringInput

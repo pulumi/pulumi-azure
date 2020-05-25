@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const labSubnetName = example.then(example => example.allowedSubnets[0].labSubnetName);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
     if (!opts) {

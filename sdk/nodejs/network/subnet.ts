@@ -43,8 +43,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
  */
 export class Subnet extends pulumi.CustomResource {
     /**
@@ -166,7 +164,6 @@ export class Subnet extends pulumi.CustomResource {
 export interface SubnetState {
     /**
      * The address prefix to use for the subnet.
-     *
      * @deprecated Use the `address_prefixes` property instead.
      */
     readonly addressPrefix?: pulumi.Input<string>;
@@ -210,7 +207,6 @@ export interface SubnetState {
 export interface SubnetArgs {
     /**
      * The address prefix to use for the subnet.
-     *
      * @deprecated Use the `address_prefixes` property instead.
      */
     readonly addressPrefix?: pulumi.Input<string>;

@@ -18,21 +18,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "northeurope",
- * });
- * const exampleStore = new azure.datalake.Store("example", {
- *     location: exampleResourceGroup.location,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
+ * const exampleStore = new azure.datalake.Store("exampleStore", {
  *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  * });
- * const exampleStoreFile = new azure.datalake.StoreFile("example", {
+ * const exampleStoreFile = new azure.datalake.StoreFile("exampleStoreFile", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     localFilePath: "/path/to/local/file",
  *     remoteFilePath: "/path/created/for/remote/file",
- *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
  */
 export class StoreFile extends pulumi.CustomResource {
     /**

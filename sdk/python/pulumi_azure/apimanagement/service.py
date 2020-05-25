@@ -38,6 +38,13 @@ class Service(pulumi.CustomResource):
     """
     A `hostname_configuration` block as defined below.
 
+      * `developerPortals` (`list`) - One or more `developer_portal` blocks as documented below.
+        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
+        * `certificatePassword` (`str`) - The password for the certificate.
+        * `host_name` (`str`) - The Hostname to use for the Management API.
+        * `key_vault_id` (`str`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        * `negotiateClientCertificate` (`bool`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+
       * `managements` (`list`) - One or more `management` blocks as documented below.
         * `certificate` (`str`) - The Base64 Encoded Certificate.
         * `certificatePassword` (`str`) - The password associated with the certificate provided above.
@@ -71,9 +78,10 @@ class Service(pulumi.CustomResource):
     """
     An `identity` block is documented below.
 
+      * `identityIds` (`list`) - A list of IDs for User Assigned Managed Identity resources to be assigned.
       * `principal_id` (`str`) - The Principal ID associated with this Managed Service Identity.
       * `tenant_id` (`str`) - The Tenant ID associated with this Managed Service Identity.
-      * `type` (`str`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+      * `type` (`str`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
     """
     location: pulumi.Output[str]
     """
@@ -242,6 +250,13 @@ class Service(pulumi.CustomResource):
 
         The **hostname_configuration** object supports the following:
 
+          * `developerPortals` (`pulumi.Input[list]`) - One or more `developer_portal` blocks as documented below.
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
+            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
+            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+
           * `managements` (`pulumi.Input[list]`) - One or more `management` blocks as documented below.
             * `certificate` (`pulumi.Input[str]`) - The Base64 Encoded Certificate.
             * `certificatePassword` (`pulumi.Input[str]`) - The password associated with the certificate provided above.
@@ -273,9 +288,10 @@ class Service(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
+          * `identityIds` (`pulumi.Input[list]`) - A list of IDs for User Assigned Managed Identity resources to be assigned.
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID associated with this Managed Service Identity.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID associated with this Managed Service Identity.
-          * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
 
         The **policy** object supports the following:
 
@@ -418,6 +434,13 @@ class Service(pulumi.CustomResource):
 
         The **hostname_configuration** object supports the following:
 
+          * `developerPortals` (`pulumi.Input[list]`) - One or more `developer_portal` blocks as documented below.
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
+            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
+            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+
           * `managements` (`pulumi.Input[list]`) - One or more `management` blocks as documented below.
             * `certificate` (`pulumi.Input[str]`) - The Base64 Encoded Certificate.
             * `certificatePassword` (`pulumi.Input[str]`) - The password associated with the certificate provided above.
@@ -449,9 +472,10 @@ class Service(pulumi.CustomResource):
 
         The **identity** object supports the following:
 
+          * `identityIds` (`pulumi.Input[list]`) - A list of IDs for User Assigned Managed Identity resources to be assigned.
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID associated with this Managed Service Identity.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID associated with this Managed Service Identity.
-          * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
 
         The **policy** object supports the following:
 

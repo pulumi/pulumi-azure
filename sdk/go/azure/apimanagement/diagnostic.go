@@ -14,9 +14,11 @@ import (
 type Diagnostic struct {
 	pulumi.CustomResourceState
 
+	// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+	ApiManagementLoggerId pulumi.StringOutput `pulumi:"apiManagementLoggerId"`
 	// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
-	// Indicates whether a Diagnostic should receive data or not.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
@@ -27,6 +29,9 @@ type Diagnostic struct {
 // NewDiagnostic registers a new resource with the given unique name, arguments, and options.
 func NewDiagnostic(ctx *pulumi.Context,
 	name string, args *DiagnosticArgs, opts ...pulumi.ResourceOption) (*Diagnostic, error) {
+	if args == nil || args.ApiManagementLoggerId == nil {
+		return nil, errors.New("missing required argument 'ApiManagementLoggerId'")
+	}
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -61,9 +66,11 @@ func GetDiagnostic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Diagnostic resources.
 type diagnosticState struct {
+	// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+	ApiManagementLoggerId *string `pulumi:"apiManagementLoggerId"`
 	// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
-	// Indicates whether a Diagnostic should receive data or not.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	Enabled *bool `pulumi:"enabled"`
 	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
 	Identifier *string `pulumi:"identifier"`
@@ -72,9 +79,11 @@ type diagnosticState struct {
 }
 
 type DiagnosticState struct {
+	// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+	ApiManagementLoggerId pulumi.StringPtrInput
 	// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
-	// Indicates whether a Diagnostic should receive data or not.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	Enabled pulumi.BoolPtrInput
 	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
 	Identifier pulumi.StringPtrInput
@@ -87,9 +96,11 @@ func (DiagnosticState) ElementType() reflect.Type {
 }
 
 type diagnosticArgs struct {
+	// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+	ApiManagementLoggerId string `pulumi:"apiManagementLoggerId"`
 	// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
-	// Indicates whether a Diagnostic should receive data or not.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	Enabled *bool `pulumi:"enabled"`
 	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
 	Identifier string `pulumi:"identifier"`
@@ -99,9 +110,11 @@ type diagnosticArgs struct {
 
 // The set of arguments for constructing a Diagnostic resource.
 type DiagnosticArgs struct {
+	// The id of the target API Management Logger where the API Management Diagnostic should be saved.
+	ApiManagementLoggerId pulumi.StringInput
 	// The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
-	// Indicates whether a Diagnostic should receive data or not.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	Enabled pulumi.BoolPtrInput
 	// The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
 	Identifier pulumi.StringInput

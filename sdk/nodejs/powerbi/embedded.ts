@@ -15,18 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleEmbedded = new azure.powerbi.Embedded("example", {
- *     administrators: ["azsdktest@microsoft.com"],
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleEmbedded = new azure.powerbi.Embedded("exampleEmbedded", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "A1",
+ *     administrators: ["azsdktest@microsoft.com"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/powerbi_embedded.html.markdown.
  */
 export class Embedded extends pulumi.CustomResource {
     /**

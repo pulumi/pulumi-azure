@@ -11,16 +11,12 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages an EventGrid Event Subscription
-    /// 
-    /// 
-    /// 
-    /// Deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription
     /// </summary>
     [Obsolete(@"azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+        /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventDeliverySchema")]
         public Output<string?> EventDeliverySchema { get; private set; } = null!;
@@ -86,7 +82,7 @@ namespace Pulumi.Azure.EventHub
         public Output<Outputs.EventSubscriptionSubjectFilter?> SubjectFilter { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the topic to associate with the event subscription.
+        /// (Optional) Specifies the name of the topic to associate with the event subscription.
         /// </summary>
         [Output("topicName")]
         public Output<string> TopicName { get; private set; } = null!;
@@ -144,7 +140,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+        /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventDeliverySchema")]
         public Input<string>? EventDeliverySchema { get; set; }
@@ -222,7 +218,7 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventSubscriptionSubjectFilterArgs>? SubjectFilter { get; set; }
 
         /// <summary>
-        /// Specifies the name of the topic to associate with the event subscription.
+        /// (Optional) Specifies the name of the topic to associate with the event subscription.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
@@ -241,7 +237,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventSubscriptionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+        /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventDeliverySchema")]
         public Input<string>? EventDeliverySchema { get; set; }
@@ -319,7 +315,7 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventSubscriptionSubjectFilterGetArgs>? SubjectFilter { get; set; }
 
         /// <summary>
-        /// Specifies the name of the topic to associate with the event subscription.
+        /// (Optional) Specifies the name of the topic to associate with the event subscription.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }

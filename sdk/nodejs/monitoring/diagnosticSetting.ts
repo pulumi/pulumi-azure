@@ -17,37 +17,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleAccount = exampleResourceGroup.name.apply(name => azure.storage.getAccount({
  *     name: "examplestoracc",
  *     resourceGroupName: name,
- * }, { async: true }));
+ * }));
  * const exampleKeyVault = exampleResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
  *     name: "example-vault",
  *     resourceGroupName: name,
- * }, { async: true }));
- * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("example", {
- *     logs: [{
+ * }));
+ * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
+ *     targetResourceId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
+ *     log: [{
  *         category: "AuditEvent",
  *         enabled: false,
- *         retentionPolicy: {
+ *         retention_policy: {
  *             enabled: false,
  *         },
  *     }],
- *     metrics: [{
+ *     metric: [{
  *         category: "AllMetrics",
- *         retentionPolicy: {
+ *         retention_policy: {
  *             enabled: false,
  *         },
  *     }],
- *     storageAccountId: exampleAccount.id,
- *     targetResourceId: exampleKeyVault.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**

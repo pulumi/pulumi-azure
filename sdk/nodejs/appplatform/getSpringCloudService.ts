@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const springCloudServiceId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/spring_cloud_service.html.markdown.
  */
 export function getSpringCloudService(args: GetSpringCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringCloudServiceResult> {
     if (!opts) {

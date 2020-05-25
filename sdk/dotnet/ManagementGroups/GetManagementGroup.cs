@@ -17,8 +17,6 @@ namespace Pulumi.Azure.ManagementGroups
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
-        /// 
-        /// Deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithVersion());

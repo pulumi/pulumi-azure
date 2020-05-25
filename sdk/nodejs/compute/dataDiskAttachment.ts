@@ -84,8 +84,6 @@ import * as utilities from "../utilities";
  *     caching: "ReadWrite",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_data_disk_attachment.html.markdown.
  */
 export class DataDiskAttachment extends pulumi.CustomResource {
     /**

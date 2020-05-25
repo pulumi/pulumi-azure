@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     collation: "English_United States.1252",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_database.html.markdown.
  */
 export class Database extends pulumi.CustomResource {
     /**

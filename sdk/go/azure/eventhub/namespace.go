@@ -12,8 +12,6 @@ import (
 
 // Manages a ServiceBus Namespace.
 //
-//
-//
 // Deprecated: azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace
 type Namespace struct {
 	pulumi.CustomResourceState

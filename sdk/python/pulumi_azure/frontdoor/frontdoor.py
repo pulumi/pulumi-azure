@@ -87,6 +87,10 @@ class Frontdoor(pulumi.CustomResource):
       * `sessionAffinityTtlSeconds` (`float`) - The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
       * `webApplicationFirewallPolicyLinkId` (`str`) - Defines the Web Application Firewall policy `ID` for each host.
     """
+    header_frontdoor_id: pulumi.Output[str]
+    """
+    The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+    """
     load_balancer_enabled: pulumi.Output[bool]
     """
     Should the Front Door Load Balancer be Enabled? Defaults to `true`.
@@ -328,6 +332,7 @@ class Frontdoor(pulumi.CustomResource):
             __props__['routing_rules'] = routing_rules
             __props__['tags'] = tags
             __props__['cname'] = None
+            __props__['header_frontdoor_id'] = None
         super(Frontdoor, __self__).__init__(
             'azure:frontdoor/frontdoor:Frontdoor',
             resource_name,
@@ -335,7 +340,7 @@ class Frontdoor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_pool_health_probes=None, backend_pool_load_balancings=None, backend_pools=None, backend_pools_send_receive_timeout_seconds=None, cname=None, enforce_backend_pools_certificate_name_check=None, friendly_name=None, frontend_endpoints=None, load_balancer_enabled=None, location=None, name=None, resource_group_name=None, routing_rules=None, tags=None):
+    def get(resource_name, id, opts=None, backend_pool_health_probes=None, backend_pool_load_balancings=None, backend_pools=None, backend_pools_send_receive_timeout_seconds=None, cname=None, enforce_backend_pools_certificate_name_check=None, friendly_name=None, frontend_endpoints=None, header_frontdoor_id=None, load_balancer_enabled=None, location=None, name=None, resource_group_name=None, routing_rules=None, tags=None):
         """
         Get an existing Frontdoor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -351,6 +356,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[list] frontend_endpoints: A `frontend_endpoint` block as defined below.
+        :param pulumi.Input[str] header_frontdoor_id: The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
@@ -446,6 +452,7 @@ class Frontdoor(pulumi.CustomResource):
         __props__["enforce_backend_pools_certificate_name_check"] = enforce_backend_pools_certificate_name_check
         __props__["friendly_name"] = friendly_name
         __props__["frontend_endpoints"] = frontend_endpoints
+        __props__["header_frontdoor_id"] = header_frontdoor_id
         __props__["load_balancer_enabled"] = load_balancer_enabled
         __props__["location"] = location
         __props__["name"] = name

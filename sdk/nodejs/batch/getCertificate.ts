@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const thumbprint = example.then(example => example.thumbprint);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {

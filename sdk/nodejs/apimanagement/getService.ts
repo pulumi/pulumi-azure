@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const apiManagementId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
@@ -74,6 +72,10 @@ export interface GetServiceResult {
      * A `hostnameConfiguration` block as defined below.
      */
     readonly hostnameConfigurations: outputs.apimanagement.GetServiceHostnameConfiguration[];
+    /**
+     * (Optional) An `identity` block as defined below.
+     */
+    readonly identities: outputs.apimanagement.GetServiceIdentity[];
     /**
      * The location name of the additional region among Azure Data center regions.
      */

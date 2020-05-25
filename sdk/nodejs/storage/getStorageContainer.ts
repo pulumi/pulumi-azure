@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     storageAccountName: "example-storage-account-name",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
  */
 export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> {
     if (!opts) {

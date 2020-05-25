@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     applicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_replication_policy.html.markdown.
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**

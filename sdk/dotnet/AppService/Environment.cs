@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> PricingTier { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists.
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -53,6 +53,9 @@ namespace Pulumi.Azure.AppService
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -124,6 +127,12 @@ namespace Pulumi.Azure.AppService
         public Input<string>? PricingTier { get; set; }
 
         /// <summary>
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
         /// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
@@ -131,6 +140,10 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -172,7 +185,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? PricingTier { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists.
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -185,6 +198,10 @@ namespace Pulumi.Azure.AppService
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

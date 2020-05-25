@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     throughput: 400,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_gremlin_database.html.markdown.
  */
 export class GremlinDatabase extends pulumi.CustomResource {
     /**

@@ -13,6 +13,7 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class SlotSiteConfigIpRestriction
     {
+        public readonly string? Action;
         /// <summary>
         /// The IP Address used for this IP Restriction.
         /// </summary>
@@ -29,6 +30,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
         [OutputConstructor]
         private SlotSiteConfigIpRestriction(
+            string? action,
+
             string? ipAddress,
 
             string? name,
@@ -37,6 +40,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? virtualNetworkSubnetId)
         {
+            Action = action;
             IpAddress = ipAddress;
             Name = name;
             Priority = priority;

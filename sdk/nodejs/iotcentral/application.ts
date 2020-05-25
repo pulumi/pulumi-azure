@@ -15,23 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleApplication = new azure.iotcentral.Application("example", {
- *     displayName: "example-iotcentral-app-display-name",
- *     location: exampleResourceGroup.location,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleApplication = new azure.iotcentral.Application("exampleApplication", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "S1",
+ *     location: exampleResourceGroup.location,
  *     subDomain: "example-iotcentral-app-subdomain",
+ *     displayName: "example-iotcentral-app-display-name",
+ *     sku: "S1",
+ *     template: "iotc-default@1.0.0",
  *     tags: {
  *         Foo: "Bar",
  *     },
- *     template: "iotc-default@1.0.0",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iotcentral_application.html.markdown.
  */
 export class Application extends pulumi.CustomResource {
     /**

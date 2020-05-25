@@ -27,9 +27,7 @@ class ZipBlob(pulumi.CustomResource):
     warnings.warn("ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, access_tier=None, content=None, content_type=None, metadata=None, name=None, parallelism=None, size=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-
-        Deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
-
+        Create a ZipBlob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

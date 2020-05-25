@@ -17,8 +17,6 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
-        /// 
-        /// Deprecated: azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
         /// </summary>
         public static Task<GetServiceBusNamespaceResult> InvokeAsync(GetServiceBusNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args ?? new GetServiceBusNamespaceArgs(), options.WithVersion());

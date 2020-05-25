@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     scheduleName: "hour",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_job_schedule.html.markdown.
  */
 export class JobSchedule extends pulumi.CustomResource {
     /**

@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *     iothubName: azurerm_iothub.example.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
  */
 export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedAccessPolicyResult> {
     if (!opts) {

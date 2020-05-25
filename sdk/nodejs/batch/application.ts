@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     accountName: exampleBatch / accountAccount.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
  */
 export class Application extends pulumi.CustomResource {
     /**

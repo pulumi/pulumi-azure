@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  *     description: "This is an example credential",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_credential.html.markdown.
  */
 export class Credential extends pulumi.CustomResource {
     /**

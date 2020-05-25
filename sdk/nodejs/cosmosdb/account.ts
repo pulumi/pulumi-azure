@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -82,7 +80,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[] | undefined>;
     /**
-     * A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+     * A list of connection strings available for this CosmosDB account.
      */
     public /*out*/ readonly connectionStrings!: pulumi.Output<string[]>;
     /**
@@ -257,7 +255,7 @@ export interface AccountState {
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
     /**
-     * A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+     * A list of connection strings available for this CosmosDB account.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<string>[]>;
     /**

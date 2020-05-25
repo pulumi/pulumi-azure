@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     sourceUri: exampleManagedDisk.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

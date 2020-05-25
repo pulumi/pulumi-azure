@@ -103,8 +103,6 @@ import * as utilities from "../utilities";
  *     backendAddressPoolId: network.backendAddressPools.apply(backendAddressPools => backendAddressPools[0].id),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown.
  */
 export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation extends pulumi.CustomResource {
     /**

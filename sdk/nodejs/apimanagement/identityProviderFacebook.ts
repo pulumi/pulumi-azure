@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     appSecret: "00000000000000000000000000000000",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_facebook.html.markdown.
  */
 export class IdentityProviderFacebook extends pulumi.CustomResource {
     /**

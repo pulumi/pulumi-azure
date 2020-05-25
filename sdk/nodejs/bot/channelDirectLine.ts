@@ -9,36 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Directline integration for a Bot Channel
  *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const current = pulumi.output(azure.core.getClientConfig({ async: true }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "northeurope",
- * });
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
- *     location: "global",
- *     microsoftAppId: current.servicePrincipalApplicationId,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "F0",
- * });
- * const exampleChannelDirectLine = new azure.bot.ChannelDirectLine("example", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sites: [{
- *         enabled: true,
- *         name: "default",
- *     }],
- * });
- * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_directline.markdown.
  */
 export class ChannelDirectLine extends pulumi.CustomResource {
     /**

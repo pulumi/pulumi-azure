@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const netappVolumeId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_volume.html.markdown.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     if (!opts) {
@@ -73,6 +71,10 @@ export interface GetVolumeResult {
      * The Azure Region where the NetApp Volume exists.
      */
     readonly location: string;
+    /**
+     * A list of IPv4 Addresses which should be used to mount the volume.
+     */
+    readonly mountIpAddresses: string[];
     readonly name: string;
     readonly poolName: string;
     readonly protocols: string[];

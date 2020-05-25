@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages an Authorization Rule for a ServiceBus Queue.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule
     /// </summary>
     [Obsolete(@"azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : Pulumi.CustomResource

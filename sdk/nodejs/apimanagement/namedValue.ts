@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     value: "Example Value",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_named_value.html.markdown.
  */
 export class NamedValue extends pulumi.CustomResource {
     /**

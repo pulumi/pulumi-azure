@@ -44,8 +44,6 @@ import * as utilities from "../utilities";
  * ## Note
  *
  * Virtual Network peerings cannot be created, updated or deleted concurrently.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**

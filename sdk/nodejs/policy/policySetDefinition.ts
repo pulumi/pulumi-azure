@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  *     policyType: "Custom",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_set_definition.html.markdown.
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**

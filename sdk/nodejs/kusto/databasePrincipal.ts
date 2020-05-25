@@ -44,8 +44,6 @@ import * as utilities from "../utilities";
  *     objectId: current.then(current => current.clientId),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_database_principal.html.markdown.
  */
 export class DatabasePrincipal extends pulumi.CustomResource {
     /**

@@ -72,8 +72,6 @@ import * as utilities from "../utilities";
  * }));
  * export const publicIpAddress = examplePublicIp.ipAddress;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
     if (!opts) {

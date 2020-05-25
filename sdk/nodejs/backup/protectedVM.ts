@@ -17,31 +17,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleVault = new azure.recoveryservices.Vault("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const examplePolicyVM = new azure.backup.PolicyVM("example", {
+ * const examplePolicyVM = new azure.backup.PolicyVM("examplePolicyVM", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     recoveryVaultName: exampleVault.name,
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
- *     recoveryVaultName: exampleVault.name,
- *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const vm1 = new azure.backup.ProtectedVM("vm1", {
- *     backupPolicyId: examplePolicyVM.id,
- *     recoveryVaultName: exampleVault.name,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sourceVmId: azurerm_virtual_machine_example.id,
+ *     recoveryVaultName: exampleVault.name,
+ *     sourceVmId: azurerm_virtual_machine.example.id,
+ *     backupPolicyId: examplePolicyVM.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/backup_protected_vm.markdown.
  */
 export class ProtectedVM extends pulumi.CustomResource {
     /**

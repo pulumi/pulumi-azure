@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     messageRetention: 1,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
  */
 export class EventHub extends pulumi.CustomResource {
     /**

@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const jobId = example.then(example => example.jobId);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     if (!opts) {

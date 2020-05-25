@@ -20,6 +20,8 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
 	// Specifies the name or UUID of this Management Group.
+	//
+	// Deprecated: Deprecated in favour of `name`
 	GroupId *string `pulumi:"groupId"`
 	// Specifies the name or UUID of this Management Group.
 	Name *string `pulumi:"name"`
@@ -29,7 +31,8 @@ type LookupGroupArgs struct {
 type LookupGroupResult struct {
 	// A friendly name for the Management Group.
 	DisplayName string `pulumi:"displayName"`
-	GroupId     string `pulumi:"groupId"`
+	// Deprecated: Deprecated in favour of `name`
+	GroupId string `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`

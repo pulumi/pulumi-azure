@@ -1793,7 +1793,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobC
 }
 
 type EventSubscriptionStorageQueueEndpoint struct {
-	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+	// Specifies the name of the storage queue where the Event Subscription will receive events.
 	QueueName string `pulumi:"queueName"`
 	// Specifies the id of the storage account id where the storage queue is located.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -1812,7 +1812,7 @@ type EventSubscriptionStorageQueueEndpointInput interface {
 }
 
 type EventSubscriptionStorageQueueEndpointArgs struct {
-	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+	// Specifies the name of the storage queue where the Event Subscription will receive events.
 	QueueName pulumi.StringInput `pulumi:"queueName"`
 	// Specifies the id of the storage account id where the storage queue is located.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
@@ -1896,7 +1896,7 @@ func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQ
 	}).(EventSubscriptionStorageQueueEndpointPtrOutput)
 }
 
-// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+// Specifies the name of the storage queue where the Event Subscription will receive events.
 func (o EventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
 }
@@ -1924,7 +1924,7 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscription
 	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) EventSubscriptionStorageQueueEndpoint { return *v }).(EventSubscriptionStorageQueueEndpointOutput)
 }
 
-// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+// Specifies the name of the storage queue where the Event Subscription will receive events.
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionStorageQueueEndpoint) *string {
 		if v == nil {

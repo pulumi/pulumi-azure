@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     subnetId: subnet.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_virtual_network_rule.html.markdown.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

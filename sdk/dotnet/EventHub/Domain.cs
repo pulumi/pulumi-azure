@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages an EventGrid Domain
-    /// 
-    /// 
-    /// 
-    /// Deprecated: azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain
     /// </summary>
     [Obsolete(@"azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain")]
     public partial class Domain : Pulumi.CustomResource
@@ -38,7 +34,7 @@ namespace Pulumi.Azure.EventHub
         public Output<Outputs.DomainInputMappingFields?> InputMappingFields { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputSchema")]
         public Output<string?> InputSchema { get; private set; } = null!;
@@ -138,7 +134,7 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.DomainInputMappingFieldsArgs>? InputMappingFields { get; set; }
 
         /// <summary>
-        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputSchema")]
         public Input<string>? InputSchema { get; set; }
@@ -199,7 +195,7 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.DomainInputMappingFieldsGetArgs>? InputMappingFields { get; set; }
 
         /// <summary>
-        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputSchema")]
         public Input<string>? InputSchema { get; set; }

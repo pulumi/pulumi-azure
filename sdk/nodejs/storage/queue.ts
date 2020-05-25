@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleQueue = new azure.storage.Queue("exampleQueue", {storageAccountName: exampleAccount.name});
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {
     /**

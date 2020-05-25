@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleService.then(exampleService => exampleService.resourceGroupName),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_group.html.markdown.
  */
 export class ProductGroup extends pulumi.CustomResource {
     /**

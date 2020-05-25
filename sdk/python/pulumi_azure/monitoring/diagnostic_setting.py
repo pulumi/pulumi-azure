@@ -76,21 +76,21 @@ class DiagnosticSetting(pulumi.CustomResource):
         example_key_vault = example_resource_group.name.apply(lambda name: azure.keyvault.get_key_vault(name="example-vault",
             resource_group_name=name))
         example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
-            logs=[{
+            target_resource_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            log=[{
                 "category": "AuditEvent",
                 "enabled": False,
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
             }],
-            metrics=[{
+            metric=[{
                 "category": "AllMetrics",
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
-            }],
-            storage_account_id=example_account.id,
-            target_resource_id=example_key_vault.id)
+            }])
         ```
 
 

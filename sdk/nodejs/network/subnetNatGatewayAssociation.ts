@@ -37,8 +37,6 @@ import * as utilities from "../utilities";
  *     natGatewayId: exampleNatGateway.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_nat_gateway_association.html.markdown.
  */
 export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
     /**

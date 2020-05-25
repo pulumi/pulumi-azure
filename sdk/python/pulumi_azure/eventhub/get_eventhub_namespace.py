@@ -147,8 +147,6 @@ def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
     ```
 
 
-    Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
-
 
     :param str name: The name of the EventHub Namespace.
     :param str resource_group_name: The Name of the Resource Group where the EventHub Namespace exists.

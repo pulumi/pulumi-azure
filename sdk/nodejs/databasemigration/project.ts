@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     targetPlatform: "SQLDB",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/database_migration_project.html.markdown.
  */
 export class Project extends pulumi.CustomResource {
     /**

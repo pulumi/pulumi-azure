@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  * });
  * export const servicebusEndpoint = example.then(example => example.servicebusEndpoint);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     if (!opts) {

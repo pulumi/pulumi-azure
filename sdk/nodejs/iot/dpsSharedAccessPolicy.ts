@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  *     enrollmentRead: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_shared_access_policy.html.markdown.
  */
 export class DpsSharedAccessPolicy extends pulumi.CustomResource {
     /**

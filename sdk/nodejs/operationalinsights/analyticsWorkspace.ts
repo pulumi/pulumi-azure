@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     retentionInDays: 30,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_workspace.html.markdown.
  */
 export class AnalyticsWorkspace extends pulumi.CustomResource {
     /**
@@ -76,7 +74,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The workspace data retention in days. Possible values range between 30 and 730.
+     * The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
      */
     public readonly retentionInDays!: pulumi.Output<number>;
     /**
@@ -173,7 +171,7 @@ export interface AnalyticsWorkspaceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The workspace data retention in days. Possible values range between 30 and 730.
+     * The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**
@@ -211,7 +209,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The workspace data retention in days. Possible values range between 30 and 730.
+     * The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**

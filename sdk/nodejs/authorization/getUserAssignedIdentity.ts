@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  * export const uaiClientId = example.then(example => example.clientId);
  * export const uaiPrincipalId = example.then(example => example.principalId);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
     if (!opts) {

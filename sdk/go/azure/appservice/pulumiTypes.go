@@ -3577,6 +3577,8 @@ func (o AppServiceSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOu
 }
 
 type AppServiceSiteConfigIpRestriction struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -3600,6 +3602,8 @@ type AppServiceSiteConfigIpRestrictionInput interface {
 }
 
 type AppServiceSiteConfigIpRestrictionArgs struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -3660,6 +3664,11 @@ func (o AppServiceSiteConfigIpRestrictionOutput) ToAppServiceSiteConfigIpRestric
 
 func (o AppServiceSiteConfigIpRestrictionOutput) ToAppServiceSiteConfigIpRestrictionOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionOutput {
 	return o
+}
+
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+func (o AppServiceSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // The IP Address used for this IP Restriction in CIDR notation.
@@ -11879,6 +11888,7 @@ func (o SlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 }
 
 type SlotSiteConfigIpRestriction struct {
+	Action *string `pulumi:"action"`
 	// The IP Address used for this IP Restriction.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -11901,6 +11911,7 @@ type SlotSiteConfigIpRestrictionInput interface {
 }
 
 type SlotSiteConfigIpRestrictionArgs struct {
+	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The IP Address used for this IP Restriction.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -11960,6 +11971,10 @@ func (o SlotSiteConfigIpRestrictionOutput) ToSlotSiteConfigIpRestrictionOutput()
 
 func (o SlotSiteConfigIpRestrictionOutput) ToSlotSiteConfigIpRestrictionOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionOutput {
 	return o
+}
+
+func (o SlotSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // The IP Address used for this IP Restriction.
@@ -12712,6 +12727,8 @@ func (o GetAppServiceSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetAppSe
 }
 
 type GetAppServiceSiteConfigIpRestriction struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range?
+	Action string `pulumi:"action"`
 	// The IP Address used for this IP Restriction.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of the App Service.
@@ -12734,6 +12751,8 @@ type GetAppServiceSiteConfigIpRestrictionInput interface {
 }
 
 type GetAppServiceSiteConfigIpRestrictionArgs struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range?
+	Action pulumi.StringInput `pulumi:"action"`
 	// The IP Address used for this IP Restriction.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the App Service.
@@ -12793,6 +12812,11 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) ToGetAppServiceSiteConfigIpR
 
 func (o GetAppServiceSiteConfigIpRestrictionOutput) ToGetAppServiceSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetAppServiceSiteConfigIpRestrictionOutput {
 	return o
+}
+
+// Does this restriction `Allow` or `Deny` access for this IP range?
+func (o GetAppServiceSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The IP Address used for this IP Restriction.

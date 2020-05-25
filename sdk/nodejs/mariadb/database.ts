@@ -20,15 +20,13 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "B_Gen5_2",
- *     storage_profile: {
- *         storageMb: 51200,
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *     },
+ *     storageMb: 51200,
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackupEnabled: false,
  *     administratorLogin: "acctestun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     version: "10.2",
- *     sslEnforcement: "Enabled",
+ *     sslEnforcementEnabled: true,
  * });
  * const exampleDatabase = new azure.mariadb.Database("exampleDatabase", {
  *     resourceGroupName: exampleResourceGroup.name,
@@ -37,8 +35,6 @@ import * as utilities from "../utilities";
  *     collation: "utf8GeneralCi",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_database.html.markdown.
  */
 export class Database extends pulumi.CustomResource {
     /**

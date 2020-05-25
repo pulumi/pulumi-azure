@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * });
  * export const proximityPlacementGroupId = example.then(example => example.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
  */
 export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
     if (!opts) {

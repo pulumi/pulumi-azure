@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventGrid.Inputs
     public sealed class EventSubscriptionStorageQueueEndpointGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+        /// Specifies the name of the storage queue where the Event Subscription will receive events.
         /// </summary>
         [Input("queueName", required: true)]
         public Input<string> QueueName { get; set; } = null!;

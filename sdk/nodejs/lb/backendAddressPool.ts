@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *     loadbalancerId: exampleLoadBalancer.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_backend_address_pool.html.markdown.
  */
 export class BackendAddressPool extends pulumi.CustomResource {
     /**

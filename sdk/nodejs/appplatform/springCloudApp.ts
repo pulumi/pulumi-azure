@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     serviceName: exampleSpringCloudService.name,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/spring_cloud_app.html.markdown.
  */
 export class SpringCloudApp extends pulumi.CustomResource {
     /**

@@ -75,8 +75,6 @@ def get_management_group(group_id=None,name=None,opts=None):
     ```
 
 
-    Deprecated: azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup
-
 
     :param str group_id: Specifies the name or UUID of this Management Group.
     :param str name: Specifies the name or UUID of this Management Group.

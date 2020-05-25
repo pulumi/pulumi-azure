@@ -11,10 +11,6 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
-    /// 
-    /// 
-    /// 
-    /// Deprecated: azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup
     /// </summary>
     [Obsolete(@"azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup")]
     public partial class EventHubConsumerGroup : Pulumi.CustomResource

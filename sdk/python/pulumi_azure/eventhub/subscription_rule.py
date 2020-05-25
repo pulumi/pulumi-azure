@@ -128,8 +128,6 @@ class SubscriptionRule(pulumi.CustomResource):
             })
         ```
 
-        Deprecated: azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.

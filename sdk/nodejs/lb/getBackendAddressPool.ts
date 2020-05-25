@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  * export const backendAddressPoolId = exampleBackendAddressPool.then(exampleBackendAddressPool => exampleBackendAddressPool.id);
  * export const backendIpConfigurationIds = data.azurerm_lb_backend_address_pool.beap.backend_ip_configurations.map(__item => __item.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
     if (!opts) {

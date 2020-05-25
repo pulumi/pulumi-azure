@@ -15,27 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const current = pulumi.output(azure.core.getClientConfig({ async: true }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     version: "12.0",
  * });
- * const exampleActiveDirectoryAdministrator = new azure.sql.ActiveDirectoryAdministrator("example", {
- *     login: "sqladmin",
- *     objectId: current.objectId,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleActiveDirectoryAdministrator = new azure.sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", {
  *     serverName: exampleSqlServer.name,
- *     tenantId: current.tenantId,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     login: "sqladmin",
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.markdown.
  */
 export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     /**

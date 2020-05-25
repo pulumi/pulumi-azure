@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "resourceGroup",
  * }, { async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/backup_policy_vm.markdown.
  */
 export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyVMResult> {
     if (!opts) {

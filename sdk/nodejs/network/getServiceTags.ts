@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * });
  * export const addressPrefixes = data.azurerm_service_tags.example.address_prefixes;
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_service_tags.html.markdown.
  */
 export function getServiceTags(args: GetServiceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTagsResult> {
     if (!opts) {

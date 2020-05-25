@@ -20,8 +20,6 @@ import * as utilities from "../utilities";
  * export const primaryAccessKey = example.then(example => example.primaryAccessKey);
  * export const hostname = example.then(example => example.hostname);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     if (!opts) {

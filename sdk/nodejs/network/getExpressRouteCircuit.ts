@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  * export const expressRouteCircuitId = example.then(example => example.id);
  * export const serviceKey = example.then(example => example.serviceKey);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
     if (!opts) {

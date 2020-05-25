@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/vpn_gateway.html.markdown.
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**

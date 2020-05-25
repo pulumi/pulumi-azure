@@ -44,8 +44,6 @@ import * as utilities from "../utilities";
  *     frontendIpConfigurationName: "PublicIPAddress",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_rule.html.markdown.
  */
 export class NatRule extends pulumi.CustomResource {
     /**

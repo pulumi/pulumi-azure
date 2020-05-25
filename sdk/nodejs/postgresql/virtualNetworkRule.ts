@@ -52,8 +52,6 @@ import * as utilities from "../utilities";
  *     ignoreMissingVnetServiceEndpoint: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_virtual_network_rule.html.markdown.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

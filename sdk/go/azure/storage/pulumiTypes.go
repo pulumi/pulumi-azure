@@ -168,7 +168,7 @@ type AccountBlobPropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
 	// A list of http headers that are allowed to be executed by the origin. Valid options are
-	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -194,7 +194,7 @@ type AccountBlobPropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
 	// A list of http headers that are allowed to be executed by the origin. Valid options are
-	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -262,7 +262,7 @@ func (o AccountBlobPropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArray
 }
 
 // A list of http headers that are allowed to be executed by the origin. Valid options are
-// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountBlobPropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -1148,7 +1148,7 @@ type AccountQueuePropertiesCorsRule struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
 	// A list of http headers that are allowed to be executed by the origin. Valid options are
-	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -1174,7 +1174,7 @@ type AccountQueuePropertiesCorsRuleArgs struct {
 	// A list of headers that are allowed to be a part of the cross-origin request.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
 	// A list of http headers that are allowed to be executed by the origin. Valid options are
-	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// A list of origin domains that will be allowed by CORS.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
@@ -1242,7 +1242,7 @@ func (o AccountQueuePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArra
 }
 
 // A list of http headers that are allowed to be executed by the origin. Valid options are
-// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
 func (o AccountQueuePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountQueuePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -2782,11 +2782,11 @@ func (o ShareAclArrayOutput) Index(i pulumi.IntInput) ShareAclOutput {
 }
 
 type ShareAclAccessPolicy struct {
-	// The ISO8061 UTC time at which this Access Policy should be valid until.
+	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry string `pulumi:"expiry"`
-	// The permissions which should associated with this Shared Identifier.
+	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
 	Permissions string `pulumi:"permissions"`
-	// The ISO8061 UTC time at which this Access Policy should be valid from.
+	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start string `pulumi:"start"`
 }
 
@@ -2803,11 +2803,11 @@ type ShareAclAccessPolicyInput interface {
 }
 
 type ShareAclAccessPolicyArgs struct {
-	// The ISO8061 UTC time at which this Access Policy should be valid until.
+	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry pulumi.StringInput `pulumi:"expiry"`
-	// The permissions which should associated with this Shared Identifier.
+	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
 	Permissions pulumi.StringInput `pulumi:"permissions"`
-	// The ISO8061 UTC time at which this Access Policy should be valid from.
+	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start pulumi.StringInput `pulumi:"start"`
 }
 
@@ -2863,17 +2863,17 @@ func (o ShareAclAccessPolicyOutput) ToShareAclAccessPolicyOutputWithContext(ctx 
 	return o
 }
 
-// The ISO8061 UTC time at which this Access Policy should be valid until.
+// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
-// The permissions which should associated with this Shared Identifier.
+// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
 func (o ShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
-// The ISO8061 UTC time at which this Access Policy should be valid from.
+// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 func (o ShareAclAccessPolicyOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
 }

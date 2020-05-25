@@ -12,13 +12,11 @@ import (
 
 // Manages an EventGrid Event Subscription
 //
-//
-//
 // Deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
 	EventhubEndpoint EventSubscriptionEventhubEndpointPtrOutput `pulumi:"eventhubEndpoint"`
@@ -40,7 +38,7 @@ type EventSubscription struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrOutput `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrOutput `pulumi:"subjectFilter"`
-	// Specifies the name of the topic to associate with the event subscription.
+	// (Optional) Specifies the name of the topic to associate with the event subscription.
 	TopicName pulumi.StringOutput `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
@@ -77,7 +75,7 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
-	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
 	EventhubEndpoint *EventSubscriptionEventhubEndpoint `pulumi:"eventhubEndpoint"`
@@ -99,14 +97,14 @@ type eventSubscriptionState struct {
 	StorageQueueEndpoint *EventSubscriptionStorageQueueEndpoint `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
-	// Specifies the name of the topic to associate with the event subscription.
+	// (Optional) Specifies the name of the topic to associate with the event subscription.
 	TopicName *string `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
 type EventSubscriptionState struct {
-	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// A `eventhubEndpoint` block as defined below.
 	EventhubEndpoint EventSubscriptionEventhubEndpointPtrInput
@@ -128,7 +126,7 @@ type EventSubscriptionState struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrInput
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
-	// Specifies the name of the topic to associate with the event subscription.
+	// (Optional) Specifies the name of the topic to associate with the event subscription.
 	TopicName pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
@@ -139,7 +137,7 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
-	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
 	EventhubEndpoint *EventSubscriptionEventhubEndpoint `pulumi:"eventhubEndpoint"`
@@ -161,7 +159,7 @@ type eventSubscriptionArgs struct {
 	StorageQueueEndpoint *EventSubscriptionStorageQueueEndpoint `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
-	// Specifies the name of the topic to associate with the event subscription.
+	// (Optional) Specifies the name of the topic to associate with the event subscription.
 	TopicName *string `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
@@ -169,7 +167,7 @@ type eventSubscriptionArgs struct {
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
-	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// A `eventhubEndpoint` block as defined below.
 	EventhubEndpoint EventSubscriptionEventhubEndpointPtrInput
@@ -191,7 +189,7 @@ type EventSubscriptionArgs struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrInput
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
-	// Specifies the name of the topic to associate with the event subscription.
+	// (Optional) Specifies the name of the topic to associate with the event subscription.
 	TopicName pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput

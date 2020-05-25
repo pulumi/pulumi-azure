@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-//
 // Deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
 func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*GetRoleDefinitionResult, error) {
 	var rv GetRoleDefinitionResult

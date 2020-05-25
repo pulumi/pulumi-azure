@@ -42,8 +42,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_srv_record.html.markdown.
  */
 export class SRVRecord extends pulumi.CustomResource {
     /**

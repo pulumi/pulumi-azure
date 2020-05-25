@@ -51,8 +51,6 @@ import * as utilities from "../utilities";
  *     weight: 100,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
  */
 /** @deprecated azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint */
 export class Endpoint extends pulumi.CustomResource {

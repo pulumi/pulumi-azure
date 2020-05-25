@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  * }));
  * export const id = exampleAlertRule.then(exampleAlertRule => exampleAlertRule.id);
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sentinel_alert_rule.html.markdown.
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
     if (!opts) {

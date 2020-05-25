@@ -99,8 +99,6 @@ class Profile(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.

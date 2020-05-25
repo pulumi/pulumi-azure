@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./domain";
+export * from "./domainTopic";
 export * from "./eventSubscription";
 export * from "./getTopic";
 export * from "./topic";

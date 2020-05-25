@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
  */
 /** @deprecated azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain */
 export class Domain extends pulumi.CustomResource {
@@ -71,7 +69,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly inputMappingFields!: pulumi.Output<outputs.eventhub.DomainInputMappingFields | undefined>;
     /**
-     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
     public readonly inputSchema!: pulumi.Output<string | undefined>;
     /**
@@ -168,7 +166,7 @@ export interface DomainState {
      */
     readonly inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
     /**
-     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
     readonly inputSchema?: pulumi.Input<string>;
     /**
@@ -210,7 +208,7 @@ export interface DomainArgs {
      */
     readonly inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
     /**
-     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
     readonly inputSchema?: pulumi.Input<string>;
     /**

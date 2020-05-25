@@ -14,7 +14,7 @@ import (
 type FunctionAppSlot struct {
 	pulumi.CustomResourceState
 
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App Slot.
 	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
@@ -28,7 +28,7 @@ type FunctionAppSlot struct {
 	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
-	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrOutput `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
 	Enabled         pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -49,14 +49,16 @@ type FunctionAppSlot struct {
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App Slot.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSlotSiteConfigOutput `pulumi:"siteConfig"`
-	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredentials         FunctionAppSlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
-	StorageAccountAccessKey pulumi.StringOutput                      `pulumi:"storageAccountAccessKey"`
-	StorageAccountName      pulumi.StringOutput                      `pulumi:"storageAccountName"`
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+	SiteCredentials FunctionAppSlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
+	// The access key which will be used to access the backend storage account for the Function App.
+	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -106,7 +108,7 @@ func GetFunctionAppSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionAppSlot resources.
 type functionAppSlotState struct {
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App Slot.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -120,7 +122,7 @@ type functionAppSlotState struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname *string `pulumi:"defaultHostname"`
-	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
 	Enabled         *bool   `pulumi:"enabled"`
@@ -141,14 +143,16 @@ type functionAppSlotState struct {
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App Slot.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSlotSiteConfig `pulumi:"siteConfig"`
-	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredentials         []FunctionAppSlotSiteCredential `pulumi:"siteCredentials"`
-	StorageAccountAccessKey *string                         `pulumi:"storageAccountAccessKey"`
-	StorageAccountName      *string                         `pulumi:"storageAccountName"`
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+	SiteCredentials []FunctionAppSlotSiteCredential `pulumi:"siteCredentials"`
+	// The access key which will be used to access the backend storage account for the Function App.
+	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	StorageAccountName *string `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -156,7 +160,7 @@ type functionAppSlotState struct {
 }
 
 type FunctionAppSlotState struct {
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App Slot.
 	AppServicePlanId pulumi.StringPtrInput
 	// A key-value pair of App Settings.
 	AppSettings pulumi.StringMapInput
@@ -170,7 +174,7 @@ type FunctionAppSlotState struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringPtrInput
-	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
 	// Is the Function App enabled?
 	Enabled         pulumi.BoolPtrInput
@@ -191,14 +195,16 @@ type FunctionAppSlotState struct {
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App Slot.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSlotSiteConfigPtrInput
-	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredentials         FunctionAppSlotSiteCredentialArrayInput
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+	SiteCredentials FunctionAppSlotSiteCredentialArrayInput
+	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	StorageAccountName      pulumi.StringPtrInput
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	StorageAccountName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -210,7 +216,7 @@ func (FunctionAppSlotState) ElementType() reflect.Type {
 }
 
 type functionAppSlotArgs struct {
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App Slot.
 	AppServicePlanId string `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
@@ -222,7 +228,7 @@ type functionAppSlotArgs struct {
 	ConnectionStrings []FunctionAppSlotConnectionString `pulumi:"connectionStrings"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
-	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
 	Enabled         *bool  `pulumi:"enabled"`
@@ -237,12 +243,14 @@ type functionAppSlotArgs struct {
 	Name *string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType *string `pulumi:"osType"`
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App Slot.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
-	SiteConfig              *FunctionAppSlotSiteConfig `pulumi:"siteConfig"`
-	StorageAccountAccessKey string                     `pulumi:"storageAccountAccessKey"`
-	StorageAccountName      string                     `pulumi:"storageAccountName"`
+	SiteConfig *FunctionAppSlotSiteConfig `pulumi:"siteConfig"`
+	// The access key which will be used to access the backend storage account for the Function App.
+	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	StorageAccountName string `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
@@ -251,7 +259,7 @@ type functionAppSlotArgs struct {
 
 // The set of arguments for constructing a FunctionAppSlot resource.
 type FunctionAppSlotArgs struct {
-	// The ID of the App Service Plan within which to create this Function App.
+	// The ID of the App Service Plan within which to create this Function App Slot.
 	AppServicePlanId pulumi.StringInput
 	// A key-value pair of App Settings.
 	AppSettings pulumi.StringMapInput
@@ -263,7 +271,7 @@ type FunctionAppSlotArgs struct {
 	ConnectionStrings FunctionAppSlotConnectionStringArrayInput
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
-	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
 	// Is the Function App enabled?
 	Enabled         pulumi.BoolPtrInput
@@ -278,12 +286,14 @@ type FunctionAppSlotArgs struct {
 	Name pulumi.StringPtrInput
 	// A string indicating the Operating System type for this function app.
 	OsType pulumi.StringPtrInput
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App Slot.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
-	SiteConfig              FunctionAppSlotSiteConfigPtrInput
+	SiteConfig FunctionAppSlotSiteConfigPtrInput
+	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringInput
-	StorageAccountName      pulumi.StringInput
+	// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+	StorageAccountName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The runtime version associated with the Function App. Defaults to `~1`.

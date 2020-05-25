@@ -220,8 +220,6 @@ import * as utilities from "../utilities";
  * }});
  * // ...
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
  */
 export class ScaleSet extends pulumi.CustomResource {
     /**

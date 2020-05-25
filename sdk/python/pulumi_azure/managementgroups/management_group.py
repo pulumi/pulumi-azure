@@ -56,8 +56,6 @@ class ManagementGroup(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.

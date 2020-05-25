@@ -15,7 +15,7 @@ namespace Pulumi.Azure.AppService
     public partial class FunctionAppSlot : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Function App.
+        /// The ID of the App Service Plan within which to create this Function App Slot.
         /// </summary>
         [Output("appServicePlanId")]
         public Output<string> AppServicePlanId { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+        /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
         /// </summary>
         [Output("enableBuiltinLogging")]
         public Output<bool?> EnableBuiltinLogging { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App.
+        /// The name of the resource group in which to create the Function App Slot.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -132,14 +132,20 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.FunctionAppSlotSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.FunctionAppSlotSiteCredential>> SiteCredentials { get; private set; } = null!;
 
+        /// <summary>
+        /// The access key which will be used to access the backend storage account for the Function App.
+        /// </summary>
         [Output("storageAccountAccessKey")]
         public Output<string> StorageAccountAccessKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
@@ -202,7 +208,7 @@ namespace Pulumi.Azure.AppService
     public sealed class FunctionAppSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Function App.
+        /// The ID of the App Service Plan within which to create this Function App Slot.
         /// </summary>
         [Input("appServicePlanId", required: true)]
         public Input<string> AppServicePlanId { get; set; } = null!;
@@ -250,7 +256,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? DailyMemoryTimeQuota { get; set; }
 
         /// <summary>
-        /// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+        /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
         /// </summary>
         [Input("enableBuiltinLogging")]
         public Input<bool>? EnableBuiltinLogging { get; set; }
@@ -295,7 +301,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App.
+        /// The name of the resource group in which to create the Function App Slot.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -306,9 +312,15 @@ namespace Pulumi.Azure.AppService
         [Input("siteConfig")]
         public Input<Inputs.FunctionAppSlotSiteConfigArgs>? SiteConfig { get; set; }
 
+        /// <summary>
+        /// The access key which will be used to access the backend storage account for the Function App.
+        /// </summary>
         [Input("storageAccountAccessKey", required: true)]
         public Input<string> StorageAccountAccessKey { get; set; } = null!;
 
+        /// <summary>
+        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
 
@@ -338,7 +350,7 @@ namespace Pulumi.Azure.AppService
     public sealed class FunctionAppSlotState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service Plan within which to create this Function App.
+        /// The ID of the App Service Plan within which to create this Function App Slot.
         /// </summary>
         [Input("appServicePlanId")]
         public Input<string>? AppServicePlanId { get; set; }
@@ -392,7 +404,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+        /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
         /// </summary>
         [Input("enableBuiltinLogging")]
         public Input<bool>? EnableBuiltinLogging { get; set; }
@@ -455,7 +467,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App.
+        /// The name of the resource group in which to create the Function App Slot.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -470,7 +482,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.FunctionAppSlotSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
         /// </summary>
         public InputList<Inputs.FunctionAppSlotSiteCredentialGetArgs> SiteCredentials
         {
@@ -478,9 +490,15 @@ namespace Pulumi.Azure.AppService
             set => _siteCredentials = value;
         }
 
+        /// <summary>
+        /// The access key which will be used to access the backend storage account for the Function App.
+        /// </summary>
         [Input("storageAccountAccessKey")]
         public Input<string>? StorageAccountAccessKey { get; set; }
 
+        /// <summary>
+        /// The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 

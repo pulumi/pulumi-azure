@@ -109,8 +109,6 @@ class Topic(pulumi.CustomResource):
         ```
 
 
-        Deprecated: azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the

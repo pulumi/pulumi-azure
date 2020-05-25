@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
  */
 /** @deprecated azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile */
 export class Profile extends pulumi.CustomResource {

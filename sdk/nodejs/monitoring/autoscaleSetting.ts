@@ -86,77 +86,76 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleScaleSet = new azure.compute.ScaleSet("example", {});
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {});
+ * // ...
+ * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     notification: {
- *         email: {
- *             customEmails: ["admin@contoso.com"],
- *             sendToSubscriptionAdministrator: true,
- *             sendToSubscriptionCoAdministrator: true,
- *         },
- *     },
- *     profiles: [{
- *         capacity: {
- *             default: 1,
- *             maximum: 10,
- *             minimum: 1,
- *         },
+ *     targetResourceId: exampleScaleSet.id,
+ *     profile: [{
  *         name: "Weekends",
+ *         capacity: {
+ *             "default": 1,
+ *             minimum: 1,
+ *             maximum: 10,
+ *         },
+ *         rule: [
+ *             {
+ *                 metric_trigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "GreaterThan",
+ *                     threshold: 90,
+ *                 },
+ *                 scale_action: {
+ *                     direction: "Increase",
+ *                     type: "ChangeCount",
+ *                     value: "2",
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *             {
+ *                 metric_trigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "LessThan",
+ *                     threshold: 10,
+ *                 },
+ *                 scale_action: {
+ *                     direction: "Decrease",
+ *                     type: "ChangeCount",
+ *                     value: "2",
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *         ],
  *         recurrence: {
+ *             frequency: "Week",
+ *             timezone: "Pacific Standard Time",
  *             days: [
  *                 "Saturday",
  *                 "Sunday",
  *             ],
- *             frequency: "Week",
- *             hours: 12,
- *             minutes: 0,
- *             timezone: "Pacific Standard Time",
+ *             hours: [12],
+ *             minutes: [0],
  *         },
- *         rules: [
- *             {
- *                 metricTrigger: {
- *                     metricName: "Percentage CPU",
- *                     metricResourceId: exampleScaleSet.id,
- *                     operator: "GreaterThan",
- *                     statistic: "Average",
- *                     threshold: 90,
- *                     timeAggregation: "Average",
- *                     timeGrain: "PT1M",
- *                     timeWindow: "PT5M",
- *                 },
- *                 scaleAction: {
- *                     cooldown: "PT1M",
- *                     direction: "Increase",
- *                     type: "ChangeCount",
- *                     value: 2,
- *                 },
- *             },
- *             {
- *                 metricTrigger: {
- *                     metricName: "Percentage CPU",
- *                     metricResourceId: exampleScaleSet.id,
- *                     operator: "LessThan",
- *                     statistic: "Average",
- *                     threshold: 10,
- *                     timeAggregation: "Average",
- *                     timeGrain: "PT1M",
- *                     timeWindow: "PT5M",
- *                 },
- *                 scaleAction: {
- *                     cooldown: "PT1M",
- *                     direction: "Decrease",
- *                     type: "ChangeCount",
- *                     value: 2,
- *                 },
- *             },
- *         ],
  *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     targetResourceId: exampleScaleSet.id,
+ *     notification: {
+ *         email: {
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *             customEmails: ["admin@contoso.com"],
+ *         },
+ *     },
  * });
  * ```
  *
@@ -234,8 +233,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_autoscale_setting.html.markdown.
  */
 export class AutoscaleSetting extends pulumi.CustomResource {
     /**

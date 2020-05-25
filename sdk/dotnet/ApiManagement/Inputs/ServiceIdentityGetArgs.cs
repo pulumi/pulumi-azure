@@ -12,6 +12,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class ServiceIdentityGetArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
@@ -25,10 +37,10 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. At this time the only supported value is`SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceIdentityGetArgs()
         {

@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *     frequency: "Day",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
  */
 export class TriggerSchedule extends pulumi.CustomResource {
     /**

@@ -48,15 +48,13 @@ class Database(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="B_Gen5_2",
-            storage_profile={
-                "storageMb": 51200,
-                "backupRetentionDays": 7,
-                "geoRedundantBackup": "Disabled",
-            },
+            storage_mb=51200,
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=False,
             administrator_login="acctestun",
             administrator_login_password="H@Sh1CoR3!",
             version="10.2",
-            ssl_enforcement="Enabled")
+            ssl_enforcement_enabled=True)
         example_database = azure.mariadb.Database("exampleDatabase",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,

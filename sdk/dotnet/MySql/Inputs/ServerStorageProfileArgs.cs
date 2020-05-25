@@ -12,9 +12,6 @@ namespace Pulumi.Azure.MySql.Inputs
 
     public sealed class ServerStorageProfileArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
-        /// </summary>
         [Input("autoGrow")]
         public Input<string>? AutoGrow { get; set; }
 
@@ -24,17 +21,14 @@ namespace Pulumi.Azure.MySql.Inputs
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
 
-        /// <summary>
-        /// Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
-        /// </summary>
         [Input("geoRedundantBackup")]
         public Input<string>? GeoRedundantBackup { get; set; }
 
         /// <summary>
         /// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
         /// </summary>
-        [Input("storageMb", required: true)]
-        public Input<int> StorageMb { get; set; } = null!;
+        [Input("storageMb")]
+        public Input<int>? StorageMb { get; set; }
 
         public ServerStorageProfileArgs()
         {

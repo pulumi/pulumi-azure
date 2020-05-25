@@ -31,6 +31,10 @@ class Volume(pulumi.CustomResource):
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
+    mount_ip_addresses: pulumi.Output[list]
+    """
+    A list of IPv4 Addresses which should be used to mount the volume.
+    """
     name: pulumi.Output[str]
     """
     The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -186,6 +190,7 @@ class Volume(pulumi.CustomResource):
             if volume_path is None:
                 raise TypeError("Missing required property 'volume_path'")
             __props__['volume_path'] = volume_path
+            __props__['mount_ip_addresses'] = None
         super(Volume, __self__).__init__(
             'azure:netapp/volume:Volume',
             resource_name,
@@ -193,7 +198,7 @@ class Volume(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, export_policy_rules=None, location=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, tags=None, volume_path=None):
+    def get(resource_name, id, opts=None, account_name=None, export_policy_rules=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, tags=None, volume_path=None):
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -204,6 +209,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[list] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[list] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
@@ -232,6 +238,7 @@ class Volume(pulumi.CustomResource):
         __props__["account_name"] = account_name
         __props__["export_policy_rules"] = export_policy_rules
         __props__["location"] = location
+        __props__["mount_ip_addresses"] = mount_ip_addresses
         __props__["name"] = name
         __props__["pool_name"] = pool_name
         __props__["protocols"] = protocols

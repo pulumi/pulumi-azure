@@ -13,18 +13,12 @@ class GetMariaDbServerResult:
     """
     A collection of values returned by getMariaDbServer.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, fqdn=None, id=None, location=None, name=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profiles=None, tags=None, version=None):
+    def __init__(__self__, administrator_login=None, fqdn=None, id=None, location=None, name=None, resource_group_name=None, sku_name=None, ssl_enforcement=None, storage_profiles=None, tags=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         __self__.administrator_login = administrator_login
         """
         The Administrator Login for the MariaDB Server.
-        """
-        if administrator_login_password and not isinstance(administrator_login_password, str):
-            raise TypeError("Expected argument 'administrator_login_password' to be a str")
-        __self__.administrator_login_password = administrator_login_password
-        """
-        The password associated with the `administrator_login` for the MariaDB Server.
         """
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
@@ -88,7 +82,6 @@ class AwaitableGetMariaDbServerResult(GetMariaDbServerResult):
             yield self
         return GetMariaDbServerResult(
             administrator_login=self.administrator_login,
-            administrator_login_password=self.administrator_login_password,
             fqdn=self.fqdn,
             id=self.id,
             location=self.location,
@@ -135,7 +128,6 @@ def get_maria_db_server(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetMariaDbServerResult(
         administrator_login=__ret__.get('administratorLogin'),
-        administrator_login_password=__ret__.get('administratorLoginPassword'),
         fqdn=__ret__.get('fqdn'),
         id=__ret__.get('id'),
         location=__ret__.get('location'),

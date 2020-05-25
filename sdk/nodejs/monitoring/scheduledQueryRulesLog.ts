@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
  *
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_scheduled_query_rules_log.html.markdown.
  */
 export class ScheduledQueryRulesLog extends pulumi.CustomResource {
     /**

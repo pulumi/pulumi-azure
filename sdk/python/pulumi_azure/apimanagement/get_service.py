@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
+    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identities=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         __self__.additional_locations = additional_locations
@@ -43,6 +43,12 @@ class GetServiceResult:
         __self__.id = id
         """
         The provider-assigned unique ID for this managed resource.
+        """
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        __self__.identities = identities
+        """
+        (Optional) An `identity` block as defined below.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -121,6 +127,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             gateway_url=self.gateway_url,
             hostname_configurations=self.hostname_configurations,
             id=self.id,
+            identities=self.identities,
             location=self.location,
             management_api_url=self.management_api_url,
             name=self.name,
@@ -173,6 +180,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
         gateway_url=__ret__.get('gatewayUrl'),
         hostname_configurations=__ret__.get('hostnameConfigurations'),
         id=__ret__.get('id'),
+        identities=__ret__.get('identities'),
         location=__ret__.get('location'),
         management_api_url=__ret__.get('managementApiUrl'),
         name=__ret__.get('name'),

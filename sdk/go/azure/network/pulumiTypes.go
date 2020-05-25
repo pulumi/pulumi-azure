@@ -4164,7 +4164,7 @@ type ApplicationGatewayWafConfiguration struct {
 	MaxRequestBodySizeKb *int `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled?  Defaults to `true`.
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall.
+	// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
 	RuleSetType *string `pulumi:"ruleSetType"`
 	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
 	RuleSetVersion string `pulumi:"ruleSetVersion"`
@@ -4197,7 +4197,7 @@ type ApplicationGatewayWafConfigurationArgs struct {
 	MaxRequestBodySizeKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled?  Defaults to `true`.
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall.
+	// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
 	RuleSetType pulumi.StringPtrInput `pulumi:"ruleSetType"`
 	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
 	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
@@ -4320,7 +4320,7 @@ func (o ApplicationGatewayWafConfigurationOutput) RequestBodyCheck() pulumi.Bool
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall.
+// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *string { return v.RuleSetType }).(pulumi.StringPtrOutput)
 }
@@ -4418,7 +4418,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RequestBodyCheck() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall.
+// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {

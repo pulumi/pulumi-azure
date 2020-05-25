@@ -21,20 +21,20 @@ import * as utilities from "../utilities";
  * const exampleServer = new azure.mysql.Server("exampleServer", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
- *     storage_profile: {
- *         storageMb: 5120,
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *     },
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     skuName: "B_Gen5_2",
+ *     storageMb: 5120,
  *     version: "5.7",
- *     sslEnforcement: "Enabled",
+ *     autoGrowEnabled: true,
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackupEnabled: true,
+ *     infrastructureEncryptionEnabled: true,
+ *     publicNetworkAccessEnabled: false,
+ *     sslEnforcementEnabled: true,
+ *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_server.html.markdown.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -64,17 +64,41 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The Administrator Login for the MySQL Server. Changing this forces a new resource to be created.
+     * The Administrator Login for the MySQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The Password associated with the `administratorLogin` for the MySQL Server.
+     * The Password associated with the `administratorLogin` for the MySQL Server. Required when `createMode` is `Default`.
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string>;
+    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     */
+    public readonly autoGrowEnabled!: pulumi.Output<boolean>;
+    /**
+     * Backup retention days for the server, supported values are between `7` and `35` days.
+     */
+    public readonly backupRetentionDays!: pulumi.Output<number>;
+    /**
+     * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+     */
+    public readonly createMode!: pulumi.Output<string | undefined>;
+    /**
+     * For creation modes other than `Default`, the source server ID to use.
+     */
+    public readonly creationSourceServerId!: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the MySQL Server.
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
+     * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+     */
+    public readonly geoRedundantBackupEnabled!: pulumi.Output<boolean>;
+    /**
+     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -84,7 +108,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Should public network access be allowed for this server? Defaults to `true`.
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -92,16 +116,26 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+     */
+    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
      */
     public readonly skuName!: pulumi.Output<string>;
-    /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-     */
     public readonly sslEnforcement!: pulumi.Output<string>;
     /**
-     * A `storageProfile` block as defined below.
+     * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
+    public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
+    /**
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+     */
+    public readonly sslMinimalTlsVersionEnforced!: pulumi.Output<string | undefined>;
+    /**
+     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+     */
+    public readonly storageMb!: pulumi.Output<number>;
     public readonly storageProfile!: pulumi.Output<outputs.mysql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
@@ -126,47 +160,55 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
+            inputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
+            inputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
+            inputs["createMode"] = state ? state.createMode : undefined;
+            inputs["creationSourceServerId"] = state ? state.creationSourceServerId : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
+            inputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["sslEnforcement"] = state ? state.sslEnforcement : undefined;
+            inputs["sslEnforcementEnabled"] = state ? state.sslEnforcementEnabled : undefined;
+            inputs["sslMinimalTlsVersionEnforced"] = state ? state.sslMinimalTlsVersionEnforced : undefined;
+            inputs["storageMb"] = state ? state.storageMb : undefined;
             inputs["storageProfile"] = state ? state.storageProfile : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if (!args || args.administratorLogin === undefined) {
-                throw new Error("Missing required property 'administratorLogin'");
-            }
-            if (!args || args.administratorLoginPassword === undefined) {
-                throw new Error("Missing required property 'administratorLoginPassword'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.skuName === undefined) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.sslEnforcement === undefined) {
-                throw new Error("Missing required property 'sslEnforcement'");
-            }
-            if (!args || args.storageProfile === undefined) {
-                throw new Error("Missing required property 'storageProfile'");
-            }
             if (!args || args.version === undefined) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
+            inputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
+            inputs["createMode"] = args ? args.createMode : undefined;
+            inputs["creationSourceServerId"] = args ? args.creationSourceServerId : undefined;
+            inputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
+            inputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["sslEnforcement"] = args ? args.sslEnforcement : undefined;
+            inputs["sslEnforcementEnabled"] = args ? args.sslEnforcementEnabled : undefined;
+            inputs["sslMinimalTlsVersionEnforced"] = args ? args.sslMinimalTlsVersionEnforced : undefined;
+            inputs["storageMb"] = args ? args.storageMb : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -188,17 +230,41 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * The Administrator Login for the MySQL Server. Changing this forces a new resource to be created.
+     * The Administrator Login for the MySQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
     readonly administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the MySQL Server.
+     * The Password associated with the `administratorLogin` for the MySQL Server. Required when `createMode` is `Default`.
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     */
+    readonly autoGrowEnabled?: pulumi.Input<boolean>;
+    /**
+     * Backup retention days for the server, supported values are between `7` and `35` days.
+     */
+    readonly backupRetentionDays?: pulumi.Input<number>;
+    /**
+     * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+     */
+    readonly createMode?: pulumi.Input<string>;
+    /**
+     * For creation modes other than `Default`, the source server ID to use.
+     */
+    readonly creationSourceServerId?: pulumi.Input<string>;
     /**
      * The FQDN of the MySQL Server.
      */
     readonly fqdn?: pulumi.Input<string>;
+    /**
+     * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+     */
+    readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -208,7 +274,7 @@ export interface ServerState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Should public network access be allowed for this server? Defaults to `true`.
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -216,16 +282,26 @@ export interface ServerState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+     */
+    readonly restorePointInTime?: pulumi.Input<string>;
+    /**
      * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
      */
     readonly skuName?: pulumi.Input<string>;
-    /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-     */
     readonly sslEnforcement?: pulumi.Input<string>;
     /**
-     * A `storageProfile` block as defined below.
+     * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
+    readonly sslEnforcementEnabled?: pulumi.Input<boolean>;
+    /**
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+     */
+    readonly sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
+    /**
+     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+     */
+    readonly storageMb?: pulumi.Input<number>;
     readonly storageProfile?: pulumi.Input<inputs.mysql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
@@ -242,13 +318,37 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * The Administrator Login for the MySQL Server. Changing this forces a new resource to be created.
+     * The Administrator Login for the MySQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
-    readonly administratorLogin: pulumi.Input<string>;
+    readonly administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administratorLogin` for the MySQL Server.
+     * The Password associated with the `administratorLogin` for the MySQL Server. Required when `createMode` is `Default`.
      */
-    readonly administratorLoginPassword: pulumi.Input<string>;
+    readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     */
+    readonly autoGrowEnabled?: pulumi.Input<boolean>;
+    /**
+     * Backup retention days for the server, supported values are between `7` and `35` days.
+     */
+    readonly backupRetentionDays?: pulumi.Input<number>;
+    /**
+     * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+     */
+    readonly createMode?: pulumi.Input<string>;
+    /**
+     * For creation modes other than `Default`, the source server ID to use.
+     */
+    readonly creationSourceServerId?: pulumi.Input<string>;
+    /**
+     * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+     */
+    readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -258,7 +358,7 @@ export interface ServerArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Should public network access be allowed for this server? Defaults to `true`.
+     * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
     readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -266,17 +366,27 @@ export interface ServerArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
+     */
+    readonly restorePointInTime?: pulumi.Input<string>;
+    /**
      * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
      */
     readonly skuName: pulumi.Input<string>;
+    readonly sslEnforcement?: pulumi.Input<string>;
     /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
+     * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
-    readonly sslEnforcement: pulumi.Input<string>;
+    readonly sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
-     * A `storageProfile` block as defined below.
+     * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
      */
-    readonly storageProfile: pulumi.Input<inputs.mysql.ServerStorageProfile>;
+    readonly sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
+    /**
+     * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+     */
+    readonly storageMb?: pulumi.Input<number>;
+    readonly storageProfile?: pulumi.Input<inputs.mysql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */

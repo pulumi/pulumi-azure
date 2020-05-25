@@ -62,8 +62,6 @@ import * as utilities from "../utilities";
  * });
  * //(Optional)
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_eventhub_data_connection.html.markdown.
  */
 export class EventhubDataConnection extends pulumi.CustomResource {
     /**

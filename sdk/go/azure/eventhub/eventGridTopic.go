@@ -14,8 +14,6 @@ import (
 //
 // > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
 //
-//
-//
 // Deprecated: azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic
 type EventGridTopic struct {
 	pulumi.CustomResourceState
