@@ -70,34 +70,18 @@ class Provider(pulumi.ProviderResource):
             __props__ = dict()
 
             __props__['auxiliary_tenant_ids'] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(json.dumps) if auxiliary_tenant_ids is not None else None
-            if client_certificate_password is None:
-                client_certificate_password = (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PASSWORD', 'ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
             __props__['client_certificate_password'] = client_certificate_password
-            if client_certificate_path is None:
-                client_certificate_path = (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PATH', 'ARM_CLIENT_CERTIFICATE_PATH') or '')
             __props__['client_certificate_path'] = client_certificate_path
-            if client_id is None:
-                client_id = (utilities.get_env('AZURE_CLIENT_ID', 'ARM_CLIENT_ID') or '')
             __props__['client_id'] = client_id
-            if client_secret is None:
-                client_secret = (utilities.get_env('AZURE_CLIENT_SECRET', 'ARM_CLIENT_SECRET') or '')
             __props__['client_secret'] = client_secret
             __props__['disable_correlation_request_id'] = pulumi.Output.from_input(disable_correlation_request_id).apply(json.dumps) if disable_correlation_request_id is not None else None
-            if disable_terraform_partner_id is None:
-                disable_terraform_partner_id = (utilities.get_env_bool('ARM_DISABLE_TERRAFORM_PARTNER_ID') or True)
             __props__['disable_terraform_partner_id'] = pulumi.Output.from_input(disable_terraform_partner_id).apply(json.dumps) if disable_terraform_partner_id is not None else None
             if environment is None:
                 environment = (utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment
             __props__['features'] = pulumi.Output.from_input(features).apply(json.dumps) if features is not None else None
-            if msi_endpoint is None:
-                msi_endpoint = (utilities.get_env('ARM_MSI_ENDPOINT') or '')
             __props__['msi_endpoint'] = msi_endpoint
-            if partner_id is None:
-                partner_id = (utilities.get_env('ARM_PARTNER_ID') or '')
             __props__['partner_id'] = partner_id
-            if skip_credentials_validation is None:
-                skip_credentials_validation = (utilities.get_env_bool('ARM_SKIP_CREDENTIALS_VALIDATION') or False)
             __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(json.dumps) if skip_credentials_validation is not None else None
             if skip_provider_registration is None:
                 skip_provider_registration = (utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
@@ -108,11 +92,7 @@ class Provider(pulumi.ProviderResource):
             if subscription_id is None:
                 subscription_id = (utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__['subscription_id'] = subscription_id
-            if tenant_id is None:
-                tenant_id = (utilities.get_env('AZURE_TENANT_ID', 'ARM_TENANT_ID') or '')
             __props__['tenant_id'] = tenant_id
-            if use_msi is None:
-                use_msi = (utilities.get_env_bool('ARM_USE_MSI') or False)
             __props__['use_msi'] = pulumi.Output.from_input(use_msi).apply(json.dumps) if use_msi is not None else None
         super(Provider, __self__).__init__(
             'azure',
