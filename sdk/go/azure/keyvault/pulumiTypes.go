@@ -1735,9 +1735,7 @@ func (o CertificateCertificatePolicyOutput) IssuerParameters() CertificateCertif
 
 // A `keyProperties` block as defined below.
 func (o CertificateCertificatePolicyOutput) KeyProperties() CertificateCertificatePolicyKeyPropertiesOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicy) CertificateCertificatePolicyKeyProperties {
-		return v.KeyProperties
-	}).(CertificateCertificatePolicyKeyPropertiesOutput)
+	return o.ApplyT(func(v CertificateCertificatePolicy) CertificateCertificatePolicyKeyProperties { return v.KeyProperties }).(CertificateCertificatePolicyKeyPropertiesOutput)
 }
 
 // A `lifetimeAction` block as defined below.
