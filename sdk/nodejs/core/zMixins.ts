@@ -15,6 +15,7 @@
 import { ServiceClientCredentials } from "@azure/ms-rest-js";
 import * as msnodeauth from "@azure/ms-rest-nodeauth";
 import * as config from "../config";
+import * as utilities from "../utilities";
 
 /**
  * Obtain credentials to query Azure Management API. Depending on the environment configuration, this
@@ -23,11 +24,17 @@ import * as config from "../config";
 export async function getServiceClientCredentials(): Promise<ServiceClientCredentials> {
     let credentials: ServiceClientCredentials;
 
-    if (config.useMsi) {
-        credentials = await msnodeauth.loginWithAppServiceMSI({ msiEndpoint: config.msiEndpoint });
-    } else if (config.clientId && config.clientSecret && config.tenantId) {
+    const useMsi = config.useMsi || utilities.getEnvBoolean("ARM_USE_MSI");
+    const msiEndpoint = config.msiEndpoint || utilities.getEnv("ARM_MSI_ENDPOINT");
+    const clientId = config.clientId || utilities.getEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID");
+    const clientSecret = config.clientSecret || utilities.getEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET");
+    const tenantId = config.tenantId || utilities.getEnv("AZURE_TENANT_ID", "ARM_TENANT_ID");
+
+    if (useMsi) {
+        credentials = await msnodeauth.loginWithAppServiceMSI({ msiEndpoint: msiEndpoint });
+    } else if (clientId && clientSecret && tenantId) {
         credentials = await msnodeauth.loginWithServicePrincipalSecret(
-            config.clientId, config.clientSecret, config.tenantId);
+            clientId, clientSecret, tenantId);
     } else {
         // `create()` will throw an error if the Az CLI is not installed or `az login` has never been run.
         credentials = await msnodeauth.AzureCliCredentials.create();
