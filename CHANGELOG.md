@@ -7,7 +7,10 @@ CHANGELOG
   **PLEASE NOTE:** `azure.mariaDb.getMariaDbServer` 'administratorLoginPassword' has been removed. This was
   a property that was never available from the Azure API so was never accessible.
 * Use FunctionAppIdentity for packagedfunctionapp args
-* Set `FUNCTIONS_WORKER_RUNTIME` as part of `appservice.CallbackFunctionApp` and `appservice.MultiCallbackFunctionApp` -  [ #548 ]
+* Set `FUNCTIONS_WORKER_RUNTIME` as part of `appservice.CallbackFunctionApp` and `appservice.MultiCallbackFunctionApp`
+  [#548](https://github.com/pulumi/pulumi-azure/pull/548)
+* Avoid storing config from the environment into the state
+  [#577](https://github.com/pulumi/pulumi-azure/pull/577)
 
 ---
 
