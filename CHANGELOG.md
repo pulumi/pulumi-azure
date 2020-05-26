@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.6.0 (2020-05-26)
 * Upgrade to pulumi-terraform-bridge v2.3.3
 * Update to v2.11.0 of the AzureRM Terraform Provider  
   **PLEASE NOTE:** `azure.mariaDb.getMariaDbServer` 'administratorLoginPassword' has been removed. This was
@@ -11,8 +16,6 @@ CHANGELOG
   [#548](https://github.com/pulumi/pulumi-azure/pull/548)
 * Avoid storing config from the environment into the state
   [#577](https://github.com/pulumi/pulumi-azure/pull/577)
-
----
 
 ## 3.5.2 (2020-05-14)
 * Add retries on Function App host keys
