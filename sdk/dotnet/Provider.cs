@@ -152,20 +152,10 @@ namespace Pulumi.Azure
 
         public ProviderArgs()
         {
-            ClientCertificatePassword = Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") ?? "";
-            ClientCertificatePath = Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") ?? "";
-            ClientId = Utilities.GetEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID") ?? "";
-            ClientSecret = Utilities.GetEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") ?? "";
-            DisableTerraformPartnerId = Utilities.GetEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") ?? true;
             Environment = Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
-            MsiEndpoint = Utilities.GetEnv("ARM_MSI_ENDPOINT") ?? "";
-            PartnerId = Utilities.GetEnv("ARM_PARTNER_ID") ?? "";
-            SkipCredentialsValidation = Utilities.GetEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") ?? false;
             SkipProviderRegistration = Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
             StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";
-            TenantId = Utilities.GetEnv("AZURE_TENANT_ID", "ARM_TENANT_ID") ?? "";
-            UseMsi = Utilities.GetEnvBoolean("ARM_USE_MSI") ?? false;
         }
     }
 }

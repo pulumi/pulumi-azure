@@ -23,32 +23,8 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
-	if args.ClientCertificatePassword == nil {
-		args.ClientCertificatePassword = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD").(string))
-	}
-	if args.ClientCertificatePath == nil {
-		args.ClientCertificatePath = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH").(string))
-	}
-	if args.ClientId == nil {
-		args.ClientId = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_ID", "ARM_CLIENT_ID").(string))
-	}
-	if args.ClientSecret == nil {
-		args.ClientSecret = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET").(string))
-	}
-	if args.DisableTerraformPartnerId == nil {
-		args.DisableTerraformPartnerId = pulumi.BoolPtr(getEnvOrDefault(true, parseEnvBool, "ARM_DISABLE_TERRAFORM_PARTNER_ID").(bool))
-	}
 	if args.Environment == nil {
 		args.Environment = pulumi.StringPtr(getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string))
-	}
-	if args.MsiEndpoint == nil {
-		args.MsiEndpoint = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_MSI_ENDPOINT").(string))
-	}
-	if args.PartnerId == nil {
-		args.PartnerId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_PARTNER_ID").(string))
-	}
-	if args.SkipCredentialsValidation == nil {
-		args.SkipCredentialsValidation = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_CREDENTIALS_VALIDATION").(bool))
 	}
 	if args.SkipProviderRegistration == nil {
 		args.SkipProviderRegistration = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool))
@@ -58,12 +34,6 @@ func NewProvider(ctx *pulumi.Context,
 	}
 	if args.SubscriptionId == nil {
 		args.SubscriptionId = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string))
-	}
-	if args.TenantId == nil {
-		args.TenantId = pulumi.StringPtr(getEnvOrDefault("", nil, "AZURE_TENANT_ID", "ARM_TENANT_ID").(string))
-	}
-	if args.UseMsi == nil {
-		args.UseMsi = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI").(bool))
 	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azure", name, args, &resource, opts...)

@@ -13,24 +13,24 @@ __config__ = pulumi.Config('azure')
 
 auxiliary_tenant_ids = __config__.get('auxiliaryTenantIds')
 
-client_certificate_password = __config__.get('clientCertificatePassword') or (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PASSWORD', 'ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
+client_certificate_password = __config__.get('clientCertificatePassword')
 """
 The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
 Certificate
 """
 
-client_certificate_path = __config__.get('clientCertificatePath') or (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PATH', 'ARM_CLIENT_CERTIFICATE_PATH') or '')
+client_certificate_path = __config__.get('clientCertificatePath')
 """
 The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
 Principal using a Client Certificate.
 """
 
-client_id = __config__.get('clientId') or (utilities.get_env('AZURE_CLIENT_ID', 'ARM_CLIENT_ID') or '')
+client_id = __config__.get('clientId')
 """
 The Client ID which should be used.
 """
 
-client_secret = __config__.get('clientSecret') or (utilities.get_env('AZURE_CLIENT_SECRET', 'ARM_CLIENT_SECRET') or '')
+client_secret = __config__.get('clientSecret')
 """
 The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 """
@@ -40,7 +40,7 @@ disable_correlation_request_id = __config__.get('disableCorrelationRequestId')
 This will disable the x-ms-correlation-request-id header.
 """
 
-disable_terraform_partner_id = __config__.get('disableTerraformPartnerId') or (utilities.get_env_bool('ARM_DISABLE_TERRAFORM_PARTNER_ID') or True)
+disable_terraform_partner_id = __config__.get('disableTerraformPartnerId')
 """
 This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 """
@@ -55,18 +55,18 @@ features = __config__.get('features')
 
 location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
 
-msi_endpoint = __config__.get('msiEndpoint') or (utilities.get_env('ARM_MSI_ENDPOINT') or '')
+msi_endpoint = __config__.get('msiEndpoint')
 """
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 automatically.
 """
 
-partner_id = __config__.get('partnerId') or (utilities.get_env('ARM_PARTNER_ID') or '')
+partner_id = __config__.get('partnerId')
 """
 A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 """
 
-skip_credentials_validation = __config__.get('skipCredentialsValidation') or (utilities.get_env_bool('ARM_SKIP_CREDENTIALS_VALIDATION') or False)
+skip_credentials_validation = __config__.get('skipCredentialsValidation')
 """
 This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
 """
@@ -87,12 +87,12 @@ subscription_id = __config__.get('subscriptionId') or (utilities.get_env('ARM_SU
 The Subscription ID which should be used.
 """
 
-tenant_id = __config__.get('tenantId') or (utilities.get_env('AZURE_TENANT_ID', 'ARM_TENANT_ID') or '')
+tenant_id = __config__.get('tenantId')
 """
 The Tenant ID which should be used.
 """
 
-use_msi = __config__.get('useMsi') or (utilities.get_env_bool('ARM_USE_MSI') or False)
+use_msi = __config__.get('useMsi')
 """
 Allowed Managed Service Identity be used for Authentication.
 """
