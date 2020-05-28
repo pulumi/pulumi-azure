@@ -11,6 +11,37 @@ namespace Pulumi.Azure.PowerBI
 {
     /// <summary>
     /// Manages a PowerBI Embedded.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleEmbedded = new Azure.PowerBI.Embedded("exampleEmbedded", new Azure.PowerBI.EmbeddedArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "A1",
+    ///             Administrators = 
+    ///             {
+    ///                 "azsdktest@microsoft.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Embedded : Pulumi.CustomResource
     {

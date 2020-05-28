@@ -73,8 +73,8 @@ class ResourceGroupExport(pulumi.CustomResource):
             recurrence_period_start="2020-08-18T00:00:00Z",
             recurrence_period_end="2020-09-18T00:00:00Z",
             delivery_info={
-                "storageAccountId": example_account.id,
-                "containerName": "examplecontainer",
+                "storage_account_id": example_account.id,
+                "container_name": "examplecontainer",
                 "rootFolderPath": "/root/updated",
             },
             query={

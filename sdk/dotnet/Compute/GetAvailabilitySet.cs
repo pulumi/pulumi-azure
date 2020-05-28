@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Compute
         /// Use this data source to access information about an existing Availability Set.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Compute.GetAvailabilitySet.InvokeAsync(new Azure.Compute.GetAvailabilitySetArgs
+        ///         {
+        ///             Name = "tf-appsecuritygroup",
+        ///             ResourceGroupName = "my-resource-group",
+        ///         }));
+        ///         this.AvailabilitySetId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("availabilitySetId")]
+        ///     public Output&lt;string&gt; AvailabilitySetId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)

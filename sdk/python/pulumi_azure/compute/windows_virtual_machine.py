@@ -238,7 +238,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ip_configuration=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
                 "privateIpAddressAllocation": "Dynamic",
             }])
         example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine",
@@ -250,7 +250,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "MicrosoftWindowsServer",

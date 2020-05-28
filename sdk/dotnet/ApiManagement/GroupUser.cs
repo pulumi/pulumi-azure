@@ -11,6 +11,37 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management User Assignment to a Group.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleUser = Output.Create(Azure.ApiManagement.GetUser.InvokeAsync(new Azure.ApiManagement.GetUserArgs
+    ///         {
+    ///             UserId = "my-user",
+    ///             ApiManagementName = "example-apim",
+    ///             ResourceGroupName = "search-service",
+    ///         }));
+    ///         var exampleGroupUser = new Azure.ApiManagement.GroupUser("exampleGroupUser", new Azure.ApiManagement.GroupUserArgs
+    ///         {
+    ///             UserId = exampleUser.Apply(exampleUser =&gt; exampleUser.Id),
+    ///             GroupName = "example-group",
+    ///             ResourceGroupName = exampleUser.Apply(exampleUser =&gt; exampleUser.ResourceGroupName),
+    ///             ApiManagementName = exampleUser.Apply(exampleUser =&gt; exampleUser.ApiManagementName),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GroupUser : Pulumi.CustomResource
     {

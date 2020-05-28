@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Batch
         /// Use this data source to access information about an existing Batch Account.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Batch.GetAccount.InvokeAsync(new Azure.Batch.GetAccountArgs
+        ///         {
+        ///             Name = "testbatchaccount",
+        ///             ResourceGroupName = "test",
+        ///         }));
+        ///         this.PoolAllocationMode = example.Apply(example =&gt; example.PoolAllocationMode);
+        ///     }
+        /// 
+        ///     [Output("poolAllocationMode")]
+        ///     public Output&lt;string&gt; PoolAllocationMode { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)

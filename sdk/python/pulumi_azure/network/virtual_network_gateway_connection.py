@@ -164,7 +164,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             ip_configuration=[{
                 "publicIpAddressId": example_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }])
         onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection",
             location=example_resource_group.location,
@@ -203,7 +203,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             ip_configuration=[{
                 "publicIpAddressId": us_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
-                "subnetId": us_gateway.id,
+                "subnet_id": us_gateway.id,
             }])
         europe_resource_group = azure.core.ResourceGroup("europeResourceGroup", location="West Europe")
         europe_virtual_network = azure.network.VirtualNetwork("europeVirtualNetwork",
@@ -227,7 +227,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             ip_configuration=[{
                 "publicIpAddressId": europe_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
-                "subnetId": europe_gateway.id,
+                "subnet_id": europe_gateway.id,
             }])
         us_to_europe = azure.network.VirtualNetworkGatewayConnection("usToEurope",
             location=us_resource_group.location,

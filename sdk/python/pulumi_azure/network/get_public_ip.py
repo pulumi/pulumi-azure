@@ -142,9 +142,9 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
         resource_group_name=example_resource_group.name,
         ip_configuration=[{
             "name": "testconfiguration1",
-            "subnetId": example_subnet.id,
+            "subnet_id": example_subnet.id,
             "privateIpAddressAllocation": "Static",
-            "privateIpAddress": "10.0.2.5",
+            "private_ip_address": "10.0.2.5",
             "publicIpAddressId": example_public_ip.id,
         }])
     example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",

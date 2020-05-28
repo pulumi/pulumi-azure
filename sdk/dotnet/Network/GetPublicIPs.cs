@@ -15,6 +15,28 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about a set of existing Public IP Addresses.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetPublicIPs.InvokeAsync(new Azure.Network.GetPublicIPsArgs
+        ///         {
+        ///             Attached = false,
+        ///             ResourceGroupName = "pip-test",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIPsResult> InvokeAsync(GetPublicIPsArgs args, InvokeOptions? options = null)

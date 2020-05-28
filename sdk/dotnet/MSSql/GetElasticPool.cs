@@ -15,6 +15,32 @@ namespace Pulumi.Azure.MSSql
         /// Use this data source to access information about an existing SQL elastic pool.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.MSSql.GetElasticPool.InvokeAsync(new Azure.MSSql.GetElasticPoolArgs
+        ///         {
+        ///             Name = "mssqlelasticpoolname",
+        ///             ResourceGroupName = "example-resources",
+        ///             ServerName = "example-sql-server",
+        ///         }));
+        ///         this.ElasticpoolId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("elasticpoolId")]
+        ///     public Output&lt;string&gt; ElasticpoolId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)

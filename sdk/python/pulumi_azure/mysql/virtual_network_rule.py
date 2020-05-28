@@ -59,8 +59,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
             ssl_enforcement="Enabled",
             sku_name="GP_Gen5_2",
             storage_profile={
-                "storageMb": 5120,
-                "backupRetentionDays": 7,
+                "storage_mb": 5120,
+                "backup_retention_days": 7,
                 "geoRedundantBackup": "Disabled",
             })
         example_virtual_network_rule = azure.mysql.VirtualNetworkRule("exampleVirtualNetworkRule",

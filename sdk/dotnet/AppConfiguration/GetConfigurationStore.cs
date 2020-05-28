@@ -15,6 +15,31 @@ namespace Pulumi.Azure.AppConfiguration
         /// Use this data source to access information about an existing App Configuration.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppConfiguration.GetConfigurationStore.InvokeAsync(new Azure.AppConfiguration.GetConfigurationStoreArgs
+        ///         {
+        ///             Name = "existing",
+        ///             ResourceGroupName = "existing",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)

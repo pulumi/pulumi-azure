@@ -15,6 +15,31 @@ namespace Pulumi.Azure.ServiceBus
         /// Use this data source to access information about an existing ServiceBus Namespace.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ServiceBus.GetNamespace.InvokeAsync(new Azure.ServiceBus.GetNamespaceArgs
+        ///         {
+        ///             Name = "examplenamespace",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.Location = example.Apply(example =&gt; example.Location);
+        ///     }
+        /// 
+        ///     [Output("location")]
+        ///     public Output&lt;string&gt; Location { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)

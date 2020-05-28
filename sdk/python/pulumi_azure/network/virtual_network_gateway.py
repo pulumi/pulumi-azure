@@ -160,10 +160,10 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                 "name": "vnetGatewayConfig",
                 "publicIpAddressId": example_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }],
             vpn_client_configuration={
-                "addressSpaces": ["10.2.0.0/24"],
+                "address_spaces": ["10.2.0.0/24"],
                 "root_certificate": [{
                     "name": "DigiCert-Federated-ID-Root-CA",
                     "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn

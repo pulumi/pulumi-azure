@@ -11,6 +11,66 @@ namespace Pulumi.Azure.PostgreSql
 {
     /// <summary>
     /// Manages a Firewall Rule for a PostgreSQL Server
+    /// 
+    /// ## Example Usage (Single IP Address)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new Azure.PostgreSql.FirewallRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             StartIpAddress = "40.112.8.12",
+    ///             EndIpAddress = "40.112.8.12",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example Usage (IP Range)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new Azure.PostgreSql.FirewallRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             StartIpAddress = "40.112.0.0",
+    ///             EndIpAddress = "40.112.255.255",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

@@ -11,6 +11,75 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS CNAME Records within Azure DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new Azure.Dns.CNameRecordArgs
+    ///         {
+    ///             ZoneName = exampleZone.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             Record = "contoso.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example Usage (Alias Record)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var target = new Azure.Dns.CNameRecord("target", new Azure.Dns.CNameRecordArgs
+    ///         {
+    ///             ZoneName = exampleZone.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             Record = "contoso.com",
+    ///         });
+    ///         var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new Azure.Dns.CNameRecordArgs
+    ///         {
+    ///             ZoneName = exampleZone.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             TargetResourceId = target.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CNameRecord : Pulumi.CustomResource
     {

@@ -11,6 +11,38 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages a Shared Image Gallery.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new Azure.Compute.SharedImageGalleryArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Description = "Shared images and things.",
+    ///             Tags = 
+    ///             {
+    ///                 { "Hello", "There" },
+    ///                 { "World", "Example" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SharedImageGallery : Pulumi.CustomResource
     {

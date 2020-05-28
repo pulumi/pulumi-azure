@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about an existing Network Interface.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetNetworkInterface.InvokeAsync(new Azure.Network.GetNetworkInterfaceArgs
+        ///         {
+        ///             Name = "acctest-nic",
+        ///             ResourceGroupName = "networking",
+        ///         }));
+        ///         this.NetworkInterfaceId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("networkInterfaceId")]
+        ///     public Output&lt;string&gt; NetworkInterfaceId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)

@@ -11,6 +11,55 @@ namespace Pulumi.Azure.SignalR
 {
     /// <summary>
     /// Manages an Azure SignalR service.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleService = new Azure.SignalR.Service("exampleService", new Azure.SignalR.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
+    ///             {
+    ///                 Name = "Free_F1",
+    ///                 Capacity = 1,
+    ///             },
+    ///             Cors = 
+    ///             {
+    ///                 new Azure.SignalR.Inputs.ServiceCorArgs
+    ///                 {
+    ///                     AllowedOrigins = 
+    ///                     {
+    ///                         "http://www.example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Features = 
+    ///             {
+    ///                 new Azure.SignalR.Inputs.ServiceFeatureArgs
+    ///                 {
+    ///                     Flag = "ServiceMode",
+    ///                     Value = "Default",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

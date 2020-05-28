@@ -93,9 +93,9 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             },
             traffic_analytics={
                 "enabled": True,
-                "workspaceId": test_analytics_workspace.workspace_id,
+                "workspace_id": test_analytics_workspace.workspace_id,
                 "workspaceRegion": test_analytics_workspace.location,
-                "workspaceResourceId": test_analytics_workspace.id,
+                "workspace_resource_id": test_analytics_workspace.id,
                 "intervalInMinutes": 10,
             })
         ```

@@ -15,6 +15,32 @@ namespace Pulumi.Azure.EventHub
         /// Use this data source to access information about an existing EventHub.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventHub.GetEventHub.InvokeAsync(new Azure.EventHub.GetEventHubArgs
+        ///         {
+        ///             Name = "search-eventhub",
+        ///             ResourceGroupName = "search-service",
+        ///             NamespaceName = "search-eventhubns",
+        ///         }));
+        ///         this.EventhubId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("eventhubId")]
+        ///     public Output&lt;string&gt; EventhubId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)

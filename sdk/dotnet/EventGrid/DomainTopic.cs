@@ -11,6 +11,41 @@ namespace Pulumi.Azure.EventGrid
 {
     /// <summary>
     /// Manages an EventGrid Domain Topic
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US 2",
+    ///         });
+    ///         var exampleDomain = new Azure.EventGrid.Domain("exampleDomain", new Azure.EventGrid.DomainArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///         var exampleDomainTopic = new Azure.EventGrid.DomainTopic("exampleDomainTopic", new Azure.EventGrid.DomainTopicArgs
+    ///         {
+    ///             DomainName = exampleDomain.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DomainTopic : Pulumi.CustomResource
     {

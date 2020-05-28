@@ -11,6 +11,44 @@ namespace Pulumi.Azure.Iot
 {
     /// <summary>
     /// Manages an IotHub Shared Access Policy
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///             {
+    ///                 Name = "S1",
+    ///                 Capacity = "1",
+    ///             },
+    ///         });
+    ///         var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy("exampleSharedAccessPolicy", new Azure.Iot.SharedAccessPolicyArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IothubName = exampleIoTHub.Name,
+    ///             RegistryRead = true,
+    ///             RegistryWrite = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SharedAccessPolicy : Pulumi.CustomResource
     {

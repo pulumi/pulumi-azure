@@ -11,6 +11,35 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var example_public = new Azure.Dns.Zone("example-public", new Azure.Dns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = example.Name,
+    ///         });
+    ///         var example_private = new Azure.PrivateDns.Zone("example-private", new Azure.PrivateDns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Zone : Pulumi.CustomResource
     {

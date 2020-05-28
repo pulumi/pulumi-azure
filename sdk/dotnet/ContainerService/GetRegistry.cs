@@ -15,6 +15,31 @@ namespace Pulumi.Azure.ContainerService
         /// Use this data source to access information about an existing Container Registry.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ContainerService.GetRegistry.InvokeAsync(new Azure.ContainerService.GetRegistryArgs
+        ///         {
+        ///             Name = "testacr",
+        ///             ResourceGroupName = "test",
+        ///         }));
+        ///         this.LoginServer = example.Apply(example =&gt; example.LoginServer);
+        ///     }
+        /// 
+        ///     [Output("loginServer")]
+        ///     public Output&lt;string&gt; LoginServer { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)

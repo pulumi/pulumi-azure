@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Cdn
         /// Use this data source to access information about an existing CDN Profile.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Cdn.GetProfile.InvokeAsync(new Azure.Cdn.GetProfileArgs
+        ///         {
+        ///             Name = "myfirstcdnprofile",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.CdnProfileId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("cdnProfileId")]
+        ///     public Output&lt;string&gt; CdnProfileId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)

@@ -11,6 +11,52 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API within an API Management Service.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PublisherName = "My Company",
+    ///             PublisherEmail = "company@exmaple.com",
+    ///             SkuName = "Developer_1",
+    ///         });
+    ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApiManagementName = exampleService.Name,
+    ///             Revision = "1",
+    ///             DisplayName = "Example API",
+    ///             Path = "example",
+    ///             Protocols = 
+    ///             {
+    ///                 "https",
+    ///             },
+    ///             Import = new Azure.ApiManagement.Inputs.ApiImportArgs
+    ///             {
+    ///                 ContentFormat = "swagger-link-json",
+    ///                 ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Api : Pulumi.CustomResource
     {

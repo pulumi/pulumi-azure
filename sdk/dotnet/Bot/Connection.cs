@@ -11,6 +11,44 @@ namespace Pulumi.Azure.Bot
 {
     /// <summary>
     /// Manages a Bot Connection.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
+    ///         {
+    ///             Location = "global",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "F0",
+    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
+    ///         });
+    ///         var exampleConnection = new Azure.Bot.Connection("exampleConnection", new Azure.Bot.ConnectionArgs
+    ///         {
+    ///             BotName = exampleChannelsRegistration.Name,
+    ///             Location = exampleChannelsRegistration.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServiceProviderName = "box",
+    ///             ClientId = "exampleId",
+    ///             ClientSecret = "exampleSecret",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Connection : Pulumi.CustomResource
     {

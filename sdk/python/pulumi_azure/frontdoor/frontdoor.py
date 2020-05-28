@@ -164,7 +164,7 @@ class Frontdoor(pulumi.CustomResource):
                     "Https",
                 ],
                 "patternsToMatches": ["/*"],
-                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "frontend_endpoints": ["exampleFrontendEndpoint1"],
                 "forwarding_configuration": {
                     "forwardingProtocol": "MatchRequest",
                     "backendPoolName": "exampleBackendBing",
@@ -189,7 +189,7 @@ class Frontdoor(pulumi.CustomResource):
             }],
             frontend_endpoint=[{
                 "name": "exampleFrontendEndpoint1",
-                "hostName": "example-FrontDoor.azurefd.net",
+                "host_name": "example-FrontDoor.azurefd.net",
                 "customHttpsProvisioningEnabled": False,
             }])
         ```

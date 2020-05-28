@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleBatch/accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
+ * const exampleBatch_accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     poolAllocationMode: "BatchService",

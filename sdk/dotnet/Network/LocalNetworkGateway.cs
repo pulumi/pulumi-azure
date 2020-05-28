@@ -11,6 +11,37 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a local network gateway connection over which specific connections can be configured.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var home = new Azure.Network.LocalNetworkGateway("home", new Azure.Network.LocalNetworkGatewayArgs
+    ///         {
+    ///             ResourceGroupName = example.Name,
+    ///             Location = example.Location,
+    ///             GatewayAddress = "12.13.14.15",
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LocalNetworkGateway : Pulumi.CustomResource
     {

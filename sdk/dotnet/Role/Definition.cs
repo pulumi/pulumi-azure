@@ -11,6 +11,44 @@ namespace Pulumi.Azure.Role
 {
     /// <summary>
     /// Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primary = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
+    ///         var example = new Azure.Authorization.RoleDefinition("example", new Azure.Authorization.RoleDefinitionArgs
+    ///         {
+    ///             Scope = primary.Apply(primary =&gt; primary.Id),
+    ///             Description = "This is a custom role created",
+    ///             Permissions = 
+    ///             {
+    ///                 new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     NotActions = {},
+    ///                 },
+    ///             },
+    ///             AssignableScopes = 
+    ///             {
+    ///                 primary.Apply(primary =&gt; primary.Id),
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [Obsolete(@"azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition")]
     public partial class Definition : Pulumi.CustomResource

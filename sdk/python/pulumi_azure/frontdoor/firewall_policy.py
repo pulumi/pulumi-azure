@@ -180,7 +180,7 @@ class FirewallPolicy(pulumi.CustomResource):
                         {
                             "ruleGroupName": "PHP",
                             "rule": [{
-                                "ruleId": "933100",
+                                "rule_id": "933100",
                                 "enabled": False,
                                 "action": "Block",
                             }],
@@ -193,7 +193,7 @@ class FirewallPolicy(pulumi.CustomResource):
                                 "selector": "really_not_suspicious",
                             }],
                             "rule": [{
-                                "ruleId": "942200",
+                                "rule_id": "942200",
                                 "action": "Block",
                                 "exclusion": [{
                                     "matchVariable": "QueryStringArgNames",

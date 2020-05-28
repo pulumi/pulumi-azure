@@ -75,7 +75,7 @@ class Profile(pulumi.CustomResource):
                 "name": "examplecnic",
                 "ip_configuration": [{
                     "name": "exampleipconfig",
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             })
         ```

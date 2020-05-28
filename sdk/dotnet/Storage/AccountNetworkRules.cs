@@ -17,6 +17,75 @@ namespace Pulumi.Azure.Storage
     /// &gt; **NOTE:** Only one `azure.storage.AccountNetworkRules` can be tied to an `azure.storage.Account`. Spurious changes will occur if more than `azure.storage.AccountNetworkRules` is tied to the same `azure.storage.Account`.
     /// 
     /// &gt; **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.2.0/24",
+    ///             ServiceEndpoints = 
+    ///             {
+    ///                 "Microsoft.Storage",
+    ///             },
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "staging" },
+    ///             },
+    ///         });
+    ///         var test = new Azure.Storage.AccountNetworkRules("test", new Azure.Storage.AccountNetworkRulesArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             StorageAccountName = azurerm_storage_account.Test.Name,
+    ///             DefaultAction = "Allow",
+    ///             IpRules = 
+    ///             {
+    ///                 "127.0.0.1",
+    ///             },
+    ///             VirtualNetworkSubnetIds = 
+    ///             {
+    ///                 azurerm_subnet.Test.Id,
+    ///             },
+    ///             Bypasses = 
+    ///             {
+    ///                 "Metrics",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AccountNetworkRules : Pulumi.CustomResource
     {

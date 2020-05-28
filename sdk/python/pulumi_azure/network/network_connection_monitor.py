@@ -82,7 +82,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ip_configuration=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
                 "privateIpAddressAllocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
@@ -99,16 +99,16 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             storage_os_disk={
                 "name": "osdisk",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
+                "create_option": "FromImage",
                 "managedDiskType": "Standard_LRS",
             },
             os_profile={
-                "computerName": "cmtest-vm",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "cmtest-vm",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_extension = azure.compute.Extension("exampleExtension",
             location=example_resource_group.location,
@@ -123,7 +123,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             network_watcher_name=example_network_watcher.name,
             source={
-                "virtualMachineId": example_virtual_machine.id,
+                "virtual_machine_id": example_virtual_machine.id,
             },
             destination={
                 "address": "exmaple.com",

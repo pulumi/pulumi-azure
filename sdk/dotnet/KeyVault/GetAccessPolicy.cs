@@ -15,6 +15,30 @@ namespace Pulumi.Azure.KeyVault
         /// Use this data source to access information about the permissions from the Management Key Vault Templates.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var contributor = Output.Create(Azure.KeyVault.GetAccessPolicy.InvokeAsync(new Azure.KeyVault.GetAccessPolicyArgs
+        ///         {
+        ///             Name = "Key Management",
+        ///         }));
+        ///         this.AccessPolicyKeyPermissions = contributor.Apply(contributor =&gt; contributor.KeyPermissions);
+        ///     }
+        /// 
+        ///     [Output("accessPolicyKeyPermissions")]
+        ///     public Output&lt;string&gt; AccessPolicyKeyPermissions { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)

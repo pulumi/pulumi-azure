@@ -11,6 +11,46 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management AAD Identity Provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PublisherName = "My Company",
+    ///             PublisherEmail = "company@mycompany.io",
+    ///             SkuName = "Developer_1",
+    ///         });
+    ///         var exampleIdentityProviderAad = new Azure.ApiManagement.IdentityProviderAad("exampleIdentityProviderAad", new Azure.ApiManagement.IdentityProviderAadArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApiManagementName = exampleService.Name,
+    ///             ClientId = "00000000-0000-0000-0000-000000000000",
+    ///             ClientSecret = "00000000000000000000000000000000",
+    ///             AllowedTenants = 
+    ///             {
+    ///                 "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class IdentityProviderAad : Pulumi.CustomResource
     {

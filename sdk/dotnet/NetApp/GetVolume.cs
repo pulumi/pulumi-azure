@@ -13,6 +13,31 @@ namespace Pulumi.Azure.NetApp
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Volume.
+        /// 
+        /// ## NetApp Volume Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.NetApp.GetVolume.InvokeAsync(new Azure.NetApp.GetVolumeArgs
+        ///         {
+        ///             ResourceGroupName = "acctestRG",
+        ///             AccountName = "acctestnetappaccount",
+        ///             PoolName = "acctestnetapppool",
+        ///             Name = "example-volume",
+        ///         }));
+        ///         this.NetappVolumeId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("netappVolumeId")]
+        ///     public Output&lt;string&gt; NetappVolumeId { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());

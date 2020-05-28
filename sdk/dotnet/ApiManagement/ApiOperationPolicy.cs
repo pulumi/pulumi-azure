@@ -11,6 +11,41 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management API Operation Policy
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new Azure.ApiManagement.ApiOperationArgs
+    ///         {
+    ///         });
+    ///         //...
+    ///         var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("exampleApiOperationPolicy", new Azure.ApiManagement.ApiOperationPolicyArgs
+    ///         {
+    ///             ApiName = exampleApiOperation.ApiName,
+    ///             ApiManagementName = exampleApiOperation.ApiManagementName,
+    ///             ResourceGroupName = exampleApiOperation.ResourceGroupName,
+    ///             OperationId = exampleApiOperation.OperationId,
+    ///             XmlContent = @"&lt;policies&gt;
+    ///   &lt;inbound&gt;
+    ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
+    ///   &lt;/inbound&gt;
+    /// &lt;/policies&gt;
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ApiOperationPolicy : Pulumi.CustomResource
     {

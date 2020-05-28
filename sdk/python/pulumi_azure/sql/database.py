@@ -155,10 +155,10 @@ class Database(pulumi.CustomResource):
             location="West US",
             server_name=example_sql_server.name,
             extended_auditing_policy={
-                "storageEndpoint": example_account.primary_blob_endpoint,
-                "storageAccountAccessKey": example_account.primary_access_key,
+                "storage_endpoint": example_account.primary_blob_endpoint,
+                "storage_account_access_key": example_account.primary_access_key,
                 "storageAccountAccessKeyIsSecondary": True,
-                "retentionInDays": 6,
+                "retention_in_days": 6,
             },
             tags={
                 "environment": "production",

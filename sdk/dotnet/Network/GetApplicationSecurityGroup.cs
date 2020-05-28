@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about an existing Application Security Group.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetApplicationSecurityGroup.InvokeAsync(new Azure.Network.GetApplicationSecurityGroupArgs
+        ///         {
+        ///             Name = "tf-appsecuritygroup",
+        ///             ResourceGroupName = "my-resource-group",
+        ///         }));
+        ///         this.ApplicationSecurityGroupId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("applicationSecurityGroupId")]
+        ///     public Output&lt;string&gt; ApplicationSecurityGroupId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationSecurityGroupResult> InvokeAsync(GetApplicationSecurityGroupArgs args, InvokeOptions? options = null)

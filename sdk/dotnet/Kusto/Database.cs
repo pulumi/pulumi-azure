@@ -11,6 +11,45 @@ namespace Pulumi.Azure.Kusto
 {
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Database
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "East US",
+    ///         });
+    ///         var cluster = new Azure.Kusto.Cluster("cluster", new Azure.Kusto.ClusterArgs
+    ///         {
+    ///             Location = rg.Location,
+    ///             ResourceGroupName = rg.Name,
+    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///             {
+    ///                 Name = "Standard_D13_v2",
+    ///                 Capacity = 2,
+    ///             },
+    ///         });
+    ///         var database = new Azure.Kusto.Database("database", new Azure.Kusto.DatabaseArgs
+    ///         {
+    ///             ResourceGroupName = rg.Name,
+    ///             Location = rg.Location,
+    ///             ClusterName = cluster.Name,
+    ///             HotCachePeriod = "P7D",
+    ///             SoftDeletePeriod = "P31D",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {

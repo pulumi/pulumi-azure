@@ -15,6 +15,30 @@ namespace Pulumi.Azure.Management
         /// Use this data source to access information about an existing Management Group.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
+        ///         {
+        ///             Name = "00000000-0000-0000-0000-000000000000",
+        ///         }));
+        ///         this.DisplayName = example.Apply(example =&gt; example.DisplayName);
+        ///     }
+        /// 
+        ///     [Output("displayName")]
+        ///     public Output&lt;string&gt; DisplayName { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs? args = null, InvokeOptions? options = null)

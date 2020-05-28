@@ -15,6 +15,31 @@ namespace Pulumi.Azure.DataFactory
         /// Use this data source to access information about an existing Azure Data Factory (Version 2).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DataFactory.GetFactory.InvokeAsync(new Azure.DataFactory.GetFactoryArgs
+        ///         {
+        ///             Name = azurerm_data_factory.Example.Name,
+        ///             ResourceGroupName = azurerm_data_factory.Example.Resource_group_name,
+        ///         }));
+        ///         this.DataFactoryId = azurerm_data_factory.Example.Id;
+        ///     }
+        /// 
+        ///     [Output("dataFactoryId")]
+        ///     public Output&lt;string&gt; DataFactoryId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFactoryResult> InvokeAsync(GetFactoryArgs args, InvokeOptions? options = null)

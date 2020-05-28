@@ -11,6 +11,36 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages an Availability Set for Virtual Machines.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAvailabilitySet = new Azure.Compute.AvailabilitySet("exampleAvailabilitySet", new Azure.Compute.AvailabilitySetArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AvailabilitySet : Pulumi.CustomResource
     {

@@ -11,6 +11,65 @@ namespace Pulumi.Azure.Healthcare
 {
     /// <summary>
     /// Manages a Healthcare Service.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Healthcare.Service("example", new Azure.Healthcare.ServiceArgs
+    ///         {
+    ///             AccessPolicyObjectIds = 
+    ///             {
+    ///                 "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ///             },
+    ///             AuthenticationConfiguration = new Azure.Healthcare.Inputs.ServiceAuthenticationConfigurationArgs
+    ///             {
+    ///                 Audience = "https://azurehealthcareapis.com/",
+    ///                 Authority = "https://login.microsoftonline.com/$$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+    ///                 SmartProxyEnabled = "true",
+    ///             },
+    ///             CorsConfiguration = new Azure.Healthcare.Inputs.ServiceCorsConfigurationArgs
+    ///             {
+    ///                 AllowCredentials = "true",
+    ///                 AllowedHeaders = 
+    ///                 {
+    ///                     "x-tempo-*",
+    ///                     "x-tempo2-*",
+    ///                 },
+    ///                 AllowedMethods = 
+    ///                 {
+    ///                     "GET",
+    ///                     "PUT",
+    ///                 },
+    ///                 AllowedOrigins = 
+    ///                 {
+    ///                     "http://www.example.com",
+    ///                     "http://www.example2.com",
+    ///                 },
+    ///                 MaxAgeInSeconds = "500",
+    ///             },
+    ///             CosmosdbThroughput = "2000",
+    ///             Kind = "fhir-R4",
+    ///             Location = "westus2",
+    ///             ResourceGroupName = "sample-resource-group",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "testenv" },
+    ///                 { "purpose", "AcceptanceTests" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Service : Pulumi.CustomResource
     {

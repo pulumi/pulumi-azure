@@ -15,6 +15,32 @@ namespace Pulumi.Azure.Compute
         /// Use this data source to access information about an existing Dedicated Host.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Compute.GetDedicatedHost.InvokeAsync(new Azure.Compute.GetDedicatedHostArgs
+        ///         {
+        ///             Name = "example-host",
+        ///             DedicatedHostGroupName = "example-host-group",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.DedicatedHostId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("dedicatedHostId")]
+        ///     public Output&lt;string&gt; DedicatedHostId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)

@@ -11,6 +11,42 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a Mongo Collection within a Cosmos DB Account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
+    ///         {
+    ///             Name = "tfex-cosmosdb-account",
+    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///         }));
+    ///         var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new Azure.CosmosDB.MongoDatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
+    ///         });
+    ///         var exampleMongoCollection = new Azure.CosmosDB.MongoCollection("exampleMongoCollection", new Azure.CosmosDB.MongoCollectionArgs
+    ///         {
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
+    ///             DatabaseName = exampleMongoDatabase.Name,
+    ///             DefaultTtlSeconds = "777",
+    ///             ShardKey = "uniqueKey",
+    ///             Throughput = 400,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MongoCollection : Pulumi.CustomResource
     {

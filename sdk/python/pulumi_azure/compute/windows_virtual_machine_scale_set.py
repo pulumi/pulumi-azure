@@ -303,7 +303,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 "version": "latest",
             },
             os_disk={
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
             network_interface=[{
@@ -312,7 +312,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 "ip_configuration": [{
                     "name": "internal",
                     "primary": True,
-                    "subnetId": internal.id,
+                    "subnet_id": internal.id,
                 }],
             }])
         ```

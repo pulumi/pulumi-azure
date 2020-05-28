@@ -15,6 +15,28 @@ namespace Pulumi.Azure.RecoveryServices
         /// Use this data source to access information about an existing Recovery Services Vault.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var vault = Output.Create(Azure.RecoveryServices.GetVault.InvokeAsync(new Azure.RecoveryServices.GetVaultArgs
+        ///         {
+        ///             Name = "tfex-recovery_vault",
+        ///             ResourceGroupName = "tfex-resource_group",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)

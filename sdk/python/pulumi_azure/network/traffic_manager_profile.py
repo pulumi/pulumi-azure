@@ -87,7 +87,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
                 "protocol": "http",
                 "port": 80,
                 "path": "/",
-                "intervalInSeconds": 30,
+                "interval_in_seconds": 30,
                 "timeoutInSeconds": 9,
                 "toleratedNumberOfFailures": 3,
             },

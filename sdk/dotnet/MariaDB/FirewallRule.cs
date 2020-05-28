@@ -11,6 +11,50 @@ namespace Pulumi.Azure.MariaDB
 {
     /// <summary>
     /// Manages a Firewall Rule for a MariaDB Server
+    /// 
+    /// ## Example Usage (Single IP Address)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.MariaDB.FirewallRule("example", new Azure.MariaDB.FirewallRuleArgs
+    ///         {
+    ///             EndIpAddress = "40.112.8.12",
+    ///             ResourceGroupName = "test-rg",
+    ///             ServerName = "test-server",
+    ///             StartIpAddress = "40.112.8.12",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example Usage (IP Range)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.MariaDB.FirewallRule("example", new Azure.MariaDB.FirewallRuleArgs
+    ///         {
+    ///             EndIpAddress = "40.112.255.255",
+    ///             ResourceGroupName = "test-rg",
+    ///             ServerName = "test-server",
+    ///             StartIpAddress = "40.112.0.0",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

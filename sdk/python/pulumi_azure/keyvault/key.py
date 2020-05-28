@@ -92,13 +92,13 @@ class Key(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policy=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": [
                     "create",
                     "get",
                 ],
-                "secretPermissions": ["set"],
+                "secret_permissions": ["set"],
             }],
             tags={
                 "environment": "Production",

@@ -11,6 +11,54 @@ namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a Event Hubs authorization Rule within an Event Hub.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
+    ///         {
+    ///             Location = "West US",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Basic",
+    ///             Capacity = 2,
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
+    ///         {
+    ///             NamespaceName = exampleEventHubNamespace.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PartitionCount = 2,
+    ///             MessageRetention = 2,
+    ///         });
+    ///         var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new Azure.EventHub.AuthorizationRuleArgs
+    ///         {
+    ///             NamespaceName = exampleEventHubNamespace.Name,
+    ///             EventhubName = exampleEventHub.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Listen = true,
+    ///             Send = false,
+    ///             Manage = false,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [Obsolete(@"azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule")]
     public partial class EventHubAuthorizationRule : Pulumi.CustomResource

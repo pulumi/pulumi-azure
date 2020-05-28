@@ -102,16 +102,16 @@ class LinkService(pulumi.CustomResource):
             nat_ip_configuration=[
                 {
                     "name": "primary",
-                    "privateIpAddress": "10.5.1.17",
+                    "private_ip_address": "10.5.1.17",
                     "privateIpAddressVersion": "IPv4",
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                     "primary": True,
                 },
                 {
                     "name": "secondary",
-                    "privateIpAddress": "10.5.1.18",
+                    "private_ip_address": "10.5.1.18",
                     "privateIpAddressVersion": "IPv4",
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                     "primary": False,
                 },
             ])

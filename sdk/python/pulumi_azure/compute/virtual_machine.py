@@ -210,7 +210,7 @@ class VirtualMachine(pulumi.CustomResource):
             resource_group_name=main_resource_group.name,
             ip_configuration=[{
                 "name": "testconfiguration1",
-                "subnetId": internal.id,
+                "subnet_id": internal.id,
                 "privateIpAddressAllocation": "Dynamic",
             }])
         main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
@@ -227,16 +227,16 @@ class VirtualMachine(pulumi.CustomResource):
             storage_os_disk={
                 "name": "myosdisk1",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
+                "create_option": "FromImage",
                 "managedDiskType": "Standard_LRS",
             },
             os_profile={
-                "computerName": "hostname",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "hostname",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             },
             tags={
                 "environment": "staging",
