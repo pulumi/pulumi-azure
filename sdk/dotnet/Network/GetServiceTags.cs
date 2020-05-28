@@ -15,6 +15,32 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about Service Tags.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetServiceTags.InvokeAsync(new Azure.Network.GetServiceTagsArgs
+        ///         {
+        ///             Location = "West Europe",
+        ///             Service = "AzureKeyVault",
+        ///             LocationFilter = "northeurope",
+        ///         }));
+        ///         this.AddressPrefixes = data.Azurerm_service_tags.Example.Address_prefixes;
+        ///     }
+        /// 
+        ///     [Output("addressPrefixes")]
+        ///     public Output&lt;string&gt; AddressPrefixes { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceTagsResult> InvokeAsync(GetServiceTagsArgs args, InvokeOptions? options = null)

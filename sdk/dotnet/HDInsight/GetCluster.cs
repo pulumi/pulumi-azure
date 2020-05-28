@@ -15,6 +15,31 @@ namespace Pulumi.Azure.HDInsight
         /// Use this data source to access information about an existing HDInsight Cluster.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.HDInsight.GetCluster.InvokeAsync(new Azure.HDInsight.GetClusterArgs
+        ///         {
+        ///             Name = "example",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.HttpsEndpoint = example.Apply(example =&gt; example.HttpsEndpoint);
+        ///     }
+        /// 
+        ///     [Output("httpsEndpoint")]
+        ///     public Output&lt;string&gt; HttpsEndpoint { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)

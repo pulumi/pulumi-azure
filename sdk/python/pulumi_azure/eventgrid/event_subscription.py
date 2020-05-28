@@ -106,8 +106,8 @@ class EventSubscription(pulumi.CustomResource):
         default_event_subscription = azure.eventgrid.EventSubscription("defaultEventSubscription",
             scope=default_resource_group.id,
             storage_queue_endpoint={
-                "storageAccountId": default_account.id,
-                "queueName": default_queue.name,
+                "storage_account_id": default_account.id,
+                "queue_name": default_queue.name,
             })
         ```
 

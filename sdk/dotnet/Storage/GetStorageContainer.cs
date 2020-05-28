@@ -15,6 +15,28 @@ namespace Pulumi.Azure.Storage
         /// Use this data source to access information about an existing Storage Container.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Storage.GetStorageContainer.InvokeAsync(new Azure.Storage.GetStorageContainerArgs
+        ///         {
+        ///             Name = "example-container-name",
+        ///             StorageAccountName = "example-storage-account-name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStorageContainerResult> InvokeAsync(GetStorageContainerArgs args, InvokeOptions? options = null)

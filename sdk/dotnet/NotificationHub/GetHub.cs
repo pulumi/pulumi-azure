@@ -15,6 +15,32 @@ namespace Pulumi.Azure.NotificationHub
         /// Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.NotificationHub.GetHub.InvokeAsync(new Azure.NotificationHub.GetHubArgs
+        ///         {
+        ///             Name = "notification-hub",
+        ///             NamespaceName = "namespace-name",
+        ///             ResourceGroupName = "resource-group-name",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)

@@ -15,6 +15,28 @@ namespace Pulumi.Azure.ContainerService
         /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ContainerService.GetKubernetesCluster.InvokeAsync(new Azure.ContainerService.GetKubernetesClusterArgs
+        ///         {
+        ///             Name = "myakscluster",
+        ///             ResourceGroupName = "my-example-resource-group",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetKubernetesClusterResult> InvokeAsync(GetKubernetesClusterArgs args, InvokeOptions? options = null)

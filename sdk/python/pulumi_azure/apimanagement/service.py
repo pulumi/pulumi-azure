@@ -203,7 +203,7 @@ class Service(pulumi.CustomResource):
             publisher_email="company@exmaple.com",
             sku_name="Developer_1",
             policy={
-                "xmlContent": \"\"\"    <policies>
+                "xml_content": \"\"\"    <policies>
               <inbound />
               <backend />
               <outbound />

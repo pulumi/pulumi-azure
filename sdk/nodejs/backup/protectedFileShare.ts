@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleShare = new azure.storage.Share("exampleShare", {storageAccountName: sa.name});
- * const protection-container = new azure.backup.ContainerStorageAccount("protection-container", {
+ * const protectionContainer = new azure.backup.ContainerStorageAccount("protection-container", {
  *     resourceGroupName: rg.name,
  *     recoveryVaultName: vault.name,
  *     storageAccountId: sa.id,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * const share1 = new azure.backup.ProtectedFileShare("share1", {
  *     resourceGroupName: rg.name,
  *     recoveryVaultName: vault.name,
- *     sourceStorageAccountId: protection-container.storageAccountId,
+ *     sourceStorageAccountId: protection_container.storageAccountId,
  *     sourceFileShareName: exampleShare.name,
  *     backupPolicyId: examplePolicyFileShare.id,
  * });

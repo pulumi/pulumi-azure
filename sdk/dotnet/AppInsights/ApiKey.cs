@@ -11,6 +11,90 @@ namespace Pulumi.Azure.AppInsights
 {
     /// <summary>
     /// Manages an Application Insights API key.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
+    ///         var readTelemetry = new Azure.AppInsights.ApiKey("readTelemetry", new Azure.AppInsights.ApiKeyArgs
+    ///         {
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             ReadPermissions = 
+    ///             {
+    ///                 "aggregate",
+    ///                 "api",
+    ///                 "draft",
+    ///                 "extendqueries",
+    ///                 "search",
+    ///             },
+    ///         });
+    ///         var writeAnnotations = new Azure.AppInsights.ApiKey("writeAnnotations", new Azure.AppInsights.ApiKeyArgs
+    ///         {
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             WritePermissions = 
+    ///             {
+    ///                 "annotations",
+    ///             },
+    ///         });
+    ///         var authenticateSdkControlChannelApiKey = new Azure.AppInsights.ApiKey("authenticateSdkControlChannelApiKey", new Azure.AppInsights.ApiKeyArgs
+    ///         {
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             ReadPermissions = 
+    ///             {
+    ///                 "agentconfig",
+    ///             },
+    ///         });
+    ///         var fullPermissions = new Azure.AppInsights.ApiKey("fullPermissions", new Azure.AppInsights.ApiKeyArgs
+    ///         {
+    ///             ApplicationInsightsId = exampleInsights.Id,
+    ///             ReadPermissions = 
+    ///             {
+    ///                 "agentconfig",
+    ///                 "aggregate",
+    ///                 "api",
+    ///                 "draft",
+    ///                 "extendqueries",
+    ///                 "search",
+    ///             },
+    ///             WritePermissions = 
+    ///             {
+    ///                 "annotations",
+    ///             },
+    ///         });
+    ///         this.ReadTelemetryApiKey = readTelemetry.ApiKey;
+    ///         this.WriteAnnotationsApiKey = writeAnnotations.ApiKey;
+    ///         this.AuthenticateSdkControlChannel = authenticateSdkControlChannelApiKey.ApiKey;
+    ///         this.FullPermissionsApiKey = fullPermissions.ApiKey;
+    ///     }
+    /// 
+    ///     [Output("readTelemetryApiKey")]
+    ///     public Output&lt;string&gt; ReadTelemetryApiKey { get; set; }
+    ///     [Output("writeAnnotationsApiKey")]
+    ///     public Output&lt;string&gt; WriteAnnotationsApiKey { get; set; }
+    ///     [Output("authenticateSdkControlChannel")]
+    ///     public Output&lt;string&gt; AuthenticateSdkControlChannel { get; set; }
+    ///     [Output("fullPermissionsApiKey")]
+    ///     public Output&lt;string&gt; FullPermissionsApiKey { get; set; }
+    /// }
+    /// ```
     /// </summary>
     public partial class ApiKey : Pulumi.CustomResource
     {

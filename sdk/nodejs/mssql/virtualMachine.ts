@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     name: "example-vm",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleMssql/virtualMachineVirtualMachine = new azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", {
+ * const exampleMssql_virtualMachineVirtualMachine = new azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", {
  *     virtualMachineId: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.id),
  *     sqlLicenseType: "PAYG",
  *     rServicesEnabled: true,

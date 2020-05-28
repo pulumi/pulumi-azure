@@ -15,6 +15,39 @@ namespace Pulumi.Azure.Network
     /// &gt; **NOTE on Route Tables and Routes:** This provider currently
     /// provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
     /// At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new Azure.Network.RouteTableArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleRoute = new Azure.Network.Route("exampleRoute", new Azure.Network.RouteArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             RouteTableName = exampleRouteTable.Name,
+    ///             AddressPrefix = "10.1.0.0/16",
+    ///             NextHopType = "vnetlocal",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {

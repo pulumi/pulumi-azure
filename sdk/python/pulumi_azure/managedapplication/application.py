@@ -79,8 +79,8 @@ class Application(pulumi.CustomResource):
             display_name="TestManagedAppDefinition",
             description="Test Managed App Definition",
             authorization=[{
-                "servicePrincipalId": current.object_id,
-                "roleDefinitionId": builtin.id.split("/")[len(builtin.id.split("/")) - 1],
+                "service_principal_id": current.object_id,
+                "role_definition_id": builtin.id.split("/")[len(builtin.id.split("/")) - 1],
             }])
         example_application = azure.managedapplication.Application("exampleApplication",
             location=example_resource_group.location,
@@ -91,7 +91,7 @@ class Application(pulumi.CustomResource):
             parameters={
                 "location": example_resource_group.location,
                 "storageAccountNamePrefix": "storeNamePrefix",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             })
         ```
 

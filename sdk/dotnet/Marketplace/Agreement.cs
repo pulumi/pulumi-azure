@@ -11,6 +11,29 @@ namespace Pulumi.Azure.Marketplace
 {
     /// <summary>
     /// Allows accepting the Legal Terms for a Marketplace Image.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var barracuda = new Azure.Marketplace.Agreement("barracuda", new Azure.Marketplace.AgreementArgs
+    ///         {
+    ///             Offer = "waf",
+    ///             Plan = "hourly",
+    ///             Publisher = "barracudanetworks",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Agreement : Pulumi.CustomResource
     {

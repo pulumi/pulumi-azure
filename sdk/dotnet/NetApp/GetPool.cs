@@ -13,6 +13,31 @@ namespace Pulumi.Azure.NetApp
     {
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Pool.
+        /// 
+        /// 
+        /// ## NetApp Pool Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.NetApp.GetPool.InvokeAsync(new Azure.NetApp.GetPoolArgs
+        ///         {
+        ///             ResourceGroupName = "acctestRG",
+        ///             AccountName = "acctestnetappaccount",
+        ///             Name = "acctestnetapppool",
+        ///         }));
+        ///         this.NetappPoolId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("netappPoolId")]
+        ///     public Output&lt;string&gt; NetappPoolId { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolArgs(), options.WithVersion());

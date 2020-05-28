@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Compute
         /// Use this data source to access information about an existing Image.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var search = Output.Create(Azure.Compute.GetImage.InvokeAsync(new Azure.Compute.GetImageArgs
+        ///         {
+        ///             Name = "search-api",
+        ///             ResourceGroupName = "packerimages",
+        ///         }));
+        ///         this.ImageId = search.Apply(search =&gt; search.Id);
+        ///     }
+        /// 
+        ///     [Output("imageId")]
+        ///     public Output&lt;string&gt; ImageId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)

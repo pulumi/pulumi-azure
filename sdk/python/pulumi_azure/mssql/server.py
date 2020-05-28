@@ -104,13 +104,13 @@ class Server(pulumi.CustomResource):
             administrator_login_password="thisIsKat11",
             azuread_administrator={
                 "loginUsername": "AzureAD Admin",
-                "objectId": "00000000-0000-0000-0000-000000000000",
+                "object_id": "00000000-0000-0000-0000-000000000000",
             },
             extended_auditing_policy={
-                "storageEndpoint": example_account.primary_blob_endpoint,
-                "storageAccountAccessKey": example_account.primary_access_key,
+                "storage_endpoint": example_account.primary_blob_endpoint,
+                "storage_account_access_key": example_account.primary_access_key,
                 "storageAccountAccessKeyIsSecondary": True,
-                "retentionInDays": 6,
+                "retention_in_days": 6,
             },
             tags={
                 "environment": "production",

@@ -87,7 +87,7 @@ class PacketCapture(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ip_configuration=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
                 "privateIpAddressAllocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
@@ -104,16 +104,16 @@ class PacketCapture(pulumi.CustomResource):
             storage_os_disk={
                 "name": "osdisk",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
+                "create_option": "FromImage",
                 "managedDiskType": "Standard_LRS",
             },
             os_profile={
-                "computerName": "pctest-vm",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "pctest-vm",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_extension = azure.compute.Extension("exampleExtension",
             location=example_resource_group.location,
@@ -133,7 +133,7 @@ class PacketCapture(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             target_resource_id=example_virtual_machine.id,
             storage_location={
-                "storageAccountId": example_account.id,
+                "storage_account_id": example_account.id,
             })
         ```
 

@@ -15,6 +15,31 @@ namespace Pulumi.Azure.Dns
         /// Use this data source to access information about an existing DNS Zone.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Dns.GetZone.InvokeAsync(new Azure.Dns.GetZoneArgs
+        ///         {
+        ///             Name = "search-eventhubns",
+        ///             ResourceGroupName = "search-service",
+        ///         }));
+        ///         this.DnsZoneId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("dnsZoneId")]
+        ///     public Output&lt;string&gt; DnsZoneId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)

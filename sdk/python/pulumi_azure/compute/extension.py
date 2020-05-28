@@ -84,7 +84,7 @@ class Extension(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ip_configuration=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
                 "privateIpAddressAllocation": "Dynamic",
             }])
         example_account = azure.storage.Account("exampleAccount",
@@ -114,15 +114,15 @@ class Extension(pulumi.CustomResource):
                 "name": "myosdisk1",
                 "vhdUri": pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}/myosdisk1.vhd"),
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
+                "create_option": "FromImage",
             },
             os_profile={
-                "computerName": "hostname",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "hostname",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             },
             tags={
                 "environment": "staging",

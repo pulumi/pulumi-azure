@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * const mdContent = config.get("mdContent") || "# Hello all :)";
  * const videoLink = config.get("videoLink") || "https://www.youtube.com/watch?v=......";
  * const current = azure.core.getSubscription({});
- * const my-group = new azure.core.ResourceGroup("my-group", {location: "uksouth"});
- * const my-board = new azure.dashboard.Dashboard("my-board", {
- *     resourceGroupName: my-group.name,
- *     location: my-group.location,
+ * const myGroup = new azure.core.ResourceGroup("my-group", {location: "uksouth"});
+ * const myBoard = new azure.dashboard.Dashboard("my-board", {
+ *     resourceGroupName: my_group.name,
+ *     location: my_group.location,
  *     tags: {
  *         source: "managed",
  *     },

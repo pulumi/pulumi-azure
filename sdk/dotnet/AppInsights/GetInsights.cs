@@ -15,6 +15,31 @@ namespace Pulumi.Azure.AppInsights
         /// Use this data source to access information about an existing Application Insights component.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.AppInsights.GetInsights.InvokeAsync(new Azure.AppInsights.GetInsightsArgs
+        ///         {
+        ///             Name = "production",
+        ///             ResourceGroupName = "networking",
+        ///         }));
+        ///         this.ApplicationInsightsInstrumentationKey = example.Apply(example =&gt; example.InstrumentationKey);
+        ///     }
+        /// 
+        ///     [Output("applicationInsightsInstrumentationKey")]
+        ///     public Output&lt;string&gt; ApplicationInsightsInstrumentationKey { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInsightsResult> InvokeAsync(GetInsightsArgs args, InvokeOptions? options = null)

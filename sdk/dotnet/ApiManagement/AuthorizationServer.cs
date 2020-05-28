@@ -11,6 +11,44 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an Authorization Server within an API Management Service.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
+    ///         {
+    ///             Name = "search-api",
+    ///             ApiManagementName = "search-api-management",
+    ///             ResourceGroupName = "search-service",
+    ///             Revision = "2",
+    ///         }));
+    ///         var exampleAuthorizationServer = new Azure.ApiManagement.AuthorizationServer("exampleAuthorizationServer", new Azure.ApiManagement.AuthorizationServerArgs
+    ///         {
+    ///             ApiManagementName = data.Azurerm_api_management.Example.Name,
+    ///             ResourceGroupName = data.Azurerm_api_management.Example.Resource_group_name,
+    ///             DisplayName = "Test Server",
+    ///             AuthorizationEndpoint = "https://example.mydomain.com/client/authorize",
+    ///             ClientId = "42424242-4242-4242-4242-424242424242",
+    ///             ClientRegistrationEndpoint = "https://example.mydomain.com/client/register",
+    ///             GrantTypes = 
+    ///             {
+    ///                 "authorizationCode",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AuthorizationServer : Pulumi.CustomResource
     {

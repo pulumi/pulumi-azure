@@ -11,6 +11,34 @@ namespace Pulumi.Azure.RecoveryServices
 {
     /// <summary>
     /// Manages an Recovery Services Vault.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
+    ///         {
+    ///             Location = rg.Location,
+    ///             ResourceGroupName = rg.Name,
+    ///             Sku = "Standard",
+    ///             SoftDeleteEnabled = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Vault : Pulumi.CustomResource
     {

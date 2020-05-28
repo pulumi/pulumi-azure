@@ -13,6 +13,43 @@ namespace Pulumi.Azure.EventHub
     /// Manages a ServiceBus Topic.
     /// 
     /// **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard",
+    ///             Tags = 
+    ///             {
+    ///                 { "source", "example" },
+    ///             },
+    ///         });
+    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NamespaceName = exampleNamespace.Name,
+    ///             EnablePartitioning = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [Obsolete(@"azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic")]
     public partial class Topic : Pulumi.CustomResource

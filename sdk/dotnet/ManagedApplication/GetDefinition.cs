@@ -15,6 +15,31 @@ namespace Pulumi.Azure.ManagedApplication
         /// Uses this data source to access information about an existing Managed Application Definition.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.ManagedApplication.GetDefinition.InvokeAsync(new Azure.ManagedApplication.GetDefinitionArgs
+        ///         {
+        ///             Name = "example-managedappdef",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.Id = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefinitionResult> InvokeAsync(GetDefinitionArgs args, InvokeOptions? options = null)

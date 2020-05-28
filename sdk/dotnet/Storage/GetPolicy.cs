@@ -15,6 +15,32 @@ namespace Pulumi.Azure.Storage
         /// Use this data source to access information about an existing Storage Management Policy.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleAccount = Output.Create(Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
+        ///         {
+        ///             Name = "storageaccountname",
+        ///             ResourceGroupName = "resourcegroupname",
+        ///         }));
+        ///         var examplePolicy = Output.Create(Azure.Storage.GetPolicy.InvokeAsync(new Azure.Storage.GetPolicyArgs
+        ///         {
+        ///             StorageAccountId = azurerm_storage_account.Example.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)

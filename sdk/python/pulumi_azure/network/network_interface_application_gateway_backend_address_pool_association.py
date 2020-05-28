@@ -67,7 +67,7 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
             },
             gateway_ip_configuration=[{
                 "name": "my-gateway-ip-configuration",
-                "subnetId": frontend.id,
+                "subnet_id": frontend.id,
             }],
             frontend_port=[{
                 "name": frontend_port_name,
@@ -89,7 +89,7 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
             }],
             http_listener=[{
                 "name": listener_name,
-                "frontendIpConfigurationName": frontend_ip_configuration_name,
+                "frontend_ip_configuration_name": frontend_ip_configuration_name,
                 "frontendPortName": frontend_port_name,
                 "protocol": "Http",
             }],
@@ -105,7 +105,7 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
             resource_group_name=example_resource_group.name,
             ip_configuration=[{
                 "name": "testconfiguration1",
-                "subnetId": frontend.id,
+                "subnet_id": frontend.id,
                 "privateIpAddressAllocation": "Dynamic",
             }])
         example_network_interface_application_gateway_backend_address_pool_association = azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation",

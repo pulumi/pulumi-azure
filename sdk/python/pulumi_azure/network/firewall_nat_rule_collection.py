@@ -74,7 +74,7 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ip_configuration=[{
                 "name": "configuration",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
                 "publicIpAddressId": example_public_ip.id,
             }])
         example_firewall_nat_rule_collection = azure.network.FirewallNatRuleCollection("exampleFirewallNatRuleCollection",

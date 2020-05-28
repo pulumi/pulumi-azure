@@ -77,7 +77,7 @@ class Image(pulumi.CustomResource):
             location="West US",
             resource_group_name=example_resource_group.name,
             os_disk={
-                "osType": "Linux",
+                "os_type": "Linux",
                 "osState": "Generalized",
                 "blobUri": "{blob_uri}",
                 "sizeGb": 30,

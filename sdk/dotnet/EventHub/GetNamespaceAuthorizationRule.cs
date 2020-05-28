@@ -15,6 +15,32 @@ namespace Pulumi.Azure.EventHub
         /// Use this data source to access information about an Authorization Rule for an Event Hub Namespace.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.EventHub.GetNamespaceAuthorizationRule.InvokeAsync(new Azure.EventHub.GetNamespaceAuthorizationRuleArgs
+        ///         {
+        ///             Name = "navi",
+        ///             ResourceGroupName = "example-resources",
+        ///             NamespaceName = "example-ns",
+        ///         }));
+        ///         this.EventhubAuthorizationRuleId = data.Azurem_eventhub_namespace_authorization_rule.Example.Id;
+        ///     }
+        /// 
+        ///     [Output("eventhubAuthorizationRuleId")]
+        ///     public Output&lt;string&gt; EventhubAuthorizationRuleId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)

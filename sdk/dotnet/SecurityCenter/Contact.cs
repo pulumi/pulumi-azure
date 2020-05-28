@@ -13,6 +13,30 @@ namespace Pulumi.Azure.SecurityCenter
     /// Manages the subscription's Security Center Contact.
     /// 
     /// &gt; **NOTE:** Owner access permission is required.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.SecurityCenter.Contact("example", new Azure.SecurityCenter.ContactArgs
+    ///         {
+    ///             AlertNotifications = true,
+    ///             AlertsToAdmins = true,
+    ///             Email = "contact@example.com",
+    ///             Phone = "+1-555-555-5555",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Contact : Pulumi.CustomResource
     {

@@ -15,6 +15,32 @@ namespace Pulumi.Azure.Healthcare
         /// Use this data source to access information about an existing Healthcare Service
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Healthcare.GetService.InvokeAsync(new Azure.Healthcare.GetServiceArgs
+        ///         {
+        ///             Name = "example-healthcare_service",
+        ///             ResourceGroupName = "example-resources",
+        ///             Location = "westus2",
+        ///         }));
+        ///         this.HealthcareServiceId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("healthcareServiceId")]
+        ///     public Output&lt;string&gt; HealthcareServiceId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)

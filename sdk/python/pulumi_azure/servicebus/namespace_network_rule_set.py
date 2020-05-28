@@ -69,8 +69,8 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             default_action="Deny",
             network_rules=[{
-                "subnetId": example_subnet.id,
-                "ignoreMissingVnetServiceEndpoint": False,
+                "subnet_id": example_subnet.id,
+                "ignore_missing_vnet_service_endpoint": False,
             }],
             ip_rules=["1.1.1.1"])
         ```

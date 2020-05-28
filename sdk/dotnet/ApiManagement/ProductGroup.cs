@@ -11,6 +11,57 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Management Product Assignment to a Group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
+    ///         {
+    ///             Name = "example-api",
+    ///             ResourceGroupName = "example-resources",
+    ///         }));
+    ///         var exampleProduct = Output.Tuple(exampleService, exampleService).Apply(values =&gt;
+    ///         {
+    ///             var exampleService = values.Item1;
+    ///             var exampleService1 = values.Item2;
+    ///             return Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
+    ///             {
+    ///                 ProductId = "my-product",
+    ///                 ApiManagementName = exampleService.Name,
+    ///                 ResourceGroupName = exampleService1.ResourceGroupName,
+    ///             }));
+    ///         });
+    ///         var exampleGroup = Output.Tuple(exampleService, exampleService).Apply(values =&gt;
+    ///         {
+    ///             var exampleService = values.Item1;
+    ///             var exampleService1 = values.Item2;
+    ///             return Output.Create(Azure.ApiManagement.GetGroup.InvokeAsync(new Azure.ApiManagement.GetGroupArgs
+    ///             {
+    ///                 Name = "my-group",
+    ///                 ApiManagementName = exampleService.Name,
+    ///                 ResourceGroupName = exampleService1.ResourceGroupName,
+    ///             }));
+    ///         });
+    ///         var exampleProductGroup = new Azure.ApiManagement.ProductGroup("exampleProductGroup", new Azure.ApiManagement.ProductGroupArgs
+    ///         {
+    ///             ProductId = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ProductId),
+    ///             GroupName = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Name),
+    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
+    ///             ResourceGroupName = exampleService.Apply(exampleService =&gt; exampleService.ResourceGroupName),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProductGroup : Pulumi.CustomResource
     {

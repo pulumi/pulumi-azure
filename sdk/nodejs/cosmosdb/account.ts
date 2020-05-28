@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: var.resource_group_location});
+ * const rg = new azure.core.ResourceGroup("rg", {location: _var.resource_group_location});
  * const ri = new random.RandomInteger("ri", {
  *     min: 10000,
  *     max: 99999,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     },
  *     geo_location: [
  *         {
- *             location: var.failover_location,
+ *             location: _var.failover_location,
  *             failoverPriority: 1,
  *         },
  *         {

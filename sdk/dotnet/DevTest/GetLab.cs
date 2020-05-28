@@ -15,6 +15,31 @@ namespace Pulumi.Azure.DevTest
         /// Use this data source to access information about an existing Dev Test Lab.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DevTest.GetLab.InvokeAsync(new Azure.DevTest.GetLabArgs
+        ///         {
+        ///             Name = "example-lab",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         this.UniqueIdentifier = example.Apply(example =&gt; example.UniqueIdentifier);
+        ///     }
+        /// 
+        ///     [Output("uniqueIdentifier")]
+        ///     public Output&lt;string&gt; UniqueIdentifier { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)

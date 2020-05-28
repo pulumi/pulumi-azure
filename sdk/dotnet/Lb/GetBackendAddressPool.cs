@@ -15,6 +15,40 @@ namespace Pulumi.Azure.Lb
         /// Use this data source to access information about an existing Load Balancer's Backend Address Pool.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleLB = Output.Create(Azure.Lb.GetLB.InvokeAsync(new Azure.Lb.GetLBArgs
+        ///         {
+        ///             Name = "example-lb",
+        ///             ResourceGroupName = "example-resources",
+        ///         }));
+        ///         var exampleBackendAddressPool = exampleLB.Apply(exampleLB =&gt; Output.Create(Azure.Lb.GetBackendAddressPool.InvokeAsync(new Azure.Lb.GetBackendAddressPoolArgs
+        ///         {
+        ///             Name = "first",
+        ///             LoadbalancerId = exampleLB.Id,
+        ///         })));
+        ///         this.BackendAddressPoolId = exampleBackendAddressPool.Apply(exampleBackendAddressPool =&gt; exampleBackendAddressPool.Id);
+        ///         this.BackendIpConfigurationIds = data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations.Select(__item =&gt; __item.Id).ToList();
+        ///     }
+        /// 
+        ///     [Output("backendAddressPoolId")]
+        ///     public Output&lt;string&gt; BackendAddressPoolId { get; set; }
+        ///     [Output("backendIpConfigurationIds")]
+        ///     public Output&lt;string&gt; BackendIpConfigurationIds { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBackendAddressPoolResult> InvokeAsync(GetBackendAddressPoolArgs args, InvokeOptions? options = null)

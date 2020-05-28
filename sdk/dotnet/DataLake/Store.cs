@@ -11,6 +11,34 @@ namespace Pulumi.Azure.DataLake
 {
     /// <summary>
     /// Manages an Azure Data Lake Store.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleStore = new Azure.DataLake.Store("exampleStore", new Azure.DataLake.StoreArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             EncryptionState = "Enabled",
+    ///             EncryptionType = "ServiceManaged",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Store : Pulumi.CustomResource
     {

@@ -139,24 +139,24 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                 "password": "Password!",
             },
             storage_account=[{
-                "storageContainerId": example_container.id,
-                "storageAccountKey": example_account.primary_access_key,
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
                 "isDefault": True,
             }],
             roles={
                 "head_node": {
-                    "vmSize": "Standard_D13_V2",
+                    "vm_size": "Standard_D13_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
                 "worker_node": {
-                    "vmSize": "Standard_D14_V2",
+                    "vm_size": "Standard_D14_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                     "targetInstanceCount": 3,
                 },
                 "zookeeper_node": {
-                    "vmSize": "Standard_A4_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },

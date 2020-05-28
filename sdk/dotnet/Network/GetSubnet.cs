@@ -15,6 +15,32 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about an existing Subnet within a Virtual Network.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Network.GetSubnet.InvokeAsync(new Azure.Network.GetSubnetArgs
+        ///         {
+        ///             Name = "backend",
+        ///             VirtualNetworkName = "production",
+        ///             ResourceGroupName = "networking",
+        ///         }));
+        ///         this.SubnetId = example.Apply(example =&gt; example.Id);
+        ///     }
+        /// 
+        ///     [Output("subnetId")]
+        ///     public Output&lt;string&gt; SubnetId { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)

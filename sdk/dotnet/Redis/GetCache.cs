@@ -13,6 +13,30 @@ namespace Pulumi.Azure.Redis
     {
         /// <summary>
         /// Use this data source to access information about an existing Redis Cache
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Redis.GetCache.InvokeAsync(new Azure.Redis.GetCacheArgs
+        ///         {
+        ///             Name = "myrediscache",
+        ///             ResourceGroupName = "redis-cache",
+        ///         }));
+        ///         this.PrimaryAccessKey = example.Apply(example =&gt; example.PrimaryAccessKey);
+        ///         this.Hostname = example.Apply(example =&gt; example.Hostname);
+        ///     }
+        /// 
+        ///     [Output("primaryAccessKey")]
+        ///     public Output&lt;string&gt; PrimaryAccessKey { get; set; }
+        ///     [Output("hostname")]
+        ///     public Output&lt;string&gt; Hostname { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheArgs(), options.WithVersion());

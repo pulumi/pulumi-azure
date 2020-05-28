@@ -14,6 +14,32 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about an existing User Assigned Identity.
+        /// 
+        /// ## Example Usage (reference an existing)
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.Authorization.GetUserAssignedIdentity.InvokeAsync(new Azure.Authorization.GetUserAssignedIdentityArgs
+        ///         {
+        ///             Name = "name_of_user_assigned_identity",
+        ///             ResourceGroupName = "name_of_resource_group",
+        ///         }));
+        ///         this.UaiClientId = example.Apply(example =&gt; example.ClientId);
+        ///         this.UaiPrincipalId = example.Apply(example =&gt; example.PrincipalId);
+        ///     }
+        /// 
+        ///     [Output("uaiClientId")]
+        ///     public Output&lt;string&gt; UaiClientId { get; set; }
+        ///     [Output("uaiPrincipalId")]
+        ///     public Output&lt;string&gt; UaiPrincipalId { get; set; }
+        /// }
+        /// ```
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());

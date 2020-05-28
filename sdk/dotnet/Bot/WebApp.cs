@@ -11,6 +11,35 @@ namespace Pulumi.Azure.Bot
 {
     /// <summary>
     /// Manages a Bot Web App.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleWebApp = new Azure.Bot.WebApp("exampleWebApp", new Azure.Bot.WebAppArgs
+    ///         {
+    ///             Location = "global",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "F0",
+    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class WebApp : Pulumi.CustomResource
     {

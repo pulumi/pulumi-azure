@@ -11,6 +11,42 @@ namespace Pulumi.Azure.Sql
 {
     /// <summary>
     /// Allows you to manage an Azure SQL Firewall Rule
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = "West US",
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "4dm1n157r470r",
+    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///         });
+    ///         var exampleFirewallRule = new Azure.Sql.FirewallRule("exampleFirewallRule", new Azure.Sql.FirewallRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleSqlServer.Name,
+    ///             StartIpAddress = "10.0.17.62",
+    ///             EndIpAddress = "10.0.17.62",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirewallRule : Pulumi.CustomResource
     {

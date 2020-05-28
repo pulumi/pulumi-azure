@@ -11,6 +11,44 @@ namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages a Custom Trigger within a Logic App Workflow
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "East US",
+    ///         });
+    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleTriggerCustom = new Azure.LogicApps.TriggerCustom("exampleTriggerCustom", new Azure.LogicApps.TriggerCustomArgs
+    ///         {
+    ///             LogicAppId = exampleWorkflow.Id,
+    ///             Body = @"{
+    ///   ""recurrence"": {
+    ///     ""frequency"": ""Day"",
+    ///     ""interval"": 1
+    ///   },
+    ///   ""type"": ""Recurrence""
+    /// }
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TriggerCustom : Pulumi.CustomResource
     {

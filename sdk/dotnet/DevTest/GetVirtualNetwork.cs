@@ -15,6 +15,32 @@ namespace Pulumi.Azure.DevTest
         /// Use this data source to access information about an existing Dev Test Lab Virtual Network.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.DevTest.GetVirtualNetwork.InvokeAsync(new Azure.DevTest.GetVirtualNetworkArgs
+        ///         {
+        ///             Name = "example-network",
+        ///             LabName = "examplelab",
+        ///             ResourceGroupName = "example-resource",
+        ///         }));
+        ///         this.LabSubnetName = example.Apply(example =&gt; example.AllowedSubnets[0].LabSubnetName);
+        ///     }
+        /// 
+        ///     [Output("labSubnetName")]
+        ///     public Output&lt;string&gt; LabSubnetName { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)

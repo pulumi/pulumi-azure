@@ -13,6 +13,60 @@ namespace Pulumi.Azure.Policy
     /// Manages a policy rule definition on a management group or your provider subscription.
     /// 
     /// Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var policy = new Azure.Policy.Definition("policy", new Azure.Policy.DefinitionArgs
+    ///         {
+    ///             DisplayName = "acceptance test policy definition",
+    ///             Metadata = @"    {
+    ///     ""category"": ""General""
+    ///     }
+    ///   
+    /// 
+    /// ",
+    ///             Mode = "Indexed",
+    ///             Parameters = @"	{
+    ///     ""allowedLocations"": {
+    ///       ""type"": ""Array"",
+    ///       ""metadata"": {
+    ///         ""description"": ""The list of allowed locations for resources."",
+    ///         ""displayName"": ""Allowed locations"",
+    ///         ""strongType"": ""location""
+    ///       }
+    ///     }
+    ///   }
+    /// 
+    /// ",
+    ///             PolicyRule = @"	{
+    ///     ""if"": {
+    ///       ""not"": {
+    ///         ""field"": ""location"",
+    ///         ""in"": ""[parameters('allowedLocations')]""
+    ///       }
+    ///     },
+    ///     ""then"": {
+    ///       ""effect"": ""audit""
+    ///     }
+    ///   }
+    /// 
+    /// ",
+    ///             PolicyType = "Custom",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Definition : Pulumi.CustomResource
     {

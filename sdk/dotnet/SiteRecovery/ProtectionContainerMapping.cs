@@ -11,6 +11,77 @@ namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
     /// Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "East US",
+    ///         });
+    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
+    ///         {
+    ///             Location = secondaryResourceGroup.Location,
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             Sku = "Standard",
+    ///         });
+    ///         var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new Azure.SiteRecovery.FabricArgs
+    ///         {
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             Location = primaryResourceGroup.Location,
+    ///         });
+    ///         var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new Azure.SiteRecovery.FabricArgs
+    ///         {
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             Location = secondaryResourceGroup.Location,
+    ///         });
+    ///         var primaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("primaryProtectionContainer", new Azure.SiteRecovery.ProtectionContainerArgs
+    ///         {
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             RecoveryFabricName = primaryFabric.Name,
+    ///         });
+    ///         var secondaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("secondaryProtectionContainer", new Azure.SiteRecovery.ProtectionContainerArgs
+    ///         {
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             RecoveryFabricName = secondaryFabric.Name,
+    ///         });
+    ///         var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new Azure.SiteRecovery.ReplicationPolicyArgs
+    ///         {
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             RecoveryPointRetentionInMinutes = 24 * 60,
+    ///             ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
+    ///         });
+    ///         var container_mapping = new Azure.SiteRecovery.ProtectionContainerMapping("container-mapping", new Azure.SiteRecovery.ProtectionContainerMappingArgs
+    ///         {
+    ///             ResourceGroupName = secondaryResourceGroup.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             RecoveryFabricName = primaryFabric.Name,
+    ///             RecoverySourceProtectionContainerName = primaryProtectionContainer.Name,
+    ///             RecoveryTargetProtectionContainerId = secondaryProtectionContainer.Id,
+    ///             RecoveryReplicationPolicyId = policy.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProtectionContainerMapping : Pulumi.CustomResource
     {

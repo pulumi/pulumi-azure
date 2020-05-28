@@ -15,6 +15,31 @@ namespace Pulumi.Azure.KeyVault
         /// Use this data source to access information about an existing Key Vault Secret.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Azure.KeyVault.GetSecret.InvokeAsync(new Azure.KeyVault.GetSecretArgs
+        ///         {
+        ///             Name = "secret-sauce",
+        ///             KeyVaultId = data.Azurerm_key_vault.Existing.Id,
+        ///         }));
+        ///         this.SecretValue = example.Apply(example =&gt; example.Value);
+        ///     }
+        /// 
+        ///     [Output("secretValue")]
+        ///     public Output&lt;string&gt; SecretValue { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)

@@ -57,7 +57,7 @@ class Account(pulumi.CustomResource):
                 "username": "aduser",
                 "password": "aduserpwd",
                 "smbServerName": "SMBSERVER",
-                "dnsServers": ["1.2.3.4"],
+                "dns_servers": ["1.2.3.4"],
                 "domain": "westcentralus.com",
                 "organizationalUnit": "OU=FirstLevel",
             })

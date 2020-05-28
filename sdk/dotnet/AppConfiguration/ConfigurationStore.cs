@@ -11,6 +11,32 @@ namespace Pulumi.Azure.AppConfiguration
 {
     /// <summary>
     /// Manages an Azure App Configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new Azure.AppConfiguration.ConfigurationStoreArgs
+    ///         {
+    ///             ResourceGroupName = rg.Name,
+    ///             Location = rg.Location,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ConfigurationStore : Pulumi.CustomResource
     {
