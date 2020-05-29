@@ -18,11 +18,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        /// The Object ID of the user-defined Managed Identity used by the OMS Agents.
         /// </summary>
         public readonly string? ObjectId;
         /// <summary>
-        /// The ID of the User Assigned Identity assigned to the Kubelets.
+        /// The ID of the User Assigned Identity used by the OMS Agents.
         /// </summary>
         public readonly string? UserAssignedIdentityId;
 

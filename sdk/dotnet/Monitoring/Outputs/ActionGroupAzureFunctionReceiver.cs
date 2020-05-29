@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
     [OutputType]
     public sealed class ActionGroupAzureFunctionReceiver
     {
+        /// <summary>
+        /// The Azure resource ID of the function app.
+        /// </summary>
         public readonly string FunctionAppResourceId;
         /// <summary>
         /// The function name in the function app.

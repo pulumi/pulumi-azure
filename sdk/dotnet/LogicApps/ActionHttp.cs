@@ -77,6 +77,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        /// </summary>
+        [Output("runAfters")]
+        public Output<ImmutableArray<Outputs.ActionHttpRunAfter>> RunAfters { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the URI which will be called when this HTTP Action is triggered.
         /// </summary>
         [Output("uri")]
@@ -164,6 +170,18 @@ namespace Pulumi.Azure.LogicApps
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("runAfters")]
+        private InputList<Inputs.ActionHttpRunAfterArgs>? _runAfters;
+
+        /// <summary>
+        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        /// </summary>
+        public InputList<Inputs.ActionHttpRunAfterArgs> RunAfters
+        {
+            get => _runAfters ?? (_runAfters = new InputList<Inputs.ActionHttpRunAfterArgs>());
+            set => _runAfters = value;
+        }
+
         /// <summary>
         /// Specifies the URI which will be called when this HTTP Action is triggered.
         /// </summary>
@@ -212,6 +230,18 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("runAfters")]
+        private InputList<Inputs.ActionHttpRunAfterGetArgs>? _runAfters;
+
+        /// <summary>
+        /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        /// </summary>
+        public InputList<Inputs.ActionHttpRunAfterGetArgs> RunAfters
+        {
+            get => _runAfters ?? (_runAfters = new InputList<Inputs.ActionHttpRunAfterGetArgs>());
+            set => _runAfters = value;
+        }
 
         /// <summary>
         /// Specifies the URI which will be called when this HTTP Action is triggered.

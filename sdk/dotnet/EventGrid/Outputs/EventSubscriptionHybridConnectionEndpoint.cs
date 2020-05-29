@@ -16,10 +16,10 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// <summary>
         /// Specifies the id of the hybrid connection where the Event Subscription will receive events.
         /// </summary>
-        public readonly string HybridConnectionId;
+        public readonly string? HybridConnectionId;
 
         [OutputConstructor]
-        private EventSubscriptionHybridConnectionEndpoint(string hybridConnectionId)
+        private EventSubscriptionHybridConnectionEndpoint(string? hybridConnectionId)
         {
             HybridConnectionId = hybridConnectionId;
         }

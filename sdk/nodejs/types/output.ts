@@ -5,6 +5,47 @@ import * as pulumi from "@pulumi/pulumi";
 import * as outputs from "../types/output";
 
 
+export namespace advisor {
+    export interface GetRecommendationsRecommendation {
+        /**
+         * The category of the recommendation.
+         */
+        category: string;
+        /**
+         * The description of the issue or the opportunity identified by the recommendation.
+         */
+        description: string;
+        /**
+         * The business impact of the recommendation.
+         */
+        impact: string;
+        /**
+         * The name of the Advisor Recommendation.
+         */
+        recommendationName: string;
+        /**
+         * The recommendation type id of the Advisor Recommendation.
+         */
+        recommendationTypeId: string;
+        /**
+         * The name of the identified resource of the Advisor Recommendation.
+         */
+        resourceName: string;
+        /**
+         * The type of the identified resource of the Advisor Recommendation.
+         */
+        resourceType: string;
+        /**
+         * A list of Advisor Suppression names of the Advisor Recommendation.
+         */
+        suppressionNames: string[];
+        /**
+         * The most recent time that Advisor checked the validity of the recommendation..
+         */
+        updatedTime: string;
+    }
+}
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -3149,6 +3190,10 @@ export namespace batch {
 
     export interface PoolContainerConfiguration {
         /**
+         * A list of container image names to use, as would be specified by `docker pull`.
+         */
+        containerImageNames?: string[];
+        /**
          * Additional container registries from which container images can be pulled by the pool's VMs.
          */
         containerRegistries?: outputs.batch.PoolContainerConfigurationContainerRegistry[];
@@ -5072,9 +5117,9 @@ export namespace compute {
          */
         regionalReplicaCount: number;
         /**
-         * The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+         * The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
          */
-        storageAccountType: string;
+        storageAccountType?: string;
     }
 
     export interface SnapshotEncryptionSettings {
@@ -5885,6 +5930,25 @@ export namespace containerservice {
          * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
          */
         logAnalyticsWorkspaceId: string;
+        /**
+         * An `omsAgentIdentity` block as defined below.  
+         */
+        omsAgentIdentities: outputs.containerservice.GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity[];
+    }
+
+    export interface GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface GetKubernetesClusterAgentPoolProfile {
@@ -5935,7 +5999,7 @@ export namespace containerservice {
          */
         tags: {[key: string]: string};
         /**
-         * The type of the Agent Pool.
+         * The type of identity used for the managed cluster.
          */
         type: string;
         /**
@@ -5946,6 +6010,21 @@ export namespace containerservice {
          * The ID of the Subnet where the Agents in the Pool are provisioned.
          */
         vnetSubnetId: string;
+    }
+
+    export interface GetKubernetesClusterIdentity {
+        /**
+         * The principal id of the system assigned identity which is used by master components.
+         */
+        principalId: string;
+        /**
+         * The tenant id of the system assigned identity which is used by master components.
+         */
+        tenantId: string;
+        /**
+         * The type of identity used for the managed cluster.
+         */
+        type: string;
     }
 
     export interface GetKubernetesClusterKubeAdminConfig {
@@ -6000,6 +6079,21 @@ export namespace containerservice {
          * A username used to authenticate to the Kubernetes cluster.
          */
         username: string;
+    }
+
+    export interface GetKubernetesClusterKubeletIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface GetKubernetesClusterLinuxProfile {
@@ -6069,14 +6163,14 @@ export namespace containerservice {
          */
         serverAppId: string;
         /**
-         * The Tenant ID used for Azure Active Directory Application.
+         * The tenant id of the system assigned identity which is used by master components.
          */
         tenantId: string;
     }
 
     export interface GetKubernetesClusterServicePrincipal {
         /**
-         * The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
          */
         clientId: string;
     }
@@ -6401,6 +6495,25 @@ export namespace containerservice {
          * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
          */
         logAnalyticsWorkspaceId?: string;
+        /**
+         * An `omsAgentIdentity` block as defined below.  
+         */
+        omsAgentIdentities: outputs.containerservice.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity[];
+    }
+
+    export interface KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+        /**
+         * The Client ID for the Service Principal.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity used by the OMS Agents.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface KubernetesClusterDefaultNodePool {
@@ -6541,11 +6654,11 @@ export namespace containerservice {
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
          */
         objectId: string;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets.
+         * The ID of the User Assigned Identity used by the OMS Agents.
          */
         userAssignedIdentityId: string;
     }
@@ -7331,6 +7444,21 @@ export namespace devtest {
         virtualNetworkPoolName: string;
     }
 
+    export interface GlobalVMShutdownScheduleNotificationSettings {
+        /**
+         * Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+         */
+        enabled: boolean;
+        /**
+         * Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+         */
+        timeInMinutes?: number;
+        /**
+         * The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+         */
+        webhookUrl?: string;
+    }
+
     export interface LinuxVirtualMachineGalleryImageReference {
         /**
          * The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -7580,7 +7708,7 @@ export namespace eventgrid {
          */
         storageAccountId: string;
         /**
-         * Specifies the name of the Storage blob container that is the destination of the deadletter events
+         * Specifies the name of the Storage blob container that is the destination of the deadletter events.
          */
         storageBlobContainerName: string;
     }
@@ -7617,6 +7745,48 @@ export namespace eventgrid {
          */
         url: string;
     }
+
+    export interface TopicInputMappingDefaultValues {
+        /**
+         * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: string;
+        /**
+         * Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: string;
+        /**
+         * Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: string;
+    }
+
+    export interface TopicInputMappingFields {
+        /**
+         * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: string;
+        /**
+         * Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventTime?: string;
+        /**
+         * Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: string;
+        /**
+         * Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        id?: string;
+        /**
+         * Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: string;
+        /**
+         * Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        topic?: string;
+    }
 }
 
 export namespace eventhub {
@@ -7636,6 +7806,48 @@ export namespace eventhub {
     }
 
     export interface DomainInputMappingFields {
+        /**
+         * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: string;
+        /**
+         * Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventTime?: string;
+        /**
+         * Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: string;
+        /**
+         * Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        id?: string;
+        /**
+         * Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: string;
+        /**
+         * Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        topic?: string;
+    }
+
+    export interface EventGridTopicInputMappingDefaultValues {
+        /**
+         * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: string;
+        /**
+         * Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: string;
+        /**
+         * Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: string;
+    }
+
+    export interface EventGridTopicInputMappingFields {
         /**
          * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
@@ -7776,7 +7988,7 @@ export namespace eventhub {
          */
         storageAccountId: string;
         /**
-         * Specifies the name of the Storage blob container that is the destination of the deadletter events
+         * Specifies the name of the Storage blob container that is the destination of the deadletter events.
          */
         storageBlobContainerName: string;
     }
@@ -10428,6 +10640,19 @@ export namespace lb {
     }
 }
 
+export namespace logicapps {
+    export interface ActionHttpRunAfter {
+        /**
+         * Specifies the name of the precedent HTTP Action.
+         */
+        actionName: string;
+        /**
+         * Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+         */
+        actionResult: string;
+    }
+}
+
 export namespace machinelearning {
     export interface WorkspaceIdentity {
         /**
@@ -10587,6 +10812,9 @@ export namespace monitoring {
     }
 
     export interface ActionGroupAzureFunctionReceiver {
+        /**
+         * The Azure resource ID of the function app.
+         */
         functionAppResourceId: string;
         /**
          * The function name in the function app.

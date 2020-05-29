@@ -84,7 +84,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
      */
-    public readonly publicIpAddressIds!: pulumi.Output<string[] | undefined>;
+    public readonly publicIpAddressIds!: pulumi.Output<string[]>;
     /**
      * A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
      */
@@ -177,6 +177,7 @@ export interface NatGatewayState {
     readonly name?: pulumi.Input<string>;
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
+     * @deprecated Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
      */
     readonly publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -223,6 +224,7 @@ export interface NatGatewayArgs {
     readonly name?: pulumi.Input<string>;
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
+     * @deprecated Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
      */
     readonly publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

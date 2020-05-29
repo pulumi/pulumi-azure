@@ -34,6 +34,7 @@ export * from "./getVirtualNetwork";
 export * from "./getVirtualNetworkGateway";
 export * from "./localNetworkGateway";
 export * from "./natGateway";
+export * from "./natGatewayPublicIpAssociation";
 export * from "./networkConnectionMonitor";
 export * from "./networkInterface";
 export * from "./networkInterfaceApplicationGatewayBackendAddressPoolAssociation";

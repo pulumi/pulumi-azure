@@ -409,6 +409,405 @@ func (o DomainInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventGridTopicInputMappingDefaultValues struct {
+	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion *string `pulumi:"dataVersion"`
+	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType *string `pulumi:"eventType"`
+	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject *string `pulumi:"subject"`
+}
+
+// EventGridTopicInputMappingDefaultValuesInput is an input type that accepts EventGridTopicInputMappingDefaultValuesArgs and EventGridTopicInputMappingDefaultValuesOutput values.
+// You can construct a concrete instance of `EventGridTopicInputMappingDefaultValuesInput` via:
+//
+// 		 EventGridTopicInputMappingDefaultValuesArgs{...}
+//
+type EventGridTopicInputMappingDefaultValuesInput interface {
+	pulumi.Input
+
+	ToEventGridTopicInputMappingDefaultValuesOutput() EventGridTopicInputMappingDefaultValuesOutput
+	ToEventGridTopicInputMappingDefaultValuesOutputWithContext(context.Context) EventGridTopicInputMappingDefaultValuesOutput
+}
+
+type EventGridTopicInputMappingDefaultValuesArgs struct {
+	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion pulumi.StringPtrInput `pulumi:"dataVersion"`
+	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType pulumi.StringPtrInput `pulumi:"eventType"`
+	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+}
+
+func (EventGridTopicInputMappingDefaultValuesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopicInputMappingDefaultValues)(nil)).Elem()
+}
+
+func (i EventGridTopicInputMappingDefaultValuesArgs) ToEventGridTopicInputMappingDefaultValuesOutput() EventGridTopicInputMappingDefaultValuesOutput {
+	return i.ToEventGridTopicInputMappingDefaultValuesOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicInputMappingDefaultValuesArgs) ToEventGridTopicInputMappingDefaultValuesOutputWithContext(ctx context.Context) EventGridTopicInputMappingDefaultValuesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingDefaultValuesOutput)
+}
+
+func (i EventGridTopicInputMappingDefaultValuesArgs) ToEventGridTopicInputMappingDefaultValuesPtrOutput() EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return i.ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicInputMappingDefaultValuesArgs) ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingDefaultValuesOutput).ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(ctx)
+}
+
+// EventGridTopicInputMappingDefaultValuesPtrInput is an input type that accepts EventGridTopicInputMappingDefaultValuesArgs, EventGridTopicInputMappingDefaultValuesPtr and EventGridTopicInputMappingDefaultValuesPtrOutput values.
+// You can construct a concrete instance of `EventGridTopicInputMappingDefaultValuesPtrInput` via:
+//
+// 		 EventGridTopicInputMappingDefaultValuesArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EventGridTopicInputMappingDefaultValuesPtrInput interface {
+	pulumi.Input
+
+	ToEventGridTopicInputMappingDefaultValuesPtrOutput() EventGridTopicInputMappingDefaultValuesPtrOutput
+	ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(context.Context) EventGridTopicInputMappingDefaultValuesPtrOutput
+}
+
+type eventGridTopicInputMappingDefaultValuesPtrType EventGridTopicInputMappingDefaultValuesArgs
+
+func EventGridTopicInputMappingDefaultValuesPtr(v *EventGridTopicInputMappingDefaultValuesArgs) EventGridTopicInputMappingDefaultValuesPtrInput {
+	return (*eventGridTopicInputMappingDefaultValuesPtrType)(v)
+}
+
+func (*eventGridTopicInputMappingDefaultValuesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGridTopicInputMappingDefaultValues)(nil)).Elem()
+}
+
+func (i *eventGridTopicInputMappingDefaultValuesPtrType) ToEventGridTopicInputMappingDefaultValuesPtrOutput() EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return i.ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(context.Background())
+}
+
+func (i *eventGridTopicInputMappingDefaultValuesPtrType) ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingDefaultValuesPtrOutput)
+}
+
+type EventGridTopicInputMappingDefaultValuesOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicInputMappingDefaultValuesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopicInputMappingDefaultValues)(nil)).Elem()
+}
+
+func (o EventGridTopicInputMappingDefaultValuesOutput) ToEventGridTopicInputMappingDefaultValuesOutput() EventGridTopicInputMappingDefaultValuesOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingDefaultValuesOutput) ToEventGridTopicInputMappingDefaultValuesOutputWithContext(ctx context.Context) EventGridTopicInputMappingDefaultValuesOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingDefaultValuesOutput) ToEventGridTopicInputMappingDefaultValuesPtrOutput() EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return o.ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(context.Background())
+}
+
+func (o EventGridTopicInputMappingDefaultValuesOutput) ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingDefaultValues) *EventGridTopicInputMappingDefaultValues {
+		return &v
+	}).(EventGridTopicInputMappingDefaultValuesPtrOutput)
+}
+
+// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingDefaultValuesOutput) DataVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingDefaultValues) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingDefaultValuesOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingDefaultValues) *string { return v.EventType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingDefaultValuesOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingDefaultValues) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+type EventGridTopicInputMappingDefaultValuesPtrOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicInputMappingDefaultValuesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGridTopicInputMappingDefaultValues)(nil)).Elem()
+}
+
+func (o EventGridTopicInputMappingDefaultValuesPtrOutput) ToEventGridTopicInputMappingDefaultValuesPtrOutput() EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingDefaultValuesPtrOutput) ToEventGridTopicInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingDefaultValuesPtrOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingDefaultValuesPtrOutput) Elem() EventGridTopicInputMappingDefaultValuesOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingDefaultValues) EventGridTopicInputMappingDefaultValues { return *v }).(EventGridTopicInputMappingDefaultValuesOutput)
+}
+
+// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingDefaultValuesPtrOutput) DataVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingDefaultValuesPtrOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingDefaultValuesPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingDefaultValues) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventGridTopicInputMappingFields struct {
+	// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion *string `pulumi:"dataVersion"`
+	// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventTime *string `pulumi:"eventTime"`
+	// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType *string `pulumi:"eventType"`
+	// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Id *string `pulumi:"id"`
+	// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject *string `pulumi:"subject"`
+	// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Topic *string `pulumi:"topic"`
+}
+
+// EventGridTopicInputMappingFieldsInput is an input type that accepts EventGridTopicInputMappingFieldsArgs and EventGridTopicInputMappingFieldsOutput values.
+// You can construct a concrete instance of `EventGridTopicInputMappingFieldsInput` via:
+//
+// 		 EventGridTopicInputMappingFieldsArgs{...}
+//
+type EventGridTopicInputMappingFieldsInput interface {
+	pulumi.Input
+
+	ToEventGridTopicInputMappingFieldsOutput() EventGridTopicInputMappingFieldsOutput
+	ToEventGridTopicInputMappingFieldsOutputWithContext(context.Context) EventGridTopicInputMappingFieldsOutput
+}
+
+type EventGridTopicInputMappingFieldsArgs struct {
+	// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion pulumi.StringPtrInput `pulumi:"dataVersion"`
+	// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventTime pulumi.StringPtrInput `pulumi:"eventTime"`
+	// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType pulumi.StringPtrInput `pulumi:"eventType"`
+	// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Topic pulumi.StringPtrInput `pulumi:"topic"`
+}
+
+func (EventGridTopicInputMappingFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopicInputMappingFields)(nil)).Elem()
+}
+
+func (i EventGridTopicInputMappingFieldsArgs) ToEventGridTopicInputMappingFieldsOutput() EventGridTopicInputMappingFieldsOutput {
+	return i.ToEventGridTopicInputMappingFieldsOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicInputMappingFieldsArgs) ToEventGridTopicInputMappingFieldsOutputWithContext(ctx context.Context) EventGridTopicInputMappingFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingFieldsOutput)
+}
+
+func (i EventGridTopicInputMappingFieldsArgs) ToEventGridTopicInputMappingFieldsPtrOutput() EventGridTopicInputMappingFieldsPtrOutput {
+	return i.ToEventGridTopicInputMappingFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i EventGridTopicInputMappingFieldsArgs) ToEventGridTopicInputMappingFieldsPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingFieldsOutput).ToEventGridTopicInputMappingFieldsPtrOutputWithContext(ctx)
+}
+
+// EventGridTopicInputMappingFieldsPtrInput is an input type that accepts EventGridTopicInputMappingFieldsArgs, EventGridTopicInputMappingFieldsPtr and EventGridTopicInputMappingFieldsPtrOutput values.
+// You can construct a concrete instance of `EventGridTopicInputMappingFieldsPtrInput` via:
+//
+// 		 EventGridTopicInputMappingFieldsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EventGridTopicInputMappingFieldsPtrInput interface {
+	pulumi.Input
+
+	ToEventGridTopicInputMappingFieldsPtrOutput() EventGridTopicInputMappingFieldsPtrOutput
+	ToEventGridTopicInputMappingFieldsPtrOutputWithContext(context.Context) EventGridTopicInputMappingFieldsPtrOutput
+}
+
+type eventGridTopicInputMappingFieldsPtrType EventGridTopicInputMappingFieldsArgs
+
+func EventGridTopicInputMappingFieldsPtr(v *EventGridTopicInputMappingFieldsArgs) EventGridTopicInputMappingFieldsPtrInput {
+	return (*eventGridTopicInputMappingFieldsPtrType)(v)
+}
+
+func (*eventGridTopicInputMappingFieldsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGridTopicInputMappingFields)(nil)).Elem()
+}
+
+func (i *eventGridTopicInputMappingFieldsPtrType) ToEventGridTopicInputMappingFieldsPtrOutput() EventGridTopicInputMappingFieldsPtrOutput {
+	return i.ToEventGridTopicInputMappingFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventGridTopicInputMappingFieldsPtrType) ToEventGridTopicInputMappingFieldsPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridTopicInputMappingFieldsPtrOutput)
+}
+
+type EventGridTopicInputMappingFieldsOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicInputMappingFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridTopicInputMappingFields)(nil)).Elem()
+}
+
+func (o EventGridTopicInputMappingFieldsOutput) ToEventGridTopicInputMappingFieldsOutput() EventGridTopicInputMappingFieldsOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingFieldsOutput) ToEventGridTopicInputMappingFieldsOutputWithContext(ctx context.Context) EventGridTopicInputMappingFieldsOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingFieldsOutput) ToEventGridTopicInputMappingFieldsPtrOutput() EventGridTopicInputMappingFieldsPtrOutput {
+	return o.ToEventGridTopicInputMappingFieldsPtrOutputWithContext(context.Background())
+}
+
+func (o EventGridTopicInputMappingFieldsOutput) ToEventGridTopicInputMappingFieldsPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingFieldsPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingFields) *EventGridTopicInputMappingFields {
+		return &v
+	}).(EventGridTopicInputMappingFieldsPtrOutput)
+}
+
+// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsOutput) DataVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingFields) *string { return v.DataVersion }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsOutput) EventTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingFields) *string { return v.EventTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingFields) *string { return v.EventType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingFields) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingFields) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridTopicInputMappingFields) *string { return v.Topic }).(pulumi.StringPtrOutput)
+}
+
+type EventGridTopicInputMappingFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventGridTopicInputMappingFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGridTopicInputMappingFields)(nil)).Elem()
+}
+
+func (o EventGridTopicInputMappingFieldsPtrOutput) ToEventGridTopicInputMappingFieldsPtrOutput() EventGridTopicInputMappingFieldsPtrOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingFieldsPtrOutput) ToEventGridTopicInputMappingFieldsPtrOutputWithContext(ctx context.Context) EventGridTopicInputMappingFieldsPtrOutput {
+	return o
+}
+
+func (o EventGridTopicInputMappingFieldsPtrOutput) Elem() EventGridTopicInputMappingFieldsOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingFields) EventGridTopicInputMappingFields { return *v }).(EventGridTopicInputMappingFieldsOutput)
+}
+
+// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsPtrOutput) DataVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsPtrOutput) EventTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsPtrOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o EventGridTopicInputMappingFieldsPtrOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridTopicInputMappingFields) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Topic
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventHubCaptureDescription struct {
 	// A `destination` block as defined below.
 	Destination EventHubCaptureDescriptionDestination `pulumi:"destination"`
@@ -1220,7 +1619,7 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) Index(i p
 
 type EventSubscriptionEventhubEndpoint struct {
 	// Specifies the id of the eventhub where the Event Subscription will receive events.
-	EventhubId string `pulumi:"eventhubId"`
+	EventhubId *string `pulumi:"eventhubId"`
 }
 
 // EventSubscriptionEventhubEndpointInput is an input type that accepts EventSubscriptionEventhubEndpointArgs and EventSubscriptionEventhubEndpointOutput values.
@@ -1237,7 +1636,7 @@ type EventSubscriptionEventhubEndpointInput interface {
 
 type EventSubscriptionEventhubEndpointArgs struct {
 	// Specifies the id of the eventhub where the Event Subscription will receive events.
-	EventhubId pulumi.StringInput `pulumi:"eventhubId"`
+	EventhubId pulumi.StringPtrInput `pulumi:"eventhubId"`
 }
 
 func (EventSubscriptionEventhubEndpointArgs) ElementType() reflect.Type {
@@ -1319,8 +1718,8 @@ func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndp
 }
 
 // Specifies the id of the eventhub where the Event Subscription will receive events.
-func (o EventSubscriptionEventhubEndpointOutput) EventhubId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) string { return v.EventhubId }).(pulumi.StringOutput)
+func (o EventSubscriptionEventhubEndpointOutput) EventhubId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionEventhubEndpoint) *string { return v.EventhubId }).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionEventhubEndpointPtrOutput struct{ *pulumi.OutputState }
@@ -1347,13 +1746,13 @@ func (o EventSubscriptionEventhubEndpointPtrOutput) EventhubId() pulumi.StringPt
 		if v == nil {
 			return nil
 		}
-		return &v.EventhubId
+		return v.EventhubId
 	}).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionHybridConnectionEndpoint struct {
 	// Specifies the id of the hybrid connection where the Event Subscription will receive events.
-	HybridConnectionId string `pulumi:"hybridConnectionId"`
+	HybridConnectionId *string `pulumi:"hybridConnectionId"`
 }
 
 // EventSubscriptionHybridConnectionEndpointInput is an input type that accepts EventSubscriptionHybridConnectionEndpointArgs and EventSubscriptionHybridConnectionEndpointOutput values.
@@ -1370,7 +1769,7 @@ type EventSubscriptionHybridConnectionEndpointInput interface {
 
 type EventSubscriptionHybridConnectionEndpointArgs struct {
 	// Specifies the id of the hybrid connection where the Event Subscription will receive events.
-	HybridConnectionId pulumi.StringInput `pulumi:"hybridConnectionId"`
+	HybridConnectionId pulumi.StringPtrInput `pulumi:"hybridConnectionId"`
 }
 
 func (EventSubscriptionHybridConnectionEndpointArgs) ElementType() reflect.Type {
@@ -1452,8 +1851,8 @@ func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybr
 }
 
 // Specifies the id of the hybrid connection where the Event Subscription will receive events.
-func (o EventSubscriptionHybridConnectionEndpointOutput) HybridConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) string { return v.HybridConnectionId }).(pulumi.StringOutput)
+func (o EventSubscriptionHybridConnectionEndpointOutput) HybridConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionHybridConnectionEndpoint) *string { return v.HybridConnectionId }).(pulumi.StringPtrOutput)
 }
 
 type EventSubscriptionHybridConnectionEndpointPtrOutput struct{ *pulumi.OutputState }
@@ -1482,7 +1881,7 @@ func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId()
 		if v == nil {
 			return nil
 		}
-		return &v.HybridConnectionId
+		return v.HybridConnectionId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1641,7 +2040,7 @@ func (o EventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntP
 type EventSubscriptionStorageBlobDeadLetterDestination struct {
 	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId string `pulumi:"storageAccountId"`
-	// Specifies the name of the Storage blob container that is the destination of the deadletter events
+	// Specifies the name of the Storage blob container that is the destination of the deadletter events.
 	StorageBlobContainerName string `pulumi:"storageBlobContainerName"`
 }
 
@@ -1660,7 +2059,7 @@ type EventSubscriptionStorageBlobDeadLetterDestinationInput interface {
 type EventSubscriptionStorageBlobDeadLetterDestinationArgs struct {
 	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
-	// Specifies the name of the Storage blob container that is the destination of the deadletter events
+	// Specifies the name of the Storage blob container that is the destination of the deadletter events.
 	StorageBlobContainerName pulumi.StringInput `pulumi:"storageBlobContainerName"`
 }
 
@@ -1747,7 +2146,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageAccountI
 	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Storage blob container that is the destination of the deadletter events
+// Specifies the name of the Storage blob container that is the destination of the deadletter events.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageBlobContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageBlobContainerName }).(pulumi.StringOutput)
 }
@@ -1782,7 +2181,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccou
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Storage blob container that is the destination of the deadletter events
+// Specifies the name of the Storage blob container that is the destination of the deadletter events.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionStorageBlobDeadLetterDestination) *string {
 		if v == nil {
@@ -2519,6 +2918,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainInputMappingDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingFieldsOutput{})
 	pulumi.RegisterOutputType(DomainInputMappingFieldsPtrOutput{})
+	pulumi.RegisterOutputType(EventGridTopicInputMappingDefaultValuesOutput{})
+	pulumi.RegisterOutputType(EventGridTopicInputMappingDefaultValuesPtrOutput{})
+	pulumi.RegisterOutputType(EventGridTopicInputMappingFieldsOutput{})
+	pulumi.RegisterOutputType(EventGridTopicInputMappingFieldsPtrOutput{})
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionOutput{})
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionDestinationOutput{})

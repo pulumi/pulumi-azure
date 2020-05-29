@@ -13,6 +13,8 @@
         "strict": true
     },
     "files": [
+        "advisor/getRecommendations.ts",
+        "advisor/index.ts",
         "analysisservices/index.ts",
         "analysisservices/server.ts",
         "apimanagement/api.ts",
@@ -251,6 +253,7 @@
         "devspace/index.ts",
         "devtest/getLab.ts",
         "devtest/getVirtualNetwork.ts",
+        "devtest/globalVMShutdownSchedule.ts",
         "devtest/index.ts",
         "devtest/lab.ts",
         "devtest/linuxVirtualMachine.ts",
@@ -495,6 +498,7 @@
         "network/index.ts",
         "network/localNetworkGateway.ts",
         "network/natGateway.ts",
+        "network/natGatewayPublicIpAssociation.ts",
         "network/networkConnectionMonitor.ts",
         "network/networkInterface.ts",
         "network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation.ts",

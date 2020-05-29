@@ -101,6 +101,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A `identity` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterIdentityResult> Identities;
+        /// <summary>
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         /// </summary>
         public readonly string KubeAdminConfigRaw;
@@ -116,6 +120,10 @@ namespace Pulumi.Azure.ContainerService
         /// A `kube_config` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeConfigResult> KubeConfigs;
+        /// <summary>
+        /// A `kubelet_identity` block as documented below.  
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeletIdentityResult> KubeletIdentities;
         /// <summary>
         /// The version of Kubernetes used on the managed Kubernetes Cluster.
         /// </summary>
@@ -181,6 +189,8 @@ namespace Pulumi.Azure.ContainerService
 
             string id,
 
+            ImmutableArray<Outputs.GetKubernetesClusterIdentityResult> identities,
+
             string kubeAdminConfigRaw,
 
             ImmutableArray<Outputs.GetKubernetesClusterKubeAdminConfigResult> kubeAdminConfigs,
@@ -188,6 +198,8 @@ namespace Pulumi.Azure.ContainerService
             string kubeConfigRaw,
 
             ImmutableArray<Outputs.GetKubernetesClusterKubeConfigResult> kubeConfigs,
+
+            ImmutableArray<Outputs.GetKubernetesClusterKubeletIdentityResult> kubeletIdentities,
 
             string kubernetesVersion,
 
@@ -223,10 +235,12 @@ namespace Pulumi.Azure.ContainerService
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;
             Id = id;
+            Identities = identities;
             KubeAdminConfigRaw = kubeAdminConfigRaw;
             KubeAdminConfigs = kubeAdminConfigs;
             KubeConfigRaw = kubeConfigRaw;
             KubeConfigs = kubeConfigs;
+            KubeletIdentities = kubeletIdentities;
             KubernetesVersion = kubernetesVersion;
             LinuxProfiles = linuxProfiles;
             Location = location;

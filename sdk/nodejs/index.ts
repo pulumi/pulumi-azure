@@ -7,6 +7,7 @@ export * from "./provider";
 export * from "./util";
 
 // Export sub-modules:
+import * as advisor from "./advisor/index";
 import * as analysisservices from "./analysisservices/index";
 import * as apimanagement from "./apimanagement/index";
 import * as appconfiguration from "./appconfiguration/index";
@@ -90,4 +91,4 @@ import * as streamanalytics from "./streamanalytics/index";
 import * as trafficmanager from "./trafficmanager/index";
 import * as types from "./types/index";
 import * as waf from "./waf/index";
-export {analysisservices, apimanagement, appconfiguration, appinsights, appplatform, appservice, authorization, automation, backup, batch, bot, cdn, cognitive, compute, config, containerservice, core, cosmosdb, costmanagement, dashboard, databasemigration, databricks, datafactory, datalake, datashare, devspace, devtest, dns, eventgrid, eventhub, frontdoor, hdinsight, healthcare, hpc, iot, iotcentral, keyvault, kusto, lb, loganalytics, logicapps, machinelearning, maintenance, managedapplication, management, managementgroups, managementresource, maps, mariadb, marketplace, mediaservices, mixedreality, monitoring, msi, mssql, mysql, netapp, network, notificationhub, operationalinsights, policy, postgresql, powerbi, privatedns, privatelink, proximity, recoveryservices, redis, relay, role, search, securitycenter, sentinel, servicebus, servicefabric, signalr, siterecovery, sql, storage, streamanalytics, trafficmanager, types, waf};
+export {advisor, analysisservices, apimanagement, appconfiguration, appinsights, appplatform, appservice, authorization, automation, backup, batch, bot, cdn, cognitive, compute, config, containerservice, core, cosmosdb, costmanagement, dashboard, databasemigration, databricks, datafactory, datalake, datashare, devspace, devtest, dns, eventgrid, eventhub, frontdoor, hdinsight, healthcare, hpc, iot, iotcentral, keyvault, kusto, lb, loganalytics, logicapps, machinelearning, maintenance, managedapplication, management, managementgroups, managementresource, maps, mariadb, marketplace, mediaservices, mixedreality, monitoring, msi, mssql, mysql, netapp, network, notificationhub, operationalinsights, policy, postgresql, powerbi, privatedns, privatelink, proximity, recoveryservices, redis, relay, role, search, securitycenter, sentinel, servicebus, servicefabric, signalr, siterecovery, sql, storage, streamanalytics, trafficmanager, types, waf};

@@ -43,7 +43,7 @@ class NetworkInterface(pulumi.CustomResource):
       * `private_ip_address` (`str`) - The Static IP Address which should be used.
       * `privateIpAddressAllocation` (`str`) - The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
       * `privateIpAddressVersion` (`str`) - The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
-      * `publicIpAddressId` (`str`) - Reference to a Public IP Address to associate with this NIC
+      * `public_ip_address_id` (`str`) - Reference to a Public IP Address to associate with this NIC
       * `subnet_id` (`str`) - The ID of the Subnet where this Network Interface should be located in.
     """
     location: pulumi.Output[str]
@@ -129,7 +129,7 @@ class NetworkInterface(pulumi.CustomResource):
           * `private_ip_address` (`pulumi.Input[str]`) - The Static IP Address which should be used.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
           * `privateIpAddressVersion` (`pulumi.Input[str]`) - The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this NIC
+          * `public_ip_address_id` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this NIC
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet where this Network Interface should be located in.
         """
         if __name__ is not None:
@@ -206,7 +206,7 @@ class NetworkInterface(pulumi.CustomResource):
           * `private_ip_address` (`pulumi.Input[str]`) - The Static IP Address which should be used.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
           * `privateIpAddressVersion` (`pulumi.Input[str]`) - The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this NIC
+          * `public_ip_address_id` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this NIC
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet where this Network Interface should be located in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

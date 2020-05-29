@@ -2745,6 +2745,8 @@ type KubernetesClusterAddonProfileOmsAgent struct {
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
+	// An `omsAgentIdentity` block as defined below.
+	OmsAgentIdentities []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
 }
 
 // KubernetesClusterAddonProfileOmsAgentInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentArgs and KubernetesClusterAddonProfileOmsAgentOutput values.
@@ -2764,6 +2766,8 @@ type KubernetesClusterAddonProfileOmsAgentArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput `pulumi:"logAnalyticsWorkspaceId"`
+	// An `omsAgentIdentity` block as defined below.
+	OmsAgentIdentities KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
 }
 
 func (KubernetesClusterAddonProfileOmsAgentArgs) ElementType() reflect.Type {
@@ -2854,6 +2858,13 @@ func (o KubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() p
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) *string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
+// An `omsAgentIdentity` block as defined below.
+func (o KubernetesClusterAddonProfileOmsAgentOutput) OmsAgentIdentities() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgent) []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+		return v.OmsAgentIdentities
+	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
+}
+
 type KubernetesClusterAddonProfileOmsAgentPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterAddonProfileOmsAgentPtrOutput) ElementType() reflect.Type {
@@ -2890,6 +2901,133 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) LogAnalyticsWorkspaceId(
 		}
 		return v.LogAnalyticsWorkspaceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// An `omsAgentIdentity` block as defined below.
+func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) OmsAgentIdentities() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileOmsAgent) []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.OmsAgentIdentities
+	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
+}
+
+type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
+	// The Client ID for the Service Principal.
+	ClientId *string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	ObjectId *string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity used by the OMS Agents.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs and KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput` via:
+//
+// 		 KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
+//
+type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
+	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
+}
+
+type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs struct {
+	// The Client ID for the Service Principal.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity used by the OMS Agents.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return i.ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
+}
+
+// KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray and KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput` via:
+//
+// 		 KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
+//
+type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
+	ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
+}
+
+type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray []KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput
+
+func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return i.ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
+}
+
+type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return o
+}
+
+// The Client ID for the Service Principal.
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity used by the OMS Agents.
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+		return vs[0].([]KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)[vs[1].(int)]
+	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
 }
 
 type KubernetesClusterDefaultNodePool struct {
@@ -3753,9 +3891,9 @@ func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) Kuberne
 type KubernetesClusterKubeletIdentity struct {
 	// The Client ID for the Service Principal.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
+	// The ID of the User Assigned Identity used by the OMS Agents.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3774,9 +3912,9 @@ type KubernetesClusterKubeletIdentityInput interface {
 type KubernetesClusterKubeletIdentityArgs struct {
 	// The Client ID for the Service Principal.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of the User Assigned Identity assigned to the Kubelets.
+	// The ID of the User Assigned Identity used by the OMS Agents.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3837,12 +3975,12 @@ func (o KubernetesClusterKubeletIdentityOutput) ClientId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+// The Object ID of the user-defined Managed Identity used by the OMS Agents.
 func (o KubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the User Assigned Identity assigned to the Kubelets.
+// The ID of the User Assigned Identity used by the OMS Agents.
 func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -6115,6 +6253,8 @@ type GetKubernetesClusterAddonProfileOmsAgent struct {
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// An `omsAgentIdentity` block as defined below.
+	OmsAgentIdentities []GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
 }
 
 // GetKubernetesClusterAddonProfileOmsAgentInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentArgs and GetKubernetesClusterAddonProfileOmsAgentOutput values.
@@ -6134,6 +6274,8 @@ type GetKubernetesClusterAddonProfileOmsAgentArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// An `omsAgentIdentity` block as defined below.
+	OmsAgentIdentities GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
 }
 
 func (GetKubernetesClusterAddonProfileOmsAgentArgs) ElementType() reflect.Type {
@@ -6198,6 +6340,13 @@ func (o GetKubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId(
 	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
 }
 
+// An `omsAgentIdentity` block as defined below.
+func (o GetKubernetesClusterAddonProfileOmsAgentOutput) OmsAgentIdentities() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgent) []GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+		return v.OmsAgentIdentities
+	}).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
+}
+
 type GetKubernetesClusterAddonProfileOmsAgentArrayOutput struct{ *pulumi.OutputState }
 
 func (GetKubernetesClusterAddonProfileOmsAgentArrayOutput) ElementType() reflect.Type {
@@ -6216,6 +6365,125 @@ func (o GetKubernetesClusterAddonProfileOmsAgentArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOmsAgent {
 		return vs[0].([]GetKubernetesClusterAddonProfileOmsAgent)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileOmsAgentOutput)
+}
+
+type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs and GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput` via:
+//
+// 		 GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
+//
+type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
+	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput
+}
+
+type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return i.ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
+}
+
+// GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray and GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput` via:
+//
+// 		 GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
+//
+type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
+	ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput
+}
+
+type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray []GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput
+
+func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return i.ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput)
+}
+
+type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) string {
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput() GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) ToGetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+		return vs[0].([]GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity)[vs[1].(int)]
+	}).(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
 }
 
 type GetKubernetesClusterAgentPoolProfile struct {
@@ -6243,7 +6511,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	OsType string `pulumi:"osType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the Agent Pool.
+	// The type of identity used for the managed cluster.
 	Type string `pulumi:"type"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 	VmSize string `pulumi:"vmSize"`
@@ -6288,7 +6556,7 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	OsType pulumi.StringInput `pulumi:"osType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the Agent Pool.
+	// The type of identity used for the managed cluster.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
@@ -6411,7 +6679,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) Tags() pulumi.StringMapOutpu
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the Agent Pool.
+// The type of identity used for the managed cluster.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6444,6 +6712,123 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAgentPoolProfile {
 		return vs[0].([]GetKubernetesClusterAgentPoolProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterAgentPoolProfileOutput)
+}
+
+type GetKubernetesClusterIdentity struct {
+	// The principal id of the system assigned identity which is used by master components.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by master components.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the managed cluster.
+	Type string `pulumi:"type"`
+}
+
+// GetKubernetesClusterIdentityInput is an input type that accepts GetKubernetesClusterIdentityArgs and GetKubernetesClusterIdentityOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterIdentityInput` via:
+//
+// 		 GetKubernetesClusterIdentityArgs{...}
+//
+type GetKubernetesClusterIdentityInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterIdentityOutput() GetKubernetesClusterIdentityOutput
+	ToGetKubernetesClusterIdentityOutputWithContext(context.Context) GetKubernetesClusterIdentityOutput
+}
+
+type GetKubernetesClusterIdentityArgs struct {
+	// The principal id of the system assigned identity which is used by master components.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by master components.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the managed cluster.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetKubernetesClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterIdentityArgs) ToGetKubernetesClusterIdentityOutput() GetKubernetesClusterIdentityOutput {
+	return i.ToGetKubernetesClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterIdentityArgs) ToGetKubernetesClusterIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIdentityOutput)
+}
+
+// GetKubernetesClusterIdentityArrayInput is an input type that accepts GetKubernetesClusterIdentityArray and GetKubernetesClusterIdentityArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterIdentityArrayInput` via:
+//
+// 		 GetKubernetesClusterIdentityArray{ GetKubernetesClusterIdentityArgs{...} }
+//
+type GetKubernetesClusterIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterIdentityArrayOutput() GetKubernetesClusterIdentityArrayOutput
+	ToGetKubernetesClusterIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterIdentityArrayOutput
+}
+
+type GetKubernetesClusterIdentityArray []GetKubernetesClusterIdentityInput
+
+func (GetKubernetesClusterIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterIdentityArray) ToGetKubernetesClusterIdentityArrayOutput() GetKubernetesClusterIdentityArrayOutput {
+	return i.ToGetKubernetesClusterIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterIdentityArray) ToGetKubernetesClusterIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterIdentityArrayOutput)
+}
+
+type GetKubernetesClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterIdentityOutput) ToGetKubernetesClusterIdentityOutput() GetKubernetesClusterIdentityOutput {
+	return o
+}
+
+func (o GetKubernetesClusterIdentityOutput) ToGetKubernetesClusterIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterIdentityOutput {
+	return o
+}
+
+// The principal id of the system assigned identity which is used by master components.
+func (o GetKubernetesClusterIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the system assigned identity which is used by master components.
+func (o GetKubernetesClusterIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the managed cluster.
+func (o GetKubernetesClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterIdentityArrayOutput) ToGetKubernetesClusterIdentityArrayOutput() GetKubernetesClusterIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterIdentityArrayOutput) ToGetKubernetesClusterIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterIdentity {
+		return vs[0].([]GetKubernetesClusterIdentity)[vs[1].(int)]
+	}).(GetKubernetesClusterIdentityOutput)
 }
 
 type GetKubernetesClusterKubeAdminConfig struct {
@@ -6732,6 +7117,123 @@ func (o GetKubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) GetK
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterKubeConfig {
 		return vs[0].([]GetKubernetesClusterKubeConfig)[vs[1].(int)]
 	}).(GetKubernetesClusterKubeConfigOutput)
+}
+
+type GetKubernetesClusterKubeletIdentity struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetKubernetesClusterKubeletIdentityInput is an input type that accepts GetKubernetesClusterKubeletIdentityArgs and GetKubernetesClusterKubeletIdentityOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterKubeletIdentityInput` via:
+//
+// 		 GetKubernetesClusterKubeletIdentityArgs{...}
+//
+type GetKubernetesClusterKubeletIdentityInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterKubeletIdentityOutput() GetKubernetesClusterKubeletIdentityOutput
+	ToGetKubernetesClusterKubeletIdentityOutputWithContext(context.Context) GetKubernetesClusterKubeletIdentityOutput
+}
+
+type GetKubernetesClusterKubeletIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetKubernetesClusterKubeletIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterKubeletIdentityArgs) ToGetKubernetesClusterKubeletIdentityOutput() GetKubernetesClusterKubeletIdentityOutput {
+	return i.ToGetKubernetesClusterKubeletIdentityOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterKubeletIdentityArgs) ToGetKubernetesClusterKubeletIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterKubeletIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeletIdentityOutput)
+}
+
+// GetKubernetesClusterKubeletIdentityArrayInput is an input type that accepts GetKubernetesClusterKubeletIdentityArray and GetKubernetesClusterKubeletIdentityArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterKubeletIdentityArrayInput` via:
+//
+// 		 GetKubernetesClusterKubeletIdentityArray{ GetKubernetesClusterKubeletIdentityArgs{...} }
+//
+type GetKubernetesClusterKubeletIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterKubeletIdentityArrayOutput() GetKubernetesClusterKubeletIdentityArrayOutput
+	ToGetKubernetesClusterKubeletIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterKubeletIdentityArrayOutput
+}
+
+type GetKubernetesClusterKubeletIdentityArray []GetKubernetesClusterKubeletIdentityInput
+
+func (GetKubernetesClusterKubeletIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterKubeletIdentityArray) ToGetKubernetesClusterKubeletIdentityArrayOutput() GetKubernetesClusterKubeletIdentityArrayOutput {
+	return i.ToGetKubernetesClusterKubeletIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterKubeletIdentityArray) ToGetKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKubeletIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterKubeletIdentityArrayOutput)
+}
+
+type GetKubernetesClusterKubeletIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterKubeletIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterKubeletIdentityOutput) ToGetKubernetesClusterKubeletIdentityOutput() GetKubernetesClusterKubeletIdentityOutput {
+	return o
+}
+
+func (o GetKubernetesClusterKubeletIdentityOutput) ToGetKubernetesClusterKubeletIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterKubeletIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterKubeletIdentityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterKubeletIdentity) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterKubeletIdentity) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets.
+func (o GetKubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterKubeletIdentity) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterKubeletIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterKubeletIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterKubeletIdentityArrayOutput) ToGetKubernetesClusterKubeletIdentityArrayOutput() GetKubernetesClusterKubeletIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterKubeletIdentityArrayOutput) ToGetKubernetesClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterKubeletIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterKubeletIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterKubeletIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterKubeletIdentity {
+		return vs[0].([]GetKubernetesClusterKubeletIdentity)[vs[1].(int)]
+	}).(GetKubernetesClusterKubeletIdentityOutput)
 }
 
 type GetKubernetesClusterLinuxProfile struct {
@@ -7206,7 +7708,7 @@ type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
 	ClientAppId string `pulumi:"clientAppId"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId string `pulumi:"serverAppId"`
-	// The Tenant ID used for Azure Active Directory Application.
+	// The tenant id of the system assigned identity which is used by master components.
 	TenantId string `pulumi:"tenantId"`
 }
 
@@ -7227,7 +7729,7 @@ type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
-	// The Tenant ID used for Azure Active Directory Application.
+	// The tenant id of the system assigned identity which is used by master components.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
@@ -7293,7 +7795,7 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Se
 	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
-// The Tenant ID used for Azure Active Directory Application.
+// The tenant id of the system assigned identity which is used by master components.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -7319,7 +7821,7 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutpu
 }
 
 type GetKubernetesClusterServicePrincipal struct {
-	// The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
 	ClientId string `pulumi:"clientId"`
 }
 
@@ -7336,7 +7838,7 @@ type GetKubernetesClusterServicePrincipalInput interface {
 }
 
 type GetKubernetesClusterServicePrincipalArgs struct {
-	// The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 }
 
@@ -7392,7 +7894,7 @@ func (o GetKubernetesClusterServicePrincipalOutput) ToGetKubernetesClusterServic
 	return o
 }
 
-// The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
+// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
 func (o GetKubernetesClusterServicePrincipalOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterServicePrincipal) string { return v.ClientId }).(pulumi.StringOutput)
 }
@@ -7553,6 +8055,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})
@@ -7595,12 +8099,18 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAgentPoolProfileArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterIdentityOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKubeAdminConfigOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKubeAdminConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKubeConfigOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterKubeConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterKubeletIdentityOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterKubeletIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterLinuxProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterLinuxProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterLinuxProfileSshKeyOutput{})

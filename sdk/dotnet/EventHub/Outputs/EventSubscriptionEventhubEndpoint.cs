@@ -16,10 +16,10 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// <summary>
         /// Specifies the id of the eventhub where the Event Subscription will receive events.
         /// </summary>
-        public readonly string EventhubId;
+        public readonly string? EventhubId;
 
         [OutputConstructor]
-        private EventSubscriptionEventhubEndpoint(string eventhubId)
+        private EventSubscriptionEventhubEndpoint(string? eventhubId)
         {
             EventhubId = eventhubId;
         }

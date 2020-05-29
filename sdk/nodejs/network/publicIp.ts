@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: "West US",
  *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     allocationMethod: "Static",
  *     tags: {
  *         environment: "Production",

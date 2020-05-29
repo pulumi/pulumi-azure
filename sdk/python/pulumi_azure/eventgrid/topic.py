@@ -14,6 +14,29 @@ class Topic(pulumi.CustomResource):
     """
     The Endpoint associated with the EventGrid Topic.
     """
+    input_mapping_default_values: pulumi.Output[dict]
+    """
+    A `input_mapping_default_values` block as defined below.
+
+      * `dataVersion` (`str`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `eventType` (`str`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `subject` (`str`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+    """
+    input_mapping_fields: pulumi.Output[dict]
+    """
+    A `input_mapping_fields` block as defined below.
+
+      * `dataVersion` (`str`) - Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `eventTime` (`str`) - Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `eventType` (`str`) - Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `id` (`str`) - Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `subject` (`str`) - Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `topic` (`str`) - Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+    """
+    input_schema: pulumi.Output[str]
+    """
+    Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -37,8 +60,9 @@ class Topic(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
+    ---
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Topic
 
@@ -64,10 +88,29 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
+        :param pulumi.Input[dict] input_mapping_fields: A `input_mapping_fields` block as defined below.
+        :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+               ---
+
+        The **input_mapping_default_values** object supports the following:
+
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+
+        The **input_mapping_fields** object supports the following:
+
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventTime` (`pulumi.Input[str]`) - Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `id` (`pulumi.Input[str]`) - Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `topic` (`pulumi.Input[str]`) - Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,6 +129,9 @@ class Topic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['input_mapping_default_values'] = input_mapping_default_values
+            __props__['input_mapping_fields'] = input_mapping_fields
+            __props__['input_schema'] = input_schema
             __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None:
@@ -104,7 +150,7 @@ class Topic(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, endpoint=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, tags=None):
+    def get(resource_name, id, opts=None, endpoint=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, tags=None):
         """
         Get an existing Topic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,18 +159,40 @@ class Topic(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Topic.
+        :param pulumi.Input[dict] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
+        :param pulumi.Input[dict] input_mapping_fields: A `input_mapping_fields` block as defined below.
+        :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Topic.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Shared Access Key associated with the EventGrid Topic.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+               ---
+
+        The **input_mapping_default_values** object supports the following:
+
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+
+        The **input_mapping_fields** object supports the following:
+
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventTime` (`pulumi.Input[str]`) - Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `id` (`pulumi.Input[str]`) - Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `topic` (`pulumi.Input[str]`) - Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["endpoint"] = endpoint
+        __props__["input_mapping_default_values"] = input_mapping_default_values
+        __props__["input_mapping_fields"] = input_mapping_fields
+        __props__["input_schema"] = input_schema
         __props__["location"] = location
         __props__["name"] = name
         __props__["primary_access_key"] = primary_access_key

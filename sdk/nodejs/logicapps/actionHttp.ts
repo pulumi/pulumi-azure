@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,6 +77,10 @@ export class ActionHttp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+     */
+    public readonly runAfters!: pulumi.Output<outputs.logicapps.ActionHttpRunAfter[] | undefined>;
+    /**
      * Specifies the URI which will be called when this HTTP Action is triggered.
      */
     public readonly uri!: pulumi.Output<string>;
@@ -96,6 +102,7 @@ export class ActionHttp extends pulumi.CustomResource {
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["method"] = state ? state.method : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["runAfters"] = state ? state.runAfters : undefined;
             inputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as ActionHttpArgs | undefined;
@@ -113,6 +120,7 @@ export class ActionHttp extends pulumi.CustomResource {
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["method"] = args ? args.method : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["runAfters"] = args ? args.runAfters : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
         if (!opts) {
@@ -151,6 +159,10 @@ export interface ActionHttpState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+     */
+    readonly runAfters?: pulumi.Input<pulumi.Input<inputs.logicapps.ActionHttpRunAfter>[]>;
+    /**
      * Specifies the URI which will be called when this HTTP Action is triggered.
      */
     readonly uri?: pulumi.Input<string>;
@@ -180,6 +192,10 @@ export interface ActionHttpArgs {
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+     */
+    readonly runAfters?: pulumi.Input<pulumi.Input<inputs.logicapps.ActionHttpRunAfter>[]>;
     /**
      * Specifies the URI which will be called when this HTTP Action is triggered.
      */

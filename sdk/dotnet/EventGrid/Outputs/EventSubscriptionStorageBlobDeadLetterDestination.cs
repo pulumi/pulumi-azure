@@ -18,7 +18,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string StorageAccountId;
         /// <summary>
-        /// Specifies the name of the Storage blob container that is the destination of the deadletter events
+        /// Specifies the name of the Storage blob container that is the destination of the deadletter events.
         /// </summary>
         public readonly string StorageBlobContainerName;
 

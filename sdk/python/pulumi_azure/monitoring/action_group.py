@@ -41,7 +41,7 @@ class ActionGroup(pulumi.CustomResource):
     """
     One or more `azure_function_receiver` blocks as defined below.
 
-      * `functionAppResourceId` (`str`)
+      * `functionAppResourceId` (`str`) - The Azure resource ID of the function app.
       * `functionName` (`str`) - The function name in the function app.
       * `httpTriggerUrl` (`str`) - The http trigger url where http request sent to.
       * `name` (`str`) - The name of the Azure Function receiver.
@@ -242,7 +242,7 @@ class ActionGroup(pulumi.CustomResource):
 
         The **azure_function_receivers** object supports the following:
 
-          * `functionAppResourceId` (`pulumi.Input[str]`)
+          * `functionAppResourceId` (`pulumi.Input[str]`) - The Azure resource ID of the function app.
           * `functionName` (`pulumi.Input[str]`) - The function name in the function app.
           * `httpTriggerUrl` (`pulumi.Input[str]`) - The http trigger url where http request sent to.
           * `name` (`pulumi.Input[str]`) - The name of the Azure Function receiver.
@@ -377,7 +377,7 @@ class ActionGroup(pulumi.CustomResource):
 
         The **azure_function_receivers** object supports the following:
 
-          * `functionAppResourceId` (`pulumi.Input[str]`)
+          * `functionAppResourceId` (`pulumi.Input[str]`) - The Azure resource ID of the function app.
           * `functionName` (`pulumi.Input[str]`) - The function name in the function app.
           * `httpTriggerUrl` (`pulumi.Input[str]`) - The http trigger url where http request sent to.
           * `name` (`pulumi.Input[str]`) - The name of the Azure Function receiver.

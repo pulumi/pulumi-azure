@@ -82,8 +82,8 @@ class PublicIp(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
         example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location="West US",
             resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
             allocation_method="Static",
             tags={
                 "environment": "Production",

@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class ActionGroupAzureFunctionReceiverGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Azure resource ID of the function app.
+        /// </summary>
         [Input("functionAppResourceId", required: true)]
         public Input<string> FunctionAppResourceId { get; set; } = null!;
 

@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Compute
         /// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zone")]
-        public Output<string?> Zone { get; private set; } = null!;
+        public Output<string> Zone { get; private set; } = null!;
 
 
         /// <summary>

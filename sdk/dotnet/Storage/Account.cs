@@ -59,13 +59,13 @@ namespace Pulumi.Azure.Storage
         public Output<string?> AccountKind { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         /// </summary>
         [Output("accountReplicationType")]
         public Output<string> AccountReplicationType { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         /// </summary>
         [Output("accountTier")]
         public Output<string> AccountTier { get; private set; } = null!;
@@ -394,13 +394,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         /// </summary>
         [Input("accountReplicationType", required: true)]
         public Input<string> AccountReplicationType { get; set; } = null!;
 
         /// <summary>
-        /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accountTier", required: true)]
         public Input<string> AccountTier { get; set; } = null!;
@@ -504,13 +504,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountKind { get; set; }
 
         /// <summary>
-        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+        /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         /// </summary>
         [Input("accountReplicationType")]
         public Input<string>? AccountReplicationType { get; set; }
 
         /// <summary>
-        /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accountTier")]
         public Input<string>? AccountTier { get; set; }

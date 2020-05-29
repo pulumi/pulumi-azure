@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Batch.Inputs
 
     public sealed class PoolContainerConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("containerImageNames")]
+        private InputList<string>? _containerImageNames;
+
+        /// <summary>
+        /// A list of container image names to use, as would be specified by `docker pull`.
+        /// </summary>
+        public InputList<string> ContainerImageNames
+        {
+            get => _containerImageNames ?? (_containerImageNames = new InputList<string>());
+            set => _containerImageNames = value;
+        }
+
         [Input("containerRegistries")]
         private InputList<Inputs.PoolContainerConfigurationContainerRegistryArgs>? _containerRegistries;
 

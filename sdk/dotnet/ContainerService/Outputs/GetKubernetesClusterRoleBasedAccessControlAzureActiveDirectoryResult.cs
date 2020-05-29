@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ServerAppId;
         /// <summary>
-        /// The Tenant ID used for Azure Active Directory Application.
+        /// The tenant id of the system assigned identity which is used by master components.
         /// </summary>
         public readonly string TenantId;
 

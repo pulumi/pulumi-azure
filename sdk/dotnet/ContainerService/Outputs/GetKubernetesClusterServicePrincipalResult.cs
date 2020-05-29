@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterServicePrincipalResult
     {
         /// <summary>
-        /// The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
+        /// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
         /// </summary>
         public readonly string ClientId;
 

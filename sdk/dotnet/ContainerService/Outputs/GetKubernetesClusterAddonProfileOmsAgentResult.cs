@@ -21,15 +21,22 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         /// </summary>
         public readonly string LogAnalyticsWorkspaceId;
+        /// <summary>
+        /// An `oms_agent_identity` block as defined below.  
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult> OmsAgentIdentities;
 
         [OutputConstructor]
         private GetKubernetesClusterAddonProfileOmsAgentResult(
             bool enabled,
 
-            string logAnalyticsWorkspaceId)
+            string logAnalyticsWorkspaceId,
+
+            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult> omsAgentIdentities)
         {
             Enabled = enabled;
             LogAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            OmsAgentIdentities = omsAgentIdentities;
         }
     }
 }

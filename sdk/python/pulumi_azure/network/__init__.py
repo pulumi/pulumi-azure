@@ -35,6 +35,7 @@ from .get_virtual_network import *
 from .get_virtual_network_gateway import *
 from .local_network_gateway import *
 from .nat_gateway import *
+from .nat_gateway_public_ip_association import *
 from .network_connection_monitor import *
 from .network_interface import *
 from .network_interface_application_gateway_backend_address_pool_association import *

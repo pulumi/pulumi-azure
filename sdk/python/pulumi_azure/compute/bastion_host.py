@@ -19,7 +19,7 @@ class BastionHost(pulumi.CustomResource):
     A `ip_configuration` block as defined below.
 
       * `name` (`str`) - The name of the IP configuration.
-      * `publicIpAddressId` (`str`) - Reference to a Public IP Address to associate with this Bastion Host.
+      * `public_ip_address_id` (`str`) - Reference to a Public IP Address to associate with this Bastion Host.
       * `subnet_id` (`str`) - Reference to a subnet in which this Bastion Host has been created.
     """
     location: pulumi.Output[str]
@@ -72,7 +72,7 @@ class BastionHost(pulumi.CustomResource):
             ip_configuration={
                 "name": "configuration",
                 "subnet_id": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             })
         ```
 
@@ -88,7 +88,7 @@ class BastionHost(pulumi.CustomResource):
         The **ip_configuration** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - The name of the IP configuration.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this Bastion Host.
+          * `public_ip_address_id` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this Bastion Host.
           * `subnet_id` (`pulumi.Input[str]`) - Reference to a subnet in which this Bastion Host has been created.
         """
         if __name__ is not None:
@@ -141,7 +141,7 @@ class BastionHost(pulumi.CustomResource):
         The **ip_configuration** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - The name of the IP configuration.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this Bastion Host.
+          * `public_ip_address_id` (`pulumi.Input[str]`) - Reference to a Public IP Address to associate with this Bastion Host.
           * `subnet_id` (`pulumi.Input[str]`) - Reference to a subnet in which this Bastion Host has been created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

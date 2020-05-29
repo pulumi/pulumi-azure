@@ -23,6 +23,9 @@ export interface ProviderFeaturesVirtualMachineScaleSet {
     rollInstancesWhenRequired: pulumi.Input<boolean>;
 }
 
+export namespace advisor {
+}
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -2540,6 +2543,10 @@ export namespace batch {
 
     export interface PoolContainerConfiguration {
         /**
+         * A list of container image names to use, as would be specified by `docker pull`.
+         */
+        containerImageNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Additional container registries from which container images can be pulled by the pool's VMs.
          */
         containerRegistries?: pulumi.Input<pulumi.Input<inputs.batch.PoolContainerConfigurationContainerRegistry>[]>;
@@ -4306,7 +4313,7 @@ export namespace compute {
          */
         regionalReplicaCount: pulumi.Input<number>;
         /**
-         * The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+         * The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
          */
         storageAccountType?: pulumi.Input<string>;
     }
@@ -5379,6 +5386,25 @@ export namespace containerservice {
          * The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
          */
         logAnalyticsWorkspaceId?: pulumi.Input<string>;
+        /**
+         * An `omsAgentIdentity` block as defined below.  
+         */
+        omsAgentIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity>[]>;
+    }
+
+    export interface KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
+        /**
+         * The Client ID for the Service Principal.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The ID of the User Assigned Identity used by the OMS Agents.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterDefaultNodePool {
@@ -5519,11 +5545,11 @@ export namespace containerservice {
          */
         clientId?: pulumi.Input<string>;
         /**
-         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
          */
         objectId?: pulumi.Input<string>;
         /**
-         * The ID of the User Assigned Identity assigned to the Kubelets.
+         * The ID of the User Assigned Identity used by the OMS Agents.
          */
         userAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -6084,6 +6110,21 @@ export namespace datashare {
 }
 
 export namespace devtest {
+    export interface GlobalVMShutdownScheduleNotificationSettings {
+        /**
+         * Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+         */
+        timeInMinutes?: pulumi.Input<number>;
+        /**
+         * The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+         */
+        webhookUrl?: pulumi.Input<string>;
+    }
+
     export interface LinuxVirtualMachineGalleryImageReference {
         /**
          * The Offer of the Gallery Image. Changing this forces a new resource to be created.
@@ -6306,14 +6347,14 @@ export namespace eventgrid {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
          */
-        eventhubId: pulumi.Input<string>;
+        eventhubId?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionHybridConnectionEndpoint {
         /**
          * Specifies the id of the hybrid connection where the Event Subscription will receive events.
          */
-        hybridConnectionId: pulumi.Input<string>;
+        hybridConnectionId?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionRetryPolicy {
@@ -6333,7 +6374,7 @@ export namespace eventgrid {
          */
         storageAccountId: pulumi.Input<string>;
         /**
-         * Specifies the name of the Storage blob container that is the destination of the deadletter events
+         * Specifies the name of the Storage blob container that is the destination of the deadletter events.
          */
         storageBlobContainerName: pulumi.Input<string>;
     }
@@ -6370,6 +6411,48 @@ export namespace eventgrid {
          */
         url: pulumi.Input<string>;
     }
+
+    export interface TopicInputMappingDefaultValues {
+        /**
+         * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: pulumi.Input<string>;
+        /**
+         * Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: pulumi.Input<string>;
+        /**
+         * Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: pulumi.Input<string>;
+    }
+
+    export interface TopicInputMappingFields {
+        /**
+         * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: pulumi.Input<string>;
+        /**
+         * Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventTime?: pulumi.Input<string>;
+        /**
+         * Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: pulumi.Input<string>;
+        /**
+         * Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        topic?: pulumi.Input<string>;
+    }
 }
 
 export namespace eventhub {
@@ -6389,6 +6472,48 @@ export namespace eventhub {
     }
 
     export interface DomainInputMappingFields {
+        /**
+         * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: pulumi.Input<string>;
+        /**
+         * Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventTime?: pulumi.Input<string>;
+        /**
+         * Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: pulumi.Input<string>;
+        /**
+         * Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        topic?: pulumi.Input<string>;
+    }
+
+    export interface EventGridTopicInputMappingDefaultValues {
+        /**
+         * Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        dataVersion?: pulumi.Input<string>;
+        /**
+         * Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        eventType?: pulumi.Input<string>;
+        /**
+         * Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+         */
+        subject?: pulumi.Input<string>;
+    }
+
+    export interface EventGridTopicInputMappingFields {
         /**
          * Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
          */
@@ -6502,14 +6627,14 @@ export namespace eventhub {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
          */
-        eventhubId: pulumi.Input<string>;
+        eventhubId?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionHybridConnectionEndpoint {
         /**
          * Specifies the id of the hybrid connection where the Event Subscription will receive events.
          */
-        hybridConnectionId: pulumi.Input<string>;
+        hybridConnectionId?: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionRetryPolicy {
@@ -6529,7 +6654,7 @@ export namespace eventhub {
          */
         storageAccountId: pulumi.Input<string>;
         /**
-         * Specifies the name of the Storage blob container that is the destination of the deadletter events
+         * Specifies the name of the Storage blob container that is the destination of the deadletter events.
          */
         storageBlobContainerName: pulumi.Input<string>;
     }
@@ -9048,6 +9173,19 @@ export namespace lb {
     }
 }
 
+export namespace logicapps {
+    export interface ActionHttpRunAfter {
+        /**
+         * Specifies the name of the precedent HTTP Action.
+         */
+        actionName: pulumi.Input<string>;
+        /**
+         * Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+         */
+        actionResult: pulumi.Input<string>;
+    }
+}
+
 export namespace machinelearning {
     export interface WorkspaceIdentity {
         /**
@@ -9188,6 +9326,9 @@ export namespace monitoring {
     }
 
     export interface ActionGroupAzureFunctionReceiver {
+        /**
+         * The Azure resource ID of the function app.
+         */
         functionAppResourceId: pulumi.Input<string>;
         /**
          * The function name in the function app.

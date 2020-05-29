@@ -43,6 +43,8 @@ type LookupKubernetesClusterResult struct {
 	Fqdn string `pulumi:"fqdn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// A `identity` block as documented below.
+	Identities []GetKubernetesClusterIdentity `pulumi:"identities"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw string `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -51,6 +53,8 @@ type LookupKubernetesClusterResult struct {
 	KubeConfigRaw string `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs []GetKubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
+	// A `kubeletIdentity` block as documented below.
+	KubeletIdentities []GetKubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
 	// The version of Kubernetes used on the managed Kubernetes Cluster.
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as documented below.
