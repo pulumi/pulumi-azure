@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.12.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.7.0 (2020-06-01)
+* Upgrade to v2.12.0 of the AzureRM Terraform Provider
 
 ## 3.6.1 (2020-05-28)
 * Upgrade to Pulumi v2.3.0
