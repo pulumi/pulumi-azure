@@ -51,6 +51,10 @@ export interface GetResourceGroupArgs {
  */
 export interface GetResourceGroupResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the Resource Group exists.
      */
     readonly location: string;
@@ -59,8 +63,4 @@ export interface GetResourceGroupResult {
      * A mapping of tags assigned to the Resource Group.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

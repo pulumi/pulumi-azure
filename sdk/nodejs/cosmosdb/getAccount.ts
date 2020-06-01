@@ -75,6 +75,10 @@ export interface GetAccountResult {
     readonly endpoint: string;
     readonly geoLocations: outputs.cosmosdb.GetAccountGeoLocation[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The current IP Filter for this CosmosDB account
      */
     readonly ipRangeFilter: string;
@@ -128,8 +132,4 @@ export interface GetAccountResult {
      * A list of write endpoints available for this CosmosDB account.
      */
     readonly writeEndpoints: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

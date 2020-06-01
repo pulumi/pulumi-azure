@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Role Definition.
- *
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};
@@ -56,6 +55,10 @@ export interface GetRoleDefinitionResult {
      * the Description of the built-in Role.
      */
     readonly description: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * a `permissions` block as documented below.
@@ -67,8 +70,4 @@ export interface GetRoleDefinitionResult {
      * the Type of the Role.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

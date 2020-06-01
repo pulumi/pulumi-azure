@@ -54,12 +54,12 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A `rule` block as documented below.
      */
     readonly rules: outputs.storage.GetPolicyRule[];
     readonly storageAccountId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

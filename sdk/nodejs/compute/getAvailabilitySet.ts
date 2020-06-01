@@ -57,6 +57,10 @@ export interface GetAvailabilitySetArgs {
  */
 export interface GetAvailabilitySetResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The supported Azure location where the Availability Set exists.
      */
     readonly location: string;
@@ -78,8 +82,4 @@ export interface GetAvailabilitySetResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

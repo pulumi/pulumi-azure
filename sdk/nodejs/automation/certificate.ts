@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Automation Certificate.
- *
  */
 export class Certificate extends pulumi.CustomResource {
     /**

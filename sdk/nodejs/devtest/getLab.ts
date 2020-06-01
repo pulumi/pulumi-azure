@@ -69,6 +69,10 @@ export interface GetLabResult {
      */
     readonly defaultStorageAccountId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The ID of the Key used for this Dev Test Lab.
      */
     readonly keyVaultId: string;
@@ -94,8 +98,4 @@ export interface GetLabResult {
      * The unique immutable identifier of the Dev Test Lab.
      */
     readonly uniqueIdentifier: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

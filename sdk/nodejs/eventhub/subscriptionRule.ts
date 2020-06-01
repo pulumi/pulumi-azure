@@ -83,8 +83,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * @deprecated azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule
  */
-/** @deprecated azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule */
 export class SubscriptionRule extends pulumi.CustomResource {
     /**
      * Get an existing SubscriptionRule resource's state with the given name, ID, and optional extra

@@ -61,6 +61,10 @@ export interface GetSpringCloudServiceResult {
      */
     readonly configServerGitSettings: outputs.appplatform.GetSpringCloudServiceConfigServerGitSetting[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location of Spring Cloud Service.
      */
     readonly location: string;
@@ -73,8 +77,4 @@ export interface GetSpringCloudServiceResult {
      * A mapping of tags assigned to Spring Cloud Service.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

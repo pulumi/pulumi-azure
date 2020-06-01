@@ -75,6 +75,10 @@ export interface GetSharedImageResult {
      */
     readonly hyperVGeneration: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * An `identifier` block as defined below.
      */
     readonly identifiers: outputs.compute.GetSharedImageIdentifier[];
@@ -100,8 +104,4 @@ export interface GetSharedImageResult {
      * A mapping of tags assigned to the Shared Image.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

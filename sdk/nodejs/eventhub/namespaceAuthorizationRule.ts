@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -34,8 +32,9 @@ import * as utilities from "../utilities";
  *     manage: false,
  * });
  * ```
+ *
+ * @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule
  */
-/** @deprecated azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing NamespaceAuthorizationRule resource's state with the given name, ID, and optional extra

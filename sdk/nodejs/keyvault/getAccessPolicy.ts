@@ -57,6 +57,10 @@ export interface GetAccessPolicyResult {
      */
     readonly certificatePermissions: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * the key permissions for the access policy
      */
     readonly keyPermissions: string[];
@@ -65,8 +69,4 @@ export interface GetAccessPolicyResult {
      * the secret permissions for the access policy
      */
     readonly secretPermissions: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

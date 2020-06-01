@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a backend within an API Management Service.
- *
  */
 export class Backend extends pulumi.CustomResource {
     /**

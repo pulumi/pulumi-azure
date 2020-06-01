@@ -88,6 +88,10 @@ export interface GetDatabaseResult {
      */
     readonly failoverGroupId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location of the Resource Group in which the SQL Server exists.
      */
     readonly location: string;
@@ -111,8 +115,4 @@ export interface GetDatabaseResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

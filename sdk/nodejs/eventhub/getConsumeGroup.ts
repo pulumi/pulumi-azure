@@ -68,6 +68,10 @@ export interface GetConsumeGroupArgs {
  */
 export interface GetConsumeGroupResult {
     readonly eventhubName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly name: string;
     readonly namespaceName: string;
@@ -76,8 +80,4 @@ export interface GetConsumeGroupResult {
      * Specifies the user metadata.
      */
     readonly userMetadata: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

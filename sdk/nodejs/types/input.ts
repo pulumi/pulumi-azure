@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ProviderFeatures {
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
@@ -22,7 +23,6 @@ export interface ProviderFeaturesVirtualMachine {
 export interface ProviderFeaturesVirtualMachineScaleSet {
     rollInstancesWhenRequired: pulumi.Input<boolean>;
 }
-
 export namespace advisor {
 }
 
@@ -787,6 +787,7 @@ export namespace appconfiguration {
          */
         secret?: pulumi.Input<string>;
     }
+
 }
 
 export namespace appplatform {
@@ -5072,6 +5073,9 @@ export namespace compute {
     }
 }
 
+export namespace config {
+}
+
 export namespace containerservice {
     export interface GroupContainer {
         /**
@@ -5753,6 +5757,7 @@ export namespace core {
          */
         specification: pulumi.Input<string>;
     }
+
 }
 
 export namespace cosmosdb {
@@ -6831,13 +6836,13 @@ export namespace frontdoor {
          */
         exclusions?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverrideExclusion>[]>;
         /**
-         * One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
-         */
-        rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverrideRule>[]>;
-        /**
          * The managed rule group to override.
          */
         ruleGroupName: pulumi.Input<string>;
+        /**
+         * One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverrideRule>[]>;
     }
 
     export interface FirewallPolicyManagedRuleOverrideExclusion {
@@ -9241,14 +9246,24 @@ export namespace managedapplication {
 
 export namespace mariadb {
     export interface ServerStorageProfile {
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
+         */
         autoGrow?: pulumi.Input<string>;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         backupRetentionDays?: pulumi.Input<number>;
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
+         */
         geoRedundantBackup?: pulumi.Input<string>;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         storageMb?: pulumi.Input<number>;
     }
@@ -10054,14 +10069,24 @@ export namespace mssql {
 
 export namespace mysql {
     export interface ServerStorageProfile {
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
+         */
         autoGrow?: pulumi.Input<string>;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         backupRetentionDays?: pulumi.Input<number>;
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
+         */
         geoRedundantBackup?: pulumi.Input<string>;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         storageMb?: pulumi.Input<number>;
     }
@@ -10102,14 +10127,20 @@ export namespace netapp {
         allowedClients: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Is the CIFS protocol allowed?
+         *
+         * @deprecated Deprecated in favour of `protocols_enabled`
          */
         cifsEnabled?: pulumi.Input<boolean>;
         /**
          * Is the NFSv3 protocol allowed?
+         *
+         * @deprecated Deprecated in favour of `protocols_enabled`
          */
         nfsv3Enabled?: pulumi.Input<boolean>;
         /**
          * Is the NFSv4 protocol allowed?
+         *
+         * @deprecated Deprecated in favour of `protocols_enabled`
          */
         nfsv4Enabled?: pulumi.Input<boolean>;
         /**
@@ -11831,14 +11862,24 @@ export namespace policy {
 
 export namespace postgresql {
     export interface ServerStorageProfile {
+        /**
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
+         */
         autoGrow?: pulumi.Input<string>;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         backupRetentionDays?: pulumi.Input<number>;
+        /**
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
+         */
         geoRedundantBackup?: pulumi.Input<string>;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         storageMb?: pulumi.Input<number>;
     }
@@ -11964,6 +12005,7 @@ export namespace privatelink {
          */
         subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
 }
 
 export namespace redis {
@@ -12021,6 +12063,7 @@ export namespace redis {
          */
         rdbStorageConnectionString?: pulumi.Input<string>;
     }
+
 }
 
 export namespace role {
@@ -12042,6 +12085,7 @@ export namespace role {
          */
         notDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
 }
 
 export namespace search {
@@ -13274,3 +13318,4 @@ export namespace waf {
         mode?: pulumi.Input<string>;
     }
 }
+

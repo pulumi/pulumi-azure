@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Directline integration for a Bot Channel
- *
  */
 export class ChannelDirectLine extends pulumi.CustomResource {
     /**

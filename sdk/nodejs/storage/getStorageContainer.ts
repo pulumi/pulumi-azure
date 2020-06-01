@@ -73,6 +73,10 @@ export interface GetStorageContainerResult {
      */
     readonly hasLegalHold: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A mapping of MetaData for this Container.
      */
     readonly metadata: {[key: string]: string};
@@ -82,8 +86,4 @@ export interface GetStorageContainerResult {
      */
     readonly resourceManagerId: string;
     readonly storageAccountName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

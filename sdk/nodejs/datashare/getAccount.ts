@@ -57,6 +57,10 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * An `identity` block as defined below.
      */
     readonly identities: outputs.datashare.GetAccountIdentity[];
@@ -66,8 +70,4 @@ export interface GetAccountResult {
      * A mapping of tags assigned to the Data Share Account.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

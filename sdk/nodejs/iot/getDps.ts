@@ -66,6 +66,10 @@ export interface GetDpsResult {
      */
     readonly deviceProvisioningHostName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The unique identifier of the IoT Device Provisioning Service.
      */
     readonly idScope: string;
@@ -80,8 +84,4 @@ export interface GetDpsResult {
      */
     readonly serviceOperationsHostName: string;
     readonly tags?: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

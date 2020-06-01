@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a NFS Target within a HPC Cache.
- *
  */
 export class CacheNfsTarget extends pulumi.CustomResource {
     /**

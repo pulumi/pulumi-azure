@@ -2,15 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Email integration for a Bot Channel
  *
  * > **Note** A bot can only have a single Email Channel associated with it.
- *
  */
 export class ChannelEmail extends pulumi.CustomResource {
     /**

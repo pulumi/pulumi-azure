@@ -81,6 +81,10 @@ export interface GetScheduledQueryRulesAlertResult {
      * Frequency at which rule condition should be evaluated.
      */
     readonly frequency: number;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly name: string;
     /**
@@ -106,8 +110,4 @@ export interface GetScheduledQueryRulesAlertResult {
      * A `trigger` block as defined below.
      */
     readonly triggers: outputs.monitoring.GetScheduledQueryRulesAlertTrigger[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -65,6 +65,10 @@ export interface GetDatabaseResult {
      */
     readonly elasticPoolId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The license type to apply for this database.
      */
     readonly licenseType: string;
@@ -94,8 +98,4 @@ export interface GetDatabaseResult {
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
     readonly zoneRedundant: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

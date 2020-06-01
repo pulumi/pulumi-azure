@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/** @deprecated ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead. */
+/**
+ * @deprecated ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
+ */
 export class ZipBlob extends pulumi.CustomResource {
     /**
      * Get an existing ZipBlob resource's state with the given name, ID, and optional extra
@@ -36,12 +36,12 @@ export class ZipBlob extends pulumi.CustomResource {
     }
 
     public readonly accessTier!: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<pulumi.asset.Archive | undefined>;
     public readonly contentType!: pulumi.Output<string | undefined>;
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     public readonly name!: pulumi.Output<string>;
     public readonly parallelism!: pulumi.Output<number | undefined>;
     public readonly size!: pulumi.Output<number | undefined>;
-    public readonly content!: pulumi.Output<pulumi.asset.Archive | undefined>;
     public readonly sourceContent!: pulumi.Output<string | undefined>;
     public readonly sourceUri!: pulumi.Output<string | undefined>;
     public readonly storageAccountName!: pulumi.Output<string>;
@@ -65,12 +65,12 @@ export class ZipBlob extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ZipBlobState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
+            inputs["content"] = state ? state.content : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parallelism"] = state ? state.parallelism : undefined;
             inputs["size"] = state ? state.size : undefined;
-            inputs["content"] = state ? state.content : undefined;
             inputs["sourceContent"] = state ? state.sourceContent : undefined;
             inputs["sourceUri"] = state ? state.sourceUri : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
@@ -89,12 +89,12 @@ export class ZipBlob extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["content"] = args ? args.content : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parallelism"] = args ? args.parallelism : undefined;
             inputs["size"] = args ? args.size : undefined;
-            inputs["content"] = args ? args.content : undefined;
             inputs["sourceContent"] = args ? args.sourceContent : undefined;
             inputs["sourceUri"] = args ? args.sourceUri : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
@@ -118,12 +118,12 @@ export class ZipBlob extends pulumi.CustomResource {
  */
 export interface ZipBlobState {
     readonly accessTier?: pulumi.Input<string>;
+    readonly content?: pulumi.Input<pulumi.asset.Archive>;
     readonly contentType?: pulumi.Input<string>;
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly name?: pulumi.Input<string>;
     readonly parallelism?: pulumi.Input<number>;
     readonly size?: pulumi.Input<number>;
-    readonly content?: pulumi.Input<pulumi.asset.Archive>;
     readonly sourceContent?: pulumi.Input<string>;
     readonly sourceUri?: pulumi.Input<string>;
     readonly storageAccountName?: pulumi.Input<string>;
@@ -137,12 +137,12 @@ export interface ZipBlobState {
  */
 export interface ZipBlobArgs {
     readonly accessTier?: pulumi.Input<string>;
+    readonly content?: pulumi.Input<pulumi.asset.Archive>;
     readonly contentType?: pulumi.Input<string>;
     readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly name?: pulumi.Input<string>;
     readonly parallelism?: pulumi.Input<number>;
     readonly size?: pulumi.Input<number>;
-    readonly content?: pulumi.Input<pulumi.asset.Archive>;
     readonly sourceContent?: pulumi.Input<string>;
     readonly sourceUri?: pulumi.Input<string>;
     readonly storageAccountName: pulumi.Input<string>;

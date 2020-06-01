@@ -78,6 +78,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly generation: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * One or two `ipConfiguration` blocks documented below.
      */
     readonly ipConfigurations: outputs.network.GetVirtualNetworkGatewayIpConfiguration[];
@@ -110,8 +114,4 @@ export interface GetVirtualNetworkGatewayResult {
      * The routing type of the Virtual Network Gateway.
      */
     readonly vpnType: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

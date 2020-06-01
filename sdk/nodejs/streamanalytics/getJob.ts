@@ -77,6 +77,10 @@ export interface GetJobResult {
      */
     readonly eventsOutOfOrderPolicy: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Job ID assigned by the Stream Analytics Job.
      */
     readonly jobId: string;
@@ -98,8 +102,4 @@ export interface GetJobResult {
      * The query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
     readonly transformationQuery: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

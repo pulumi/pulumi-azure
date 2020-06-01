@@ -39,7 +39,7 @@ namespace Pulumi.Azure.CosmosDB
     ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
     ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
     ///             DatabaseName = exampleMongoDatabase.Name,
-    ///             DefaultTtlSeconds = "777",
+    ///             DefaultTtlSeconds = 777,
     ///             ShardKey = "uniqueKey",
     ///             Throughput = 400,
     ///         });

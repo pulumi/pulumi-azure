@@ -6,7 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-import {Kind} from "./kind";
+import {Kind} from "./index";
 
 /**
  * Manages an App Service Plan component.

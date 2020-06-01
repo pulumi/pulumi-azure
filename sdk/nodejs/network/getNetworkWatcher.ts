@@ -57,6 +57,10 @@ export interface GetNetworkWatcherArgs {
  */
 export interface GetNetworkWatcherResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The supported Azure location where the resource exists.
      */
     readonly location: string;
@@ -66,8 +70,4 @@ export interface GetNetworkWatcherResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

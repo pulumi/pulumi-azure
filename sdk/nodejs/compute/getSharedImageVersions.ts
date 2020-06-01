@@ -67,6 +67,10 @@ export interface GetSharedImageVersionsArgs {
  */
 export interface GetSharedImageVersionsResult {
     readonly galleryName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly imageName: string;
     /**
      * An `images` block as defined below:
@@ -74,8 +78,4 @@ export interface GetSharedImageVersionsResult {
     readonly images: outputs.compute.GetSharedImageVersionsImage[];
     readonly resourceGroupName: string;
     readonly tagsFilter?: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

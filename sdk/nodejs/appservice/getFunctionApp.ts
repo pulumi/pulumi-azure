@@ -77,6 +77,10 @@ export interface GetFunctionAppResult {
      * Is the Function App enabled?
      */
     readonly enabled: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     /**
      * The name of the Connection String.
@@ -100,8 +104,4 @@ export interface GetFunctionAppResult {
      */
     readonly siteCredentials: outputs.appservice.GetFunctionAppSiteCredential[];
     readonly tags?: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

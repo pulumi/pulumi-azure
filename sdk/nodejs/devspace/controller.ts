@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DevSpace Controller.
- *
  */
 export class Controller extends pulumi.CustomResource {
     /**

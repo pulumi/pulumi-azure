@@ -21,8 +21,9 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  * });
  * ```
+ *
+ * @deprecated azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity
  */
-/** @deprecated azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
      * Get an existing UserAssignedIdentity resource's state with the given name, ID, and optional extra

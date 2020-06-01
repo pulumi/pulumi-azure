@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Batch pool.
- *
  */
 export class Pool extends pulumi.CustomResource {
     /**

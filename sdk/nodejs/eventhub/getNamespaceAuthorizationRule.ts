@@ -63,6 +63,10 @@ export interface GetNamespaceAuthorizationRuleArgs {
  */
 export interface GetNamespaceAuthorizationRuleResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Does this Authorization Rule have permissions to Listen to the Event Hub?
      */
     readonly listen: boolean;
@@ -101,8 +105,4 @@ export interface GetNamespaceAuthorizationRuleResult {
      * Does this Authorization Rule have permissions to Send to the Event Hub?
      */
     readonly send: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -92,6 +92,10 @@ export interface GetPoolResult {
      */
     readonly fixedScales: outputs.batch.GetPoolFixedScale[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The maximum number of tasks that can run concurrently on a single compute node in the pool.
      */
     readonly maxTasksPerNode: number;
@@ -118,8 +122,4 @@ export interface GetPoolResult {
      * The size of the VM created in the Batch pool.
      */
     readonly vmSize: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

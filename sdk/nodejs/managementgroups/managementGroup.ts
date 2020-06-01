@@ -27,8 +27,9 @@ import * as utilities from "../utilities";
  * });
  * // other subscription IDs can go here
  * ```
+ *
+ * @deprecated azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group
  */
-/** @deprecated azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group */
 export class ManagementGroup extends pulumi.CustomResource {
     /**
      * Get an existing ManagementGroup resource's state with the given name, ID, and optional extra
@@ -63,6 +64,8 @@ export class ManagementGroup extends pulumi.CustomResource {
     public readonly displayName!: pulumi.Output<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `name`
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
@@ -127,6 +130,7 @@ export interface ManagementGroupState {
     readonly displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;
@@ -154,6 +158,7 @@ export interface ManagementGroupArgs {
     readonly displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: pulumi.Input<string>;

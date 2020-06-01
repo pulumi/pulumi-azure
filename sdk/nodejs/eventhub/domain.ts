@@ -26,8 +26,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * @deprecated azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain
  */
-/** @deprecated azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain */
 export class Domain extends pulumi.CustomResource {
     /**
      * Get an existing Domain resource's state with the given name, ID, and optional extra

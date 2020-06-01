@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -40,8 +38,9 @@ import * as utilities from "../utilities";
  *     userMetadata: "some-meta-data",
  * });
  * ```
+ *
+ * @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup
  */
-/** @deprecated azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup */
 export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**
      * Get an existing EventHubConsumerGroup resource's state with the given name, ID, and optional extra

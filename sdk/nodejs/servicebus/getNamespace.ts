@@ -79,6 +79,10 @@ export interface GetNamespaceResult {
      */
     readonly defaultSecondaryKey: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location of the Resource Group in which the ServiceBus Namespace exists.
      */
     readonly location: string;
@@ -96,8 +100,4 @@ export interface GetNamespaceResult {
      * Whether or not this ServiceBus Namespace is zone redundant.
      */
     readonly zoneRedundant: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

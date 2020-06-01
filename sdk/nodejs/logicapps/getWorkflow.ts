@@ -69,6 +69,10 @@ export interface GetWorkflowResult {
      */
     readonly connectorOutboundIpAddresses: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure location where the Logic App Workflow exists.
      */
     readonly location: string;
@@ -98,8 +102,4 @@ export interface GetWorkflowResult {
      * The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
      */
     readonly workflowVersion: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

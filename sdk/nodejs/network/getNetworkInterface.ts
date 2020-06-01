@@ -73,6 +73,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly enableIpForwarding: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The internal dns name label of the specified Network Interface.
      */
     readonly internalDnsNameLabel: string;
@@ -113,8 +117,4 @@ export interface GetNetworkInterfaceResult {
      * The ID of the virtual machine that the specified Network Interface is attached to.
      */
     readonly virtualMachineId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

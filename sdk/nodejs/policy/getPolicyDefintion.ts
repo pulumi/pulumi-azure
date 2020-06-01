@@ -48,6 +48,9 @@ export interface GetPolicyDefintionArgs {
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      */
     readonly displayName?: string;
+    /**
+     * @deprecated Deprecated in favour of `management_group_name`
+     */
     readonly managementGroupId?: string;
     /**
      * Only retrieve Policy Definitions from this Management Group.
@@ -68,6 +71,13 @@ export interface GetPolicyDefintionResult {
      */
     readonly description: string;
     readonly displayName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
+     * @deprecated Deprecated in favour of `management_group_name`
+     */
     readonly managementGroupId?: string;
     readonly managementGroupName?: string;
     /**
@@ -91,8 +101,4 @@ export interface GetPolicyDefintionResult {
      * The Type of Policy.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

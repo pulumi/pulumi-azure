@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
- *
  */
 export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
     /**

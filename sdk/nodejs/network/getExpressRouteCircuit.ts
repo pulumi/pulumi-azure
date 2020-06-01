@@ -58,6 +58,10 @@ export interface GetExpressRouteCircuitArgs {
  */
 export interface GetExpressRouteCircuitResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure location where the ExpressRoute circuit exists
      */
     readonly location: string;
@@ -83,8 +87,4 @@ export interface GetExpressRouteCircuitResult {
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
     readonly sku: outputs.network.GetExpressRouteCircuitSku;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -65,6 +65,10 @@ export interface GetMariaDbServerResult {
      */
     readonly fqdn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure location where the resource exists.
      */
     readonly location: string;
@@ -91,8 +95,4 @@ export interface GetMariaDbServerResult {
      * The version of MariaDB being used.
      */
     readonly version: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

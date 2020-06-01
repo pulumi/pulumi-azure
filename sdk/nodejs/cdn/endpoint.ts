@@ -106,10 +106,6 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly optimizationType!: pulumi.Output<string | undefined>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-     */
-    public readonly origins!: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
-    /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */
     public readonly originHostHeader!: pulumi.Output<string>;
@@ -117,6 +113,10 @@ export class Endpoint extends pulumi.CustomResource {
      * The path used at for origin requests.
      */
     public readonly originPath!: pulumi.Output<string>;
+    /**
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     */
+    public readonly origins!: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      */
@@ -161,9 +161,9 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["optimizationType"] = state ? state.optimizationType : undefined;
-            inputs["origins"] = state ? state.origins : undefined;
             inputs["originHostHeader"] = state ? state.originHostHeader : undefined;
             inputs["originPath"] = state ? state.originPath : undefined;
+            inputs["origins"] = state ? state.origins : undefined;
             inputs["probePath"] = state ? state.probePath : undefined;
             inputs["profileName"] = state ? state.profileName : undefined;
             inputs["querystringCachingBehaviour"] = state ? state.querystringCachingBehaviour : undefined;
@@ -190,9 +190,9 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["optimizationType"] = args ? args.optimizationType : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
             inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
             inputs["originPath"] = args ? args.originPath : undefined;
+            inputs["origins"] = args ? args.origins : undefined;
             inputs["probePath"] = args ? args.probePath : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["querystringCachingBehaviour"] = args ? args.querystringCachingBehaviour : undefined;
@@ -260,10 +260,6 @@ export interface EndpointState {
      */
     readonly optimizationType?: pulumi.Input<string>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-     */
-    readonly origins?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
-    /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */
     readonly originHostHeader?: pulumi.Input<string>;
@@ -271,6 +267,10 @@ export interface EndpointState {
      * The path used at for origin requests.
      */
     readonly originPath?: pulumi.Input<string>;
+    /**
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     */
+    readonly origins?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      */
@@ -338,10 +338,6 @@ export interface EndpointArgs {
      */
     readonly optimizationType?: pulumi.Input<string>;
     /**
-     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-     */
-    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
-    /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */
     readonly originHostHeader?: pulumi.Input<string>;
@@ -349,6 +345,10 @@ export interface EndpointArgs {
      * The path used at for origin requests.
      */
     readonly originPath?: pulumi.Input<string>;
+    /**
+     * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+     */
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      */

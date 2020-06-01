@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -89,6 +87,9 @@ export class Definition extends pulumi.CustomResource {
      * The display name of the policy definition.
      */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favour of `management_group_name`
+     */
     public readonly managementGroupId!: pulumi.Output<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -195,6 +196,9 @@ export interface DefinitionState {
      * The display name of the policy definition.
      */
     readonly displayName?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favour of `management_group_name`
+     */
     readonly managementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -247,6 +251,9 @@ export interface DefinitionArgs {
      * The display name of the policy definition.
      */
     readonly displayName: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favour of `management_group_name`
+     */
     readonly managementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.

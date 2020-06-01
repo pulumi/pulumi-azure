@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Insights WebTest.
- *
  */
 export class WebTest extends pulumi.CustomResource {
     /**

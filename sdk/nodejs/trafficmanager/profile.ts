@@ -45,8 +45,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * @deprecated azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
  */
-/** @deprecated azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile */
 export class Profile extends pulumi.CustomResource {
     /**
      * Get an existing Profile resource's state with the given name, ID, and optional extra

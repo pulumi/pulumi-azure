@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management User.
- *
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {
@@ -57,6 +56,10 @@ export interface GetUserResult {
      */
     readonly firstName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Last Name for the User.
      */
     readonly lastName: string;
@@ -70,8 +73,4 @@ export interface GetUserResult {
      */
     readonly state: string;
     readonly userId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -73,6 +73,10 @@ export interface GetServiceResult {
      */
     readonly hostnameConfigurations: outputs.apimanagement.GetServiceHostnameConfiguration[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * (Optional) An `identity` block as defined below.
      */
     readonly identities: outputs.apimanagement.GetServiceIdentity[];
@@ -118,8 +122,4 @@ export interface GetServiceResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

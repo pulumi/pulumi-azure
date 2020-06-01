@@ -62,6 +62,10 @@ export interface GetNamespaceAuthorizationRuleArgs {
  * A collection of values returned by getNamespaceAuthorizationRule.
  */
 export interface GetNamespaceAuthorizationRuleResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly namespaceName: string;
     /**
@@ -81,8 +85,4 @@ export interface GetNamespaceAuthorizationRuleResult {
      * The secondary access key for the authorization rule.
      */
     readonly secondaryKey: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

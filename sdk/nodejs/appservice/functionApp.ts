@@ -184,6 +184,8 @@ export class FunctionApp extends pulumi.CustomResource {
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
      * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
+     *
+     * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
      */
     public readonly storageConnectionString!: pulumi.Output<string>;
     /**
@@ -371,6 +373,7 @@ export interface FunctionAppState {
     readonly storageAccountName?: pulumi.Input<string>;
     /**
      * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
+     *
      * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
      */
     readonly storageConnectionString?: pulumi.Input<string>;
@@ -458,6 +461,7 @@ export interface FunctionAppArgs {
     readonly storageAccountName?: pulumi.Input<string>;
     /**
      * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
+     *
      * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
      */
     readonly storageConnectionString?: pulumi.Input<string>;

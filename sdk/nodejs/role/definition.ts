@@ -28,8 +28,9 @@ import * as utilities from "../utilities";
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
  * ```
+ *
+ * @deprecated azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition
  */
-/** @deprecated azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition */
 export class Definition extends pulumi.CustomResource {
     /**
      * Get an existing Definition resource's state with the given name, ID, and optional extra

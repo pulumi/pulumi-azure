@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
- *
  */
 export class ScheduledQueryRulesLog extends pulumi.CustomResource {
     /**

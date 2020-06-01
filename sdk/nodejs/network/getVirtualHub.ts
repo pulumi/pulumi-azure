@@ -59,6 +59,10 @@ export interface GetVirtualHubResult {
      */
     readonly addressPrefix: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the Virtual Hub exists.
      */
     readonly location: string;
@@ -72,8 +76,4 @@ export interface GetVirtualHubResult {
      * The ID of the Virtual WAN within which the Virtual Hub exists.
      */
     readonly virtualWanId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

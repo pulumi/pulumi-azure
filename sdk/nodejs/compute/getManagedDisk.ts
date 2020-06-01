@@ -83,6 +83,10 @@ export interface GetManagedDiskResult {
      * The size of the Managed Disk in gigabytes.
      */
     readonly diskSizeGb: number;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The operating system used for this Managed Disk.
@@ -113,8 +117,4 @@ export interface GetManagedDiskResult {
      * A list of Availability Zones where the Managed Disk exists.
      */
     readonly zones: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

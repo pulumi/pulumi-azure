@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Linux Virtual Machine within a Dev Test Lab.
- *
  */
 export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**

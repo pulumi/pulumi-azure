@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Windows Virtual Machine within a Dev Test Lab.
- *
  */
 export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**

@@ -54,8 +54,9 @@ import * as utilities from "../utilities";
  *     notes: "Locked because it's needed by a third-party",
  * });
  * ```
+ *
+ * @deprecated azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock
  */
-/** @deprecated azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock */
 export class ManangementLock extends pulumi.CustomResource {
     /**
      * Get an existing ManangementLock resource's state with the given name, ID, and optional extra

@@ -94,21 +94,21 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
-     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-     */
-    public /*out*/ readonly kubeAdminConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig[]>;
-    /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
     public /*out*/ readonly kubeAdminConfigRaw!: pulumi.Output<string>;
     /**
-     * A `kubeConfig` block as defined below.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    public /*out*/ readonly kubeConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
+    public /*out*/ readonly kubeAdminConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig[]>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */
     public /*out*/ readonly kubeConfigRaw!: pulumi.Output<string>;
+    /**
+     * A `kubeConfig` block as defined below.
+     */
+    public /*out*/ readonly kubeConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
     /**
      * A `kubeletIdentity` block as defined below.  
      */
@@ -145,6 +145,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
+    /**
+     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     */
     public readonly privateLinkEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -186,10 +189,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["identity"] = state ? state.identity : undefined;
-            inputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
             inputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
-            inputs["kubeConfigs"] = state ? state.kubeConfigs : undefined;
+            inputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
             inputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
+            inputs["kubeConfigs"] = state ? state.kubeConfigs : undefined;
             inputs["kubeletIdentities"] = state ? state.kubeletIdentities : undefined;
             inputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
             inputs["linuxProfile"] = state ? state.linuxProfile : undefined;
@@ -236,10 +239,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             inputs["fqdn"] = undefined /*out*/;
-            inputs["kubeAdminConfigs"] = undefined /*out*/;
             inputs["kubeAdminConfigRaw"] = undefined /*out*/;
-            inputs["kubeConfigs"] = undefined /*out*/;
+            inputs["kubeAdminConfigs"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
+            inputs["kubeConfigs"] = undefined /*out*/;
             inputs["kubeletIdentities"] = undefined /*out*/;
             inputs["privateFqdn"] = undefined /*out*/;
         }
@@ -287,21 +290,21 @@ export interface KubernetesClusterState {
      */
     readonly identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
     /**
-     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-     */
-    readonly kubeAdminConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeAdminConfig>[]>;
-    /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
     readonly kubeAdminConfigRaw?: pulumi.Input<string>;
     /**
-     * A `kubeConfig` block as defined below.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    readonly kubeConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>[]>;
+    readonly kubeAdminConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeAdminConfig>[]>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */
     readonly kubeConfigRaw?: pulumi.Input<string>;
+    /**
+     * A `kubeConfig` block as defined below.
+     */
+    readonly kubeConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>[]>;
     /**
      * A `kubeletIdentity` block as defined below.  
      */
@@ -338,6 +341,9 @@ export interface KubernetesClusterState {
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     readonly privateFqdn?: pulumi.Input<string>;
+    /**
+     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     */
     readonly privateLinkEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -417,6 +423,9 @@ export interface KubernetesClusterArgs {
      * Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
      */
     readonly privateClusterEnabled?: pulumi.Input<boolean>;
+    /**
+     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     */
     readonly privateLinkEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.

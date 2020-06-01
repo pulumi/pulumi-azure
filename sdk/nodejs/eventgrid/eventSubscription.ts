@@ -70,6 +70,8 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     *
+     * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     public readonly eventhubEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionEventhubEndpoint>;
     /**
@@ -82,6 +84,8 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
+     *
+     * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     public readonly hybridConnectionEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;
     /**
@@ -214,6 +218,7 @@ export interface EventSubscriptionState {
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     readonly eventhubEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionEventhubEndpoint>;
@@ -227,6 +232,7 @@ export interface EventSubscriptionState {
     readonly expirationTimeUtc?: pulumi.Input<string>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;
@@ -294,6 +300,7 @@ export interface EventSubscriptionArgs {
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     readonly eventhubEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionEventhubEndpoint>;
@@ -307,6 +314,7 @@ export interface EventSubscriptionArgs {
     readonly expirationTimeUtc?: pulumi.Input<string>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;

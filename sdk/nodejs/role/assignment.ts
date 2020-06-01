@@ -97,8 +97,9 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
  * });
  * ```
+ *
+ * @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
  */
-/** @deprecated azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment */
 export class Assignment extends pulumi.CustomResource {
     /**
      * Get an existing Assignment resource's state with the given name, ID, and optional extra

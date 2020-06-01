@@ -61,6 +61,10 @@ export interface GetSnapshotResult {
      */
     readonly diskSizeGb: number;
     readonly encryptionSettings: outputs.compute.GetSnapshotEncryptionSetting[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly osType: string;
     readonly resourceGroupName: string;
@@ -77,8 +81,4 @@ export interface GetSnapshotResult {
      */
     readonly storageAccountId: string;
     readonly timeCreated: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

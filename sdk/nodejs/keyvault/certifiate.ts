@@ -117,8 +117,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate
  */
-/** @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate */
 export class Certifiate extends pulumi.CustomResource {
     /**
      * Get an existing Certifiate resource's state with the given name, ID, and optional extra

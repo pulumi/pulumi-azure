@@ -28,8 +28,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * @deprecated azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic
  */
-/** @deprecated azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic */
 export class EventGridTopic extends pulumi.CustomResource {
     /**
      * Get an existing EventGridTopic resource's state with the given name, ID, and optional extra
