@@ -25,13 +25,31 @@ namespace Pulumi.Azure.EventHub
         /// A `eventhub_endpoint` block as defined below.
         /// </summary>
         [Output("eventhubEndpoint")]
-        public Output<Outputs.EventSubscriptionEventhubEndpoint?> EventhubEndpoint { get; private set; } = null!;
+        public Output<Outputs.EventSubscriptionEventhubEndpoint> EventhubEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the id where the Event Hub is located.
+        /// </summary>
+        [Output("eventhubEndpointId")]
+        public Output<string> EventhubEndpointId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
+        /// </summary>
+        [Output("expirationTimeUtc")]
+        public Output<string?> ExpirationTimeUtc { get; private set; } = null!;
 
         /// <summary>
         /// A `hybrid_connection_endpoint` block as defined below.
         /// </summary>
         [Output("hybridConnectionEndpoint")]
-        public Output<Outputs.EventSubscriptionHybridConnectionEndpoint?> HybridConnectionEndpoint { get; private set; } = null!;
+        public Output<Outputs.EventSubscriptionHybridConnectionEndpoint> HybridConnectionEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the id where the Hybrid Connection is located.
+        /// </summary>
+        [Output("hybridConnectionEndpointId")]
+        public Output<string> HybridConnectionEndpointId { get; private set; } = null!;
 
         /// <summary>
         /// A list of applicable event types that need to be part of the event subscription.
@@ -62,6 +80,18 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the id where the Service Bus Queue is located.
+        /// </summary>
+        [Output("serviceBusQueueEndpointId")]
+        public Output<string?> ServiceBusQueueEndpointId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the id where the Service Bus Topic is located.
+        /// </summary>
+        [Output("serviceBusTopicEndpointId")]
+        public Output<string?> ServiceBusTopicEndpointId { get; private set; } = null!;
 
         /// <summary>
         /// A `storage_blob_dead_letter_destination` block as defined below.
@@ -152,10 +182,28 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventSubscriptionEventhubEndpointArgs>? EventhubEndpoint { get; set; }
 
         /// <summary>
+        /// Specifies the id where the Event Hub is located.
+        /// </summary>
+        [Input("eventhubEndpointId")]
+        public Input<string>? EventhubEndpointId { get; set; }
+
+        /// <summary>
+        /// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
+        /// </summary>
+        [Input("expirationTimeUtc")]
+        public Input<string>? ExpirationTimeUtc { get; set; }
+
+        /// <summary>
         /// A `hybrid_connection_endpoint` block as defined below.
         /// </summary>
         [Input("hybridConnectionEndpoint")]
         public Input<Inputs.EventSubscriptionHybridConnectionEndpointArgs>? HybridConnectionEndpoint { get; set; }
+
+        /// <summary>
+        /// Specifies the id where the Hybrid Connection is located.
+        /// </summary>
+        [Input("hybridConnectionEndpointId")]
+        public Input<string>? HybridConnectionEndpointId { get; set; }
 
         [Input("includedEventTypes")]
         private InputList<string>? _includedEventTypes;
@@ -198,6 +246,18 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the id where the Service Bus Queue is located.
+        /// </summary>
+        [Input("serviceBusQueueEndpointId")]
+        public Input<string>? ServiceBusQueueEndpointId { get; set; }
+
+        /// <summary>
+        /// Specifies the id where the Service Bus Topic is located.
+        /// </summary>
+        [Input("serviceBusTopicEndpointId")]
+        public Input<string>? ServiceBusTopicEndpointId { get; set; }
 
         /// <summary>
         /// A `storage_blob_dead_letter_destination` block as defined below.
@@ -249,10 +309,28 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventSubscriptionEventhubEndpointGetArgs>? EventhubEndpoint { get; set; }
 
         /// <summary>
+        /// Specifies the id where the Event Hub is located.
+        /// </summary>
+        [Input("eventhubEndpointId")]
+        public Input<string>? EventhubEndpointId { get; set; }
+
+        /// <summary>
+        /// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
+        /// </summary>
+        [Input("expirationTimeUtc")]
+        public Input<string>? ExpirationTimeUtc { get; set; }
+
+        /// <summary>
         /// A `hybrid_connection_endpoint` block as defined below.
         /// </summary>
         [Input("hybridConnectionEndpoint")]
         public Input<Inputs.EventSubscriptionHybridConnectionEndpointGetArgs>? HybridConnectionEndpoint { get; set; }
+
+        /// <summary>
+        /// Specifies the id where the Hybrid Connection is located.
+        /// </summary>
+        [Input("hybridConnectionEndpointId")]
+        public Input<string>? HybridConnectionEndpointId { get; set; }
 
         [Input("includedEventTypes")]
         private InputList<string>? _includedEventTypes;
@@ -295,6 +373,18 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
+
+        /// <summary>
+        /// Specifies the id where the Service Bus Queue is located.
+        /// </summary>
+        [Input("serviceBusQueueEndpointId")]
+        public Input<string>? ServiceBusQueueEndpointId { get; set; }
+
+        /// <summary>
+        /// Specifies the id where the Service Bus Topic is located.
+        /// </summary>
+        [Input("serviceBusTopicEndpointId")]
+        public Input<string>? ServiceBusTopicEndpointId { get; set; }
 
         /// <summary>
         /// A `storage_blob_dead_letter_destination` block as defined below.

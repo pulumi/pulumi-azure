@@ -15,8 +15,8 @@ namespace Pulumi.Azure.EventHub.Inputs
         /// <summary>
         /// Specifies the id of the hybrid connection where the Event Subscription will receive events.
         /// </summary>
-        [Input("hybridConnectionId", required: true)]
-        public Input<string> HybridConnectionId { get; set; } = null!;
+        [Input("hybridConnectionId")]
+        public Input<string>? HybridConnectionId { get; set; }
 
         public EventSubscriptionHybridConnectionEndpointGetArgs()
         {

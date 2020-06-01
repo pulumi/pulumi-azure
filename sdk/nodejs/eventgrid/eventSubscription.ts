@@ -71,11 +71,23 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * A `eventhubEndpoint` block as defined below.
      */
-    public readonly eventhubEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionEventhubEndpoint | undefined>;
+    public readonly eventhubEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionEventhubEndpoint>;
+    /**
+     * Specifies the id where the Event Hub is located.
+     */
+    public readonly eventhubEndpointId!: pulumi.Output<string>;
+    /**
+     * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
+     */
+    public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
      */
-    public readonly hybridConnectionEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionHybridConnectionEndpoint | undefined>;
+    public readonly hybridConnectionEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;
+    /**
+     * Specifies the id where the Hybrid Connection is located.
+     */
+    public readonly hybridConnectionEndpointId!: pulumi.Output<string>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
@@ -96,6 +108,14 @@ export class EventSubscription extends pulumi.CustomResource {
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
     public readonly scope!: pulumi.Output<string>;
+    /**
+     * Specifies the id where the Service Bus Queue is located.
+     */
+    public readonly serviceBusQueueEndpointId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the id where the Service Bus Topic is located.
+     */
+    public readonly serviceBusTopicEndpointId!: pulumi.Output<string | undefined>;
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
      */
@@ -131,12 +151,17 @@ export class EventSubscription extends pulumi.CustomResource {
             const state = argsOrState as EventSubscriptionState | undefined;
             inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
+            inputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
+            inputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
             inputs["hybridConnectionEndpoint"] = state ? state.hybridConnectionEndpoint : undefined;
+            inputs["hybridConnectionEndpointId"] = state ? state.hybridConnectionEndpointId : undefined;
             inputs["includedEventTypes"] = state ? state.includedEventTypes : undefined;
             inputs["labels"] = state ? state.labels : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["retryPolicy"] = state ? state.retryPolicy : undefined;
             inputs["scope"] = state ? state.scope : undefined;
+            inputs["serviceBusQueueEndpointId"] = state ? state.serviceBusQueueEndpointId : undefined;
+            inputs["serviceBusTopicEndpointId"] = state ? state.serviceBusTopicEndpointId : undefined;
             inputs["storageBlobDeadLetterDestination"] = state ? state.storageBlobDeadLetterDestination : undefined;
             inputs["storageQueueEndpoint"] = state ? state.storageQueueEndpoint : undefined;
             inputs["subjectFilter"] = state ? state.subjectFilter : undefined;
@@ -149,12 +174,17 @@ export class EventSubscription extends pulumi.CustomResource {
             }
             inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = args ? args.eventhubEndpoint : undefined;
+            inputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
+            inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
             inputs["hybridConnectionEndpoint"] = args ? args.hybridConnectionEndpoint : undefined;
+            inputs["hybridConnectionEndpointId"] = args ? args.hybridConnectionEndpointId : undefined;
             inputs["includedEventTypes"] = args ? args.includedEventTypes : undefined;
             inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["serviceBusQueueEndpointId"] = args ? args.serviceBusQueueEndpointId : undefined;
+            inputs["serviceBusTopicEndpointId"] = args ? args.serviceBusTopicEndpointId : undefined;
             inputs["storageBlobDeadLetterDestination"] = args ? args.storageBlobDeadLetterDestination : undefined;
             inputs["storageQueueEndpoint"] = args ? args.storageQueueEndpoint : undefined;
             inputs["subjectFilter"] = args ? args.subjectFilter : undefined;
@@ -184,12 +214,26 @@ export interface EventSubscriptionState {
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     readonly eventhubEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionEventhubEndpoint>;
     /**
+     * Specifies the id where the Event Hub is located.
+     */
+    readonly eventhubEndpointId?: pulumi.Input<string>;
+    /**
+     * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
+     */
+    readonly expirationTimeUtc?: pulumi.Input<string>;
+    /**
      * A `hybridConnectionEndpoint` block as defined below.
+     * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;
+    /**
+     * Specifies the id where the Hybrid Connection is located.
+     */
+    readonly hybridConnectionEndpointId?: pulumi.Input<string>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
@@ -210,6 +254,14 @@ export interface EventSubscriptionState {
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
     readonly scope?: pulumi.Input<string>;
+    /**
+     * Specifies the id where the Service Bus Queue is located.
+     */
+    readonly serviceBusQueueEndpointId?: pulumi.Input<string>;
+    /**
+     * Specifies the id where the Service Bus Topic is located.
+     */
+    readonly serviceBusTopicEndpointId?: pulumi.Input<string>;
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
      */
@@ -242,12 +294,26 @@ export interface EventSubscriptionArgs {
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     readonly eventhubEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionEventhubEndpoint>;
     /**
+     * Specifies the id where the Event Hub is located.
+     */
+    readonly eventhubEndpointId?: pulumi.Input<string>;
+    /**
+     * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
+     */
+    readonly expirationTimeUtc?: pulumi.Input<string>;
+    /**
      * A `hybridConnectionEndpoint` block as defined below.
+     * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;
+    /**
+     * Specifies the id where the Hybrid Connection is located.
+     */
+    readonly hybridConnectionEndpointId?: pulumi.Input<string>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
@@ -268,6 +334,14 @@ export interface EventSubscriptionArgs {
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
     readonly scope: pulumi.Input<string>;
+    /**
+     * Specifies the id where the Service Bus Queue is located.
+     */
+    readonly serviceBusQueueEndpointId?: pulumi.Input<string>;
+    /**
+     * Specifies the id where the Service Bus Topic is located.
+     */
+    readonly serviceBusTopicEndpointId?: pulumi.Input<string>;
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
      */

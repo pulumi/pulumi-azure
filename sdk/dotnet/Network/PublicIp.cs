@@ -30,8 +30,8 @@ namespace Pulumi.Azure.Network
     ///         });
     ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
     ///         {
-    ///             Location = "West US",
     ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
     ///             AllocationMethod = "Static",
     ///             Tags = 
     ///             {

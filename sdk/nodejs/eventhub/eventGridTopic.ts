@@ -63,6 +63,18 @@ export class EventGridTopic extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * A `inputMappingDefaultValues` block as defined below.
+     */
+    public readonly inputMappingDefaultValues!: pulumi.Output<outputs.eventhub.EventGridTopicInputMappingDefaultValues | undefined>;
+    /**
+     * A `inputMappingFields` block as defined below.
+     */
+    public readonly inputMappingFields!: pulumi.Output<outputs.eventhub.EventGridTopicInputMappingFields | undefined>;
+    /**
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+     */
+    public readonly inputSchema!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -84,6 +96,7 @@ export class EventGridTopic extends pulumi.CustomResource {
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     * ---
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -103,6 +116,9 @@ export class EventGridTopic extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as EventGridTopicState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
+            inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
+            inputs["inputSchema"] = state ? state.inputSchema : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
@@ -114,6 +130,9 @@ export class EventGridTopic extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
+            inputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
+            inputs["inputSchema"] = args ? args.inputSchema : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -142,6 +161,18 @@ export interface EventGridTopicState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
+     * A `inputMappingDefaultValues` block as defined below.
+     */
+    readonly inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
+    /**
+     * A `inputMappingFields` block as defined below.
+     */
+    readonly inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
+    /**
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+     */
+    readonly inputSchema?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -163,6 +194,7 @@ export interface EventGridTopicState {
     readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -171,6 +203,18 @@ export interface EventGridTopicState {
  * The set of arguments for constructing a EventGridTopic resource.
  */
 export interface EventGridTopicArgs {
+    /**
+     * A `inputMappingDefaultValues` block as defined below.
+     */
+    readonly inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
+    /**
+     * A `inputMappingFields` block as defined below.
+     */
+    readonly inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
+    /**
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+     */
+    readonly inputSchema?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -185,6 +229,7 @@ export interface EventGridTopicArgs {
     readonly resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

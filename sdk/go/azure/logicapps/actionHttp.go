@@ -24,6 +24,8 @@ type ActionHttp struct {
 	Method pulumi.StringOutput `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+	RunAfters ActionHttpRunAfterArrayOutput `pulumi:"runAfters"`
 	// Specifies the URI which will be called when this HTTP Action is triggered.
 	Uri pulumi.StringOutput `pulumi:"uri"`
 }
@@ -75,6 +77,8 @@ type actionHttpState struct {
 	Method *string `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+	RunAfters []ActionHttpRunAfter `pulumi:"runAfters"`
 	// Specifies the URI which will be called when this HTTP Action is triggered.
 	Uri *string `pulumi:"uri"`
 }
@@ -90,6 +94,8 @@ type ActionHttpState struct {
 	Method pulumi.StringPtrInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+	RunAfters ActionHttpRunAfterArrayInput
 	// Specifies the URI which will be called when this HTTP Action is triggered.
 	Uri pulumi.StringPtrInput
 }
@@ -109,6 +115,8 @@ type actionHttpArgs struct {
 	Method string `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+	RunAfters []ActionHttpRunAfter `pulumi:"runAfters"`
 	// Specifies the URI which will be called when this HTTP Action is triggered.
 	Uri string `pulumi:"uri"`
 }
@@ -125,6 +133,8 @@ type ActionHttpArgs struct {
 	Method pulumi.StringInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
+	RunAfters ActionHttpRunAfterArrayInput
 	// Specifies the URI which will be called when this HTTP Action is triggered.
 	Uri pulumi.StringInput
 }

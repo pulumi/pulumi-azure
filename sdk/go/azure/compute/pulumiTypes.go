@@ -9091,7 +9091,7 @@ type SharedImageVersionTargetRegion struct {
 	Name string `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
-	// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+	// The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -9112,7 +9112,7 @@ type SharedImageVersionTargetRegionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
-	// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+	// The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -9178,7 +9178,7 @@ func (o SharedImageVersionTargetRegionOutput) RegionalReplicaCount() pulumi.IntO
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) int { return v.RegionalReplicaCount }).(pulumi.IntOutput)
 }
 
-// The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+// The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
 func (o SharedImageVersionTargetRegionOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }

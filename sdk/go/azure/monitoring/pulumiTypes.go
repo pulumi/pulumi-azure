@@ -389,6 +389,7 @@ func (o ActionGroupAzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) Act
 }
 
 type ActionGroupAzureFunctionReceiver struct {
+	// The Azure resource ID of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
 	// The function name in the function app.
 	FunctionName string `pulumi:"functionName"`
@@ -413,6 +414,7 @@ type ActionGroupAzureFunctionReceiverInput interface {
 }
 
 type ActionGroupAzureFunctionReceiverArgs struct {
+	// The Azure resource ID of the function app.
 	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
 	// The function name in the function app.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
@@ -476,6 +478,7 @@ func (o ActionGroupAzureFunctionReceiverOutput) ToActionGroupAzureFunctionReceiv
 	return o
 }
 
+// The Azure resource ID of the function app.
 func (o ActionGroupAzureFunctionReceiverOutput) FunctionAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }

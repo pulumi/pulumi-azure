@@ -4,6 +4,7 @@
 // Export members:
 export * from "./getLab";
 export * from "./getVirtualNetwork";
+export * from "./globalVMShutdownSchedule";
 export * from "./lab";
 export * from "./linuxVirtualMachine";
 export * from "./policy";

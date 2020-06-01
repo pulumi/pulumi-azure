@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .get_lab import *
 from .get_virtual_network import *
+from .global_vm_shutdown_schedule import *
 from .lab import *
 from .linux_virtual_machine import *
 from .policy import *

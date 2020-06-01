@@ -83,6 +83,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly fqdn: string;
     /**
+     * A `identity` block as documented below.
+     */
+    readonly identities: outputs.containerservice.GetKubernetesClusterIdentity[];
+    /**
      * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
     readonly kubeAdminConfigs: outputs.containerservice.GetKubernetesClusterKubeAdminConfig[];
@@ -98,6 +102,10 @@ export interface GetKubernetesClusterResult {
      * Base64 encoded Kubernetes configuration.
      */
     readonly kubeConfigRaw: string;
+    /**
+     * A `kubeletIdentity` block as documented below.  
+     */
+    readonly kubeletIdentities: outputs.containerservice.GetKubernetesClusterKubeletIdentity[];
     /**
      * The version of Kubernetes used on the managed Kubernetes Cluster.
      */

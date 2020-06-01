@@ -102,11 +102,11 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountKind!: pulumi.Output<string | undefined>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      */
     public readonly accountReplicationType!: pulumi.Output<string>;
     /**
-     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     public readonly accountTier!: pulumi.Output<string>;
     /**
@@ -431,11 +431,11 @@ export interface AccountState {
      */
     readonly accountKind?: pulumi.Input<string>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      */
     readonly accountReplicationType?: pulumi.Input<string>;
     /**
-     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier?: pulumi.Input<string>;
     /**
@@ -630,11 +630,11 @@ export interface AccountArgs {
      */
     readonly accountKind?: pulumi.Input<string>;
     /**
-     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+     * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      */
     readonly accountReplicationType: pulumi.Input<string>;
     /**
-     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier: pulumi.Input<string>;
     /**

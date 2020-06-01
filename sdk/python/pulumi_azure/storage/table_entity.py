@@ -59,7 +59,7 @@ class TableEntity(pulumi.CustomResource):
             partition_key="examplepartition",
             row_key="exmamplerow",
             entity={
-                "example": "sample",
+                "example": "example",
             })
         ```
 

@@ -60,7 +60,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The type of the Agent Pool.
+        /// The type of identity used for the managed cluster.
         /// </summary>
         public readonly string Type;
         /// <summary>

@@ -69,7 +69,7 @@ class NatPool(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             frontend_ip_configuration=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_nat_pool = azure.lb.NatPool("exampleNatPool",
             resource_group_name=example_resource_group.name,

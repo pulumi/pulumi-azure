@@ -78,7 +78,7 @@ class NatRule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             frontend_ip_configuration=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_nat_rule = azure.lb.NatRule("exampleNatRule",
             resource_group_name=example_resource_group.name,

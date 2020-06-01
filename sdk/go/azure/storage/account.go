@@ -18,9 +18,9 @@ type Account struct {
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrOutput `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
-	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
@@ -154,9 +154,9 @@ type accountState struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
 	AccountKind *string `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
-	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier *string `pulumi:"accountTier"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
@@ -254,9 +254,9 @@ type AccountState struct {
 	AccessTier pulumi.StringPtrInput
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrInput
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType pulumi.StringPtrInput
-	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
@@ -358,9 +358,9 @@ type accountArgs struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
 	AccountKind *string `pulumi:"accountKind"`
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType string `pulumi:"accountReplicationType"`
-	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier string `pulumi:"accountTier"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
@@ -395,9 +395,9 @@ type AccountArgs struct {
 	AccessTier pulumi.StringPtrInput
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrInput
-	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
 	AccountReplicationType pulumi.StringInput
-	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput

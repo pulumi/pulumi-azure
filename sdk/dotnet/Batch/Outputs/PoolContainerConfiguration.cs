@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolContainerConfiguration
     {
         /// <summary>
+        /// A list of container image names to use, as would be specified by `docker pull`.
+        /// </summary>
+        public readonly ImmutableArray<string> ContainerImageNames;
+        /// <summary>
         /// Additional container registries from which container images can be pulled by the pool's VMs.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolContainerConfigurationContainerRegistry> ContainerRegistries;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.Batch.Outputs
 
         [OutputConstructor]
         private PoolContainerConfiguration(
+            ImmutableArray<string> containerImageNames,
+
             ImmutableArray<Outputs.PoolContainerConfigurationContainerRegistry> containerRegistries,
 
             string? type)
         {
+            ContainerImageNames = containerImageNames;
             ContainerRegistries = containerRegistries;
             Type = type;
         }

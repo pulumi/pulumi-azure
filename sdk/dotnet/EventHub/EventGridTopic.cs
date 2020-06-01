@@ -54,6 +54,24 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// A `input_mapping_default_values` block as defined below.
+        /// </summary>
+        [Output("inputMappingDefaultValues")]
+        public Output<Outputs.EventGridTopicInputMappingDefaultValues?> InputMappingDefaultValues { get; private set; } = null!;
+
+        /// <summary>
+        /// A `input_mapping_fields` block as defined below.
+        /// </summary>
+        [Output("inputMappingFields")]
+        public Output<Outputs.EventGridTopicInputMappingFields?> InputMappingFields { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("inputSchema")]
+        public Output<string?> InputSchema { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -85,6 +103,7 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// ---
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -136,6 +155,24 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventGridTopicArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `input_mapping_default_values` block as defined below.
+        /// </summary>
+        [Input("inputMappingDefaultValues")]
+        public Input<Inputs.EventGridTopicInputMappingDefaultValuesArgs>? InputMappingDefaultValues { get; set; }
+
+        /// <summary>
+        /// A `input_mapping_fields` block as defined below.
+        /// </summary>
+        [Input("inputMappingFields")]
+        public Input<Inputs.EventGridTopicInputMappingFieldsArgs>? InputMappingFields { get; set; }
+
+        /// <summary>
+        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("inputSchema")]
+        public Input<string>? InputSchema { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -158,6 +195,7 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// ---
         /// </summary>
         public InputMap<string> Tags
         {
@@ -177,6 +215,24 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// A `input_mapping_default_values` block as defined below.
+        /// </summary>
+        [Input("inputMappingDefaultValues")]
+        public Input<Inputs.EventGridTopicInputMappingDefaultValuesGetArgs>? InputMappingDefaultValues { get; set; }
+
+        /// <summary>
+        /// A `input_mapping_fields` block as defined below.
+        /// </summary>
+        [Input("inputMappingFields")]
+        public Input<Inputs.EventGridTopicInputMappingFieldsGetArgs>? InputMappingFields { get; set; }
+
+        /// <summary>
+        /// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("inputSchema")]
+        public Input<string>? InputSchema { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -213,6 +269,7 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// ---
         /// </summary>
         public InputMap<string> Tags
         {

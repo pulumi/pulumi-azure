@@ -84,7 +84,7 @@ class ApplicationGateway(pulumi.CustomResource):
       * `name` (`str`) - The name of the Frontend IP Configuration.
       * `private_ip_address` (`str`) - The Private IP Address to use for the Application Gateway.
       * `privateIpAddressAllocation` (`str`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
-      * `publicIpAddressId` (`str`) - The ID of a Public IP Address which the Application Gateway should use.
+      * `public_ip_address_id` (`str`) - The ID of a Public IP Address which the Application Gateway should use.
       * `subnet_id` (`str`) - The ID of the Subnet which the Application Gateway should be connected to.
     """
     frontend_ports: pulumi.Output[list]
@@ -334,11 +334,11 @@ class ApplicationGateway(pulumi.CustomResource):
         frontend = azure.network.Subnet("frontend",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.254.0.0/24")
+            address_prefixes=["10.254.0.0/24"])
         backend = azure.network.Subnet("backend",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.254.2.0/24")
+            address_prefixes=["10.254.2.0/24"])
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -368,7 +368,7 @@ class ApplicationGateway(pulumi.CustomResource):
             }],
             frontend_ip_configuration=[{
                 "name": frontend_ip_configuration_name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }],
             backend_address_pool=[{
                 "name": backend_address_pool_name,
@@ -481,7 +481,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - The name of the Frontend IP Configuration.
           * `private_ip_address` (`pulumi.Input[str]`) - The Private IP Address to use for the Application Gateway.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
+          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
 
         The **frontend_ports** object supports the following:
@@ -822,7 +822,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - The name of the Frontend IP Configuration.
           * `private_ip_address` (`pulumi.Input[str]`) - The Private IP Address to use for the Application Gateway.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
+          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
 
         The **frontend_ports** object supports the following:

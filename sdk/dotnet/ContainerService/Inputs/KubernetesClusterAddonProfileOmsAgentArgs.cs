@@ -24,6 +24,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
+        [Input("omsAgentIdentities")]
+        private InputList<Inputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs>? _omsAgentIdentities;
+
+        /// <summary>
+        /// An `oms_agent_identity` block as defined below.  
+        /// </summary>
+        public InputList<Inputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs> OmsAgentIdentities
+        {
+            get => _omsAgentIdentities ?? (_omsAgentIdentities = new InputList<Inputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs>());
+            set => _omsAgentIdentities = value;
+        }
+
         public KubernetesClusterAddonProfileOmsAgentArgs()
         {
         }

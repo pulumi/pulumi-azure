@@ -441,6 +441,8 @@ func (o PoolCertificateArrayOutput) Index(i pulumi.IntInput) PoolCertificateOutp
 }
 
 type PoolContainerConfiguration struct {
+	// A list of container image names to use, as would be specified by `docker pull`.
+	ContainerImageNames []string `pulumi:"containerImageNames"`
 	// Additional container registries from which container images can be pulled by the pool's VMs.
 	ContainerRegistries []PoolContainerConfigurationContainerRegistry `pulumi:"containerRegistries"`
 	// The type of container configuration. Possible value is `DockerCompatible`.
@@ -460,6 +462,8 @@ type PoolContainerConfigurationInput interface {
 }
 
 type PoolContainerConfigurationArgs struct {
+	// A list of container image names to use, as would be specified by `docker pull`.
+	ContainerImageNames pulumi.StringArrayInput `pulumi:"containerImageNames"`
 	// Additional container registries from which container images can be pulled by the pool's VMs.
 	ContainerRegistries PoolContainerConfigurationContainerRegistryArrayInput `pulumi:"containerRegistries"`
 	// The type of container configuration. Possible value is `DockerCompatible`.
@@ -544,6 +548,11 @@ func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationPtrOutputW
 	}).(PoolContainerConfigurationPtrOutput)
 }
 
+// A list of container image names to use, as would be specified by `docker pull`.
+func (o PoolContainerConfigurationOutput) ContainerImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PoolContainerConfiguration) []string { return v.ContainerImageNames }).(pulumi.StringArrayOutput)
+}
+
 // Additional container registries from which container images can be pulled by the pool's VMs.
 func (o PoolContainerConfigurationOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistryArrayOutput {
 	return o.ApplyT(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistry {
@@ -572,6 +581,16 @@ func (o PoolContainerConfigurationPtrOutput) ToPoolContainerConfigurationPtrOutp
 
 func (o PoolContainerConfigurationPtrOutput) Elem() PoolContainerConfigurationOutput {
 	return o.ApplyT(func(v *PoolContainerConfiguration) PoolContainerConfiguration { return *v }).(PoolContainerConfigurationOutput)
+}
+
+// A list of container image names to use, as would be specified by `docker pull`.
+func (o PoolContainerConfigurationPtrOutput) ContainerImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PoolContainerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerImageNames
+	}).(pulumi.StringArrayOutput)
 }
 
 // Additional container registries from which container images can be pulled by the pool's VMs.

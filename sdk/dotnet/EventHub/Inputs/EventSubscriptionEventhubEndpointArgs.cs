@@ -15,8 +15,8 @@ namespace Pulumi.Azure.EventHub.Inputs
         /// <summary>
         /// Specifies the id of the eventhub where the Event Subscription will receive events.
         /// </summary>
-        [Input("eventhubId", required: true)]
-        public Input<string> EventhubId { get; set; } = null!;
+        [Input("eventhubId")]
+        public Input<string>? EventhubId { get; set; }
 
         public EventSubscriptionEventhubEndpointArgs()
         {

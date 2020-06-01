@@ -19,13 +19,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        /// The Object ID of the user-defined Managed Identity used by the OMS Agents.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// The ID of the User Assigned Identity assigned to the Kubelets.
+        /// The ID of the User Assigned Identity used by the OMS Agents.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }

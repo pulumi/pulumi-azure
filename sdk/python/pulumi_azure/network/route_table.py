@@ -45,7 +45,36 @@ class RouteTable(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, disable_bgp_route_propagation=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a RouteTable resource with the given unique name, props, and options.
+        Manages a Route Table
+
+        > **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `route_table` resource.
+        At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
+
+
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_route_table = azure.network.RouteTable("exampleRouteTable",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            disable_bgp_route_propagation=False,
+            route=[{
+                "name": "route1",
+                "address_prefix": "10.1.0.0/16",
+                "next_hop_type": "vnetlocal",
+            }],
+            tags={
+                "environment": "Production",
+            })
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.

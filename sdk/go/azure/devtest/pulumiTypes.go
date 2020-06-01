@@ -10,6 +10,179 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type GlobalVMShutdownScheduleNotificationSettings struct {
+	// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+	Enabled bool `pulumi:"enabled"`
+	// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+	TimeInMinutes *int `pulumi:"timeInMinutes"`
+	// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+	WebhookUrl *string `pulumi:"webhookUrl"`
+}
+
+// GlobalVMShutdownScheduleNotificationSettingsInput is an input type that accepts GlobalVMShutdownScheduleNotificationSettingsArgs and GlobalVMShutdownScheduleNotificationSettingsOutput values.
+// You can construct a concrete instance of `GlobalVMShutdownScheduleNotificationSettingsInput` via:
+//
+// 		 GlobalVMShutdownScheduleNotificationSettingsArgs{...}
+//
+type GlobalVMShutdownScheduleNotificationSettingsInput interface {
+	pulumi.Input
+
+	ToGlobalVMShutdownScheduleNotificationSettingsOutput() GlobalVMShutdownScheduleNotificationSettingsOutput
+	ToGlobalVMShutdownScheduleNotificationSettingsOutputWithContext(context.Context) GlobalVMShutdownScheduleNotificationSettingsOutput
+}
+
+type GlobalVMShutdownScheduleNotificationSettingsArgs struct {
+	// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+	TimeInMinutes pulumi.IntPtrInput `pulumi:"timeInMinutes"`
+	// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+	WebhookUrl pulumi.StringPtrInput `pulumi:"webhookUrl"`
+}
+
+func (GlobalVMShutdownScheduleNotificationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalVMShutdownScheduleNotificationSettings)(nil)).Elem()
+}
+
+func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownScheduleNotificationSettingsOutput() GlobalVMShutdownScheduleNotificationSettingsOutput {
+	return i.ToGlobalVMShutdownScheduleNotificationSettingsOutputWithContext(context.Background())
+}
+
+func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownScheduleNotificationSettingsOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsOutput)
+}
+
+func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return i.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsOutput).ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx)
+}
+
+// GlobalVMShutdownScheduleNotificationSettingsPtrInput is an input type that accepts GlobalVMShutdownScheduleNotificationSettingsArgs, GlobalVMShutdownScheduleNotificationSettingsPtr and GlobalVMShutdownScheduleNotificationSettingsPtrOutput values.
+// You can construct a concrete instance of `GlobalVMShutdownScheduleNotificationSettingsPtrInput` via:
+//
+// 		 GlobalVMShutdownScheduleNotificationSettingsArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type GlobalVMShutdownScheduleNotificationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput
+	ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput
+}
+
+type globalVMShutdownScheduleNotificationSettingsPtrType GlobalVMShutdownScheduleNotificationSettingsArgs
+
+func GlobalVMShutdownScheduleNotificationSettingsPtr(v *GlobalVMShutdownScheduleNotificationSettingsArgs) GlobalVMShutdownScheduleNotificationSettingsPtrInput {
+	return (*globalVMShutdownScheduleNotificationSettingsPtrType)(v)
+}
+
+func (*globalVMShutdownScheduleNotificationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalVMShutdownScheduleNotificationSettings)(nil)).Elem()
+}
+
+func (i *globalVMShutdownScheduleNotificationSettingsPtrType) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return i.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *globalVMShutdownScheduleNotificationSettingsPtrType) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleNotificationSettingsPtrOutput)
+}
+
+type GlobalVMShutdownScheduleNotificationSettingsOutput struct{ *pulumi.OutputState }
+
+func (GlobalVMShutdownScheduleNotificationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalVMShutdownScheduleNotificationSettings)(nil)).Elem()
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsOutput() GlobalVMShutdownScheduleNotificationSettingsOutput {
+	return o
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsOutput {
+	return o
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return o.ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *GlobalVMShutdownScheduleNotificationSettings {
+		return &v
+	}).(GlobalVMShutdownScheduleNotificationSettingsPtrOutput)
+}
+
+// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) TimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *int { return v.TimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+func (o GlobalVMShutdownScheduleNotificationSettingsOutput) WebhookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
+}
+
+type GlobalVMShutdownScheduleNotificationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalVMShutdownScheduleNotificationSettings)(nil)).Elem()
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutput() GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return o
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) ToGlobalVMShutdownScheduleNotificationSettingsPtrOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleNotificationSettingsPtrOutput {
+	return o
+}
+
+func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Elem() GlobalVMShutdownScheduleNotificationSettingsOutput {
+	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) GlobalVMShutdownScheduleNotificationSettings {
+		return *v
+	}).(GlobalVMShutdownScheduleNotificationSettingsOutput)
+}
+
+// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
+func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) TimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebhookUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinuxVirtualMachineGalleryImageReference struct {
 	// The Offer of the Gallery Image. Changing this forces a new resource to be created.
 	Offer string `pulumi:"offer"`
@@ -1631,6 +1804,8 @@ func (o GetVirtualNetworkSubnetOverrideArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
+	pulumi.RegisterOutputType(GlobalVMShutdownScheduleNotificationSettingsOutput{})
+	pulumi.RegisterOutputType(GlobalVMShutdownScheduleNotificationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineGalleryImageReferenceOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineGalleryImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineInboundNatRuleOutput{})

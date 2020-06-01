@@ -34,6 +34,7 @@ class Pool(pulumi.CustomResource):
     """
     The container configuration used in the pool's VMs.
 
+      * `containerImageNames` (`list`) - A list of container image names to use, as would be specified by `docker pull`.
       * `containerRegistries` (`list`) - Additional container registries from which container images can be pulled by the pool's VMs.
         * `password` (`str`) - The password to log into the registry server. Changing this forces a new resource to be created.
         * `registryServer` (`str`) - The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
@@ -169,6 +170,7 @@ class Pool(pulumi.CustomResource):
 
         The **container_configuration** object supports the following:
 
+          * `containerImageNames` (`pulumi.Input[list]`) - A list of container image names to use, as would be specified by `docker pull`.
           * `containerRegistries` (`pulumi.Input[list]`) - Additional container registries from which container images can be pulled by the pool's VMs.
             * `password` (`pulumi.Input[str]`) - The password to log into the registry server. Changing this forces a new resource to be created.
             * `registryServer` (`pulumi.Input[str]`) - The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
@@ -317,6 +319,7 @@ class Pool(pulumi.CustomResource):
 
         The **container_configuration** object supports the following:
 
+          * `containerImageNames` (`pulumi.Input[list]`) - A list of container image names to use, as would be specified by `docker pull`.
           * `containerRegistries` (`pulumi.Input[list]`) - Additional container registries from which container images can be pulled by the pool's VMs.
             * `password` (`pulumi.Input[str]`) - The password to log into the registry server. Changing this forces a new resource to be created.
             * `registryServer` (`pulumi.Input[str]`) - The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.

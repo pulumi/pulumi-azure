@@ -45,7 +45,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
       * `privateIpAddressAllocation` (`str`) - Defines how the private IP address
         of the gateways virtual interface is assigned. Valid options are `Static` or
         `Dynamic`. Defaults to `Dynamic`.
-      * `publicIpAddressId` (`str`) - The ID of the public ip address to associate
+      * `public_ip_address_id` (`str`) - The ID of the public ip address to associate
         with the Virtual Network Gateway.
       * `subnet_id` (`str`) - The ID of the gateway subnet of a virtual network in
         which the virtual network gateway will be created. It is mandatory that
@@ -158,7 +158,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             sku="Basic",
             ip_configuration=[{
                 "name": "vnetGatewayConfig",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
                 "subnet_id": example_subnet.id,
             }],
@@ -251,7 +251,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - Defines how the private IP address
             of the gateways virtual interface is assigned. Valid options are `Static` or
             `Dynamic`. Defaults to `Dynamic`.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of the public ip address to associate
+          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of the public ip address to associate
             with the Virtual Network Gateway.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the gateway subnet of a virtual network in
             which the virtual network gateway will be created. It is mandatory that
@@ -391,7 +391,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - Defines how the private IP address
             of the gateways virtual interface is assigned. Valid options are `Static` or
             `Dynamic`. Defaults to `Dynamic`.
-          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of the public ip address to associate
+          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of the public ip address to associate
             with the Virtual Network Gateway.
           * `subnet_id` (`pulumi.Input[str]`) - The ID of the gateway subnet of a virtual network in
             which the virtual network gateway will be created. It is mandatory that

@@ -18,6 +18,12 @@ type Topic struct {
 
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// A `inputMappingDefaultValues` block as defined below.
+	InputMappingDefaultValues TopicInputMappingDefaultValuesPtrOutput `pulumi:"inputMappingDefaultValues"`
+	// A `inputMappingFields` block as defined below.
+	InputMappingFields TopicInputMappingFieldsPtrOutput `pulumi:"inputMappingFields"`
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -29,6 +35,7 @@ type Topic struct {
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// A mapping of tags to assign to the resource.
+	// ---
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -71,6 +78,12 @@ func GetTopic(ctx *pulumi.Context,
 type topicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint *string `pulumi:"endpoint"`
+	// A `inputMappingDefaultValues` block as defined below.
+	InputMappingDefaultValues *TopicInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
+	// A `inputMappingFields` block as defined below.
+	InputMappingFields *TopicInputMappingFields `pulumi:"inputMappingFields"`
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+	InputSchema *string `pulumi:"inputSchema"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -82,12 +95,19 @@ type topicState struct {
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// A mapping of tags to assign to the resource.
+	// ---
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type TopicState struct {
 	// The Endpoint associated with the EventGrid Topic.
 	Endpoint pulumi.StringPtrInput
+	// A `inputMappingDefaultValues` block as defined below.
+	InputMappingDefaultValues TopicInputMappingDefaultValuesPtrInput
+	// A `inputMappingFields` block as defined below.
+	InputMappingFields TopicInputMappingFieldsPtrInput
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+	InputSchema pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -99,6 +119,7 @@ type TopicState struct {
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
 	SecondaryAccessKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	// ---
 	Tags pulumi.StringMapInput
 }
 
@@ -107,6 +128,12 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
+	// A `inputMappingDefaultValues` block as defined below.
+	InputMappingDefaultValues *TopicInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
+	// A `inputMappingFields` block as defined below.
+	InputMappingFields *TopicInputMappingFields `pulumi:"inputMappingFields"`
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+	InputSchema *string `pulumi:"inputSchema"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -114,11 +141,18 @@ type topicArgs struct {
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	// ---
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// A `inputMappingDefaultValues` block as defined below.
+	InputMappingDefaultValues TopicInputMappingDefaultValuesPtrInput
+	// A `inputMappingFields` block as defined below.
+	InputMappingFields TopicInputMappingFieldsPtrInput
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+	InputSchema pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
@@ -126,6 +160,7 @@ type TopicArgs struct {
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	// ---
 	Tags pulumi.StringMapInput
 }
 

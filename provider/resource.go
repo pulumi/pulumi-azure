@@ -43,6 +43,7 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
+	advisor                  = "Advisor"             // Advisor
 	azureAnalysisServices    = "AnalysisServices"    // Analysis Services
 	azureAPIManagement       = "ApiManagement"       // API Management
 	azureAppConfiguration    = "AppConfiguration"    // App Configuration
@@ -606,12 +607,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
 
 			// Dev Test
-			"azurerm_dev_test_lab":                     {Tok: azureResource(azureDevTest, "Lab")},
-			"azurerm_dev_test_linux_virtual_machine":   {Tok: azureResource(azureDevTest, "LinuxVirtualMachine")},
-			"azurerm_dev_test_policy":                  {Tok: azureResource(azureDevTest, "Policy")},
-			"azurerm_dev_test_schedule":                {Tok: azureResource(azureDevTest, "Schedule")},
-			"azurerm_dev_test_virtual_network":         {Tok: azureResource(azureDevTest, "VirtualNetwork")},
-			"azurerm_dev_test_windows_virtual_machine": {Tok: azureResource(azureDevTest, "WindowsVirtualMachine")},
+			"azurerm_dev_test_lab":                         {Tok: azureResource(azureDevTest, "Lab")},
+			"azurerm_dev_test_linux_virtual_machine":       {Tok: azureResource(azureDevTest, "LinuxVirtualMachine")},
+			"azurerm_dev_test_policy":                      {Tok: azureResource(azureDevTest, "Policy")},
+			"azurerm_dev_test_schedule":                    {Tok: azureResource(azureDevTest, "Schedule")},
+			"azurerm_dev_test_virtual_network":             {Tok: azureResource(azureDevTest, "VirtualNetwork")},
+			"azurerm_dev_test_windows_virtual_machine":     {Tok: azureResource(azureDevTest, "WindowsVirtualMachine")},
+			"azurerm_dev_test_global_vm_shutdown_schedule": {Tok: azureResource(azureDevTest, "GlobalVMShutdownSchedule")},
 
 			// DNS
 			"azurerm_dns_a_record":     {Tok: azureResource(azureDNS, "ARecord")},
@@ -1018,8 +1020,11 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
 			},
-			"azurerm_express_route_gateway":          {Tok: azureResource(azureNetwork, "ExpressRouteGateway")},
-			"azurerm_nat_gateway":                    {Tok: azureResource(azureNetwork, "NatGateway")},
+			"azurerm_express_route_gateway": {Tok: azureResource(azureNetwork, "ExpressRouteGateway")},
+			"azurerm_nat_gateway":           {Tok: azureResource(azureNetwork, "NatGateway")},
+			"azurerm_nat_gateway_public_ip_association": {
+				Tok: azureResource(azureNetwork, "NatGatewayPublicIpAssociation"),
+			},
 			"azurerm_subnet_nat_gateway_association": {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
 			"azurerm_point_to_site_vpn_gateway":      {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
 			"azurerm_virtual_hub":                    {Tok: azureResource(azureNetwork, "VirtualHub")},
@@ -1477,6 +1482,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_dns_zone":               {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
 			"azurerm_sentinel_alert_rule":            {Tok: azureDataSource(azureSentinel, "getAlertRule")},
 			"azurerm_maintenance_configuration":      {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
+			"azurerm_advisor_recommendations":        {Tok: azureDataSource(advisor, "getRecommendations")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

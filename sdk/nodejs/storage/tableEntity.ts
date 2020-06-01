@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     partitionKey: "examplepartition",
  *     rowKey: "exmamplerow",
  *     entity: {
- *         example: "sample",
+ *         example: "example",
  *     },
  * });
  * ```

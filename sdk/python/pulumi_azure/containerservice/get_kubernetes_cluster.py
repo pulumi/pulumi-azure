@@ -13,7 +13,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, id=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, id=None, identities=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError("Expected argument 'addon_profiles' to be a list")
         __self__.addon_profiles = addon_profiles
@@ -50,6 +50,12 @@ class GetKubernetesClusterResult:
         """
         The provider-assigned unique ID for this managed resource.
         """
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        __self__.identities = identities
+        """
+        A `identity` block as documented below.
+        """
         if kube_admin_config_raw and not isinstance(kube_admin_config_raw, str):
             raise TypeError("Expected argument 'kube_admin_config_raw' to be a str")
         __self__.kube_admin_config_raw = kube_admin_config_raw
@@ -73,6 +79,12 @@ class GetKubernetesClusterResult:
         __self__.kube_configs = kube_configs
         """
         A `kube_config` block as defined below.
+        """
+        if kubelet_identities and not isinstance(kubelet_identities, list):
+            raise TypeError("Expected argument 'kubelet_identities' to be a list")
+        __self__.kubelet_identities = kubelet_identities
+        """
+        A `kubelet_identity` block as documented below.  
         """
         if kubernetes_version and not isinstance(kubernetes_version, str):
             raise TypeError("Expected argument 'kubernetes_version' to be a str")
@@ -164,10 +176,12 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             dns_prefix=self.dns_prefix,
             fqdn=self.fqdn,
             id=self.id,
+            identities=self.identities,
             kube_admin_config_raw=self.kube_admin_config_raw,
             kube_admin_configs=self.kube_admin_configs,
             kube_config_raw=self.kube_config_raw,
             kube_configs=self.kube_configs,
+            kubelet_identities=self.kubelet_identities,
             kubernetes_version=self.kubernetes_version,
             linux_profiles=self.linux_profiles,
             location=self.location,
@@ -225,10 +239,12 @@ def get_kubernetes_cluster(name=None,private_cluster_enabled=None,private_link_e
         dns_prefix=__ret__.get('dnsPrefix'),
         fqdn=__ret__.get('fqdn'),
         id=__ret__.get('id'),
+        identities=__ret__.get('identities'),
         kube_admin_config_raw=__ret__.get('kubeAdminConfigRaw'),
         kube_admin_configs=__ret__.get('kubeAdminConfigs'),
         kube_config_raw=__ret__.get('kubeConfigRaw'),
         kube_configs=__ret__.get('kubeConfigs'),
+        kubelet_identities=__ret__.get('kubeletIdentities'),
         kubernetes_version=__ret__.get('kubernetesVersion'),
         linux_profiles=__ret__.get('linuxProfiles'),
         location=__ret__.get('location'),

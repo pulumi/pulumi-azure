@@ -75,7 +75,7 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
             }],
             frontend_ip_configuration=[{
                 "name": frontend_ip_configuration_name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }],
             backend_address_pool=[{
                 "name": backend_address_pool_name,

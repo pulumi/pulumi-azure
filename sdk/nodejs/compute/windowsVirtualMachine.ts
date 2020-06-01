@@ -245,7 +245,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    public readonly zone!: pulumi.Output<string>;
 
     /**
      * Create a WindowsVirtualMachine resource with the given unique name, arguments, and options.

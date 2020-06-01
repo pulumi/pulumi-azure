@@ -12,8 +12,6 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Disk Encryption Set.
     /// 
-    /// &gt; **NOTE**: Disk Encryption Sets are in Public Preview and at this time is only available in `Canada Central`, `North Europe` and `West Central US` regions - [more information can be found in the preview documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption).
-    /// 
     /// &gt; **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete &amp; Purge Protection enabled - which are not yet supported by this provider.
     /// </summary>
     public partial class DiskEncryptionSet : Pulumi.CustomResource

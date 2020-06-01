@@ -162,7 +162,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             enable_bgp=False,
             sku="Basic",
             ip_configuration=[{
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
                 "subnet_id": example_subnet.id,
             }])
@@ -201,7 +201,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configuration=[{
-                "publicIpAddressId": us_public_ip.id,
+                "public_ip_address_id": us_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
                 "subnet_id": us_gateway.id,
             }])
@@ -225,7 +225,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configuration=[{
-                "publicIpAddressId": europe_public_ip.id,
+                "public_ip_address_id": europe_public_ip.id,
                 "privateIpAddressAllocation": "Dynamic",
                 "subnet_id": europe_gateway.id,
             }])

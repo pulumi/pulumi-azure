@@ -253,7 +253,7 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             frontend_ip_configuration=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         bpepool = azure.lb.BackendAddressPool("bpepool",
             resource_group_name=example_resource_group.name,

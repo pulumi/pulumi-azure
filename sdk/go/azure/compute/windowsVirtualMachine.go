@@ -99,7 +99,7 @@ type WindowsVirtualMachine struct {
 	// One or more `winrmListener` blocks as defined below.
 	WinrmListeners WindowsVirtualMachineWinrmListenerArrayOutput `pulumi:"winrmListeners"`
 	// The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-	Zone pulumi.StringPtrOutput `pulumi:"zone"`
+	Zone pulumi.StringOutput `pulumi:"zone"`
 }
 
 // NewWindowsVirtualMachine registers a new resource with the given unique name, arguments, and options.

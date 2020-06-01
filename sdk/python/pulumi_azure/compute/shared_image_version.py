@@ -48,7 +48,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
       * `name` (`str`) - The Azure Region in which this Image Version should exist.
       * `regionalReplicaCount` (`float`) - The number of replicas of the Image Version to be created per region.
-      * `storage_account_type` (`str`) - The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+      * `storage_account_type` (`str`) - The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
     """
     def __init__(__self__, resource_name, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -97,7 +97,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
           * `name` (`pulumi.Input[str]`) - The Azure Region in which this Image Version should exist.
           * `regionalReplicaCount` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region.
-          * `storage_account_type` (`pulumi.Input[str]`) - The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+          * `storage_account_type` (`pulumi.Input[str]`) - The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -164,7 +164,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
           * `name` (`pulumi.Input[str]`) - The Azure Region in which this Image Version should exist.
           * `regionalReplicaCount` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region.
-          * `storage_account_type` (`pulumi.Input[str]`) - The storage account type for the image version, which defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
+          * `storage_account_type` (`pulumi.Input[str]`) - The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public Input<string> StorageAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Storage blob container that is the destination of the deadletter events
+        /// Specifies the name of the Storage blob container that is the destination of the deadletter events.
         /// </summary>
         [Input("storageBlobContainerName", required: true)]
         public Input<string> StorageBlobContainerName { get; set; } = null!;
