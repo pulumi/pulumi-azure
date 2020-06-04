@@ -13,7 +13,7 @@ class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
-    def __init__(__self__, access_endpoint=None, connector_endpoint_ip_addresses=None, connector_outbound_ip_addresses=None, id=None, location=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_endpoint_ip_addresses=None, workflow_outbound_ip_addresses=None, workflow_schema=None, workflow_version=None):
+    def __init__(__self__, access_endpoint=None, connector_endpoint_ip_addresses=None, connector_outbound_ip_addresses=None, id=None, location=None, logic_app_integration_account_id=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_endpoint_ip_addresses=None, workflow_outbound_ip_addresses=None, workflow_schema=None, workflow_version=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         __self__.access_endpoint = access_endpoint
@@ -43,6 +43,12 @@ class GetWorkflowResult:
         __self__.location = location
         """
         The Azure location where the Logic App Workflow exists.
+        """
+        if logic_app_integration_account_id and not isinstance(logic_app_integration_account_id, str):
+            raise TypeError("Expected argument 'logic_app_integration_account_id' to be a str")
+        __self__.logic_app_integration_account_id = logic_app_integration_account_id
+        """
+        The ID of the integration account linked by this Logic App Workflow.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -97,6 +103,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             connector_outbound_ip_addresses=self.connector_outbound_ip_addresses,
             id=self.id,
             location=self.location,
+            logic_app_integration_account_id=self.logic_app_integration_account_id,
             name=self.name,
             parameters=self.parameters,
             resource_group_name=self.resource_group_name,
@@ -145,6 +152,7 @@ def get_workflow(name=None,resource_group_name=None,opts=None):
         connector_outbound_ip_addresses=__ret__.get('connectorOutboundIpAddresses'),
         id=__ret__.get('id'),
         location=__ret__.get('location'),
+        logic_app_integration_account_id=__ret__.get('logicAppIntegrationAccountId'),
         name=__ret__.get('name'),
         parameters=__ret__.get('parameters'),
         resource_group_name=__ret__.get('resourceGroupName'),

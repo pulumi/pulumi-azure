@@ -60,15 +60,13 @@ import * as utilities from "../utilities";
  *     disablePasswordAuthentication: false,
  * });
  * const exampleGlobalVMShutdownSchedule = new azure.devtest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", {
- *     targetResourceId: azurerm_virtual_machine.example.id,
+ *     virtualMachineId: azurerm_virtual_machine.example.id,
  *     location: exampleResourceGroup.location,
- *     status: "Enabled",
- *     daily_recurrence: [{
- *         time: "1100",
- *     }],
- *     timeZoneId: "Pacific Standard Time",
+ *     enabled: true,
+ *     dailyRecurrenceTime: "1100",
+ *     timeZone: "Pacific Standard Time",
  *     notification_settings: {
- *         status: "Enabled",
+ *         enabled: true,
  *         timeInMinutes: "60",
  *         webhookUrl: "https://sample-webhook-url.example.com",
  *     },

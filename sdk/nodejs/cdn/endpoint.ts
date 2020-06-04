@@ -112,7 +112,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */
-    public readonly originHostHeader!: pulumi.Output<string>;
+    public readonly originHostHeader!: pulumi.Output<string | undefined>;
     /**
      * The path used at for origin requests.
      */

@@ -96,7 +96,6 @@ class Extension(pulumi.CustomResource):
                 "environment": "staging",
             })
         example_container = azure.storage.Container("exampleContainer",
-            resource_group_name=example_resource_group.name,
             storage_account_name=example_account.name,
             container_access_type="private")
         example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",

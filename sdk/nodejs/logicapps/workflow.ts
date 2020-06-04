@@ -68,6 +68,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The ID of the integration account linked by this Logic App Workflow.
+     */
+    public readonly logicAppIntegrationAccountId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
             inputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["logicAppIntegrationAccountId"] = state ? state.logicAppIntegrationAccountId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -130,6 +135,7 @@ export class Workflow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["logicAppIntegrationAccountId"] = args ? args.logicAppIntegrationAccountId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -174,6 +180,10 @@ export interface WorkflowState {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The ID of the integration account linked by this Logic App Workflow.
+     */
+    readonly logicAppIntegrationAccountId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -215,6 +225,10 @@ export interface WorkflowArgs {
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The ID of the integration account linked by this Logic App Workflow.
+     */
+    readonly logicAppIntegrationAccountId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */

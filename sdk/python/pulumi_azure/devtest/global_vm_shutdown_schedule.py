@@ -86,15 +86,13 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             admin_password="Password1234!",
             disable_password_authentication=False)
         example_global_vm_shutdown_schedule = azure.devtest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule",
-            target_resource_id=azurerm_virtual_machine["example"]["id"],
+            virtual_machine_id=azurerm_virtual_machine["example"]["id"],
             location=example_resource_group.location,
-            status="Enabled",
-            daily_recurrence=[{
-                "time": "1100",
-            }],
-            time_zone_id="Pacific Standard Time",
+            enabled=True,
+            daily_recurrence_time="1100",
+            time_zone="Pacific Standard Time",
             notification_settings={
-                "status": "Enabled",
+                "enabled": True,
                 "timeInMinutes": "60",
                 "webhookUrl": "https://sample-webhook-url.example.com",
             })

@@ -22,6 +22,7 @@ export * from "./getSharedImageVersion";
 export * from "./getSharedImageVersions";
 export * from "./getSnapshot";
 export * from "./getVirtualMachine";
+export * from "./getVirtualMachineScaleSet";
 export * from "./image";
 export * from "./linuxVirtualMachine";
 export * from "./linuxVirtualMachineScaleSet";

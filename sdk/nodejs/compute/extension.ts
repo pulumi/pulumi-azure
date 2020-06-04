@@ -52,7 +52,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });

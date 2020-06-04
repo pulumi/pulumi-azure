@@ -67,6 +67,10 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * A `advancedFilter` block as defined below.
+     */
+    public readonly advancedFilter!: pulumi.Output<outputs.eventhub.EventSubscriptionAdvancedFilter | undefined>;
+    /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
@@ -154,6 +158,7 @@ export class EventSubscription extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
+            inputs["advancedFilter"] = state ? state.advancedFilter : undefined;
             inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
             inputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
@@ -177,6 +182,7 @@ export class EventSubscription extends pulumi.CustomResource {
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
+            inputs["advancedFilter"] = args ? args.advancedFilter : undefined;
             inputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = args ? args.eventhubEndpoint : undefined;
             inputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
@@ -211,6 +217,10 @@ export class EventSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSubscription resources.
  */
 export interface EventSubscriptionState {
+    /**
+     * A `advancedFilter` block as defined below.
+     */
+    readonly advancedFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilter>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
@@ -291,6 +301,10 @@ export interface EventSubscriptionState {
  * The set of arguments for constructing a EventSubscription resource.
  */
 export interface EventSubscriptionArgs {
+    /**
+     * A `advancedFilter` block as defined below.
+     */
+    readonly advancedFilter?: pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilter>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */

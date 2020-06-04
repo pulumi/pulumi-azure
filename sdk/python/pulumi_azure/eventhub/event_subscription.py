@@ -11,6 +11,58 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
 class EventSubscription(pulumi.CustomResource):
+    advanced_filter: pulumi.Output[dict]
+    """
+    A `advanced_filter` block as defined below.
+
+      * `boolEquals` (`list`) - Compares a value of an event using a single boolean value.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `value` (`bool`) - Specifies a single value to compare to when using a single value operator. 
+
+      * `numberGreaterThanOrEquals` (`list`) - Compares a value of an event using a single floating point number.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `value` (`float`) - Specifies a single value to compare to when using a single value operator. 
+
+      * `numberGreaterThans` (`list`) - Compares a value of an event using a single floating point number.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `value` (`float`) - Specifies a single value to compare to when using a single value operator. 
+
+      * `numberIns` (`list`) - Compares a value of an event using multiple floating point numbers.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
+
+      * `numberLessThanOrEquals` (`list`) - Compares a value of an event using a single floating point number.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `value` (`float`) - Specifies a single value to compare to when using a single value operator. 
+
+      * `numberLessThans` (`list`) - Compares a value of an event using a single floating point number.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `value` (`float`) - Specifies a single value to compare to when using a single value operator. 
+
+      * `numberNotIns` (`list`) - Compares a value of an event using multiple floating point numbers.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
+
+      * `stringBeginsWiths` (`list`) - Compares a value of an event using multiple string values.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
+
+      * `stringContains` (`list`) - Compares a value of an event using multiple string values.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
+
+      * `stringEndsWiths` (`list`) - Compares a value of an event using multiple string values.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
+
+      * `stringIns` (`list`) - Compares a value of an event using multiple string values.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
+
+      * `stringNotIns` (`list`) - Compares a value of an event using multiple string values.
+        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
+    """
     event_delivery_schema: pulumi.Output[str]
     """
     Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -103,7 +155,7 @@ class EventSubscription(pulumi.CustomResource):
       * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events.
     """
     warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
-    def __init__(__self__, resource_name, opts=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, advanced_filter=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Event Subscription
 
@@ -136,6 +188,7 @@ class EventSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -154,6 +207,56 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input[str] topic_name: (Optional) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
+
+        The **advanced_filter** object supports the following:
+
+          * `boolEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single boolean value.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[bool]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberGreaterThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberGreaterThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `numberLessThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberLessThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringBeginsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringContains` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringEndsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
 
         The **eventhub_endpoint** object supports the following:
 
@@ -206,6 +309,7 @@ class EventSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['advanced_filter'] = advanced_filter
             __props__['event_delivery_schema'] = event_delivery_schema
             __props__['eventhub_endpoint'] = eventhub_endpoint
             __props__['eventhub_endpoint_id'] = eventhub_endpoint_id
@@ -233,7 +337,7 @@ class EventSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None):
+    def get(resource_name, id, opts=None, advanced_filter=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None):
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -241,6 +345,7 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -259,6 +364,56 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input[str] topic_name: (Optional) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
+
+        The **advanced_filter** object supports the following:
+
+          * `boolEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single boolean value.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[bool]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberGreaterThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberGreaterThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `numberLessThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberLessThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator. 
+
+          * `numberNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringBeginsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringContains` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringEndsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
+
+          * `stringNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
+            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
 
         The **eventhub_endpoint** object supports the following:
 
@@ -297,6 +452,7 @@ class EventSubscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["advanced_filter"] = advanced_filter
         __props__["event_delivery_schema"] = event_delivery_schema
         __props__["eventhub_endpoint"] = eventhub_endpoint
         __props__["eventhub_endpoint_id"] = eventhub_endpoint_id

@@ -16,6 +16,12 @@ namespace Pulumi.Azure.EventHub
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>
+        /// A `advanced_filter` block as defined below.
+        /// </summary>
+        [Output("advancedFilter")]
+        public Output<Outputs.EventSubscriptionAdvancedFilter?> AdvancedFilter { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventDeliverySchema")]
@@ -170,6 +176,12 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `advanced_filter` block as defined below.
+        /// </summary>
+        [Input("advancedFilter")]
+        public Input<Inputs.EventSubscriptionAdvancedFilterArgs>? AdvancedFilter { get; set; }
+
+        /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventDeliverySchema")]
@@ -296,6 +308,12 @@ namespace Pulumi.Azure.EventHub
 
     public sealed class EventSubscriptionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `advanced_filter` block as defined below.
+        /// </summary>
+        [Input("advancedFilter")]
+        public Input<Inputs.EventSubscriptionAdvancedFilterGetArgs>? AdvancedFilter { get; set; }
+
         /// <summary>
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         /// </summary>

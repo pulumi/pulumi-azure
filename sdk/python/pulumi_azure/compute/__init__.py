@@ -23,6 +23,7 @@ from .get_shared_image_version import *
 from .get_shared_image_versions import *
 from .get_snapshot import *
 from .get_virtual_machine import *
+from .get_virtual_machine_scale_set import *
 from .image import *
 from .linux_virtual_machine import *
 from .linux_virtual_machine_scale_set import *

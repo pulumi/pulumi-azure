@@ -11,6 +11,60 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         {
+    ///             Name = "example-resources",
+    ///         }));
+    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///         {
+    ///             Name = "example-job",
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         }));
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///             Location = azurerm_resource_group.Example.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var test = new Azure.StreamAnalytics.ReferenceInputBlob("test", new Azure.StreamAnalytics.ReferenceInputBlobArgs
+    ///         {
+    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
+    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///             StorageContainerName = exampleContainer.Name,
+    ///             PathPattern = "some-random-pattern",
+    ///             DateFormat = "yyyy/MM/dd",
+    ///             TimeFormat = "HH",
+    ///             Serialization = new Azure.StreamAnalytics.Inputs.ReferenceInputBlobSerializationArgs
+    ///             {
+    ///                 Type = "Json",
+    ///                 Encoding = "UTF8",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ReferenceInputBlob : Pulumi.CustomResource
     {

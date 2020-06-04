@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Cdn
         /// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         /// </summary>
         [Output("originHostHeader")]
-        public Output<string> OriginHostHeader { get; private set; } = null!;
+        public Output<string?> OriginHostHeader { get; private set; } = null!;
 
         /// <summary>
         /// The path used at for origin requests.

@@ -4,6 +4,8 @@
 
 # Export this package's modules as members:
 from .action_group import *
+from .action_rule_action_group import *
+from .action_rule_suppression import *
 from .activity_log_alert import *
 from .autoscale_setting import *
 from .diagnostic_setting import *

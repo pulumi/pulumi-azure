@@ -83,8 +83,8 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *         managed_rule_set: [{
- *             ruleSetType: "OWASP",
- *             ruleSetVersion: "3.1",
+ *             type: "OWASP",
+ *             version: "3.1",
  *             rule_group_override: [{
  *                 ruleGroupName: "REQUEST-920-PROTOCOL-ENFORCEMENT",
  *                 disabledRules: [

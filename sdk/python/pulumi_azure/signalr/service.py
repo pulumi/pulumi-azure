@@ -20,7 +20,7 @@ class Service(pulumi.CustomResource):
     """
     A `features` block as documented below.
 
-      * `flag` (`str`) - The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+      * `flag` (`str`) - The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
       * `value` (`str`) - A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
     """
     hostname: pulumi.Output[str]
@@ -124,7 +124,7 @@ class Service(pulumi.CustomResource):
 
         The **features** object supports the following:
 
-          * `flag` (`pulumi.Input[str]`) - The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+          * `flag` (`pulumi.Input[str]`) - The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
           * `value` (`pulumi.Input[str]`) - A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 
         The **sku** object supports the following:
@@ -205,7 +205,7 @@ class Service(pulumi.CustomResource):
 
         The **features** object supports the following:
 
-          * `flag` (`pulumi.Input[str]`) - The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+          * `flag` (`pulumi.Input[str]`) - The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
           * `value` (`pulumi.Input[str]`) - A value of a feature flag. Possible values are `Classic`, `Default` and `Serverless`.
 
         The **sku** object supports the following:
