@@ -22,6 +22,8 @@ type Workflow struct {
 	ConnectorOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"connectorOutboundIpAddresses"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The ID of the integration account linked by this Logic App Workflow.
+	LogicAppIntegrationAccountId pulumi.StringPtrOutput `pulumi:"logicAppIntegrationAccountId"`
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of Key-Value pairs.
@@ -79,6 +81,8 @@ type workflowState struct {
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The ID of the integration account linked by this Logic App Workflow.
+	LogicAppIntegrationAccountId *string `pulumi:"logicAppIntegrationAccountId"`
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A map of Key-Value pairs.
@@ -106,6 +110,8 @@ type WorkflowState struct {
 	ConnectorOutboundIpAddresses pulumi.StringArrayInput
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The ID of the integration account linked by this Logic App Workflow.
+	LogicAppIntegrationAccountId pulumi.StringPtrInput
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A map of Key-Value pairs.
@@ -131,6 +137,8 @@ func (WorkflowState) ElementType() reflect.Type {
 type workflowArgs struct {
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The ID of the integration account linked by this Logic App Workflow.
+	LogicAppIntegrationAccountId *string `pulumi:"logicAppIntegrationAccountId"`
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A map of Key-Value pairs.
@@ -149,6 +157,8 @@ type workflowArgs struct {
 type WorkflowArgs struct {
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The ID of the integration account linked by this Logic App Workflow.
+	LogicAppIntegrationAccountId pulumi.StringPtrInput
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A map of Key-Value pairs.

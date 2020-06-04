@@ -31,7 +31,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });

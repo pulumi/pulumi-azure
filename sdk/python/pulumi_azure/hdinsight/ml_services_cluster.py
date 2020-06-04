@@ -124,7 +124,6 @@ class MLServicesCluster(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_container = azure.storage.Container("exampleContainer",
-            resource_group_name=example_resource_group.name,
             storage_account_name=example_account.name,
             container_access_type="private")
         example_ml_services_cluster = azure.hdinsight.MLServicesCluster("exampleMLServicesCluster",

@@ -104,7 +104,6 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
         account_tier="Standard",
         account_replication_type="LRS")
     container = azure.storage.Container("container",
-        resource_group_name=rg.name,
         storage_account_name=storage.name,
         container_access_type="private")
     example = pulumi.Output.all(storage.primary_connection_string, container.name).apply(lambda primary_connection_string, name: azure.storage.get_account_blob_container_sas(connection_string=primary_connection_string,

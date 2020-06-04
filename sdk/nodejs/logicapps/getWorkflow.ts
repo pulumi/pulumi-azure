@@ -72,6 +72,10 @@ export interface GetWorkflowResult {
      * The Azure location where the Logic App Workflow exists.
      */
     readonly location: string;
+    /**
+     * The ID of the integration account linked by this Logic App Workflow.
+     */
+    readonly logicAppIntegrationAccountId: string;
     readonly name: string;
     /**
      * A map of Key-Value pairs.

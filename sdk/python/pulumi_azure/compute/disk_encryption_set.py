@@ -44,56 +44,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
 
-        ## Example Usage
-
-
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            access_policy=[{
-                "tenant_id": current.tenant_id,
-                "object_id": current.object_id,
-                "key_permissions": [
-                    "create",
-                    "get",
-                    "delete",
-                    "list",
-                    "wrapkey",
-                    "unwrapkey",
-                    "get",
-                ],
-                "secret_permissions": [
-                    "get",
-                    "delete",
-                    "set",
-                ],
-            }])
-        example_key = azure.keyvault.Key("exampleKey",
-            key_vault_id=example_key_vault.id,
-            key_type="RSA",
-            key_size=2048,
-            key_opts=[
-                "decrypt",
-                "encrypt",
-                "sign",
-                "unwrapKey",
-                "verify",
-                "wrapKey",
-            ])
-        example_disk_encryption_set = azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            key_vault_key_id=example_key.id)
-        ```
 
 
         :param str resource_name: The name of the resource.

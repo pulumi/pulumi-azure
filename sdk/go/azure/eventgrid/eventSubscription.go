@@ -14,6 +14,8 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
+	// A `advancedFilter` block as defined below.
+	AdvancedFilter EventSubscriptionAdvancedFilterPtrOutput `pulumi:"advancedFilter"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
@@ -93,6 +95,8 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
+	// A `advancedFilter` block as defined below.
+	AdvancedFilter *EventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
@@ -136,6 +140,8 @@ type eventSubscriptionState struct {
 }
 
 type EventSubscriptionState struct {
+	// A `advancedFilter` block as defined below.
+	AdvancedFilter EventSubscriptionAdvancedFilterPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// A `eventhubEndpoint` block as defined below.
@@ -183,6 +189,8 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
+	// A `advancedFilter` block as defined below.
+	AdvancedFilter *EventSubscriptionAdvancedFilter `pulumi:"advancedFilter"`
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
@@ -227,6 +235,8 @@ type eventSubscriptionArgs struct {
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
+	// A `advancedFilter` block as defined below.
+	AdvancedFilter EventSubscriptionAdvancedFilterPtrInput
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// A `eventhubEndpoint` block as defined below.

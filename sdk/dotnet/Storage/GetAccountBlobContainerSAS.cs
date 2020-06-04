@@ -17,6 +17,70 @@ namespace Pulumi.Azure.Storage
         /// Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account Blob Container.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+        ///         {
+        ///             Location = "westus",
+        ///         });
+        ///         var storage = new Azure.Storage.Account("storage", new Azure.Storage.AccountArgs
+        ///         {
+        ///             ResourceGroupName = rg.Name,
+        ///             Location = rg.Location,
+        ///             AccountTier = "Standard",
+        ///             AccountReplicationType = "LRS",
+        ///         });
+        ///         var container = new Azure.Storage.Container("container", new Azure.Storage.ContainerArgs
+        ///         {
+        ///             StorageAccountName = storage.Name,
+        ///             ContainerAccessType = "private",
+        ///         });
+        ///         var example = Output.Tuple(storage.PrimaryConnectionString, container.Name).Apply(values =&gt;
+        ///         {
+        ///             var primaryConnectionString = values.Item1;
+        ///             var name = values.Item2;
+        ///             return Azure.Storage.GetAccountBlobContainerSAS.InvokeAsync(new Azure.Storage.GetAccountBlobContainerSASArgs
+        ///             {
+        ///                 ConnectionString = primaryConnectionString,
+        ///                 ContainerName = name,
+        ///                 HttpsOnly = true,
+        ///                 IpAddress = "168.1.5.65",
+        ///                 Start = "2018-03-21",
+        ///                 Expiry = "2018-03-21",
+        ///                 Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsArgs
+        ///                 {
+        ///                     Read = true,
+        ///                     Add = true,
+        ///                     Create = false,
+        ///                     Write = false,
+        ///                     Delete = true,
+        ///                     List = true,
+        ///                 },
+        ///                 CacheControl = "max-age=5",
+        ///                 ContentDisposition = "inline",
+        ///                 ContentEncoding = "deflate",
+        ///                 ContentLanguage = "en-US",
+        ///                 ContentType = "application/json",
+        ///             });
+        ///         });
+        ///         this.SasUrlQueryString = example.Apply(example =&gt; example.Sas);
+        ///     }
+        /// 
+        ///     [Output("sasUrlQueryString")]
+        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountBlobContainerSASResult> InvokeAsync(GetAccountBlobContainerSASArgs args, InvokeOptions? options = null)

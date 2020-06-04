@@ -3,6 +3,8 @@
 
 // Export members:
 export * from "./actionGroup";
+export * from "./actionRuleActionGroup";
+export * from "./actionRuleSuppression";
 export * from "./activityLogAlert";
 export * from "./autoscaleSetting";
 export * from "./diagnosticSetting";

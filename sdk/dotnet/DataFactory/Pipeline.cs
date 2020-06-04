@@ -42,9 +42,52 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Example Usage with Activities
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Azure.DataFactory.Pipeline("test", new Azure.DataFactory.PipelineArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             DataFactoryName = azurerm_data_factory.Test.Name,
+    ///             Variables = 
+    ///             {
+    ///                 { "bob", "item1" },
+    ///             },
+    ///             ActivitiesJson = @"[
+    /// 	{
+    /// 		""name"": ""Append variable1"",
+    /// 		""type"": ""AppendVariable"",
+    /// 		""dependsOn"": [],
+    /// 		""userProperties"": [],
+    /// 		""typeProperties"": {
+    /// 			""variableName"": ""bob"",
+    /// 			""value"": ""something""
+    /// 		}
+    /// 	}
+    /// ]
+    /// ",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Pipeline : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+        /// </summary>
+        [Output("activitiesJson")]
+        public Output<string?> ActivitiesJson { get; private set; } = null!;
+
         /// <summary>
         /// List of tags that can be used for describing the Data Factory Pipeline.
         /// </summary>
@@ -133,6 +176,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+        /// </summary>
+        [Input("activitiesJson")]
+        public Input<string>? ActivitiesJson { get; set; }
+
         [Input("annotations")]
         private InputList<string>? _annotations;
 
@@ -200,6 +249,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class PipelineState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+        /// </summary>
+        [Input("activitiesJson")]
+        public Input<string>? ActivitiesJson { get; set; }
+
         [Input("annotations")]
         private InputList<string>? _annotations;
 

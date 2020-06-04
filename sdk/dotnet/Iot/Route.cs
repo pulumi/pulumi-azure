@@ -13,6 +13,76 @@ namespace Pulumi.Azure.Iot
     /// Manages an IotHub Route
     /// 
     /// &gt; **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resourcs - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///             {
+    ///                 Name = "S1",
+    ///                 Capacity = "1",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "purpose", "testing" },
+    ///             },
+    ///         });
+    ///         var exampleEndpointStorageContainer = new Azure.Iot.EndpointStorageContainer("exampleEndpointStorageContainer", new Azure.Iot.EndpointStorageContainerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IothubName = exampleIoTHub.Name,
+    ///             ConnectionString = exampleAccount.PrimaryBlobConnectionString,
+    ///             BatchFrequencyInSeconds = 60,
+    ///             MaxChunkSizeInBytes = 10485760,
+    ///             ContainerName = exampleContainer.Name,
+    ///             Encoding = "Avro",
+    ///             FileNameFormat = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+    ///         });
+    ///         var exampleRoute = new Azure.Iot.Route("exampleRoute", new Azure.Iot.RouteArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IothubName = exampleIoTHub.Name,
+    ///             Source = "DeviceMessages",
+    ///             Condition = "true",
+    ///             EndpointNames = 
+    ///             {
+    ///                 exampleEndpointStorageContainer.Name,
+    ///             },
+    ///             Enabled = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {

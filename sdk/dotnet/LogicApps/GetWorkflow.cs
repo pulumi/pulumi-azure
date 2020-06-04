@@ -90,6 +90,10 @@ namespace Pulumi.Azure.LogicApps
         /// The Azure location where the Logic App Workflow exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The ID of the integration account linked by this Logic App Workflow.
+        /// </summary>
+        public readonly string LogicAppIntegrationAccountId;
         public readonly string Name;
         /// <summary>
         /// A map of Key-Value pairs.
@@ -129,6 +133,8 @@ namespace Pulumi.Azure.LogicApps
 
             string location,
 
+            string logicAppIntegrationAccountId,
+
             string name,
 
             ImmutableDictionary<string, string> parameters,
@@ -150,6 +156,7 @@ namespace Pulumi.Azure.LogicApps
             ConnectorOutboundIpAddresses = connectorOutboundIpAddresses;
             Id = id;
             Location = location;
+            LogicAppIntegrationAccountId = logicAppIntegrationAccountId;
             Name = name;
             Parameters = parameters;
             ResourceGroupName = resourceGroupName;

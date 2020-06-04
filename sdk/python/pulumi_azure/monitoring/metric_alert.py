@@ -14,7 +14,7 @@ class MetricAlert(pulumi.CustomResource):
     """
     One or more `action` blocks as defined below.
 
-      * `actionGroupId` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+      * `action_group_id` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
       * `webhookProperties` (`dict`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
     """
     auto_mitigate: pulumi.Output[bool]
@@ -114,7 +114,7 @@ class MetricAlert(pulumi.CustomResource):
                 }],
             }],
             action=[{
-                "actionGroupId": main_action_group.id,
+                "action_group_id": main_action_group.id,
             }])
         ```
 
@@ -136,7 +136,7 @@ class MetricAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
           * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criterias** object supports the following:
@@ -217,7 +217,7 @@ class MetricAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
           * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criterias** object supports the following:

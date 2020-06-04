@@ -65,6 +65,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the integration account linked by this Logic App Workflow.
+        /// </summary>
+        [Output("logicAppIntegrationAccountId")]
+        public Output<string?> LogicAppIntegrationAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -165,6 +171,12 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The ID of the integration account linked by this Logic App Workflow.
+        /// </summary>
+        [Input("logicAppIntegrationAccountId")]
+        public Input<string>? LogicAppIntegrationAccountId { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -254,6 +266,12 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The ID of the integration account linked by this Logic App Workflow.
+        /// </summary>
+        [Input("logicAppIntegrationAccountId")]
+        public Input<string>? LogicAppIntegrationAccountId { get; set; }
 
         /// <summary>
         /// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.

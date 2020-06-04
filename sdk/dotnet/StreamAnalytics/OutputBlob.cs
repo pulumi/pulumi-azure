@@ -11,6 +11,61 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a Stream Analytics Output to Blob Storage.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         {
+    ///             Name = "example-resources",
+    ///         }));
+    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///         {
+    ///             Name = "example-job",
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         }));
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("exampleOutputBlob", new Azure.StreamAnalytics.OutputBlobArgs
+    ///         {
+    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
+    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///             StorageContainerName = exampleContainer.Name,
+    ///             PathPattern = "some-pattern",
+    ///             DateFormat = "yyyy-MM-dd",
+    ///             TimeFormat = "HH",
+    ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
+    ///             {
+    ///                 Type = "Csv",
+    ///                 Encoding = "UTF8",
+    ///                 FieldDelimiter = ",",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class OutputBlob : Pulumi.CustomResource
     {

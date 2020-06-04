@@ -97,6 +97,51 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
+    /// ## Example Usage (Linux)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "westus2",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Kind = "FunctionApp",
+    ///             Reserved = true,
+    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///             {
+    ///                 Tier = "Dynamic",
+    ///                 Size = "Y1",
+    ///             },
+    ///         });
+    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AppServicePlanId = examplePlan.Id,
+    ///             StorageConnectionString = exampleAccount.PrimaryConnectionString,
+    ///             OsType = "linux",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FunctionApp : Pulumi.CustomResource
     {

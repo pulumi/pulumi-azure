@@ -5,7 +5,9 @@
 # Export this package's modules as members:
 from .action_custom import *
 from .action_http import *
+from .get_integration_account import *
 from .get_workflow import *
+from .integration_account import *
 from .trigger_custom import *
 from .trigger_http_request import *
 from .trigger_recurrence import *

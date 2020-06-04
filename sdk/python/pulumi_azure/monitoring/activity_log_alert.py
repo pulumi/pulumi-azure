@@ -14,7 +14,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     """
     One or more `action` blocks as defined below.
 
-      * `actionGroupId` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+      * `action_group_id` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
       * `webhookProperties` (`dict`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
     """
     criteria: pulumi.Output[dict]
@@ -91,7 +91,7 @@ class ActivityLogAlert(pulumi.CustomResource):
                 "category": "Recommendation",
             },
             action=[{
-                "actionGroupId": main_action_group.id,
+                "action_group_id": main_action_group.id,
                 "webhookProperties": {
                     "from": "source",
                 },
@@ -112,7 +112,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
           * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criteria** object supports the following:
@@ -185,7 +185,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         The **actions** object supports the following:
 
-          * `actionGroupId` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
           * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
         The **criteria** object supports the following:

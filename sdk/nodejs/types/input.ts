@@ -6343,6 +6343,189 @@ export namespace eventgrid {
         topic?: pulumi.Input<string>;
     }
 
+    export interface EventSubscriptionAdvancedFilter {
+        /**
+         * Compares a value of an event using a single boolean value.
+         */
+        boolEquals?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterBoolEqual>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThans?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThan>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThanOrEquals?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual>[]>;
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterNumberIn>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThans?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThan>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThanOrEquals?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThanOrEqual>[]>;
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberNotIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterNumberNotIn>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringBeginsWiths?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterStringBeginsWith>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringContains?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterStringContain>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringEndsWiths?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterStringEndsWith>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterStringIn>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotIns?: pulumi.Input<pulumi.Input<inputs.eventgrid.EventSubscriptionAdvancedFilterStringNotIn>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<boolean>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -6621,6 +6804,189 @@ export namespace eventhub {
          * The id of the subnet to match on.
          */
         subnetId: pulumi.Input<string>;
+    }
+
+    export interface EventSubscriptionAdvancedFilter {
+        /**
+         * Compares a value of an event using a single boolean value.
+         */
+        boolEquals?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterBoolEqual>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThans?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThan>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThanOrEquals?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual>[]>;
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberIns?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterNumberIn>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThans?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThan>[]>;
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThanOrEquals?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThanOrEqual>[]>;
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberNotIns?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterNumberNotIn>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringBeginsWiths?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterStringBeginsWith>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringContains?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterStringContain>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringEndsWiths?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterStringEndsWith>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringIns?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterStringIn>[]>;
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotIns?: pulumi.Input<pulumi.Input<inputs.eventhub.EventSubscriptionAdvancedFilterStringNotIn>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<boolean>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface EventSubscriptionEventhubEndpoint {
@@ -9448,6 +9814,274 @@ export namespace monitoring {
          * Enables or disables the common alert schema.
          */
         useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
+    export interface ActionRuleActionGroupCondition {
+        /**
+         * A `alertContext` block as defined below.
+         */
+        alertContext?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupConditionAlertContext>;
+        /**
+         * A `alertRuleId` block as defined below.
+         */
+        alertRuleId?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupConditionAlertRuleId>;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupConditionDescription>;
+        /**
+         * A `monitor` block as defined below.
+         */
+        monitor?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupConditionMonitor>;
+        /**
+         * A `monitorService` as block defined below.
+         */
+        monitorService?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupConditionMonitorService>;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupConditionSeverity>;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupConditionTargetResourceType>;
+    }
+
+    export interface ActionRuleActionGroupConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleActionGroupConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleActionGroupConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleActionGroupConditionMonitor {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleActionGroupConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleActionGroupConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleActionGroupConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleActionGroupScope {
+        /**
+         * A list of resource IDs of the given scope type which will be the target of action rule.
+         */
+        resourceIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ActionRuleSuppressionCondition {
+        /**
+         * A `alertContext` block as defined below.
+         */
+        alertContext?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionConditionAlertContext>;
+        /**
+         * A `alertRuleId` block as defined below.
+         */
+        alertRuleId?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionConditionAlertRuleId>;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionConditionDescription>;
+        /**
+         * A `monitor` block as defined below.
+         */
+        monitor?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionConditionMonitor>;
+        /**
+         * A `monitorService` as block defined below.
+         */
+        monitorService?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionConditionMonitorService>;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionConditionSeverity>;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionConditionTargetResourceType>;
+    }
+
+    export interface ActionRuleSuppressionConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleSuppressionConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleSuppressionConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleSuppressionConditionMonitor {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleSuppressionConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleSuppressionConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleSuppressionConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ActionRuleSuppressionScope {
+        /**
+         * A list of resource IDs of the given scope type which will be the target of action rule.
+         */
+        resourceIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ActionRuleSuppressionSuppression {
+        /**
+         * Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
+         */
+        recurrenceType: pulumi.Input<string>;
+        /**
+         * A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
+         */
+        schedule?: pulumi.Input<inputs.monitoring.ActionRuleSuppressionSuppressionSchedule>;
+    }
+
+    export interface ActionRuleSuppressionSuppressionSchedule {
+        /**
+         * specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
+         */
+        endDateUtc: pulumi.Input<string>;
+        /**
+         * specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
+         */
+        recurrenceMonthlies?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+         */
+        recurrenceWeeklies?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
+         */
+        startDateUtc: pulumi.Input<string>;
     }
 
     export interface ActivityLogAlertAction {
@@ -12307,7 +12941,7 @@ export namespace signalr {
 
     export interface ServiceFeature {
         /**
-         * The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+         * The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
          */
         flag: pulumi.Input<string>;
         /**

@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const container = new azure.storage.Container("container", {
- *     resourceGroupName: rg.name,
  *     storageAccountName: storage.name,
  *     containerAccessType: "private",
  * });

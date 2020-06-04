@@ -4,7 +4,9 @@
 // Export members:
 export * from "./actionCustom";
 export * from "./actionHttp";
+export * from "./getIntegrationAccount";
 export * from "./getWorkflow";
+export * from "./integrationAccount";
 export * from "./triggerCustom";
 export * from "./triggerHttpRequest";
 export * from "./triggerRecurrence";

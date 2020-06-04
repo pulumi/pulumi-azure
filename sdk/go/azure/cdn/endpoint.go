@@ -37,7 +37,7 @@ type Endpoint struct {
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrOutput `pulumi:"optimizationType"`
 	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
-	OriginHostHeader pulumi.StringOutput `pulumi:"originHostHeader"`
+	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath pulumi.StringOutput `pulumi:"originPath"`
 	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.

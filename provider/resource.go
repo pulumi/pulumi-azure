@@ -744,6 +744,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_trigger_http_request": {Tok: azureResource(azureLogicApps, "TriggerHttpRequest")},
 			"azurerm_logic_app_trigger_recurrence":   {Tok: azureResource(azureLogicApps, "TriggerRecurrence")},
 			"azurerm_logic_app_workflow":             {Tok: azureResource(azureLogicApps, "Workflow")},
+			"azurerm_logic_app_integration_account":  {Tok: azureResource(azureLogicApps, "IntegrationAccount")},
 
 			// MariaDB
 			"azurerm_mariadb_configuration":        {Tok: azureResource(azureMariaDB, "Configuration")},
@@ -795,6 +796,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_metric_alert":                {Tok: azureResource(azureMonitoring, "MetricAlert")},
 			"azurerm_monitor_scheduled_query_rules_alert": {Tok: azureResource(azureMonitoring, "ScheduledQueryRulesAlert")},
 			"azurerm_monitor_scheduled_query_rules_log":   {Tok: azureResource(azureMonitoring, "ScheduledQueryRulesLog")},
+			"azurerm_monitor_action_rule_action_group":    {Tok: azureResource(azureMonitoring, "ActionRuleActionGroup")},
+			"azurerm_monitor_action_rule_suppression":     {Tok: azureResource(azureMonitoring, "ActionRuleSuppression")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1341,9 +1344,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_workspace": {
 				Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace"),
 			},
-			"azurerm_logic_app_workflow":   {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
-			"azurerm_maps_account":         {Tok: azureDataSource(azureMaps, "getAccount")},
-			"azurerm_monitor_action_group": {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
+			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
+			"azurerm_logic_app_integration_account": {Tok: azureDataSource(azureLogicApps, "getIntegrationAccount")},
+			"azurerm_maps_account":                  {Tok: azureDataSource(azureMaps, "getAccount")},
+			"azurerm_monitor_action_group":          {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
 			"azurerm_monitor_diagnostic_categories": {
 				Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories"),
 			},
@@ -1456,6 +1460,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_disk_encryption_set":         {Tok: azureDataSource(azureCompute, "getDiskEncryptionSet")},
 			"azurerm_dedicated_host_group":        {Tok: azureDataSource(azureCompute, "getDedicatedHostGroup")},
 			"azurerm_dedicated_host":              {Tok: azureDataSource(azureCompute, "getDedicatedHost")},
+			"azurerm_virtual_machine_scale_set":   {Tok: azureDataSource(azureCompute, "getVirtualMachineScaleSet")},
 			"azurerm_mariadb_server":              {Tok: azureDataSource(azureMariaDB, "getMariaDbServer")},
 			"azurerm_eventhub_namespace_authorization_rule": {
 				Tok: azureDataSource(azureEventHub, "getNamespaceAuthorizationRule"),

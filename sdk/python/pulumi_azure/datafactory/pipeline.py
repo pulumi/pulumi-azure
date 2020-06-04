@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class Pipeline(pulumi.CustomResource):
+    activities_json: pulumi.Output[str]
+    """
+    A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+    """
     annotations: pulumi.Output[list]
     """
     List of tags that can be used for describing the Data Factory Pipeline.
@@ -38,7 +42,7 @@ class Pipeline(pulumi.CustomResource):
     """
     A map of variables to associate with the Data Factory Pipeline.
     """
-    def __init__(__self__, resource_name, opts=None, annotations=None, data_factory_name=None, description=None, name=None, parameters=None, resource_group_name=None, variables=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, activities_json=None, annotations=None, data_factory_name=None, description=None, name=None, parameters=None, resource_group_name=None, variables=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Pipeline inside a Azure Data Factory.
 
@@ -59,9 +63,36 @@ class Pipeline(pulumi.CustomResource):
             data_factory_name=example_factory.name)
         ```
 
+        ## Example Usage with Activities
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test = azure.datafactory.Pipeline("test",
+            resource_group_name=azurerm_resource_group["test"]["name"],
+            data_factory_name=azurerm_data_factory["test"]["name"],
+            variables={
+                "bob": "item1",
+            },
+            activities_json=\"\"\"[
+        	{
+        		"name": "Append variable1",
+        		"type": "AppendVariable",
+        		"dependsOn": [],
+        		"userProperties": [],
+        		"typeProperties": {
+        			"variableName": "bob",
+        			"value": "something"
+        		}
+        	}
+        ]
+        \"\"\")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Pipeline.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
@@ -87,6 +118,7 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['activities_json'] = activities_json
             __props__['annotations'] = annotations
             if data_factory_name is None:
                 raise TypeError("Missing required property 'data_factory_name'")
@@ -105,7 +137,7 @@ class Pipeline(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, annotations=None, data_factory_name=None, description=None, name=None, parameters=None, resource_group_name=None, variables=None):
+    def get(resource_name, id, opts=None, activities_json=None, annotations=None, data_factory_name=None, description=None, name=None, parameters=None, resource_group_name=None, variables=None):
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,6 +145,7 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Pipeline.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
@@ -125,6 +158,7 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["activities_json"] = activities_json
         __props__["annotations"] = annotations
         __props__["data_factory_name"] = data_factory_name
         __props__["description"] = description

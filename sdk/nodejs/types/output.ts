@@ -1648,7 +1648,7 @@ export namespace appservice {
         /**
          * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
-        priority: number;
+        priority?: number;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -2751,7 +2751,7 @@ export namespace appservice {
          * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
          */
         name: string;
-        priority: number;
+        priority?: number;
         /**
          * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -4185,6 +4185,21 @@ export namespace compute {
         tenantId: string;
         /**
          * The identity type of the Managed Identity assigned to the Virtual Machine.
+         */
+        type: string;
+    }
+
+    export interface GetVirtualMachineScaleSetIdentity {
+        /**
+         * The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+         */
+        identityIds: string[];
+        /**
+         * The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+         */
+        principalId: string;
+        /**
+         * The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
          */
         type: string;
     }
@@ -7677,6 +7692,189 @@ export namespace eventgrid {
         topic?: string;
     }
 
+    export interface EventSubscriptionAdvancedFilter {
+        /**
+         * Compares a value of an event using a single boolean value.
+         */
+        boolEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterBoolEqual[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThan[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThanOrEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberIns?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberIn[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThan[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThanOrEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThanOrEqual[];
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberNotIns?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberNotIn[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringBeginsWiths?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringBeginsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringContains?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringContain[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringEndsWiths?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringEndsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringIns?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringIn[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotIns?: outputs.eventgrid.EventSubscriptionAdvancedFilterStringNotIn[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: boolean;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -7955,6 +8153,189 @@ export namespace eventhub {
          * The id of the subnet to match on.
          */
         subnetId: string;
+    }
+
+    export interface EventSubscriptionAdvancedFilter {
+        /**
+         * Compares a value of an event using a single boolean value.
+         */
+        boolEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterBoolEqual[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThan[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberGreaterThanOrEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberIns?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberIn[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThan[];
+        /**
+         * Compares a value of an event using a single floating point number.
+         */
+        numberLessThanOrEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThanOrEqual[];
+        /**
+         * Compares a value of an event using multiple floating point numbers.
+         */
+        numberNotIns?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberNotIn[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringBeginsWiths?: outputs.eventhub.EventSubscriptionAdvancedFilterStringBeginsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringContains?: outputs.eventhub.EventSubscriptionAdvancedFilterStringContain[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringEndsWiths?: outputs.eventhub.EventSubscriptionAdvancedFilterStringEndsWith[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringIns?: outputs.eventhub.EventSubscriptionAdvancedFilterStringIn[];
+        /**
+         * Compares a value of an event using multiple string values.
+         */
+        stringNotIns?: outputs.eventhub.EventSubscriptionAdvancedFilterStringNotIn[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: boolean;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies a single value to compare to when using a single value operator. 
+         */
+        value: number;
+    }
+
+    export interface EventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: number[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
+    }
+
+    export interface EventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
+        key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         */
+        values: string[];
     }
 
     export interface EventSubscriptionEventhubEndpoint {
@@ -10936,6 +11317,274 @@ export namespace monitoring {
         useCommonAlertSchema?: boolean;
     }
 
+    export interface ActionRuleActionGroupCondition {
+        /**
+         * A `alertContext` block as defined below.
+         */
+        alertContext?: outputs.monitoring.ActionRuleActionGroupConditionAlertContext;
+        /**
+         * A `alertRuleId` block as defined below.
+         */
+        alertRuleId?: outputs.monitoring.ActionRuleActionGroupConditionAlertRuleId;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: outputs.monitoring.ActionRuleActionGroupConditionDescription;
+        /**
+         * A `monitor` block as defined below.
+         */
+        monitor?: outputs.monitoring.ActionRuleActionGroupConditionMonitor;
+        /**
+         * A `monitorService` as block defined below.
+         */
+        monitorService?: outputs.monitoring.ActionRuleActionGroupConditionMonitorService;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: outputs.monitoring.ActionRuleActionGroupConditionSeverity;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: outputs.monitoring.ActionRuleActionGroupConditionTargetResourceType;
+    }
+
+    export interface ActionRuleActionGroupConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleActionGroupConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleActionGroupConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleActionGroupConditionMonitor {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleActionGroupConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleActionGroupConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleActionGroupConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleActionGroupScope {
+        /**
+         * A list of resource IDs of the given scope type which will be the target of action rule.
+         */
+        resourceIds: string[];
+        /**
+         * Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+         */
+        type: string;
+    }
+
+    export interface ActionRuleSuppressionCondition {
+        /**
+         * A `alertContext` block as defined below.
+         */
+        alertContext?: outputs.monitoring.ActionRuleSuppressionConditionAlertContext;
+        /**
+         * A `alertRuleId` block as defined below.
+         */
+        alertRuleId?: outputs.monitoring.ActionRuleSuppressionConditionAlertRuleId;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: outputs.monitoring.ActionRuleSuppressionConditionDescription;
+        /**
+         * A `monitor` block as defined below.
+         */
+        monitor?: outputs.monitoring.ActionRuleSuppressionConditionMonitor;
+        /**
+         * A `monitorService` as block defined below.
+         */
+        monitorService?: outputs.monitoring.ActionRuleSuppressionConditionMonitorService;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: outputs.monitoring.ActionRuleSuppressionConditionSeverity;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: outputs.monitoring.ActionRuleSuppressionConditionTargetResourceType;
+    }
+
+    export interface ActionRuleSuppressionConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleSuppressionConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleSuppressionConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleSuppressionConditionMonitor {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleSuppressionConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleSuppressionConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleSuppressionConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types.
+         */
+        values: string[];
+    }
+
+    export interface ActionRuleSuppressionScope {
+        /**
+         * A list of resource IDs of the given scope type which will be the target of action rule.
+         */
+        resourceIds: string[];
+        /**
+         * Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+         */
+        type: string;
+    }
+
+    export interface ActionRuleSuppressionSuppression {
+        /**
+         * Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
+         */
+        recurrenceType: string;
+        /**
+         * A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
+         */
+        schedule?: outputs.monitoring.ActionRuleSuppressionSuppressionSchedule;
+    }
+
+    export interface ActionRuleSuppressionSuppressionSchedule {
+        /**
+         * specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
+         */
+        endDateUtc: string;
+        /**
+         * specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
+         */
+        recurrenceMonthlies?: number[];
+        /**
+         * specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+         */
+        recurrenceWeeklies?: string[];
+        /**
+         * specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
+         */
+        startDateUtc: string;
+    }
+
     export interface ActivityLogAlertAction {
         /**
          * The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
@@ -13687,7 +14336,7 @@ export namespace network {
          * List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
          */
-        vpnClientProtocols?: string[];
+        vpnClientProtocols: string[];
     }
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
@@ -14582,7 +15231,7 @@ export namespace signalr {
 
     export interface ServiceFeature {
         /**
-         * The kind of Feature. Possible values are `EnableConnectivityLogs` and `ServiceMode`.
+         * The kind of Feature. Possible values are `EnableConnectivityLogs`, `EnableMessagingLogs`, and `ServiceMode`.
          */
         flag: string;
         /**

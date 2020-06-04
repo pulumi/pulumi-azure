@@ -14,6 +14,8 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
+	// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+	ActivitiesJson pulumi.StringPtrOutput `pulumi:"activitiesJson"`
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
@@ -64,6 +66,8 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
+	// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+	ActivitiesJson *string `pulumi:"activitiesJson"`
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
@@ -81,6 +85,8 @@ type pipelineState struct {
 }
 
 type PipelineState struct {
+	// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+	ActivitiesJson pulumi.StringPtrInput
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
@@ -102,6 +108,8 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
+	// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+	ActivitiesJson *string `pulumi:"activitiesJson"`
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
@@ -120,6 +128,8 @@ type pipelineArgs struct {
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
+	// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+	ActivitiesJson pulumi.StringPtrInput
 	// List of tags that can be used for describing the Data Factory Pipeline.
 	Annotations pulumi.StringArrayInput
 	// The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.

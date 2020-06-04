@@ -75,7 +75,6 @@ class ReferenceInputBlob(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_container = azure.storage.Container("exampleContainer",
-            resource_group_name=azurerm_resource_group["example"]["name"],
             storage_account_name=example_account.name,
             container_access_type="private")
         test = azure.streamanalytics.ReferenceInputBlob("test",

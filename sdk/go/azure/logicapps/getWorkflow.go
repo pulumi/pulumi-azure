@@ -37,7 +37,9 @@ type LookupWorkflowResult struct {
 	Id string `pulumi:"id"`
 	// The Azure location where the Logic App Workflow exists.
 	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	// The ID of the integration account linked by this Logic App Workflow.
+	LogicAppIntegrationAccountId string `pulumi:"logicAppIntegrationAccountId"`
+	Name                         string `pulumi:"name"`
 	// A map of Key-Value pairs.
 	Parameters        map[string]string `pulumi:"parameters"`
 	ResourceGroupName string            `pulumi:"resourceGroupName"`

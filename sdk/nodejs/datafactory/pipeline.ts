@@ -27,6 +27,34 @@ import * as utilities from "../utilities";
  *     dataFactoryName: exampleFactory.name,
  * });
  * ```
+ *
+ * ## Example Usage with Activities
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = new azure.datafactory.Pipeline("test", {
+ *     resourceGroupName: azurerm_resource_group.test.name,
+ *     dataFactoryName: azurerm_data_factory.test.name,
+ *     variables: {
+ *         bob: "item1",
+ *     },
+ *     activitiesJson: `[
+ * 	{
+ * 		"name": "Append variable1",
+ * 		"type": "AppendVariable",
+ * 		"dependsOn": [],
+ * 		"userProperties": [],
+ * 		"typeProperties": {
+ * 			"variableName": "bob",
+ * 			"value": "something"
+ * 		}
+ * 	}
+ * ]
+ * `,
+ * });
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**
@@ -55,6 +83,10 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    /**
+     * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+     */
+    public readonly activitiesJson!: pulumi.Output<string | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
@@ -96,6 +128,7 @@ export class Pipeline extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PipelineState | undefined;
+            inputs["activitiesJson"] = state ? state.activitiesJson : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -111,6 +144,7 @@ export class Pipeline extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["activitiesJson"] = args ? args.activitiesJson : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -134,6 +168,10 @@ export class Pipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Pipeline resources.
  */
 export interface PipelineState {
+    /**
+     * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+     */
+    readonly activitiesJson?: pulumi.Input<string>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
@@ -168,6 +206,10 @@ export interface PipelineState {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+     */
+    readonly activitiesJson?: pulumi.Input<string>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */

@@ -17929,6 +17929,123 @@ func (o GetVirtualMachineIdentityArrayOutput) Index(i pulumi.IntInput) GetVirtua
 	}).(GetVirtualMachineIdentityOutput)
 }
 
+type GetVirtualMachineScaleSetIdentity struct {
+	// The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+	PrincipalId string `pulumi:"principalId"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	Type string `pulumi:"type"`
+}
+
+// GetVirtualMachineScaleSetIdentityInput is an input type that accepts GetVirtualMachineScaleSetIdentityArgs and GetVirtualMachineScaleSetIdentityOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetIdentityInput` via:
+//
+// 		 GetVirtualMachineScaleSetIdentityArgs{...}
+//
+type GetVirtualMachineScaleSetIdentityInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetIdentityOutput() GetVirtualMachineScaleSetIdentityOutput
+	ToGetVirtualMachineScaleSetIdentityOutputWithContext(context.Context) GetVirtualMachineScaleSetIdentityOutput
+}
+
+type GetVirtualMachineScaleSetIdentityArgs struct {
+	// The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetVirtualMachineScaleSetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetIdentityArgs) ToGetVirtualMachineScaleSetIdentityOutput() GetVirtualMachineScaleSetIdentityOutput {
+	return i.ToGetVirtualMachineScaleSetIdentityOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetIdentityArgs) ToGetVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetIdentityOutput)
+}
+
+// GetVirtualMachineScaleSetIdentityArrayInput is an input type that accepts GetVirtualMachineScaleSetIdentityArray and GetVirtualMachineScaleSetIdentityArrayOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetIdentityArrayInput` via:
+//
+// 		 GetVirtualMachineScaleSetIdentityArray{ GetVirtualMachineScaleSetIdentityArgs{...} }
+//
+type GetVirtualMachineScaleSetIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetIdentityArrayOutput() GetVirtualMachineScaleSetIdentityArrayOutput
+	ToGetVirtualMachineScaleSetIdentityArrayOutputWithContext(context.Context) GetVirtualMachineScaleSetIdentityArrayOutput
+}
+
+type GetVirtualMachineScaleSetIdentityArray []GetVirtualMachineScaleSetIdentityInput
+
+func (GetVirtualMachineScaleSetIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetIdentityArray) ToGetVirtualMachineScaleSetIdentityArrayOutput() GetVirtualMachineScaleSetIdentityArrayOutput {
+	return i.ToGetVirtualMachineScaleSetIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetIdentityArray) ToGetVirtualMachineScaleSetIdentityArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetIdentityArrayOutput)
+}
+
+type GetVirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetIdentityOutput) ToGetVirtualMachineScaleSetIdentityOutput() GetVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetIdentityOutput) ToGetVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+// The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetVirtualMachineScaleSetIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetIdentityArrayOutput) ToGetVirtualMachineScaleSetIdentityArrayOutput() GetVirtualMachineScaleSetIdentityArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetIdentityArrayOutput) ToGetVirtualMachineScaleSetIdentityArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetIdentityArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetIdentityArrayOutput) Index(i pulumi.IntInput) GetVirtualMachineScaleSetIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualMachineScaleSetIdentity {
+		return vs[0].([]GetVirtualMachineScaleSetIdentity)[vs[1].(int)]
+	}).(GetVirtualMachineScaleSetIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BastionHostIpConfigurationOutput{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationPtrOutput{})
@@ -18166,4 +18283,6 @@ func init() {
 	pulumi.RegisterOutputType(GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineIdentityOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetIdentityOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetIdentityArrayOutput{})
 }

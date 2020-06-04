@@ -1252,6 +1252,3314 @@ func (o ActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGr
 	}).(ActionGroupWebhookReceiverOutput)
 }
 
+type ActionRuleActionGroupCondition struct {
+	// A `alertContext` block as defined below.
+	AlertContext *ActionRuleActionGroupConditionAlertContext `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined below.
+	AlertRuleId *ActionRuleActionGroupConditionAlertRuleId `pulumi:"alertRuleId"`
+	// A `description` block as defined below.
+	Description *ActionRuleActionGroupConditionDescription `pulumi:"description"`
+	// A `monitor` block as defined below.
+	Monitor *ActionRuleActionGroupConditionMonitor `pulumi:"monitor"`
+	// A `monitorService` as block defined below.
+	MonitorService *ActionRuleActionGroupConditionMonitorService `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity *ActionRuleActionGroupConditionSeverity `pulumi:"severity"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType *ActionRuleActionGroupConditionTargetResourceType `pulumi:"targetResourceType"`
+}
+
+// ActionRuleActionGroupConditionInput is an input type that accepts ActionRuleActionGroupConditionArgs and ActionRuleActionGroupConditionOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionInput` via:
+//
+// 		 ActionRuleActionGroupConditionArgs{...}
+//
+type ActionRuleActionGroupConditionInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionOutput() ActionRuleActionGroupConditionOutput
+	ToActionRuleActionGroupConditionOutputWithContext(context.Context) ActionRuleActionGroupConditionOutput
+}
+
+type ActionRuleActionGroupConditionArgs struct {
+	// A `alertContext` block as defined below.
+	AlertContext ActionRuleActionGroupConditionAlertContextPtrInput `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined below.
+	AlertRuleId ActionRuleActionGroupConditionAlertRuleIdPtrInput `pulumi:"alertRuleId"`
+	// A `description` block as defined below.
+	Description ActionRuleActionGroupConditionDescriptionPtrInput `pulumi:"description"`
+	// A `monitor` block as defined below.
+	Monitor ActionRuleActionGroupConditionMonitorPtrInput `pulumi:"monitor"`
+	// A `monitorService` as block defined below.
+	MonitorService ActionRuleActionGroupConditionMonitorServicePtrInput `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity ActionRuleActionGroupConditionSeverityPtrInput `pulumi:"severity"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType ActionRuleActionGroupConditionTargetResourceTypePtrInput `pulumi:"targetResourceType"`
+}
+
+func (ActionRuleActionGroupConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionArgs) ToActionRuleActionGroupConditionOutput() ActionRuleActionGroupConditionOutput {
+	return i.ToActionRuleActionGroupConditionOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionArgs) ToActionRuleActionGroupConditionOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionOutput)
+}
+
+func (i ActionRuleActionGroupConditionArgs) ToActionRuleActionGroupConditionPtrOutput() ActionRuleActionGroupConditionPtrOutput {
+	return i.ToActionRuleActionGroupConditionPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionArgs) ToActionRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionOutput).ToActionRuleActionGroupConditionPtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionPtrInput is an input type that accepts ActionRuleActionGroupConditionArgs, ActionRuleActionGroupConditionPtr and ActionRuleActionGroupConditionPtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionPtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionPtrOutput() ActionRuleActionGroupConditionPtrOutput
+	ToActionRuleActionGroupConditionPtrOutputWithContext(context.Context) ActionRuleActionGroupConditionPtrOutput
+}
+
+type actionRuleActionGroupConditionPtrType ActionRuleActionGroupConditionArgs
+
+func ActionRuleActionGroupConditionPtr(v *ActionRuleActionGroupConditionArgs) ActionRuleActionGroupConditionPtrInput {
+	return (*actionRuleActionGroupConditionPtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionPtrType) ToActionRuleActionGroupConditionPtrOutput() ActionRuleActionGroupConditionPtrOutput {
+	return i.ToActionRuleActionGroupConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionPtrType) ToActionRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionPtrOutput)
+}
+
+type ActionRuleActionGroupConditionOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionOutput) ToActionRuleActionGroupConditionOutput() ActionRuleActionGroupConditionOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionOutput) ToActionRuleActionGroupConditionOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionOutput) ToActionRuleActionGroupConditionPtrOutput() ActionRuleActionGroupConditionPtrOutput {
+	return o.ToActionRuleActionGroupConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionOutput) ToActionRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupCondition {
+		return &v
+	}).(ActionRuleActionGroupConditionPtrOutput)
+}
+
+// A `alertContext` block as defined below.
+func (o ActionRuleActionGroupConditionOutput) AlertContext() ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionAlertContext {
+		return v.AlertContext
+	}).(ActionRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined below.
+func (o ActionRuleActionGroupConditionOutput) AlertRuleId() ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionAlertRuleId {
+		return v.AlertRuleId
+	}).(ActionRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+// A `description` block as defined below.
+func (o ActionRuleActionGroupConditionOutput) Description() ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionDescription {
+		return v.Description
+	}).(ActionRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+// A `monitor` block as defined below.
+func (o ActionRuleActionGroupConditionOutput) Monitor() ActionRuleActionGroupConditionMonitorPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionMonitor { return v.Monitor }).(ActionRuleActionGroupConditionMonitorPtrOutput)
+}
+
+// A `monitorService` as block defined below.
+func (o ActionRuleActionGroupConditionOutput) MonitorService() ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionMonitorService {
+		return v.MonitorService
+	}).(ActionRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o ActionRuleActionGroupConditionOutput) Severity() ActionRuleActionGroupConditionSeverityPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionSeverity { return v.Severity }).(ActionRuleActionGroupConditionSeverityPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o ActionRuleActionGroupConditionOutput) TargetResourceType() ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionTargetResourceType {
+		return v.TargetResourceType
+	}).(ActionRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+type ActionRuleActionGroupConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionPtrOutput) ToActionRuleActionGroupConditionPtrOutput() ActionRuleActionGroupConditionPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionPtrOutput) ToActionRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionPtrOutput) Elem() ActionRuleActionGroupConditionOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) ActionRuleActionGroupCondition { return *v }).(ActionRuleActionGroupConditionOutput)
+}
+
+// A `alertContext` block as defined below.
+func (o ActionRuleActionGroupConditionPtrOutput) AlertContext() ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionAlertContext {
+		if v == nil {
+			return nil
+		}
+		return v.AlertContext
+	}).(ActionRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined below.
+func (o ActionRuleActionGroupConditionPtrOutput) AlertRuleId() ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionAlertRuleId {
+		if v == nil {
+			return nil
+		}
+		return v.AlertRuleId
+	}).(ActionRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+// A `description` block as defined below.
+func (o ActionRuleActionGroupConditionPtrOutput) Description() ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionDescription {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(ActionRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+// A `monitor` block as defined below.
+func (o ActionRuleActionGroupConditionPtrOutput) Monitor() ActionRuleActionGroupConditionMonitorPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionMonitor {
+		if v == nil {
+			return nil
+		}
+		return v.Monitor
+	}).(ActionRuleActionGroupConditionMonitorPtrOutput)
+}
+
+// A `monitorService` as block defined below.
+func (o ActionRuleActionGroupConditionPtrOutput) MonitorService() ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionMonitorService {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorService
+	}).(ActionRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o ActionRuleActionGroupConditionPtrOutput) Severity() ActionRuleActionGroupConditionSeverityPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(ActionRuleActionGroupConditionSeverityPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o ActionRuleActionGroupConditionPtrOutput) TargetResourceType() ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionTargetResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceType
+	}).(ActionRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+type ActionRuleActionGroupConditionAlertContext struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleActionGroupConditionAlertContextInput is an input type that accepts ActionRuleActionGroupConditionAlertContextArgs and ActionRuleActionGroupConditionAlertContextOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionAlertContextInput` via:
+//
+// 		 ActionRuleActionGroupConditionAlertContextArgs{...}
+//
+type ActionRuleActionGroupConditionAlertContextInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionAlertContextOutput() ActionRuleActionGroupConditionAlertContextOutput
+	ToActionRuleActionGroupConditionAlertContextOutputWithContext(context.Context) ActionRuleActionGroupConditionAlertContextOutput
+}
+
+type ActionRuleActionGroupConditionAlertContextArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleActionGroupConditionAlertContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionAlertContextArgs) ToActionRuleActionGroupConditionAlertContextOutput() ActionRuleActionGroupConditionAlertContextOutput {
+	return i.ToActionRuleActionGroupConditionAlertContextOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionAlertContextArgs) ToActionRuleActionGroupConditionAlertContextOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertContextOutput)
+}
+
+func (i ActionRuleActionGroupConditionAlertContextArgs) ToActionRuleActionGroupConditionAlertContextPtrOutput() ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return i.ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionAlertContextArgs) ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertContextOutput).ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionAlertContextPtrInput is an input type that accepts ActionRuleActionGroupConditionAlertContextArgs, ActionRuleActionGroupConditionAlertContextPtr and ActionRuleActionGroupConditionAlertContextPtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionAlertContextPtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionAlertContextArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionAlertContextPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionAlertContextPtrOutput() ActionRuleActionGroupConditionAlertContextPtrOutput
+	ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Context) ActionRuleActionGroupConditionAlertContextPtrOutput
+}
+
+type actionRuleActionGroupConditionAlertContextPtrType ActionRuleActionGroupConditionAlertContextArgs
+
+func ActionRuleActionGroupConditionAlertContextPtr(v *ActionRuleActionGroupConditionAlertContextArgs) ActionRuleActionGroupConditionAlertContextPtrInput {
+	return (*actionRuleActionGroupConditionAlertContextPtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionAlertContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionAlertContextPtrType) ToActionRuleActionGroupConditionAlertContextPtrOutput() ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return i.ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionAlertContextPtrType) ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+type ActionRuleActionGroupConditionAlertContextOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionAlertContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionAlertContextOutput) ToActionRuleActionGroupConditionAlertContextOutput() ActionRuleActionGroupConditionAlertContextOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertContextOutput) ToActionRuleActionGroupConditionAlertContextOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertContextOutput) ToActionRuleActionGroupConditionAlertContextPtrOutput() ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionAlertContextOutput) ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertContext) *ActionRuleActionGroupConditionAlertContext {
+		return &v
+	}).(ActionRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleActionGroupConditionAlertContextOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleActionGroupConditionAlertContextOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertContext) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionAlertContextPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionAlertContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionAlertContextPtrOutput) ToActionRuleActionGroupConditionAlertContextPtrOutput() ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertContextPtrOutput) ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertContextPtrOutput) Elem() ActionRuleActionGroupConditionAlertContextOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertContext) ActionRuleActionGroupConditionAlertContext {
+		return *v
+	}).(ActionRuleActionGroupConditionAlertContextOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleActionGroupConditionAlertContextPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertContext) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleActionGroupConditionAlertContextPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertContext) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionAlertRuleId struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleActionGroupConditionAlertRuleIdInput is an input type that accepts ActionRuleActionGroupConditionAlertRuleIdArgs and ActionRuleActionGroupConditionAlertRuleIdOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionAlertRuleIdInput` via:
+//
+// 		 ActionRuleActionGroupConditionAlertRuleIdArgs{...}
+//
+type ActionRuleActionGroupConditionAlertRuleIdInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionAlertRuleIdOutput() ActionRuleActionGroupConditionAlertRuleIdOutput
+	ToActionRuleActionGroupConditionAlertRuleIdOutputWithContext(context.Context) ActionRuleActionGroupConditionAlertRuleIdOutput
+}
+
+type ActionRuleActionGroupConditionAlertRuleIdArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleActionGroupConditionAlertRuleIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionAlertRuleIdArgs) ToActionRuleActionGroupConditionAlertRuleIdOutput() ActionRuleActionGroupConditionAlertRuleIdOutput {
+	return i.ToActionRuleActionGroupConditionAlertRuleIdOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionAlertRuleIdArgs) ToActionRuleActionGroupConditionAlertRuleIdOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertRuleIdOutput)
+}
+
+func (i ActionRuleActionGroupConditionAlertRuleIdArgs) ToActionRuleActionGroupConditionAlertRuleIdPtrOutput() ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return i.ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionAlertRuleIdArgs) ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertRuleIdOutput).ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionAlertRuleIdPtrInput is an input type that accepts ActionRuleActionGroupConditionAlertRuleIdArgs, ActionRuleActionGroupConditionAlertRuleIdPtr and ActionRuleActionGroupConditionAlertRuleIdPtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionAlertRuleIdPtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionAlertRuleIdArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionAlertRuleIdPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionAlertRuleIdPtrOutput() ActionRuleActionGroupConditionAlertRuleIdPtrOutput
+	ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Context) ActionRuleActionGroupConditionAlertRuleIdPtrOutput
+}
+
+type actionRuleActionGroupConditionAlertRuleIdPtrType ActionRuleActionGroupConditionAlertRuleIdArgs
+
+func ActionRuleActionGroupConditionAlertRuleIdPtr(v *ActionRuleActionGroupConditionAlertRuleIdArgs) ActionRuleActionGroupConditionAlertRuleIdPtrInput {
+	return (*actionRuleActionGroupConditionAlertRuleIdPtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionAlertRuleIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionAlertRuleIdPtrType) ToActionRuleActionGroupConditionAlertRuleIdPtrOutput() ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return i.ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionAlertRuleIdPtrType) ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+type ActionRuleActionGroupConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionAlertRuleIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToActionRuleActionGroupConditionAlertRuleIdOutput() ActionRuleActionGroupConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToActionRuleActionGroupConditionAlertRuleIdOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToActionRuleActionGroupConditionAlertRuleIdPtrOutput() ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertRuleId) *ActionRuleActionGroupConditionAlertRuleId {
+		return &v
+	}).(ActionRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleActionGroupConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleActionGroupConditionAlertRuleIdOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertRuleId) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionAlertRuleIdPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionAlertRuleIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) ToActionRuleActionGroupConditionAlertRuleIdPtrOutput() ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) Elem() ActionRuleActionGroupConditionAlertRuleIdOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertRuleId) ActionRuleActionGroupConditionAlertRuleId {
+		return *v
+	}).(ActionRuleActionGroupConditionAlertRuleIdOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertRuleId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionAlertRuleId) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionDescription struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleActionGroupConditionDescriptionInput is an input type that accepts ActionRuleActionGroupConditionDescriptionArgs and ActionRuleActionGroupConditionDescriptionOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionDescriptionInput` via:
+//
+// 		 ActionRuleActionGroupConditionDescriptionArgs{...}
+//
+type ActionRuleActionGroupConditionDescriptionInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionDescriptionOutput() ActionRuleActionGroupConditionDescriptionOutput
+	ToActionRuleActionGroupConditionDescriptionOutputWithContext(context.Context) ActionRuleActionGroupConditionDescriptionOutput
+}
+
+type ActionRuleActionGroupConditionDescriptionArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleActionGroupConditionDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionDescriptionArgs) ToActionRuleActionGroupConditionDescriptionOutput() ActionRuleActionGroupConditionDescriptionOutput {
+	return i.ToActionRuleActionGroupConditionDescriptionOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionDescriptionArgs) ToActionRuleActionGroupConditionDescriptionOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionDescriptionOutput)
+}
+
+func (i ActionRuleActionGroupConditionDescriptionArgs) ToActionRuleActionGroupConditionDescriptionPtrOutput() ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return i.ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionDescriptionArgs) ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionDescriptionOutput).ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionDescriptionPtrInput is an input type that accepts ActionRuleActionGroupConditionDescriptionArgs, ActionRuleActionGroupConditionDescriptionPtr and ActionRuleActionGroupConditionDescriptionPtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionDescriptionPtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionDescriptionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionDescriptionPtrOutput() ActionRuleActionGroupConditionDescriptionPtrOutput
+	ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Context) ActionRuleActionGroupConditionDescriptionPtrOutput
+}
+
+type actionRuleActionGroupConditionDescriptionPtrType ActionRuleActionGroupConditionDescriptionArgs
+
+func ActionRuleActionGroupConditionDescriptionPtr(v *ActionRuleActionGroupConditionDescriptionArgs) ActionRuleActionGroupConditionDescriptionPtrInput {
+	return (*actionRuleActionGroupConditionDescriptionPtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionDescriptionPtrType) ToActionRuleActionGroupConditionDescriptionPtrOutput() ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return i.ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionDescriptionPtrType) ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+type ActionRuleActionGroupConditionDescriptionOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionDescriptionOutput) ToActionRuleActionGroupConditionDescriptionOutput() ActionRuleActionGroupConditionDescriptionOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionDescriptionOutput) ToActionRuleActionGroupConditionDescriptionOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionDescriptionOutput) ToActionRuleActionGroupConditionDescriptionPtrOutput() ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionDescriptionOutput) ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionDescription) *ActionRuleActionGroupConditionDescription {
+		return &v
+	}).(ActionRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleActionGroupConditionDescriptionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleActionGroupConditionDescriptionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionDescription) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionDescriptionPtrOutput) ToActionRuleActionGroupConditionDescriptionPtrOutput() ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionDescriptionPtrOutput) ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionDescriptionPtrOutput) Elem() ActionRuleActionGroupConditionDescriptionOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionDescription) ActionRuleActionGroupConditionDescription {
+		return *v
+	}).(ActionRuleActionGroupConditionDescriptionOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleActionGroupConditionDescriptionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleActionGroupConditionDescriptionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionDescription) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionMonitor struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleActionGroupConditionMonitorInput is an input type that accepts ActionRuleActionGroupConditionMonitorArgs and ActionRuleActionGroupConditionMonitorOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionMonitorInput` via:
+//
+// 		 ActionRuleActionGroupConditionMonitorArgs{...}
+//
+type ActionRuleActionGroupConditionMonitorInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionMonitorOutput() ActionRuleActionGroupConditionMonitorOutput
+	ToActionRuleActionGroupConditionMonitorOutputWithContext(context.Context) ActionRuleActionGroupConditionMonitorOutput
+}
+
+type ActionRuleActionGroupConditionMonitorArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleActionGroupConditionMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionMonitor)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionMonitorArgs) ToActionRuleActionGroupConditionMonitorOutput() ActionRuleActionGroupConditionMonitorOutput {
+	return i.ToActionRuleActionGroupConditionMonitorOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionMonitorArgs) ToActionRuleActionGroupConditionMonitorOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorOutput)
+}
+
+func (i ActionRuleActionGroupConditionMonitorArgs) ToActionRuleActionGroupConditionMonitorPtrOutput() ActionRuleActionGroupConditionMonitorPtrOutput {
+	return i.ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionMonitorArgs) ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorOutput).ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionMonitorPtrInput is an input type that accepts ActionRuleActionGroupConditionMonitorArgs, ActionRuleActionGroupConditionMonitorPtr and ActionRuleActionGroupConditionMonitorPtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionMonitorPtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionMonitorArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionMonitorPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionMonitorPtrOutput() ActionRuleActionGroupConditionMonitorPtrOutput
+	ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(context.Context) ActionRuleActionGroupConditionMonitorPtrOutput
+}
+
+type actionRuleActionGroupConditionMonitorPtrType ActionRuleActionGroupConditionMonitorArgs
+
+func ActionRuleActionGroupConditionMonitorPtr(v *ActionRuleActionGroupConditionMonitorArgs) ActionRuleActionGroupConditionMonitorPtrInput {
+	return (*actionRuleActionGroupConditionMonitorPtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionMonitorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionMonitor)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionMonitorPtrType) ToActionRuleActionGroupConditionMonitorPtrOutput() ActionRuleActionGroupConditionMonitorPtrOutput {
+	return i.ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionMonitorPtrType) ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorPtrOutput)
+}
+
+type ActionRuleActionGroupConditionMonitorOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionMonitor)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionMonitorOutput) ToActionRuleActionGroupConditionMonitorOutput() ActionRuleActionGroupConditionMonitorOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorOutput) ToActionRuleActionGroupConditionMonitorOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorOutput) ToActionRuleActionGroupConditionMonitorPtrOutput() ActionRuleActionGroupConditionMonitorPtrOutput {
+	return o.ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionMonitorOutput) ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitor) *ActionRuleActionGroupConditionMonitor {
+		return &v
+	}).(ActionRuleActionGroupConditionMonitorPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleActionGroupConditionMonitorOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitor) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o ActionRuleActionGroupConditionMonitorOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitor) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionMonitorPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionMonitorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionMonitor)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionMonitorPtrOutput) ToActionRuleActionGroupConditionMonitorPtrOutput() ActionRuleActionGroupConditionMonitorPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorPtrOutput) ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorPtrOutput) Elem() ActionRuleActionGroupConditionMonitorOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitor) ActionRuleActionGroupConditionMonitor { return *v }).(ActionRuleActionGroupConditionMonitorOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleActionGroupConditionMonitorPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o ActionRuleActionGroupConditionMonitorPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionMonitorService struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleActionGroupConditionMonitorServiceInput is an input type that accepts ActionRuleActionGroupConditionMonitorServiceArgs and ActionRuleActionGroupConditionMonitorServiceOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionMonitorServiceInput` via:
+//
+// 		 ActionRuleActionGroupConditionMonitorServiceArgs{...}
+//
+type ActionRuleActionGroupConditionMonitorServiceInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionMonitorServiceOutput() ActionRuleActionGroupConditionMonitorServiceOutput
+	ToActionRuleActionGroupConditionMonitorServiceOutputWithContext(context.Context) ActionRuleActionGroupConditionMonitorServiceOutput
+}
+
+type ActionRuleActionGroupConditionMonitorServiceArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleActionGroupConditionMonitorServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionMonitorServiceArgs) ToActionRuleActionGroupConditionMonitorServiceOutput() ActionRuleActionGroupConditionMonitorServiceOutput {
+	return i.ToActionRuleActionGroupConditionMonitorServiceOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionMonitorServiceArgs) ToActionRuleActionGroupConditionMonitorServiceOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorServiceOutput)
+}
+
+func (i ActionRuleActionGroupConditionMonitorServiceArgs) ToActionRuleActionGroupConditionMonitorServicePtrOutput() ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return i.ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionMonitorServiceArgs) ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorServiceOutput).ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionMonitorServicePtrInput is an input type that accepts ActionRuleActionGroupConditionMonitorServiceArgs, ActionRuleActionGroupConditionMonitorServicePtr and ActionRuleActionGroupConditionMonitorServicePtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionMonitorServicePtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionMonitorServiceArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionMonitorServicePtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionMonitorServicePtrOutput() ActionRuleActionGroupConditionMonitorServicePtrOutput
+	ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Context) ActionRuleActionGroupConditionMonitorServicePtrOutput
+}
+
+type actionRuleActionGroupConditionMonitorServicePtrType ActionRuleActionGroupConditionMonitorServiceArgs
+
+func ActionRuleActionGroupConditionMonitorServicePtr(v *ActionRuleActionGroupConditionMonitorServiceArgs) ActionRuleActionGroupConditionMonitorServicePtrInput {
+	return (*actionRuleActionGroupConditionMonitorServicePtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionMonitorServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionMonitorServicePtrType) ToActionRuleActionGroupConditionMonitorServicePtrOutput() ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return i.ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionMonitorServicePtrType) ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+type ActionRuleActionGroupConditionMonitorServiceOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionMonitorServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToActionRuleActionGroupConditionMonitorServiceOutput() ActionRuleActionGroupConditionMonitorServiceOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToActionRuleActionGroupConditionMonitorServiceOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServiceOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToActionRuleActionGroupConditionMonitorServicePtrOutput() ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitorService) *ActionRuleActionGroupConditionMonitorService {
+		return &v
+	}).(ActionRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleActionGroupConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+func (o ActionRuleActionGroupConditionMonitorServiceOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitorService) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionMonitorServicePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionMonitorServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) ToActionRuleActionGroupConditionMonitorServicePtrOutput() ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) Elem() ActionRuleActionGroupConditionMonitorServiceOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitorService) ActionRuleActionGroupConditionMonitorService {
+		return *v
+	}).(ActionRuleActionGroupConditionMonitorServiceOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitorService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionMonitorService) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionSeverity struct {
+	// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleActionGroupConditionSeverityInput is an input type that accepts ActionRuleActionGroupConditionSeverityArgs and ActionRuleActionGroupConditionSeverityOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionSeverityInput` via:
+//
+// 		 ActionRuleActionGroupConditionSeverityArgs{...}
+//
+type ActionRuleActionGroupConditionSeverityInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionSeverityOutput() ActionRuleActionGroupConditionSeverityOutput
+	ToActionRuleActionGroupConditionSeverityOutputWithContext(context.Context) ActionRuleActionGroupConditionSeverityOutput
+}
+
+type ActionRuleActionGroupConditionSeverityArgs struct {
+	// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleActionGroupConditionSeverityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionSeverityArgs) ToActionRuleActionGroupConditionSeverityOutput() ActionRuleActionGroupConditionSeverityOutput {
+	return i.ToActionRuleActionGroupConditionSeverityOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionSeverityArgs) ToActionRuleActionGroupConditionSeverityOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionSeverityOutput)
+}
+
+func (i ActionRuleActionGroupConditionSeverityArgs) ToActionRuleActionGroupConditionSeverityPtrOutput() ActionRuleActionGroupConditionSeverityPtrOutput {
+	return i.ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionSeverityArgs) ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionSeverityOutput).ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionSeverityPtrInput is an input type that accepts ActionRuleActionGroupConditionSeverityArgs, ActionRuleActionGroupConditionSeverityPtr and ActionRuleActionGroupConditionSeverityPtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionSeverityPtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionSeverityArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionSeverityPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionSeverityPtrOutput() ActionRuleActionGroupConditionSeverityPtrOutput
+	ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(context.Context) ActionRuleActionGroupConditionSeverityPtrOutput
+}
+
+type actionRuleActionGroupConditionSeverityPtrType ActionRuleActionGroupConditionSeverityArgs
+
+func ActionRuleActionGroupConditionSeverityPtr(v *ActionRuleActionGroupConditionSeverityArgs) ActionRuleActionGroupConditionSeverityPtrInput {
+	return (*actionRuleActionGroupConditionSeverityPtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionSeverityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionSeverityPtrType) ToActionRuleActionGroupConditionSeverityPtrOutput() ActionRuleActionGroupConditionSeverityPtrOutput {
+	return i.ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionSeverityPtrType) ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionSeverityPtrOutput)
+}
+
+type ActionRuleActionGroupConditionSeverityOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionSeverityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionSeverityOutput) ToActionRuleActionGroupConditionSeverityOutput() ActionRuleActionGroupConditionSeverityOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionSeverityOutput) ToActionRuleActionGroupConditionSeverityOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionSeverityOutput) ToActionRuleActionGroupConditionSeverityPtrOutput() ActionRuleActionGroupConditionSeverityPtrOutput {
+	return o.ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionSeverityOutput) ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityPtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionSeverity) *ActionRuleActionGroupConditionSeverity {
+		return &v
+	}).(ActionRuleActionGroupConditionSeverityPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+func (o ActionRuleActionGroupConditionSeverityOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o ActionRuleActionGroupConditionSeverityOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionSeverity) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionSeverityPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionSeverityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionSeverityPtrOutput) ToActionRuleActionGroupConditionSeverityPtrOutput() ActionRuleActionGroupConditionSeverityPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionSeverityPtrOutput) ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityPtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionSeverityPtrOutput) Elem() ActionRuleActionGroupConditionSeverityOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionSeverity) ActionRuleActionGroupConditionSeverity { return *v }).(ActionRuleActionGroupConditionSeverityOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+func (o ActionRuleActionGroupConditionSeverityPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionSeverity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o ActionRuleActionGroupConditionSeverityPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionSeverity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionTargetResourceType struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleActionGroupConditionTargetResourceTypeInput is an input type that accepts ActionRuleActionGroupConditionTargetResourceTypeArgs and ActionRuleActionGroupConditionTargetResourceTypeOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionTargetResourceTypeInput` via:
+//
+// 		 ActionRuleActionGroupConditionTargetResourceTypeArgs{...}
+//
+type ActionRuleActionGroupConditionTargetResourceTypeInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionTargetResourceTypeOutput() ActionRuleActionGroupConditionTargetResourceTypeOutput
+	ToActionRuleActionGroupConditionTargetResourceTypeOutputWithContext(context.Context) ActionRuleActionGroupConditionTargetResourceTypeOutput
+}
+
+type ActionRuleActionGroupConditionTargetResourceTypeArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleActionGroupConditionTargetResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupConditionTargetResourceTypeArgs) ToActionRuleActionGroupConditionTargetResourceTypeOutput() ActionRuleActionGroupConditionTargetResourceTypeOutput {
+	return i.ToActionRuleActionGroupConditionTargetResourceTypeOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionTargetResourceTypeArgs) ToActionRuleActionGroupConditionTargetResourceTypeOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionTargetResourceTypeOutput)
+}
+
+func (i ActionRuleActionGroupConditionTargetResourceTypeArgs) ToActionRuleActionGroupConditionTargetResourceTypePtrOutput() ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return i.ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupConditionTargetResourceTypeArgs) ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionTargetResourceTypeOutput).ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupConditionTargetResourceTypePtrInput is an input type that accepts ActionRuleActionGroupConditionTargetResourceTypeArgs, ActionRuleActionGroupConditionTargetResourceTypePtr and ActionRuleActionGroupConditionTargetResourceTypePtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupConditionTargetResourceTypePtrInput` via:
+//
+// 		 ActionRuleActionGroupConditionTargetResourceTypeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupConditionTargetResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupConditionTargetResourceTypePtrOutput() ActionRuleActionGroupConditionTargetResourceTypePtrOutput
+	ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Context) ActionRuleActionGroupConditionTargetResourceTypePtrOutput
+}
+
+type actionRuleActionGroupConditionTargetResourceTypePtrType ActionRuleActionGroupConditionTargetResourceTypeArgs
+
+func ActionRuleActionGroupConditionTargetResourceTypePtr(v *ActionRuleActionGroupConditionTargetResourceTypeArgs) ActionRuleActionGroupConditionTargetResourceTypePtrInput {
+	return (*actionRuleActionGroupConditionTargetResourceTypePtrType)(v)
+}
+
+func (*actionRuleActionGroupConditionTargetResourceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupConditionTargetResourceTypePtrType) ToActionRuleActionGroupConditionTargetResourceTypePtrOutput() ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return i.ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupConditionTargetResourceTypePtrType) ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+type ActionRuleActionGroupConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionTargetResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToActionRuleActionGroupConditionTargetResourceTypeOutput() ActionRuleActionGroupConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToActionRuleActionGroupConditionTargetResourceTypeOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToActionRuleActionGroupConditionTargetResourceTypePtrOutput() ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionTargetResourceType) *ActionRuleActionGroupConditionTargetResourceType {
+		return &v
+	}).(ActionRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types.
+func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupConditionTargetResourceType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupConditionTargetResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupConditionTargetResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) ToActionRuleActionGroupConditionTargetResourceTypePtrOutput() ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) Elem() ActionRuleActionGroupConditionTargetResourceTypeOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionTargetResourceType) ActionRuleActionGroupConditionTargetResourceType {
+		return *v
+	}).(ActionRuleActionGroupConditionTargetResourceTypeOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionTargetResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types.
+func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupConditionTargetResourceType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleActionGroupScope struct {
+	// A list of resource IDs of the given scope type which will be the target of action rule.
+	ResourceIds []string `pulumi:"resourceIds"`
+	// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+	Type string `pulumi:"type"`
+}
+
+// ActionRuleActionGroupScopeInput is an input type that accepts ActionRuleActionGroupScopeArgs and ActionRuleActionGroupScopeOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupScopeInput` via:
+//
+// 		 ActionRuleActionGroupScopeArgs{...}
+//
+type ActionRuleActionGroupScopeInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupScopeOutput() ActionRuleActionGroupScopeOutput
+	ToActionRuleActionGroupScopeOutputWithContext(context.Context) ActionRuleActionGroupScopeOutput
+}
+
+type ActionRuleActionGroupScopeArgs struct {
+	// A list of resource IDs of the given scope type which will be the target of action rule.
+	ResourceIds pulumi.StringArrayInput `pulumi:"resourceIds"`
+	// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ActionRuleActionGroupScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupScope)(nil)).Elem()
+}
+
+func (i ActionRuleActionGroupScopeArgs) ToActionRuleActionGroupScopeOutput() ActionRuleActionGroupScopeOutput {
+	return i.ToActionRuleActionGroupScopeOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupScopeArgs) ToActionRuleActionGroupScopeOutputWithContext(ctx context.Context) ActionRuleActionGroupScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupScopeOutput)
+}
+
+func (i ActionRuleActionGroupScopeArgs) ToActionRuleActionGroupScopePtrOutput() ActionRuleActionGroupScopePtrOutput {
+	return i.ToActionRuleActionGroupScopePtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleActionGroupScopeArgs) ToActionRuleActionGroupScopePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupScopeOutput).ToActionRuleActionGroupScopePtrOutputWithContext(ctx)
+}
+
+// ActionRuleActionGroupScopePtrInput is an input type that accepts ActionRuleActionGroupScopeArgs, ActionRuleActionGroupScopePtr and ActionRuleActionGroupScopePtrOutput values.
+// You can construct a concrete instance of `ActionRuleActionGroupScopePtrInput` via:
+//
+// 		 ActionRuleActionGroupScopeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleActionGroupScopePtrInput interface {
+	pulumi.Input
+
+	ToActionRuleActionGroupScopePtrOutput() ActionRuleActionGroupScopePtrOutput
+	ToActionRuleActionGroupScopePtrOutputWithContext(context.Context) ActionRuleActionGroupScopePtrOutput
+}
+
+type actionRuleActionGroupScopePtrType ActionRuleActionGroupScopeArgs
+
+func ActionRuleActionGroupScopePtr(v *ActionRuleActionGroupScopeArgs) ActionRuleActionGroupScopePtrInput {
+	return (*actionRuleActionGroupScopePtrType)(v)
+}
+
+func (*actionRuleActionGroupScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupScope)(nil)).Elem()
+}
+
+func (i *actionRuleActionGroupScopePtrType) ToActionRuleActionGroupScopePtrOutput() ActionRuleActionGroupScopePtrOutput {
+	return i.ToActionRuleActionGroupScopePtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleActionGroupScopePtrType) ToActionRuleActionGroupScopePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupScopePtrOutput)
+}
+
+type ActionRuleActionGroupScopeOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleActionGroupScope)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupScopeOutput) ToActionRuleActionGroupScopeOutput() ActionRuleActionGroupScopeOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupScopeOutput) ToActionRuleActionGroupScopeOutputWithContext(ctx context.Context) ActionRuleActionGroupScopeOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupScopeOutput) ToActionRuleActionGroupScopePtrOutput() ActionRuleActionGroupScopePtrOutput {
+	return o.ToActionRuleActionGroupScopePtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleActionGroupScopeOutput) ToActionRuleActionGroupScopePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupScopePtrOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupScope) *ActionRuleActionGroupScope {
+		return &v
+	}).(ActionRuleActionGroupScopePtrOutput)
+}
+
+// A list of resource IDs of the given scope type which will be the target of action rule.
+func (o ActionRuleActionGroupScopeOutput) ResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupScope) []string { return v.ResourceIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+func (o ActionRuleActionGroupScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleActionGroupScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ActionRuleActionGroupScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleActionGroupScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleActionGroupScope)(nil)).Elem()
+}
+
+func (o ActionRuleActionGroupScopePtrOutput) ToActionRuleActionGroupScopePtrOutput() ActionRuleActionGroupScopePtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupScopePtrOutput) ToActionRuleActionGroupScopePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupScopePtrOutput {
+	return o
+}
+
+func (o ActionRuleActionGroupScopePtrOutput) Elem() ActionRuleActionGroupScopeOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupScope) ActionRuleActionGroupScope { return *v }).(ActionRuleActionGroupScopeOutput)
+}
+
+// A list of resource IDs of the given scope type which will be the target of action rule.
+func (o ActionRuleActionGroupScopePtrOutput) ResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+func (o ActionRuleActionGroupScopePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleActionGroupScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionRuleSuppressionCondition struct {
+	// A `alertContext` block as defined below.
+	AlertContext *ActionRuleSuppressionConditionAlertContext `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined below.
+	AlertRuleId *ActionRuleSuppressionConditionAlertRuleId `pulumi:"alertRuleId"`
+	// A `description` block as defined below.
+	Description *ActionRuleSuppressionConditionDescription `pulumi:"description"`
+	// A `monitor` block as defined below.
+	Monitor *ActionRuleSuppressionConditionMonitor `pulumi:"monitor"`
+	// A `monitorService` as block defined below.
+	MonitorService *ActionRuleSuppressionConditionMonitorService `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity *ActionRuleSuppressionConditionSeverity `pulumi:"severity"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType *ActionRuleSuppressionConditionTargetResourceType `pulumi:"targetResourceType"`
+}
+
+// ActionRuleSuppressionConditionInput is an input type that accepts ActionRuleSuppressionConditionArgs and ActionRuleSuppressionConditionOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionInput` via:
+//
+// 		 ActionRuleSuppressionConditionArgs{...}
+//
+type ActionRuleSuppressionConditionInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionOutput() ActionRuleSuppressionConditionOutput
+	ToActionRuleSuppressionConditionOutputWithContext(context.Context) ActionRuleSuppressionConditionOutput
+}
+
+type ActionRuleSuppressionConditionArgs struct {
+	// A `alertContext` block as defined below.
+	AlertContext ActionRuleSuppressionConditionAlertContextPtrInput `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined below.
+	AlertRuleId ActionRuleSuppressionConditionAlertRuleIdPtrInput `pulumi:"alertRuleId"`
+	// A `description` block as defined below.
+	Description ActionRuleSuppressionConditionDescriptionPtrInput `pulumi:"description"`
+	// A `monitor` block as defined below.
+	Monitor ActionRuleSuppressionConditionMonitorPtrInput `pulumi:"monitor"`
+	// A `monitorService` as block defined below.
+	MonitorService ActionRuleSuppressionConditionMonitorServicePtrInput `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity ActionRuleSuppressionConditionSeverityPtrInput `pulumi:"severity"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType ActionRuleSuppressionConditionTargetResourceTypePtrInput `pulumi:"targetResourceType"`
+}
+
+func (ActionRuleSuppressionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionArgs) ToActionRuleSuppressionConditionOutput() ActionRuleSuppressionConditionOutput {
+	return i.ToActionRuleSuppressionConditionOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionArgs) ToActionRuleSuppressionConditionOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionOutput)
+}
+
+func (i ActionRuleSuppressionConditionArgs) ToActionRuleSuppressionConditionPtrOutput() ActionRuleSuppressionConditionPtrOutput {
+	return i.ToActionRuleSuppressionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionArgs) ToActionRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionOutput).ToActionRuleSuppressionConditionPtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionPtrInput is an input type that accepts ActionRuleSuppressionConditionArgs, ActionRuleSuppressionConditionPtr and ActionRuleSuppressionConditionPtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionPtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionPtrOutput() ActionRuleSuppressionConditionPtrOutput
+	ToActionRuleSuppressionConditionPtrOutputWithContext(context.Context) ActionRuleSuppressionConditionPtrOutput
+}
+
+type actionRuleSuppressionConditionPtrType ActionRuleSuppressionConditionArgs
+
+func ActionRuleSuppressionConditionPtr(v *ActionRuleSuppressionConditionArgs) ActionRuleSuppressionConditionPtrInput {
+	return (*actionRuleSuppressionConditionPtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionPtrType) ToActionRuleSuppressionConditionPtrOutput() ActionRuleSuppressionConditionPtrOutput {
+	return i.ToActionRuleSuppressionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionPtrType) ToActionRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionPtrOutput)
+}
+
+type ActionRuleSuppressionConditionOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionOutput) ToActionRuleSuppressionConditionOutput() ActionRuleSuppressionConditionOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionOutput) ToActionRuleSuppressionConditionOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionOutput) ToActionRuleSuppressionConditionPtrOutput() ActionRuleSuppressionConditionPtrOutput {
+	return o.ToActionRuleSuppressionConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionOutput) ToActionRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionCondition {
+		return &v
+	}).(ActionRuleSuppressionConditionPtrOutput)
+}
+
+// A `alertContext` block as defined below.
+func (o ActionRuleSuppressionConditionOutput) AlertContext() ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionAlertContext {
+		return v.AlertContext
+	}).(ActionRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined below.
+func (o ActionRuleSuppressionConditionOutput) AlertRuleId() ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionAlertRuleId {
+		return v.AlertRuleId
+	}).(ActionRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+// A `description` block as defined below.
+func (o ActionRuleSuppressionConditionOutput) Description() ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionDescription {
+		return v.Description
+	}).(ActionRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+// A `monitor` block as defined below.
+func (o ActionRuleSuppressionConditionOutput) Monitor() ActionRuleSuppressionConditionMonitorPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionMonitor { return v.Monitor }).(ActionRuleSuppressionConditionMonitorPtrOutput)
+}
+
+// A `monitorService` as block defined below.
+func (o ActionRuleSuppressionConditionOutput) MonitorService() ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionMonitorService {
+		return v.MonitorService
+	}).(ActionRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o ActionRuleSuppressionConditionOutput) Severity() ActionRuleSuppressionConditionSeverityPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionSeverity { return v.Severity }).(ActionRuleSuppressionConditionSeverityPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o ActionRuleSuppressionConditionOutput) TargetResourceType() ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionTargetResourceType {
+		return v.TargetResourceType
+	}).(ActionRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+type ActionRuleSuppressionConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionPtrOutput) ToActionRuleSuppressionConditionPtrOutput() ActionRuleSuppressionConditionPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionPtrOutput) ToActionRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionPtrOutput) Elem() ActionRuleSuppressionConditionOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) ActionRuleSuppressionCondition { return *v }).(ActionRuleSuppressionConditionOutput)
+}
+
+// A `alertContext` block as defined below.
+func (o ActionRuleSuppressionConditionPtrOutput) AlertContext() ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionAlertContext {
+		if v == nil {
+			return nil
+		}
+		return v.AlertContext
+	}).(ActionRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined below.
+func (o ActionRuleSuppressionConditionPtrOutput) AlertRuleId() ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionAlertRuleId {
+		if v == nil {
+			return nil
+		}
+		return v.AlertRuleId
+	}).(ActionRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+// A `description` block as defined below.
+func (o ActionRuleSuppressionConditionPtrOutput) Description() ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionDescription {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(ActionRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+// A `monitor` block as defined below.
+func (o ActionRuleSuppressionConditionPtrOutput) Monitor() ActionRuleSuppressionConditionMonitorPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionMonitor {
+		if v == nil {
+			return nil
+		}
+		return v.Monitor
+	}).(ActionRuleSuppressionConditionMonitorPtrOutput)
+}
+
+// A `monitorService` as block defined below.
+func (o ActionRuleSuppressionConditionPtrOutput) MonitorService() ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionMonitorService {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorService
+	}).(ActionRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o ActionRuleSuppressionConditionPtrOutput) Severity() ActionRuleSuppressionConditionSeverityPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(ActionRuleSuppressionConditionSeverityPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o ActionRuleSuppressionConditionPtrOutput) TargetResourceType() ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionTargetResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceType
+	}).(ActionRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+type ActionRuleSuppressionConditionAlertContext struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleSuppressionConditionAlertContextInput is an input type that accepts ActionRuleSuppressionConditionAlertContextArgs and ActionRuleSuppressionConditionAlertContextOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionAlertContextInput` via:
+//
+// 		 ActionRuleSuppressionConditionAlertContextArgs{...}
+//
+type ActionRuleSuppressionConditionAlertContextInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionAlertContextOutput() ActionRuleSuppressionConditionAlertContextOutput
+	ToActionRuleSuppressionConditionAlertContextOutputWithContext(context.Context) ActionRuleSuppressionConditionAlertContextOutput
+}
+
+type ActionRuleSuppressionConditionAlertContextArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleSuppressionConditionAlertContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionAlertContextArgs) ToActionRuleSuppressionConditionAlertContextOutput() ActionRuleSuppressionConditionAlertContextOutput {
+	return i.ToActionRuleSuppressionConditionAlertContextOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionAlertContextArgs) ToActionRuleSuppressionConditionAlertContextOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertContextOutput)
+}
+
+func (i ActionRuleSuppressionConditionAlertContextArgs) ToActionRuleSuppressionConditionAlertContextPtrOutput() ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return i.ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionAlertContextArgs) ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertContextOutput).ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionAlertContextPtrInput is an input type that accepts ActionRuleSuppressionConditionAlertContextArgs, ActionRuleSuppressionConditionAlertContextPtr and ActionRuleSuppressionConditionAlertContextPtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionAlertContextPtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionAlertContextArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionAlertContextPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionAlertContextPtrOutput() ActionRuleSuppressionConditionAlertContextPtrOutput
+	ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Context) ActionRuleSuppressionConditionAlertContextPtrOutput
+}
+
+type actionRuleSuppressionConditionAlertContextPtrType ActionRuleSuppressionConditionAlertContextArgs
+
+func ActionRuleSuppressionConditionAlertContextPtr(v *ActionRuleSuppressionConditionAlertContextArgs) ActionRuleSuppressionConditionAlertContextPtrInput {
+	return (*actionRuleSuppressionConditionAlertContextPtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionAlertContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionAlertContextPtrType) ToActionRuleSuppressionConditionAlertContextPtrOutput() ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return i.ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionAlertContextPtrType) ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+type ActionRuleSuppressionConditionAlertContextOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionAlertContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionAlertContextOutput) ToActionRuleSuppressionConditionAlertContextOutput() ActionRuleSuppressionConditionAlertContextOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertContextOutput) ToActionRuleSuppressionConditionAlertContextOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertContextOutput) ToActionRuleSuppressionConditionAlertContextPtrOutput() ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionAlertContextOutput) ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertContext) *ActionRuleSuppressionConditionAlertContext {
+		return &v
+	}).(ActionRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleSuppressionConditionAlertContextOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleSuppressionConditionAlertContextOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertContext) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionAlertContextPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionAlertContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionAlertContextPtrOutput) ToActionRuleSuppressionConditionAlertContextPtrOutput() ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertContextPtrOutput) ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertContextPtrOutput) Elem() ActionRuleSuppressionConditionAlertContextOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertContext) ActionRuleSuppressionConditionAlertContext {
+		return *v
+	}).(ActionRuleSuppressionConditionAlertContextOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleSuppressionConditionAlertContextPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertContext) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleSuppressionConditionAlertContextPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertContext) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionAlertRuleId struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleSuppressionConditionAlertRuleIdInput is an input type that accepts ActionRuleSuppressionConditionAlertRuleIdArgs and ActionRuleSuppressionConditionAlertRuleIdOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionAlertRuleIdInput` via:
+//
+// 		 ActionRuleSuppressionConditionAlertRuleIdArgs{...}
+//
+type ActionRuleSuppressionConditionAlertRuleIdInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionAlertRuleIdOutput() ActionRuleSuppressionConditionAlertRuleIdOutput
+	ToActionRuleSuppressionConditionAlertRuleIdOutputWithContext(context.Context) ActionRuleSuppressionConditionAlertRuleIdOutput
+}
+
+type ActionRuleSuppressionConditionAlertRuleIdArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleSuppressionConditionAlertRuleIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionAlertRuleIdArgs) ToActionRuleSuppressionConditionAlertRuleIdOutput() ActionRuleSuppressionConditionAlertRuleIdOutput {
+	return i.ToActionRuleSuppressionConditionAlertRuleIdOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionAlertRuleIdArgs) ToActionRuleSuppressionConditionAlertRuleIdOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertRuleIdOutput)
+}
+
+func (i ActionRuleSuppressionConditionAlertRuleIdArgs) ToActionRuleSuppressionConditionAlertRuleIdPtrOutput() ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return i.ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionAlertRuleIdArgs) ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertRuleIdOutput).ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionAlertRuleIdPtrInput is an input type that accepts ActionRuleSuppressionConditionAlertRuleIdArgs, ActionRuleSuppressionConditionAlertRuleIdPtr and ActionRuleSuppressionConditionAlertRuleIdPtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionAlertRuleIdPtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionAlertRuleIdArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionAlertRuleIdPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionAlertRuleIdPtrOutput() ActionRuleSuppressionConditionAlertRuleIdPtrOutput
+	ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Context) ActionRuleSuppressionConditionAlertRuleIdPtrOutput
+}
+
+type actionRuleSuppressionConditionAlertRuleIdPtrType ActionRuleSuppressionConditionAlertRuleIdArgs
+
+func ActionRuleSuppressionConditionAlertRuleIdPtr(v *ActionRuleSuppressionConditionAlertRuleIdArgs) ActionRuleSuppressionConditionAlertRuleIdPtrInput {
+	return (*actionRuleSuppressionConditionAlertRuleIdPtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionAlertRuleIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionAlertRuleIdPtrType) ToActionRuleSuppressionConditionAlertRuleIdPtrOutput() ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return i.ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionAlertRuleIdPtrType) ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+type ActionRuleSuppressionConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionAlertRuleIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToActionRuleSuppressionConditionAlertRuleIdOutput() ActionRuleSuppressionConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToActionRuleSuppressionConditionAlertRuleIdOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToActionRuleSuppressionConditionAlertRuleIdPtrOutput() ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertRuleId) *ActionRuleSuppressionConditionAlertRuleId {
+		return &v
+	}).(ActionRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleSuppressionConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleSuppressionConditionAlertRuleIdOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertRuleId) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionAlertRuleIdPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionAlertRuleIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) ToActionRuleSuppressionConditionAlertRuleIdPtrOutput() ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) Elem() ActionRuleSuppressionConditionAlertRuleIdOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertRuleId) ActionRuleSuppressionConditionAlertRuleId {
+		return *v
+	}).(ActionRuleSuppressionConditionAlertRuleIdOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertRuleId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionAlertRuleId) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionDescription struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleSuppressionConditionDescriptionInput is an input type that accepts ActionRuleSuppressionConditionDescriptionArgs and ActionRuleSuppressionConditionDescriptionOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionDescriptionInput` via:
+//
+// 		 ActionRuleSuppressionConditionDescriptionArgs{...}
+//
+type ActionRuleSuppressionConditionDescriptionInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionDescriptionOutput() ActionRuleSuppressionConditionDescriptionOutput
+	ToActionRuleSuppressionConditionDescriptionOutputWithContext(context.Context) ActionRuleSuppressionConditionDescriptionOutput
+}
+
+type ActionRuleSuppressionConditionDescriptionArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleSuppressionConditionDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionDescriptionArgs) ToActionRuleSuppressionConditionDescriptionOutput() ActionRuleSuppressionConditionDescriptionOutput {
+	return i.ToActionRuleSuppressionConditionDescriptionOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionDescriptionArgs) ToActionRuleSuppressionConditionDescriptionOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionDescriptionOutput)
+}
+
+func (i ActionRuleSuppressionConditionDescriptionArgs) ToActionRuleSuppressionConditionDescriptionPtrOutput() ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return i.ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionDescriptionArgs) ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionDescriptionOutput).ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionDescriptionPtrInput is an input type that accepts ActionRuleSuppressionConditionDescriptionArgs, ActionRuleSuppressionConditionDescriptionPtr and ActionRuleSuppressionConditionDescriptionPtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionDescriptionPtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionDescriptionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionDescriptionPtrOutput() ActionRuleSuppressionConditionDescriptionPtrOutput
+	ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Context) ActionRuleSuppressionConditionDescriptionPtrOutput
+}
+
+type actionRuleSuppressionConditionDescriptionPtrType ActionRuleSuppressionConditionDescriptionArgs
+
+func ActionRuleSuppressionConditionDescriptionPtr(v *ActionRuleSuppressionConditionDescriptionArgs) ActionRuleSuppressionConditionDescriptionPtrInput {
+	return (*actionRuleSuppressionConditionDescriptionPtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionDescriptionPtrType) ToActionRuleSuppressionConditionDescriptionPtrOutput() ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return i.ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionDescriptionPtrType) ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+type ActionRuleSuppressionConditionDescriptionOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionDescriptionOutput) ToActionRuleSuppressionConditionDescriptionOutput() ActionRuleSuppressionConditionDescriptionOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionDescriptionOutput) ToActionRuleSuppressionConditionDescriptionOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionDescriptionOutput) ToActionRuleSuppressionConditionDescriptionPtrOutput() ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionDescriptionOutput) ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionDescription) *ActionRuleSuppressionConditionDescription {
+		return &v
+	}).(ActionRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleSuppressionConditionDescriptionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleSuppressionConditionDescriptionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionDescription) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionDescriptionPtrOutput) ToActionRuleSuppressionConditionDescriptionPtrOutput() ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionDescriptionPtrOutput) ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionDescriptionPtrOutput) Elem() ActionRuleSuppressionConditionDescriptionOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionDescription) ActionRuleSuppressionConditionDescription {
+		return *v
+	}).(ActionRuleSuppressionConditionDescriptionOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o ActionRuleSuppressionConditionDescriptionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition.
+func (o ActionRuleSuppressionConditionDescriptionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionDescription) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionMonitor struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleSuppressionConditionMonitorInput is an input type that accepts ActionRuleSuppressionConditionMonitorArgs and ActionRuleSuppressionConditionMonitorOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionMonitorInput` via:
+//
+// 		 ActionRuleSuppressionConditionMonitorArgs{...}
+//
+type ActionRuleSuppressionConditionMonitorInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionMonitorOutput() ActionRuleSuppressionConditionMonitorOutput
+	ToActionRuleSuppressionConditionMonitorOutputWithContext(context.Context) ActionRuleSuppressionConditionMonitorOutput
+}
+
+type ActionRuleSuppressionConditionMonitorArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleSuppressionConditionMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionMonitor)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionMonitorArgs) ToActionRuleSuppressionConditionMonitorOutput() ActionRuleSuppressionConditionMonitorOutput {
+	return i.ToActionRuleSuppressionConditionMonitorOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionMonitorArgs) ToActionRuleSuppressionConditionMonitorOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorOutput)
+}
+
+func (i ActionRuleSuppressionConditionMonitorArgs) ToActionRuleSuppressionConditionMonitorPtrOutput() ActionRuleSuppressionConditionMonitorPtrOutput {
+	return i.ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionMonitorArgs) ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorOutput).ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionMonitorPtrInput is an input type that accepts ActionRuleSuppressionConditionMonitorArgs, ActionRuleSuppressionConditionMonitorPtr and ActionRuleSuppressionConditionMonitorPtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionMonitorPtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionMonitorArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionMonitorPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionMonitorPtrOutput() ActionRuleSuppressionConditionMonitorPtrOutput
+	ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(context.Context) ActionRuleSuppressionConditionMonitorPtrOutput
+}
+
+type actionRuleSuppressionConditionMonitorPtrType ActionRuleSuppressionConditionMonitorArgs
+
+func ActionRuleSuppressionConditionMonitorPtr(v *ActionRuleSuppressionConditionMonitorArgs) ActionRuleSuppressionConditionMonitorPtrInput {
+	return (*actionRuleSuppressionConditionMonitorPtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionMonitorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionMonitor)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionMonitorPtrType) ToActionRuleSuppressionConditionMonitorPtrOutput() ActionRuleSuppressionConditionMonitorPtrOutput {
+	return i.ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionMonitorPtrType) ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorPtrOutput)
+}
+
+type ActionRuleSuppressionConditionMonitorOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionMonitor)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionMonitorOutput) ToActionRuleSuppressionConditionMonitorOutput() ActionRuleSuppressionConditionMonitorOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorOutput) ToActionRuleSuppressionConditionMonitorOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorOutput) ToActionRuleSuppressionConditionMonitorPtrOutput() ActionRuleSuppressionConditionMonitorPtrOutput {
+	return o.ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionMonitorOutput) ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitor) *ActionRuleSuppressionConditionMonitor {
+		return &v
+	}).(ActionRuleSuppressionConditionMonitorPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleSuppressionConditionMonitorOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitor) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o ActionRuleSuppressionConditionMonitorOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitor) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionMonitorPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionMonitorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionMonitor)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionMonitorPtrOutput) ToActionRuleSuppressionConditionMonitorPtrOutput() ActionRuleSuppressionConditionMonitorPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorPtrOutput) ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorPtrOutput) Elem() ActionRuleSuppressionConditionMonitorOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitor) ActionRuleSuppressionConditionMonitor { return *v }).(ActionRuleSuppressionConditionMonitorOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleSuppressionConditionMonitorPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o ActionRuleSuppressionConditionMonitorPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionMonitorService struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleSuppressionConditionMonitorServiceInput is an input type that accepts ActionRuleSuppressionConditionMonitorServiceArgs and ActionRuleSuppressionConditionMonitorServiceOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionMonitorServiceInput` via:
+//
+// 		 ActionRuleSuppressionConditionMonitorServiceArgs{...}
+//
+type ActionRuleSuppressionConditionMonitorServiceInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionMonitorServiceOutput() ActionRuleSuppressionConditionMonitorServiceOutput
+	ToActionRuleSuppressionConditionMonitorServiceOutputWithContext(context.Context) ActionRuleSuppressionConditionMonitorServiceOutput
+}
+
+type ActionRuleSuppressionConditionMonitorServiceArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleSuppressionConditionMonitorServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionMonitorServiceArgs) ToActionRuleSuppressionConditionMonitorServiceOutput() ActionRuleSuppressionConditionMonitorServiceOutput {
+	return i.ToActionRuleSuppressionConditionMonitorServiceOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionMonitorServiceArgs) ToActionRuleSuppressionConditionMonitorServiceOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorServiceOutput)
+}
+
+func (i ActionRuleSuppressionConditionMonitorServiceArgs) ToActionRuleSuppressionConditionMonitorServicePtrOutput() ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return i.ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionMonitorServiceArgs) ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorServiceOutput).ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionMonitorServicePtrInput is an input type that accepts ActionRuleSuppressionConditionMonitorServiceArgs, ActionRuleSuppressionConditionMonitorServicePtr and ActionRuleSuppressionConditionMonitorServicePtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionMonitorServicePtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionMonitorServiceArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionMonitorServicePtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionMonitorServicePtrOutput() ActionRuleSuppressionConditionMonitorServicePtrOutput
+	ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Context) ActionRuleSuppressionConditionMonitorServicePtrOutput
+}
+
+type actionRuleSuppressionConditionMonitorServicePtrType ActionRuleSuppressionConditionMonitorServiceArgs
+
+func ActionRuleSuppressionConditionMonitorServicePtr(v *ActionRuleSuppressionConditionMonitorServiceArgs) ActionRuleSuppressionConditionMonitorServicePtrInput {
+	return (*actionRuleSuppressionConditionMonitorServicePtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionMonitorServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionMonitorServicePtrType) ToActionRuleSuppressionConditionMonitorServicePtrOutput() ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return i.ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionMonitorServicePtrType) ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+type ActionRuleSuppressionConditionMonitorServiceOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionMonitorServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToActionRuleSuppressionConditionMonitorServiceOutput() ActionRuleSuppressionConditionMonitorServiceOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToActionRuleSuppressionConditionMonitorServiceOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServiceOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToActionRuleSuppressionConditionMonitorServicePtrOutput() ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitorService) *ActionRuleSuppressionConditionMonitorService {
+		return &v
+	}).(ActionRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleSuppressionConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+func (o ActionRuleSuppressionConditionMonitorServiceOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitorService) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionMonitorServicePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionMonitorServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) ToActionRuleSuppressionConditionMonitorServicePtrOutput() ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) Elem() ActionRuleSuppressionConditionMonitorServiceOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitorService) ActionRuleSuppressionConditionMonitorService {
+		return *v
+	}).(ActionRuleSuppressionConditionMonitorServiceOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitorService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
+func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionMonitorService) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionSeverity struct {
+	// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleSuppressionConditionSeverityInput is an input type that accepts ActionRuleSuppressionConditionSeverityArgs and ActionRuleSuppressionConditionSeverityOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionSeverityInput` via:
+//
+// 		 ActionRuleSuppressionConditionSeverityArgs{...}
+//
+type ActionRuleSuppressionConditionSeverityInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionSeverityOutput() ActionRuleSuppressionConditionSeverityOutput
+	ToActionRuleSuppressionConditionSeverityOutputWithContext(context.Context) ActionRuleSuppressionConditionSeverityOutput
+}
+
+type ActionRuleSuppressionConditionSeverityArgs struct {
+	// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleSuppressionConditionSeverityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionSeverityArgs) ToActionRuleSuppressionConditionSeverityOutput() ActionRuleSuppressionConditionSeverityOutput {
+	return i.ToActionRuleSuppressionConditionSeverityOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionSeverityArgs) ToActionRuleSuppressionConditionSeverityOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionSeverityOutput)
+}
+
+func (i ActionRuleSuppressionConditionSeverityArgs) ToActionRuleSuppressionConditionSeverityPtrOutput() ActionRuleSuppressionConditionSeverityPtrOutput {
+	return i.ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionSeverityArgs) ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionSeverityOutput).ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionSeverityPtrInput is an input type that accepts ActionRuleSuppressionConditionSeverityArgs, ActionRuleSuppressionConditionSeverityPtr and ActionRuleSuppressionConditionSeverityPtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionSeverityPtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionSeverityArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionSeverityPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionSeverityPtrOutput() ActionRuleSuppressionConditionSeverityPtrOutput
+	ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(context.Context) ActionRuleSuppressionConditionSeverityPtrOutput
+}
+
+type actionRuleSuppressionConditionSeverityPtrType ActionRuleSuppressionConditionSeverityArgs
+
+func ActionRuleSuppressionConditionSeverityPtr(v *ActionRuleSuppressionConditionSeverityArgs) ActionRuleSuppressionConditionSeverityPtrInput {
+	return (*actionRuleSuppressionConditionSeverityPtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionSeverityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionSeverityPtrType) ToActionRuleSuppressionConditionSeverityPtrOutput() ActionRuleSuppressionConditionSeverityPtrOutput {
+	return i.ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionSeverityPtrType) ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionSeverityPtrOutput)
+}
+
+type ActionRuleSuppressionConditionSeverityOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionSeverityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionSeverityOutput) ToActionRuleSuppressionConditionSeverityOutput() ActionRuleSuppressionConditionSeverityOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionSeverityOutput) ToActionRuleSuppressionConditionSeverityOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionSeverityOutput) ToActionRuleSuppressionConditionSeverityPtrOutput() ActionRuleSuppressionConditionSeverityPtrOutput {
+	return o.ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionSeverityOutput) ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionSeverity) *ActionRuleSuppressionConditionSeverity {
+		return &v
+	}).(ActionRuleSuppressionConditionSeverityPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+func (o ActionRuleSuppressionConditionSeverityOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o ActionRuleSuppressionConditionSeverityOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionSeverity) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionSeverityPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionSeverityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionSeverityPtrOutput) ToActionRuleSuppressionConditionSeverityPtrOutput() ActionRuleSuppressionConditionSeverityPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionSeverityPtrOutput) ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionSeverityPtrOutput) Elem() ActionRuleSuppressionConditionSeverityOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionSeverity) ActionRuleSuppressionConditionSeverity { return *v }).(ActionRuleSuppressionConditionSeverityOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+func (o ActionRuleSuppressionConditionSeverityPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionSeverity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o ActionRuleSuppressionConditionSeverityPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionSeverity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionTargetResourceType struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types.
+	Values []string `pulumi:"values"`
+}
+
+// ActionRuleSuppressionConditionTargetResourceTypeInput is an input type that accepts ActionRuleSuppressionConditionTargetResourceTypeArgs and ActionRuleSuppressionConditionTargetResourceTypeOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionTargetResourceTypeInput` via:
+//
+// 		 ActionRuleSuppressionConditionTargetResourceTypeArgs{...}
+//
+type ActionRuleSuppressionConditionTargetResourceTypeInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionTargetResourceTypeOutput() ActionRuleSuppressionConditionTargetResourceTypeOutput
+	ToActionRuleSuppressionConditionTargetResourceTypeOutputWithContext(context.Context) ActionRuleSuppressionConditionTargetResourceTypeOutput
+}
+
+type ActionRuleSuppressionConditionTargetResourceTypeArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ActionRuleSuppressionConditionTargetResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionConditionTargetResourceTypeArgs) ToActionRuleSuppressionConditionTargetResourceTypeOutput() ActionRuleSuppressionConditionTargetResourceTypeOutput {
+	return i.ToActionRuleSuppressionConditionTargetResourceTypeOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionTargetResourceTypeArgs) ToActionRuleSuppressionConditionTargetResourceTypeOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionTargetResourceTypeOutput)
+}
+
+func (i ActionRuleSuppressionConditionTargetResourceTypeArgs) ToActionRuleSuppressionConditionTargetResourceTypePtrOutput() ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return i.ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionConditionTargetResourceTypeArgs) ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionTargetResourceTypeOutput).ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionConditionTargetResourceTypePtrInput is an input type that accepts ActionRuleSuppressionConditionTargetResourceTypeArgs, ActionRuleSuppressionConditionTargetResourceTypePtr and ActionRuleSuppressionConditionTargetResourceTypePtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionConditionTargetResourceTypePtrInput` via:
+//
+// 		 ActionRuleSuppressionConditionTargetResourceTypeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionConditionTargetResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionConditionTargetResourceTypePtrOutput() ActionRuleSuppressionConditionTargetResourceTypePtrOutput
+	ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Context) ActionRuleSuppressionConditionTargetResourceTypePtrOutput
+}
+
+type actionRuleSuppressionConditionTargetResourceTypePtrType ActionRuleSuppressionConditionTargetResourceTypeArgs
+
+func ActionRuleSuppressionConditionTargetResourceTypePtr(v *ActionRuleSuppressionConditionTargetResourceTypeArgs) ActionRuleSuppressionConditionTargetResourceTypePtrInput {
+	return (*actionRuleSuppressionConditionTargetResourceTypePtrType)(v)
+}
+
+func (*actionRuleSuppressionConditionTargetResourceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionConditionTargetResourceTypePtrType) ToActionRuleSuppressionConditionTargetResourceTypePtrOutput() ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return i.ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionConditionTargetResourceTypePtrType) ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+type ActionRuleSuppressionConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionTargetResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToActionRuleSuppressionConditionTargetResourceTypeOutput() ActionRuleSuppressionConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToActionRuleSuppressionConditionTargetResourceTypeOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToActionRuleSuppressionConditionTargetResourceTypePtrOutput() ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionTargetResourceType) *ActionRuleSuppressionConditionTargetResourceType {
+		return &v
+	}).(ActionRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types.
+func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionConditionTargetResourceType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionConditionTargetResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionConditionTargetResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) ToActionRuleSuppressionConditionTargetResourceTypePtrOutput() ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) Elem() ActionRuleSuppressionConditionTargetResourceTypeOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionTargetResourceType) ActionRuleSuppressionConditionTargetResourceType {
+		return *v
+	}).(ActionRuleSuppressionConditionTargetResourceTypeOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionTargetResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types.
+func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionConditionTargetResourceType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ActionRuleSuppressionScope struct {
+	// A list of resource IDs of the given scope type which will be the target of action rule.
+	ResourceIds []string `pulumi:"resourceIds"`
+	// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+	Type string `pulumi:"type"`
+}
+
+// ActionRuleSuppressionScopeInput is an input type that accepts ActionRuleSuppressionScopeArgs and ActionRuleSuppressionScopeOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionScopeInput` via:
+//
+// 		 ActionRuleSuppressionScopeArgs{...}
+//
+type ActionRuleSuppressionScopeInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionScopeOutput() ActionRuleSuppressionScopeOutput
+	ToActionRuleSuppressionScopeOutputWithContext(context.Context) ActionRuleSuppressionScopeOutput
+}
+
+type ActionRuleSuppressionScopeArgs struct {
+	// A list of resource IDs of the given scope type which will be the target of action rule.
+	ResourceIds pulumi.StringArrayInput `pulumi:"resourceIds"`
+	// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ActionRuleSuppressionScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionScope)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionScopeArgs) ToActionRuleSuppressionScopeOutput() ActionRuleSuppressionScopeOutput {
+	return i.ToActionRuleSuppressionScopeOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionScopeArgs) ToActionRuleSuppressionScopeOutputWithContext(ctx context.Context) ActionRuleSuppressionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionScopeOutput)
+}
+
+func (i ActionRuleSuppressionScopeArgs) ToActionRuleSuppressionScopePtrOutput() ActionRuleSuppressionScopePtrOutput {
+	return i.ToActionRuleSuppressionScopePtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionScopeArgs) ToActionRuleSuppressionScopePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionScopeOutput).ToActionRuleSuppressionScopePtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionScopePtrInput is an input type that accepts ActionRuleSuppressionScopeArgs, ActionRuleSuppressionScopePtr and ActionRuleSuppressionScopePtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionScopePtrInput` via:
+//
+// 		 ActionRuleSuppressionScopeArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionScopePtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionScopePtrOutput() ActionRuleSuppressionScopePtrOutput
+	ToActionRuleSuppressionScopePtrOutputWithContext(context.Context) ActionRuleSuppressionScopePtrOutput
+}
+
+type actionRuleSuppressionScopePtrType ActionRuleSuppressionScopeArgs
+
+func ActionRuleSuppressionScopePtr(v *ActionRuleSuppressionScopeArgs) ActionRuleSuppressionScopePtrInput {
+	return (*actionRuleSuppressionScopePtrType)(v)
+}
+
+func (*actionRuleSuppressionScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionScope)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionScopePtrType) ToActionRuleSuppressionScopePtrOutput() ActionRuleSuppressionScopePtrOutput {
+	return i.ToActionRuleSuppressionScopePtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionScopePtrType) ToActionRuleSuppressionScopePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionScopePtrOutput)
+}
+
+type ActionRuleSuppressionScopeOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionScope)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionScopeOutput) ToActionRuleSuppressionScopeOutput() ActionRuleSuppressionScopeOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionScopeOutput) ToActionRuleSuppressionScopeOutputWithContext(ctx context.Context) ActionRuleSuppressionScopeOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionScopeOutput) ToActionRuleSuppressionScopePtrOutput() ActionRuleSuppressionScopePtrOutput {
+	return o.ToActionRuleSuppressionScopePtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionScopeOutput) ToActionRuleSuppressionScopePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionScopePtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionScope) *ActionRuleSuppressionScope {
+		return &v
+	}).(ActionRuleSuppressionScopePtrOutput)
+}
+
+// A list of resource IDs of the given scope type which will be the target of action rule.
+func (o ActionRuleSuppressionScopeOutput) ResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionScope) []string { return v.ResourceIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+func (o ActionRuleSuppressionScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ActionRuleSuppressionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionScope)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionScopePtrOutput) ToActionRuleSuppressionScopePtrOutput() ActionRuleSuppressionScopePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionScopePtrOutput) ToActionRuleSuppressionScopePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionScopePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionScopePtrOutput) Elem() ActionRuleSuppressionScopeOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionScope) ActionRuleSuppressionScope { return *v }).(ActionRuleSuppressionScopeOutput)
+}
+
+// A list of resource IDs of the given scope type which will be the target of action rule.
+func (o ActionRuleSuppressionScopePtrOutput) ResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+func (o ActionRuleSuppressionScopePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionScope) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionRuleSuppressionSuppression struct {
+	// Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
+	RecurrenceType string `pulumi:"recurrenceType"`
+	// A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
+	Schedule *ActionRuleSuppressionSuppressionSchedule `pulumi:"schedule"`
+}
+
+// ActionRuleSuppressionSuppressionInput is an input type that accepts ActionRuleSuppressionSuppressionArgs and ActionRuleSuppressionSuppressionOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionSuppressionInput` via:
+//
+// 		 ActionRuleSuppressionSuppressionArgs{...}
+//
+type ActionRuleSuppressionSuppressionInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionSuppressionOutput() ActionRuleSuppressionSuppressionOutput
+	ToActionRuleSuppressionSuppressionOutputWithContext(context.Context) ActionRuleSuppressionSuppressionOutput
+}
+
+type ActionRuleSuppressionSuppressionArgs struct {
+	// Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
+	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
+	// A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
+	Schedule ActionRuleSuppressionSuppressionSchedulePtrInput `pulumi:"schedule"`
+}
+
+func (ActionRuleSuppressionSuppressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionSuppression)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppressionOutput() ActionRuleSuppressionSuppressionOutput {
+	return i.ToActionRuleSuppressionSuppressionOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppressionOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionOutput)
+}
+
+func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
+	return i.ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionOutput).ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionSuppressionPtrInput is an input type that accepts ActionRuleSuppressionSuppressionArgs, ActionRuleSuppressionSuppressionPtr and ActionRuleSuppressionSuppressionPtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionSuppressionPtrInput` via:
+//
+// 		 ActionRuleSuppressionSuppressionArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionSuppressionPtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput
+	ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Context) ActionRuleSuppressionSuppressionPtrOutput
+}
+
+type actionRuleSuppressionSuppressionPtrType ActionRuleSuppressionSuppressionArgs
+
+func ActionRuleSuppressionSuppressionPtr(v *ActionRuleSuppressionSuppressionArgs) ActionRuleSuppressionSuppressionPtrInput {
+	return (*actionRuleSuppressionSuppressionPtrType)(v)
+}
+
+func (*actionRuleSuppressionSuppressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionSuppression)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionSuppressionPtrType) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
+	return i.ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionSuppressionPtrType) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionPtrOutput)
+}
+
+type ActionRuleSuppressionSuppressionOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionSuppressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionSuppression)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressionOutput() ActionRuleSuppressionSuppressionOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressionOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
+	return o.ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppression {
+		return &v
+	}).(ActionRuleSuppressionSuppressionPtrOutput)
+}
+
+// Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
+func (o ActionRuleSuppressionSuppressionOutput) RecurrenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppression) string { return v.RecurrenceType }).(pulumi.StringOutput)
+}
+
+// A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
+func (o ActionRuleSuppressionSuppressionOutput) Schedule() ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppressionSchedule { return v.Schedule }).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
+}
+
+type ActionRuleSuppressionSuppressionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionSuppressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionSuppression)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionSuppressionPtrOutput) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionPtrOutput) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionPtrOutput) Elem() ActionRuleSuppressionSuppressionOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) ActionRuleSuppressionSuppression { return *v }).(ActionRuleSuppressionSuppressionOutput)
+}
+
+// Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
+func (o ActionRuleSuppressionSuppressionPtrOutput) RecurrenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecurrenceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `schedule` block as defined below. Required if `recurrenceType` is `Daily`, `Monthly`, `Once` or `Weekly`.
+func (o ActionRuleSuppressionSuppressionPtrOutput) Schedule() ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppression) *ActionRuleSuppressionSuppressionSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
+}
+
+type ActionRuleSuppressionSuppressionSchedule struct {
+	// specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
+	EndDateUtc string `pulumi:"endDateUtc"`
+	// specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
+	RecurrenceMonthlies []int `pulumi:"recurrenceMonthlies"`
+	// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+	RecurrenceWeeklies []string `pulumi:"recurrenceWeeklies"`
+	// specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
+	StartDateUtc string `pulumi:"startDateUtc"`
+}
+
+// ActionRuleSuppressionSuppressionScheduleInput is an input type that accepts ActionRuleSuppressionSuppressionScheduleArgs and ActionRuleSuppressionSuppressionScheduleOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionSuppressionScheduleInput` via:
+//
+// 		 ActionRuleSuppressionSuppressionScheduleArgs{...}
+//
+type ActionRuleSuppressionSuppressionScheduleInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionSuppressionScheduleOutput() ActionRuleSuppressionSuppressionScheduleOutput
+	ToActionRuleSuppressionSuppressionScheduleOutputWithContext(context.Context) ActionRuleSuppressionSuppressionScheduleOutput
+}
+
+type ActionRuleSuppressionSuppressionScheduleArgs struct {
+	// specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
+	EndDateUtc pulumi.StringInput `pulumi:"endDateUtc"`
+	// specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
+	RecurrenceMonthlies pulumi.IntArrayInput `pulumi:"recurrenceMonthlies"`
+	// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+	RecurrenceWeeklies pulumi.StringArrayInput `pulumi:"recurrenceWeeklies"`
+	// specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
+	StartDateUtc pulumi.StringInput `pulumi:"startDateUtc"`
+}
+
+func (ActionRuleSuppressionSuppressionScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionSuppressionSchedule)(nil)).Elem()
+}
+
+func (i ActionRuleSuppressionSuppressionScheduleArgs) ToActionRuleSuppressionSuppressionScheduleOutput() ActionRuleSuppressionSuppressionScheduleOutput {
+	return i.ToActionRuleSuppressionSuppressionScheduleOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionSuppressionScheduleArgs) ToActionRuleSuppressionSuppressionScheduleOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionScheduleOutput)
+}
+
+func (i ActionRuleSuppressionSuppressionScheduleArgs) ToActionRuleSuppressionSuppressionSchedulePtrOutput() ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return i.ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i ActionRuleSuppressionSuppressionScheduleArgs) ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionScheduleOutput).ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx)
+}
+
+// ActionRuleSuppressionSuppressionSchedulePtrInput is an input type that accepts ActionRuleSuppressionSuppressionScheduleArgs, ActionRuleSuppressionSuppressionSchedulePtr and ActionRuleSuppressionSuppressionSchedulePtrOutput values.
+// You can construct a concrete instance of `ActionRuleSuppressionSuppressionSchedulePtrInput` via:
+//
+// 		 ActionRuleSuppressionSuppressionScheduleArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type ActionRuleSuppressionSuppressionSchedulePtrInput interface {
+	pulumi.Input
+
+	ToActionRuleSuppressionSuppressionSchedulePtrOutput() ActionRuleSuppressionSuppressionSchedulePtrOutput
+	ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(context.Context) ActionRuleSuppressionSuppressionSchedulePtrOutput
+}
+
+type actionRuleSuppressionSuppressionSchedulePtrType ActionRuleSuppressionSuppressionScheduleArgs
+
+func ActionRuleSuppressionSuppressionSchedulePtr(v *ActionRuleSuppressionSuppressionScheduleArgs) ActionRuleSuppressionSuppressionSchedulePtrInput {
+	return (*actionRuleSuppressionSuppressionSchedulePtrType)(v)
+}
+
+func (*actionRuleSuppressionSuppressionSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionSuppressionSchedule)(nil)).Elem()
+}
+
+func (i *actionRuleSuppressionSuppressionSchedulePtrType) ToActionRuleSuppressionSuppressionSchedulePtrOutput() ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return i.ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *actionRuleSuppressionSuppressionSchedulePtrType) ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
+}
+
+type ActionRuleSuppressionSuppressionScheduleOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionSuppressionScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRuleSuppressionSuppressionSchedule)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionSuppressionScheduleOutput) ToActionRuleSuppressionSuppressionScheduleOutput() ActionRuleSuppressionSuppressionScheduleOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionScheduleOutput) ToActionRuleSuppressionSuppressionScheduleOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionScheduleOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionScheduleOutput) ToActionRuleSuppressionSuppressionSchedulePtrOutput() ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return o.ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o ActionRuleSuppressionSuppressionScheduleOutput) ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) *ActionRuleSuppressionSuppressionSchedule {
+		return &v
+	}).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
+}
+
+// specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
+func (o ActionRuleSuppressionSuppressionScheduleOutput) EndDateUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) string { return v.EndDateUtc }).(pulumi.StringOutput)
+}
+
+// specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
+func (o ActionRuleSuppressionSuppressionScheduleOutput) RecurrenceMonthlies() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) []int { return v.RecurrenceMonthlies }).(pulumi.IntArrayOutput)
+}
+
+// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+func (o ActionRuleSuppressionSuppressionScheduleOutput) RecurrenceWeeklies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) []string { return v.RecurrenceWeeklies }).(pulumi.StringArrayOutput)
+}
+
+// specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
+func (o ActionRuleSuppressionSuppressionScheduleOutput) StartDateUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRuleSuppressionSuppressionSchedule) string { return v.StartDateUtc }).(pulumi.StringOutput)
+}
+
+type ActionRuleSuppressionSuppressionSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRuleSuppressionSuppressionSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRuleSuppressionSuppressionSchedule)(nil)).Elem()
+}
+
+func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) ToActionRuleSuppressionSuppressionSchedulePtrOutput() ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionSchedulePtrOutput {
+	return o
+}
+
+func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) Elem() ActionRuleSuppressionSuppressionScheduleOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) ActionRuleSuppressionSuppressionSchedule { return *v }).(ActionRuleSuppressionSuppressionScheduleOutput)
+}
+
+// specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
+func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) EndDateUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndDateUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrenceType` is `Monthly`.
+func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) RecurrenceMonthlies() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) []int {
+		if v == nil {
+			return nil
+		}
+		return v.RecurrenceMonthlies
+	}).(pulumi.IntArrayOutput)
+}
+
+// specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
+func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) RecurrenceWeeklies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RecurrenceWeeklies
+	}).(pulumi.StringArrayOutput)
+}
+
+// specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
+func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) StartDateUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionRuleSuppressionSuppressionSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDateUtc
+	}).(pulumi.StringPtrOutput)
+}
+
 type ActivityLogAlertAction struct {
 	// The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
 	ActionGroupId string `pulumi:"actionGroupId"`
@@ -6764,6 +10072,46 @@ func init() {
 	pulumi.RegisterOutputType(ActionGroupVoiceReceiverArrayOutput{})
 	pulumi.RegisterOutputType(ActionGroupWebhookReceiverOutput{})
 	pulumi.RegisterOutputType(ActionGroupWebhookReceiverArrayOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionAlertContextOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionAlertContextPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionAlertRuleIdOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionAlertRuleIdPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionDescriptionOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionMonitorOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionMonitorPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionMonitorServiceOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionMonitorServicePtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionSeverityOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionSeverityPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionTargetResourceTypeOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupConditionTargetResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupScopeOutput{})
+	pulumi.RegisterOutputType(ActionRuleActionGroupScopePtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionAlertContextOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionAlertContextPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionAlertRuleIdOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionAlertRuleIdPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionDescriptionOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionMonitorOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionMonitorPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionMonitorServiceOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionMonitorServicePtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionSeverityOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionSeverityPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionTargetResourceTypeOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionConditionTargetResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionScopeOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionScopePtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionPtrOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionScheduleOutput{})
+	pulumi.RegisterOutputType(ActionRuleSuppressionSuppressionSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaOutput{})
