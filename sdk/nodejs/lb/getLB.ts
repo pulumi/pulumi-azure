@@ -61,6 +61,10 @@ export interface GetLBResult {
      */
     readonly frontendIpConfigurations: outputs.lb.GetLBFrontendIpConfiguration[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure location where the Load Balancer exists.
      */
     readonly location: string;
@@ -85,8 +89,4 @@ export interface GetLBResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

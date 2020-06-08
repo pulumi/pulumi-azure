@@ -66,6 +66,10 @@ export interface GetVirtualNetworkResult {
      * The list of subnets enabled for the virtual network as defined below.
      */
     readonly allowedSubnets: outputs.devtest.GetVirtualNetworkAllowedSubnet[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly labName: string;
     readonly name: string;
     readonly resourceGroupName: string;
@@ -77,8 +81,4 @@ export interface GetVirtualNetworkResult {
      * The unique immutable identifier of the virtual network.
      */
     readonly uniqueIdentifier: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

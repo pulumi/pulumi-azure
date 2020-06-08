@@ -58,6 +58,10 @@ export interface GetServiceEndpointConnectionsArgs {
  * A collection of values returned by getServiceEndpointConnections.
  */
 export interface GetServiceEndpointConnectionsResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly privateEndpointConnections: outputs.privatelink.GetServiceEndpointConnectionsPrivateEndpointConnection[];
     readonly resourceGroupName: string;
@@ -66,8 +70,4 @@ export interface GetServiceEndpointConnectionsResult {
      * The name of the private link service.
      */
     readonly serviceName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

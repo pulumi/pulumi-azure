@@ -52,6 +52,10 @@ export interface GetNatGatewayArgs {
  */
 export interface GetNatGatewayResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The idle timeout in minutes which is used for the NAT Gateway.
      */
     readonly idleTimeoutInMinutes: number;
@@ -85,8 +89,4 @@ export interface GetNatGatewayResult {
      * A list of Availability Zones which the NAT Gateway exists in.
      */
     readonly zones: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

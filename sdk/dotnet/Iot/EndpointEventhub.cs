@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Iot
     ///             {
     ///                 Name = "B1",
     ///                 Tier = "Basic",
-    ///                 Capacity = "1",
+    ///                 Capacity = 1,
     ///             },
     ///             Tags = 
     ///             {

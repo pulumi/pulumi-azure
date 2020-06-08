@@ -78,6 +78,10 @@ export interface GetGatewayConnectionResult {
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
      */
     readonly expressRouteGatewayBypass: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ingressBytesTransferred: number;
     readonly ipsecPolicies: outputs.network.GetGatewayConnectionIpsecPolicy[];
     /**
@@ -127,8 +131,4 @@ export interface GetGatewayConnectionResult {
      * in which the connection is created.
      */
     readonly virtualNetworkGatewayId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

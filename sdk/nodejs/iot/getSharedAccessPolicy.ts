@@ -61,6 +61,10 @@ export interface GetSharedAccessPolicyArgs {
  * A collection of values returned by getSharedAccessPolicy.
  */
 export interface GetSharedAccessPolicyResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly iothubName: string;
     readonly name: string;
     /**
@@ -80,8 +84,4 @@ export interface GetSharedAccessPolicyResult {
      * The secondary key used to create the authentication token.
      */
     readonly secondaryKey: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

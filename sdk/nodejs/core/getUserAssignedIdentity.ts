@@ -62,6 +62,10 @@ export interface GetUserAssignedIdentityResult {
      */
     readonly clientId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure location where the User Assigned Identity exists.
      */
     readonly location: string;
@@ -75,8 +79,4 @@ export interface GetUserAssignedIdentityResult {
      * A mapping of tags assigned to the User Assigned Identity.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

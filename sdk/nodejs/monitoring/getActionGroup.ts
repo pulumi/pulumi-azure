@@ -81,6 +81,10 @@ export interface GetActionGroupResult {
      */
     readonly enabled: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * One or more `itsmReceiver` blocks as defined below.
      */
     readonly itsmReceivers: outputs.monitoring.GetActionGroupItsmReceiver[];
@@ -109,8 +113,4 @@ export interface GetActionGroupResult {
      * One or more `webhookReceiver` blocks as defined below.
      */
     readonly webhookReceivers: outputs.monitoring.GetActionGroupWebhookReceiver[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

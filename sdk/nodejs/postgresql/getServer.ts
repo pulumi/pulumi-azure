@@ -65,6 +65,10 @@ export interface GetServerResult {
      */
     readonly fqdn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location of the Resource Group in which the PostgreSQL Server exists.
      */
     readonly location: string;
@@ -78,8 +82,4 @@ export interface GetServerResult {
      * The version of the PostgreSQL Server.
      */
     readonly version: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

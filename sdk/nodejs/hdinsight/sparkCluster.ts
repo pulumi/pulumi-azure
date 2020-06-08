@@ -75,6 +75,7 @@ export class SparkCluster extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SparkClusterState, opts?: pulumi.CustomResourceOptions): SparkCluster {
         return new SparkCluster(name, <any>state, { ...opts, id: id });
@@ -131,13 +132,13 @@ export class SparkCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
     /**
-     * One or more `storageAccount` block as defined below.
-     */
-    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.SparkClusterStorageAccount[] | undefined>;
-    /**
      * A `storageAccountGen2` block as defined below.
      */
     public readonly storageAccountGen2!: pulumi.Output<outputs.hdinsight.SparkClusterStorageAccountGen2 | undefined>;
+    /**
+     * One or more `storageAccount` block as defined below.
+     */
+    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.SparkClusterStorageAccount[] | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight Spark Cluster.
      */
@@ -169,8 +170,8 @@ export class SparkCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
             inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
-            inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
+            inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tier"] = state ? state.tier : undefined;
             inputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
@@ -201,8 +202,8 @@ export class SparkCluster extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
-            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
+            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
             inputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
@@ -261,13 +262,13 @@ export interface SparkClusterState {
      */
     readonly sshEndpoint?: pulumi.Input<string>;
     /**
-     * One or more `storageAccount` block as defined below.
-     */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterStorageAccount>[]>;
-    /**
      * A `storageAccountGen2` block as defined below.
      */
     readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.SparkClusterStorageAccountGen2>;
+    /**
+     * One or more `storageAccount` block as defined below.
+     */
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Spark Cluster.
      */
@@ -312,13 +313,13 @@ export interface SparkClusterArgs {
      */
     readonly roles: pulumi.Input<inputs.hdinsight.SparkClusterRoles>;
     /**
-     * One or more `storageAccount` block as defined below.
-     */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterStorageAccount>[]>;
-    /**
      * A `storageAccountGen2` block as defined below.
      */
     readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.SparkClusterStorageAccountGen2>;
+    /**
+     * One or more `storageAccount` block as defined below.
+     */
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Spark Cluster.
      */

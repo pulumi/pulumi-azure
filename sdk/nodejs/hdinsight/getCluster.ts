@@ -77,6 +77,10 @@ export interface GetClusterResult {
      */
     readonly httpsEndpoint: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
      */
     readonly kind: string;
@@ -99,8 +103,4 @@ export interface GetClusterResult {
      */
     readonly tier: string;
     readonly tlsMinVersion: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

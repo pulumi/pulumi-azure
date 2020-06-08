@@ -94,6 +94,10 @@ export interface GetEventhubNamespaceResult {
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
     readonly defaultSecondaryKey: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly kafkaEnabled: boolean;
     /**
      * The Azure location where the EventHub Namespace exists
@@ -113,8 +117,4 @@ export interface GetEventhubNamespaceResult {
      * A mapping of tags to assign to the EventHub Namespace.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

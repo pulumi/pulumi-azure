@@ -57,14 +57,14 @@ export interface GetVirtualMachineScaleSetArgs {
  */
 export interface GetVirtualMachineScaleSetResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A `identity` block as defined below.
      */
     readonly identities: outputs.compute.GetVirtualMachineScaleSetIdentity[];
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

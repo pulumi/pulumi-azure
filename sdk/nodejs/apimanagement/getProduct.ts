@@ -75,6 +75,10 @@ export interface GetProductResult {
      * The Display Name for this API Management Product.
      */
     readonly displayName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly productId: string;
     /**
      * Is this Product Published?
@@ -93,8 +97,4 @@ export interface GetProductResult {
      * Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
      */
     readonly terms: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

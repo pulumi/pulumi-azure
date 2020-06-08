@@ -54,6 +54,10 @@ export interface GetSubscriptionResult {
      */
     readonly displayName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The subscription location placement ID.
      */
     readonly locationPlacementId: string;
@@ -77,8 +81,4 @@ export interface GetSubscriptionResult {
      * The subscription tenant ID.
      */
     readonly tenantId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

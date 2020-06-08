@@ -72,14 +72,14 @@ export interface GetIntVariableResult {
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      */
     readonly encrypted: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
      * The value of the Automation Variable as a `integer`.
      */
     readonly value: number;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

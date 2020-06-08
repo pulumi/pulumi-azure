@@ -74,6 +74,10 @@ export interface GetScheduledQueryRulesLogResult {
      * Whether this scheduled query rule is enabled.
      */
     readonly enabled: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     /**
      * Name of the dimension.
@@ -81,8 +85,4 @@ export interface GetScheduledQueryRulesLogResult {
     readonly name: string;
     readonly resourceGroupName: string;
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

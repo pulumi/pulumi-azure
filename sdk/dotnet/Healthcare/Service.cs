@@ -34,11 +34,11 @@ namespace Pulumi.Azure.Healthcare
     ///             {
     ///                 Audience = "https://azurehealthcareapis.com/",
     ///                 Authority = "https://login.microsoftonline.com/$$%7Bdata.azurerm_client_config.current.tenant_id%7D",
-    ///                 SmartProxyEnabled = "true",
+    ///                 SmartProxyEnabled = true,
     ///             },
     ///             CorsConfiguration = new Azure.Healthcare.Inputs.ServiceCorsConfigurationArgs
     ///             {
-    ///                 AllowCredentials = "true",
+    ///                 AllowCredentials = true,
     ///                 AllowedHeaders = 
     ///                 {
     ///                     "x-tempo-*",
@@ -54,9 +54,9 @@ namespace Pulumi.Azure.Healthcare
     ///                     "http://www.example.com",
     ///                     "http://www.example2.com",
     ///                 },
-    ///                 MaxAgeInSeconds = "500",
+    ///                 MaxAgeInSeconds = 500,
     ///             },
-    ///             CosmosdbThroughput = "2000",
+    ///             CosmosdbThroughput = 2000,
     ///             Kind = "fhir-R4",
     ///             Location = "westus2",
     ///             ResourceGroupName = "sample-resource-group",

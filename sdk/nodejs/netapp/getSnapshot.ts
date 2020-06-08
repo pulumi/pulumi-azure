@@ -74,6 +74,10 @@ export interface GetSnapshotArgs {
 export interface GetSnapshotResult {
     readonly accountName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the NetApp Snapshot exists.
      */
     readonly location: string;
@@ -81,8 +85,4 @@ export interface GetSnapshotResult {
     readonly poolName: string;
     readonly resourceGroupName: string;
     readonly volumeName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

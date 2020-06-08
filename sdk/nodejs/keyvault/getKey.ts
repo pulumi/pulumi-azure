@@ -61,6 +61,10 @@ export interface GetKeyResult {
      */
     readonly e: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of JSON web key operations assigned to this Key Vault Key
      */
     readonly keyOpts: string[];
@@ -86,8 +90,4 @@ export interface GetKeyResult {
      * The current version of the Key Vault Key.
      */
     readonly version: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

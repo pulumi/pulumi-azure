@@ -78,6 +78,10 @@ export interface GetApiResult {
      */
     readonly displayName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Is this the current API Revision?
      */
     readonly isCurrent: boolean;
@@ -116,8 +120,4 @@ export interface GetApiResult {
      * The ID of the Version Set which this API is associated with.
      */
     readonly versionSetId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

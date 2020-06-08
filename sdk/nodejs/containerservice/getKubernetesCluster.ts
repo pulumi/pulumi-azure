@@ -51,6 +51,9 @@ export interface GetKubernetesClusterArgs {
      * If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
      */
     readonly privateClusterEnabled?: boolean;
+    /**
+     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     */
     readonly privateLinkEnabled?: boolean;
     /**
      * The name of the Resource Group in which the managed Kubernetes Cluster exists.
@@ -83,25 +86,29 @@ export interface GetKubernetesClusterResult {
      */
     readonly fqdn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A `identity` block as documented below.
      */
     readonly identities: outputs.containerservice.GetKubernetesClusterIdentity[];
-    /**
-     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-     */
-    readonly kubeAdminConfigs: outputs.containerservice.GetKubernetesClusterKubeAdminConfig[];
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
     readonly kubeAdminConfigRaw: string;
     /**
-     * A `kubeConfig` block as defined below.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    readonly kubeConfigs: outputs.containerservice.GetKubernetesClusterKubeConfig[];
+    readonly kubeAdminConfigs: outputs.containerservice.GetKubernetesClusterKubeAdminConfig[];
     /**
      * Base64 encoded Kubernetes configuration.
      */
     readonly kubeConfigRaw: string;
+    /**
+     * A `kubeConfig` block as defined below.
+     */
+    readonly kubeConfigs: outputs.containerservice.GetKubernetesClusterKubeConfig[];
     /**
      * A `kubeletIdentity` block as documented below.  
      */
@@ -138,6 +145,9 @@ export interface GetKubernetesClusterResult {
      * The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
      */
     readonly privateFqdn: string;
+    /**
+     * @deprecated Deprecated in favor of `private_cluster_enabled`
+     */
     readonly privateLinkEnabled: boolean;
     readonly resourceGroupName: string;
     /**
@@ -156,8 +166,4 @@ export interface GetKubernetesClusterResult {
      * A `windowsProfile` block as documented below.
      */
     readonly windowsProfiles: outputs.containerservice.GetKubernetesClusterWindowsProfile[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

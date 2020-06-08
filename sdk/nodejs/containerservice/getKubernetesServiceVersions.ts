@@ -61,6 +61,10 @@ export interface GetKubernetesServiceVersionsArgs {
  * A collection of values returned by getKubernetesServiceVersions.
  */
 export interface GetKubernetesServiceVersionsResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly includePreview?: boolean;
     /**
      * The most recent version available. If `includePreview == false`, this is the most recent non-preview version available.
@@ -72,8 +76,4 @@ export interface GetKubernetesServiceVersionsResult {
      * The list of all supported versions.
      */
     readonly versions: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

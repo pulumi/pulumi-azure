@@ -72,6 +72,10 @@ export interface GetSharedImageVersionResult {
      */
     readonly excludeFromLatest: boolean;
     readonly galleryName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly imageName: string;
     /**
      * The supported Azure location where the Shared Image Gallery exists.
@@ -94,8 +98,4 @@ export interface GetSharedImageVersionResult {
      * One or more `targetRegion` blocks as documented below.
      */
     readonly targetRegions: outputs.compute.GetSharedImageVersionTargetRegion[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

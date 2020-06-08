@@ -73,6 +73,10 @@ export interface GetServiceResult {
     readonly corsConfigurations: outputs.healthcare.GetServiceCorsConfiguration[];
     readonly cosmosdbThroughput: number;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The type of the service.
      */
     readonly kind: string;
@@ -86,8 +90,4 @@ export interface GetServiceResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

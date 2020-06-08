@@ -71,6 +71,10 @@ export interface GetServiceResult {
      */
     readonly enableProxyProtocol: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
      */
     readonly loadBalancerFrontendIpConfigurationIds: string[];
@@ -95,8 +99,4 @@ export interface GetServiceResult {
      * The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
      */
     readonly visibilitySubscriptionIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

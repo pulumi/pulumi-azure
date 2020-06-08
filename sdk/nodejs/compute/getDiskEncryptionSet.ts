@@ -42,6 +42,10 @@ export interface GetDiskEncryptionSetArgs {
  */
 export interface GetDiskEncryptionSetResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location where the Disk Encryption Set exists.
      */
     readonly location: string;
@@ -51,8 +55,4 @@ export interface GetDiskEncryptionSetResult {
      * A mapping of tags assigned to the Disk Encryption Set.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

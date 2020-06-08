@@ -39,13 +39,13 @@ export interface GetRoleDefinitionArgs {
 export interface GetRoleDefinitionResult {
     readonly assignableScopes: string[];
     readonly description: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly permissions: outputs.role.GetRoleDefinitionPermission[];
     readonly roleDefinitionId: string;
     readonly scope?: string;
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

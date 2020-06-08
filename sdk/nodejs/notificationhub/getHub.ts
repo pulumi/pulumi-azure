@@ -71,6 +71,10 @@ export interface GetHubResult {
      */
     readonly gcmCredentials: outputs.notificationhub.GetHubGcmCredential[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region in which this Notification Hub exists.
      */
     readonly location: string;
@@ -81,8 +85,4 @@ export interface GetHubResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

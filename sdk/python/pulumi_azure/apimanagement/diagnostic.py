@@ -94,6 +94,9 @@ class Diagnostic(pulumi.CustomResource):
             if api_management_name is None:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
+            if enabled is not None:
+                warnings.warn("this property has been removed from the API and will be removed in version 3.0 of the provider", DeprecationWarning)
+                pulumi.log.warn("enabled is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
             __props__['enabled'] = enabled
             if identifier is None:
                 raise TypeError("Missing required property 'identifier'")

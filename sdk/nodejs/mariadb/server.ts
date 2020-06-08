@@ -42,6 +42,7 @@ export class Server extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServerState, opts?: pulumi.CustomResourceOptions): Server {
         return new Server(name, <any>state, { ...opts, id: id });
@@ -117,6 +118,9 @@ export class Server extends pulumi.CustomResource {
      * Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
      */
     public readonly skuName!: pulumi.Output<string>;
+    /**
+     * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
+     */
     public readonly sslEnforcement!: pulumi.Output<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
@@ -126,6 +130,9 @@ export class Server extends pulumi.CustomResource {
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
      */
     public readonly storageMb!: pulumi.Output<number>;
+    /**
+     * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
+     */
     public readonly storageProfile!: pulumi.Output<outputs.mariadb.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
@@ -271,6 +278,9 @@ export interface ServerState {
      * Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
      */
     readonly skuName?: pulumi.Input<string>;
+    /**
+     * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
+     */
     readonly sslEnforcement?: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
@@ -280,6 +290,9 @@ export interface ServerState {
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
      */
     readonly storageMb?: pulumi.Input<number>;
+    /**
+     * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
+     */
     readonly storageProfile?: pulumi.Input<inputs.mariadb.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
@@ -347,6 +360,9 @@ export interface ServerArgs {
      * Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
      */
     readonly skuName: pulumi.Input<string>;
+    /**
+     * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
+     */
     readonly sslEnforcement?: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
@@ -356,6 +372,9 @@ export interface ServerArgs {
      * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
      */
     readonly storageMb?: pulumi.Input<number>;
+    /**
+     * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
+     */
     readonly storageProfile?: pulumi.Input<inputs.mariadb.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.

@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about existing resources.
- *
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
@@ -54,6 +53,10 @@ export interface GetResourcesArgs {
  */
 export interface GetResourcesResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The name of this Resource.
      */
     readonly name: string;
@@ -67,8 +70,4 @@ export interface GetResourcesResult {
      * The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

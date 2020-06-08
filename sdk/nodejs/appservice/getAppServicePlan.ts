@@ -61,6 +61,10 @@ export interface GetAppServicePlanResult {
      */
     readonly appServiceEnvironmentId: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A flag that indicates if it's a xenon plan (support for Windows Container)
      */
     readonly isXenon: boolean;
@@ -98,8 +102,4 @@ export interface GetAppServicePlanResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

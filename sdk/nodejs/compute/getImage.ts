@@ -71,6 +71,10 @@ export interface GetImageResult {
      */
     readonly dataDisks: outputs.compute.GetImageDataDisk[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * the Azure Location where this Image exists.
      */
     readonly location: string;
@@ -93,8 +97,4 @@ export interface GetImageResult {
      * is zone resiliency enabled?
      */
     readonly zoneResilient: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

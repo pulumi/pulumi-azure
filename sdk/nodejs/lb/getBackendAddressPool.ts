@@ -65,13 +65,13 @@ export interface GetBackendAddressPoolResult {
      * An array of references to IP addresses defined in network interfaces.
      */
     readonly backendIpConfigurations: outputs.lb.GetBackendAddressPoolBackendIpConfiguration[];
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly loadbalancerId: string;
     /**
      * The name of the Backend Address Pool.
      */
     readonly name: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

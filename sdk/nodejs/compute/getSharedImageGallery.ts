@@ -59,6 +59,10 @@ export interface GetSharedImageGalleryResult {
      * A description for the Shared Image Gallery.
      */
     readonly description: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
@@ -70,8 +74,4 @@ export interface GetSharedImageGalleryResult {
      * The unique name assigned to the Shared Image Gallery.
      */
     readonly uniqueName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

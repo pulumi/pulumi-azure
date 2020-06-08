@@ -75,14 +75,14 @@ export interface GetGroupResult {
      * The identifier of the external Group.
      */
     readonly externalId: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
      * The type of this API Management Group, such as `custom` or `external`.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

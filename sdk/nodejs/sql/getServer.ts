@@ -65,6 +65,10 @@ export interface GetServerResult {
      */
     readonly fqdn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * An `identity` block as defined below.
      */
     readonly identities: outputs.sql.GetServerIdentity[];
@@ -82,8 +86,4 @@ export interface GetServerResult {
      * The version of the SQL Server.
      */
     readonly version: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

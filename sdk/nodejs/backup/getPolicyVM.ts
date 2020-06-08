@@ -61,6 +61,10 @@ export interface GetPolicyVMArgs {
  * A collection of values returned by getPolicyVM.
  */
 export interface GetPolicyVMResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly recoveryVaultName: string;
     readonly resourceGroupName: string;
@@ -68,8 +72,4 @@ export interface GetPolicyVMResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

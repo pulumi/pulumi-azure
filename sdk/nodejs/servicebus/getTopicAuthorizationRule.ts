@@ -69,6 +69,10 @@ export interface GetTopicAuthorizationRuleArgs {
  * A collection of values returned by getTopicAuthorizationRule.
  */
 export interface GetTopicAuthorizationRuleResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly listen: boolean;
     readonly manage: boolean;
     readonly name: string;
@@ -92,8 +96,4 @@ export interface GetTopicAuthorizationRuleResult {
     readonly secondaryKey: string;
     readonly send: boolean;
     readonly topicName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -53,6 +51,7 @@ export class Diagnostic extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DiagnosticState, opts?: pulumi.CustomResourceOptions): Diagnostic {
         return new Diagnostic(name, <any>state, { ...opts, id: id });
@@ -80,6 +79,9 @@ export class Diagnostic extends pulumi.CustomResource {
      * The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
      */
     public readonly apiManagementName!: pulumi.Output<string>;
+    /**
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -150,6 +152,9 @@ export interface DiagnosticState {
      * The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
      */
     readonly apiManagementName?: pulumi.Input<string>;
+    /**
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
+     */
     readonly enabled?: pulumi.Input<boolean>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
@@ -173,6 +178,9 @@ export interface DiagnosticArgs {
      * The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
      */
     readonly apiManagementName: pulumi.Input<string>;
+    /**
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
+     */
     readonly enabled?: pulumi.Input<boolean>;
     /**
      * The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.

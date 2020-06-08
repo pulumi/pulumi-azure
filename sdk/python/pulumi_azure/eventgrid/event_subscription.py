@@ -308,9 +308,15 @@ class EventSubscription(pulumi.CustomResource):
 
             __props__['advanced_filter'] = advanced_filter
             __props__['event_delivery_schema'] = event_delivery_schema
+            if eventhub_endpoint is not None:
+                warnings.warn("Deprecated in favour of `eventhub_endpoint_id`", DeprecationWarning)
+                pulumi.log.warn("eventhub_endpoint is deprecated: Deprecated in favour of `eventhub_endpoint_id`")
             __props__['eventhub_endpoint'] = eventhub_endpoint
             __props__['eventhub_endpoint_id'] = eventhub_endpoint_id
             __props__['expiration_time_utc'] = expiration_time_utc
+            if hybrid_connection_endpoint is not None:
+                warnings.warn("Deprecated in favour of `hybrid_connection_endpoint_id`", DeprecationWarning)
+                pulumi.log.warn("hybrid_connection_endpoint is deprecated: Deprecated in favour of `hybrid_connection_endpoint_id`")
             __props__['hybrid_connection_endpoint'] = hybrid_connection_endpoint
             __props__['hybrid_connection_endpoint_id'] = hybrid_connection_endpoint_id
             __props__['included_event_types'] = included_event_types

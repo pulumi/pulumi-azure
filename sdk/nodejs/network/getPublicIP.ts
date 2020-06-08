@@ -122,6 +122,10 @@ export interface GetPublicIPResult {
      */
     readonly fqdn: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the timeout for the TCP idle connection.
      */
     readonly idleTimeoutInMinutes: number;
@@ -143,8 +147,4 @@ export interface GetPublicIPResult {
      */
     readonly tags?: {[key: string]: string};
     readonly zones: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

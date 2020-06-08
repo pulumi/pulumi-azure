@@ -57,6 +57,10 @@ export interface GetDedicatedHostGroupArgs {
  */
 export interface GetDedicatedHostGroupResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure location where the Dedicated Host Group exists.
      */
     readonly location: string;
@@ -74,8 +78,4 @@ export interface GetDedicatedHostGroupResult {
      * The Availability Zones in which this Dedicated Host Group is located.
      */
     readonly zones: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -89,6 +89,10 @@ export interface GetAppServiceResult {
      */
     readonly httpsOnly: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure location where the App Service exists.
      */
     readonly location: string;
@@ -115,8 +119,4 @@ export interface GetAppServiceResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

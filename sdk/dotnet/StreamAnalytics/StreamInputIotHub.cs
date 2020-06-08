@@ -40,7 +40,7 @@ namespace Pulumi.Azure.StreamAnalytics
     ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///             {
     ///                 Name = "S1",
-    ///                 Capacity = "1",
+    ///                 Capacity = 1,
     ///             },
     ///         });
     ///         var exampleStreamInputIotHub = new Azure.StreamAnalytics.StreamInputIotHub("exampleStreamInputIotHub", new Azure.StreamAnalytics.StreamInputIotHubArgs

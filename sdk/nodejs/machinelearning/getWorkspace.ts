@@ -53,6 +53,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location where the Machine Learning Workspace exists.
      */
     readonly location: string;
@@ -62,8 +66,4 @@ export interface GetWorkspaceResult {
      * A mapping of tags assigned to the Machine Learning Workspace.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

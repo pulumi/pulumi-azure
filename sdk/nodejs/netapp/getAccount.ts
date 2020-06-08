@@ -55,13 +55,13 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the NetApp Account exists.
      */
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

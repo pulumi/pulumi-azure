@@ -31,6 +31,9 @@ class GetPolicyDefintionResult:
         """
         if management_group_id and not isinstance(management_group_id, str):
             raise TypeError("Expected argument 'management_group_id' to be a str")
+        if management_group_id is not None:
+            warnings.warn("Deprecated in favour of `management_group_name`", DeprecationWarning)
+            pulumi.log.warn("management_group_id is deprecated: Deprecated in favour of `management_group_name`")
         __self__.management_group_id = management_group_id
         if management_group_name and not isinstance(management_group_name, str):
             raise TypeError("Expected argument 'management_group_name' to be a str")

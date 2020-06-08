@@ -145,6 +145,10 @@ export interface GetAccountBlobContainerSASResult {
     readonly contentType?: string;
     readonly expiry: string;
     readonly httpsOnly?: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ipAddress?: string;
     readonly permissions: outputs.storage.GetAccountBlobContainerSASPermissions;
     /**
@@ -152,8 +156,4 @@ export interface GetAccountBlobContainerSASResult {
      */
     readonly sas: string;
     readonly start: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -82,6 +82,10 @@ export interface GetAccountResult {
      */
     readonly enableHttpsTrafficOnly: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Is Hierarchical Namespace enabled?
      */
     readonly isHnsEnabled: boolean;
@@ -226,8 +230,4 @@ export interface GetAccountResult {
      * A mapping of tags to assigned to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

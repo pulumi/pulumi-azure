@@ -63,6 +63,10 @@ export interface GetElasticPoolArgs {
  */
 export interface GetElasticPoolResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The license type to apply for this database.
      */
     readonly licenseType: string;
@@ -97,8 +101,4 @@ export interface GetElasticPoolResult {
      * Whether or not this elastic pool is zone redundant.
      */
     readonly zoneRedundant: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -2,9 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ProviderFeatures {
+    keyVault?: outputs.ProviderFeaturesKeyVault;
+    virtualMachine?: outputs.ProviderFeaturesVirtualMachine;
+    virtualMachineScaleSet?: outputs.ProviderFeaturesVirtualMachineScaleSet;
+}
 
+export interface ProviderFeaturesKeyVault {
+    purgeSoftDeleteOnDestroy?: boolean;
+    recoverSoftDeletedKeyVaults?: boolean;
+}
+
+export interface ProviderFeaturesVirtualMachine {
+    deleteOsDiskOnDeletion?: boolean;
+}
+
+export interface ProviderFeaturesVirtualMachineScaleSet {
+    rollInstancesWhenRequired?: boolean;
+}
 export namespace advisor {
     export interface GetRecommendationsRecommendation {
         /**
@@ -5891,6 +5909,27 @@ export namespace compute {
     }
 }
 
+export namespace config {
+    export interface Features {
+        keyVault?: outputs.config.FeaturesKeyVault;
+        virtualMachine?: outputs.config.FeaturesVirtualMachine;
+        virtualMachineScaleSet?: outputs.config.FeaturesVirtualMachineScaleSet;
+    }
+
+    export interface FeaturesKeyVault {
+        purgeSoftDeleteOnDestroy?: boolean;
+        recoverSoftDeletedKeyVaults?: boolean;
+    }
+
+    export interface FeaturesVirtualMachine {
+        deleteOsDiskOnDeletion: boolean;
+    }
+
+    export interface FeaturesVirtualMachineScaleSet {
+        rollInstancesWhenRequired: boolean;
+    }
+}
+
 export namespace containerservice {
     export interface GetKubernetesClusterAddonProfile {
         /**
@@ -7700,11 +7739,11 @@ export namespace eventgrid {
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberGreaterThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThan[];
+        numberGreaterThanOrEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberGreaterThanOrEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
+        numberGreaterThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberGreaterThan[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -7712,11 +7751,11 @@ export namespace eventgrid {
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberLessThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThan[];
+        numberLessThanOrEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThanOrEqual[];
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberLessThanOrEquals?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThanOrEqual[];
+        numberLessThans?: outputs.eventgrid.EventSubscriptionAdvancedFilterNumberLessThan[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -8163,11 +8202,11 @@ export namespace eventhub {
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberGreaterThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThan[];
+        numberGreaterThanOrEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberGreaterThanOrEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual[];
+        numberGreaterThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberGreaterThan[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -8175,11 +8214,11 @@ export namespace eventhub {
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberLessThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThan[];
+        numberLessThanOrEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThanOrEqual[];
         /**
          * Compares a value of an event using a single floating point number.
          */
-        numberLessThanOrEquals?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThanOrEqual[];
+        numberLessThans?: outputs.eventhub.EventSubscriptionAdvancedFilterNumberLessThan[];
         /**
          * Compares a value of an event using multiple floating point numbers.
          */
@@ -8546,13 +8585,13 @@ export namespace frontdoor {
          */
         exclusions?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideExclusion[];
         /**
-         * One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
-         */
-        rules?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideRule[];
-        /**
          * The managed rule group to override.
          */
         ruleGroupName: string;
+        /**
+         * One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+         */
+        rules?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideRule[];
     }
 
     export interface FirewallPolicyManagedRuleOverrideExclusion {
@@ -11108,14 +11147,24 @@ export namespace mariadb {
     }
 
     export interface ServerStorageProfile {
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
+         */
         autoGrow: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         backupRetentionDays: number;
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
+         */
         geoRedundantBackup: string;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         storageMb?: number;
     }
@@ -12445,14 +12494,24 @@ export namespace mssql {
 
 export namespace mysql {
     export interface ServerStorageProfile {
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
+         */
         autoGrow: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         backupRetentionDays: number;
+        /**
+         * @deprecated this has been moved to the top level boolean attribute `geo_redundant_backup_enabled` and will be removed in version 3.0 of the provider.
+         */
         geoRedundantBackup: string;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         storageMb?: number;
     }
@@ -12493,14 +12552,20 @@ export namespace netapp {
         allowedClients: string[];
         /**
          * Is the CIFS protocol allowed?
+         *
+         * @deprecated Deprecated in favour of `protocols_enabled`
          */
         cifsEnabled: boolean;
         /**
          * Is the NFSv3 protocol allowed?
+         *
+         * @deprecated Deprecated in favour of `protocols_enabled`
          */
         nfsv3Enabled: boolean;
         /**
          * Is the NFSv4 protocol allowed?
+         *
+         * @deprecated Deprecated in favour of `protocols_enabled`
          */
         nfsv4Enabled: boolean;
         /**
@@ -14615,14 +14680,24 @@ export namespace policy {
 
 export namespace postgresql {
     export interface ServerStorageProfile {
+        /**
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
+         */
         autoGrow: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         backupRetentionDays?: number;
+        /**
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
+         */
         geoRedundantBackup: string;
         /**
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
+         *
+         * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
          */
         storageMb?: number;
     }
@@ -16283,3 +16358,4 @@ export namespace waf {
         mode?: string;
     }
 }
+

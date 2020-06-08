@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,6 +64,10 @@ export interface GetProjectArgs {
  */
 export interface GetProjectResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Azure location where the resource exists.
      */
     readonly location: string;
@@ -80,8 +86,4 @@ export interface GetProjectResult {
      * The platform type of the migration target.
      */
     readonly targetPlatform: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -56,6 +56,10 @@ export interface GetRouteTableArgs {
  */
 export interface GetRouteTableResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region in which the Route Table exists.
      */
     readonly location: string;
@@ -76,8 +80,4 @@ export interface GetRouteTableResult {
      * A mapping of tags assigned to the Route Table.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

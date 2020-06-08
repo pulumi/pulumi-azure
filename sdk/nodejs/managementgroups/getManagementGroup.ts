@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -44,6 +46,7 @@ export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.
 export interface GetManagementGroupArgs {
     /**
      * Specifies the name or UUID of this Management Group.
+     *
      * @deprecated Deprecated in favour of `name`
      */
     readonly groupId?: string;
@@ -61,7 +64,14 @@ export interface GetManagementGroupResult {
      * A friendly name for the Management Group.
      */
     readonly displayName: string;
+    /**
+     * @deprecated Deprecated in favour of `name`
+     */
     readonly groupId: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The ID of any Parent Management Group.
@@ -71,8 +81,4 @@ export interface GetManagementGroupResult {
      * A list of Subscription ID's which are assigned to the Management Group.
      */
     readonly subscriptionIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
