@@ -66,11 +66,11 @@ export interface GetServiceTagsResult {
      * List of address prefixes for the service type (and optionally a specific region).
      */
     readonly addressPrefixes: string[];
-    readonly location: string;
-    readonly locationFilter?: string;
-    readonly service: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly location: string;
+    readonly locationFilter?: string;
+    readonly service: string;
 }

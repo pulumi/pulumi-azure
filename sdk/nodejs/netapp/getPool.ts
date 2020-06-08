@@ -63,6 +63,10 @@ export interface GetPoolArgs {
 export interface GetPoolResult {
     readonly accountName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the NetApp Pool exists.
      */
     readonly location: string;
@@ -76,8 +80,4 @@ export interface GetPoolResult {
      * Provisioned size of the pool in TB.
      */
     readonly sizeInTb: number;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

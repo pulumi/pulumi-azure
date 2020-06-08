@@ -67,6 +67,10 @@ export interface GetCertificateResult {
      * The format of the certificate, such as `Cer` or `Pfx`.
      */
     readonly format: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The public key of the certificate.
@@ -81,8 +85,4 @@ export interface GetCertificateResult {
      * The algorithm of the certificate thumbprint.
      */
     readonly thumbprintAlgorithm: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

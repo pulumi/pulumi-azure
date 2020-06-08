@@ -67,14 +67,14 @@ export interface GetPublicIPsArgs {
 export interface GetPublicIPsResult {
     readonly allocationType?: string;
     readonly attached?: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly namePrefix?: string;
     /**
      * A List of `publicIps` blocks as defined below filtered by the criteria above.
      */
     readonly publicIps: outputs.network.GetPublicIPsPublicIp[];
     readonly resourceGroupName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

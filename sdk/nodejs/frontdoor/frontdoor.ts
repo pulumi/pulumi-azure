@@ -74,6 +74,7 @@ export class Frontdoor extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FrontdoorState, opts?: pulumi.CustomResourceOptions): Frontdoor {
         return new Frontdoor(name, <any>state, { ...opts, id: id });
@@ -94,10 +95,6 @@ export class Frontdoor extends pulumi.CustomResource {
     }
 
     /**
-     * A `backendPool` block as defined below.
-     */
-    public readonly backendPools!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPool[]>;
-    /**
      * A `backendPoolHealthProbe` block as defined below.
      */
     public readonly backendPoolHealthProbes!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolHealthProbe[]>;
@@ -105,6 +102,10 @@ export class Frontdoor extends pulumi.CustomResource {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     public readonly backendPoolLoadBalancings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolLoadBalancing[]>;
+    /**
+     * A `backendPool` block as defined below.
+     */
+    public readonly backendPools!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPool[]>;
     /**
      * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
      */
@@ -133,6 +134,9 @@ export class Frontdoor extends pulumi.CustomResource {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+     */
     public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -163,9 +167,9 @@ export class Frontdoor extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as FrontdoorState | undefined;
-            inputs["backendPools"] = state ? state.backendPools : undefined;
             inputs["backendPoolHealthProbes"] = state ? state.backendPoolHealthProbes : undefined;
             inputs["backendPoolLoadBalancings"] = state ? state.backendPoolLoadBalancings : undefined;
+            inputs["backendPools"] = state ? state.backendPools : undefined;
             inputs["backendPoolsSendReceiveTimeoutSeconds"] = state ? state.backendPoolsSendReceiveTimeoutSeconds : undefined;
             inputs["cname"] = state ? state.cname : undefined;
             inputs["enforceBackendPoolsCertificateNameCheck"] = state ? state.enforceBackendPoolsCertificateNameCheck : undefined;
@@ -180,14 +184,14 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as FrontdoorArgs | undefined;
-            if (!args || args.backendPools === undefined) {
-                throw new Error("Missing required property 'backendPools'");
-            }
             if (!args || args.backendPoolHealthProbes === undefined) {
                 throw new Error("Missing required property 'backendPoolHealthProbes'");
             }
             if (!args || args.backendPoolLoadBalancings === undefined) {
                 throw new Error("Missing required property 'backendPoolLoadBalancings'");
+            }
+            if (!args || args.backendPools === undefined) {
+                throw new Error("Missing required property 'backendPools'");
             }
             if (!args || args.enforceBackendPoolsCertificateNameCheck === undefined) {
                 throw new Error("Missing required property 'enforceBackendPoolsCertificateNameCheck'");
@@ -201,9 +205,9 @@ export class Frontdoor extends pulumi.CustomResource {
             if (!args || args.routingRules === undefined) {
                 throw new Error("Missing required property 'routingRules'");
             }
-            inputs["backendPools"] = args ? args.backendPools : undefined;
             inputs["backendPoolHealthProbes"] = args ? args.backendPoolHealthProbes : undefined;
             inputs["backendPoolLoadBalancings"] = args ? args.backendPoolLoadBalancings : undefined;
+            inputs["backendPools"] = args ? args.backendPools : undefined;
             inputs["backendPoolsSendReceiveTimeoutSeconds"] = args ? args.backendPoolsSendReceiveTimeoutSeconds : undefined;
             inputs["enforceBackendPoolsCertificateNameCheck"] = args ? args.enforceBackendPoolsCertificateNameCheck : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
@@ -233,10 +237,6 @@ export class Frontdoor extends pulumi.CustomResource {
  */
 export interface FrontdoorState {
     /**
-     * A `backendPool` block as defined below.
-     */
-    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
-    /**
      * A `backendPoolHealthProbe` block as defined below.
      */
     readonly backendPoolHealthProbes?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
@@ -244,6 +244,10 @@ export interface FrontdoorState {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     readonly backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    /**
+     * A `backendPool` block as defined below.
+     */
+    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
     /**
      * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
      */
@@ -272,6 +276,9 @@ export interface FrontdoorState {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
+    /**
+     * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+     */
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -296,10 +303,6 @@ export interface FrontdoorState {
  */
 export interface FrontdoorArgs {
     /**
-     * A `backendPool` block as defined below.
-     */
-    readonly backendPools: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
-    /**
      * A `backendPoolHealthProbe` block as defined below.
      */
     readonly backendPoolHealthProbes: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
@@ -307,6 +310,10 @@ export interface FrontdoorArgs {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     readonly backendPoolLoadBalancings: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    /**
+     * A `backendPool` block as defined below.
+     */
+    readonly backendPools: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
     /**
      * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
      */
@@ -327,6 +334,9 @@ export interface FrontdoorArgs {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
+    /**
+     * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
+     */
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Changing this forces a new resource to be created.

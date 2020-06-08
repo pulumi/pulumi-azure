@@ -61,6 +61,10 @@ export interface GetTopicResult {
      * The Endpoint associated with the EventGrid Topic.
      */
     readonly endpoint: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly name: string;
     /**
@@ -73,8 +77,4 @@ export interface GetTopicResult {
      */
     readonly secondaryAccessKey: string;
     readonly tags?: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

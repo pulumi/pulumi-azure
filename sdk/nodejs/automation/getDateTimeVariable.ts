@@ -72,14 +72,14 @@ export interface GetDateTimeVariableResult {
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      */
     readonly encrypted: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
      * The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
      */
     readonly value: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

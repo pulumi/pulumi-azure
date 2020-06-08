@@ -59,6 +59,10 @@ export interface GetZoneArgs {
  */
 export interface GetZoneResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Maximum number of Records in the zone.
      */
     readonly maxNumberOfRecordSets: number;
@@ -76,8 +80,4 @@ export interface GetZoneResult {
      * A mapping of tags to assign to the EventHub Namespace.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

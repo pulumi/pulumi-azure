@@ -61,6 +61,10 @@ export interface GetFactoryResult {
      */
     readonly githubConfigurations: outputs.datafactory.GetFactoryGithubConfiguration[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * An `identity` block as defined below.
      */
     readonly identities: outputs.datafactory.GetFactoryIdentity[];
@@ -79,8 +83,4 @@ export interface GetFactoryResult {
      * A `vstsConfiguration` block as defined below.
      */
     readonly vstsConfigurations: outputs.datafactory.GetFactoryVstsConfiguration[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -23,6 +23,9 @@ class GetManagementGroupResult:
         """
         if group_id and not isinstance(group_id, str):
             raise TypeError("Expected argument 'group_id' to be a str")
+        if group_id is not None:
+            warnings.warn("Deprecated in favour of `name`", DeprecationWarning)
+            pulumi.log.warn("group_id is deprecated: Deprecated in favour of `name`")
         __self__.group_id = group_id
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")

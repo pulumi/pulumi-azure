@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Compute
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             StorageAccountType = "Standard_LRS",
     ///             CreateOption = "Empty",
-    ///             DiskSizeGb = "1",
+    ///             DiskSizeGb = 1,
     ///             Tags = 
     ///             {
     ///                 { "environment", "staging" },
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Compute
     ///             ResourceGroupName = example.Name,
     ///             StorageAccountType = "Standard_LRS",
     ///             CreateOption = "Empty",
-    ///             DiskSizeGb = "1",
+    ///             DiskSizeGb = 1,
     ///             Tags = 
     ///             {
     ///                 { "environment", "staging" },
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Compute
     ///             StorageAccountType = "Standard_LRS",
     ///             CreateOption = "Copy",
     ///             SourceResourceId = source.Id,
-    ///             DiskSizeGb = "1",
+    ///             DiskSizeGb = 1,
     ///             Tags = 
     ///             {
     ///                 { "environment", "staging" },

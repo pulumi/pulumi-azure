@@ -56,11 +56,11 @@ export interface GetDefinitionArgs {
  * A collection of values returned by getDefinition.
  */
 export interface GetDefinitionResult {
-    readonly location: string;
-    readonly name: string;
-    readonly resourceGroupName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
 }

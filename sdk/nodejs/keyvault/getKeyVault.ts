@@ -73,6 +73,10 @@ export interface GetKeyVaultResult {
      */
     readonly enabledForTemplateDeployment: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region in which the Key Vault exists.
      */
     readonly location: string;
@@ -103,8 +107,4 @@ export interface GetKeyVaultResult {
      * The URI of the vault for performing operations on keys and secrets.
      */
     readonly vaultUri: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

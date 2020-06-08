@@ -71,6 +71,10 @@ export interface GetCertificateResult {
      */
     readonly hostNames: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The issue date for the certificate.
      */
     readonly issueDate: string;
@@ -90,8 +94,4 @@ export interface GetCertificateResult {
      * The thumbprint for the certificate.
      */
     readonly thumbprint: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -59,6 +59,10 @@ export interface GetClusterResult {
      * The Kusto Cluster URI to be used for data ingestion.
      */
     readonly dataIngestionUri: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
@@ -67,8 +71,4 @@ export interface GetClusterResult {
      * The FQDN of the Azure Kusto Cluster.
      */
     readonly uri: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

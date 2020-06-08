@@ -36,8 +36,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * @deprecated azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription
  */
-/** @deprecated azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription */
 export class EventSubscription extends pulumi.CustomResource {
     /**
      * Get an existing EventSubscription resource's state with the given name, ID, and optional extra
@@ -46,6 +47,7 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventSubscriptionState, opts?: pulumi.CustomResourceOptions): EventSubscription {
         pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription")
@@ -76,6 +78,8 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     *
+     * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     public readonly eventhubEndpoint!: pulumi.Output<outputs.eventhub.EventSubscriptionEventhubEndpoint>;
     /**
@@ -88,6 +92,8 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
+     *
+     * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     public readonly hybridConnectionEndpoint!: pulumi.Output<outputs.eventhub.EventSubscriptionHybridConnectionEndpoint>;
     /**
@@ -227,6 +233,7 @@ export interface EventSubscriptionState {
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     readonly eventhubEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionEventhubEndpoint>;
@@ -240,6 +247,7 @@ export interface EventSubscriptionState {
     readonly expirationTimeUtc?: pulumi.Input<string>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionHybridConnectionEndpoint>;
@@ -311,6 +319,7 @@ export interface EventSubscriptionArgs {
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
      * A `eventhubEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `eventhub_endpoint_id`
      */
     readonly eventhubEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionEventhubEndpoint>;
@@ -324,6 +333,7 @@ export interface EventSubscriptionArgs {
     readonly expirationTimeUtc?: pulumi.Input<string>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
+     *
      * @deprecated Deprecated in favour of `hybrid_connection_endpoint_id`
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventhub.EventSubscriptionHybridConnectionEndpoint>;

@@ -60,6 +60,10 @@ export interface GetSecretResult {
      * The content type for the Key Vault Secret.
      */
     readonly contentType: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly keyVaultId: string;
     readonly name: string;
     /**
@@ -74,8 +78,4 @@ export interface GetSecretResult {
      * The current version of the Key Vault Secret.
      */
     readonly version: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

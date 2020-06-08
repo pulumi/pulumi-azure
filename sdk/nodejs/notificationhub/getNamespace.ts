@@ -61,6 +61,10 @@ export interface GetNamespaceResult {
      */
     readonly enabled: boolean;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region in which this Notification Hub Namespace exists.
      */
     readonly location: string;
@@ -82,8 +86,4 @@ export interface GetNamespaceResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

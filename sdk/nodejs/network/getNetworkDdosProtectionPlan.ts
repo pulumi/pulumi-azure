@@ -62,6 +62,10 @@ export interface GetNetworkDdosProtectionPlanArgs {
  */
 export interface GetNetworkDdosProtectionPlanResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Specifies the supported Azure location where the resource exists.
      */
     readonly location: string;
@@ -75,8 +79,4 @@ export interface GetNetworkDdosProtectionPlanResult {
      * The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
      */
     readonly virtualNetworkIds: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

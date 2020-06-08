@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Iot
     ///             Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
     ///             {
     ///                 Name = "S1",
-    ///                 Capacity = "1",
+    ///                 Capacity = 1,
     ///             },
     ///         });
     ///     }

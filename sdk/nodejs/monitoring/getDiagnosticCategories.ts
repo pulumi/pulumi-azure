@@ -54,6 +54,10 @@ export interface GetDiagnosticCategoriesArgs {
  */
 export interface GetDiagnosticCategoriesResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A list of the Log Categories supported for this Resource.
      */
     readonly logs: string[];
@@ -62,8 +66,4 @@ export interface GetDiagnosticCategoriesResult {
      */
     readonly metrics: string[];
     readonly resourceId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -2,10 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./aRecord";
 export * from "./aaaaRecord";
-export * from "./cNameRecord";
+export * from "./arecord";
 export * from "./caaRecord";
+export * from "./cnameRecord";
 export * from "./getZone";
 export * from "./mxRecord";
 export * from "./nsRecord";

@@ -59,6 +59,10 @@ export interface GetEndpointConnectionArgs {
  */
 export interface GetEndpointConnectionResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The supported Azure location where the resource exists.
      */
     readonly location: string;
@@ -68,8 +72,4 @@ export interface GetEndpointConnectionResult {
     readonly name: string;
     readonly privateServiceConnections: outputs.privatelink.GetEndpointConnectionPrivateServiceConnection[];
     readonly resourceGroupName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

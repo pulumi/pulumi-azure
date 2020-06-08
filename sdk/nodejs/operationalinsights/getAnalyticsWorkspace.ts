@@ -56,6 +56,10 @@ export interface GetAnalyticsWorkspaceArgs {
  * A collection of values returned by getAnalyticsWorkspace.
  */
 export interface GetAnalyticsWorkspaceResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly name: string;
     /**
@@ -87,8 +91,4 @@ export interface GetAnalyticsWorkspaceResult {
      * The Workspace (or Customer) ID for the Log Analytics Workspace.
      */
     readonly workspaceId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

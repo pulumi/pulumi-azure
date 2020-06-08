@@ -52,6 +52,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: SubnetState, opts?: pulumi.CustomResourceOptions): Subnet {
         return new Subnet(name, <any>state, { ...opts, id: id });
@@ -73,6 +74,8 @@ export class Subnet extends pulumi.CustomResource {
 
     /**
      * The address prefix to use for the subnet.
+     *
+     * @deprecated Use the `address_prefixes` property instead.
      */
     public readonly addressPrefix!: pulumi.Output<string>;
     /**
@@ -164,6 +167,7 @@ export class Subnet extends pulumi.CustomResource {
 export interface SubnetState {
     /**
      * The address prefix to use for the subnet.
+     *
      * @deprecated Use the `address_prefixes` property instead.
      */
     readonly addressPrefix?: pulumi.Input<string>;
@@ -207,6 +211,7 @@ export interface SubnetState {
 export interface SubnetArgs {
     /**
      * The address prefix to use for the subnet.
+     *
      * @deprecated Use the `address_prefixes` property instead.
      */
     readonly addressPrefix?: pulumi.Input<string>;

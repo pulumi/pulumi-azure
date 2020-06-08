@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
- *
  */
 export class ReplicatedVM extends pulumi.CustomResource {
     /**
@@ -18,6 +17,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ReplicatedVMState, opts?: pulumi.CustomResourceOptions): ReplicatedVM {
         return new ReplicatedVM(name, <any>state, { ...opts, id: id });

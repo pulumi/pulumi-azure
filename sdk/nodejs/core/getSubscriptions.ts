@@ -58,11 +58,11 @@ export interface GetSubscriptionsResult {
     readonly displayNameContains?: string;
     readonly displayNamePrefix?: string;
     /**
-     * One or more `subscription` blocks as defined below.
-     */
-    readonly subscriptions: outputs.core.GetSubscriptionsSubscription[];
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * One or more `subscription` blocks as defined below.
+     */
+    readonly subscriptions: outputs.core.GetSubscriptionsSubscription[];
 }

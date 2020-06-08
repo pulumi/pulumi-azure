@@ -69,6 +69,10 @@ export interface GetRegistryResult {
      */
     readonly adminUsername: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region in which this Container Registry exists.
      */
     readonly location: string;
@@ -90,8 +94,4 @@ export interface GetRegistryResult {
      * A map of tags assigned to the Container Registry.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

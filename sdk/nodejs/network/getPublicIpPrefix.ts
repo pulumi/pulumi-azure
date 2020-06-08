@@ -56,6 +56,10 @@ export interface GetPublicIpPrefixArgs {
  * A collection of values returned by getPublicIpPrefix.
  */
 export interface GetPublicIpPrefixResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly ipPrefix: string;
     /**
      * The supported Azure location where the resource exists.
@@ -82,8 +86,4 @@ export interface GetPublicIpPrefixResult {
      */
     readonly tags: {[key: string]: string};
     readonly zones: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

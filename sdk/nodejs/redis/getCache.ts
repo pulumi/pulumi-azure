@@ -72,6 +72,10 @@ export interface GetCacheResult {
      */
     readonly hostname: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location of the Redis Cache.
      */
     readonly location: string;
@@ -122,8 +126,4 @@ export interface GetCacheResult {
     readonly subnetId: string;
     readonly tags: {[key: string]: string};
     readonly zones: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

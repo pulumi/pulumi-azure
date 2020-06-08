@@ -66,6 +66,10 @@ export interface GetShareResult {
      */
     readonly description: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The kind of the Data Share.
      */
     readonly kind: string;
@@ -81,8 +85,4 @@ export interface GetShareResult {
      * The terms of the Data Share.
      */
     readonly terms: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

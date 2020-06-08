@@ -125,6 +125,9 @@ class Subnet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if address_prefix is not None:
+                warnings.warn("Use the `address_prefixes` property instead.", DeprecationWarning)
+                pulumi.log.warn("address_prefix is deprecated: Use the `address_prefixes` property instead.")
             __props__['address_prefix'] = address_prefix
             __props__['address_prefixes'] = address_prefixes
             __props__['delegations'] = delegations

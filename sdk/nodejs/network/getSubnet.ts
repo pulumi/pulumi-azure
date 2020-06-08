@@ -78,6 +78,10 @@ export interface GetSubnetResult {
      * Enable or Disable network policies for the private link service on the subnet.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The ID of the Network Security Group associated with the subnet.
@@ -93,8 +97,4 @@ export interface GetSubnetResult {
      */
     readonly serviceEndpoints: string[];
     readonly virtualNetworkName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

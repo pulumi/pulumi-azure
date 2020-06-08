@@ -55,6 +55,10 @@ export interface GetLogProfileResult {
      */
     readonly categories: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * List of regions for which Activity Log events are stored or streamed.
      */
     readonly locations: string[];
@@ -68,8 +72,4 @@ export interface GetLogProfileResult {
      * The resource id of the storage account in which the Activity Log is stored.
      */
     readonly storageAccountId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

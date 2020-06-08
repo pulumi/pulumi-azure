@@ -117,8 +117,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate
  */
-/** @deprecated azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate */
 export class Certifiate extends pulumi.CustomResource {
     /**
      * Get an existing Certifiate resource's state with the given name, ID, and optional extra
@@ -127,6 +128,7 @@ export class Certifiate extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertifiateState, opts?: pulumi.CustomResourceOptions): Certifiate {
         pulumi.log.warn("Certifiate is deprecated: azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate")

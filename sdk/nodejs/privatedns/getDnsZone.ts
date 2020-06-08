@@ -59,6 +59,10 @@ export interface GetDnsZoneArgs {
  */
 export interface GetDnsZoneResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Maximum number of recordsets that can be created in this Private Zone.
      */
     readonly maxNumberOfRecordSets: number;
@@ -80,8 +84,4 @@ export interface GetDnsZoneResult {
      * A mapping of tags for the zone.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

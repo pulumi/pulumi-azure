@@ -73,13 +73,13 @@ export interface GetPlatformImageArgs {
  * A collection of values returned by getPlatformImage.
  */
 export interface GetPlatformImageResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly location: string;
     readonly offer: string;
     readonly publisher: string;
     readonly sku: string;
     readonly version: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

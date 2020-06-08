@@ -62,6 +62,10 @@ export interface GetEventHubArgs {
  * A collection of values returned by getEventHub.
  */
 export interface GetEventHubResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly namespaceName: string;
     /**
@@ -73,8 +77,4 @@ export interface GetEventHubResult {
      */
     readonly partitionIds: string[];
     readonly resourceGroupName: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

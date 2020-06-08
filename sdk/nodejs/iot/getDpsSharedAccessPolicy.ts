@@ -61,6 +61,10 @@ export interface GetDpsSharedAccessPolicyArgs {
  * A collection of values returned by getDpsSharedAccessPolicy.
  */
 export interface GetDpsSharedAccessPolicyResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly iothubDpsName: string;
     readonly name: string;
     /**
@@ -80,8 +84,4 @@ export interface GetDpsSharedAccessPolicyResult {
      * The secondary key used to create the authentication token.
      */
     readonly secondaryKey: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

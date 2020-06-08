@@ -383,6 +383,9 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['network_profile'] = network_profile
             __props__['node_resource_group'] = node_resource_group
             __props__['private_cluster_enabled'] = private_cluster_enabled
+            if private_link_enabled is not None:
+                warnings.warn("Deprecated in favor of `private_cluster_enabled`", DeprecationWarning)
+                pulumi.log.warn("private_link_enabled is deprecated: Deprecated in favor of `private_cluster_enabled`")
             __props__['private_link_enabled'] = private_link_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

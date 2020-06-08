@@ -57,6 +57,10 @@ export interface GetIntegrationAccountArgs {
  */
 export interface GetIntegrationAccountResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the Logic App Integration Account exists.
      */
     readonly location: string;
@@ -70,8 +74,4 @@ export interface GetIntegrationAccountResult {
      * A mapping of tags assigned to the Logic App Integration Account.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

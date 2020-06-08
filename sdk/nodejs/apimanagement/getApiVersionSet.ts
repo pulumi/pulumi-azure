@@ -71,6 +71,10 @@ export interface GetApiVersionSetResult {
      * The display name of this API Version Set.
      */
     readonly displayName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
@@ -82,8 +86,4 @@ export interface GetApiVersionSetResult {
      */
     readonly versionQueryName: string;
     readonly versioningScheme: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

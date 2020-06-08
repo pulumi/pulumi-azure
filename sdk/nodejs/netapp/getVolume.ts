@@ -68,6 +68,10 @@ export interface GetVolumeArgs {
 export interface GetVolumeResult {
     readonly accountName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the NetApp Volume exists.
      */
     readonly location: string;
@@ -95,8 +99,4 @@ export interface GetVolumeResult {
      * The unique file path of the volume.
      */
     readonly volumePath: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

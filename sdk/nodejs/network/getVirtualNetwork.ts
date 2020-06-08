@@ -69,6 +69,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly guid: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Location of the virtual network.
      */
     readonly location: string;
@@ -82,8 +86,4 @@ export interface GetVirtualNetworkResult {
      * A mapping of name - virtual network id of the virtual network peerings.
      */
     readonly vnetPeerings: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

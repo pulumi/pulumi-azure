@@ -57,6 +57,10 @@ export interface GetFirewallArgs {
  */
 export interface GetFirewallResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * A `ipConfiguration` block as defined below.
      */
     readonly ipConfigurations: outputs.network.GetFirewallIpConfiguration[];
@@ -64,8 +68,4 @@ export interface GetFirewallResult {
     readonly name: string;
     readonly resourceGroupName: string;
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

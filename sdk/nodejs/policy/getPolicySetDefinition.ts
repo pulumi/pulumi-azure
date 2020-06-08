@@ -66,6 +66,10 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly description: string;
     readonly displayName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly managementGroupName?: string;
     /**
      * Any Metadata defined in the Policy Set Definition.
@@ -84,8 +88,4 @@ export interface GetPolicySetDefinitionResult {
      * The Type of the Policy Set Definition.
      */
     readonly policyType: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

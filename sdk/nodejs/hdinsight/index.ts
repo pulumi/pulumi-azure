@@ -3,11 +3,11 @@
 
 // Export members:
 export * from "./getCluster";
-export * from "./hBaseCluster";
 export * from "./hadoopCluster";
+export * from "./hbaseCluster";
 export * from "./interactiveQueryCluster";
 export * from "./kafkaCluster";
-export * from "./mLServicesCluster";
-export * from "./rServerCluster";
+export * from "./mlservicesCluster";
+export * from "./rserverCluster";
 export * from "./sparkCluster";
 export * from "./stormCluster";

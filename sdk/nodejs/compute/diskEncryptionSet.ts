@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Disk Encryption Set.
  *
  * > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
- *
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
@@ -20,6 +19,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DiskEncryptionSetState, opts?: pulumi.CustomResourceOptions): DiskEncryptionSet {
         return new DiskEncryptionSet(name, <any>state, { ...opts, id: id });

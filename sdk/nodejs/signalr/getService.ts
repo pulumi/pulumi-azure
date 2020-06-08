@@ -60,6 +60,10 @@ export interface GetServiceResult {
      */
     readonly hostname: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The publicly accessible IP of the SignalR service.
      */
     readonly ipAddress: string;
@@ -94,8 +98,4 @@ export interface GetServiceResult {
      */
     readonly serverPort: number;
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

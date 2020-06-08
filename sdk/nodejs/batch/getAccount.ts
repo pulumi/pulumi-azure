@@ -61,6 +61,10 @@ export interface GetAccountResult {
      */
     readonly accountEndpoint: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
      */
     readonly keyVaultReferences: outputs.batch.GetAccountKeyVaultReference[];
@@ -93,8 +97,4 @@ export interface GetAccountResult {
      * A map of tags assigned to the Batch account.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

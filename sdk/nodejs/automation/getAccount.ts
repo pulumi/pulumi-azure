@@ -60,6 +60,10 @@ export interface GetAccountResult {
      * The Endpoint for this Auomation Account.
      */
     readonly endpoint: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly name: string;
     /**
      * The Primary Access Key for the Automation Account.
@@ -70,8 +74,4 @@ export interface GetAccountResult {
      * The Secondary Access Key for the Automation Account.
      */
     readonly secondaryKey: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -64,6 +64,10 @@ export interface GetDedicatedHostArgs {
 export interface GetDedicatedHostResult {
     readonly dedicatedHostGroupName: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The location where the Dedicated Host exists.
      */
     readonly location: string;
@@ -73,8 +77,4 @@ export interface GetDedicatedHostResult {
      * A mapping of tags assigned to the Dedicated Host.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -74,6 +74,10 @@ export interface GetAuthorizationRuleArgs {
  */
 export interface GetAuthorizationRuleResult {
     readonly eventhubName: string;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly listen?: boolean;
     readonly location: string;
     readonly manage?: boolean;
@@ -105,8 +109,4 @@ export interface GetAuthorizationRuleResult {
      */
     readonly secondaryKey: string;
     readonly send?: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

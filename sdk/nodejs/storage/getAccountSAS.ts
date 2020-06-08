@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
  * and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
- *
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
     if (!opts) {
@@ -75,6 +74,10 @@ export interface GetAccountSASResult {
     readonly connectionString: string;
     readonly expiry: string;
     readonly httpsOnly?: boolean;
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
     readonly permissions: outputs.storage.GetAccountSASPermissions;
     readonly resourceTypes: outputs.storage.GetAccountSASResourceTypes;
     /**
@@ -83,8 +86,4 @@ export interface GetAccountSASResult {
     readonly sas: string;
     readonly services: outputs.storage.GetAccountSASServices;
     readonly start: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

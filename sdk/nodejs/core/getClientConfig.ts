@@ -38,11 +38,11 @@ export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientC
  */
 export interface GetClientConfigResult {
     readonly clientId: string;
-    readonly objectId: string;
-    readonly subscriptionId: string;
-    readonly tenantId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly objectId: string;
+    readonly subscriptionId: string;
+    readonly tenantId: string;
 }

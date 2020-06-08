@@ -85,6 +85,10 @@ export interface GetCertificateOrderResult {
      */
     readonly expirationTime: string;
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * Certificate thumbprint intermediate certificate.
      */
     readonly intermediateThumbprint: string;
@@ -126,8 +130,4 @@ export interface GetCertificateOrderResult {
      * Duration in years (must be between 1 and 3).
      */
     readonly validityInYears: number;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
