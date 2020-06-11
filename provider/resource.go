@@ -1503,7 +1503,6 @@ func Provider() tfbridge.ProviderInfo {
 				"moment":                        "2.24.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{
-				Files: []string{},
 				DestFiles: []string{
 					"location.ts",
 					"util.ts",
