@@ -14,17 +14,25 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterRoleBasedAccessControlAzureActiveDirectory
     {
         /// <summary>
+        /// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        /// </summary>
+        public readonly ImmutableArray<string> AdminGroupObjectIds;
+        /// <summary>
         /// The Client ID of an Azure Active Directory Application.
         /// </summary>
-        public readonly string ClientAppId;
+        public readonly string? ClientAppId;
+        /// <summary>
+        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        /// </summary>
+        public readonly bool? Managed;
         /// <summary>
         /// The Server ID of an Azure Active Directory Application.
         /// </summary>
-        public readonly string ServerAppId;
+        public readonly string? ServerAppId;
         /// <summary>
         /// The Server Secret of an Azure Active Directory Application.
         /// </summary>
-        public readonly string ServerAppSecret;
+        public readonly string? ServerAppSecret;
         /// <summary>
         /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         /// </summary>
@@ -32,15 +40,21 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private KubernetesClusterRoleBasedAccessControlAzureActiveDirectory(
-            string clientAppId,
+            ImmutableArray<string> adminGroupObjectIds,
 
-            string serverAppId,
+            string? clientAppId,
 
-            string serverAppSecret,
+            bool? managed,
+
+            string? serverAppId,
+
+            string? serverAppSecret,
 
             string? tenantId)
         {
+            AdminGroupObjectIds = adminGroupObjectIds;
             ClientAppId = clientAppId;
+            Managed = managed;
             ServerAppId = serverAppId;
             ServerAppSecret = serverAppSecret;
             TenantId = tenantId;

@@ -9,6 +9,7 @@ export * from "./factory";
 export * from "./getFactory";
 export * from "./integrationRuntimeManaged";
 export * from "./linkedServiceDataLakeStorageGen2";
+export * from "./linkedServiceKeyVault";
 export * from "./linkedServiceMysql";
 export * from "./linkedServicePostgresql";
 export * from "./linkedServiceSqlServer";

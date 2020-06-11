@@ -1426,6 +1426,114 @@ func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TimeSeriesInsightsReferenceDataSetKeyProperty struct {
+	// The name of the key property.
+	Name string `pulumi:"name"`
+	// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+	Type string `pulumi:"type"`
+}
+
+// TimeSeriesInsightsReferenceDataSetKeyPropertyInput is an input type that accepts TimeSeriesInsightsReferenceDataSetKeyPropertyArgs and TimeSeriesInsightsReferenceDataSetKeyPropertyOutput values.
+// You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetKeyPropertyInput` via:
+//
+// 		 TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...}
+//
+type TimeSeriesInsightsReferenceDataSetKeyPropertyInput interface {
+	pulumi.Input
+
+	ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyOutput
+	ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput
+}
+
+type TimeSeriesInsightsReferenceDataSetKeyPropertyArgs struct {
+	// The name of the key property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
+}
+
+func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
+	return i.ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput)
+}
+
+// TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput is an input type that accepts TimeSeriesInsightsReferenceDataSetKeyPropertyArray and TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput values.
+// You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput` via:
+//
+// 		 TimeSeriesInsightsReferenceDataSetKeyPropertyArray{ TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...} }
+//
+type TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput interface {
+	pulumi.Input
+
+	ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput
+	ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput
+}
+
+type TimeSeriesInsightsReferenceDataSetKeyPropertyArray []TimeSeriesInsightsReferenceDataSetKeyPropertyInput
+
+func (TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
+}
+
+func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
+	return i.ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput)
+}
+
+type TimeSeriesInsightsReferenceDataSetKeyPropertyOutput struct{ *pulumi.OutputState }
+
+func (TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
+}
+
+func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
+	return o
+}
+
+func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
+	return o
+}
+
+// The name of the key property.
+func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeSeriesInsightsReferenceDataSetKeyProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeSeriesInsightsReferenceDataSetKeyProperty) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeSeriesInsightsReferenceDataSetKeyProperty)(nil)).Elem()
+}
+
+func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput() TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
+	return o
+}
+
+func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
+	return o
+}
+
+func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeSeriesInsightsReferenceDataSetKeyProperty {
+		return vs[0].([]TimeSeriesInsightsReferenceDataSetKeyProperty)[vs[1].(int)]
+	}).(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IoTHubEndpointOutput{})
 	pulumi.RegisterOutputType(IoTHubEndpointArrayOutput{})
@@ -1445,4 +1553,6 @@ func init() {
 	pulumi.RegisterOutputType(IotHubDpsLinkedHubArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDpsSkuOutput{})
 	pulumi.RegisterOutputType(IotHubDpsSkuPtrOutput{})
+	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput{})
+	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput{})
 }

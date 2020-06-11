@@ -75,9 +75,17 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
+     * A `autoScalerProfile` block as defined below.
+     */
+    public readonly autoScalerProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAutoScalerProfile>;
+    /**
      * A `defaultNodePool` block as defined below.
      */
     public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
+    /**
+     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+     */
+    public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -163,6 +171,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
+     * The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     */
+    public readonly skuTier!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -185,7 +197,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             const state = argsOrState as KubernetesClusterState | undefined;
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
+            inputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
             inputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
+            inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
@@ -207,6 +221,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roleBasedAccessControl"] = state ? state.roleBasedAccessControl : undefined;
             inputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
+            inputs["skuTier"] = state ? state.skuTier : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["windowsProfile"] = state ? state.windowsProfile : undefined;
         } else {
@@ -222,7 +237,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             }
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
             inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
+            inputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             inputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
+            inputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -237,6 +254,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roleBasedAccessControl"] = args ? args.roleBasedAccessControl : undefined;
             inputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
+            inputs["skuTier"] = args ? args.skuTier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             inputs["fqdn"] = undefined /*out*/;
@@ -271,9 +289,17 @@ export interface KubernetesClusterState {
      */
     readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * A `autoScalerProfile` block as defined below.
+     */
+    readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
+    /**
      * A `defaultNodePool` block as defined below.
      */
     readonly defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
+    /**
+     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+     */
+    readonly diskEncryptionSetId?: pulumi.Input<string>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -359,6 +385,10 @@ export interface KubernetesClusterState {
      */
     readonly servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
+     * The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     */
+    readonly skuTier?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -381,9 +411,17 @@ export interface KubernetesClusterArgs {
      */
     readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * A `autoScalerProfile` block as defined below.
+     */
+    readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterAutoScalerProfile>;
+    /**
      * A `defaultNodePool` block as defined below.
      */
     readonly defaultNodePool: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
+    /**
+     * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+     */
+    readonly diskEncryptionSetId?: pulumi.Input<string>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -440,6 +478,10 @@ export interface KubernetesClusterArgs {
      * A `servicePrincipal` block as documented below.
      */
     readonly servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
+    /**
+     * The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+     */
+    readonly skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

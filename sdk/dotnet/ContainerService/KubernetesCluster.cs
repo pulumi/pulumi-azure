@@ -27,10 +27,22 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<string>> ApiServerAuthorizedIpRanges { get; private set; } = null!;
 
         /// <summary>
+        /// A `auto_scaler_profile` block as defined below.
+        /// </summary>
+        [Output("autoScalerProfile")]
+        public Output<Outputs.KubernetesClusterAutoScalerProfile> AutoScalerProfile { get; private set; } = null!;
+
+        /// <summary>
         /// A `default_node_pool` block as defined below.
         /// </summary>
         [Output("defaultNodePool")]
         public Output<Outputs.KubernetesClusterDefaultNodePool> DefaultNodePool { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+        /// </summary>
+        [Output("diskEncryptionSetId")]
+        public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
 
         /// <summary>
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -156,6 +168,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
 
         /// <summary>
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        /// </summary>
+        [Output("skuTier")]
+        public Output<string?> SkuTier { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -232,10 +250,22 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
+        /// A `auto_scaler_profile` block as defined below.
+        /// </summary>
+        [Input("autoScalerProfile")]
+        public Input<Inputs.KubernetesClusterAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
+
+        /// <summary>
         /// A `default_node_pool` block as defined below.
         /// </summary>
         [Input("defaultNodePool", required: true)]
         public Input<Inputs.KubernetesClusterDefaultNodePoolArgs> DefaultNodePool { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -318,6 +348,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("servicePrincipal")]
         public Input<Inputs.KubernetesClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
 
+        /// <summary>
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -362,10 +398,22 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
+        /// A `auto_scaler_profile` block as defined below.
+        /// </summary>
+        [Input("autoScalerProfile")]
+        public Input<Inputs.KubernetesClusterAutoScalerProfileGetArgs>? AutoScalerProfile { get; set; }
+
+        /// <summary>
         /// A `default_node_pool` block as defined below.
         /// </summary>
         [Input("defaultNodePool")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolGetArgs>? DefaultNodePool { get; set; }
+
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -507,6 +555,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.KubernetesClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }
+
+        /// <summary>
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

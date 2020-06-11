@@ -39,8 +39,10 @@ func TestAccDurableFunctions(t *testing.T) {
 func TestAccEventgrid(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "eventgrid"),
-			RunUpdateTest: false,
+			Dir:                      path.Join(getCwd(t), "eventgrid"),
+			RunUpdateTest:            false,
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		})
 
 	integration.ProgramTest(t, &test)

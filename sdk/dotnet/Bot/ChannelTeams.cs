@@ -43,8 +43,6 @@ namespace Pulumi.Azure.Bot
     ///             BotName = exampleChannelsRegistration.Name,
     ///             Location = exampleChannelsRegistration.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             CallingWebHook = "https://example2.com/",
-    ///             EnableCalling = false,
     ///         });
     ///     }
     /// 
@@ -63,7 +61,7 @@ namespace Pulumi.Azure.Bot
         /// Specifies the webhook for Microsoft Teams channel calls.
         /// </summary>
         [Output("callingWebHook")]
-        public Output<string?> CallingWebHook { get; private set; } = null!;
+        public Output<string> CallingWebHook { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.

@@ -3405,6 +3405,18 @@ export namespace batch {
     }
 }
 
+export namespace blueprint {
+    export interface AssignmentIdentity {
+        identityIds: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+         */
+        type: string;
+    }
+}
+
 export namespace bot {
     export interface ChannelDirectLineSite {
         enabled?: boolean;
@@ -6018,7 +6030,7 @@ export namespace containerservice {
          * If the auto-scaler is enabled.
          */
         enableAutoScaling: boolean;
-        enableNodePublicIp?: boolean;
+        enableNodePublicIp: boolean;
         /**
          * Maximum number of nodes for auto-scaling
          */
@@ -6039,7 +6051,11 @@ export namespace containerservice {
         /**
          * The list of Kubernetes taints which are applied to nodes in the agent pool
          */
-        nodeTaints?: string[];
+        nodeTaints: string[];
+        /**
+         * Kubernetes version used for the Agents.
+         */
+        orchestratorVersion: string;
         /**
          * The size of the Agent VM's Operating System Disk in GB.
          */
@@ -6209,9 +6225,17 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
         /**
+         * The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+         */
+        adminGroupObjectIds: string[];
+        /**
          * The Client ID of an Azure Active Directory Application.
          */
         clientAppId: string;
+        /**
+         * Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+         */
+        managed: boolean;
         /**
          * The Server ID of an Azure Active Directory Application.
          */
@@ -6570,6 +6594,45 @@ export namespace containerservice {
         userAssignedIdentityId: string;
     }
 
+    export interface KubernetesClusterAutoScalerProfile {
+        /**
+         * Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+         */
+        balanceSimilarNodeGroups?: boolean;
+        /**
+         * Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+         */
+        maxGracefulTerminationSec: string;
+        /**
+         * How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+         */
+        scaleDownDelayAfterAdd: string;
+        /**
+         * How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
+         */
+        scaleDownDelayAfterDelete: string;
+        /**
+         * How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+         */
+        scaleDownDelayAfterFailure: string;
+        /**
+         * How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+         */
+        scaleDownUnneeded: string;
+        /**
+         * How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+         */
+        scaleDownUnready: string;
+        /**
+         * Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+         */
+        scaleDownUtilizationThreshold: string;
+        /**
+         * How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+         */
+        scanInterval: string;
+    }
+
     export interface KubernetesClusterDefaultNodePool {
         /**
          * A list of Availability Zones across which the Node Pool should be spread.
@@ -6604,13 +6667,17 @@ export namespace containerservice {
          */
         nodeCount: number;
         /**
-         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
          */
         nodeLabels?: {[key: string]: string};
         /**
-         * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+         * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
          */
         nodeTaints?: string[];
+        /**
+         * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+         */
+        orchestratorVersion: string;
         /**
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
@@ -6780,7 +6847,11 @@ export namespace containerservice {
          */
         effectiveOutboundIps: string[];
         /**
-         * Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+         * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
          */
         managedOutboundIpCount: number;
         /**
@@ -6791,6 +6862,10 @@ export namespace containerservice {
          * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
          */
         outboundIpPrefixIds: string[];
+        /**
+         * Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+         */
+        outboundPortsAllocated?: number;
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
@@ -6806,17 +6881,25 @@ export namespace containerservice {
 
     export interface KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
         /**
+         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+         */
+        adminGroupObjectIds?: string[];
+        /**
          * The Client ID of an Azure Active Directory Application.
          */
-        clientAppId: string;
+        clientAppId?: string;
+        /**
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         */
+        managed?: boolean;
         /**
          * The Server ID of an Azure Active Directory Application.
          */
-        serverAppId: string;
+        serverAppId?: string;
         /**
          * The Server Secret of an Azure Active Directory Application.
          */
-        serverAppSecret: string;
+        serverAppSecret?: string;
         /**
          * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
          */
@@ -7914,6 +7997,21 @@ export namespace eventgrid {
         values: string[];
     }
 
+    export interface EventSubscriptionAzureFunctionEndpoint {
+        /**
+         * Specifies the ID of the Function where the Event Subscription will receive events.
+         */
+        functionId: string;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: number;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: number;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -7977,6 +8075,26 @@ export namespace eventgrid {
     }
 
     export interface EventSubscriptionWebhookEndpoint {
+        /**
+         * The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryAppIdOrUri?: string;
+        /**
+         * The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryTenantId?: string;
+        /**
+         * The base url of the webhook where the Event Subscription will receive events.
+         */
+        baseUrl: string;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: number;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: number;
         /**
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
@@ -8377,6 +8495,21 @@ export namespace eventhub {
         values: string[];
     }
 
+    export interface EventSubscriptionAzureFunctionEndpoint {
+        /**
+         * Specifies the ID of the Function where the Event Subscription will receive events.
+         */
+        functionId: string;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: number;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: number;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -8440,6 +8573,26 @@ export namespace eventhub {
     }
 
     export interface EventSubscriptionWebhookEndpoint {
+        /**
+         * The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryAppIdOrUri?: string;
+        /**
+         * The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryTenantId?: string;
+        /**
+         * The base url of the webhook where the Event Subscription will receive events.
+         */
+        baseUrl: string;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: number;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: number;
         /**
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
@@ -10581,6 +10734,17 @@ export namespace iot {
          */
         name: string;
     }
+
+    export interface TimeSeriesInsightsReferenceDataSetKeyProperty {
+        /**
+         * The name of the key property.
+         */
+        name: string;
+        /**
+         * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+         */
+        type: string;
+    }
 }
 
 export namespace keyvault {
@@ -10613,7 +10777,7 @@ export namespace keyvault {
          */
         secretProperties: outputs.keyvault.CertifiateCertificatePolicySecretProperties;
         /**
-         * A `x509CertificateProperties` block as defined below.
+         * A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
          */
         x509CertificateProperties: outputs.keyvault.CertifiateCertificatePolicyX509CertificateProperties;
     }
@@ -10747,7 +10911,7 @@ export namespace keyvault {
          */
         secretProperties: outputs.keyvault.CertificateCertificatePolicySecretProperties;
         /**
-         * A `x509CertificateProperties` block as defined below.
+         * A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
          */
         x509CertificateProperties: outputs.keyvault.CertificateCertificatePolicyX509CertificateProperties;
     }
@@ -10850,6 +11014,129 @@ export namespace keyvault {
          * A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
          */
         upns?: string[];
+    }
+
+    export interface GetCertificateCertificatePolicy {
+        /**
+         * A `issuerParameters` block as defined below.
+         */
+        issuerParameters: outputs.keyvault.GetCertificateCertificatePolicyIssuerParameter[];
+        /**
+         * A `keyProperties` block as defined below.
+         */
+        keyProperties: outputs.keyvault.GetCertificateCertificatePolicyKeyProperty[];
+        /**
+         * A `lifetimeAction` block as defined below.
+         */
+        lifetimeActions?: outputs.keyvault.GetCertificateCertificatePolicyLifetimeAction[];
+        /**
+         * A `secretProperties` block as defined below.
+         */
+        secretProperties: outputs.keyvault.GetCertificateCertificatePolicySecretProperty[];
+        /**
+         * An `x509CertificateProperties` block as defined below.
+         */
+        x509CertificateProperties: outputs.keyvault.GetCertificateCertificatePolicyX509CertificateProperty[];
+    }
+
+    export interface GetCertificateCertificatePolicyIssuerParameter {
+        /**
+         * Specifies the name of the Key Vault Secret.
+         */
+        name: string;
+    }
+
+    export interface GetCertificateCertificatePolicyKeyProperty {
+        /**
+         * Is this Certificate Exportable?
+         */
+        exportable: boolean;
+        /**
+         * The size of the Key used in the Certificate.
+         */
+        keySize: number;
+        /**
+         * Specifies the Type of Key, for example `RSA`.
+         */
+        keyType: string;
+        /**
+         * Is the key reusable?
+         */
+        reuseKey: boolean;
+    }
+
+    export interface GetCertificateCertificatePolicyLifetimeAction {
+        /**
+         * A `action` block as defined below.
+         */
+        actions: outputs.keyvault.GetCertificateCertificatePolicyLifetimeActionAction[];
+        /**
+         * A `trigger` block as defined below.
+         */
+        triggers: outputs.keyvault.GetCertificateCertificatePolicyLifetimeActionTrigger[];
+    }
+
+    export interface GetCertificateCertificatePolicyLifetimeActionAction {
+        /**
+         * The Type of action to be performed when the lifetime trigger is triggerec.
+         */
+        actionType: string;
+    }
+
+    export interface GetCertificateCertificatePolicyLifetimeActionTrigger {
+        /**
+         * The number of days before the Certificate expires that the action associated with this Trigger should run.
+         */
+        daysBeforeExpiry: number;
+        /**
+         * The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
+         */
+        lifetimePercentage: number;
+    }
+
+    export interface GetCertificateCertificatePolicySecretProperty {
+        /**
+         * The Content-Type of the Certificate, for example `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
+         */
+        contentType: string;
+    }
+
+    export interface GetCertificateCertificatePolicyX509CertificateProperty {
+        /**
+         * A list of Extended/Enhanced Key Usages.
+         */
+        extendedKeyUsages: string[];
+        /**
+         * A list of uses associated with this Key.
+         */
+        keyUsages: string[];
+        /**
+         * The Certificate's Subject.
+         */
+        subject: string;
+        /**
+         * A `subjectAlternativeNames` block as defined below.
+         */
+        subjectAlternativeNames: outputs.keyvault.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName[];
+        /**
+         * The Certificates Validity Period in Months.
+         */
+        validityInMonths: number;
+    }
+
+    export interface GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName {
+        /**
+         * A list of alternative DNS names (FQDNs) identified by the Certificate.
+         */
+        dnsNames: string[];
+        /**
+         * A list of email addresses identified by this Certificate.
+         */
+        emails: string[];
+        /**
+         * A list of User Principal Names identified by the Certificate.
+         */
+        upns: string[];
     }
 
     export interface GetKeyVaultAccessPolicy {
@@ -12755,7 +13042,7 @@ export namespace network {
          */
         publicIpAddressId: string;
         /**
-         * The ID of the Subnet which the Application Gateway should be connected to.
+         * The ID of the Subnet.
          */
         subnetId: string;
     }
@@ -12785,7 +13072,7 @@ export namespace network {
          */
         name: string;
         /**
-         * The ID of a Subnet.
+         * The ID of the Subnet which the Application Gateway should be connected to.
          */
         subnetId: string;
     }

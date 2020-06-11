@@ -54,6 +54,7 @@ const (
 	azureAuthorization       = "Authorization"       // Authorization
 	azureBackup              = "Backup"              // Backup
 	azureBatch               = "Batch"               // Batch
+	azureBlueprint           = "Blueprint"           // Blueprint
 	azureBot                 = "Bot"                 // Bot
 	azureCDN                 = "Cdn"                 // CDN
 	azureCognitive           = "Cognitive"           // Cognitive
@@ -410,7 +411,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "VirtualNetworkSwiftConnection"),
 			},
-			"azurerm_app_service_environment": {Tok: azureResource(azureAppService, "Environment")},
+			"azurerm_app_service_environment":       {Tok: azureResource(azureAppService, "Environment")},
+			"azurerm_app_service_hybrid_connection": {Tok: azureResource(azureAppService, "HybridConnection")},
 
 			// AppPlatform
 			"azurerm_spring_cloud_service": {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
@@ -591,6 +593,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_pipeline":                    {Tok: azureResource(azureDataFactory, "Pipeline")},
 			"azurerm_data_factory_integration_runtime_managed": {Tok: azureResource(azureDataFactory, "IntegrationRuntimeManaged")},
 			"azurerm_data_factory_trigger_schedule":            {Tok: azureResource(azureDataFactory, "TriggerSchedule")},
+			"azurerm_data_factory_linked_service_key_vault":    {Tok: azureResource(azureDataFactory, "LinkedServiceKeyVault")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -671,6 +674,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_dps_shared_access_policy":   {Tok: azureResource(azureIot, "DpsSharedAccessPolicy")},
 			"azurerm_iot_time_series_insights_standard_environment": {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsStandardEnvironment"),
+			},
+			"azurerm_iot_time_series_insights_access_policy": {
+				Tok: azureResource(azureIot, "TimeSeriesInsightsAccessPolicy"),
+			},
+			"azurerm_iot_time_series_insights_reference_data_set": {
+				Tok: azureResource(azureIot, "TimeSeriesInsightsReferenceDataSet"),
 			},
 
 			// KeyVault
@@ -1277,6 +1286,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
+
+			// Blueprint
+			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1368,12 +1380,14 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_key_vault_access_policy":     {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
-			"azurerm_key_vault_key":               {Tok: azureDataSource(azureKeyVault, "getKey")},
-			"azurerm_key_vault_secret":            {Tok: azureDataSource(azureKeyVault, "getSecret")},
-			"azurerm_kubernetes_cluster":          {Tok: azureDataSource(azureContainerService, "getKubernetesCluster")},
-			"azurerm_kubernetes_service_versions": {Tok: azureDataSource(azureContainerService, "getKubernetesServiceVersions")},
-			"azurerm_notification_hub":            {Tok: azureDataSource(azureNotificationHub, "getHub")},
+			"azurerm_key_vault_access_policy":      {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
+			"azurerm_key_vault_key":                {Tok: azureDataSource(azureKeyVault, "getKey")},
+			"azurerm_key_vault_secret":             {Tok: azureDataSource(azureKeyVault, "getSecret")},
+			"azurerm_key_vault_certificate":        {Tok: azureDataSource(azureKeyVault, "getCertificate")},
+			"azurerm_kubernetes_cluster":           {Tok: azureDataSource(azureContainerService, "getKubernetesCluster")},
+			"azurerm_kubernetes_service_versions":  {Tok: azureDataSource(azureContainerService, "getKubernetesServiceVersions")},
+			"azurerm_kubernetes_cluster_node_pool": {Tok: azureDataSource(azureContainerService, "getClusterNodePool")},
+			"azurerm_notification_hub":             {Tok: azureDataSource(azureNotificationHub, "getHub")},
 			"azurerm_notification_hub_namespace": {
 				Tok: azureDataSource(azureNotificationHub, "getNamespace"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1488,6 +1502,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule":            {Tok: azureDataSource(azureSentinel, "getAlertRule")},
 			"azurerm_maintenance_configuration":      {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
 			"azurerm_advisor_recommendations":        {Tok: azureDataSource(advisor, "getRecommendations")},
+			"azurerm_blueprint_definition":           {Tok: azureDataSource(azureBlueprint, "getDefinition")},
+			"azurerm_blueprint_published_version":    {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

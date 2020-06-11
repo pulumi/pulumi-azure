@@ -45,8 +45,7 @@ type TrafficManagerEndpoint struct {
 	// The name of the Traffic Manager Profile to attach
 	// create the Traffic Manager endpoint.
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
-	// The name of the resource group in which to
-	// create the Traffic Manager endpoint.
+	// The name of the resource group where the Traffic Manager Profile exists.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `subnet` blocks as defined below
 	Subnets TrafficManagerEndpointSubnetArrayOutput `pulumi:"subnets"`
@@ -143,8 +142,7 @@ type trafficManagerEndpointState struct {
 	// The name of the Traffic Manager Profile to attach
 	// create the Traffic Manager endpoint.
 	ProfileName *string `pulumi:"profileName"`
-	// The name of the resource group in which to
-	// create the Traffic Manager endpoint.
+	// The name of the resource group where the Traffic Manager Profile exists.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `subnet` blocks as defined below
 	Subnets []TrafficManagerEndpointSubnet `pulumi:"subnets"`
@@ -199,8 +197,7 @@ type TrafficManagerEndpointState struct {
 	// The name of the Traffic Manager Profile to attach
 	// create the Traffic Manager endpoint.
 	ProfileName pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the Traffic Manager endpoint.
+	// The name of the resource group where the Traffic Manager Profile exists.
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `subnet` blocks as defined below
 	Subnets TrafficManagerEndpointSubnetArrayInput
@@ -258,8 +255,7 @@ type trafficManagerEndpointArgs struct {
 	// The name of the Traffic Manager Profile to attach
 	// create the Traffic Manager endpoint.
 	ProfileName string `pulumi:"profileName"`
-	// The name of the resource group in which to
-	// create the Traffic Manager endpoint.
+	// The name of the resource group where the Traffic Manager Profile exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `subnet` blocks as defined below
 	Subnets []TrafficManagerEndpointSubnet `pulumi:"subnets"`
@@ -314,8 +310,7 @@ type TrafficManagerEndpointArgs struct {
 	// The name of the Traffic Manager Profile to attach
 	// create the Traffic Manager endpoint.
 	ProfileName pulumi.StringInput
-	// The name of the resource group in which to
-	// create the Traffic Manager endpoint.
+	// The name of the resource group where the Traffic Manager Profile exists.
 	ResourceGroupName pulumi.StringInput
 	// One or more `subnet` blocks as defined below
 	Subnets TrafficManagerEndpointSubnetArrayInput

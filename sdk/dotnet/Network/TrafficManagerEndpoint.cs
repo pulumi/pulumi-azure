@@ -80,8 +80,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Traffic Manager endpoint.
+        /// The name of the resource group where the Traffic Manager Profile exists.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -250,8 +249,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Traffic Manager endpoint.
+        /// The name of the resource group where the Traffic Manager Profile exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -386,8 +384,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ProfileName { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Traffic Manager endpoint.
+        /// The name of the resource group where the Traffic Manager Profile exists.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

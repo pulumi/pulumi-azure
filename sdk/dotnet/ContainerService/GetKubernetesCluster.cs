@@ -53,15 +53,6 @@ namespace Pulumi.Azure.ContainerService
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
-        /// </summary>
-        [Input("privateClusterEnabled")]
-        public bool? PrivateClusterEnabled { get; set; }
-
-        [Input("privateLinkEnabled")]
-        public bool? PrivateLinkEnabled { get; set; }
-
-        /// <summary>
         /// The name of the Resource Group in which the managed Kubernetes Cluster exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -88,6 +79,10 @@ namespace Pulumi.Azure.ContainerService
         /// The IP ranges to whitelist for incoming traffic to the masters.
         /// </summary>
         public readonly ImmutableArray<string> ApiServerAuthorizedIpRanges;
+        /// <summary>
+        /// The ID of the Disk Encryption Set used for the Nodes and Volumes.
+        /// </summary>
+        public readonly string DiskEncryptionSetId;
         /// <summary>
         /// The DNS Prefix of the managed Kubernetes cluster.
         /// </summary>
@@ -121,7 +116,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeConfigResult> KubeConfigs;
         /// <summary>
-        /// A `kubelet_identity` block as documented below.  
+        /// A `kubelet_identity` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterKubeletIdentityResult> KubeletIdentities;
         /// <summary>
@@ -183,6 +178,8 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableArray<string> apiServerAuthorizedIpRanges,
 
+            string diskEncryptionSetId,
+
             string dnsPrefix,
 
             string fqdn,
@@ -232,6 +229,7 @@ namespace Pulumi.Azure.ContainerService
             AddonProfiles = addonProfiles;
             AgentPoolProfiles = agentPoolProfiles;
             ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
+            DiskEncryptionSetId = diskEncryptionSetId;
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;
             Id = id;

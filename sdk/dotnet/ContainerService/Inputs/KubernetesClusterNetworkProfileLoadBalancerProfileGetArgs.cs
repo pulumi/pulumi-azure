@@ -25,7 +25,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+        /// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
+
+        /// <summary>
+        /// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
         /// </summary>
         [Input("managedOutboundIpCount")]
         public Input<int>? ManagedOutboundIpCount { get; set; }
@@ -53,6 +59,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
             get => _outboundIpPrefixIds ?? (_outboundIpPrefixIds = new InputList<string>());
             set => _outboundIpPrefixIds = value;
         }
+
+        /// <summary>
+        /// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+        /// </summary>
+        [Input("outboundPortsAllocated")]
+        public Input<int>? OutboundPortsAllocated { get; set; }
 
         public KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs()
         {

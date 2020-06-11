@@ -63,8 +63,7 @@ class Endpoint(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the Traffic Manager endpoint.
+    The name of the resource group where the Traffic Manager Profile exists.
     """
     subnets: pulumi.Output[list]
     """
@@ -169,8 +168,7 @@ class Endpoint(pulumi.CustomResource):
                omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager Profile to attach
                create the Traffic Manager endpoint.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Traffic Manager endpoint.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the Traffic Manager Profile exists.
         :param pulumi.Input[list] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target. This argument must be
                provided for an endpoint of type `externalEndpoints`, for other types it
@@ -273,8 +271,7 @@ class Endpoint(pulumi.CustomResource):
                omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager Profile to attach
                create the Traffic Manager endpoint.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Traffic Manager endpoint.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the Traffic Manager Profile exists.
         :param pulumi.Input[list] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target. This argument must be
                provided for an endpoint of type `externalEndpoints`, for other types it

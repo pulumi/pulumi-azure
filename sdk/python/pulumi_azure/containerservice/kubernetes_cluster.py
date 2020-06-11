@@ -40,6 +40,20 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     The IP ranges to whitelist for incoming traffic to the masters.
     """
+    auto_scaler_profile: pulumi.Output[dict]
+    """
+    A `auto_scaler_profile` block as defined below.
+
+      * `balanceSimilarNodeGroups` (`bool`) - Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+      * `maxGracefulTerminationSec` (`str`) - Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+      * `scaleDownDelayAfterAdd` (`str`) - How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+      * `scaleDownDelayAfterDelete` (`str`) - How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+      * `scaleDownDelayAfterFailure` (`str`) - How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+      * `scaleDownUnneeded` (`str`) - How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+      * `scaleDownUnready` (`str`) - How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+      * `scaleDownUtilizationThreshold` (`str`) - Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+      * `scanInterval` (`str`) - How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+    """
     default_node_pool: pulumi.Output[dict]
     """
     A `default_node_pool` block as defined below.
@@ -52,13 +66,18 @@ class KubernetesCluster(pulumi.CustomResource):
       * `min_count` (`float`) - The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
       * `name` (`str`) - The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
       * `node_count` (`float`) - The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
-      * `node_labels` (`dict`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
-      * `node_taints` (`list`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+      * `node_labels` (`dict`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+      * `node_taints` (`list`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+      * `orchestrator_version` (`str`) - Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
       * `os_disk_size_gb` (`float`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
       * `tags` (`dict`) - A mapping of tags to assign to the Node Pool.
       * `type` (`str`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
       * `vm_size` (`str`) - The size of the Virtual Machine, such as `Standard_DS2_v2`.
       * `vnet_subnet_id` (`str`) - The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+    """
+    disk_encryption_set_id: pulumi.Output[str]
+    """
+    The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
     """
     dns_prefix: pulumi.Output[str]
     """
@@ -146,9 +165,11 @@ class KubernetesCluster(pulumi.CustomResource):
       * `dockerBridgeCidr` (`str`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
       * `loadBalancerProfile` (`dict`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
         * `effectiveOutboundIps` (`list`) - The outcome (resource IDs) of the specified arguments.
-        * `managedOutboundIpCount` (`float`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+        * `idle_timeout_in_minutes` (`float`) - Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+        * `managedOutboundIpCount` (`float`) - Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
         * `outboundIpAddressIds` (`list`) - The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
         * `outboundIpPrefixIds` (`list`) - The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+        * `outboundPortsAllocated` (`float`) - Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
 
       * `loadBalancerSku` (`str`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
       * `networkPlugin` (`str`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
@@ -179,7 +200,9 @@ class KubernetesCluster(pulumi.CustomResource):
     A `role_based_access_control` block. Changing this forces a new resource to be created.
 
       * `azure_active_directory` (`dict`) - An `azure_active_directory` block.
+        * `adminGroupObjectIds` (`list`) - A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
         * `clientAppId` (`str`) - The Client ID of an Azure Active Directory Application.
+        * `managed` (`bool`) - Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         * `serverAppId` (`str`) - The Server ID of an Azure Active Directory Application.
         * `serverAppSecret` (`str`) - The Server Secret of an Azure Active Directory Application.
         * `tenant_id` (`str`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -193,6 +216,10 @@ class KubernetesCluster(pulumi.CustomResource):
       * `client_id` (`str`) - The Client ID for the Service Principal.
       * `client_secret` (`str`) - The Client Secret for the Service Principal.
     """
+    sku_tier: pulumi.Output[str]
+    """
+    The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -204,7 +231,7 @@ class KubernetesCluster(pulumi.CustomResource):
       * `admin_password` (`str`) - The Admin Password for Windows VMs.
       * `admin_username` (`str`) - The Admin Username for Windows VMs.
     """
-    def __init__(__self__, resource_name, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_cluster_enabled=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, auto_scaler_profile=None, default_node_pool=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_cluster_enabled=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, sku_tier=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 
@@ -241,7 +268,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[list] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[dict] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[dict] default_node_pool: A `default_node_pool` block as defined below.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_pod_security_policy: Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
         :param pulumi.Input[dict] identity: A `identity` block as defined below. Changing this forces a new resource to be created.
@@ -255,6 +284,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
 
@@ -282,6 +312,18 @@ class KubernetesCluster(pulumi.CustomResource):
               * `object_id` (`pulumi.Input[str]`) - The Object ID of the user-defined Managed Identity used by the OMS Agents.
               * `userAssignedIdentityId` (`pulumi.Input[str]`) - The ID of the User Assigned Identity used by the OMS Agents.
 
+        The **auto_scaler_profile** object supports the following:
+
+          * `balanceSimilarNodeGroups` (`pulumi.Input[bool]`) - Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+          * `maxGracefulTerminationSec` (`pulumi.Input[str]`) - Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+          * `scaleDownDelayAfterAdd` (`pulumi.Input[str]`) - How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+          * `scaleDownDelayAfterDelete` (`pulumi.Input[str]`) - How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+          * `scaleDownDelayAfterFailure` (`pulumi.Input[str]`) - How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+          * `scaleDownUnneeded` (`pulumi.Input[str]`) - How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+          * `scaleDownUnready` (`pulumi.Input[str]`) - How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+          * `scaleDownUtilizationThreshold` (`pulumi.Input[str]`) - Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+          * `scanInterval` (`pulumi.Input[str]`) - How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+
         The **default_node_pool** object supports the following:
 
           * `availability_zones` (`pulumi.Input[list]`) - A list of Availability Zones across which the Node Pool should be spread.
@@ -292,8 +334,9 @@ class KubernetesCluster(pulumi.CustomResource):
           * `min_count` (`pulumi.Input[float]`) - The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
           * `name` (`pulumi.Input[str]`) - The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
           * `node_count` (`pulumi.Input[float]`) - The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
-          * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
-          * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+          * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+          * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+          * `orchestrator_version` (`pulumi.Input[str]`) - Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
           * `os_disk_size_gb` (`pulumi.Input[float]`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the Node Pool.
           * `type` (`pulumi.Input[str]`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -318,9 +361,11 @@ class KubernetesCluster(pulumi.CustomResource):
           * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
           * `loadBalancerProfile` (`pulumi.Input[dict]`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
             * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
-            * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+            * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+            * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
             * `outboundIpAddressIds` (`pulumi.Input[list]`) - The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
             * `outboundIpPrefixIds` (`pulumi.Input[list]`) - The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+            * `outboundPortsAllocated` (`pulumi.Input[float]`) - Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
 
           * `loadBalancerSku` (`pulumi.Input[str]`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
           * `networkPlugin` (`pulumi.Input[str]`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
@@ -332,7 +377,9 @@ class KubernetesCluster(pulumi.CustomResource):
         The **role_based_access_control** object supports the following:
 
           * `azure_active_directory` (`pulumi.Input[dict]`) - An `azure_active_directory` block.
+            * `adminGroupObjectIds` (`pulumi.Input[list]`) - A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
             * `clientAppId` (`pulumi.Input[str]`) - The Client ID of an Azure Active Directory Application.
+            * `managed` (`pulumi.Input[bool]`) - Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
             * `serverAppId` (`pulumi.Input[str]`) - The Server ID of an Azure Active Directory Application.
             * `serverAppSecret` (`pulumi.Input[str]`) - The Server Secret of an Azure Active Directory Application.
             * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -368,9 +415,11 @@ class KubernetesCluster(pulumi.CustomResource):
 
             __props__['addon_profile'] = addon_profile
             __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
+            __props__['auto_scaler_profile'] = auto_scaler_profile
             if default_node_pool is None:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__['default_node_pool'] = default_node_pool
+            __props__['disk_encryption_set_id'] = disk_encryption_set_id
             if dns_prefix is None:
                 raise TypeError("Missing required property 'dns_prefix'")
             __props__['dns_prefix'] = dns_prefix
@@ -392,6 +441,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['role_based_access_control'] = role_based_access_control
             __props__['service_principal'] = service_principal
+            __props__['sku_tier'] = sku_tier
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
             __props__['fqdn'] = None
@@ -408,7 +458,7 @@ class KubernetesCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
+    def get(resource_name, id, opts=None, addon_profile=None, api_server_authorized_ip_ranges=None, auto_scaler_profile=None, default_node_pool=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, sku_tier=None, tags=None, windows_profile=None):
         """
         Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -418,7 +468,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[list] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[dict] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[dict] default_node_pool: A `default_node_pool` block as defined below.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_pod_security_policy: Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
@@ -439,6 +491,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
 
@@ -466,6 +519,18 @@ class KubernetesCluster(pulumi.CustomResource):
               * `object_id` (`pulumi.Input[str]`) - The Object ID of the user-defined Managed Identity used by the OMS Agents.
               * `userAssignedIdentityId` (`pulumi.Input[str]`) - The ID of the User Assigned Identity used by the OMS Agents.
 
+        The **auto_scaler_profile** object supports the following:
+
+          * `balanceSimilarNodeGroups` (`pulumi.Input[bool]`) - Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+          * `maxGracefulTerminationSec` (`pulumi.Input[str]`) - Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+          * `scaleDownDelayAfterAdd` (`pulumi.Input[str]`) - How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+          * `scaleDownDelayAfterDelete` (`pulumi.Input[str]`) - How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+          * `scaleDownDelayAfterFailure` (`pulumi.Input[str]`) - How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+          * `scaleDownUnneeded` (`pulumi.Input[str]`) - How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+          * `scaleDownUnready` (`pulumi.Input[str]`) - How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+          * `scaleDownUtilizationThreshold` (`pulumi.Input[str]`) - Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+          * `scanInterval` (`pulumi.Input[str]`) - How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+
         The **default_node_pool** object supports the following:
 
           * `availability_zones` (`pulumi.Input[list]`) - A list of Availability Zones across which the Node Pool should be spread.
@@ -476,8 +541,9 @@ class KubernetesCluster(pulumi.CustomResource):
           * `min_count` (`pulumi.Input[float]`) - The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
           * `name` (`pulumi.Input[str]`) - The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
           * `node_count` (`pulumi.Input[float]`) - The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
-          * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
-          * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+          * `node_labels` (`pulumi.Input[dict]`) - A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+          * `node_taints` (`pulumi.Input[list]`) - A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+          * `orchestrator_version` (`pulumi.Input[str]`) - Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
           * `os_disk_size_gb` (`pulumi.Input[float]`) - The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
           * `tags` (`pulumi.Input[dict]`) - A mapping of tags to assign to the Node Pool.
           * `type` (`pulumi.Input[str]`) - The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -526,9 +592,11 @@ class KubernetesCluster(pulumi.CustomResource):
           * `dockerBridgeCidr` (`pulumi.Input[str]`) - IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
           * `loadBalancerProfile` (`pulumi.Input[dict]`) - A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `Standard`.
             * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
-            * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+            * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+            * `managedOutboundIpCount` (`pulumi.Input[float]`) - Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
             * `outboundIpAddressIds` (`pulumi.Input[list]`) - The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
             * `outboundIpPrefixIds` (`pulumi.Input[list]`) - The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+            * `outboundPortsAllocated` (`pulumi.Input[float]`) - Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
 
           * `loadBalancerSku` (`pulumi.Input[str]`) - Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`.
           * `networkPlugin` (`pulumi.Input[str]`) - Network plugin to use for networking. Currently supported values are `azure` and `kubenet`. Changing this forces a new resource to be created.
@@ -540,7 +608,9 @@ class KubernetesCluster(pulumi.CustomResource):
         The **role_based_access_control** object supports the following:
 
           * `azure_active_directory` (`pulumi.Input[dict]`) - An `azure_active_directory` block.
+            * `adminGroupObjectIds` (`pulumi.Input[list]`) - A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
             * `clientAppId` (`pulumi.Input[str]`) - The Client ID of an Azure Active Directory Application.
+            * `managed` (`pulumi.Input[bool]`) - Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
             * `serverAppId` (`pulumi.Input[str]`) - The Server ID of an Azure Active Directory Application.
             * `serverAppSecret` (`pulumi.Input[str]`) - The Server Secret of an Azure Active Directory Application.
             * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -563,7 +633,9 @@ class KubernetesCluster(pulumi.CustomResource):
 
         __props__["addon_profile"] = addon_profile
         __props__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
+        __props__["auto_scaler_profile"] = auto_scaler_profile
         __props__["default_node_pool"] = default_node_pool
+        __props__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__["dns_prefix"] = dns_prefix
         __props__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__["fqdn"] = fqdn
@@ -585,6 +657,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["role_based_access_control"] = role_based_access_control
         __props__["service_principal"] = service_principal
+        __props__["sku_tier"] = sku_tier
         __props__["tags"] = tags
         __props__["windows_profile"] = windows_profile
         return KubernetesCluster(resource_name, opts=opts, __props__=__props__)

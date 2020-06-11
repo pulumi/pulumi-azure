@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ID of a Subnet.
+        /// The ID of the Subnet which the Application Gateway should be connected to.
         /// </summary>
         public readonly string SubnetId;
 

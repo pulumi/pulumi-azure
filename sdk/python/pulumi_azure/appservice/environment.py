@@ -15,6 +15,9 @@ class Environment(pulumi.CustomResource):
     Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
     """
     internal_load_balancing_mode: pulumi.Output[str]
+    """
+    Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+    """
     location: pulumi.Output[str]
     """
     The location where the App Service Environment exists.
@@ -74,6 +77,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
+        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created. 
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
@@ -123,6 +127,7 @@ class Environment(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
+        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created. 
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.

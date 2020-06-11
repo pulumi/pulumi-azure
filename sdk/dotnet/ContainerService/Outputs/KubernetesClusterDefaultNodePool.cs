@@ -46,13 +46,17 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? NodeCount;
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
+        /// <summary>
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// </summary>
+        public readonly string? OrchestratorVersion;
         /// <summary>
         /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         /// </summary>
@@ -96,6 +100,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<string> nodeTaints,
 
+            string? orchestratorVersion,
+
             int? osDiskSizeGb,
 
             ImmutableDictionary<string, string>? tags,
@@ -116,6 +122,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             NodeCount = nodeCount;
             NodeLabels = nodeLabels;
             NodeTaints = nodeTaints;
+            OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
             Tags = tags;
             Type = type;

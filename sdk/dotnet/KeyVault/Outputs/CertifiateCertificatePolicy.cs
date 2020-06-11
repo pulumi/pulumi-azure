@@ -30,7 +30,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly Outputs.CertifiateCertificatePolicySecretProperties SecretProperties;
         /// <summary>
-        /// A `x509_certificate_properties` block as defined below.
+        /// A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         /// </summary>
         public readonly Outputs.CertifiateCertificatePolicyX509CertificateProperties? X509CertificateProperties;
 

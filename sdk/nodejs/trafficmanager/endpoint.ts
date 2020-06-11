@@ -131,8 +131,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly profileName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the Traffic Manager endpoint.
+     * The name of the resource group where the Traffic Manager Profile exists.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -285,8 +284,7 @@ export interface EndpointState {
      */
     readonly profileName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Traffic Manager endpoint.
+     * The name of the resource group where the Traffic Manager Profile exists.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -371,8 +369,7 @@ export interface EndpointArgs {
      */
     readonly profileName: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Traffic Manager endpoint.
+     * The name of the resource group where the Traffic Manager Profile exists.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

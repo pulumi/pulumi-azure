@@ -29,8 +29,6 @@ import * as utilities from "../utilities";
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     callingWebHook: "https://example2.com/",
- *     enableCalling: false,
  * });
  * ```
  */
@@ -69,7 +67,7 @@ export class ChannelTeams extends pulumi.CustomResource {
     /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
-    public readonly callingWebHook!: pulumi.Output<string | undefined>;
+    public readonly callingWebHook!: pulumi.Output<string>;
     /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */

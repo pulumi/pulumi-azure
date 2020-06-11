@@ -85,7 +85,7 @@ class ApplicationGateway(pulumi.CustomResource):
       * `private_ip_address` (`str`) - The Private IP Address to use for the Application Gateway.
       * `privateIpAddressAllocation` (`str`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
       * `public_ip_address_id` (`str`) - The ID of a Public IP Address which the Application Gateway should use.
-      * `subnet_id` (`str`) - The ID of the Subnet which the Application Gateway should be connected to.
+      * `subnet_id` (`str`) - The ID of the Subnet.
     """
     frontend_ports: pulumi.Output[list]
     """
@@ -101,7 +101,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
       * `id` (`str`) - The ID of the Rewrite Rule Set
       * `name` (`str`) - The Name of this Gateway IP Configuration.
-      * `subnet_id` (`str`) - The ID of a Subnet.
+      * `subnet_id` (`str`) - The ID of the Subnet which the Application Gateway should be connected to.
     """
     http_listeners: pulumi.Output[list]
     """
@@ -482,7 +482,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `private_ip_address` (`pulumi.Input[str]`) - The Private IP Address to use for the Application Gateway.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
           * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
-          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet.
 
         The **frontend_ports** object supports the following:
 
@@ -494,7 +494,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The Name of this Gateway IP Configuration.
-          * `subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
 
         The **http_listeners** object supports the following:
 
@@ -823,7 +823,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `private_ip_address` (`pulumi.Input[str]`) - The Private IP Address to use for the Application Gateway.
           * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
           * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of a Public IP Address which the Application Gateway should use.
-          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet.
 
         The **frontend_ports** object supports the following:
 
@@ -835,7 +835,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
           * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
           * `name` (`pulumi.Input[str]`) - The Name of this Gateway IP Configuration.
-          * `subnet_id` (`pulumi.Input[str]`) - The ID of a Subnet.
+          * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet which the Application Gateway should be connected to.
 
         The **http_listeners** object supports the following:
 

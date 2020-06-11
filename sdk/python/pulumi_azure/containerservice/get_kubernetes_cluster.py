@@ -13,7 +13,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, id=None, identities=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, disk_encryption_set_id=None, dns_prefix=None, fqdn=None, id=None, identities=None, kube_admin_config_raw=None, kube_admin_configs=None, kube_config_raw=None, kube_configs=None, kubelet_identities=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_cluster_enabled=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError("Expected argument 'addon_profiles' to be a list")
         __self__.addon_profiles = addon_profiles
@@ -31,6 +31,12 @@ class GetKubernetesClusterResult:
         __self__.api_server_authorized_ip_ranges = api_server_authorized_ip_ranges
         """
         The IP ranges to whitelist for incoming traffic to the masters.
+        """
+        if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
+            raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
+        __self__.disk_encryption_set_id = disk_encryption_set_id
+        """
+        The ID of the Disk Encryption Set used for the Nodes and Volumes.
         """
         if dns_prefix and not isinstance(dns_prefix, str):
             raise TypeError("Expected argument 'dns_prefix' to be a str")
@@ -84,7 +90,7 @@ class GetKubernetesClusterResult:
             raise TypeError("Expected argument 'kubelet_identities' to be a list")
         __self__.kubelet_identities = kubelet_identities
         """
-        A `kubelet_identity` block as documented below.  
+        A `kubelet_identity` block as documented below.
         """
         if kubernetes_version and not isinstance(kubernetes_version, str):
             raise TypeError("Expected argument 'kubernetes_version' to be a str")
@@ -176,6 +182,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             addon_profiles=self.addon_profiles,
             agent_pool_profiles=self.agent_pool_profiles,
             api_server_authorized_ip_ranges=self.api_server_authorized_ip_ranges,
+            disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             fqdn=self.fqdn,
             id=self.id,
@@ -200,7 +207,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             tags=self.tags,
             windows_profiles=self.windows_profiles)
 
-def get_kubernetes_cluster(name=None,private_cluster_enabled=None,private_link_enabled=None,resource_group_name=None,opts=None):
+def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 
@@ -219,15 +226,12 @@ def get_kubernetes_cluster(name=None,private_cluster_enabled=None,private_link_e
 
 
     :param str name: The name of the managed Kubernetes Cluster.
-    :param bool private_cluster_enabled: If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
     :param str resource_group_name: The name of the Resource Group in which the managed Kubernetes Cluster exists.
     """
     __args__ = dict()
 
 
     __args__['name'] = name
-    __args__['privateClusterEnabled'] = private_cluster_enabled
-    __args__['privateLinkEnabled'] = private_link_enabled
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -239,6 +243,7 @@ def get_kubernetes_cluster(name=None,private_cluster_enabled=None,private_link_e
         addon_profiles=__ret__.get('addonProfiles'),
         agent_pool_profiles=__ret__.get('agentPoolProfiles'),
         api_server_authorized_ip_ranges=__ret__.get('apiServerAuthorizedIpRanges'),
+        disk_encryption_set_id=__ret__.get('diskEncryptionSetId'),
         dns_prefix=__ret__.get('dnsPrefix'),
         fqdn=__ret__.get('fqdn'),
         id=__ret__.get('id'),
