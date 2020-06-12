@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class BackendAddressPool(pulumi.CustomResource):
     backend_ip_configurations: pulumi.Output[list]
     """
@@ -60,7 +61,6 @@ class BackendAddressPool(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             loadbalancer_id=example_load_balancer.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,9 +125,9 @@ class BackendAddressPool(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         return BackendAddressPool(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

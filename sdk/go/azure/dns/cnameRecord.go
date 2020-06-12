@@ -11,6 +11,95 @@ import (
 )
 
 // Enables you to manage DNS CNAME Records within Azure DNS.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/dns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCNameRecord, err := dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			Record:            pulumi.String("contoso.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Alias Record)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/dns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		target, err := dns.NewCNameRecord(ctx, "target", &dns.CNameRecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			Record:            pulumi.String("contoso.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCNameRecord, err := dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			TargetResourceId:  target.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CNameRecord struct {
 	pulumi.CustomResourceState
 

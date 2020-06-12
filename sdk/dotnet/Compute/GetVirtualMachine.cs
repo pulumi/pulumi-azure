@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Compute
         ///     public Output&lt;string&gt; VirtualMachineId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

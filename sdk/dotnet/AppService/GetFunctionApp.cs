@@ -35,7 +35,6 @@ namespace Pulumi.Azure.AppService
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

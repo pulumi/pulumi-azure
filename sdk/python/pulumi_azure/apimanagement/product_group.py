@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ProductGroup(pulumi.CustomResource):
     api_management_name: pulumi.Output[str]
     """
@@ -52,7 +53,6 @@ class ProductGroup(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example_service.resource_group_name)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +119,9 @@ class ProductGroup(pulumi.CustomResource):
         __props__["product_id"] = product_id
         __props__["resource_group_name"] = resource_group_name
         return ProductGroup(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

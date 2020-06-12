@@ -75,7 +75,7 @@ class GetKeyVaultResult:
             raise TypeError("Expected argument 'soft_delete_enabled' to be a bool")
         __self__.soft_delete_enabled = soft_delete_enabled
         """
-        Is soft delete enabled on this Key Vault? 
+        Is soft delete enabled on this Key Vault?
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -133,7 +133,6 @@ def get_key_vault(name=None,resource_group_name=None,opts=None):
         resource_group_name="some-resource-group")
     pulumi.export("vaultUri", example.vault_uri)
     ```
-
 
 
     :param str name: Specifies the name of the Key Vault.

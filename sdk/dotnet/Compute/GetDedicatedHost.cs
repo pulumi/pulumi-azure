@@ -39,7 +39,6 @@ namespace Pulumi.Azure.Compute
         ///     public Output&lt;string&gt; DedicatedHostId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -11,6 +11,49 @@ import (
 )
 
 // Manages an Authorization Server within an API Management Service.
+//
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+// 			Name:              "search-api",
+// 			ApiManagementName: "search-api-management",
+// 			ResourceGroupName: "search-service",
+// 			Revision:          "2",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAuthorizationServer, err := apimanagement.NewAuthorizationServer(ctx, "exampleAuthorizationServer", &apimanagement.AuthorizationServerArgs{
+// 			ApiManagementName:          pulumi.String(data.Azurerm_api_management.Example.Name),
+// 			ResourceGroupName:          pulumi.String(data.Azurerm_api_management.Example.Resource_group_name),
+// 			DisplayName:                pulumi.String("Test Server"),
+// 			AuthorizationEndpoint:      pulumi.String("https://example.mydomain.com/client/authorize"),
+// 			ClientId:                   pulumi.String("42424242-4242-4242-4242-424242424242"),
+// 			ClientRegistrationEndpoint: pulumi.String("https://example.mydomain.com/client/register"),
+// 			GrantTypes: pulumi.StringArray{
+// 				pulumi.String("authorizationCode"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AuthorizationServer struct {
 	pulumi.CustomResourceState
 

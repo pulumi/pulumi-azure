@@ -139,7 +139,6 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
     ```
 
 
-
     :param str account_name: The name of the Batch account.
     :param list certificates: One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
     :param str name: The name of the endpoint.

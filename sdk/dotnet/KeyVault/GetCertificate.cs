@@ -46,7 +46,6 @@ namespace Pulumi.Azure.KeyVault
         ///     public Output&lt;string&gt; CertificateThumbprint { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -70,7 +69,7 @@ namespace Pulumi.Azure.KeyVault
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the certificate to look up.  (Defaults to latest) 
+        /// Specifies the version of the certificate to look up.  (Defaults to latest)
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }

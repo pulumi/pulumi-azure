@@ -90,7 +90,7 @@ export interface GetJobResult {
     readonly location: string;
     readonly name: string;
     /**
-     * The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). 
+     * The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size).
      */
     readonly outputErrorPolicy: string;
     readonly resourceGroupName: string;

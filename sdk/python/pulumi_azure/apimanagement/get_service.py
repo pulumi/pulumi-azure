@@ -159,7 +159,6 @@ def get_service(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the API Management service.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     """

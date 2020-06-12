@@ -39,7 +39,6 @@ namespace Pulumi.Azure.Network
         ///     public Output&lt;string&gt; AddressPrefixes { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

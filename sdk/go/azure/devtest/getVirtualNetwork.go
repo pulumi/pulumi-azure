@@ -8,6 +8,33 @@ import (
 )
 
 // Use this data source to access information about an existing Dev Test Lab Virtual Network.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := devtest.LookupVirtualNetwork(ctx, &devtest.LookupVirtualNetworkArgs{
+// 			Name:              "example-network",
+// 			LabName:           "examplelab",
+// 			ResourceGroupName: "example-resource",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("labSubnetName", example.AllowedSubnets[0].LabSubnetName)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
 	err := ctx.Invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", args, &rv, opts...)

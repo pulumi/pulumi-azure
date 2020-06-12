@@ -192,7 +192,6 @@ def get_cluster_node_pool(kubernetes_cluster_name=None,name=None,resource_group_
     ```
 
 
-
     :param str kubernetes_cluster_name: The Name of the Kubernetes Cluster where this Node Pool is located.
     :param str name: The name of this Kubernetes Cluster Node Pool.
     :param str resource_group_name: The name of the Resource Group where the Kubernetes Cluster exists.

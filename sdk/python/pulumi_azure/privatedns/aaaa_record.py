@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AAAARecord(pulumi.CustomResource):
     fqdn: pulumi.Output[str]
     """
@@ -58,7 +59,6 @@ class AAAARecord(pulumi.CustomResource):
                 "fd5d:70bc:930e:d008::7335",
             ])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,9 +134,9 @@ class AAAARecord(pulumi.CustomResource):
         __props__["ttl"] = ttl
         __props__["zone_name"] = zone_name
         return AAAARecord(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

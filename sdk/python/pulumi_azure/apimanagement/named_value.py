@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NamedValue(pulumi.CustomResource):
     api_management_name: pulumi.Output[str]
     """
@@ -64,7 +65,6 @@ class NamedValue(pulumi.CustomResource):
             display_name="ExampleProperty",
             value="Example Value")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,9 +143,9 @@ class NamedValue(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["value"] = value
         return NamedValue(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

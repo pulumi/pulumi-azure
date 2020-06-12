@@ -141,7 +141,6 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
     ```
 
 
-
     :param str api_management_name: The name of the API Management Service in which the API Management API exists.
     :param str name: The name of the API Management API.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.

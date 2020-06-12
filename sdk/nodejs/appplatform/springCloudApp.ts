@@ -63,7 +63,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+     * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     public readonly serviceName!: pulumi.Output<string>;
 
@@ -118,7 +118,7 @@ export interface SpringCloudAppState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+     * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     readonly serviceName?: pulumi.Input<string>;
 }
@@ -136,7 +136,7 @@ export interface SpringCloudAppArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+     * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     readonly serviceName: pulumi.Input<string>;
 }

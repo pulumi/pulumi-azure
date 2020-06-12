@@ -38,7 +38,6 @@ namespace Pulumi.Azure.AppService
         ///     public Output&lt;string&gt; AppServicePlanId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

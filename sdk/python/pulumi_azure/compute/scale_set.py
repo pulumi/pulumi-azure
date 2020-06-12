@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ScaleSet(pulumi.CustomResource):
     automatic_os_upgrade: pulumi.Output[bool]
     """
@@ -225,7 +226,9 @@ class ScaleSet(pulumi.CustomResource):
 
         > **Note:** The `compute.ScaleSet` resource has been superseded by the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources. The existing `compute.ScaleSet` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
 
-        ## Example Usage with Managed Disks (Recommended)
+        ## Example Usage
+
+        ### With Managed Disks (Recommended)
 
         ```python
         import pulumi
@@ -334,7 +337,7 @@ class ScaleSet(pulumi.CustomResource):
             })
         ```
 
-        ## Example Usage with Unmanaged Disks
+        ### With Unmanaged Disks
 
         ```python
         import pulumi
@@ -840,9 +843,9 @@ class ScaleSet(pulumi.CustomResource):
         __props__["upgrade_policy_mode"] = upgrade_policy_mode
         __props__["zones"] = zones
         return ScaleSet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class EventhubDataConnection(pulumi.CustomResource):
     cluster_name: pulumi.Output[str]
     """
@@ -102,7 +103,6 @@ class EventhubDataConnection(pulumi.CustomResource):
         #(Optional)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -194,9 +194,9 @@ class EventhubDataConnection(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["table_name"] = table_name
         return EventhubDataConnection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

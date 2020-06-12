@@ -8,6 +8,33 @@ import (
 )
 
 // Use this data source to access information about an existing EventHub.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := eventhub.LookupEventHub(ctx, &eventhub.LookupEventHubArgs{
+// 			Name:              "search-eventhub",
+// 			ResourceGroupName: "search-service",
+// 			NamespaceName:     "search-eventhubns",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("eventhubId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
 	var rv LookupEventHubResult
 	err := ctx.Invoke("azure:eventhub/getEventHub:getEventHub", args, &rv, opts...)

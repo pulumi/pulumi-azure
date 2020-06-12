@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VirtualNetworkPeering(pulumi.CustomResource):
     allow_forwarded_traffic: pulumi.Output[bool]
     """
@@ -199,9 +200,9 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__["use_remote_gateways"] = use_remote_gateways
         __props__["virtual_network_name"] = virtual_network_name
         return VirtualNetworkPeering(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

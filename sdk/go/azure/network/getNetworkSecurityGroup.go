@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Network Security Group.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupNetworkSecurityGroup(ctx, &network.LookupNetworkSecurityGroupArgs{
+// 			Name:              azurerm_network_security_group.Example.Name,
+// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("location", example.Location)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *LookupNetworkSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSecurityGroupResult, error) {
 	var rv LookupNetworkSecurityGroupResult
 	err := ctx.Invoke("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, &rv, opts...)

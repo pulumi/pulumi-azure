@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Azure Data Factory (Version 2).
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := datafactory.LookupFactory(ctx, &datafactory.LookupFactoryArgs{
+// 			Name:              azurerm_data_factory.Example.Name,
+// 			ResourceGroupName: azurerm_data_factory.Example.Resource_group_name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("dataFactoryId", azurerm_data_factory.Example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.InvokeOption) (*LookupFactoryResult, error) {
 	var rv LookupFactoryResult
 	err := ctx.Invoke("azure:datafactory/getFactory:getFactory", args, &rv, opts...)

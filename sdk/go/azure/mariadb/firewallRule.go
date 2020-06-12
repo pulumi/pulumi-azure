@@ -11,6 +11,60 @@ import (
 )
 
 // Manages a Firewall Rule for a MariaDB Server
+//
+// ## Example Usage
+//
+// ### Single IP Address)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mariadb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
+// 			EndIpAddress:      pulumi.String("40.112.8.12"),
+// 			ResourceGroupName: pulumi.String("test-rg"),
+// 			ServerName:        pulumi.String("test-server"),
+// 			StartIpAddress:    pulumi.String("40.112.8.12"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### IP Range)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mariadb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
+// 			EndIpAddress:      pulumi.String("40.112.255.255"),
+// 			ResourceGroupName: pulumi.String("test-rg"),
+// 			ServerName:        pulumi.String("test-server"),
+// 			StartIpAddress:    pulumi.String("40.112.0.0"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

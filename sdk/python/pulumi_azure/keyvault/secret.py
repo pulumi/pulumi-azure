@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Secret(pulumi.CustomResource):
     content_type: pulumi.Output[str]
     """
@@ -45,8 +46,6 @@ class Secret(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, content_type=None, expiration_date=None, key_vault_id=None, name=None, not_before_date=None, tags=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Secret.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,9 +123,9 @@ class Secret(pulumi.CustomResource):
         __props__["value"] = value
         __props__["version"] = version
         return Secret(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

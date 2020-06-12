@@ -39,7 +39,6 @@ namespace Pulumi.Azure.DevTest
         ///     public Output&lt;string&gt; LabSubnetName { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

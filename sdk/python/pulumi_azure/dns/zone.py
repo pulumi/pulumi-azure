@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Zone(pulumi.CustomResource):
     max_number_of_record_sets: pulumi.Output[float]
     """
@@ -50,7 +51,6 @@ class Zone(pulumi.CustomResource):
         example_public = azure.dns.Zone("example-public", resource_group_name=example.name)
         example_private = azure.privatedns.Zone("example-private", resource_group_name=example.name)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,9 +116,9 @@ class Zone(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         return Zone(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -75,7 +75,7 @@ export interface GetMariaDbServerResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * The SKU Name for this MariaDB Server. 
+     * The SKU Name for this MariaDB Server.
      */
     readonly skuName: string;
     /**

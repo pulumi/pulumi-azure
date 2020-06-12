@@ -42,7 +42,6 @@ namespace Pulumi.Azure.Blueprint
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -60,7 +59,7 @@ namespace Pulumi.Azure.Blueprint
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.  
+        /// The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.
         /// </summary>
         [Input("scopeId", required: true)]
         public string ScopeId { get; set; } = null!;
@@ -75,11 +74,11 @@ namespace Pulumi.Azure.Blueprint
     public sealed class GetDefinitionResult
     {
         /// <summary>
-        /// The description of the Blueprint Definition.  
+        /// The description of the Blueprint Definition.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The display name of the Blueprint Definition.  
+        /// The display name of the Blueprint Definition.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
@@ -87,21 +86,21 @@ namespace Pulumi.Azure.Blueprint
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The timestamp of when this last modification was saved to the Blueprint Definition.  
+        /// The timestamp of when this last modification was saved to the Blueprint Definition.
         /// </summary>
         public readonly string LastModified;
         public readonly string Name;
         public readonly string ScopeId;
         /// <summary>
-        /// The target scope.  
+        /// The target scope.
         /// </summary>
         public readonly string TargetScope;
         /// <summary>
-        /// The timestamp of when this Blueprint Definition was created.  
+        /// The timestamp of when this Blueprint Definition was created.
         /// </summary>
         public readonly string TimeCreated;
         /// <summary>
-        /// A list of versions published for this Blueprint Definition.  
+        /// A list of versions published for this Blueprint Definition.
         /// </summary>
         public readonly ImmutableArray<string> Versions;
 

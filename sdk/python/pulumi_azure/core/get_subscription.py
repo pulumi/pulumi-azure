@@ -94,7 +94,6 @@ def get_subscription(subscription_id=None,opts=None):
     ```
 
 
-
     :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
     """
     __args__ = dict()

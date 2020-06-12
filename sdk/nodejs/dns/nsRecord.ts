@@ -68,7 +68,7 @@ export class NsRecord extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of values that make up the NS record. 
+     * A list of values that make up the NS record.
      */
     public readonly records!: pulumi.Output<string[]>;
     /**
@@ -153,7 +153,7 @@ export interface NsRecordState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of values that make up the NS record. 
+     * A list of values that make up the NS record.
      */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -183,7 +183,7 @@ export interface NsRecordArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of values that make up the NS record. 
+     * A list of values that make up the NS record.
      */
     readonly records: pulumi.Input<pulumi.Input<string>[]>;
     /**

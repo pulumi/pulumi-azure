@@ -177,9 +177,8 @@ def get_account(name=None,resource_group_name=None,opts=None):
 
     example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
         resource_group_name="tfex-cosmosdb-account-rg")
-    pulumi.export("cosmosdbAccountEndpoint", data["cosmosdb.Account"]["jobs"]["endpoint"])
+    pulumi.export("cosmosdbAccountEndpoint", data["azurerm_cosmosdb_account"]["jobs"]["endpoint"])
     ```
-
 
 
     :param str name: Specifies the name of the CosmosDB Account.

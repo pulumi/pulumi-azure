@@ -89,7 +89,6 @@ def get_dns_zone(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Private DNS Zone.
     :param str resource_group_name: The Name of the Resource Group where the Private DNS Zone exists.
            If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private

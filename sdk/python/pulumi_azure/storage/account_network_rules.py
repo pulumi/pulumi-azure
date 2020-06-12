@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AccountNetworkRules(pulumi.CustomResource):
     bypasses: pulumi.Output[list]
     """
@@ -78,7 +79,6 @@ class AccountNetworkRules(pulumi.CustomResource):
             virtual_network_subnet_ids=[azurerm_subnet["test"]["id"]],
             bypasses=["Metrics"])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,9 +151,9 @@ class AccountNetworkRules(pulumi.CustomResource):
         __props__["storage_account_name"] = storage_account_name
         __props__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
         return AccountNetworkRules(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

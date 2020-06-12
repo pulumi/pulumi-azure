@@ -63,9 +63,8 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
         loadbalancer_id=example_lb.id)
     pulumi.export("backendAddressPoolId", example_backend_address_pool.id)
-    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in data["lb.BackendAddressPool"]["beap"]["backend_ip_configurations"]])
+    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in data["azurerm_lb_backend_address_pool"]["beap"]["backend_ip_configurations"]])
     ```
-
 
 
     :param str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.

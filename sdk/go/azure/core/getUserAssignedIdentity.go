@@ -9,6 +9,33 @@ import (
 
 // Use this data source to access information about an existing User Assigned Identity.
 //
+// ## Example Usage
+//
+// ### Reference An Existing)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := authorization.LookupUserAssignedIdentity(ctx, &authorization.LookupUserAssignedIdentityArgs{
+// 			Name:              "name_of_user_assigned_identity",
+// 			ResourceGroupName: "name_of_resource_group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("uaiClientId", example.ClientId)
+// 		ctx.Export("uaiPrincipalId", example.PrincipalId)
+// 		return nil
+// 	})
+// }
+// ```
+//
 // Deprecated: azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
 func GetUserAssignedIdentity(ctx *pulumi.Context, args *GetUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*GetUserAssignedIdentityResult, error) {
 	var rv GetUserAssignedIdentityResult

@@ -8,6 +8,33 @@ import (
 )
 
 // Uses this data source to access information about an API Version Set within an API Management Service.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := apimanagement.LookupApiVersionSet(ctx, &apimanagement.LookupApiVersionSetArgs{
+// 			ResourceGroupName: "example-resources",
+// 			ApiManagementName: "example-api",
+// 			Name:              "example-api-version-set",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("apiManagementApiVersionSetId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opts ...pulumi.InvokeOption) (*LookupApiVersionSetResult, error) {
 	var rv LookupApiVersionSetResult
 	err := ctx.Invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", args, &rv, opts...)

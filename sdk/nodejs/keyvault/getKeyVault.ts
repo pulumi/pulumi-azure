@@ -92,7 +92,7 @@ export interface GetKeyVaultResult {
      */
     readonly skuName: string;
     /**
-     * Is soft delete enabled on this Key Vault? 
+     * Is soft delete enabled on this Key Vault?
      */
     readonly softDeleteEnabled: boolean;
     /**

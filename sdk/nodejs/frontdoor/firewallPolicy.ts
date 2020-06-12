@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *             exclusion: [{
  *                 matchVariable: "QueryStringArgNames",
  *                 operator: "Equals",
- *                 selector: "notSuspicious",
+ *                 selector: "not_suspicious",
  *             }],
  *             override: [
  *                 {
@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  *                     exclusion: [{
  *                         matchVariable: "QueryStringArgNames",
  *                         operator: "Equals",
- *                         selector: "reallyNotSuspicious",
+ *                         selector: "really_not_suspicious",
  *                     }],
  *                     rule: [{
  *                         ruleId: "942200",

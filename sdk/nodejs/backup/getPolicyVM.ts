@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  *
  * const policy = pulumi.output(azure.backup.getPolicyVM({
  *     name: "policy",
- *     recoveryVaultName: "recoveryVault",
- *     resourceGroupName: "resourceGroup",
+ *     recoveryVaultName: "recovery_vault",
+ *     resourceGroupName: "resource_group",
  * }, { async: true }));
  * ```
  */

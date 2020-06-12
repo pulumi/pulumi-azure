@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<Outputs.AssignmentIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure location of the Assignment. 
+        /// The Azure location of the Assignment.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<string?> ParameterValues { get; private set; } = null!;
 
         /// <summary>
-        /// a JSON string to supply the Blueprint Resource Group information. 
+        /// a JSON string to supply the Blueprint Resource Group information.
         /// </summary>
         [Output("resourceGroups")]
         public Output<string?> ResourceGroups { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Published Version of the blueprint to be assigned. 
+        /// The ID of the Published Version of the blueprint to be assigned.
         /// </summary>
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<Inputs.AssignmentIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The Azure location of the Assignment. 
+        /// The Azure location of the Assignment.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
-        /// a JSON string to supply the Blueprint Resource Group information. 
+        /// a JSON string to supply the Blueprint Resource Group information.
         /// </summary>
         [Input("resourceGroups")]
         public Input<string>? ResourceGroups { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string> TargetSubscriptionId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Published Version of the blueprint to be assigned. 
+        /// The ID of the Published Version of the blueprint to be assigned.
         /// </summary>
         [Input("versionId", required: true)]
         public Input<string> VersionId { get; set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<Inputs.AssignmentIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The Azure location of the Assignment. 
+        /// The Azure location of the Assignment.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
-        /// a JSON string to supply the Blueprint Resource Group information. 
+        /// a JSON string to supply the Blueprint Resource Group information.
         /// </summary>
         [Input("resourceGroups")]
         public Input<string>? ResourceGroups { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Blueprint
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The ID of the Published Version of the blueprint to be assigned. 
+        /// The ID of the Published Version of the blueprint to be assigned.
         /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }

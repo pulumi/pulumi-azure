@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Frontdoor(pulumi.CustomResource):
     backend_pool_health_probes: pulumi.Output[list]
     """
@@ -193,7 +194,6 @@ class Frontdoor(pulumi.CustomResource):
                 "customHttpsProvisioningEnabled": False,
             }])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -463,9 +463,9 @@ class Frontdoor(pulumi.CustomResource):
         __props__["routing_rules"] = routing_rules
         __props__["tags"] = tags
         return Frontdoor(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

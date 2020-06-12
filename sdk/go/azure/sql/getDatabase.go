@@ -8,6 +8,33 @@ import (
 )
 
 // Use this data source to access information about an existing SQL Azure Database.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := sql.LookupDatabase(ctx, &sql.LookupDatabaseArgs{
+// 			Name:              "example_db",
+// 			ServerName:        "example_db_server",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("sqlDatabaseId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure:sql/getDatabase:getDatabase", args, &rv, opts...)

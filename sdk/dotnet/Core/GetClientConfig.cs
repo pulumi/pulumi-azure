@@ -34,7 +34,6 @@ namespace Pulumi.Azure.Core
         ///     public Output&lt;string&gt; AccountId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

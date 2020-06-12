@@ -101,7 +101,6 @@ def get_shared_image_version(gallery_name=None,image_name=None,name=None,resourc
     ```
 
 
-
     :param str gallery_name: The name of the Shared Image in which the Shared Image exists.
     :param str image_name: The name of the Shared Image in which this Version exists.
     :param str name: The name of the Image Version.

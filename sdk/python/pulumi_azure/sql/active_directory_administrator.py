@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ActiveDirectoryAdministrator(pulumi.CustomResource):
     login: pulumi.Output[str]
     """
@@ -57,7 +58,6 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             object_id=current.object_id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,9 +130,9 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         __props__["server_name"] = server_name
         __props__["tenant_id"] = tenant_id
         return ActiveDirectoryAdministrator(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

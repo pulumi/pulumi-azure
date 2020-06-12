@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Dns
     /// }
     /// ```
     /// 
-    /// ## Example Usage (Alias Record)
+    /// ### Alias Record)
     /// 
     /// ```csharp
     /// using Pulumi;

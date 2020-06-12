@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ReplicationPolicy(pulumi.CustomResource):
     application_consistent_snapshot_frequency_in_minutes: pulumi.Output[float]
     """
@@ -53,7 +54,6 @@ class ReplicationPolicy(pulumi.CustomResource):
             recovery_point_retention_in_minutes=24 * 60,
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,9 +124,9 @@ class ReplicationPolicy(pulumi.CustomResource):
         __props__["recovery_vault_name"] = recovery_vault_name
         __props__["resource_group_name"] = resource_group_name
         return ReplicationPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

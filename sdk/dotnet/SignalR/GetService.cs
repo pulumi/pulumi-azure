@@ -35,7 +35,6 @@ namespace Pulumi.Azure.SignalR
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

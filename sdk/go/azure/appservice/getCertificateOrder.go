@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing App Service Certificate Order.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := appservice.LookupCertificateOrder(ctx, &appservice.LookupCertificateOrderArgs{
+// 			Name:              "example-cert-order",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("certificateOrderId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCertificateOrder(ctx *pulumi.Context, args *LookupCertificateOrderArgs, opts ...pulumi.InvokeOption) (*LookupCertificateOrderResult, error) {
 	var rv LookupCertificateOrderResult
 	err := ctx.Invoke("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, opts...)

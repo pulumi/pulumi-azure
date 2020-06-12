@@ -38,7 +38,6 @@ namespace Pulumi.Azure.HDInsight
         ///     public Output&lt;string&gt; HttpsEndpoint { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

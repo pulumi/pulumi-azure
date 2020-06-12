@@ -77,7 +77,6 @@ def get_group(group_id=None,name=None,opts=None):
     ```
 
 
-
     :param str group_id: Specifies the name or UUID of this Management Group.
     :param str name: Specifies the name or UUID of this Management Group.
     """

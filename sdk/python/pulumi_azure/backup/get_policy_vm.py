@@ -65,7 +65,6 @@ def get_policy_vm(name=None,recovery_vault_name=None,resource_group_name=None,op
     ```
 
 
-
     :param str name: Specifies the name of the VM Backup Policy.
     :param str recovery_vault_name: Specifies the name of the Recovery Services Vault.
     :param str resource_group_name: The name of the resource group in which the VM Backup Policy resides.

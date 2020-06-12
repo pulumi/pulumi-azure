@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault Key.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
+// 			Name:       "secret-sauce",
+// 			KeyVaultId: data.Azurerm_key_vault.Existing.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("keyType", example.KeyType)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	var rv LookupKeyResult
 	err := ctx.Invoke("azure:keyvault/getKey:getKey", args, &rv, opts...)

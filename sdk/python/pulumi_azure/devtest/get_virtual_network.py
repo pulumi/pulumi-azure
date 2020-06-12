@@ -80,7 +80,6 @@ def get_virtual_network(lab_name=None,name=None,resource_group_name=None,opts=No
     ```
 
 
-
     :param str lab_name: Specifies the name of the Dev Test Lab.
     :param str name: Specifies the name of the Virtual Network.
     :param str resource_group_name: Specifies the name of the resource group that contains the Virtual Network.

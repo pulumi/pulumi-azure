@@ -63,7 +63,6 @@ def get_resources(name=None,required_tags=None,resource_group_name=None,type=Non
 
 
 
-
     :param str name: The name of the Resource.
     :param dict required_tags: A mapping of tags which the resource has to have in order to be included in the result.
     :param str resource_group_name: The name of the Resource group where the Resources are located.

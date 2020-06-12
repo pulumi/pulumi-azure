@@ -39,7 +39,6 @@ namespace Pulumi.Azure.MSSql
         ///     public Output&lt;string&gt; ElasticpoolId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

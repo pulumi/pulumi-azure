@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Core.Outputs
     public sealed class CustomProviderResourceType
     {
         /// <summary>
-        /// Specifies the endpoint of the route definition. 
+        /// Specifies the endpoint of the route definition.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// Specifies the name of the route definition. 
+        /// Specifies the name of the route definition.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`. 
+        /// The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
         /// </summary>
         public readonly string? RoutingType;
 

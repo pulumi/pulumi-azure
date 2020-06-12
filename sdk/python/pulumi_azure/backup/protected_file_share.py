@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ProtectedFileShare(pulumi.CustomResource):
     backup_policy_id: pulumi.Output[str]
     """
@@ -78,7 +79,6 @@ class ProtectedFileShare(pulumi.CustomResource):
             source_file_share_name=example_share.name,
             backup_policy_id=example_policy_file_share.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,9 +151,9 @@ class ProtectedFileShare(pulumi.CustomResource):
         __props__["source_file_share_name"] = source_file_share_name
         __props__["source_storage_account_id"] = source_storage_account_id
         return ProtectedFileShare(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

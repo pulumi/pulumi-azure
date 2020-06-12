@@ -37,7 +37,6 @@ namespace Pulumi.Azure.KeyVault
         ///     public Output&lt;string&gt; AccessPolicyKeyPermissions { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

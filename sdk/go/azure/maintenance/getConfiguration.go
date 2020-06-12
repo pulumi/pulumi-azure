@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Maintenance Configuration.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		existing, err := maintenance.LookupConfiguration(ctx, &maintenance.LookupConfigurationArgs{
+// 			Name:              "example-mc",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("id", azurerm_maintenance_configuration.Existing.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("azure:maintenance/getConfiguration:getConfiguration", args, &rv, opts...)

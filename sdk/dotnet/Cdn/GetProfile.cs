@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Cdn
         ///     public Output&lt;string&gt; CdnProfileId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

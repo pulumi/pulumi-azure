@@ -8,6 +8,33 @@ import (
 )
 
 // Use this data source to access information about an existing SQL elastic pool.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := mssql.LookupElasticPool(ctx, &mssql.LookupElasticPoolArgs{
+// 			Name:              "mssqlelasticpoolname",
+// 			ResourceGroupName: "example-resources",
+// 			ServerName:        "example-sql-server",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("elasticpoolId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	var rv LookupElasticPoolResult
 	err := ctx.Invoke("azure:mssql/getElasticPool:getElasticPool", args, &rv, opts...)

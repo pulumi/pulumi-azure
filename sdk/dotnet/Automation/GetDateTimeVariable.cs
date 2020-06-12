@@ -40,8 +40,6 @@ namespace Pulumi.Azure.Automation
         ///     public Output&lt;string&gt; VariableId { get; set; }
         /// }
         /// ```
-        /// 
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

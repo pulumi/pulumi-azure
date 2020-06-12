@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ChannelTeams(pulumi.CustomResource):
     bot_name: pulumi.Output[str]
     """
@@ -56,7 +57,6 @@ class ChannelTeams(pulumi.CustomResource):
             location=example_channels_registration.location,
             resource_group_name=example_resource_group.name)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +123,9 @@ class ChannelTeams(pulumi.CustomResource):
         __props__["location"] = location
         __props__["resource_group_name"] = resource_group_name
         return ChannelTeams(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

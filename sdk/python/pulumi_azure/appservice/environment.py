@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Environment(pulumi.CustomResource):
     front_end_scale_factor: pulumi.Output[float]
     """
@@ -24,7 +25,7 @@ class Environment(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the App Service Environment. Changing this forces a new resource to be created. 
+    The name of the App Service Environment. Changing this forces a new resource to be created.
     """
     pricing_tier: pulumi.Output[str]
     """
@@ -40,7 +41,7 @@ class Environment(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+    A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, front_end_scale_factor=None, internal_load_balancing_mode=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -73,16 +74,15 @@ class Environment(pulumi.CustomResource):
             front_end_scale_factor=10)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
-        :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,11 +129,11 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[float] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
-        :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -148,9 +148,9 @@ class Environment(pulumi.CustomResource):
         __props__["subnet_id"] = subnet_id
         __props__["tags"] = tags
         return Environment(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

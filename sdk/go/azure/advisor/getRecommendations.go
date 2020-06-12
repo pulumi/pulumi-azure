@@ -8,6 +8,37 @@ import (
 )
 
 // Use this data source to access information about an existing Advisor Recommendations.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := advisor.LookupRecommendations(ctx, &advisor.LookupRecommendationsArgs{
+// 			FilterByCategories: []string{
+// 				"security",
+// 				"cost",
+// 			},
+// 			FilterByResourceGroups: []string{
+// 				"example-resgroups",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("recommendations", example.Recommendations)
+// 		return nil
+// 	})
+// }
+// ```
 func GetRecommendations(ctx *pulumi.Context, args *GetRecommendationsArgs, opts ...pulumi.InvokeOption) (*GetRecommendationsResult, error) {
 	var rv GetRecommendationsResult
 	err := ctx.Invoke("azure:advisor/getRecommendations:getRecommendations", args, &rv, opts...)

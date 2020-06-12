@@ -74,7 +74,6 @@ def get_consume_group(eventhub_name=None,name=None,namespace_name=None,resource_
     ```
 
 
-
     :param str eventhub_name: Specifies the name of the EventHub.
     :param str name: Specifies the name of the EventHub Consumer Group resource.
     :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.

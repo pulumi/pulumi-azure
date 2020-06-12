@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkConnectionMonitor(pulumi.CustomResource):
     auto_start: pulumi.Output[bool]
     """
@@ -131,7 +132,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
@@ -239,9 +239,9 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         __props__["source"] = source
         __props__["tags"] = tags
         return NetworkConnectionMonitor(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

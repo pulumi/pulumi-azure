@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Image.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		search, err := compute.LookupImage(ctx, &compute.LookupImageArgs{
+// 			Name:              "search-api",
+// 			ResourceGroupName: "packerimages",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("imageId", search.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.InvokeOption) (*LookupImageResult, error) {
 	var rv LookupImageResult
 	err := ctx.Invoke("azure:compute/getImage:getImage", args, &rv, opts...)

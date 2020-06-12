@@ -11,6 +11,49 @@ import (
 )
 
 // Manages an ExpressRoute circuit.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
+// 			ResourceGroupName:   exampleResourceGroup.Name,
+// 			Location:            exampleResourceGroup.Location,
+// 			ServiceProviderName: pulumi.String("Equinix"),
+// 			PeeringLocation:     pulumi.String("Silicon Valley"),
+// 			BandwidthInMbps:     pulumi.Int(50),
+// 			Sku: &network.ExpressRouteCircuitSkuArgs{
+// 				Tier:   pulumi.String("Standard"),
+// 				Family: pulumi.String("MeteredData"),
+// 			},
+// 			Tags: map[string]interface{}{
+// 				"environment": "Production",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
 

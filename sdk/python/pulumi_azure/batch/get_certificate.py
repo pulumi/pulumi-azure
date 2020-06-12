@@ -87,7 +87,6 @@ def get_certificate(account_name=None,name=None,resource_group_name=None,opts=No
     ```
 
 
-
     :param str account_name: The name of the Batch account.
     :param str name: The name of the Batch certificate.
     :param str resource_group_name: The Name of the Resource Group where this Batch account exists.

@@ -36,7 +36,6 @@ namespace Pulumi.Azure.Batch
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

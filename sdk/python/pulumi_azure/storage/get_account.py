@@ -345,7 +345,6 @@ def get_account(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Storage Account
     :param str resource_group_name: Specifies the name of the resource group the Storage Account is located in.
     """

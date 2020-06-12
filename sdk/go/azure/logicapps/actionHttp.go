@@ -11,6 +11,47 @@ import (
 )
 
 // Manages an HTTP Action within a Logic App Workflow
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/logicapps"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("East US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleActionHttp, err := logicapps.NewActionHttp(ctx, "exampleActionHttp", &logicapps.ActionHttpArgs{
+// 			LogicAppId: exampleWorkflow.ID(),
+// 			Method:     pulumi.String("GET"),
+// 			Uri:        pulumi.String("http://example.com/some-webhook"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ActionHttp struct {
 	pulumi.CustomResourceState
 

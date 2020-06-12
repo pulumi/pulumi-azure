@@ -88,7 +88,6 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
     ```
 
 
-
     :param dict metadata: A mapping of MetaData for this Container.
     :param str name: The name of the Container.
     :param str storage_account_name: The name of the Storage Account where the Container exists.

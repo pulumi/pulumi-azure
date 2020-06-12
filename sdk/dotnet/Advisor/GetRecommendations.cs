@@ -45,7 +45,6 @@ namespace Pulumi.Azure.Advisor
         ///     public Output&lt;string&gt; Recommendations { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

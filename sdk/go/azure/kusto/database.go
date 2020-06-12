@@ -11,6 +11,53 @@ import (
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) Database
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/kusto"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("East US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
+// 			Location:          rg.Location,
+// 			ResourceGroupName: rg.Name,
+// 			Sku: &kusto.ClusterSkuArgs{
+// 				Name:     pulumi.String("Standard_D13_v2"),
+// 				Capacity: pulumi.Int(2),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		database, err := kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
+// 			ResourceGroupName: rg.Name,
+// 			Location:          rg.Location,
+// 			ClusterName:       cluster.Name,
+// 			HotCachePeriod:    pulumi.String("P7D"),
+// 			SoftDeletePeriod:  pulumi.String("P31D"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

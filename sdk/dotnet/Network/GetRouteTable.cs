@@ -35,7 +35,6 @@ namespace Pulumi.Azure.Network
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -89,7 +89,6 @@ def get_server(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the PostgreSQL Server.
     :param str resource_group_name: Specifies the name of the Resource Group where the PostgreSQL Server exists.
     """

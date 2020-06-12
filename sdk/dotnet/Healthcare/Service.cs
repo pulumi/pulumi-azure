@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Healthcare
     ///             AuthenticationConfiguration = new Azure.Healthcare.Inputs.ServiceAuthenticationConfigurationArgs
     ///             {
     ///                 Audience = "https://azurehealthcareapis.com/",
-    ///                 Authority = "https://login.microsoftonline.com/$$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+    ///                 Authority = "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
     ///                 SmartProxyEnabled = true,
     ///             },
     ///             CorsConfiguration = new Azure.Healthcare.Inputs.ServiceCorsConfigurationArgs

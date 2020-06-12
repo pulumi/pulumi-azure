@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+// 			Name:              "mykeyvault",
+// 			ResourceGroupName: "some-resource-group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("vaultUri", example.VaultUri)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupKeyVault(ctx *pulumi.Context, args *LookupKeyVaultArgs, opts ...pulumi.InvokeOption) (*LookupKeyVaultResult, error) {
 	var rv LookupKeyVaultResult
 	err := ctx.Invoke("azure:keyvault/getKeyVault:getKeyVault", args, &rv, opts...)

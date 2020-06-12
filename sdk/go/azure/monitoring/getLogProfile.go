@@ -8,6 +8,31 @@ import (
 )
 
 // Use this data source to access the properties of a Log Profile.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := monitoring.LookupLogProfile(ctx, &monitoring.LookupLogProfileArgs{
+// 			Name: "test-logprofile",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("logProfileStorageAccountId", example.StorageAccountId)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupLogProfile(ctx *pulumi.Context, args *LookupLogProfileArgs, opts ...pulumi.InvokeOption) (*LookupLogProfileResult, error) {
 	var rv LookupLogProfileResult
 	err := ctx.Invoke("azure:monitoring/getLogProfile:getLogProfile", args, &rv, opts...)

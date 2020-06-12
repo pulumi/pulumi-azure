@@ -38,7 +38,6 @@ namespace Pulumi.Azure.ManagementGroups
         ///     public Output&lt;string&gt; DisplayName { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

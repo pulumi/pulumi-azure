@@ -38,7 +38,6 @@ namespace Pulumi.Azure.NotificationHub
         ///     public Output&lt;string&gt; ServicebusEndpoint { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

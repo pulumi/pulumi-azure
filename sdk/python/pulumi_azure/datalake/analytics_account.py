@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AnalyticsAccount(pulumi.CustomResource):
     default_store_account_name: pulumi.Output[str]
     """
@@ -55,7 +56,6 @@ class AnalyticsAccount(pulumi.CustomResource):
             location=example_resource_group.location,
             default_store_account_name=example_store.name)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,9 +126,9 @@ class AnalyticsAccount(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["tier"] = tier
         return AnalyticsAccount(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

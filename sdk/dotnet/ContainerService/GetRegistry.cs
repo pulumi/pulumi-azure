@@ -38,7 +38,6 @@ namespace Pulumi.Azure.ContainerService
         ///     public Output&lt;string&gt; LoginServer { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

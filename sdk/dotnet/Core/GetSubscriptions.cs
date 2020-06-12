@@ -37,7 +37,6 @@ namespace Pulumi.Azure.Core
         ///     public Output&lt;string&gt; FirstAvailableSubscriptionDisplayName { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -40,7 +40,6 @@ namespace Pulumi.Azure.ApiManagement
         ///     public Output&lt;string&gt; ApiManagementApiId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

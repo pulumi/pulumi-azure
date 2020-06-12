@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the Connection String. 
+        /// The type of the Connection String.
         /// </summary>
         public readonly string Type;
         /// <summary>

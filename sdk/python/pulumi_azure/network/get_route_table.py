@@ -84,7 +84,6 @@ def get_route_table(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Route Table.
     :param str resource_group_name: The name of the Resource Group in which the Route Table exists.
     """

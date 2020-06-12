@@ -39,7 +39,6 @@ namespace Pulumi.Azure.ApiManagement
         ///     public Output&lt;string&gt; ProductTerms { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

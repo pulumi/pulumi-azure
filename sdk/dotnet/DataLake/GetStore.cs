@@ -38,7 +38,6 @@ namespace Pulumi.Azure.DataLake
         ///     public Output&lt;string&gt; DataLakeStoreId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

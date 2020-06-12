@@ -35,7 +35,6 @@ namespace Pulumi.Azure.RecoveryServices
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

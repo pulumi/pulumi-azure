@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+// 			Name:              "tfex-cosmosdb-account",
+// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("cosmosdbAccountEndpoint", data.Azurerm_cosmosdb_account.Jobs.Endpoint)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure:cosmosdb/getAccount:getAccount", args, &rv, opts...)

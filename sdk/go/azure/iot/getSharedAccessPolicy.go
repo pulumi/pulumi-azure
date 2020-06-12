@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing IotHub Shared Access Policy
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := iot.LookupSharedAccessPolicy(ctx, &iot.LookupSharedAccessPolicyArgs{
+// 			Name:              "example",
+// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 			IothubName:        azurerm_iothub.Example.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSharedAccessPolicy(ctx *pulumi.Context, args *LookupSharedAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSharedAccessPolicyResult, error) {
 	var rv LookupSharedAccessPolicyResult
 	err := ctx.Invoke("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", args, &rv, opts...)

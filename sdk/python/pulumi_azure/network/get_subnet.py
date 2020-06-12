@@ -108,7 +108,6 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
     ```
 
 
-
     :param str name: Specifies the name of the Subnet.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
     :param str virtual_network_name: Specifies the name of the Virtual Network this Subnet is located within.

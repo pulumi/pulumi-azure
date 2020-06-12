@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of values that make up the NS record. 
+        /// A list of values that make up the NS record.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _records;
 
         /// <summary>
-        /// A list of values that make up the NS record. 
+        /// A list of values that make up the NS record.
         /// </summary>
         public InputList<string> Records
         {
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _records;
 
         /// <summary>
-        /// A list of values that make up the NS record. 
+        /// A list of values that make up the NS record.
         /// </summary>
         public InputList<string> Records
         {

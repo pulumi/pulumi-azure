@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Network
         ///     public Output&lt;string&gt; Location { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

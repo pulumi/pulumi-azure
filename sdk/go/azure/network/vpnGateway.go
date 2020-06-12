@@ -11,6 +11,66 @@ import (
 )
 
 // Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			VirtualWanId:      exampleVirtualWan.ID(),
+// 			AddressPrefix:     pulumi.String("10.0.1.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVpnGateway, err := network.NewVpnGateway(ctx, "exampleVpnGateway", &network.VpnGatewayArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			VirtualHubId:      exampleVirtualHub.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
 

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     recoveryVaultName: vault.name,
  *     location: primary.location,
  * });
- * const protectionContainer = new azure.siterecovery.ProtectionContainer("protection-container", {
+ * const protection_container = new azure.siterecovery.ProtectionContainer("protection-container", {
  *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryFabricName: fabric.name,

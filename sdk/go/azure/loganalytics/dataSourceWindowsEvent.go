@@ -11,6 +11,52 @@ import (
 )
 
 // Manages a Log Analytics Windows Event DataSource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/loganalytics"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("PerGB2018"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDataSourceWindowsEvent, err := loganalytics.NewDataSourceWindowsEvent(ctx, "exampleDataSourceWindowsEvent", &loganalytics.DataSourceWindowsEventArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			WorkspaceName:     exampleAnalyticsWorkspace.Name,
+// 			EventLogName:      pulumi.String("Application"),
+// 			EventTypes: pulumi.StringArray{
+// 				pulumi.String("error"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DataSourceWindowsEvent struct {
 	pulumi.CustomResourceState
 

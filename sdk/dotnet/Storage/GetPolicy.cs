@@ -39,7 +39,6 @@ namespace Pulumi.Azure.Storage
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

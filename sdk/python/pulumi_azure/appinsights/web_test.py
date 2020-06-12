@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class WebTest(pulumi.CustomResource):
     application_insights_id: pulumi.Output[str]
     """
@@ -64,8 +65,6 @@ class WebTest(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, application_insights_id=None, configuration=None, description=None, enabled=None, frequency=None, geo_locations=None, kind=None, location=None, name=None, resource_group_name=None, retry_enabled=None, tags=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Insights WebTest.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,9 +171,9 @@ class WebTest(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["timeout"] = timeout
         return WebTest(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

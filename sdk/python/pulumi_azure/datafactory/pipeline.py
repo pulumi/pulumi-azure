@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Pipeline(pulumi.CustomResource):
     activities_json: pulumi.Output[str]
     """
@@ -63,7 +64,7 @@ class Pipeline(pulumi.CustomResource):
             data_factory_name=example_factory.name)
         ```
 
-        ## Example Usage with Activities
+        ### With Activities
 
         ```python
         import pulumi
@@ -167,9 +168,9 @@ class Pipeline(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["variables"] = variables
         return Pipeline(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

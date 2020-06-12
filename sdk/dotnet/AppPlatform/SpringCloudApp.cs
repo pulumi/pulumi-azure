@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+        /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+        /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+        /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }

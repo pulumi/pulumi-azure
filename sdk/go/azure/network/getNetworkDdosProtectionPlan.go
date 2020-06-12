@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Azure Network DDoS Protection Plan.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupNetworkDdosProtectionPlan(ctx, &network.LookupNetworkDdosProtectionPlanArgs{
+// 			Name:              azurerm_network_ddos_protection_plan.Example.Name,
+// 			ResourceGroupName: azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("ddosProtectionPlanId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func GetNetworkDdosProtectionPlan(ctx *pulumi.Context, args *GetNetworkDdosProtectionPlanArgs, opts ...pulumi.InvokeOption) (*GetNetworkDdosProtectionPlanResult, error) {
 	var rv GetNetworkDdosProtectionPlanResult
 	err := ctx.Invoke("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, &rv, opts...)

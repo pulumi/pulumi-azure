@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class FirewallRule(pulumi.CustomResource):
     end_ip_address: pulumi.Output[str]
     """
@@ -56,7 +57,6 @@ class FirewallRule(pulumi.CustomResource):
             start_ip_address="10.0.17.62",
             end_ip_address="10.0.17.62")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,9 +129,9 @@ class FirewallRule(pulumi.CustomResource):
         __props__["server_name"] = server_name
         __props__["start_ip_address"] = start_ip_address
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

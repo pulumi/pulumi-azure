@@ -12,7 +12,6 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Cache.
     /// 
-    /// 
     /// ## Default Redis Configuration Values
     /// 
     /// | Redis Value                     | Basic        | Standard     | Premium      |

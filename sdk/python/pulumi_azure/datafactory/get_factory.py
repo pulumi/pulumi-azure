@@ -90,8 +90,7 @@ def get_factory(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
-    :param str name: Specifies the name of the Data Factory to retrieve information about. 
+    :param str name: Specifies the name of the Data Factory to retrieve information about.
     :param str resource_group_name: The name of the resource group where the Data Factory exists.
     """
     __args__ = dict()

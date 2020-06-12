@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Certificate(pulumi.CustomResource):
     expiration_date: pulumi.Output[str]
     """
@@ -66,8 +67,6 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, key_vault_secret_id=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service certificate.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,9 +158,9 @@ class Certificate(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["thumbprint"] = thumbprint
         return Certificate(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

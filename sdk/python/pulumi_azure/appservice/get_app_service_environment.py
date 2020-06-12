@@ -78,9 +78,8 @@ def get_app_service_environment(name=None,resource_group_name=None,opts=None):
 
     example = azure.appservice.get_app_service_environment(name="example-ase",
         resource_group_name="example-rg")
-    pulumi.export("appServiceEnvironmentId", data["appservice.Environment"]["id"])
+    pulumi.export("appServiceEnvironmentId", data["azurerm_app_service_environment"]["id"])
     ```
-
 
 
     :param str name: The name of the App Service Environment.

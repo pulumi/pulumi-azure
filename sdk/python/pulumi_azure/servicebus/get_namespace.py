@@ -119,7 +119,6 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.
     """

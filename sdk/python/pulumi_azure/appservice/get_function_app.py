@@ -127,7 +127,6 @@ def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Function App resource.
     :param str resource_group_name: The name of the Resource Group where the Function App exists.
     """

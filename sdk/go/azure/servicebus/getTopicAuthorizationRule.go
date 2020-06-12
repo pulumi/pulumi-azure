@@ -8,6 +8,34 @@ import (
 )
 
 // Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := servicebus.LookupTopicAuthorizationRule(ctx, &servicebus.LookupTopicAuthorizationRuleArgs{
+// 			Name:              "example-tfex_name",
+// 			NamespaceName:     "example-namespace",
+// 			ResourceGroupName: "example-resources",
+// 			TopicName:         "example-servicebus_topic",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("servicebusAuthorizationRuleId", data.Azurem_servicebus_topic_authorization_rule.Example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupTopicAuthorizationRule(ctx *pulumi.Context, args *LookupTopicAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupTopicAuthorizationRuleResult, error) {
 	var rv LookupTopicAuthorizationRuleResult
 	err := ctx.Invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", args, &rv, opts...)

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ApplicationGateway(pulumi.CustomResource):
     authentication_certificates: pulumi.Output[list]
     """
@@ -395,7 +396,6 @@ class ApplicationGateway(pulumi.CustomResource):
                 "backendHttpSettingsName": http_setting_name,
             }])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1036,9 +1036,9 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__["waf_configuration"] = waf_configuration
         __props__["zones"] = zones
         return ApplicationGateway(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -57,7 +57,6 @@ def get_policy(storage_account_id=None,opts=None):
     ```
 
 
-
     :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.
     """
     __args__ = dict()

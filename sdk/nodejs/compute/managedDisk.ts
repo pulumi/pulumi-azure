@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Manages a managed disk.
  *
- * ## Example Usage with Create Empty
+ * ## Example Usage
+ *
+ * ### With Create Empty
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,7 +30,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example Usage with Create Copy
+ * ### With Create Copy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

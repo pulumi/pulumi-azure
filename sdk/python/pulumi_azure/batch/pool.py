@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Pool(pulumi.CustomResource):
     account_name: pulumi.Output[str]
     """
@@ -135,8 +136,6 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_name=None, auto_scale=None, certificates=None, container_configuration=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, metadata=None, name=None, network_configuration=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Batch pool.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -401,9 +400,9 @@ class Pool(pulumi.CustomResource):
         __props__["storage_image_reference"] = storage_image_reference
         __props__["vm_size"] = vm_size
         return Pool(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

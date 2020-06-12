@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LinkedServiceMysql(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
@@ -67,7 +68,6 @@ class LinkedServiceMysql(pulumi.CustomResource):
             data_factory_name=example_factory.name,
             connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,9 +152,9 @@ class LinkedServiceMysql(pulumi.CustomResource):
         __props__["parameters"] = parameters
         __props__["resource_group_name"] = resource_group_name
         return LinkedServiceMysql(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

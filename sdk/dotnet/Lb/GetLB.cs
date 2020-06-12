@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Lb
         ///     public Output&lt;string&gt; LoadbalancerId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

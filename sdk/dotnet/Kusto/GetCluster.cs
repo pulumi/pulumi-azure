@@ -35,7 +35,6 @@ namespace Pulumi.Azure.Kusto
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

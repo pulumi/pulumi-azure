@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Account.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := automation.LookupAccount(ctx, &automation.LookupAccountArgs{
+// 			Name:              "example-account",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("automationAccountId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure:automation/getAccount:getAccount", args, &rv, opts...)

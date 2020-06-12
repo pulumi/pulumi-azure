@@ -11,6 +11,40 @@ import (
 )
 
 // Manages a custom virtual machine image that can be used to create virtual machines.
+//
+// ## Example Usage
+//
+// ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleImage, err := compute.NewImage(ctx, "exampleImage", &compute.ImageArgs{
+// 			Location:               pulumi.String("West US"),
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			SourceVirtualMachineId: pulumi.String("{vm_id}"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Image struct {
 	pulumi.CustomResourceState
 

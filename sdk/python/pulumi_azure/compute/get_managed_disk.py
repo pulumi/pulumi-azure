@@ -135,7 +135,6 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
     ```
 
 
-
     :param str name: Specifies the name of the Managed Disk.
     :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     :param dict tags: A mapping of tags assigned to the resource.

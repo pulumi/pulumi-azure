@@ -75,7 +75,6 @@ def get_account(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Automation Account.
     :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
     """

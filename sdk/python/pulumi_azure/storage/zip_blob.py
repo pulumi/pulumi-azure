@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.", DeprecationWarning)
+
 class ZipBlob(pulumi.CustomResource):
     access_tier: pulumi.Output[str]
     content: pulumi.Output[pulumi.Archive]
@@ -102,9 +103,9 @@ class ZipBlob(pulumi.CustomResource):
         __props__["type"] = type
         __props__["url"] = url
         return ZipBlob(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

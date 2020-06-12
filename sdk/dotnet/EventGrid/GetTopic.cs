@@ -35,7 +35,6 @@ namespace Pulumi.Azure.EventGrid
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

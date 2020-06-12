@@ -13,6 +13,59 @@ import (
 // Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
 //
 // > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+// 			Location:          rg.Location,
+// 			ResourceGroupName: rg.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
+// 			Location:               rg.Location,
+// 			ResourceGroupName:      rg.Name,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		container, err := backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
+// 			ResourceGroupName: rg.Name,
+// 			RecoveryVaultName: vault.Name,
+// 			StorageAccountId:  sa.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ContainerStorageAccount struct {
 	pulumi.CustomResourceState
 

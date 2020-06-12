@@ -11,7 +11,9 @@ import {Kind} from "./index";
 /**
  * Manages an App Service Plan component.
  *
- * ## Example Usage (Dedicated)
+ * ## Example Usage
+ *
+ * ### Dedicated)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,7 +30,7 @@ import {Kind} from "./index";
  * });
  * ```
  *
- * ## Example Usage (Shared / Consumption Plan)
+ * ### Shared / Consumption Plan)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -46,7 +48,7 @@ import {Kind} from "./index";
  * });
  * ```
  *
- * ## Example Usage (Linux)
+ * ### Linux)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -65,7 +67,7 @@ import {Kind} from "./index";
  * });
  * ```
  *
- * ## Example Usage (Windows Container)
+ * ### Windows Container)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

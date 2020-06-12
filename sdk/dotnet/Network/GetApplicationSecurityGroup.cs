@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Network
         ///     public Output&lt;string&gt; ApplicationSecurityGroupId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

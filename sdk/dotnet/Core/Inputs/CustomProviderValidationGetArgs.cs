@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Core.Inputs
     public sealed class CustomProviderValidationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint where the validation specification is located. 
+        /// The endpoint where the validation specification is located.
         /// </summary>
         [Input("specification", required: true)]
         public Input<string> Specification { get; set; } = null!;

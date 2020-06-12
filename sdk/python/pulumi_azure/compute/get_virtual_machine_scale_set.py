@@ -65,7 +65,6 @@ def get_virtual_machine_scale_set(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of this Virtual Machine Scale Set.
     :param str resource_group_name: The name of the Resource Group where the Virtual Machine Scale Set exists.
     """

@@ -37,7 +37,6 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

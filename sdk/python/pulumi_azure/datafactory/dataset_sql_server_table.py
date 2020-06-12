@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class DatasetSqlServerTable(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
@@ -83,7 +84,6 @@ class DatasetSqlServerTable(pulumi.CustomResource):
             data_factory_name=example_factory.name,
             linked_service_name=example_linked_service_sql_server.name)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,9 +188,9 @@ class DatasetSqlServerTable(pulumi.CustomResource):
         __props__["schema_columns"] = schema_columns
         __props__["table_name"] = table_name
         return DatasetSqlServerTable(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

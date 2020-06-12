@@ -11,6 +11,51 @@ import (
 )
 
 // Manages an API Management Facebook Identity Provider.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			PublisherName:     pulumi.String("My Company"),
+// 			PublisherEmail:    pulumi.String("company@mycompany.io"),
+// 			SkuName:           pulumi.String("Developer_1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleIdentityProviderFacebook, err := apimanagement.NewIdentityProviderFacebook(ctx, "exampleIdentityProviderFacebook", &apimanagement.IdentityProviderFacebookArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApiManagementName: exampleService.Name,
+// 			AppId:             pulumi.String("00000000000000000000000000000000"),
+// 			AppSecret:         pulumi.String("00000000000000000000000000000000"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type IdentityProviderFacebook struct {
 	pulumi.CustomResourceState
 

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
  *     charset: "utf8",
- *     collation: "utf8GeneralCi",
+ *     collation: "utf8_general_ci",
  * });
  * ```
  */

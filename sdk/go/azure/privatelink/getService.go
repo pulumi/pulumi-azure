@@ -10,6 +10,32 @@ import (
 // Use this data source to access information about an existing Private Link Service.
 //
 // > **NOTE** Private Link is currently in Public Preview.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := privatelink.LookupService(ctx, &privatelink.LookupServiceArgs{
+// 			Name:              "myPrivateLinkService",
+// 			ResourceGroupName: "PrivateLinkServiceRG",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("privateLinkServiceId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	var rv GetServiceResult
 	err := ctx.Invoke("azure:privatelink/getService:getService", args, &rv, opts...)

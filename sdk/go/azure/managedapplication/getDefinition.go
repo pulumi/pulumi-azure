@@ -8,6 +8,32 @@ import (
 )
 
 // Uses this data source to access information about an existing Managed Application Definition.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := managedapplication.LookupDefinition(ctx, &managedapplication.LookupDefinitionArgs{
+// 			Name:              "example-managedappdef",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("id", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDefinition(ctx *pulumi.Context, args *LookupDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupDefinitionResult, error) {
 	var rv LookupDefinitionResult
 	err := ctx.Invoke("azure:managedapplication/getDefinition:getDefinition", args, &rv, opts...)

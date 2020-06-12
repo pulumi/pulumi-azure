@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ChannelsRegistration(pulumi.CustomResource):
     developer_app_insights_api_key: pulumi.Output[str]
     """
@@ -74,7 +75,6 @@ class ChannelsRegistration(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,9 +167,9 @@ class ChannelsRegistration(pulumi.CustomResource):
         __props__["sku"] = sku
         __props__["tags"] = tags
         return ChannelsRegistration(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

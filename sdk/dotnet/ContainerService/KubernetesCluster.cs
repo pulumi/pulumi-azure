@@ -93,7 +93,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeConfig>> KubeConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below.  
+        /// A `kubelet_identity` block as defined below.
         /// </summary>
         [Output("kubeletIdentities")]
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeletIdentity>> KubeletIdentities { get; private set; } = null!;
@@ -479,7 +479,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs>? _kubeletIdentities;
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below.  
+        /// A `kubelet_identity` block as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs> KubeletIdentities
         {

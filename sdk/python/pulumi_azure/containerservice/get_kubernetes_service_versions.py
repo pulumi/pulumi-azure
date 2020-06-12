@@ -72,7 +72,6 @@ def get_kubernetes_service_versions(include_preview=None,location=None,version_p
     ```
 
 
-
     :param bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
     :param str location: Specifies the location in which to query for versions.
     :param str version_prefix: A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class EventHub(pulumi.CustomResource):
     capture_description: pulumi.Output[dict]
     """
@@ -77,7 +78,6 @@ class EventHub(pulumi.CustomResource):
             partition_count=2,
             message_retention=1)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,9 +183,9 @@ class EventHub(pulumi.CustomResource):
         __props__["partition_ids"] = partition_ids
         __props__["resource_group_name"] = resource_group_name
         return EventHub(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

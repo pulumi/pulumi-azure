@@ -96,7 +96,6 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the Name of the Notification Hub Namespace.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
     """

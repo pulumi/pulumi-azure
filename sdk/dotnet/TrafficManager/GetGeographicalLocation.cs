@@ -15,7 +15,10 @@ namespace Pulumi.Azure.TrafficManager
         /// <summary>
         /// Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
         /// 
-        /// ## Example Usage (World)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### World)
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -36,6 +39,8 @@ namespace Pulumi.Azure.TrafficManager
         ///     public Output&lt;string&gt; LocationCode { get; set; }
         /// }
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGeographicalLocationResult> InvokeAsync(GetGeographicalLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? new GetGeographicalLocationArgs(), options.WithVersion());

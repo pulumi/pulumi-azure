@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
  *
- * ## Example Usage (World)
+ * ## Example Usage
+ *
+ * ### World)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class EndpointStorageContainer(pulumi.CustomResource):
     batch_frequency_in_seconds: pulumi.Output[float]
     """
@@ -87,7 +88,6 @@ class EndpointStorageContainer(pulumi.CustomResource):
             max_chunk_size_in_bytes=10485760,
             encoding="JSON")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,9 +176,9 @@ class EndpointStorageContainer(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         return EndpointStorageContainer(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

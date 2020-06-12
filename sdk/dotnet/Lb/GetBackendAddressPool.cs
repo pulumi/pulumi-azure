@@ -47,7 +47,6 @@ namespace Pulumi.Azure.Lb
         ///     public Output&lt;string&gt; BackendIpConfigurationIds { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

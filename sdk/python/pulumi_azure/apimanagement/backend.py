@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Backend(pulumi.CustomResource):
     api_management_name: pulumi.Output[str]
     """
@@ -84,8 +85,6 @@ class Backend(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, credentials=None, description=None, name=None, protocol=None, proxy=None, resource_group_name=None, resource_id=None, service_fabric_cluster=None, title=None, tls=None, url=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a backend within an API Management Service.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,9 +245,9 @@ class Backend(pulumi.CustomResource):
         __props__["tls"] = tls
         __props__["url"] = url
         return Backend(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

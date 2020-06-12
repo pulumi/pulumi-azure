@@ -39,7 +39,6 @@ namespace Pulumi.Azure.Sql
         ///     public Output&lt;string&gt; SqlDatabaseId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -90,7 +89,7 @@ namespace Pulumi.Azure.Sql
     public sealed class GetDatabaseResult
     {
         /// <summary>
-        /// The name of the collation. 
+        /// The name of the collation.
         /// </summary>
         public readonly string Collation;
         /// <summary>

@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Manages an ExpressRoute Circuit Peering.
  *
- * ## Example Usage (Creating a Microsoft Peering)
+ * ## Example Usage
+ *
+ * ### Creating A Microsoft Peering)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

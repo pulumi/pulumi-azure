@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityGetArgs>? _omsAgentIdentities;
 
         /// <summary>
-        /// An `oms_agent_identity` block as defined below.  
+        /// An `oms_agent_identity` block as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityGetArgs> OmsAgentIdentities
         {

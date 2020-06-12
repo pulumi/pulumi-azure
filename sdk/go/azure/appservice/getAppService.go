@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing App Service.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := appservice.LookupAppService(ctx, &appservice.LookupAppServiceArgs{
+// 			Name:              "search-app-service",
+// 			ResourceGroupName: "search-service",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("appServiceId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupAppService(ctx *pulumi.Context, args *LookupAppServiceArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceResult, error) {
 	var rv LookupAppServiceResult
 	err := ctx.Invoke("azure:appservice/getAppService:getAppService", args, &rv, opts...)

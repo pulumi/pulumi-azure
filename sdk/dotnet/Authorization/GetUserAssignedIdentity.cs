@@ -14,7 +14,10 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// Use this data source to access information about an existing User Assigned Identity.
         /// 
-        /// ## Example Usage (reference an existing)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Reference An Existing)
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -39,6 +42,8 @@ namespace Pulumi.Azure.Authorization
         ///     public Output&lt;string&gt; UaiPrincipalId { get; set; }
         /// }
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());

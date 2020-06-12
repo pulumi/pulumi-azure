@@ -67,11 +67,11 @@ export interface GetPublishedVersionArgs {
 export interface GetPublishedVersionResult {
     readonly blueprintName: string;
     /**
-     * The description of the Blueprint Published Version  
+     * The description of the Blueprint Published Version
      */
     readonly description: string;
     /**
-     * The display name of the Blueprint Published Version  
+     * The display name of the Blueprint Published Version
      */
     readonly displayName: string;
     /**
@@ -81,12 +81,12 @@ export interface GetPublishedVersionResult {
     readonly lastModified: string;
     readonly scopeId: string;
     /**
-     * The target scope  
+     * The target scope
      */
     readonly targetScope: string;
     readonly timeCreated: string;
     /**
-     * The type of the Blueprint  
+     * The type of the Blueprint
      */
     readonly type: string;
     readonly version: string;

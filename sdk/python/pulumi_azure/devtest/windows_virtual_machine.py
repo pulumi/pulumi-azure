@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class WindowsVirtualMachine(pulumi.CustomResource):
     allow_claim: pulumi.Output[bool]
     """
@@ -94,8 +95,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, allow_claim=None, disallow_public_ip_address=None, gallery_image_reference=None, inbound_nat_rules=None, lab_name=None, lab_subnet_name=None, lab_virtual_network_id=None, location=None, name=None, notes=None, password=None, resource_group_name=None, size=None, storage_type=None, tags=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Windows Virtual Machine within a Dev Test Lab.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,9 +251,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__["unique_identifier"] = unique_identifier
         __props__["username"] = username
         return WindowsVirtualMachine(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

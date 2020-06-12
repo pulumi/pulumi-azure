@@ -101,7 +101,7 @@ class GetGatewayConnectionResult:
             raise TypeError("Expected argument 'shared_key' to be a str")
         __self__.shared_key = shared_key
         """
-        The shared IPSec key. 
+        The shared IPSec key.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -175,7 +175,6 @@ def get_gateway_connection(name=None,resource_group_name=None,opts=None):
         resource_group_name="networking")
     pulumi.export("virtualNetworkGatewayConnectionId", example.id)
     ```
-
 
 
     :param str name: Specifies the name of the Virtual Network Gateway Connection.

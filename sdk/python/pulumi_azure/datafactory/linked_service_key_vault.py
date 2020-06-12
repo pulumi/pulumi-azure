@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LinkedServiceKeyVault(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
@@ -73,7 +74,6 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
             data_factory_name=example_factory.name,
             key_vault_id=example_key_vault.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,9 +158,9 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
         __props__["parameters"] = parameters
         __props__["resource_group_name"] = resource_group_name
         return LinkedServiceKeyVault(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

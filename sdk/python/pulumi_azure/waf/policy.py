@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Policy(pulumi.CustomResource):
     custom_rules: pulumi.Output[list]
     """
@@ -159,7 +160,6 @@ class Policy(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] custom_rules: One or more `custom_rules` blocks as defined below.
@@ -305,9 +305,9 @@ class Policy(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         return Policy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

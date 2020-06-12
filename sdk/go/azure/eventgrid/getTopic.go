@@ -8,6 +8,31 @@ import (
 )
 
 // Use this data source to access information about an existing EventGrid Topic
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := eventgrid.LookupTopic(ctx, &eventgrid.LookupTopicArgs{
+// 			Name:              "my-eventgrid-topic",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
 	err := ctx.Invoke("azure:eventgrid/getTopic:getTopic", args, &rv, opts...)

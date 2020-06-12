@@ -68,7 +68,6 @@ def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource
     ```
 
 
-
     :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
     :param bool attached: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
     :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.

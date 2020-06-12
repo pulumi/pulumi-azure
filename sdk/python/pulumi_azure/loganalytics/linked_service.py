@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LinkedService(pulumi.CustomResource):
     linked_service_name: pulumi.Output[str]
     """
@@ -66,7 +67,6 @@ class LinkedService(pulumi.CustomResource):
             workspace_name=example_analytics_workspace.name,
             resource_id=example_account.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,9 +138,9 @@ class LinkedService(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["workspace_name"] = workspace_name
         return LinkedService(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

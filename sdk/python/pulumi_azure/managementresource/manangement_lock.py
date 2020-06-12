@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock", DeprecationWarning)
+
 class ManangementLock(pulumi.CustomResource):
     lock_level: pulumi.Output[str]
     """
@@ -32,7 +33,9 @@ class ManangementLock(pulumi.CustomResource):
         """
         Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 
-        ## Example Usage (Subscription Level Lock)
+        ## Example Usage
+
+        ### Subscription Level Lock)
 
         ```python
         import pulumi
@@ -45,20 +48,7 @@ class ManangementLock(pulumi.CustomResource):
             notes="Items can't be deleted in this subscription!")
         ```
 
-        ## Example Usage (Resource Group Level Lock)
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        resource_group_level = azure.management.Lock("resource-group-level",
-            scope=example.id,
-            lock_level="ReadOnly",
-            notes="This Resource Group is Read-Only")
-        ```
-
-        ## Example Usage (Resource Level Lock)
+        ### Resource Level Lock)
 
         ```python
         import pulumi
@@ -138,9 +128,9 @@ class ManangementLock(pulumi.CustomResource):
         __props__["notes"] = notes
         __props__["scope"] = scope
         return ManangementLock(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

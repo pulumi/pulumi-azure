@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * const exampleCredential = new azure.automation.Credential("exampleCredential", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
- *     username: "exampleUser",
- *     password: "examplePwd",
+ *     username: "example_user",
+ *     password: "example_pwd",
  *     description: "This is an example credential",
  * });
  * ```

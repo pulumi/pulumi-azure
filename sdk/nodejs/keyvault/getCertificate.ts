@@ -59,7 +59,7 @@ export interface GetCertificateArgs {
      */
     readonly name: string;
     /**
-     * Specifies the version of the certificate to look up.  (Defaults to latest) 
+     * Specifies the version of the certificate to look up.  (Defaults to latest)
      */
     readonly version?: string;
 }

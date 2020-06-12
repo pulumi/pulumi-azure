@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["192.168.2.0/24"],
  *     location: secondaryResourceGroup.location,
  * });
- * const recoveryMapping = new azure.siterecovery.NetworkMapping("recovery-mapping", {
+ * const recovery_mapping = new azure.siterecovery.NetworkMapping("recovery-mapping", {
  *     resourceGroupName: secondaryResourceGroup.name,
  *     recoveryVaultName: vault.name,
  *     sourceRecoveryFabricName: "primary-fabric",

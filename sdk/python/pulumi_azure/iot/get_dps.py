@@ -92,7 +92,6 @@ def get_dps(name=None,resource_group_name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Iot Device Provisioning Service resource.
     :param str resource_group_name: The name of the resource group under which the Iot Device Provisioning Service is located in.
     """

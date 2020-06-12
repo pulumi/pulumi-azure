@@ -83,7 +83,6 @@ def get_service(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specify the name of the database migration service.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the database migration service exists
     """

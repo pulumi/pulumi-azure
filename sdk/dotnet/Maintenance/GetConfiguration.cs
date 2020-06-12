@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Maintenance
         ///     public Output&lt;string&gt; Id { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

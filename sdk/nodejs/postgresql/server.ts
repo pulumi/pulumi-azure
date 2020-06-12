@@ -116,7 +116,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`. 
+     * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
      */
     public readonly restorePointInTime!: pulumi.Output<string | undefined>;
     /**
@@ -144,7 +144,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly storageProfile!: pulumi.Output<outputs.postgresql.ServerStorageProfile>;
     /**
-     * A mapping of tags to assign to the resource.  
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -294,7 +294,7 @@ export interface ServerState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`. 
+     * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
      */
     readonly restorePointInTime?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface ServerState {
      */
     readonly storageProfile?: pulumi.Input<inputs.postgresql.ServerStorageProfile>;
     /**
-     * A mapping of tags to assign to the resource.  
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -388,7 +388,7 @@ export interface ServerArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`. 
+     * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
      */
     readonly restorePointInTime?: pulumi.Input<string>;
     /**
@@ -416,7 +416,7 @@ export interface ServerArgs {
      */
     readonly storageProfile?: pulumi.Input<inputs.postgresql.ServerStorageProfile>;
     /**
-     * A mapping of tags to assign to the resource.  
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Blob(pulumi.CustomResource):
     access_tier: pulumi.Output[str]
     """
@@ -32,7 +33,7 @@ class Blob(pulumi.CustomResource):
     """
     size: pulumi.Output[float]
     """
-    Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. 
+    Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
     """
     source: pulumi.Output[Union[pulumi.Asset, pulumi.Archive]]
     """
@@ -92,7 +93,6 @@ class Blob(pulumi.CustomResource):
             source=pulumi.FileAsset("some-local-file.zip"))
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
@@ -100,7 +100,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[dict] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. 
+        :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -166,7 +166,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[dict] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. 
+        :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -195,9 +195,9 @@ class Blob(pulumi.CustomResource):
         __props__["type"] = type
         __props__["url"] = url
         return Blob(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

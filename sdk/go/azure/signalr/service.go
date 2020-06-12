@@ -11,6 +11,56 @@ import (
 )
 
 // Manages an Azure SignalR service.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/signalr"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := signalr.NewService(ctx, "exampleService", &signalr.ServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku: &signalr.ServiceSkuArgs{
+// 				Name:     pulumi.String("Free_F1"),
+// 				Capacity: pulumi.Int(1),
+// 			},
+// 			Cors: signalr.ServiceCorArray{
+// 				&signalr.ServiceCorArgs{
+// 					AllowedOrigins: pulumi.StringArray{
+// 						pulumi.String("http://www.example.com"),
+// 					},
+// 				},
+// 			},
+// 			Features: signalr.ServiceFeatureArray{
+// 				&signalr.ServiceFeatureArgs{
+// 					Flag:  pulumi.String("ServiceMode"),
+// 					Value: pulumi.String("Default"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 

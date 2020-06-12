@@ -18,13 +18,13 @@ class GetDefinitionResult:
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
-        The description of the Blueprint Definition.  
+        The description of the Blueprint Definition.
         """
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         """
-        The display name of the Blueprint Definition.  
+        The display name of the Blueprint Definition.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -36,7 +36,7 @@ class GetDefinitionResult:
             raise TypeError("Expected argument 'last_modified' to be a str")
         __self__.last_modified = last_modified
         """
-        The timestamp of when this last modification was saved to the Blueprint Definition.  
+        The timestamp of when this last modification was saved to the Blueprint Definition.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -48,19 +48,19 @@ class GetDefinitionResult:
             raise TypeError("Expected argument 'target_scope' to be a str")
         __self__.target_scope = target_scope
         """
-        The target scope.  
+        The target scope.
         """
         if time_created and not isinstance(time_created, str):
             raise TypeError("Expected argument 'time_created' to be a str")
         __self__.time_created = time_created
         """
-        The timestamp of when this Blueprint Definition was created.  
+        The timestamp of when this Blueprint Definition was created.
         """
         if versions and not isinstance(versions, list):
             raise TypeError("Expected argument 'versions' to be a list")
         __self__.versions = versions
         """
-        A list of versions published for this Blueprint Definition.  
+        A list of versions published for this Blueprint Definition.
         """
 class AwaitableGetDefinitionResult(GetDefinitionResult):
     # pylint: disable=using-constant-test
@@ -99,9 +99,8 @@ def get_definition(name=None,scope_id=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Blueprint
-    :param str scope_id: The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.  
+    :param str scope_id: The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.
     """
     __args__ = dict()
 

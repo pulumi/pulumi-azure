@@ -11,6 +11,71 @@ import (
 )
 
 // Manages a Stream Analytics Output to an EventHub.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/eventhub"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/streamanalytics"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 			Name: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+// 			Name:              "example-job",
+// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+// 			Location:          pulumi.String(exampleResourceGroup.Location),
+// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			Sku:               pulumi.String("Standard"),
+// 			Capacity:          pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+// 			NamespaceName:     exampleEventHubNamespace.Name,
+// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			PartitionCount:    pulumi.Int(2),
+// 			MessageRetention:  pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleOutputEventHub, err := streamanalytics.NewOutputEventHub(ctx, "exampleOutputEventHub", &streamanalytics.OutputEventHubArgs{
+// 			StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
+// 			ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
+// 			EventhubName:           exampleEventHub.Name,
+// 			ServicebusNamespace:    exampleEventHubNamespace.Name,
+// 			SharedAccessPolicyKey:  exampleEventHubNamespace.DefaultPrimaryKey,
+// 			SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
+// 			Serialization: &streamanalytics.OutputEventHubSerializationArgs{
+// 				Type: pulumi.String("Avro"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type OutputEventHub struct {
 	pulumi.CustomResourceState
 

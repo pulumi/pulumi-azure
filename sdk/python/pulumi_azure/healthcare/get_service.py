@@ -98,7 +98,6 @@ def get_service(location=None,name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str location: The Azure Region where the Service is located.
     :param str name: Specifies the name of the Healthcare Service.
     :param str resource_group_name: The name of the Resource Group in which the Healthcare Service exists.

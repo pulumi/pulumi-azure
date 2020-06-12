@@ -27,7 +27,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. 
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         /// </summary>
         [Output("createMode")]
         public Output<string> CreateMode { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> LicenseType { get; private set; } = null!;
 
         /// <summary>
-        /// The max size of the database in gigabytes. 
+        /// The max size of the database in gigabytes.
         /// </summary>
         [Output("maxSizeGb")]
         public Output<int> MaxSizeGb { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. 
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? LicenseType { get; set; }
 
         /// <summary>
-        /// The max size of the database in gigabytes. 
+        /// The max size of the database in gigabytes.
         /// </summary>
         [Input("maxSizeGb")]
         public Input<int>? MaxSizeGb { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. 
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? LicenseType { get; set; }
 
         /// <summary>
-        /// The max size of the database in gigabytes. 
+        /// The max size of the database in gigabytes.
         /// </summary>
         [Input("maxSizeGb")]
         public Input<int>? MaxSizeGb { get; set; }

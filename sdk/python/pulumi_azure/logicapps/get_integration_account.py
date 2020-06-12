@@ -75,7 +75,6 @@ def get_integration_account(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of this Logic App Integration Account.
     :param str resource_group_name: The name of the Resource Group where the Logic App Integration Account exists.
     """

@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Batch Account.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := batch.LookupAccount(ctx, &batch.LookupAccountArgs{
+// 			Name:              "testbatchaccount",
+// 			ResourceGroupName: "test",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("poolAllocationMode", example.PoolAllocationMode)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure:batch/getAccount:getAccount", args, &rv, opts...)

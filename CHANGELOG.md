@@ -2,9 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
-
----
+* Generate examples for Go SDK
 
 ## 3.9.0 (2020-06-12)
 * Upgrade to v2.14.0 of the AzureRM Terraform Provider

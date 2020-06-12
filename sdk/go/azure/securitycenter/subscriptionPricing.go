@@ -15,6 +15,31 @@ import (
 // > **NOTE:** This resource requires the `Owner` permission on the Subscription.
 //
 // > **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/securitycenter"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := securitycenter.NewSubscriptionPricing(ctx, "example", &securitycenter.SubscriptionPricingArgs{
+// 			Tier: pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SubscriptionPricing struct {
 	pulumi.CustomResourceState
 

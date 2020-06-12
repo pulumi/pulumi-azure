@@ -8,6 +8,33 @@ import (
 )
 
 // Use this data source to access information about an existing Subnet within a Virtual Network.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupSubnet(ctx, &network.LookupSubnetArgs{
+// 			Name:               "backend",
+// 			VirtualNetworkName: "production",
+// 			ResourceGroupName:  "networking",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("subnetId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("azure:network/getSubnet:getSubnet", args, &rv, opts...)

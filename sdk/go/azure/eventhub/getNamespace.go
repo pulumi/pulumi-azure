@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing EventHub Namespace.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := eventhub.LookupNamespace(ctx, &eventhub.LookupNamespaceArgs{
+// 			Name:              "search-eventhubns",
+// 			ResourceGroupName: "search-service",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("eventhubNamespaceId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure:eventhub/getNamespace:getNamespace", args, &rv, opts...)

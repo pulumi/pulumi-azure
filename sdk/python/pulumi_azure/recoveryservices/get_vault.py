@@ -74,7 +74,6 @@ def get_vault(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Recovery Services Vault.
     :param str resource_group_name: The name of the resource group in which the Recovery Services Vault resides.
     """

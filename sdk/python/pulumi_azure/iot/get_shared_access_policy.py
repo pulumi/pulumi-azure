@@ -86,7 +86,6 @@ def get_shared_access_policy(iothub_name=None,name=None,resource_group_name=None
     ```
 
 
-
     :param str iothub_name: The name of the IoTHub to which this Shared Access Policy belongs.
     :param str name: Specifies the name of the IotHub Shared Access Policy resource.
     :param str resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created.

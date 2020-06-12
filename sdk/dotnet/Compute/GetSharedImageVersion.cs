@@ -37,7 +37,6 @@ namespace Pulumi.Azure.Compute
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

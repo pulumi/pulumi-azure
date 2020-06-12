@@ -38,7 +38,6 @@ namespace Pulumi.Azure.DataShare
         ///     public Output&lt;string&gt; Id { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

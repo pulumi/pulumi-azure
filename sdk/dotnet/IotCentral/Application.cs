@@ -49,7 +49,7 @@ namespace Pulumi.Azure.IotCentral
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
-        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name. 
+        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.IotCentral
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name. 
+        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.IotCentral
     public sealed class ApplicationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name. 
+        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

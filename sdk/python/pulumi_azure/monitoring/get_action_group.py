@@ -141,7 +141,6 @@ def get_action_group(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Action Group.
     :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
     """

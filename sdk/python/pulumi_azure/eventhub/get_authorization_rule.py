@@ -121,7 +121,6 @@ def get_authorization_rule(eventhub_name=None,listen=None,manage=None,name=None,
     ```
 
 
-
     :param str eventhub_name: Specifies the name of the EventHub.
     :param str name: Specifies the name of the EventHub Authorization Rule resource. be created.
     :param str namespace_name: Specifies the name of the grandparent EventHub Namespace.

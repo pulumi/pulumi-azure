@@ -57,7 +57,7 @@ export interface GetDatabaseArgs {
  */
 export interface GetDatabaseResult {
     /**
-     * The collation of the database. 
+     * The collation of the database.
      */
     readonly collation: string;
     /**
@@ -78,7 +78,7 @@ export interface GetDatabaseResult {
     readonly maxSizeGb: number;
     readonly name: string;
     /**
-     * The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. 
+     * The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed.
      */
     readonly readReplicaCount: number;
     /**

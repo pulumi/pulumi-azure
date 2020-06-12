@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule", DeprecationWarning)
+
 class EventHubAuthorizationRule(pulumi.CustomResource):
     eventhub_name: pulumi.Output[str]
     """
@@ -98,7 +99,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             send=False,
             manage=False)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,9 +194,9 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         __props__["secondary_key"] = secondary_key
         __props__["send"] = send
         return EventHubAuthorizationRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

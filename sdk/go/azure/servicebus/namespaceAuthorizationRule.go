@@ -11,6 +11,53 @@ import (
 )
 
 // Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 			Tags: map[string]interface{}{
+// 				"source": "example",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNamespaceAuthorizationRule, err := servicebus.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
+// 			NamespaceName:     exampleNamespace.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Listen:            pulumi.Bool(true),
+// 			Send:              pulumi.Bool(true),
+// 			Manage:            pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 

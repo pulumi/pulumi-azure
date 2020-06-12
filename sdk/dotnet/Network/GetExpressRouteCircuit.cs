@@ -41,7 +41,6 @@ namespace Pulumi.Azure.Network
         ///     public Output&lt;string&gt; ServiceKey { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

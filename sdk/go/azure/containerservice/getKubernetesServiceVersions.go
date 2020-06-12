@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := containerservice.LookupKubernetesServiceVersions(ctx, &containerservice.LookupKubernetesServiceVersionsArgs{
+// 			Location: "West Europe",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("versions", current.Versions)
+// 		ctx.Export("latestVersion", current.LatestVersion)
+// 		return nil
+// 	})
+// }
+// ```
 func GetKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServiceVersionsArgs, opts ...pulumi.InvokeOption) (*GetKubernetesServiceVersionsResult, error) {
 	var rv GetKubernetesServiceVersionsResult
 	err := ctx.Invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args, &rv, opts...)

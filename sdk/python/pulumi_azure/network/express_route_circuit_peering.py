@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
     azure_asn: pulumi.Output[float]
     """
@@ -67,7 +68,9 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         """
         Manages an ExpressRoute Circuit Peering.
 
-        ## Example Usage (Creating a Microsoft Peering)
+        ## Example Usage
+
+        ### Creating A Microsoft Peering)
 
         ```python
         import pulumi
@@ -213,9 +216,9 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         __props__["shared_key"] = shared_key
         __props__["vlan_id"] = vlan_id
         return ExpressRouteCircuitPeering(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ConsumerGroup(pulumi.CustomResource):
     eventhub_endpoint_name: pulumi.Output[str]
     """
@@ -54,7 +55,6 @@ class ConsumerGroup(pulumi.CustomResource):
             eventhub_endpoint_name="events",
             resource_group_name=example_resource_group.name)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +119,9 @@ class ConsumerGroup(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         return ConsumerGroup(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

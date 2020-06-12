@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.sql.getDatabase({
- *     name: "exampleDb",
- *     serverName: "exampleDbServer",
+ *     name: "example_db",
+ *     serverName: "example_db_server",
  *     resourceGroupName: "example-resources",
  * });
  * export const sqlDatabaseId = example.then(example => example.id);
@@ -68,7 +68,7 @@ export interface GetDatabaseArgs {
  */
 export interface GetDatabaseResult {
     /**
-     * The name of the collation. 
+     * The name of the collation.
      */
     readonly collation: string;
     /**

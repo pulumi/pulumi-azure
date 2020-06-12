@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkSecurityRule(pulumi.CustomResource):
     access: pulumi.Output[str]
     """
@@ -114,7 +115,6 @@ class NetworkSecurityRule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             network_security_group_name=example_network_security_group.name)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,9 +241,9 @@ class NetworkSecurityRule(pulumi.CustomResource):
         __props__["source_port_range"] = source_port_range
         __props__["source_port_ranges"] = source_port_ranges
         return NetworkSecurityRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

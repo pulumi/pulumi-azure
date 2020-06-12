@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class DscNodeConfiguration(pulumi.CustomResource):
     automation_account_name: pulumi.Output[str]
     """
@@ -78,7 +79,6 @@ class DscNodeConfiguration(pulumi.CustomResource):
         \"\"\")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
@@ -144,9 +144,9 @@ class DscNodeConfiguration(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         return DscNodeConfiguration(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

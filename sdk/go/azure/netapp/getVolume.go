@@ -8,6 +8,32 @@ import (
 )
 
 // Uses this data source to access information about an existing NetApp Volume.
+//
+// ## NetApp Volume Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := netapp.LookupVolume(ctx, &netapp.LookupVolumeArgs{
+// 			ResourceGroupName: "acctestRG",
+// 			AccountName:       "acctestnetappaccount",
+// 			PoolName:          "acctestnetapppool",
+// 			Name:              "example-volume",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("netappVolumeId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
 	err := ctx.Invoke("azure:netapp/getVolume:getVolume", args, &rv, opts...)

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VirtualNetworkRule(pulumi.CustomResource):
     ignore_missing_vnet_service_endpoint: pulumi.Output[bool]
     """
@@ -63,7 +64,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
             server_name=sqlserver.name,
             subnet_id=subnet.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,9 +132,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
         __props__["server_name"] = server_name
         __props__["subnet_id"] = subnet_id
         return VirtualNetworkRule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

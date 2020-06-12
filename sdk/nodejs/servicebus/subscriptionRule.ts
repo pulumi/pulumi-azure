@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Subscription Rule.
  *
- * ## Example Usage (SQL Filter)
+ * ## Example Usage
+ *
+ * ### SQL Filter)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,7 +47,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example Usage (Correlation Filter)
+ * ### Correlation Filter)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

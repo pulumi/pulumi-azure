@@ -11,6 +11,52 @@ import (
 )
 
 // Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/loganalytics"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("PerGB2018"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDataSourceWindowsPerformanceCounter, err := loganalytics.NewDataSourceWindowsPerformanceCounter(ctx, "exampleDataSourceWindowsPerformanceCounter", &loganalytics.DataSourceWindowsPerformanceCounterArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			WorkspaceName:     exampleAnalyticsWorkspace.Name,
+// 			ObjectName:        pulumi.String("CPU"),
+// 			InstanceName:      pulumi.String("*"),
+// 			CounterName:       pulumi.String("CPU"),
+// 			IntervalSeconds:   pulumi.Int(10),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DataSourceWindowsPerformanceCounter struct {
 	pulumi.CustomResourceState
 

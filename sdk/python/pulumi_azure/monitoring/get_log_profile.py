@@ -81,7 +81,6 @@ def get_log_profile(name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the Name of the Log Profile.
     """
     __args__ = dict()

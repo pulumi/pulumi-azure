@@ -37,7 +37,6 @@ namespace Pulumi.Azure.Management
         ///     public Output&lt;string&gt; DisplayName { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -99,7 +99,6 @@ def get_lb(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Load Balancer.
     :param str resource_group_name: The name of the Resource Group in which the Load Balancer exists.
     """

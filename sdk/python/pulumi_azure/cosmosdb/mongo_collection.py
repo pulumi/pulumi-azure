@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class MongoCollection(pulumi.CustomResource):
     account_name: pulumi.Output[str]
     database_name: pulumi.Output[str]
@@ -74,7 +75,6 @@ class MongoCollection(pulumi.CustomResource):
             shard_key="uniqueKey",
             throughput=400)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,9 +171,9 @@ class MongoCollection(pulumi.CustomResource):
         __props__["system_indexes"] = system_indexes
         __props__["throughput"] = throughput
         return MongoCollection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

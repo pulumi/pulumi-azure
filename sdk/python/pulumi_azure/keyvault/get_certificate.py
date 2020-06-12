@@ -92,10 +92,9 @@ def get_certificate(key_vault_id=None,name=None,version=None,opts=None):
     ```
 
 
-
     :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Secret.
-    :param str version: Specifies the version of the certificate to look up.  (Defaults to latest) 
+    :param str version: Specifies the version of the certificate to look up.  (Defaults to latest)
     """
     __args__ = dict()
 
