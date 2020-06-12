@@ -78,7 +78,6 @@ def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Shared Image Gallery.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     """

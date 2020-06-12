@@ -69,7 +69,7 @@ class GetJobResult:
             raise TypeError("Expected argument 'output_error_policy' to be a str")
         __self__.output_error_policy = output_error_policy
         """
-        The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). 
+        The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size).
         """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -122,7 +122,6 @@ def get_job(name=None,resource_group_name=None,opts=None):
         resource_group_name="example-resources")
     pulumi.export("jobId", example.job_id)
     ```
-
 
 
     :param str name: Specifies the name of the Stream Analytics Job.

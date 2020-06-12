@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Private DNS Zone.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := privatedns.LookupDnsZone(ctx, &privatedns.LookupDnsZoneArgs{
+// 			Name:              "contoso.internal",
+// 			ResourceGroupName: "contoso-dns",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("privateDnsZoneId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func GetDnsZone(ctx *pulumi.Context, args *GetDnsZoneArgs, opts ...pulumi.InvokeOption) (*GetDnsZoneResult, error) {
 	var rv GetDnsZoneResult
 	err := ctx.Invoke("azure:privatedns/getDnsZone:getDnsZone", args, &rv, opts...)

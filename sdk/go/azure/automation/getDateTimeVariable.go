@@ -8,6 +8,34 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Datetime Variable.
+//
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := automation.LookupDateTimeVariable(ctx, &automation.LookupDateTimeVariableArgs{
+// 			Name:                  "tfex-example-var",
+// 			ResourceGroupName:     "tfex-example-rg",
+// 			AutomationAccountName: "tfex-example-account",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("variableId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDateTimeVariable(ctx *pulumi.Context, args *LookupDateTimeVariableArgs, opts ...pulumi.InvokeOption) (*LookupDateTimeVariableResult, error) {
 	var rv LookupDateTimeVariableResult
 	err := ctx.Invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", args, &rv, opts...)

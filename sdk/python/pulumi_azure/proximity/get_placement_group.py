@@ -62,7 +62,6 @@ def get_placement_group(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Proximity Placement Group.
     :param str resource_group_name: The name of the resource group in which the Proximity Placement Group exists.
     """

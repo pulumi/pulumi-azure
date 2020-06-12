@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VirtualHub(pulumi.CustomResource):
     address_prefix: pulumi.Output[str]
     """
@@ -63,7 +64,6 @@ class VirtualHub(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.1.0/24")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,9 +150,9 @@ class VirtualHub(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["virtual_wan_id"] = virtual_wan_id
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

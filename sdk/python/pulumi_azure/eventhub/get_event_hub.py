@@ -73,7 +73,6 @@ def get_event_hub(name=None,namespace_name=None,resource_group_name=None,opts=No
     ```
 
 
-
     :param str name: The name of this EventHub.
     :param str namespace_name: The name of the EventHub Namespace where the EventHub exists.
     :param str resource_group_name: The name of the Resource Group where the EventHub exists.

@@ -96,7 +96,6 @@ def get_insights(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Application Insights component.
     :param str resource_group_name: Specifies the name of the resource group the Application Insights component is located in.
     """

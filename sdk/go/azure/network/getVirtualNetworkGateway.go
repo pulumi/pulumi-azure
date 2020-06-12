@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Network Gateway.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupVirtualNetworkGateway(ctx, &network.LookupVirtualNetworkGatewayArgs{
+// 			Name:              "production",
+// 			ResourceGroupName: "networking",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("virtualNetworkGatewayId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayResult, error) {
 	var rv LookupVirtualNetworkGatewayResult
 	err := ctx.Invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", args, &rv, opts...)

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
     ip_configuration_name: pulumi.Output[str]
     """
@@ -75,7 +76,6 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             nat_rule_id=example_nat_rule.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
@@ -135,9 +135,9 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         __props__["nat_rule_id"] = nat_rule_id
         __props__["network_interface_id"] = network_interface_id
         return NetworkInterfaceNatRuleAssociation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

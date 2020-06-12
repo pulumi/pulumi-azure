@@ -81,11 +81,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly certificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterCertificateCommonNames | undefined>;
     /**
-     * A `clientCertificateCommonName` block as defined below. 
+     * A `clientCertificateCommonName` block as defined below.
      */
     public readonly clientCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateCommonName[] | undefined>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below. 
+     * One or two `clientCertificateThumbprint` blocks as defined below.
      */
     public readonly clientCertificateThumbprints!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateThumbprint[] | undefined>;
     /**
@@ -250,11 +250,11 @@ export interface ClusterState {
      */
     readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
-     * A `clientCertificateCommonName` block as defined below. 
+     * A `clientCertificateCommonName` block as defined below.
      */
     readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below. 
+     * One or two `clientCertificateThumbprint` blocks as defined below.
      */
     readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**
@@ -336,11 +336,11 @@ export interface ClusterArgs {
      */
     readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
-     * A `clientCertificateCommonName` block as defined below. 
+     * A `clientCertificateCommonName` block as defined below.
      */
     readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below. 
+     * One or two `clientCertificateThumbprint` blocks as defined below.
      */
     readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**

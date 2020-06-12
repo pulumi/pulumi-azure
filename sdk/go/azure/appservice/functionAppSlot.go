@@ -11,6 +11,74 @@ import (
 )
 
 // Manages a Function App deployment Slot.
+//
+// ## Example Usage
+//
+// ### With App Service Plan)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("westus2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku: &appservice.PlanSkuArgs{
+// 				Tier: pulumi.String("Standard"),
+// 				Size: pulumi.String("S1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			AppServicePlanId:        examplePlan.ID(),
+// 			StorageAccountName:      exampleAccount.Name,
+// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFunctionAppSlot, err := appservice.NewFunctionAppSlot(ctx, "exampleFunctionAppSlot", &appservice.FunctionAppSlotArgs{
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
+// 			AppServicePlanId:        examplePlan.ID(),
+// 			FunctionAppName:         exampleFunctionApp.Name,
+// 			StorageAccountName:      exampleAccount.Name,
+// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FunctionAppSlot struct {
 	pulumi.CustomResourceState
 

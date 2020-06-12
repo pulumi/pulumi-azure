@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Manages a Function App deployment Slot.
  *
- * ## Example Usage (with App Service Plan)
+ * ## Example Usage
+ *
+ * ### With App Service Plan)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -133,7 +135,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A string indicating the Operating System type for this function app. 
+     * A string indicating the Operating System type for this function app.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -326,7 +328,7 @@ export interface FunctionAppSlotState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. 
+     * A string indicating the Operating System type for this function app.
      */
     readonly osType?: pulumi.Input<string>;
     /**
@@ -421,7 +423,7 @@ export interface FunctionAppSlotArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. 
+     * A string indicating the Operating System type for this function app.
      */
     readonly osType?: pulumi.Input<string>;
     /**

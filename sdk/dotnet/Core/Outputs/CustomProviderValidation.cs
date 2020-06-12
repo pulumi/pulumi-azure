@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Core.Outputs
     public sealed class CustomProviderValidation
     {
         /// <summary>
-        /// The endpoint where the validation specification is located. 
+        /// The endpoint where the validation specification is located.
         /// </summary>
         public readonly string Specification;
 

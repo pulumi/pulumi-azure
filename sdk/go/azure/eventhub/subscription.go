@@ -12,6 +12,60 @@ import (
 
 // Manages a ServiceBus Subscription.
 //
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 			Tags: map[string]interface{}{
+// 				"source": "example",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			NamespaceName:      exampleNamespace.Name,
+// 			EnablePartitioning: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			NamespaceName:     exampleNamespace.Name,
+// 			TopicName:         exampleTopic.Name,
+// 			MaxDeliveryCount:  pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // Deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription
 type Subscription struct {
 	pulumi.CustomResourceState

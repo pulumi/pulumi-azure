@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = pulumi.output(azure.iot.getDps({
- *     name: "iotHubDpsTest",
- *     resourceGroupName: "iothubDpsRg",
+ *     name: "iot_hub_dps_test",
+ *     resourceGroupName: "iothub_dps_rg",
  * }, { async: true }));
  * ```
  */

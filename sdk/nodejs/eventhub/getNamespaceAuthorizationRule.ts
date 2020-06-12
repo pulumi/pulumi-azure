@@ -45,7 +45,7 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
  */
 export interface GetNamespaceAuthorizationRuleArgs {
     /**
-     * The name of the EventHub Authorization Rule resource. 
+     * The name of the EventHub Authorization Rule resource.
      */
     readonly name: string;
     /**

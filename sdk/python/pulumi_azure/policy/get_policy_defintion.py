@@ -106,7 +106,6 @@ def get_policy_defintion(display_name=None,management_group_id=None,management_g
     ```
 
 
-
     :param str display_name: Specifies the display name of the Policy Definition. Conflicts with `name`.
     :param str management_group_name: Only retrieve Policy Definitions from this Management Group.
     :param str name: Specifies the name of the Policy Definition. Conflicts with `display_name`.

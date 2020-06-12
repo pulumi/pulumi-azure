@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ApiPolicy(pulumi.CustomResource):
     api_management_name: pulumi.Output[str]
     """
@@ -33,8 +34,6 @@ class ApiPolicy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_management_name=None, api_name=None, resource_group_name=None, xml_content=None, xml_link=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management API Policy
-
-
 
 
         :param str resource_name: The name of the resource.
@@ -104,9 +103,9 @@ class ApiPolicy(pulumi.CustomResource):
         __props__["xml_content"] = xml_content
         __props__["xml_link"] = xml_link
         return ApiPolicy(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

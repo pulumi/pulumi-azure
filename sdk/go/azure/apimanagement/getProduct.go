@@ -8,6 +8,33 @@ import (
 )
 
 // Use this data source to access information about an existing API Management Product.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+// 			ProductId:         "my-product",
+// 			ApiManagementName: "example-apim",
+// 			ResourceGroupName: "search-service",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("productTerms", example.Terms)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	var rv LookupProductResult
 	err := ctx.Invoke("azure:apimanagement/getProduct:getProduct", args, &rv, opts...)

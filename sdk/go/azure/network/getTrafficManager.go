@@ -8,6 +8,31 @@ import (
 )
 
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+//
+// ## Example Usage
+//
+// ### World)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupTrafficManager(ctx, &network.LookupTrafficManagerArgs{
+// 			Name: "World",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("locationCode", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func GetTrafficManager(ctx *pulumi.Context, args *GetTrafficManagerArgs, opts ...pulumi.InvokeOption) (*GetTrafficManagerResult, error) {
 	var rv GetTrafficManagerResult
 	err := ctx.Invoke("azure:network/getTrafficManager:getTrafficManager", args, &rv, opts...)

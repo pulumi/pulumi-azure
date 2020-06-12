@@ -11,6 +11,42 @@ import (
 )
 
 // Manages an Application Insights component.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApplicationType:   pulumi.String("web"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("instrumentationKey", exampleInsights.InstrumentationKey)
+// 		ctx.Export("appId", exampleInsights.AppId)
+// 		return nil
+// 	})
+// }
+// ```
 type Insights struct {
 	pulumi.CustomResourceState
 

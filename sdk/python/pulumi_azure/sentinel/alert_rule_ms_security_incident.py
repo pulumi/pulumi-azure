@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     description: pulumi.Output[str]
     """
@@ -65,7 +66,6 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             display_name="example rule",
             severity_filters=["High"])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,9 +148,9 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         __props__["severity_filters"] = severity_filters
         __props__["text_whitelists"] = text_whitelists
         return AlertRuleMsSecurityIncident(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

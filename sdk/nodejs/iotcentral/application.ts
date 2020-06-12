@@ -58,7 +58,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      */
     readonly displayName?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface ApplicationState {
  */
 export interface ApplicationArgs {
     /**
-     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name. 
+     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      */
     readonly displayName?: pulumi.Input<string>;
     /**

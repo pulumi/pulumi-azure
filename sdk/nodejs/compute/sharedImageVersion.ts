@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * const existingSharedImage = azure.compute.getSharedImage({
  *     name: "existing-image",
- *     galleryName: "existingGallery",
+ *     galleryName: "existing_gallery",
  *     resourceGroupName: "existing-resources",
  * });
  * const example = new azure.compute.SharedImageVersion("example", {

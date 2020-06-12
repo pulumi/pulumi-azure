@@ -35,7 +35,6 @@ namespace Pulumi.Azure.Iot
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

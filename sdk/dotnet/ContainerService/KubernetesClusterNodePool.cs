@@ -9,11 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.ContainerService
 {
-    /// <summary>
-    /// Manages a Node Pool within a Kubernetes Cluster
-    /// 
-    /// &gt; **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
-    /// </summary>
     public partial class KubernetesClusterNodePool : Pulumi.CustomResource
     {
         /// <summary>

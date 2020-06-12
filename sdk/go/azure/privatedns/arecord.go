@@ -11,6 +11,49 @@ import (
 )
 
 // Enables you to manage DNS A Records within Azure Private DNS.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/privatedns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleARecord, err := privatedns.NewARecord(ctx, "exampleARecord", &privatedns.ARecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			Records: pulumi.StringArray{
+// 				pulumi.String("10.0.180.17"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ARecord struct {
 	pulumi.CustomResourceState
 

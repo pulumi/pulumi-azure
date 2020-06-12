@@ -80,8 +80,6 @@ def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts
     Use this data source to access information about an existing API Management User.
 
 
-
-
     :param str api_management_name: The Name of the API Management Service in which this User exists.
     :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
     :param str user_id: The Identifier for the User.

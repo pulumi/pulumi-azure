@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ReplicatedVM(pulumi.CustomResource):
     managed_disks: pulumi.Output[list]
     """
@@ -64,8 +65,6 @@ class ReplicatedVM(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, managed_disks=None, name=None, recovery_replication_policy_id=None, recovery_vault_name=None, resource_group_name=None, source_recovery_fabric_name=None, source_recovery_protection_container_name=None, source_vm_id=None, target_availability_set_id=None, target_recovery_fabric_id=None, target_recovery_protection_container_id=None, target_resource_group_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,9 +187,9 @@ class ReplicatedVM(pulumi.CustomResource):
         __props__["target_recovery_protection_container_id"] = target_recovery_protection_container_id
         __props__["target_resource_group_id"] = target_resource_group_id
         return ReplicatedVM(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -36,7 +36,6 @@ namespace Pulumi.Azure.Backup
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

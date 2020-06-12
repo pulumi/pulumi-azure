@@ -11,6 +11,92 @@ import (
 )
 
 // Manages an Application Insights API key.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+// 			Location:          pulumi.String("West Europe"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApplicationType:   pulumi.String("web"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		readTelemetry, err := appinsights.NewApiKey(ctx, "readTelemetry", &appinsights.ApiKeyArgs{
+// 			ApplicationInsightsId: exampleInsights.ID(),
+// 			ReadPermissions: pulumi.StringArray{
+// 				pulumi.String("aggregate"),
+// 				pulumi.String("api"),
+// 				pulumi.String("draft"),
+// 				pulumi.String("extendqueries"),
+// 				pulumi.String("search"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		writeAnnotations, err := appinsights.NewApiKey(ctx, "writeAnnotations", &appinsights.ApiKeyArgs{
+// 			ApplicationInsightsId: exampleInsights.ID(),
+// 			WritePermissions: pulumi.StringArray{
+// 				pulumi.String("annotations"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		authenticateSdkControlChannelApiKey, err := appinsights.NewApiKey(ctx, "authenticateSdkControlChannelApiKey", &appinsights.ApiKeyArgs{
+// 			ApplicationInsightsId: exampleInsights.ID(),
+// 			ReadPermissions: pulumi.StringArray{
+// 				pulumi.String("agentconfig"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fullPermissions, err := appinsights.NewApiKey(ctx, "fullPermissions", &appinsights.ApiKeyArgs{
+// 			ApplicationInsightsId: exampleInsights.ID(),
+// 			ReadPermissions: pulumi.StringArray{
+// 				pulumi.String("agentconfig"),
+// 				pulumi.String("aggregate"),
+// 				pulumi.String("api"),
+// 				pulumi.String("draft"),
+// 				pulumi.String("extendqueries"),
+// 				pulumi.String("search"),
+// 			},
+// 			WritePermissions: pulumi.StringArray{
+// 				pulumi.String("annotations"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("readTelemetryApiKey", readTelemetry.ApiKey)
+// 		ctx.Export("writeAnnotationsApiKey", writeAnnotations.ApiKey)
+// 		ctx.Export("authenticateSdkControlChannel", authenticateSdkControlChannelApiKey.ApiKey)
+// 		ctx.Export("fullPermissionsApiKey", fullPermissions.ApiKey)
+// 		return nil
+// 	})
+// }
+// ```
 type ApiKey struct {
 	pulumi.CustomResourceState
 

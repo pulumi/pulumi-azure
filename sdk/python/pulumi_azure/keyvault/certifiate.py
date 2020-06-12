@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate", DeprecationWarning)
+
 class Certifiate(pulumi.CustomResource):
     certificate: pulumi.Output[dict]
     """
@@ -86,7 +87,9 @@ class Certifiate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
-        ## Example Usage (Generating a new certificate)
+        ## Example Usage
+
+        ### Generating A New Certificate)
 
         ```python
         import pulumi
@@ -347,9 +350,9 @@ class Certifiate(pulumi.CustomResource):
         __props__["thumbprint"] = thumbprint
         __props__["version"] = version
         return Certifiate(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

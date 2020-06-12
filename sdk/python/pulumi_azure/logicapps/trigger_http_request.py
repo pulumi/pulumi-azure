@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class TriggerHttpRequest(pulumi.CustomResource):
     logic_app_id: pulumi.Output[str]
     """
@@ -58,7 +59,6 @@ class TriggerHttpRequest(pulumi.CustomResource):
         }
         \"\"\")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,9 +125,9 @@ class TriggerHttpRequest(pulumi.CustomResource):
         __props__["relative_path"] = relative_path
         __props__["schema"] = schema
         return TriggerHttpRequest(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

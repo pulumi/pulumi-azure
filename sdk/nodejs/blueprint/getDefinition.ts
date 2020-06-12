@@ -52,7 +52,7 @@ export interface GetDefinitionArgs {
      */
     readonly name: string;
     /**
-     * The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.  
+     * The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.
      */
     readonly scopeId: string;
 }
@@ -62,11 +62,11 @@ export interface GetDefinitionArgs {
  */
 export interface GetDefinitionResult {
     /**
-     * The description of the Blueprint Definition.  
+     * The description of the Blueprint Definition.
      */
     readonly description: string;
     /**
-     * The display name of the Blueprint Definition.  
+     * The display name of the Blueprint Definition.
      */
     readonly displayName: string;
     /**
@@ -74,21 +74,21 @@ export interface GetDefinitionResult {
      */
     readonly id: string;
     /**
-     * The timestamp of when this last modification was saved to the Blueprint Definition.  
+     * The timestamp of when this last modification was saved to the Blueprint Definition.
      */
     readonly lastModified: string;
     readonly name: string;
     readonly scopeId: string;
     /**
-     * The target scope.  
+     * The target scope.
      */
     readonly targetScope: string;
     /**
-     * The timestamp of when this Blueprint Definition was created.  
+     * The timestamp of when this Blueprint Definition was created.
      */
     readonly timeCreated: string;
     /**
-     * A list of versions published for this Blueprint Definition.  
+     * A list of versions published for this Blueprint Definition.
      */
     readonly versions: string[];
 }

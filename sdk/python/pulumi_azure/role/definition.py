@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition", DeprecationWarning)
+
 class Definition(pulumi.CustomResource):
     assignable_scopes: pulumi.Output[list]
     """
@@ -63,7 +64,6 @@ class Definition(pulumi.CustomResource):
             }],
             assignable_scopes=[primary.id])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,9 +151,9 @@ class Definition(pulumi.CustomResource):
         __props__["role_definition_id"] = role_definition_id
         __props__["scope"] = scope
         return Definition(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

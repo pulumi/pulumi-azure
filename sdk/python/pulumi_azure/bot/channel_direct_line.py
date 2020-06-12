@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ChannelDirectLine(pulumi.CustomResource):
     bot_name: pulumi.Output[str]
     location: pulumi.Output[str]
@@ -17,8 +18,6 @@ class ChannelDirectLine(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, bot_name=None, location=None, resource_group_name=None, sites=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Directline integration for a Bot Channel
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,9 +98,9 @@ class ChannelDirectLine(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["sites"] = sites
         return ChannelDirectLine(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -56,7 +56,6 @@ def get_alert_rule(log_analytics_workspace_id=None,name=None,opts=None):
     ```
 
 
-
     :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
     :param str name: The name which should be used for this Sentinel Alert Rule.
     """

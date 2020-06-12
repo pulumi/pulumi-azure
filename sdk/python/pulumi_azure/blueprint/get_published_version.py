@@ -21,13 +21,13 @@ class GetPublishedVersionResult:
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
-        The description of the Blueprint Published Version  
+        The description of the Blueprint Published Version
         """
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         """
-        The display name of the Blueprint Published Version  
+        The display name of the Blueprint Published Version
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -45,7 +45,7 @@ class GetPublishedVersionResult:
             raise TypeError("Expected argument 'target_scope' to be a str")
         __self__.target_scope = target_scope
         """
-        The target scope  
+        The target scope
         """
         if time_created and not isinstance(time_created, str):
             raise TypeError("Expected argument 'time_created' to be a str")
@@ -54,7 +54,7 @@ class GetPublishedVersionResult:
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
-        The type of the Blueprint  
+        The type of the Blueprint
         """
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
@@ -96,7 +96,6 @@ def get_published_version(blueprint_name=None,scope_id=None,version=None,opts=No
         blueprint_name="exampleBluePrint",
         version="dev_v2.3")
     ```
-
 
 
     :param str blueprint_name: The name of the Blueprint Definition

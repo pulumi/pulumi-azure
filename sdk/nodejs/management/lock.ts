@@ -7,35 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
  *
- * ## Example Usage (Subscription Level Lock)
+ * ## Example Usage
+ *
+ * ### Subscription Level Lock)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getSubscription({});
- * const subscriptionLevel = new azure.management.Lock("subscription-level", {
+ * const subscription_level = new azure.management.Lock("subscription-level", {
  *     scope: current.then(current => current.id),
  *     lockLevel: "CanNotDelete",
  *     notes: "Items can't be deleted in this subscription!",
  * });
  * ```
  *
- * ## Example Usage (Resource Group Level Lock)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const resourceGroupLevel = new azure.management.Lock("resource-group-level", {
- *     scope: example.id,
- *     lockLevel: "ReadOnly",
- *     notes: "This Resource Group is Read-Only",
- * });
- * ```
- *
- * ## Example Usage (Resource Level Lock)
+ * ### Resource Level Lock)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -48,7 +36,7 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  *     idleTimeoutInMinutes: 30,
  * });
- * const publicIp = new azure.management.Lock("public-ip", {
+ * const public_ip = new azure.management.Lock("public-ip", {
  *     scope: examplePublicIp.id,
  *     lockLevel: "CanNotDelete",
  *     notes: "Locked because it's needed by a third-party",

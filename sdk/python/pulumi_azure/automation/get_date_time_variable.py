@@ -81,7 +81,6 @@ def get_date_time_variable(automation_account_name=None,name=None,resource_group
     ```
 
 
-
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.
     :param str name: The name of the Automation Variable.
     :param str resource_group_name: The Name of the Resource Group where the automation account exists.

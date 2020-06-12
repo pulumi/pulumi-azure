@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AdvancedThreatProtection(pulumi.CustomResource):
     enabled: pulumi.Output[bool]
     """
@@ -43,7 +44,6 @@ class AdvancedThreatProtection(pulumi.CustomResource):
             target_resource_id=example_account.id,
             enabled=True)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,9 +98,9 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         __props__["enabled"] = enabled
         __props__["target_resource_id"] = target_resource_id
         return AdvancedThreatProtection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -38,7 +38,6 @@ namespace Pulumi.Azure.AppConfiguration
         ///     public Output&lt;string&gt; Id { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

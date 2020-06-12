@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Azure Maps Account.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := maps.LookupAccount(ctx, &maps.LookupAccountArgs{
+// 			Name:              "production",
+// 			ResourceGroupName: "maps",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("mapsAccountId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure:maps/getAccount:getAccount", args, &rv, opts...)

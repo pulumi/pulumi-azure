@@ -30,7 +30,7 @@ class GetAccountResult:
             raise TypeError("Expected argument 'key_vault_references' to be a list")
         __self__.key_vault_references = key_vault_references
         """
-        The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+        The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -111,7 +111,6 @@ def get_account(name=None,resource_group_name=None,opts=None):
         resource_group_name="test")
     pulumi.export("poolAllocationMode", example.pool_allocation_mode)
     ```
-
 
 
     :param str name: The name of the Batch account.

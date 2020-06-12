@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing CDN Profile.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := cdn.LookupProfile(ctx, &cdn.LookupProfileArgs{
+// 			Name:              "myfirstcdnprofile",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("cdnProfileId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure:cdn/getProfile:getProfile", args, &rv, opts...)

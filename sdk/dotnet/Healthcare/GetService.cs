@@ -39,7 +39,6 @@ namespace Pulumi.Azure.Healthcare
         ///     public Output&lt;string&gt; HealthcareServiceId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

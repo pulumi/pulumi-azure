@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     additional_capabilities: pulumi.Output[dict]
     """
@@ -303,7 +304,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                 }],
             }])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -737,9 +737,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["zone_balance"] = zone_balance
         __props__["zones"] = zones
         return LinuxVirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ApiOperation(pulumi.CustomResource):
     api_management_name: pulumi.Output[str]
     """
@@ -146,7 +147,6 @@ class ApiOperation(pulumi.CustomResource):
                 "statusCode": 200,
             }])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -385,9 +385,9 @@ class ApiOperation(pulumi.CustomResource):
         __props__["template_parameters"] = template_parameters
         __props__["url_template"] = url_template
         return ApiOperation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

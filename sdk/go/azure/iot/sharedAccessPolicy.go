@@ -11,6 +11,52 @@ import (
 )
 
 // Manages an IotHub Shared Access Policy
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/iot"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			Sku: &iot.IoTHubSkuArgs{
+// 				Name:     pulumi.String("S1"),
+// 				Capacity: pulumi.Int(1),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSharedAccessPolicy, err := iot.NewSharedAccessPolicy(ctx, "exampleSharedAccessPolicy", &iot.SharedAccessPolicyArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			IothubName:        exampleIoTHub.Name,
+// 			RegistryRead:      pulumi.Bool(true),
+// 			RegistryWrite:     pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SharedAccessPolicy struct {
 	pulumi.CustomResourceState
 

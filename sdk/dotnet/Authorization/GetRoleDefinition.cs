@@ -19,8 +19,6 @@ namespace Pulumi.Azure.Authorization
         /// {{% example %}}
         /// 
         /// 
-        /// 
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

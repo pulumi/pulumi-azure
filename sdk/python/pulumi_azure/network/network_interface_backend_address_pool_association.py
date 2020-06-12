@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
     backend_address_pool_id: pulumi.Output[str]
     """
@@ -71,7 +72,6 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             backend_address_pool_id=example_backend_address_pool.id)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
@@ -131,9 +131,9 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         __props__["ip_configuration_name"] = ip_configuration_name
         __props__["network_interface_id"] = network_interface_id
         return NetworkInterfaceBackendAddressPoolAssociation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

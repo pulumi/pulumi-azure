@@ -130,7 +130,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
+        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`.
         /// </summary>
         [Output("restorePointInTime")]
         public Output<string?> RestorePointInTime { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<Outputs.ServerStorageProfile> StorageProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.  
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
+        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.PostgreSql
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.  
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. 
+        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Azure.PostgreSql
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.  
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

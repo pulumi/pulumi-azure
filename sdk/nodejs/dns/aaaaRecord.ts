@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example Usage (Alias Record)
+ * ### Alias Record)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

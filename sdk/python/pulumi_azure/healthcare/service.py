@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Service(pulumi.CustomResource):
     access_policy_object_ids: pulumi.Output[list]
     authentication_configuration: pulumi.Output[dict]
@@ -70,7 +71,7 @@ class Service(pulumi.CustomResource):
             access_policy_object_ids=["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
             authentication_configuration={
                 "audience": "https://azurehealthcareapis.com/",
-                "authority": "https://login.microsoftonline.com/$$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+                "authority": "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
                 "smartProxyEnabled": "true",
             },
             cors_configuration={
@@ -98,7 +99,6 @@ class Service(pulumi.CustomResource):
                 "purpose": "AcceptanceTests",
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,9 +209,9 @@ class Service(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

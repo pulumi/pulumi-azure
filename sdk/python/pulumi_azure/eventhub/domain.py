@@ -10,6 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 warnings.warn("azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain", DeprecationWarning)
+
 class Domain(pulumi.CustomResource):
     endpoint: pulumi.Output[str]
     """
@@ -83,7 +84,6 @@ class Domain(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,9 +196,9 @@ class Domain(pulumi.CustomResource):
         __props__["secondary_access_key"] = secondary_access_key
         __props__["tags"] = tags
         return Domain(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

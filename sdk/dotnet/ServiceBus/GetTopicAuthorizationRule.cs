@@ -40,7 +40,6 @@ namespace Pulumi.Azure.ServiceBus
         ///     public Output&lt;string&gt; ServicebusAuthorizationRuleId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

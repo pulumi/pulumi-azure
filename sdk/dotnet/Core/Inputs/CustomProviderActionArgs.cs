@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Core.Inputs
     public sealed class CustomProviderActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the endpoint of the action. 
+        /// Specifies the endpoint of the action.
         /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the action. 
+        /// Specifies the name of the action.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

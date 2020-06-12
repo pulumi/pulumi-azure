@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Network
         ///     public Output&lt;string&gt; VirtualNetworkGatewayConnectionId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -122,7 +121,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly int RoutingWeight;
         /// <summary>
-        /// The shared IPSec key. 
+        /// The shared IPSec key.
         /// </summary>
         public readonly string SharedKey;
         /// <summary>

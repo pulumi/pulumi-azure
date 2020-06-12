@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class SpringCloudApp(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
@@ -20,7 +21,7 @@ class SpringCloudApp(pulumi.CustomResource):
     """
     service_name: pulumi.Output[str]
     """
-    Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+    Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -43,12 +44,11 @@ class SpringCloudApp(pulumi.CustomResource):
             service_name=example_spring_cloud_service.name)
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +91,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -101,9 +101,9 @@ class SpringCloudApp(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["service_name"] = service_name
         return SpringCloudApp(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

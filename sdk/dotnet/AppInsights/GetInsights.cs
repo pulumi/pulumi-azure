@@ -38,7 +38,6 @@ namespace Pulumi.Azure.AppInsights
         ///     public Output&lt;string&gt; ApplicationInsightsInstrumentationKey { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -11,6 +11,43 @@ import (
 )
 
 // Manages a local network gateway connection over which specific connections can be configured.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		home, err := network.NewLocalNetworkGateway(ctx, "home", &network.LocalNetworkGatewayArgs{
+// 			ResourceGroupName: example.Name,
+// 			Location:          example.Location,
+// 			GatewayAddress:    pulumi.String("12.13.14.15"),
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 

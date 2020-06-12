@@ -39,7 +39,6 @@ namespace Pulumi.Azure.DatabaseMigration
         ///     public Output&lt;string&gt; Name { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

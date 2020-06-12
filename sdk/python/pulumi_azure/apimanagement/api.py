@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Api(pulumi.CustomResource):
     api_management_name: pulumi.Output[str]
     """
@@ -114,7 +115,6 @@ class Api(pulumi.CustomResource):
                 "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,9 +257,9 @@ class Api(pulumi.CustomResource):
         __props__["version"] = version
         __props__["version_set_id"] = version_set_id
         return Api(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

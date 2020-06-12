@@ -74,7 +74,6 @@ def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
 
 
 
-
     :param str name: Specifies the Name of either a built-in or custom Role Definition.
     :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
     :param str scope: Specifies the Scope at which the Custom Role Definition exists.

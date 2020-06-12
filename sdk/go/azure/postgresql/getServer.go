@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing PostgreSQL Azure Database Server.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := postgresql.LookupServer(ctx, &postgresql.LookupServerArgs{
+// 			Name:              "postgresql-server-1",
+// 			ResourceGroupName: "api-rg-pro",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("postgresqlServerId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult
 	err := ctx.Invoke("azure:postgresql/getServer:getServer", args, &rv, opts...)

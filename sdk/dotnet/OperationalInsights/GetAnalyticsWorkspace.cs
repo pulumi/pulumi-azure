@@ -38,7 +38,6 @@ namespace Pulumi.Azure.OperationalInsights
         ///     public Output&lt;string&gt; LogAnalyticsWorkspaceId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

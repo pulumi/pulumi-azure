@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     recoveryPointRetentionInMinutes: 24 * 60,
  *     applicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
  * });
- * const containerMapping = new azure.siterecovery.ProtectionContainerMapping("container-mapping", {
+ * const container_mapping = new azure.siterecovery.ProtectionContainerMapping("container-mapping", {
  *     resourceGroupName: secondaryResourceGroup.name,
  *     recoveryVaultName: vault.name,
  *     recoveryFabricName: primaryFabric.name,

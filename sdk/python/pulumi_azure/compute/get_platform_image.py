@@ -68,7 +68,6 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,version=
     ```
 
 
-
     :param str location: Specifies the Location to pull information about this Platform Image from.
     :param str offer: Specifies the Offer associated with the Platform Image.
     :param str publisher: Specifies the Publisher associated with the Platform Image.

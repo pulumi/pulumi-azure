@@ -7,7 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Assigns a given Principal (User or Group) to a given Role.
  *
- * ## Example Usage (using a built-in Role)
+ * ## Example Usage
+ *
+ * ### Using A Built-In Role)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example Usage (Custom Role & Service Principal)
+ * ### Custom Role & Service Principal)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -47,7 +49,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example Usage (Custom Role & User)
+ * ### Custom Role & User)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -72,7 +74,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example Usage (Custom Role & Management Group)
+ * ### Custom Role & Management Group)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

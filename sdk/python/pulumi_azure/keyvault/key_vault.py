@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class KeyVault(pulumi.CustomResource):
     access_policies: pulumi.Output[list]
     """
@@ -122,7 +123,6 @@ class KeyVault(pulumi.CustomResource):
                 "environment": "Testing",
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,9 +260,9 @@ class KeyVault(pulumi.CustomResource):
         __props__["tenant_id"] = tenant_id
         __props__["vault_uri"] = vault_uri
         return KeyVault(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

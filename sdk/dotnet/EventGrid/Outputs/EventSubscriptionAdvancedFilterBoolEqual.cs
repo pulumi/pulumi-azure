@@ -18,7 +18,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// Specifies a single value to compare to when using a single value operator. 
+        /// Specifies a single value to compare to when using a single value operator.
         /// </summary>
         public readonly bool Value;
 

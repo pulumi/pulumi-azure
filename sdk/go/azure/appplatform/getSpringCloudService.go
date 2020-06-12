@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Spring Cloud Service.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := appplatform.LookupSpringCloudService(ctx, &appplatform.LookupSpringCloudServiceArgs{
+// 			Name:              azurerm_spring_cloud_service.Example.Name,
+// 			ResourceGroupName: azurerm_spring_cloud_service.Example.Resource_group_name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("springCloudServiceId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSpringCloudService(ctx *pulumi.Context, args *LookupSpringCloudServiceArgs, opts ...pulumi.InvokeOption) (*LookupSpringCloudServiceResult, error) {
 	var rv LookupSpringCloudServiceResult
 	err := ctx.Invoke("azure:appplatform/getSpringCloudService:getSpringCloudService", args, &rv, opts...)

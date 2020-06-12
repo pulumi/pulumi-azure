@@ -87,7 +87,6 @@ def get_project(name=None,resource_group_name=None,service_name=None,opts=None):
     ```
 
 
-
     :param str name: Name of the database migration project.
     :param str resource_group_name: Name of the resource group where resource belongs to.
     :param str service_name: Name of the database migration service where resource belongs to.

@@ -8,6 +8,31 @@ import (
 )
 
 // Use this data source to access information about an existing Storage Container.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := storage.LookupStorageContainer(ctx, &storage.LookupStorageContainerArgs{
+// 			Name:               "example-container-name",
+// 			StorageAccountName: "example-storage-account-name",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opts ...pulumi.InvokeOption) (*GetStorageContainerResult, error) {
 	var rv GetStorageContainerResult
 	err := ctx.Invoke("azure:storage/getStorageContainer:getStorageContainer", args, &rv, opts...)

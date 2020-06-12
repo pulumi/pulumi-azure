@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AuthorizationServer(pulumi.CustomResource):
     api_management_name: pulumi.Output[str]
     """
@@ -101,15 +102,14 @@ class AuthorizationServer(pulumi.CustomResource):
             resource_group_name="search-service",
             revision="2")
         example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
-            api_management_name=data["apimanagement.Service"]["example"]["name"],
-            resource_group_name=data["apimanagement.Service"]["example"]["resource_group_name"],
+            api_management_name=data["azurerm_api_management"]["example"]["name"],
+            resource_group_name=data["azurerm_api_management"]["example"]["resource_group_name"],
             display_name="Test Server",
             authorization_endpoint="https://example.mydomain.com/client/authorize",
             client_id="42424242-4242-4242-4242-424242424242",
             client_registration_endpoint="https://example.mydomain.com/client/register",
             grant_types=["authorizationCode"])
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,9 +252,9 @@ class AuthorizationServer(pulumi.CustomResource):
         __props__["token_body_parameters"] = token_body_parameters
         __props__["token_endpoint"] = token_endpoint
         return AuthorizationServer(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

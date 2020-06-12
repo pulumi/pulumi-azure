@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example Usage with Network Rules
+ * ### With Network Rules
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -11,6 +11,45 @@ import (
 )
 
 // Manages an Azure Container Registry.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		acr, err := containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
+// 			ResourceGroupName: rg.Name,
+// 			Location:          rg.Location,
+// 			Sku:               pulumi.String("Premium"),
+// 			AdminEnabled:      pulumi.Bool(false),
+// 			GeoreplicationLocations: pulumi.StringArray{
+// 				pulumi.String("East US"),
+// 				pulumi.String("West Europe"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Registry struct {
 	pulumi.CustomResourceState
 

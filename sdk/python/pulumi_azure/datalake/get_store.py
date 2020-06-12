@@ -100,7 +100,6 @@ def get_store(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Data Lake Store.
     :param str resource_group_name: The Name of the Resource Group where the Data Lake Store exists.
     """

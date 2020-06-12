@@ -8,6 +8,30 @@ import (
 )
 
 // Uses this data source to access information about an existing Virtual Hub.
+//
+// ## Virtual Hub Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupVirtualHub(ctx, &network.LookupVirtualHubArgs{
+// 			Name:              "example-hub",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("virtualHubId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	var rv LookupVirtualHubResult
 	err := ctx.Invoke("azure:network/getVirtualHub:getVirtualHub", args, &rv, opts...)

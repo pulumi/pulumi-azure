@@ -78,7 +78,6 @@ def get_spring_cloud_service(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies The name of the Spring Cloud Service resource.
     :param str resource_group_name: Specifies the name of the Resource Group where the Spring Cloud Service exists.
     """

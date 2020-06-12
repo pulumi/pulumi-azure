@@ -70,7 +70,7 @@ def get_snapshot(account_name=None,name=None,pool_name=None,resource_group_name=
         account_name="acctestnetappaccount",
         pool_name="acctestnetapppool",
         volume_name="acctestnetappvolume")
-    pulumi.export("netappSnapshotId", data["netapp.Snapshot"]["example"]["id"])
+    pulumi.export("netappSnapshotId", data["azurerm_netapp_snapshot"]["example"]["id"])
     ```
 
 

@@ -117,7 +117,6 @@ def get_lab(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Dev Test Lab.
     :param str resource_group_name: The Name of the Resource Group where the Dev Test Lab exists.
     """

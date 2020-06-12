@@ -11,6 +11,56 @@ import (
 )
 
 // Manages the association between a Nat Gateway and a Public IP.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AllocationMethod:  pulumi.String("Static"),
+// 			Sku:               pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNatGateway, err := network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNatGatewayPublicIpAssociation, err := network.NewNatGatewayPublicIpAssociation(ctx, "exampleNatGatewayPublicIpAssociation", &network.NatGatewayPublicIpAssociationArgs{
+// 			NatGatewayId:      exampleNatGateway.ID(),
+// 			PublicIpAddressId: examplePublicIp.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NatGatewayPublicIpAssociation struct {
 	pulumi.CustomResourceState
 

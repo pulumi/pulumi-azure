@@ -82,7 +82,6 @@ def get_dedicated_host_group(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Dedicated Host Group.
     :param str resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in.
     """

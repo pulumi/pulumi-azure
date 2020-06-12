@@ -87,7 +87,6 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
     ```
 
 
-
     :param str name: Specifies the name of the ServiceBus Namespace Authorization Rule.
     :param str namespace_name: Specifies the name of the ServiceBus Namespace.
     :param str resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace exists.

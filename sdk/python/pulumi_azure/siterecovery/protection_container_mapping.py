@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ProtectionContainerMapping(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
@@ -85,7 +86,6 @@ class ProtectionContainerMapping(pulumi.CustomResource):
             recovery_target_protection_container_id=secondary_protection_container.id,
             recovery_replication_policy_id=policy.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,9 +168,9 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         __props__["recovery_vault_name"] = recovery_vault_name
         __props__["resource_group_name"] = resource_group_name
         return ProtectionContainerMapping(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

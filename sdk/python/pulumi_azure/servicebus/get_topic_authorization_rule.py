@@ -104,7 +104,6 @@ def get_topic_authorization_rule(name=None,namespace_name=None,resource_group_na
     ```
 
 
-
     :param str name: The name of the ServiceBus Topic Authorization Rule resource.
     :param str namespace_name: The name of the ServiceBus Namespace.
     :param str resource_group_name: The name of the resource group in which the ServiceBus Namespace exists.

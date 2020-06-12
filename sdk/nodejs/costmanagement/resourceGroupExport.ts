@@ -86,7 +86,7 @@ export class ResourceGroupExport extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<outputs.costmanagement.ResourceGroupExportQuery>;
     /**
-     * The date the export will stop capturing information. 
+     * The date the export will stop capturing information.
      */
     public readonly recurrencePeriodEnd!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface ResourceGroupExportState {
      */
     readonly query?: pulumi.Input<inputs.costmanagement.ResourceGroupExportQuery>;
     /**
-     * The date the export will stop capturing information. 
+     * The date the export will stop capturing information.
      */
     readonly recurrencePeriodEnd?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface ResourceGroupExportArgs {
      */
     readonly query: pulumi.Input<inputs.costmanagement.ResourceGroupExportQuery>;
     /**
-     * The date the export will stop capturing information. 
+     * The date the export will stop capturing information.
      */
     readonly recurrencePeriodEnd: pulumi.Input<string>;
     /**

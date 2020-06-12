@@ -8,6 +8,33 @@ import (
 )
 
 // Use this data source to access information about an existing Database Migration Service.
+//
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := databasemigration.LookupService(ctx, &databasemigration.LookupServiceArgs{
+// 			Name:              "example-dms",
+// 			ResourceGroupName: "example-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("azurermDmsId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure:databasemigration/getService:getService", args, &rv, opts...)

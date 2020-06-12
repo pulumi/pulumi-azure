@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Topic(pulumi.CustomResource):
     auto_delete_on_idle: pulumi.Output[str]
     """
@@ -105,7 +106,6 @@ class Topic(pulumi.CustomResource):
             namespace_name=example_namespace.name,
             enable_partitioning=True)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,9 +238,9 @@ class Topic(pulumi.CustomResource):
         __props__["status"] = status
         __props__["support_ordering"] = support_ordering
         return Topic(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

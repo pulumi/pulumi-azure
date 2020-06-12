@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
     network_interface_id: pulumi.Output[str]
     """
@@ -54,7 +55,6 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
             network_interface_id=example_network_interface.id,
             network_security_group_id=example_network_security_group.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,9 +109,9 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         __props__["network_interface_id"] = network_interface_id
         __props__["network_security_group_id"] = network_security_group_id
         return NetworkInterfaceSecurityGroupAssociation(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

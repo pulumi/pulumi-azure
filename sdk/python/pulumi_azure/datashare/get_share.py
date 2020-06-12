@@ -82,10 +82,9 @@ def get_share(account_id=None,name=None,opts=None):
     example_account = azure.datashare.get_account(name="example-account",
         resource_group_name="example-resource-group")
     example_share = azure.datashare.get_share(name="existing",
-        account_id=data["datashare.Account"]["exmaple"]["id"])
+        account_id=data["azurerm_data_share_account"]["exmaple"]["id"])
     pulumi.export("id", example_share.id)
     ```
-
 
 
     :param str account_id: The ID of the Data Share account in which the Data Share is created.

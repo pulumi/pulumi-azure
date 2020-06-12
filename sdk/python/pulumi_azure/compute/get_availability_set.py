@@ -89,7 +89,6 @@ def get_availability_set(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Availability Set.
     :param str resource_group_name: The name of the resource group in which the Availability Set exists.
     """

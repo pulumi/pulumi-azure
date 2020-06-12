@@ -68,7 +68,6 @@ def get_application_security_group(name=None,resource_group_name=None,opts=None)
     ```
 
 
-
     :param str name: The name of the Application Security Group.
     :param str resource_group_name: The name of the resource group in which the Application Security Group exists.
     """

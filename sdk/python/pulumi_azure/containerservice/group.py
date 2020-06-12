@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Group(pulumi.CustomResource):
     containers: pulumi.Output[list]
     """
@@ -174,7 +175,6 @@ class Group(pulumi.CustomResource):
                 "environment": "testing",
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -423,9 +423,9 @@ class Group(pulumi.CustomResource):
         __props__["restart_policy"] = restart_policy
         __props__["tags"] = tags
         return Group(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

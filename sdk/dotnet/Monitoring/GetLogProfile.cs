@@ -37,7 +37,6 @@ namespace Pulumi.Azure.Monitoring
         ///     public Output&lt;string&gt; LogProfileStorageAccountId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

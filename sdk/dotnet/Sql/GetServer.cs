@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Sql
         ///     public Output&lt;string&gt; SqlServerId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

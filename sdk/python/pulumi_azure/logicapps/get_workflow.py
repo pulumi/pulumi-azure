@@ -131,7 +131,6 @@ def get_workflow(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Logic App Workflow.
     :param str resource_group_name: The name of the Resource Group in which the Logic App Workflow exists.
     """

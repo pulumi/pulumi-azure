@@ -38,7 +38,6 @@ namespace Pulumi.Azure.PostgreSql
         ///     public Output&lt;string&gt; PostgresqlServerId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AutoscaleSetting(pulumi.CustomResource):
     enabled: pulumi.Output[bool]
     """
@@ -159,7 +160,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             })
         ```
 
-        ## Example Usage (repeating on weekends)
+        ### Repeating On Weekends)
 
         ```python
         import pulumi
@@ -237,7 +238,7 @@ class AutoscaleSetting(pulumi.CustomResource):
             })
         ```
 
-        ## Example Usage (for fixed dates)
+        ### For Fixed Dates)
 
         ```python
         import pulumi
@@ -484,9 +485,9 @@ class AutoscaleSetting(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["target_resource_id"] = target_resource_id
         return AutoscaleSetting(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

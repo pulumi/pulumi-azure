@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Image(pulumi.CustomResource):
     data_disks: pulumi.Output[list]
     """
@@ -66,7 +67,9 @@ class Image(pulumi.CustomResource):
         """
         Manages a custom virtual machine image that can be used to create virtual machines.
 
-        ## Example Usage Creating from VHD
+        ## Example Usage
+
+        ### Creating From VHD
 
         ```python
         import pulumi
@@ -84,7 +87,7 @@ class Image(pulumi.CustomResource):
             })
         ```
 
-        ## Example Usage Creating from Virtual Machine (VM must be generalized beforehand)
+        ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
 
         ```python
         import pulumi
@@ -216,9 +219,9 @@ class Image(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["zone_resilient"] = zone_resilient
         return Image(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

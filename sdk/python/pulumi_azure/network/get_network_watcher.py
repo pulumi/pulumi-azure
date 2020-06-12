@@ -68,7 +68,6 @@ def get_network_watcher(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the Name of the Network Watcher.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Network Watcher exists.
     """

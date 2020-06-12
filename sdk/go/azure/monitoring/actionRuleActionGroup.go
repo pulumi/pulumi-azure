@@ -11,6 +11,55 @@ import (
 )
 
 // Manages an Monitor Action Rule which type is action group.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ShortName:         pulumi.String("exampleactiongroup"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleActionRuleActionGroup, err := monitoring.NewActionRuleActionGroup(ctx, "exampleActionRuleActionGroup", &monitoring.ActionRuleActionGroupArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ActionGroupId:     exampleActionGroup.ID(),
+// 			Scope: &monitoring.ActionRuleActionGroupScopeArgs{
+// 				Type: pulumi.String("ResourceGroup"),
+// 				ResourceIds: pulumi.StringArray{
+// 					exampleResourceGroup.ID(),
+// 				},
+// 			},
+// 			Tags: map[string]interface{}{
+// 				"foo": "bar",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ActionRuleActionGroup struct {
 	pulumi.CustomResourceState
 

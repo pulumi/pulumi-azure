@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class DatabasePrincipal(pulumi.CustomResource):
     app_id: pulumi.Output[str]
     """
@@ -90,7 +91,6 @@ class DatabasePrincipal(pulumi.CustomResource):
             client_id=current.tenant_id,
             object_id=current.client_id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,9 +187,9 @@ class DatabasePrincipal(pulumi.CustomResource):
         __props__["role"] = role
         __props__["type"] = type
         return DatabasePrincipal(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

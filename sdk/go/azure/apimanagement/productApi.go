@@ -11,6 +11,58 @@ import (
 )
 
 // Manages an API Management API Assignment to a Product.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+// 			Name:              "example-api",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+// 			Name:              "search-api",
+// 			ApiManagementName: exampleService.Name,
+// 			ResourceGroupName: exampleService.ResourceGroupName,
+// 			Revision:          "2",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+// 			ProductId:         "my-product",
+// 			ApiManagementName: exampleService.Name,
+// 			ResourceGroupName: exampleService.ResourceGroupName,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleProductApi, err := apimanagement.NewProductApi(ctx, "exampleProductApi", &apimanagement.ProductApiArgs{
+// 			ApiName:           pulumi.String(exampleApi.Name),
+// 			ProductId:         pulumi.String(exampleProduct.ProductId),
+// 			ApiManagementName: pulumi.String(exampleService.Name),
+// 			ResourceGroupName: pulumi.String(exampleService.ResourceGroupName),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProductApi struct {
 	pulumi.CustomResourceState
 

@@ -38,7 +38,6 @@ namespace Pulumi.Azure.PrivateDns
         ///     public Output&lt;string&gt; PrivateDnsZoneId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -38,7 +38,6 @@ namespace Pulumi.Azure.KeyVault
         ///     public Output&lt;string&gt; KeyType { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetKeyArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource. 
+        /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public string KeyVaultId { get; set; } = null!;

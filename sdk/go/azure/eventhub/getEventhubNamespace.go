@@ -9,6 +9,32 @@ import (
 
 // Use this data source to access information about an existing EventHub Namespace.
 //
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := eventhub.LookupNamespace(ctx, &eventhub.LookupNamespaceArgs{
+// 			Name:              "search-eventhubns",
+// 			ResourceGroupName: "search-service",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("eventhubNamespaceId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
+//
 // Deprecated: azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
 func GetEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs, opts ...pulumi.InvokeOption) (*GetEventhubNamespaceResult, error) {
 	var rv GetEventhubNamespaceResult

@@ -79,7 +79,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
     /**
-     * The name of the App Service Environment. Changing this forces a new resource to be created. 
+     * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -95,7 +95,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -161,7 +161,7 @@ export interface EnvironmentState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the App Service Environment. Changing this forces a new resource to be created. 
+     * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface EnvironmentState {
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -195,7 +195,7 @@ export interface EnvironmentArgs {
      */
     readonly internalLoadBalancingMode?: pulumi.Input<string>;
     /**
-     * The name of the App Service Environment. Changing this forces a new resource to be created. 
+     * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface EnvironmentArgs {
      */
     readonly subnetId: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created. 
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

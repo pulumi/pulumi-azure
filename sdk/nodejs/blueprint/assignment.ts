@@ -48,7 +48,7 @@ export class Assignment extends pulumi.CustomResource {
     public /*out*/ readonly displayName!: pulumi.Output<string>;
     public readonly identity!: pulumi.Output<outputs.blueprint.AssignmentIdentity | undefined>;
     /**
-     * The Azure location of the Assignment. 
+     * The Azure location of the Assignment.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -68,7 +68,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly parameterValues!: pulumi.Output<string | undefined>;
     /**
-     * a JSON string to supply the Blueprint Resource Group information. 
+     * a JSON string to supply the Blueprint Resource Group information.
      */
     public readonly resourceGroups!: pulumi.Output<string | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The ID of the Published Version of the blueprint to be assigned. 
+     * The ID of the Published Version of the blueprint to be assigned.
      */
     public readonly versionId!: pulumi.Output<string>;
 
@@ -160,7 +160,7 @@ export interface AssignmentState {
     readonly displayName?: pulumi.Input<string>;
     readonly identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
-     * The Azure location of the Assignment. 
+     * The Azure location of the Assignment.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface AssignmentState {
      */
     readonly parameterValues?: pulumi.Input<string>;
     /**
-     * a JSON string to supply the Blueprint Resource Group information. 
+     * a JSON string to supply the Blueprint Resource Group information.
      */
     readonly resourceGroups?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface AssignmentState {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * The ID of the Published Version of the blueprint to be assigned. 
+     * The ID of the Published Version of the blueprint to be assigned.
      */
     readonly versionId?: pulumi.Input<string>;
 }
@@ -203,7 +203,7 @@ export interface AssignmentState {
 export interface AssignmentArgs {
     readonly identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
-     * The Azure location of the Assignment. 
+     * The Azure location of the Assignment.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -223,7 +223,7 @@ export interface AssignmentArgs {
      */
     readonly parameterValues?: pulumi.Input<string>;
     /**
-     * a JSON string to supply the Blueprint Resource Group information. 
+     * a JSON string to supply the Blueprint Resource Group information.
      */
     readonly resourceGroups?: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface AssignmentArgs {
      */
     readonly targetSubscriptionId: pulumi.Input<string>;
     /**
-     * The ID of the Published Version of the blueprint to be assigned. 
+     * The ID of the Published Version of the blueprint to be assigned.
      */
     readonly versionId: pulumi.Input<string>;
 }

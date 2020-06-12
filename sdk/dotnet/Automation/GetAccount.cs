@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Automation
         ///     public Output&lt;string&gt; AutomationAccountId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

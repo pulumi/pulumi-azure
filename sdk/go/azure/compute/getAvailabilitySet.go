@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Availability Set.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := compute.LookupAvailabilitySet(ctx, &compute.LookupAvailabilitySetArgs{
+// 			Name:              "tf-appsecuritygroup",
+// 			ResourceGroupName: "my-resource-group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("availabilitySetId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupAvailabilitySet(ctx *pulumi.Context, args *LookupAvailabilitySetArgs, opts ...pulumi.InvokeOption) (*LookupAvailabilitySetResult, error) {
 	var rv LookupAvailabilitySetResult
 	err := ctx.Invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", args, &rv, opts...)

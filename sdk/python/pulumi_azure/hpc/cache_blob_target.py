@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class CacheBlobTarget(pulumi.CustomResource):
     cache_name: pulumi.Output[str]
     """
@@ -80,7 +81,6 @@ class CacheBlobTarget(pulumi.CustomResource):
             namespace_path="/blob_storage")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
@@ -150,9 +150,9 @@ class CacheBlobTarget(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["storage_container_id"] = storage_container_id
         return CacheBlobTarget(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

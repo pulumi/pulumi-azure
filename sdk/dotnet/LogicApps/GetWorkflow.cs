@@ -38,7 +38,6 @@ namespace Pulumi.Azure.LogicApps
         ///     public Output&lt;string&gt; AccessEndpoint { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

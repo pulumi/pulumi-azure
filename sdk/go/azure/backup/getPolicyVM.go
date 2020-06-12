@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing VM Backup Policy.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		policy, err := backup.LookupPolicyVM(ctx, &backup.LookupPolicyVMArgs{
+// 			Name:              "policy",
+// 			RecoveryVaultName: "recovery_vault",
+// 			ResourceGroupName: "resource_group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupPolicyVM(ctx *pulumi.Context, args *LookupPolicyVMArgs, opts ...pulumi.InvokeOption) (*LookupPolicyVMResult, error) {
 	var rv LookupPolicyVMResult
 	err := ctx.Invoke("azure:backup/getPolicyVM:getPolicyVM", args, &rv, opts...)

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class GlobalVMShutdownSchedule(pulumi.CustomResource):
     daily_recurrence_time: pulumi.Output[str]
     """
@@ -98,7 +99,6 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
@@ -186,9 +186,9 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         __props__["timezone"] = timezone
         __props__["virtual_machine_id"] = virtual_machine_id
         return GlobalVMShutdownSchedule(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

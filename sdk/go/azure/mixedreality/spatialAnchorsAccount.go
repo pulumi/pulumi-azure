@@ -11,6 +11,39 @@ import (
 )
 
 // Manages an Azure Spatial Anchors Account.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mixedreality"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("northeurope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSpatialAnchorsAccount, err := mixedreality.NewSpatialAnchorsAccount(ctx, "exampleSpatialAnchorsAccount", &mixedreality.SpatialAnchorsAccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 

@@ -96,7 +96,6 @@ def get_virtual_network(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Virtual Network.
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
     """

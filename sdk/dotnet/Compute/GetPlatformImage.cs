@@ -40,7 +40,6 @@ namespace Pulumi.Azure.Compute
         ///     public Output&lt;string&gt; Id { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

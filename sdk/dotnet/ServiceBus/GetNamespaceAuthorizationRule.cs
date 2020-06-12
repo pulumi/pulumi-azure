@@ -39,7 +39,6 @@ namespace Pulumi.Azure.ServiceBus
         ///     public Output&lt;string&gt; RuleId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

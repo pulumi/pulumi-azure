@@ -9,10 +9,11 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Application(pulumi.CustomResource):
     display_name: pulumi.Output[str]
     """
-    A `display_name` name. Custom display name for the IoT Central application. Default is resource name. 
+    A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
     """
     location: pulumi.Output[str]
     """
@@ -67,10 +68,9 @@ class Application(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name. 
+        :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -123,7 +123,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name. 
+        :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -145,9 +145,9 @@ class Application(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["template"] = template
         return Application(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

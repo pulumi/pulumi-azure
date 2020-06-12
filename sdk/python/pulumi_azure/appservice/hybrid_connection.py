@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class HybridConnection(pulumi.CustomResource):
     app_service_name: pulumi.Output[str]
     """
@@ -91,7 +92,6 @@ class HybridConnection(pulumi.CustomResource):
             port=8080,
             send_key_name="exampleSharedAccessKey")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,9 +182,9 @@ class HybridConnection(pulumi.CustomResource):
         __props__["service_bus_namespace"] = service_bus_namespace
         __props__["service_bus_suffix"] = service_bus_suffix
         return HybridConnection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

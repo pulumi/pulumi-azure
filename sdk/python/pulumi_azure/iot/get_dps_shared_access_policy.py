@@ -86,7 +86,6 @@ def get_dps_shared_access_policy(iothub_dps_name=None,name=None,resource_group_n
     ```
 
 
-
     :param str iothub_dps_name: Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
     :param str name: Specifies the name of the IotHub Shared Access Policy.
     :param str resource_group_name: Specifies the name of the resource group under which the IotHub Shared Access Policy resource exists.

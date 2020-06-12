@@ -8,6 +8,34 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Bool Variable.
+//
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := automation.LookupBoolVariable(ctx, &automation.LookupBoolVariableArgs{
+// 			Name:                  "tfex-example-var",
+// 			ResourceGroupName:     "tfex-example-rg",
+// 			AutomationAccountName: "tfex-example-account",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("variableId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupBoolVariable(ctx *pulumi.Context, args *LookupBoolVariableArgs, opts ...pulumi.InvokeOption) (*LookupBoolVariableResult, error) {
 	var rv LookupBoolVariableResult
 	err := ctx.Invoke("azure:automation/getBoolVariable:getBoolVariable", args, &rv, opts...)

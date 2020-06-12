@@ -11,6 +11,54 @@ import (
 )
 
 // Manages an Authorization Rule for an Event Hub Namespace.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/eventhub"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("Basic"),
+// 			Capacity:          pulumi.Int(2),
+// 			Tags: map[string]interface{}{
+// 				"environment": "Production",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleEventHubNamespaceAuthorizationRule, err := eventhub.NewEventHubNamespaceAuthorizationRule(ctx, "exampleEventHubNamespaceAuthorizationRule", &eventhub.EventHubNamespaceAuthorizationRuleArgs{
+// 			NamespaceName:     exampleEventHubNamespace.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Listen:            pulumi.Bool(true),
+// 			Send:              pulumi.Bool(false),
+// 			Manage:            pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EventHubNamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 

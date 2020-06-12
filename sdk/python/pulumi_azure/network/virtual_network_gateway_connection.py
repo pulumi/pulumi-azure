@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     authorization_key: pulumi.Output[str]
     """
@@ -245,7 +246,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
@@ -455,9 +455,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__["use_policy_based_traffic_selectors"] = use_policy_based_traffic_selectors
         __props__["virtual_network_gateway_id"] = virtual_network_gateway_id
         return VirtualNetworkGatewayConnection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

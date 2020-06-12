@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. 
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
     public readonly createMode!: pulumi.Output<string>;
     /**
@@ -108,7 +108,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly licenseType!: pulumi.Output<string>;
     /**
-     * The max size of the database in gigabytes. 
+     * The max size of the database in gigabytes.
      */
     public readonly maxSizeGb!: pulumi.Output<number>;
     /**
@@ -236,7 +236,7 @@ export interface DatabaseState {
      */
     readonly collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. 
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
     readonly createMode?: pulumi.Input<string>;
     /**
@@ -256,7 +256,7 @@ export interface DatabaseState {
      */
     readonly licenseType?: pulumi.Input<string>;
     /**
-     * The max size of the database in gigabytes. 
+     * The max size of the database in gigabytes.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**
@@ -318,7 +318,7 @@ export interface DatabaseArgs {
      */
     readonly collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. 
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
     readonly createMode?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface DatabaseArgs {
      */
     readonly licenseType?: pulumi.Input<string>;
     /**
-     * The max size of the database in gigabytes. 
+     * The max size of the database in gigabytes.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**

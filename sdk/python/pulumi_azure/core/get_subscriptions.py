@@ -61,7 +61,6 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
     ```
 
 
-
     :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
     :param str display_name_prefix: A case-insensitive prefix which can be used to filter on the `display_name` field
     """

@@ -38,7 +38,6 @@ namespace Pulumi.Azure.AppPlatform
         ///     public Output&lt;string&gt; SpringCloudServiceId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

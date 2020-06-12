@@ -11,6 +11,52 @@ import (
 )
 
 // Manages an API Management Group.
+//
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			PublisherName:     pulumi.String("pub1"),
+// 			PublisherEmail:    pulumi.String("pub1@email.com"),
+// 			SkuName:           pulumi.String("Developer_1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleGroup, err := apimanagement.NewGroup(ctx, "exampleGroup", &apimanagement.GroupArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApiManagementName: exampleService.Name,
+// 			DisplayName:       pulumi.String("Example Group"),
+// 			Description:       pulumi.String("This is an example API management group."),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 

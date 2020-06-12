@@ -48,7 +48,7 @@ class GetMariaDbServerResult:
             raise TypeError("Expected argument 'sku_name' to be a str")
         __self__.sku_name = sku_name
         """
-        The SKU Name for this MariaDB Server. 
+        The SKU Name for this MariaDB Server.
         """
         if ssl_enforcement and not isinstance(ssl_enforcement, str):
             raise TypeError("Expected argument 'ssl_enforcement' to be a str")
@@ -107,9 +107,8 @@ def get_maria_db_server(name=None,resource_group_name=None,opts=None):
 
     db_server = azure.mariadb.get_maria_db_server(name="mariadb-server",
         resource_group_name=azurerm_mariadb_server["example"]["resource_group_name"])
-    pulumi.export("mariadbServerId", data["mariadb.Server"]["example"]["id"])
+    pulumi.export("mariadbServerId", data["azurerm_mariadb_server"]["example"]["id"])
     ```
-
 
 
     :param str name: The name of the MariaDB Server to retrieve information about.

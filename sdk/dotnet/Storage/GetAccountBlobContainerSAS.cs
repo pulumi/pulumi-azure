@@ -79,7 +79,6 @@ namespace Pulumi.Azure.Storage
         ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

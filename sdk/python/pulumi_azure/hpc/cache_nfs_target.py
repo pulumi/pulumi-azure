@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class CacheNfsTarget(pulumi.CustomResource):
     cache_name: pulumi.Output[str]
     """
@@ -41,8 +42,6 @@ class CacheNfsTarget(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cache_name=None, name=None, namespace_junctions=None, resource_group_name=None, target_host_name=None, usage_model=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a NFS Target within a HPC Cache.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,9 +130,9 @@ class CacheNfsTarget(pulumi.CustomResource):
         __props__["target_host_name"] = target_host_name
         __props__["usage_model"] = usage_model
         return CacheNfsTarget(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -43,7 +43,7 @@ export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetFactoryArgs {
     /**
-     * Specifies the name of the Data Factory to retrieve information about. 
+     * Specifies the name of the Data Factory to retrieve information about.
      */
     readonly name: string;
     /**

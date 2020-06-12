@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Dedicated Host Group.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := compute.LookupDedicatedHostGroup(ctx, &compute.LookupDedicatedHostGroupArgs{
+// 			Name:              "example-dedicated-host-group",
+// 			ResourceGroupName: "example-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("id", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDedicatedHostGroup(ctx *pulumi.Context, args *LookupDedicatedHostGroupArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostGroupResult, error) {
 	var rv LookupDedicatedHostGroupResult
 	err := ctx.Invoke("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args, &rv, opts...)

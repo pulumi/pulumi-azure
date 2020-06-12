@@ -11,6 +11,50 @@ import (
 )
 
 // Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/siterecovery"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("East US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+// 			Location:          secondary.Location,
+// 			ResourceGroupName: secondary.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		policy, err := siterecovery.NewReplicationPolicy(ctx, "policy", &siterecovery.ReplicationPolicyArgs{
+// 			ResourceGroupName:                               secondary.Name,
+// 			RecoveryVaultName:                               vault.Name,
+// 			RecoveryPointRetentionInMinutes:                 pulumi.Int(24 * 60),
+// 			ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(4 * 60),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 

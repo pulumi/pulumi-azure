@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(azure.kusto.getCluster({
  *     name: "kustocluster",
- *     resourceGroupName: "testResourceGroup",
+ *     resourceGroupName: "test_resource_group",
  * }, { async: true }));
  * ```
  */

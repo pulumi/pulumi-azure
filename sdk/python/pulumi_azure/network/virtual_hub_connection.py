@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class VirtualHubConnection(pulumi.CustomResource):
     hub_to_vitual_network_traffic_allowed: pulumi.Output[bool]
     """
@@ -63,7 +64,6 @@ class VirtualHubConnection(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id)
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,9 +134,9 @@ class VirtualHubConnection(pulumi.CustomResource):
         __props__["virtual_hub_id"] = virtual_hub_id
         __props__["vitual_network_to_hub_gateways_traffic_allowed"] = vitual_network_to_hub_gateways_traffic_allowed
         return VirtualHubConnection(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Proximity
         ///     public Output&lt;string&gt; ProximityPlacementGroupId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

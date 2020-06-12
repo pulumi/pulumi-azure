@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Pool(pulumi.CustomResource):
     account_name: pulumi.Output[str]
     """
@@ -137,9 +138,9 @@ class Pool(pulumi.CustomResource):
         __props__["size_in_tb"] = size_in_tb
         __props__["tags"] = tags
         return Pool(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

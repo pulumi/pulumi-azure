@@ -38,7 +38,6 @@ namespace Pulumi.Azure.DevTest
         ///     public Output&lt;string&gt; UniqueIdentifier { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

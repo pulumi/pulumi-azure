@@ -100,7 +100,6 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
     ```
 
 
-
     :param str name: The name of the Image.
     :param str name_regex: Regex pattern of the image to match.
     :param str resource_group_name: The Name of the Resource Group where this Image exists.

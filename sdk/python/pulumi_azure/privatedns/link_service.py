@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class LinkService(pulumi.CustomResource):
     alias: pulumi.Output[str]
     """
@@ -117,7 +118,6 @@ class LinkService(pulumi.CustomResource):
             ])
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
@@ -220,9 +220,9 @@ class LinkService(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["visibility_subscription_ids"] = visibility_subscription_ids
         return LinkService(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

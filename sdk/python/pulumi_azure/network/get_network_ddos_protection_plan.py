@@ -75,7 +75,6 @@ def get_network_ddos_protection_plan(name=None,resource_group_name=None,tags=Non
     ```
 
 
-
     :param str name: The name of the Network DDoS Protection Plan.
     :param str resource_group_name: The name of the resource group where the Network DDoS Protection Plan exists.
     :param dict tags: A mapping of tags assigned to the resource.

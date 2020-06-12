@@ -38,7 +38,6 @@ namespace Pulumi.Azure.StreamAnalytics
         ///     public Output&lt;string&gt; JobId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -104,7 +103,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public readonly string Location;
         public readonly string Name;
         /// <summary>
-        /// The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). 
+        /// The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size).
         /// </summary>
         public readonly string OutputErrorPolicy;
         public readonly string ResourceGroupName;

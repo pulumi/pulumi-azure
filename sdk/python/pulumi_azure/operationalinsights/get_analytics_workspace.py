@@ -107,7 +107,6 @@ def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Log Analytics Workspace.
     :param str resource_group_name: The name of the resource group in which the Log Analytics workspace is located in.
     """

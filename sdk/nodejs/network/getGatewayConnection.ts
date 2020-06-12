@@ -108,7 +108,7 @@ export interface GetGatewayConnectionResult {
      */
     readonly routingWeight: number;
     /**
-     * The shared IPSec key. 
+     * The shared IPSec key.
      */
     readonly sharedKey: string;
     /**

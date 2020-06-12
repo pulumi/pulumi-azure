@@ -11,6 +11,57 @@ import (
 )
 
 // Manages a PostgreSQL Database within a PostgreSQL Server
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/postgresql"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+// 			Location:                   exampleResourceGroup.Location,
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			SkuName:                    pulumi.String("B_Gen5_2"),
+// 			StorageMb:                  pulumi.Int(5120),
+// 			BackupRetentionDays:        pulumi.Int(7),
+// 			GeoRedundantBackupEnabled:  pulumi.Bool(false),
+// 			AutoGrowEnabled:            pulumi.Bool(true),
+// 			AdministratorLogin:         pulumi.String("psqladminun"),
+// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+// 			Version:                    pulumi.String("9.5"),
+// 			SslEnforcementEnabled:      pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDatabase, err := postgresql.NewDatabase(ctx, "exampleDatabase", &postgresql.DatabaseArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServerName:        exampleServer.Name,
+// 			Charset:           pulumi.String("UTF8"),
+// 			Collation:         pulumi.String("English_United States.1252"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

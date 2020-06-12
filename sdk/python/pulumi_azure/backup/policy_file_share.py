@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class PolicyFileShare(pulumi.CustomResource):
     backup: pulumi.Output[dict]
     """
@@ -70,7 +71,6 @@ class PolicyFileShare(pulumi.CustomResource):
                 "count": 10,
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,9 +163,9 @@ class PolicyFileShare(pulumi.CustomResource):
         __props__["retention_daily"] = retention_daily
         __props__["timezone"] = timezone
         return PolicyFileShare(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

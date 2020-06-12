@@ -110,7 +110,6 @@ def get_configuration_store(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The Name of this App Configuration.
     :param str resource_group_name: The name of the Resource Group where the App Configuration exists.
     """

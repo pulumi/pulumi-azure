@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Dns
         ///     public Output&lt;string&gt; DnsZoneId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

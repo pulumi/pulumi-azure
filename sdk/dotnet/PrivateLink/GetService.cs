@@ -40,7 +40,6 @@ namespace Pulumi.Azure.PrivateLink
         ///     public Output&lt;string&gt; PrivateLinkServiceId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

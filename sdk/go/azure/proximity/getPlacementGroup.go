@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Proximity Placement Group.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := proximity.LookupPlacementGroup(ctx, &proximity.LookupPlacementGroupArgs{
+// 			Name:              "tf-appsecuritygroup",
+// 			ResourceGroupName: "my-resource-group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("proximityPlacementGroupId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupPlacementGroup(ctx *pulumi.Context, args *LookupPlacementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPlacementGroupResult, error) {
 	var rv LookupPlacementGroupResult
 	err := ctx.Invoke("azure:proximity/getPlacementGroup:getPlacementGroup", args, &rv, opts...)

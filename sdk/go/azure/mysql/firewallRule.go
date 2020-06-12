@@ -11,6 +11,82 @@ import (
 )
 
 // Manages a Firewall Rule for a MySQL Server
+//
+// ## Example Usage
+//
+// ### Single IP Address)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mysql"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := mysql.NewServer(ctx, "exampleServer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFirewallRule, err := mysql.NewFirewallRule(ctx, "exampleFirewallRule", &mysql.FirewallRuleArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServerName:        exampleServer.Name,
+// 			StartIpAddress:    pulumi.String("40.112.8.12"),
+// 			EndIpAddress:      pulumi.String("40.112.8.12"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### IP Range)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mysql"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := mysql.NewServer(ctx, "exampleServer", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFirewallRule, err := mysql.NewFirewallRule(ctx, "exampleFirewallRule", &mysql.FirewallRuleArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServerName:        exampleServer.Name,
+// 			StartIpAddress:    pulumi.String("40.112.0.0"),
+// 			EndIpAddress:      pulumi.String("40.112.255.255"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Extension(pulumi.CustomResource):
     auto_upgrade_minor_version: pulumi.Output[bool]
     """
@@ -140,7 +141,6 @@ class Extension(pulumi.CustomResource):
             })
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
@@ -240,9 +240,9 @@ class Extension(pulumi.CustomResource):
         __props__["type_handler_version"] = type_handler_version
         __props__["virtual_machine_id"] = virtual_machine_id
         return Extension(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

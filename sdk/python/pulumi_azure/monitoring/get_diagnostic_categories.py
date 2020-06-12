@@ -64,7 +64,6 @@ def get_diagnostic_categories(resource_id=None,opts=None):
     ```
 
 
-
     :param str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
     """
     __args__ = dict()

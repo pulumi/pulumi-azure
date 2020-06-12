@@ -39,7 +39,7 @@ namespace Pulumi.Azure.CostManagement
         public Output<Outputs.ResourceGroupExportQuery> Query { get; private set; } = null!;
 
         /// <summary>
-        /// The date the export will stop capturing information. 
+        /// The date the export will stop capturing information.
         /// </summary>
         [Output("recurrencePeriodEnd")]
         public Output<string> RecurrencePeriodEnd { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.CostManagement
         public Input<Inputs.ResourceGroupExportQueryArgs> Query { get; set; } = null!;
 
         /// <summary>
-        /// The date the export will stop capturing information. 
+        /// The date the export will stop capturing information.
         /// </summary>
         [Input("recurrencePeriodEnd", required: true)]
         public Input<string> RecurrencePeriodEnd { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.CostManagement
         public Input<Inputs.ResourceGroupExportQueryGetArgs>? Query { get; set; }
 
         /// <summary>
-        /// The date the export will stop capturing information. 
+        /// The date the export will stop capturing information.
         /// </summary>
         [Input("recurrencePeriodEnd")]
         public Input<string>? RecurrencePeriodEnd { get; set; }

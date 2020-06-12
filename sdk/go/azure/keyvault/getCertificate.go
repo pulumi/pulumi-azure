@@ -11,6 +11,39 @@ import (
 //
 // > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+// 			Name:              "examplekv",
+// 			ResourceGroupName: "some-resource-group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCertificate, err := keyvault.LookupCertificate(ctx, &keyvault.LookupCertificateArgs{
+// 			Name:       "secret-sauce",
+// 			KeyVaultId: exampleKeyVault.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("certificateThumbprint", exampleCertificate.Thumbprint)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure:keyvault/getCertificate:getCertificate", args, &rv, opts...)

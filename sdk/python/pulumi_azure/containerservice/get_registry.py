@@ -110,7 +110,6 @@ def get_registry(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the Container Registry.
     :param str resource_group_name: The Name of the Resource Group where this Container Registry exists.
     """

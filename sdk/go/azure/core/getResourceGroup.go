@@ -8,6 +8,31 @@ import (
 )
 
 // Use this data source to access information about an existing Resource Group.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 			Name: "existing",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("id", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupResourceGroup(ctx *pulumi.Context, args *LookupResourceGroupArgs, opts ...pulumi.InvokeOption) (*LookupResourceGroupResult, error) {
 	var rv LookupResourceGroupResult
 	err := ctx.Invoke("azure:core/getResourceGroup:getResourceGroup", args, &rv, opts...)

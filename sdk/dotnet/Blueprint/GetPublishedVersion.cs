@@ -19,8 +19,8 @@ namespace Pulumi.Azure.Blueprint
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// 
         /// {{% example %}}
+        /// 
         /// ```csharp
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
@@ -40,8 +40,6 @@ namespace Pulumi.Azure.Blueprint
         /// 
         /// }
         /// ```
-        /// 
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -81,11 +79,11 @@ namespace Pulumi.Azure.Blueprint
     {
         public readonly string BlueprintName;
         /// <summary>
-        /// The description of the Blueprint Published Version  
+        /// The description of the Blueprint Published Version
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The display name of the Blueprint Published Version  
+        /// The display name of the Blueprint Published Version
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
@@ -95,12 +93,12 @@ namespace Pulumi.Azure.Blueprint
         public readonly string LastModified;
         public readonly string ScopeId;
         /// <summary>
-        /// The target scope  
+        /// The target scope
         /// </summary>
         public readonly string TargetScope;
         public readonly string TimeCreated;
         /// <summary>
-        /// The type of the Blueprint  
+        /// The type of the Blueprint
         /// </summary>
         public readonly string Type;
         public readonly string Version;

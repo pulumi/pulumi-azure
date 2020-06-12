@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Maps
         ///     public Output&lt;string&gt; MapsAccountId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

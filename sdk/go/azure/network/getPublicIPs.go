@@ -8,6 +8,31 @@ import (
 )
 
 // Use this data source to access information about a set of existing Public IP Addresses.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupPublicIPs(ctx, &network.LookupPublicIPsArgs{
+// 			Attached:          false,
+// 			ResourceGroupName: "pip-test",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs, opts ...pulumi.InvokeOption) (*GetPublicIPsResult, error) {
 	var rv GetPublicIPsResult
 	err := ctx.Invoke("azure:network/getPublicIPs:getPublicIPs", args, &rv, opts...)

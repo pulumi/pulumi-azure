@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Network Watcher.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := network.LookupNetworkWatcher(ctx, &network.LookupNetworkWatcherArgs{
+// 			Name:              azurerm_network_watcher.Example.Name,
+// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("networkWatcherId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupNetworkWatcher(ctx *pulumi.Context, args *LookupNetworkWatcherArgs, opts ...pulumi.InvokeOption) (*LookupNetworkWatcherResult, error) {
 	var rv LookupNetworkWatcherResult
 	err := ctx.Invoke("azure:network/getNetworkWatcher:getNetworkWatcher", args, &rv, opts...)

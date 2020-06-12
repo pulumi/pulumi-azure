@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Storage
         ///     public Output&lt;string&gt; StorageAccountTier { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

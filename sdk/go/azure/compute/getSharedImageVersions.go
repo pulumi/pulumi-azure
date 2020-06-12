@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := compute.LookupSharedImageVersions(ctx, &compute.LookupSharedImageVersionsArgs{
+// 			GalleryName:       "my-image-gallery",
+// 			ImageName:         "my-image",
+// 			ResourceGroupName: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetSharedImageVersions(ctx *pulumi.Context, args *GetSharedImageVersionsArgs, opts ...pulumi.InvokeOption) (*GetSharedImageVersionsResult, error) {
 	var rv GetSharedImageVersionsResult
 	err := ctx.Invoke("azure:compute/getSharedImageVersions:getSharedImageVersions", args, &rv, opts...)

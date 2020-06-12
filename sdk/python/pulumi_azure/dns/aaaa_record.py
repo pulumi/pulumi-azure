@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class AaaaRecord(pulumi.CustomResource):
     fqdn: pulumi.Output[str]
     """
@@ -59,7 +60,7 @@ class AaaaRecord(pulumi.CustomResource):
             ttl=300)
         ```
 
-        ## Example Usage (Alias Record)
+        ### Alias Record)
 
         ```python
         import pulumi
@@ -155,9 +156,9 @@ class AaaaRecord(pulumi.CustomResource):
         __props__["ttl"] = ttl
         __props__["zone_name"] = zone_name
         return AaaaRecord(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

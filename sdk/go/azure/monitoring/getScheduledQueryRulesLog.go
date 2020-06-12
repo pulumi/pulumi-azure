@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access the properties of a LogToMetricAction scheduled query rule.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := monitoring.LookupScheduledQueryRulesLog(ctx, &monitoring.LookupScheduledQueryRulesLogArgs{
+// 			Name:              "tfex-queryrule",
+// 			ResourceGroupName: "example-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("queryRuleId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupScheduledQueryRulesLog(ctx *pulumi.Context, args *LookupScheduledQueryRulesLogArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRulesLogResult, error) {
 	var rv LookupScheduledQueryRulesLogResult
 	err := ctx.Invoke("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args, &rv, opts...)

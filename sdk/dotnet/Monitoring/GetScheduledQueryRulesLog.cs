@@ -38,7 +38,6 @@ namespace Pulumi.Azure.Monitoring
         ///     public Output&lt;string&gt; QueryRuleId { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

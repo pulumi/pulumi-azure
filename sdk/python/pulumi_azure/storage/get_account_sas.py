@@ -73,8 +73,6 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
     and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
 
 
-
-
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
     :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.

@@ -39,8 +39,6 @@ namespace Pulumi.Azure.DatabaseMigration
         ///     public Output&lt;string&gt; AzurermDmsId { get; set; }
         /// }
         /// ```
-        /// 
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

@@ -63,7 +63,6 @@ def get_resource_group(name=None,opts=None):
     ```
 
 
-
     :param str name: The Name of this Resource Group.
     """
     __args__ = dict()

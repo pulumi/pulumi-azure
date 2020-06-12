@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ScheduledQueryRulesAlert(pulumi.CustomResource):
     action: pulumi.Output[dict]
     """
@@ -81,8 +82,6 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, action=None, authorized_resource_ids=None, data_source_id=None, description=None, enabled=None, frequency=None, location=None, name=None, query=None, query_type=None, resource_group_name=None, severity=None, tags=None, throttling=None, time_window=None, trigger=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
-
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,9 +230,9 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         __props__["time_window"] = time_window
         __props__["trigger"] = trigger
         return ScheduledQueryRulesAlert(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

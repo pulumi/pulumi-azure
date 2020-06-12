@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class Database(pulumi.CustomResource):
     collation: pulumi.Output[str]
     """
@@ -164,7 +165,6 @@ class Database(pulumi.CustomResource):
                 "environment": "production",
             })
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,9 +359,9 @@ class Database(pulumi.CustomResource):
         __props__["threat_detection_policy"] = threat_detection_policy
         __props__["zone_redundant"] = zone_redundant
         return Database(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

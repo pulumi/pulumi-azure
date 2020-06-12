@@ -39,7 +39,6 @@ namespace Pulumi.Azure.Batch
         ///     public Output&lt;string&gt; Thumbprint { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

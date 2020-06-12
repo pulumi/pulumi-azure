@@ -92,7 +92,6 @@ def get_policy_set_definition(display_name=None,management_group_name=None,name=
     ```
 
 
-
     :param str display_name: Specifies the display name of the Policy Set Definition. Conflicts with `name`.
     :param str management_group_name: Only retrieve Policy Set Definitions from this Management Group.
     :param str name: Specifies the name of the Policy Set Definition. Conflicts with `display_name`.

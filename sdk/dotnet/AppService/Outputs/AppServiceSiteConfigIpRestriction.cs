@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class AppServiceSiteConfigIpRestriction
     {
         /// <summary>
-        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.  
+        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         /// </summary>
         public readonly string? Action;
         /// <summary>

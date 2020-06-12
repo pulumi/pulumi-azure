@@ -75,7 +75,6 @@ def get_profile(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of the CDN Profile.
     :param str resource_group_name: The name of the resource group in which the CDN Profile exists.
     """

@@ -68,7 +68,6 @@ def get_account(name=None,resource_group_name=None,opts=None):
     ```
 
 
-
     :param str name: The name of this Data Share Account.
     :param str resource_group_name: The name of the Resource Group where the Data Share Account exists.
     """

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a single value to compare to when using a single value operator. 
+        /// Specifies a single value to compare to when using a single value operator.
         /// </summary>
         [Input("value", required: true)]
         public Input<bool> Value { get; set; } = null!;

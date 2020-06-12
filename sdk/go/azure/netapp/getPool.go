@@ -8,6 +8,32 @@ import (
 )
 
 // Uses this data source to access information about an existing NetApp Pool.
+//
+//
+// ## NetApp Pool Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := netapp.LookupPool(ctx, &netapp.LookupPoolArgs{
+// 			ResourceGroupName: "acctestRG",
+// 			AccountName:       "acctestnetappaccount",
+// 			Name:              "acctestnetapppool",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("netappPoolId", example.Id)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
 	err := ctx.Invoke("azure:netapp/getPool:getPool", args, &rv, opts...)

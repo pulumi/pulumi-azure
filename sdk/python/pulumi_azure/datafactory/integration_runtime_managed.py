@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class IntegrationRuntimeManaged(pulumi.CustomResource):
     catalog_info: pulumi.Output[dict]
     """
@@ -92,7 +93,6 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
             location=example_resource_group.location,
             node_size="Standard_D8_v3")
         ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,9 +225,9 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["vnet_integration"] = vnet_integration
         return IntegrationRuntimeManaged(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

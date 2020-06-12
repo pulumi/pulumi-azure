@@ -8,6 +8,32 @@ import (
 )
 
 // Use this data source to access information about an existing Notification Hub Namespace.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := notificationhub.LookupNamespace(ctx, &notificationhub.LookupNamespaceArgs{
+// 			Name:              "my-namespace",
+// 			ResourceGroupName: "my-resource-group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("servicebusEndpoint", example.ServicebusEndpoint)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure:notificationhub/getNamespace:getNamespace", args, &rv, opts...)

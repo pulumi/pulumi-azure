@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
+
 class ManagedDisk(pulumi.CustomResource):
     create_option: pulumi.Output[str]
     """
@@ -91,7 +92,9 @@ class ManagedDisk(pulumi.CustomResource):
         """
         Manages a managed disk.
 
-        ## Example Usage with Create Empty
+        ## Example Usage
+
+        ### With Create Empty
 
         ```python
         import pulumi
@@ -109,7 +112,7 @@ class ManagedDisk(pulumi.CustomResource):
             })
         ```
 
-        ## Example Usage with Create Copy
+        ### With Create Copy
 
         ```python
         import pulumi
@@ -274,9 +277,9 @@ class ManagedDisk(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["zones"] = zones
         return ManagedDisk(resource_name, opts=opts, __props__=__props__)
+
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
         return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-

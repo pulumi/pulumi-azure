@@ -86,7 +86,6 @@ def get_account(name=None,resource_group_name=None,tags=None,opts=None):
     ```
 
 
-
     :param str name: Specifies the name of the Maps Account.
     :param str resource_group_name: Specifies the name of the Resource Group in which the Maps Account is located.
     """

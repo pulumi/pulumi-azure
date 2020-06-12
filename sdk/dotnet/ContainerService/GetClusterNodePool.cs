@@ -39,7 +39,6 @@ namespace Pulumi.Azure.ContainerService
         ///     public Output&lt;string&gt; Id { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

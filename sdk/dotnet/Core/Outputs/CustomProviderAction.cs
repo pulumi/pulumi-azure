@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Core.Outputs
     public sealed class CustomProviderAction
     {
         /// <summary>
-        /// Specifies the endpoint of the action. 
+        /// Specifies the endpoint of the action.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// Specifies the name of the action. 
+        /// Specifies the name of the action.
         /// </summary>
         public readonly string Name;
 

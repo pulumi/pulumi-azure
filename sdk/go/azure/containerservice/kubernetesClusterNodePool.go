@@ -10,9 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Node Pool within a Kubernetes Cluster
-//
-// > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 type KubernetesClusterNodePool struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,95 @@ import (
 )
 
 // Enables you to manage DNS AAAA Records within Azure DNS.
+//
+// ## Example Usage
+//
+//
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/dns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAaaaRecord, err := dns.NewAaaaRecord(ctx, "exampleAaaaRecord", &dns.AaaaRecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ### Alias Record)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/dns"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AllocationMethod:  pulumi.String("Dynamic"),
+// 			IpVersion:         pulumi.String("IPv6"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAaaaRecord, err := dns.NewAaaaRecord(ctx, "exampleAaaaRecord", &dns.AaaaRecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			TargetResourceId:  examplePublicIp.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AaaaRecord struct {
 	pulumi.CustomResourceState
 

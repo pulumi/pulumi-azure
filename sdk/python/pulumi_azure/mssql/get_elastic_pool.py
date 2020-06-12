@@ -115,7 +115,6 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
     ```
 
 
-
     :param str name: The name of the elastic pool.
     :param str resource_group_name: The name of the resource group which contains the elastic pool.
     :param str server_name: The name of the SQL Server which contains the elastic pool.

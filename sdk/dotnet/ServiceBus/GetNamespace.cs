@@ -38,7 +38,6 @@ namespace Pulumi.Azure.ServiceBus
         ///     public Output&lt;string&gt; Location { get; set; }
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
