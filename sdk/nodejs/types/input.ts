@@ -2741,6 +2741,18 @@ export namespace batch {
     }
 }
 
+export namespace blueprint {
+    export interface AssignmentIdentity {
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace bot {
     export interface ChannelDirectLineSite {
         enabled?: pulumi.Input<boolean>;
@@ -5411,6 +5423,45 @@ export namespace containerservice {
         userAssignedIdentityId?: pulumi.Input<string>;
     }
 
+    export interface KubernetesClusterAutoScalerProfile {
+        /**
+         * Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+         */
+        balanceSimilarNodeGroups?: pulumi.Input<boolean>;
+        /**
+         * Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+         */
+        maxGracefulTerminationSec?: pulumi.Input<string>;
+        /**
+         * How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+         */
+        scaleDownDelayAfterAdd?: pulumi.Input<string>;
+        /**
+         * How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
+         */
+        scaleDownDelayAfterDelete?: pulumi.Input<string>;
+        /**
+         * How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+         */
+        scaleDownDelayAfterFailure?: pulumi.Input<string>;
+        /**
+         * How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+         */
+        scaleDownUnneeded?: pulumi.Input<string>;
+        /**
+         * How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+         */
+        scaleDownUnready?: pulumi.Input<string>;
+        /**
+         * Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+         */
+        scaleDownUtilizationThreshold?: pulumi.Input<string>;
+        /**
+         * How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+         */
+        scanInterval?: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterDefaultNodePool {
         /**
          * A list of Availability Zones across which the Node Pool should be spread.
@@ -5445,13 +5496,17 @@ export namespace containerservice {
          */
         nodeCount?: pulumi.Input<number>;
         /**
-         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+         * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
          */
         nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+         * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
          */
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+         */
+        orchestratorVersion?: pulumi.Input<string>;
         /**
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
@@ -5621,7 +5676,11 @@ export namespace containerservice {
          */
         effectiveOutboundIps?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+         * Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
          */
         managedOutboundIpCount?: pulumi.Input<number>;
         /**
@@ -5632,6 +5691,10 @@ export namespace containerservice {
          * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
          */
         outboundIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+         */
+        outboundPortsAllocated?: pulumi.Input<number>;
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
@@ -5647,17 +5710,25 @@ export namespace containerservice {
 
     export interface KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
         /**
+         * A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+         */
+        adminGroupObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Client ID of an Azure Active Directory Application.
          */
-        clientAppId: pulumi.Input<string>;
+        clientAppId?: pulumi.Input<string>;
+        /**
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         */
+        managed?: pulumi.Input<boolean>;
         /**
          * The Server ID of an Azure Active Directory Application.
          */
-        serverAppId: pulumi.Input<string>;
+        serverAppId?: pulumi.Input<string>;
         /**
          * The Server Secret of an Azure Active Directory Application.
          */
-        serverAppSecret: pulumi.Input<string>;
+        serverAppSecret?: pulumi.Input<string>;
         /**
          * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
          */
@@ -6531,6 +6602,21 @@ export namespace eventgrid {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface EventSubscriptionAzureFunctionEndpoint {
+        /**
+         * Specifies the ID of the Function where the Event Subscription will receive events.
+         */
+        functionId: pulumi.Input<string>;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: pulumi.Input<number>;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: pulumi.Input<number>;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -6594,6 +6680,26 @@ export namespace eventgrid {
     }
 
     export interface EventSubscriptionWebhookEndpoint {
+        /**
+         * The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryAppIdOrUri?: pulumi.Input<string>;
+        /**
+         * The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryTenantId?: pulumi.Input<string>;
+        /**
+         * The base url of the webhook where the Event Subscription will receive events.
+         */
+        baseUrl?: pulumi.Input<string>;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: pulumi.Input<number>;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: pulumi.Input<number>;
         /**
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
@@ -6994,6 +7100,21 @@ export namespace eventhub {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface EventSubscriptionAzureFunctionEndpoint {
+        /**
+         * Specifies the ID of the Function where the Event Subscription will receive events.
+         */
+        functionId: pulumi.Input<string>;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: pulumi.Input<number>;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: pulumi.Input<number>;
+    }
+
     export interface EventSubscriptionEventhubEndpoint {
         /**
          * Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -7057,6 +7178,26 @@ export namespace eventhub {
     }
 
     export interface EventSubscriptionWebhookEndpoint {
+        /**
+         * The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryAppIdOrUri?: pulumi.Input<string>;
+        /**
+         * The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+         */
+        activeDirectoryTenantId?: pulumi.Input<string>;
+        /**
+         * The base url of the webhook where the Event Subscription will receive events.
+         */
+        baseUrl?: pulumi.Input<string>;
+        /**
+         * Maximum number of events per batch.
+         */
+        maxEventsPerBatch?: pulumi.Input<number>;
+        /**
+         * Preferred batch size in Kilobytes.
+         */
+        preferredBatchSizeInKilobytes?: pulumi.Input<number>;
         /**
          * Specifies the url of the webhook where the Event Subscription will receive events.
          */
@@ -9145,6 +9286,17 @@ export namespace iot {
          */
         name: pulumi.Input<string>;
     }
+
+    export interface TimeSeriesInsightsReferenceDataSetKeyProperty {
+        /**
+         * The name of the key property.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`.
+         */
+        type: pulumi.Input<string>;
+    }
 }
 
 export namespace keyvault {
@@ -9177,7 +9329,7 @@ export namespace keyvault {
          */
         secretProperties: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicySecretProperties>;
         /**
-         * A `x509CertificateProperties` block as defined below.
+         * A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
          */
         x509CertificateProperties?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicyX509CertificateProperties>;
     }
@@ -9311,7 +9463,7 @@ export namespace keyvault {
          */
         secretProperties: pulumi.Input<inputs.keyvault.CertificateCertificatePolicySecretProperties>;
         /**
-         * A `x509CertificateProperties` block as defined below.
+         * A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
          */
         x509CertificateProperties?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicyX509CertificateProperties>;
     }
@@ -10964,7 +11116,7 @@ export namespace network {
          */
         publicIpAddressId?: pulumi.Input<string>;
         /**
-         * The ID of the Subnet which the Application Gateway should be connected to.
+         * The ID of the Subnet.
          */
         subnetId?: pulumi.Input<string>;
     }
@@ -10994,7 +11146,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The ID of a Subnet.
+         * The ID of the Subnet which the Application Gateway should be connected to.
          */
         subnetId: pulumi.Input<string>;
     }

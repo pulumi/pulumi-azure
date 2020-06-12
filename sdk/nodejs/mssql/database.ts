@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
  * const test = new azure.mssql.Database("test", {
- *     serverId: azurerm_sql_server.test.id,
+ *     serverId: exampleSqlServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     licenseType: "LicenseIncluded",
  *     maxSizeGb: 4,

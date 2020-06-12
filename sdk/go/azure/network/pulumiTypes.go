@@ -1024,7 +1024,7 @@ type ApplicationGatewayFrontendIpConfiguration struct {
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
 	// The ID of a Public IP Address which the Application Gateway should use.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
-	// The ID of the Subnet which the Application Gateway should be connected to.
+	// The ID of the Subnet.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -1051,7 +1051,7 @@ type ApplicationGatewayFrontendIpConfigurationArgs struct {
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
 	// The ID of a Public IP Address which the Application Gateway should use.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
-	// The ID of the Subnet which the Application Gateway should be connected to.
+	// The ID of the Subnet.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -1132,7 +1132,7 @@ func (o ApplicationGatewayFrontendIpConfigurationOutput) PublicIpAddressId() pul
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Subnet which the Application Gateway should be connected to.
+// The ID of the Subnet.
 func (o ApplicationGatewayFrontendIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -1279,7 +1279,7 @@ type ApplicationGatewayGatewayIpConfiguration struct {
 	Id *string `pulumi:"id"`
 	// The Name of this Gateway IP Configuration.
 	Name string `pulumi:"name"`
-	// The ID of a Subnet.
+	// The ID of the Subnet which the Application Gateway should be connected to.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -1300,7 +1300,7 @@ type ApplicationGatewayGatewayIpConfigurationArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Name of this Gateway IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The ID of a Subnet.
+	// The ID of the Subnet which the Application Gateway should be connected to.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -1366,7 +1366,7 @@ func (o ApplicationGatewayGatewayIpConfigurationOutput) Name() pulumi.StringOutp
 	return o.ApplyT(func(v ApplicationGatewayGatewayIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of a Subnet.
+// The ID of the Subnet which the Application Gateway should be connected to.
 func (o ApplicationGatewayGatewayIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayGatewayIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }

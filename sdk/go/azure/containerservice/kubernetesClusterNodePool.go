@@ -22,6 +22,8 @@ type KubernetesClusterNodePool struct {
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
+	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
@@ -30,18 +32,26 @@ type KubernetesClusterNodePool struct {
 	MaxPods pulumi.IntOutput `pulumi:"maxPods"`
 	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
 	MinCount pulumi.IntPtrOutput `pulumi:"minCount"`
+	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	OrchestratorVersion pulumi.StringOutput `pulumi:"orchestratorVersion"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntOutput `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
+	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority pulumi.StringPtrOutput `pulumi:"priority"`
+	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
@@ -90,6 +100,8 @@ type kubernetesClusterNodePoolState struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
@@ -98,18 +110,26 @@ type kubernetesClusterNodePoolState struct {
 	MaxPods *int `pulumi:"maxPods"`
 	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
 	MinCount *int `pulumi:"minCount"`
+	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType *string `pulumi:"osType"`
+	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority *string `pulumi:"priority"`
+	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
@@ -125,6 +145,8 @@ type KubernetesClusterNodePoolState struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrInput
+	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	EvictionPolicy pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringPtrInput
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
@@ -133,18 +155,26 @@ type KubernetesClusterNodePoolState struct {
 	MaxPods pulumi.IntPtrInput
 	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
 	MinCount pulumi.IntPtrInput
+	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	OrchestratorVersion pulumi.StringPtrInput
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrInput
+	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority pulumi.StringPtrInput
+	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
@@ -164,6 +194,8 @@ type kubernetesClusterNodePoolArgs struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
@@ -172,18 +204,26 @@ type kubernetesClusterNodePoolArgs struct {
 	MaxPods *int `pulumi:"maxPods"`
 	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
 	MinCount *int `pulumi:"minCount"`
+	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType *string `pulumi:"osType"`
+	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority *string `pulumi:"priority"`
+	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
@@ -200,6 +240,8 @@ type KubernetesClusterNodePoolArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should each node have a Public IP Address? Defaults to `false`.
 	EnableNodePublicIp pulumi.BoolPtrInput
+	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	EvictionPolicy pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringInput
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
@@ -208,18 +250,26 @@ type KubernetesClusterNodePoolArgs struct {
 	MaxPods pulumi.IntPtrInput
 	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
 	MinCount pulumi.IntPtrInput
+	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
-	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	OrchestratorVersion pulumi.StringPtrInput
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
 	OsType pulumi.StringPtrInput
+	// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+	Priority pulumi.StringPtrInput
+	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.

@@ -33,8 +33,6 @@ export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulu
     }
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", {
         "name": args.name,
-        "privateClusterEnabled": args.privateClusterEnabled,
-        "privateLinkEnabled": args.privateLinkEnabled,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -47,14 +45,6 @@ export interface GetKubernetesClusterArgs {
      * The name of the managed Kubernetes Cluster.
      */
     readonly name: string;
-    /**
-     * If the cluster has the Kubernetes API only exposed on internal IP addresses.                           
-     */
-    readonly privateClusterEnabled?: boolean;
-    /**
-     * @deprecated Deprecated in favor of `private_cluster_enabled`
-     */
-    readonly privateLinkEnabled?: boolean;
     /**
      * The name of the Resource Group in which the managed Kubernetes Cluster exists.
      */
@@ -77,6 +67,10 @@ export interface GetKubernetesClusterResult {
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
     readonly apiServerAuthorizedIpRanges: string[];
+    /**
+     * The ID of the Disk Encryption Set used for the Nodes and Volumes.
+     */
+    readonly diskEncryptionSetId: string;
     /**
      * The DNS Prefix of the managed Kubernetes cluster.
      */
@@ -110,7 +104,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly kubeConfigs: outputs.containerservice.GetKubernetesClusterKubeConfig[];
     /**
-     * A `kubeletIdentity` block as documented below.  
+     * A `kubeletIdentity` block as documented below.
      */
     readonly kubeletIdentities: outputs.containerservice.GetKubernetesClusterKubeletIdentity[];
     /**

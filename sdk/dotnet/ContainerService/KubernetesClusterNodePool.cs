@@ -35,6 +35,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> EnableNodePublicIp { get; private set; } = null!;
 
         /// <summary>
+        /// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("evictionPolicy")]
+        public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kubernetesClusterId")]
@@ -59,6 +65,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<int?> MinCount { get; private set; } = null!;
 
         /// <summary>
+        /// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+        /// </summary>
+        [Output("mode")]
+        public Output<string?> Mode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -71,16 +83,22 @@ namespace Pulumi.Azure.ContainerService
         public Output<int> NodeCount { get; private set; } = null!;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("nodeLabels")]
         public Output<ImmutableDictionary<string, string>?> NodeLabels { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         /// </summary>
         [Output("nodeTaints")]
         public Output<ImmutableArray<string>> NodeTaints { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// </summary>
+        [Output("orchestratorVersion")]
+        public Output<string> OrchestratorVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -93,6 +111,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("priority")]
+        public Output<string?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("spotMaxPrice")]
+        public Output<double?> SpotMaxPrice { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -183,6 +213,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
+        /// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("evictionPolicy")]
+        public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kubernetesClusterId", required: true)]
@@ -207,6 +243,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<int>? MinCount { get; set; }
 
         /// <summary>
+        /// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
+
+        /// <summary>
         /// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -222,7 +264,7 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _nodeLabels;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> NodeLabels
         {
@@ -234,13 +276,19 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _nodeTaints;
 
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
             set => _nodeTaints = value;
         }
+
+        /// <summary>
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// </summary>
+        [Input("orchestratorVersion")]
+        public Input<string>? OrchestratorVersion { get; set; }
 
         /// <summary>
         /// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -253,6 +301,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
+
+        /// <summary>
+        /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("spotMaxPrice")]
+        public Input<double>? SpotMaxPrice { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -310,6 +370,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
+        /// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("evictionPolicy")]
+        public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kubernetesClusterId")]
@@ -334,6 +400,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<int>? MinCount { get; set; }
 
         /// <summary>
+        /// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
+
+        /// <summary>
         /// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -349,7 +421,7 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _nodeLabels;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
+        /// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> NodeLabels
         {
@@ -361,13 +433,19 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _nodeTaints;
 
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
             set => _nodeTaints = value;
         }
+
+        /// <summary>
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// </summary>
+        [Input("orchestratorVersion")]
+        public Input<string>? OrchestratorVersion { get; set; }
 
         /// <summary>
         /// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -380,6 +458,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
+
+        /// <summary>
+        /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("spotMaxPrice")]
+        public Input<double>? SpotMaxPrice { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

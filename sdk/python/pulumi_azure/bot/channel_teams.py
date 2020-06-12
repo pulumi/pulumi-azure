@@ -54,9 +54,7 @@ class ChannelTeams(pulumi.CustomResource):
         example_channel_teams = azure.bot.ChannelTeams("exampleChannelTeams",
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
-            calling_web_hook="https://example2.com/",
-            enable_calling=False)
+            resource_group_name=example_resource_group.name)
         ```
 
 

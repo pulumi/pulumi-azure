@@ -2067,6 +2067,177 @@ func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) Index(i pulumi.In
 	}).(EventSubscriptionAdvancedFilterStringNotInOutput)
 }
 
+type EventSubscriptionAzureFunctionEndpoint struct {
+	// Specifies the ID of the Function where the Event Subscription will receive events.
+	FunctionId string `pulumi:"functionId"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch *int `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes *int `pulumi:"preferredBatchSizeInKilobytes"`
+}
+
+// EventSubscriptionAzureFunctionEndpointInput is an input type that accepts EventSubscriptionAzureFunctionEndpointArgs and EventSubscriptionAzureFunctionEndpointOutput values.
+// You can construct a concrete instance of `EventSubscriptionAzureFunctionEndpointInput` via:
+//
+// 		 EventSubscriptionAzureFunctionEndpointArgs{...}
+//
+type EventSubscriptionAzureFunctionEndpointInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAzureFunctionEndpointOutput() EventSubscriptionAzureFunctionEndpointOutput
+	ToEventSubscriptionAzureFunctionEndpointOutputWithContext(context.Context) EventSubscriptionAzureFunctionEndpointOutput
+}
+
+type EventSubscriptionAzureFunctionEndpointArgs struct {
+	// Specifies the ID of the Function where the Event Subscription will receive events.
+	FunctionId pulumi.StringInput `pulumi:"functionId"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch pulumi.IntPtrInput `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes pulumi.IntPtrInput `pulumi:"preferredBatchSizeInKilobytes"`
+}
+
+func (EventSubscriptionAzureFunctionEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunctionEndpointOutput() EventSubscriptionAzureFunctionEndpointOutput {
+	return i.ToEventSubscriptionAzureFunctionEndpointOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunctionEndpointOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAzureFunctionEndpointOutput)
+}
+
+func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunctionEndpointPtrOutput() EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return i.ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAzureFunctionEndpointOutput).ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx)
+}
+
+// EventSubscriptionAzureFunctionEndpointPtrInput is an input type that accepts EventSubscriptionAzureFunctionEndpointArgs, EventSubscriptionAzureFunctionEndpointPtr and EventSubscriptionAzureFunctionEndpointPtrOutput values.
+// You can construct a concrete instance of `EventSubscriptionAzureFunctionEndpointPtrInput` via:
+//
+// 		 EventSubscriptionAzureFunctionEndpointArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EventSubscriptionAzureFunctionEndpointPtrInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionAzureFunctionEndpointPtrOutput() EventSubscriptionAzureFunctionEndpointPtrOutput
+	ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput
+}
+
+type eventSubscriptionAzureFunctionEndpointPtrType EventSubscriptionAzureFunctionEndpointArgs
+
+func EventSubscriptionAzureFunctionEndpointPtr(v *EventSubscriptionAzureFunctionEndpointArgs) EventSubscriptionAzureFunctionEndpointPtrInput {
+	return (*eventSubscriptionAzureFunctionEndpointPtrType)(v)
+}
+
+func (*eventSubscriptionAzureFunctionEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (i *eventSubscriptionAzureFunctionEndpointPtrType) ToEventSubscriptionAzureFunctionEndpointPtrOutput() EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return i.ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSubscriptionAzureFunctionEndpointPtrType) ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAzureFunctionEndpointPtrOutput)
+}
+
+type EventSubscriptionAzureFunctionEndpointOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAzureFunctionEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFunctionEndpointOutput() EventSubscriptionAzureFunctionEndpointOutput {
+	return o
+}
+
+func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFunctionEndpointOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointOutput {
+	return o
+}
+
+func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFunctionEndpointPtrOutput() EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o.ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionAzureFunctionEndpoint) *EventSubscriptionAzureFunctionEndpoint {
+		return &v
+	}).(EventSubscriptionAzureFunctionEndpointPtrOutput)
+}
+
+// Specifies the ID of the Function where the Event Subscription will receive events.
+func (o EventSubscriptionAzureFunctionEndpointOutput) FunctionId() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSubscriptionAzureFunctionEndpoint) string { return v.FunctionId }).(pulumi.StringOutput)
+}
+
+// Maximum number of events per batch.
+func (o EventSubscriptionAzureFunctionEndpointOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionAzureFunctionEndpoint) *int { return v.MaxEventsPerBatch }).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o EventSubscriptionAzureFunctionEndpointOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionAzureFunctionEndpoint) *int { return v.PreferredBatchSizeInKilobytes }).(pulumi.IntPtrOutput)
+}
+
+type EventSubscriptionAzureFunctionEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionAzureFunctionEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSubscriptionAzureFunctionEndpoint)(nil)).Elem()
+}
+
+func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToEventSubscriptionAzureFunctionEndpointPtrOutput() EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o
+}
+
+func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput {
+	return o
+}
+
+func (o EventSubscriptionAzureFunctionEndpointPtrOutput) Elem() EventSubscriptionAzureFunctionEndpointOutput {
+	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) EventSubscriptionAzureFunctionEndpoint { return *v }).(EventSubscriptionAzureFunctionEndpointOutput)
+}
+
+// Specifies the ID of the Function where the Event Subscription will receive events.
+func (o EventSubscriptionAzureFunctionEndpointPtrOutput) FunctionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FunctionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of events per batch.
+func (o EventSubscriptionAzureFunctionEndpointPtrOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEventsPerBatch
+	}).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o EventSubscriptionAzureFunctionEndpointPtrOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredBatchSizeInKilobytes
+	}).(pulumi.IntPtrOutput)
+}
+
 type EventSubscriptionEventhubEndpoint struct {
 	// Specifies the id of the eventhub where the Event Subscription will receive events.
 	EventhubId *string `pulumi:"eventhubId"`
@@ -2965,6 +3136,16 @@ func (o EventSubscriptionSubjectFilterPtrOutput) SubjectEndsWith() pulumi.String
 }
 
 type EventSubscriptionWebhookEndpoint struct {
+	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryAppIdOrUri *string `pulumi:"activeDirectoryAppIdOrUri"`
+	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryTenantId *string `pulumi:"activeDirectoryTenantId"`
+	// The base url of the webhook where the Event Subscription will receive events.
+	BaseUrl *string `pulumi:"baseUrl"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch *int `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes *int `pulumi:"preferredBatchSizeInKilobytes"`
 	// Specifies the url of the webhook where the Event Subscription will receive events.
 	Url string `pulumi:"url"`
 }
@@ -2982,6 +3163,16 @@ type EventSubscriptionWebhookEndpointInput interface {
 }
 
 type EventSubscriptionWebhookEndpointArgs struct {
+	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryAppIdOrUri pulumi.StringPtrInput `pulumi:"activeDirectoryAppIdOrUri"`
+	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+	ActiveDirectoryTenantId pulumi.StringPtrInput `pulumi:"activeDirectoryTenantId"`
+	// The base url of the webhook where the Event Subscription will receive events.
+	BaseUrl pulumi.StringPtrInput `pulumi:"baseUrl"`
+	// Maximum number of events per batch.
+	MaxEventsPerBatch pulumi.IntPtrInput `pulumi:"maxEventsPerBatch"`
+	// Preferred batch size in Kilobytes.
+	PreferredBatchSizeInKilobytes pulumi.IntPtrInput `pulumi:"preferredBatchSizeInKilobytes"`
 	// Specifies the url of the webhook where the Event Subscription will receive events.
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -3064,6 +3255,31 @@ func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpoi
 	}).(EventSubscriptionWebhookEndpointPtrOutput)
 }
 
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o EventSubscriptionWebhookEndpointOutput) ActiveDirectoryAppIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) *string { return v.ActiveDirectoryAppIdOrUri }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o EventSubscriptionWebhookEndpointOutput) ActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) *string { return v.ActiveDirectoryTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The base url of the webhook where the Event Subscription will receive events.
+func (o EventSubscriptionWebhookEndpointOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of events per batch.
+func (o EventSubscriptionWebhookEndpointOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) *int { return v.MaxEventsPerBatch }).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o EventSubscriptionWebhookEndpointOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) *int { return v.PreferredBatchSizeInKilobytes }).(pulumi.IntPtrOutput)
+}
+
 // Specifies the url of the webhook where the Event Subscription will receive events.
 func (o EventSubscriptionWebhookEndpointOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
@@ -3085,6 +3301,56 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) ToEventSubscriptionWebhookEnd
 
 func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebhookEndpointOutput {
 	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) EventSubscriptionWebhookEndpoint { return *v }).(EventSubscriptionWebhookEndpointOutput)
+}
+
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o EventSubscriptionWebhookEndpointPtrOutput) ActiveDirectoryAppIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryAppIdOrUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o EventSubscriptionWebhookEndpointPtrOutput) ActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base url of the webhook where the Event Subscription will receive events.
+func (o EventSubscriptionWebhookEndpointPtrOutput) BaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of events per batch.
+func (o EventSubscriptionWebhookEndpointPtrOutput) MaxEventsPerBatch() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEventsPerBatch
+	}).(pulumi.IntPtrOutput)
+}
+
+// Preferred batch size in Kilobytes.
+func (o EventSubscriptionWebhookEndpointPtrOutput) PreferredBatchSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionWebhookEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredBatchSizeInKilobytes
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the url of the webhook where the Event Subscription will receive events.
@@ -3527,6 +3793,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringInArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotInOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterStringNotInArrayOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAzureFunctionEndpointOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionAzureFunctionEndpointPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionHybridConnectionEndpointOutput{})

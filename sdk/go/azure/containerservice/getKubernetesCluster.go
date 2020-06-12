@@ -21,10 +21,6 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *LookupKubernetesClusterA
 type LookupKubernetesClusterArgs struct {
 	// The name of the managed Kubernetes Cluster.
 	Name string `pulumi:"name"`
-	// If the cluster has the Kubernetes API only exposed on internal IP addresses.
-	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
-	// Deprecated: Deprecated in favor of `private_cluster_enabled`
-	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 	// The name of the Resource Group in which the managed Kubernetes Cluster exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -37,6 +33,8 @@ type LookupKubernetesClusterResult struct {
 	AgentPoolProfiles []GetKubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
+	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
+	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
 	// The DNS Prefix of the managed Kubernetes cluster.
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.

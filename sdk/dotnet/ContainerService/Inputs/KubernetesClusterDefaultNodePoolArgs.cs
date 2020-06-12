@@ -70,7 +70,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputMap<string>? _nodeLabels;
 
         /// <summary>
-        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+        /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> NodeLabels
         {
@@ -82,13 +82,19 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<string>? _nodeTaints;
 
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
             set => _nodeTaints = value;
         }
+
+        /// <summary>
+        /// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        /// </summary>
+        [Input("orchestratorVersion")]
+        public Input<string>? OrchestratorVersion { get; set; }
 
         /// <summary>
         /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.

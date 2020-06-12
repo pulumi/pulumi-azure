@@ -7,6 +7,7 @@ from .access_policy import *
 from .certifiate import *
 from .certificate import *
 from .get_access_policy import *
+from .get_certificate import *
 from .get_key import *
 from .get_key_vault import *
 from .get_secret import *

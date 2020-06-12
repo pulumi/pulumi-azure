@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// If the auto-scaler is enabled.
         /// </summary>
         public readonly bool EnableAutoScaling;
-        public readonly bool? EnableNodePublicIp;
+        public readonly bool EnableNodePublicIp;
         /// <summary>
         /// Maximum number of nodes for auto-scaling
         /// </summary>
@@ -47,6 +47,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The list of Kubernetes taints which are applied to nodes in the agent pool
         /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
+        /// <summary>
+        /// Kubernetes version used for the Agents.
+        /// </summary>
+        public readonly string OrchestratorVersion;
         /// <summary>
         /// The size of the Agent VM's Operating System Disk in GB.
         /// </summary>
@@ -80,7 +84,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool enableAutoScaling,
 
-            bool? enableNodePublicIp,
+            bool enableNodePublicIp,
 
             int maxCount,
 
@@ -93,6 +97,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
             ImmutableDictionary<string, string> nodeLabels,
 
             ImmutableArray<string> nodeTaints,
+
+            string orchestratorVersion,
 
             int osDiskSizeGb,
 
@@ -116,6 +122,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             Name = name;
             NodeLabels = nodeLabels;
             NodeTaints = nodeTaints;
+            OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
             OsType = osType;
             Tags = tags;

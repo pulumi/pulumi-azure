@@ -12,23 +12,41 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs : Pulumi.ResourceArgs
     {
+        [Input("adminGroupObjectIds")]
+        private InputList<string>? _adminGroupObjectIds;
+
+        /// <summary>
+        /// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        /// </summary>
+        public InputList<string> AdminGroupObjectIds
+        {
+            get => _adminGroupObjectIds ?? (_adminGroupObjectIds = new InputList<string>());
+            set => _adminGroupObjectIds = value;
+        }
+
         /// <summary>
         /// The Client ID of an Azure Active Directory Application.
         /// </summary>
-        [Input("clientAppId", required: true)]
-        public Input<string> ClientAppId { get; set; } = null!;
+        [Input("clientAppId")]
+        public Input<string>? ClientAppId { get; set; }
+
+        /// <summary>
+        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        /// </summary>
+        [Input("managed")]
+        public Input<bool>? Managed { get; set; }
 
         /// <summary>
         /// The Server ID of an Azure Active Directory Application.
         /// </summary>
-        [Input("serverAppId", required: true)]
-        public Input<string> ServerAppId { get; set; } = null!;
+        [Input("serverAppId")]
+        public Input<string>? ServerAppId { get; set; }
 
         /// <summary>
         /// The Server Secret of an Azure Active Directory Application.
         /// </summary>
-        [Input("serverAppSecret", required: true)]
-        public Input<string> ServerAppSecret { get; set; } = null!;
+        [Input("serverAppSecret")]
+        public Input<string>? ServerAppSecret { get; set; }
 
         /// <summary>
         /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.

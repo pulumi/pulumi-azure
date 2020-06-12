@@ -19,7 +19,7 @@ type ChannelTeams struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName pulumi.StringOutput `pulumi:"botName"`
 	// Specifies the webhook for Microsoft Teams channel calls.
-	CallingWebHook pulumi.StringPtrOutput `pulumi:"callingWebHook"`
+	CallingWebHook pulumi.StringOutput `pulumi:"callingWebHook"`
 	// Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
 	EnableCalling pulumi.BoolPtrOutput `pulumi:"enableCalling"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.

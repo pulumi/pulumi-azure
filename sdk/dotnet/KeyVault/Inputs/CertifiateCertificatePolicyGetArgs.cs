@@ -43,7 +43,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public Input<Inputs.CertifiateCertificatePolicySecretPropertiesGetArgs> SecretProperties { get; set; } = null!;
 
         /// <summary>
-        /// A `x509_certificate_properties` block as defined below.
+        /// A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         /// </summary>
         [Input("x509CertificateProperties")]
         public Input<Inputs.CertifiateCertificatePolicyX509CertificatePropertiesGetArgs>? X509CertificateProperties { get; set; }

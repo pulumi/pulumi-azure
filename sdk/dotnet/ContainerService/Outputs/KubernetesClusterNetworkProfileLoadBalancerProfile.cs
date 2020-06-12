@@ -18,7 +18,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> EffectiveOutboundIps;
         /// <summary>
-        /// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+        /// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
+        /// <summary>
+        /// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
         /// </summary>
         public readonly int? ManagedOutboundIpCount;
         /// <summary>
@@ -29,21 +33,31 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
         /// </summary>
         public readonly ImmutableArray<string> OutboundIpPrefixIds;
+        /// <summary>
+        /// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+        /// </summary>
+        public readonly int? OutboundPortsAllocated;
 
         [OutputConstructor]
         private KubernetesClusterNetworkProfileLoadBalancerProfile(
             ImmutableArray<string> effectiveOutboundIps,
 
+            int? idleTimeoutInMinutes,
+
             int? managedOutboundIpCount,
 
             ImmutableArray<string> outboundIpAddressIds,
 
-            ImmutableArray<string> outboundIpPrefixIds)
+            ImmutableArray<string> outboundIpPrefixIds,
+
+            int? outboundPortsAllocated)
         {
             EffectiveOutboundIps = effectiveOutboundIps;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
             ManagedOutboundIpCount = managedOutboundIpCount;
             OutboundIpAddressIds = outboundIpAddressIds;
             OutboundIpPrefixIds = outboundIpPrefixIds;
+            OutboundPortsAllocated = outboundPortsAllocated;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of a Subnet.
+        /// The ID of the Subnet which the Application Gateway should be connected to.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

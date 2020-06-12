@@ -3030,6 +3030,291 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(
 	}).(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput)
 }
 
+type KubernetesClusterAutoScalerProfile struct {
+	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+	BalanceSimilarNodeGroups *bool `pulumi:"balanceSimilarNodeGroups"`
+	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+	MaxGracefulTerminationSec *string `pulumi:"maxGracefulTerminationSec"`
+	// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+	ScaleDownDelayAfterAdd *string `pulumi:"scaleDownDelayAfterAdd"`
+	// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
+	ScaleDownDelayAfterDelete *string `pulumi:"scaleDownDelayAfterDelete"`
+	// How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+	ScaleDownDelayAfterFailure *string `pulumi:"scaleDownDelayAfterFailure"`
+	// How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+	ScaleDownUnneeded *string `pulumi:"scaleDownUnneeded"`
+	// How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+	ScaleDownUnready *string `pulumi:"scaleDownUnready"`
+	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
+	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+	ScanInterval *string `pulumi:"scanInterval"`
+}
+
+// KubernetesClusterAutoScalerProfileInput is an input type that accepts KubernetesClusterAutoScalerProfileArgs and KubernetesClusterAutoScalerProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterAutoScalerProfileInput` via:
+//
+// 		 KubernetesClusterAutoScalerProfileArgs{...}
+//
+type KubernetesClusterAutoScalerProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAutoScalerProfileOutput() KubernetesClusterAutoScalerProfileOutput
+	ToKubernetesClusterAutoScalerProfileOutputWithContext(context.Context) KubernetesClusterAutoScalerProfileOutput
+}
+
+type KubernetesClusterAutoScalerProfileArgs struct {
+	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+	BalanceSimilarNodeGroups pulumi.BoolPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+	MaxGracefulTerminationSec pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+	ScaleDownDelayAfterAdd pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
+	// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
+	ScaleDownDelayAfterDelete pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
+	// How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+	ScaleDownDelayAfterFailure pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
+	// How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+	ScaleDownUnneeded pulumi.StringPtrInput `pulumi:"scaleDownUnneeded"`
+	// How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+	ScaleDownUnready pulumi.StringPtrInput `pulumi:"scaleDownUnready"`
+	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
+	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+	ScanInterval pulumi.StringPtrInput `pulumi:"scanInterval"`
+}
+
+func (KubernetesClusterAutoScalerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAutoScalerProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterAutoScalerProfileArgs) ToKubernetesClusterAutoScalerProfileOutput() KubernetesClusterAutoScalerProfileOutput {
+	return i.ToKubernetesClusterAutoScalerProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAutoScalerProfileArgs) ToKubernetesClusterAutoScalerProfileOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAutoScalerProfileOutput)
+}
+
+func (i KubernetesClusterAutoScalerProfileArgs) ToKubernetesClusterAutoScalerProfilePtrOutput() KubernetesClusterAutoScalerProfilePtrOutput {
+	return i.ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAutoScalerProfileArgs) ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAutoScalerProfileOutput).ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterAutoScalerProfilePtrInput is an input type that accepts KubernetesClusterAutoScalerProfileArgs, KubernetesClusterAutoScalerProfilePtr and KubernetesClusterAutoScalerProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterAutoScalerProfilePtrInput` via:
+//
+// 		 KubernetesClusterAutoScalerProfileArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type KubernetesClusterAutoScalerProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAutoScalerProfilePtrOutput() KubernetesClusterAutoScalerProfilePtrOutput
+	ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(context.Context) KubernetesClusterAutoScalerProfilePtrOutput
+}
+
+type kubernetesClusterAutoScalerProfilePtrType KubernetesClusterAutoScalerProfileArgs
+
+func KubernetesClusterAutoScalerProfilePtr(v *KubernetesClusterAutoScalerProfileArgs) KubernetesClusterAutoScalerProfilePtrInput {
+	return (*kubernetesClusterAutoScalerProfilePtrType)(v)
+}
+
+func (*kubernetesClusterAutoScalerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAutoScalerProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterAutoScalerProfilePtrType) ToKubernetesClusterAutoScalerProfilePtrOutput() KubernetesClusterAutoScalerProfilePtrOutput {
+	return i.ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterAutoScalerProfilePtrType) ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAutoScalerProfilePtrOutput)
+}
+
+type KubernetesClusterAutoScalerProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAutoScalerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAutoScalerProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterAutoScalerProfileOutput) ToKubernetesClusterAutoScalerProfileOutput() KubernetesClusterAutoScalerProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterAutoScalerProfileOutput) ToKubernetesClusterAutoScalerProfileOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterAutoScalerProfileOutput) ToKubernetesClusterAutoScalerProfilePtrOutput() KubernetesClusterAutoScalerProfilePtrOutput {
+	return o.ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterAutoScalerProfileOutput) ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfilePtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *KubernetesClusterAutoScalerProfile {
+		return &v
+	}).(KubernetesClusterAutoScalerProfilePtrOutput)
+}
+
+// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+func (o KubernetesClusterAutoScalerProfileOutput) BalanceSimilarNodeGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.BalanceSimilarNodeGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+func (o KubernetesClusterAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+func (o KubernetesClusterAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScaleDownDelayAfterAdd }).(pulumi.StringPtrOutput)
+}
+
+// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
+func (o KubernetesClusterAutoScalerProfileOutput) ScaleDownDelayAfterDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScaleDownDelayAfterDelete }).(pulumi.StringPtrOutput)
+}
+
+// How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+func (o KubernetesClusterAutoScalerProfileOutput) ScaleDownDelayAfterFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScaleDownDelayAfterFailure }).(pulumi.StringPtrOutput)
+}
+
+// How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+func (o KubernetesClusterAutoScalerProfileOutput) ScaleDownUnneeded() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScaleDownUnneeded }).(pulumi.StringPtrOutput)
+}
+
+// How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+func (o KubernetesClusterAutoScalerProfileOutput) ScaleDownUnready() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScaleDownUnready }).(pulumi.StringPtrOutput)
+}
+
+// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+func (o KubernetesClusterAutoScalerProfileOutput) ScaleDownUtilizationThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScaleDownUtilizationThreshold }).(pulumi.StringPtrOutput)
+}
+
+// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+func (o KubernetesClusterAutoScalerProfileOutput) ScanInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAutoScalerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAutoScalerProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ToKubernetesClusterAutoScalerProfilePtrOutput() KubernetesClusterAutoScalerProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ToKubernetesClusterAutoScalerProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterAutoScalerProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAutoScalerProfilePtrOutput) Elem() KubernetesClusterAutoScalerProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) KubernetesClusterAutoScalerProfile { return *v }).(KubernetesClusterAutoScalerProfileOutput)
+}
+
+// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) BalanceSimilarNodeGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BalanceSimilarNodeGroups
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterAdd
+	}).(pulumi.StringPtrOutput)
+}
+
+// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ScaleDownDelayAfterDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+// How long after scale down failure that scale down evaluation resumes. Defaults to `3m`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ScaleDownDelayAfterFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterFailure
+	}).(pulumi.StringPtrOutput)
+}
+
+// How long a node should be unneeded before it is eligible for scale down. Defaults to `10m`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ScaleDownUnneeded() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUnneeded
+	}).(pulumi.StringPtrOutput)
+}
+
+// How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ScaleDownUnready() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUnready
+	}).(pulumi.StringPtrOutput)
+}
+
+// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ScaleDownUtilizationThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUtilizationThreshold
+	}).(pulumi.StringPtrOutput)
+}
+
+// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) ScanInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScanInterval
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterDefaultNodePool struct {
 	// A list of Availability Zones across which the Node Pool should be spread.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -3047,10 +3332,12 @@ type KubernetesClusterDefaultNodePool struct {
 	Name string `pulumi:"name"`
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// A mapping of tags to assign to the Node Pool.
@@ -3092,10 +3379,12 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
-	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// A mapping of tags to assign to the Node Pool.
@@ -3226,14 +3515,19 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
-// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+}
+
+// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+func (o KubernetesClusterDefaultNodePoolOutput) OrchestratorVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
 // The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -3359,7 +3653,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
+// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) map[string]string {
 		if v == nil {
@@ -3369,7 +3663,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMap
 	}).(pulumi.StringMapOutput)
 }
 
-// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
 		if v == nil {
@@ -3377,6 +3671,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArr
 		}
 		return v.NodeTaints
 	}).(pulumi.StringArrayOutput)
+}
+
+// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+func (o KubernetesClusterDefaultNodePoolPtrOutput) OrchestratorVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrchestratorVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -4580,12 +4884,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtr
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
-	// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
 	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 	OutboundIpPrefixIds []string `pulumi:"outboundIpPrefixIds"`
+	// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+	OutboundPortsAllocated *int `pulumi:"outboundPortsAllocated"`
 }
 
 // KubernetesClusterNetworkProfileLoadBalancerProfileInput is an input type that accepts KubernetesClusterNetworkProfileLoadBalancerProfileArgs and KubernetesClusterNetworkProfileLoadBalancerProfileOutput values.
@@ -4603,12 +4911,16 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
 type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
-	// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+	// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
 	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 	OutboundIpPrefixIds pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
+	// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+	OutboundPortsAllocated pulumi.IntPtrInput `pulumi:"outboundPortsAllocated"`
 }
 
 func (KubernetesClusterNetworkProfileLoadBalancerProfileArgs) ElementType() reflect.Type {
@@ -4694,7 +5006,12 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) EffectiveOutbo
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
 }
 
-// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
 }
@@ -4707,6 +5024,11 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpAddr
 // The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
+}
+
+// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundPortsAllocated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.OutboundPortsAllocated }).(pulumi.IntPtrOutput)
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput struct{ *pulumi.OutputState }
@@ -4739,7 +5061,17 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) EffectiveOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Count of desired managed outbound IPs for the cluster load balancer. Must be in the range of [1, 100].
+// Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *int {
 		if v == nil {
@@ -4767,6 +5099,16 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundIpP
 		}
 		return v.OutboundIpPrefixIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundPortsAllocated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundPortsAllocated
+	}).(pulumi.IntPtrOutput)
 }
 
 type KubernetesClusterRoleBasedAccessControl struct {
@@ -4924,12 +5266,16 @@ func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Enabled() pulumi.BoolP
 }
 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
+	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
 	// The Client ID of an Azure Active Directory Application.
-	ClientAppId string `pulumi:"clientAppId"`
+	ClientAppId *string `pulumi:"clientAppId"`
+	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	Managed *bool `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
-	ServerAppId string `pulumi:"serverAppId"`
+	ServerAppId *string `pulumi:"serverAppId"`
 	// The Server Secret of an Azure Active Directory Application.
-	ServerAppSecret string `pulumi:"serverAppSecret"`
+	ServerAppSecret *string `pulumi:"serverAppSecret"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId *string `pulumi:"tenantId"`
 }
@@ -4947,12 +5293,16 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface 
 }
 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
+	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
 	// The Client ID of an Azure Active Directory Application.
-	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
+	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
+	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+	Managed pulumi.BoolPtrInput `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
-	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
+	ServerAppId pulumi.StringPtrInput `pulumi:"serverAppId"`
 	// The Server Secret of an Azure Active Directory Application.
-	ServerAppSecret pulumi.StringInput `pulumi:"serverAppSecret"`
+	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
 	// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
@@ -5035,19 +5385,31 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKub
 	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput)
 }
 
+// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) []string {
+		return v.AdminGroupObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Client ID of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.ClientAppId }).(pulumi.StringPtrOutput)
+}
+
+// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Managed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool { return v.Managed }).(pulumi.BoolPtrOutput)
 }
 
 // The Server ID of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.ServerAppId }).(pulumi.StringPtrOutput)
 }
 
 // The Server Secret of an Azure Active Directory Application.
-func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppSecret }).(pulumi.StringOutput)
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
@@ -5075,14 +5437,34 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) El
 	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
 }
 
+// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminGroupObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Client ID of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ClientAppId
+		return v.ClientAppId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Managed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Managed
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Server ID of an Azure Active Directory Application.
@@ -5091,7 +5473,7 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Se
 		if v == nil {
 			return nil
 		}
-		return &v.ServerAppId
+		return v.ServerAppId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5101,7 +5483,7 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Se
 		if v == nil {
 			return nil
 		}
-		return &v.ServerAppSecret
+		return v.ServerAppSecret
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6492,8 +6874,8 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// The number of Agents (VM's) in the Pool.
 	Count int `pulumi:"count"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling  bool  `pulumi:"enableAutoScaling"`
-	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	EnableAutoScaling  bool `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp bool `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent.
@@ -6505,6 +6887,8 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints []string `pulumi:"nodeTaints"`
+	// Kubernetes version used for the Agents.
+	OrchestratorVersion string `pulumi:"orchestratorVersion"`
 	// The size of the Agent VM's Operating System Disk in GB.
 	OsDiskSizeGb int `pulumi:"osDiskSizeGb"`
 	// The Operating System used for the Agents.
@@ -6537,8 +6921,8 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// The number of Agents (VM's) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling  pulumi.BoolInput    `pulumi:"enableAutoScaling"`
-	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
+	EnableAutoScaling  pulumi.BoolInput `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent.
@@ -6550,6 +6934,8 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// The list of Kubernetes taints which are applied to nodes in the agent pool
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	// Kubernetes version used for the Agents.
+	OrchestratorVersion pulumi.StringInput `pulumi:"orchestratorVersion"`
 	// The size of the Agent VM's Operating System Disk in GB.
 	OsDiskSizeGb pulumi.IntInput `pulumi:"osDiskSizeGb"`
 	// The Operating System used for the Agents.
@@ -6631,8 +7017,8 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.B
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
 }
 
-func (o GetKubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+func (o GetKubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableNodePublicIp }).(pulumi.BoolOutput)
 }
 
 // Maximum number of nodes for auto-scaling
@@ -6662,6 +7048,11 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMa
 // The list of Kubernetes taints which are applied to nodes in the agent pool
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+}
+
+// Kubernetes version used for the Agents.
+func (o GetKubernetesClusterAgentPoolProfileOutput) OrchestratorVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.OrchestratorVersion }).(pulumi.StringOutput)
 }
 
 // The size of the Agent VM's Operating System Disk in GB.
@@ -7704,8 +8095,12 @@ func (o GetKubernetesClusterRoleBasedAccessControlArrayOutput) Index(i pulumi.In
 }
 
 type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
+	// The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId string `pulumi:"clientAppId"`
+	// Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+	Managed bool `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId string `pulumi:"serverAppId"`
 	// The tenant id of the system assigned identity which is used by master components.
@@ -7725,8 +8120,12 @@ type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interfa
 }
 
 type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
+	// The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
+	// Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+	Managed pulumi.BoolInput `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
 	// The tenant id of the system assigned identity which is used by master components.
@@ -7785,9 +8184,21 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) To
 	return o
 }
 
+// The list of Object IDs of Azure Active Directory Groups which have Admin Role on the Cluster (when using a Managed integration).
+func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) AdminGroupObjectIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) []string {
+		return v.AdminGroupObjectIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Client ID of an Azure Active Directory Application.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ClientAppId }).(pulumi.StringOutput)
+}
+
+// Is the Azure Active Directory Integration managed (also known as AAD Integration V2)?
+func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Managed() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) bool { return v.Managed }).(pulumi.BoolOutput)
 }
 
 // The Server ID of an Azure Active Directory Application.
@@ -8057,6 +8468,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})

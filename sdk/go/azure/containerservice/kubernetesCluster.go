@@ -18,8 +18,12 @@ type KubernetesCluster struct {
 	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
+	// A `autoScalerProfile` block as defined below.
+	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringOutput `pulumi:"dnsPrefix"`
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -62,6 +66,8 @@ type KubernetesCluster struct {
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlOutput `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
+	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
@@ -109,8 +115,12 @@ type kubernetesClusterState struct {
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
+	// A `autoScalerProfile` block as defined below.
+	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -153,6 +163,8 @@ type kubernetesClusterState struct {
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
+	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
@@ -164,8 +176,12 @@ type KubernetesClusterState struct {
 	AddonProfile KubernetesClusterAddonProfilePtrInput
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
+	// A `autoScalerProfile` block as defined below.
+	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringPtrInput
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -208,6 +224,8 @@ type KubernetesClusterState struct {
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
+	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.
@@ -223,8 +241,12 @@ type kubernetesClusterArgs struct {
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
+	// A `autoScalerProfile` block as defined below.
+	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -253,6 +275,8 @@ type kubernetesClusterArgs struct {
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
+	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
@@ -265,8 +289,12 @@ type KubernetesClusterArgs struct {
 	AddonProfile KubernetesClusterAddonProfilePtrInput
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
+	// A `autoScalerProfile` block as defined below.
+	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
+	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringInput
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -295,6 +323,8 @@ type KubernetesClusterArgs struct {
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
+	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.

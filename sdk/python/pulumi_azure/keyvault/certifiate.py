@@ -29,7 +29,7 @@ class Certifiate(pulumi.CustomResource):
       * `issuerParameters` (`dict`) - A `issuer_parameters` block as defined below.
         * `name` (`str`) - The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 
-      * `keyProperties` (`dict`) - A `key_properties` block as defined below.
+      * `key_properties` (`dict`) - A `key_properties` block as defined below.
         * `exportable` (`bool`) - Is this Certificate Exportable? Changing this forces a new resource to be created.
         * `key_size` (`float`) - The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         * `key_type` (`str`) - Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
@@ -46,7 +46,7 @@ class Certifiate(pulumi.CustomResource):
       * `secretProperties` (`dict`) - A `secret_properties` block as defined below.
         * `content_type` (`str`) - The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
 
-      * `x509CertificateProperties` (`dict`) - A `x509_certificate_properties` block as defined below.
+      * `x509CertificateProperties` (`dict`) - A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         * `extendedKeyUsages` (`list`) - A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         * `keyUsages` (`list`) - A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         * `subject` (`str`) - The Certificate's Subject. Changing this forces a new resource to be created.
@@ -211,7 +211,7 @@ class Certifiate(pulumi.CustomResource):
           * `issuerParameters` (`pulumi.Input[dict]`) - A `issuer_parameters` block as defined below.
             * `name` (`pulumi.Input[str]`) - The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 
-          * `keyProperties` (`pulumi.Input[dict]`) - A `key_properties` block as defined below.
+          * `key_properties` (`pulumi.Input[dict]`) - A `key_properties` block as defined below.
             * `exportable` (`pulumi.Input[bool]`) - Is this Certificate Exportable? Changing this forces a new resource to be created.
             * `key_size` (`pulumi.Input[float]`) - The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
             * `key_type` (`pulumi.Input[str]`) - Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
@@ -228,7 +228,7 @@ class Certifiate(pulumi.CustomResource):
           * `secretProperties` (`pulumi.Input[dict]`) - A `secret_properties` block as defined below.
             * `content_type` (`pulumi.Input[str]`) - The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
 
-          * `x509CertificateProperties` (`pulumi.Input[dict]`) - A `x509_certificate_properties` block as defined below.
+          * `x509CertificateProperties` (`pulumi.Input[dict]`) - A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
             * `extendedKeyUsages` (`pulumi.Input[list]`) - A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
             * `keyUsages` (`pulumi.Input[list]`) - A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
             * `subject` (`pulumi.Input[str]`) - The Certificate's Subject. Changing this forces a new resource to be created.
@@ -305,7 +305,7 @@ class Certifiate(pulumi.CustomResource):
           * `issuerParameters` (`pulumi.Input[dict]`) - A `issuer_parameters` block as defined below.
             * `name` (`pulumi.Input[str]`) - The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 
-          * `keyProperties` (`pulumi.Input[dict]`) - A `key_properties` block as defined below.
+          * `key_properties` (`pulumi.Input[dict]`) - A `key_properties` block as defined below.
             * `exportable` (`pulumi.Input[bool]`) - Is this Certificate Exportable? Changing this forces a new resource to be created.
             * `key_size` (`pulumi.Input[float]`) - The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
             * `key_type` (`pulumi.Input[str]`) - Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
@@ -322,7 +322,7 @@ class Certifiate(pulumi.CustomResource):
           * `secretProperties` (`pulumi.Input[dict]`) - A `secret_properties` block as defined below.
             * `content_type` (`pulumi.Input[str]`) - The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
 
-          * `x509CertificateProperties` (`pulumi.Input[dict]`) - A `x509_certificate_properties` block as defined below.
+          * `x509CertificateProperties` (`pulumi.Input[dict]`) - A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
             * `extendedKeyUsages` (`pulumi.Input[list]`) - A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
             * `keyUsages` (`pulumi.Input[list]`) - A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
             * `subject` (`pulumi.Input[str]`) - The Certificate's Subject. Changing this forces a new resource to be created.

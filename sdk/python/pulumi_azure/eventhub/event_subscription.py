@@ -63,6 +63,14 @@ class EventSubscription(pulumi.CustomResource):
         * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
     """
+    azure_function_endpoint: pulumi.Output[dict]
+    """
+    An `azure_function_endpoint` block as defined below.
+
+      * `functionId` (`str`) - Specifies the ID of the Function where the Event Subscription will receive events.
+      * `maxEventsPerBatch` (`float`) - Maximum number of events per batch.
+      * `preferredBatchSizeInKilobytes` (`float`) - Preferred batch size in Kilobytes.
+    """
     event_delivery_schema: pulumi.Output[str]
     """
     Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
@@ -152,10 +160,15 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `webhook_endpoint` block as defined below.
 
+      * `activeDirectoryAppIdOrUri` (`str`) - The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+      * `activeDirectoryTenantId` (`str`) - The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+      * `baseUrl` (`str`) - The base url of the webhook where the Event Subscription will receive events.
+      * `maxEventsPerBatch` (`float`) - Maximum number of events per batch.
+      * `preferredBatchSizeInKilobytes` (`float`) - Preferred batch size in Kilobytes.
       * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events.
     """
     warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
-    def __init__(__self__, resource_name, opts=None, advanced_filter=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, advanced_filter=None, azure_function_endpoint=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Event Subscription
 
@@ -189,6 +202,7 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[dict] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -258,6 +272,12 @@ class EventSubscription(pulumi.CustomResource):
             * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
             * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
 
+        The **azure_function_endpoint** object supports the following:
+
+          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events.
+          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
+          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
+
         The **eventhub_endpoint** object supports the following:
 
           * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -289,6 +309,11 @@ class EventSubscription(pulumi.CustomResource):
 
         The **webhook_endpoint** object supports the following:
 
+          * `activeDirectoryAppIdOrUri` (`pulumi.Input[str]`) - The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+          * `activeDirectoryTenantId` (`pulumi.Input[str]`) - The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+          * `baseUrl` (`pulumi.Input[str]`) - The base url of the webhook where the Event Subscription will receive events.
+          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
+          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
           * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
         """
         pulumi.log.warn("EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription")
@@ -310,6 +335,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['advanced_filter'] = advanced_filter
+            __props__['azure_function_endpoint'] = azure_function_endpoint
             __props__['event_delivery_schema'] = event_delivery_schema
             if eventhub_endpoint is not None:
                 warnings.warn("Deprecated in favour of `eventhub_endpoint_id`", DeprecationWarning)
@@ -343,7 +369,7 @@ class EventSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, advanced_filter=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None):
+    def get(resource_name, id, opts=None, advanced_filter=None, azure_function_endpoint=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None):
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -352,6 +378,7 @@ class EventSubscription(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[dict] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
@@ -421,6 +448,12 @@ class EventSubscription(pulumi.CustomResource):
             * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
             * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
 
+        The **azure_function_endpoint** object supports the following:
+
+          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events.
+          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
+          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
+
         The **eventhub_endpoint** object supports the following:
 
           * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
@@ -452,6 +485,11 @@ class EventSubscription(pulumi.CustomResource):
 
         The **webhook_endpoint** object supports the following:
 
+          * `activeDirectoryAppIdOrUri` (`pulumi.Input[str]`) - The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+          * `activeDirectoryTenantId` (`pulumi.Input[str]`) - The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+          * `baseUrl` (`pulumi.Input[str]`) - The base url of the webhook where the Event Subscription will receive events.
+          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
+          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
           * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -459,6 +497,7 @@ class EventSubscription(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["advanced_filter"] = advanced_filter
+        __props__["azure_function_endpoint"] = azure_function_endpoint
         __props__["event_delivery_schema"] = event_delivery_schema
         __props__["eventhub_endpoint"] = eventhub_endpoint
         __props__["eventhub_endpoint_id"] = eventhub_endpoint_id

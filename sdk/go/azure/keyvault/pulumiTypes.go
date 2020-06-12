@@ -171,7 +171,7 @@ type CertifiateCertificatePolicy struct {
 	LifetimeActions []CertifiateCertificatePolicyLifetimeAction `pulumi:"lifetimeActions"`
 	// A `secretProperties` block as defined below.
 	SecretProperties CertifiateCertificatePolicySecretProperties `pulumi:"secretProperties"`
-	// A `x509CertificateProperties` block as defined below.
+	// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 	X509CertificateProperties *CertifiateCertificatePolicyX509CertificateProperties `pulumi:"x509CertificateProperties"`
 }
 
@@ -196,7 +196,7 @@ type CertifiateCertificatePolicyArgs struct {
 	LifetimeActions CertifiateCertificatePolicyLifetimeActionArrayInput `pulumi:"lifetimeActions"`
 	// A `secretProperties` block as defined below.
 	SecretProperties CertifiateCertificatePolicySecretPropertiesInput `pulumi:"secretProperties"`
-	// A `x509CertificateProperties` block as defined below.
+	// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 	X509CertificateProperties CertifiateCertificatePolicyX509CertificatePropertiesPtrInput `pulumi:"x509CertificateProperties"`
 }
 
@@ -304,7 +304,7 @@ func (o CertifiateCertificatePolicyOutput) SecretProperties() CertifiateCertific
 	}).(CertifiateCertificatePolicySecretPropertiesOutput)
 }
 
-// A `x509CertificateProperties` block as defined below.
+// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 func (o CertifiateCertificatePolicyOutput) X509CertificateProperties() CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicy) *CertifiateCertificatePolicyX509CertificateProperties {
 		return v.X509CertificateProperties
@@ -369,7 +369,7 @@ func (o CertifiateCertificatePolicyPtrOutput) SecretProperties() CertifiateCerti
 	}).(CertifiateCertificatePolicySecretPropertiesPtrOutput)
 }
 
-// A `x509CertificateProperties` block as defined below.
+// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 func (o CertifiateCertificatePolicyPtrOutput) X509CertificateProperties() CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicy) *CertifiateCertificatePolicyX509CertificateProperties {
 		if v == nil {
@@ -1619,7 +1619,7 @@ type CertificateCertificatePolicy struct {
 	LifetimeActions []CertificateCertificatePolicyLifetimeAction `pulumi:"lifetimeActions"`
 	// A `secretProperties` block as defined below.
 	SecretProperties CertificateCertificatePolicySecretProperties `pulumi:"secretProperties"`
-	// A `x509CertificateProperties` block as defined below.
+	// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 	X509CertificateProperties *CertificateCertificatePolicyX509CertificateProperties `pulumi:"x509CertificateProperties"`
 }
 
@@ -1644,7 +1644,7 @@ type CertificateCertificatePolicyArgs struct {
 	LifetimeActions CertificateCertificatePolicyLifetimeActionArrayInput `pulumi:"lifetimeActions"`
 	// A `secretProperties` block as defined below.
 	SecretProperties CertificateCertificatePolicySecretPropertiesInput `pulumi:"secretProperties"`
-	// A `x509CertificateProperties` block as defined below.
+	// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 	X509CertificateProperties CertificateCertificatePolicyX509CertificatePropertiesPtrInput `pulumi:"x509CertificateProperties"`
 }
 
@@ -1752,7 +1752,7 @@ func (o CertificateCertificatePolicyOutput) SecretProperties() CertificateCertif
 	}).(CertificateCertificatePolicySecretPropertiesOutput)
 }
 
-// A `x509CertificateProperties` block as defined below.
+// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 func (o CertificateCertificatePolicyOutput) X509CertificateProperties() CertificateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicy) *CertificateCertificatePolicyX509CertificateProperties {
 		return v.X509CertificateProperties
@@ -1817,7 +1817,7 @@ func (o CertificateCertificatePolicyPtrOutput) SecretProperties() CertificateCer
 	}).(CertificateCertificatePolicySecretPropertiesPtrOutput)
 }
 
-// A `x509CertificateProperties` block as defined below.
+// A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
 func (o CertificateCertificatePolicyPtrOutput) X509CertificateProperties() CertificateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicy) *CertificateCertificatePolicyX509CertificateProperties {
 		if v == nil {
@@ -3251,6 +3251,1054 @@ func (o KeyVaultNetworkAclsPtrOutput) VirtualNetworkSubnetIds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetCertificateCertificatePolicy struct {
+	// A `issuerParameters` block as defined below.
+	IssuerParameters []GetCertificateCertificatePolicyIssuerParameter `pulumi:"issuerParameters"`
+	// A `keyProperties` block as defined below.
+	KeyProperties []GetCertificateCertificatePolicyKeyProperty `pulumi:"keyProperties"`
+	// A `lifetimeAction` block as defined below.
+	LifetimeActions []GetCertificateCertificatePolicyLifetimeAction `pulumi:"lifetimeActions"`
+	// A `secretProperties` block as defined below.
+	SecretProperties []GetCertificateCertificatePolicySecretProperty `pulumi:"secretProperties"`
+	// An `x509CertificateProperties` block as defined below.
+	X509CertificateProperties []GetCertificateCertificatePolicyX509CertificateProperty `pulumi:"x509CertificateProperties"`
+}
+
+// GetCertificateCertificatePolicyInput is an input type that accepts GetCertificateCertificatePolicyArgs and GetCertificateCertificatePolicyOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyInput` via:
+//
+// 		 GetCertificateCertificatePolicyArgs{...}
+//
+type GetCertificateCertificatePolicyInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyOutput() GetCertificateCertificatePolicyOutput
+	ToGetCertificateCertificatePolicyOutputWithContext(context.Context) GetCertificateCertificatePolicyOutput
+}
+
+type GetCertificateCertificatePolicyArgs struct {
+	// A `issuerParameters` block as defined below.
+	IssuerParameters GetCertificateCertificatePolicyIssuerParameterArrayInput `pulumi:"issuerParameters"`
+	// A `keyProperties` block as defined below.
+	KeyProperties GetCertificateCertificatePolicyKeyPropertyArrayInput `pulumi:"keyProperties"`
+	// A `lifetimeAction` block as defined below.
+	LifetimeActions GetCertificateCertificatePolicyLifetimeActionArrayInput `pulumi:"lifetimeActions"`
+	// A `secretProperties` block as defined below.
+	SecretProperties GetCertificateCertificatePolicySecretPropertyArrayInput `pulumi:"secretProperties"`
+	// An `x509CertificateProperties` block as defined below.
+	X509CertificateProperties GetCertificateCertificatePolicyX509CertificatePropertyArrayInput `pulumi:"x509CertificateProperties"`
+}
+
+func (GetCertificateCertificatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicy)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyArgs) ToGetCertificateCertificatePolicyOutput() GetCertificateCertificatePolicyOutput {
+	return i.ToGetCertificateCertificatePolicyOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyArgs) ToGetCertificateCertificatePolicyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyOutput)
+}
+
+// GetCertificateCertificatePolicyArrayInput is an input type that accepts GetCertificateCertificatePolicyArray and GetCertificateCertificatePolicyArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyArray{ GetCertificateCertificatePolicyArgs{...} }
+//
+type GetCertificateCertificatePolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyArrayOutput() GetCertificateCertificatePolicyArrayOutput
+	ToGetCertificateCertificatePolicyArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyArrayOutput
+}
+
+type GetCertificateCertificatePolicyArray []GetCertificateCertificatePolicyInput
+
+func (GetCertificateCertificatePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicy)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyArray) ToGetCertificateCertificatePolicyArrayOutput() GetCertificateCertificatePolicyArrayOutput {
+	return i.ToGetCertificateCertificatePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyArray) ToGetCertificateCertificatePolicyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyArrayOutput)
+}
+
+type GetCertificateCertificatePolicyOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicy)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyOutput) ToGetCertificateCertificatePolicyOutput() GetCertificateCertificatePolicyOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyOutput) ToGetCertificateCertificatePolicyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyOutput {
+	return o
+}
+
+// A `issuerParameters` block as defined below.
+func (o GetCertificateCertificatePolicyOutput) IssuerParameters() GetCertificateCertificatePolicyIssuerParameterArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicy) []GetCertificateCertificatePolicyIssuerParameter {
+		return v.IssuerParameters
+	}).(GetCertificateCertificatePolicyIssuerParameterArrayOutput)
+}
+
+// A `keyProperties` block as defined below.
+func (o GetCertificateCertificatePolicyOutput) KeyProperties() GetCertificateCertificatePolicyKeyPropertyArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicy) []GetCertificateCertificatePolicyKeyProperty {
+		return v.KeyProperties
+	}).(GetCertificateCertificatePolicyKeyPropertyArrayOutput)
+}
+
+// A `lifetimeAction` block as defined below.
+func (o GetCertificateCertificatePolicyOutput) LifetimeActions() GetCertificateCertificatePolicyLifetimeActionArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicy) []GetCertificateCertificatePolicyLifetimeAction {
+		return v.LifetimeActions
+	}).(GetCertificateCertificatePolicyLifetimeActionArrayOutput)
+}
+
+// A `secretProperties` block as defined below.
+func (o GetCertificateCertificatePolicyOutput) SecretProperties() GetCertificateCertificatePolicySecretPropertyArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicy) []GetCertificateCertificatePolicySecretProperty {
+		return v.SecretProperties
+	}).(GetCertificateCertificatePolicySecretPropertyArrayOutput)
+}
+
+// An `x509CertificateProperties` block as defined below.
+func (o GetCertificateCertificatePolicyOutput) X509CertificateProperties() GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicy) []GetCertificateCertificatePolicyX509CertificateProperty {
+		return v.X509CertificateProperties
+	}).(GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput)
+}
+
+type GetCertificateCertificatePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicy)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyArrayOutput) ToGetCertificateCertificatePolicyArrayOutput() GetCertificateCertificatePolicyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyArrayOutput) ToGetCertificateCertificatePolicyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicy {
+		return vs[0].([]GetCertificateCertificatePolicy)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyOutput)
+}
+
+type GetCertificateCertificatePolicyIssuerParameter struct {
+	// Specifies the name of the Key Vault Secret.
+	Name string `pulumi:"name"`
+}
+
+// GetCertificateCertificatePolicyIssuerParameterInput is an input type that accepts GetCertificateCertificatePolicyIssuerParameterArgs and GetCertificateCertificatePolicyIssuerParameterOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyIssuerParameterInput` via:
+//
+// 		 GetCertificateCertificatePolicyIssuerParameterArgs{...}
+//
+type GetCertificateCertificatePolicyIssuerParameterInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyIssuerParameterOutput() GetCertificateCertificatePolicyIssuerParameterOutput
+	ToGetCertificateCertificatePolicyIssuerParameterOutputWithContext(context.Context) GetCertificateCertificatePolicyIssuerParameterOutput
+}
+
+type GetCertificateCertificatePolicyIssuerParameterArgs struct {
+	// Specifies the name of the Key Vault Secret.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetCertificateCertificatePolicyIssuerParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyIssuerParameter)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyIssuerParameterArgs) ToGetCertificateCertificatePolicyIssuerParameterOutput() GetCertificateCertificatePolicyIssuerParameterOutput {
+	return i.ToGetCertificateCertificatePolicyIssuerParameterOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyIssuerParameterArgs) ToGetCertificateCertificatePolicyIssuerParameterOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyIssuerParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyIssuerParameterOutput)
+}
+
+// GetCertificateCertificatePolicyIssuerParameterArrayInput is an input type that accepts GetCertificateCertificatePolicyIssuerParameterArray and GetCertificateCertificatePolicyIssuerParameterArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyIssuerParameterArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyIssuerParameterArray{ GetCertificateCertificatePolicyIssuerParameterArgs{...} }
+//
+type GetCertificateCertificatePolicyIssuerParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyIssuerParameterArrayOutput() GetCertificateCertificatePolicyIssuerParameterArrayOutput
+	ToGetCertificateCertificatePolicyIssuerParameterArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyIssuerParameterArrayOutput
+}
+
+type GetCertificateCertificatePolicyIssuerParameterArray []GetCertificateCertificatePolicyIssuerParameterInput
+
+func (GetCertificateCertificatePolicyIssuerParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyIssuerParameter)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyIssuerParameterArray) ToGetCertificateCertificatePolicyIssuerParameterArrayOutput() GetCertificateCertificatePolicyIssuerParameterArrayOutput {
+	return i.ToGetCertificateCertificatePolicyIssuerParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyIssuerParameterArray) ToGetCertificateCertificatePolicyIssuerParameterArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyIssuerParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyIssuerParameterArrayOutput)
+}
+
+type GetCertificateCertificatePolicyIssuerParameterOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyIssuerParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyIssuerParameter)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyIssuerParameterOutput) ToGetCertificateCertificatePolicyIssuerParameterOutput() GetCertificateCertificatePolicyIssuerParameterOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyIssuerParameterOutput) ToGetCertificateCertificatePolicyIssuerParameterOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyIssuerParameterOutput {
+	return o
+}
+
+// Specifies the name of the Key Vault Secret.
+func (o GetCertificateCertificatePolicyIssuerParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyIssuerParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetCertificateCertificatePolicyIssuerParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyIssuerParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyIssuerParameter)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) ToGetCertificateCertificatePolicyIssuerParameterArrayOutput() GetCertificateCertificatePolicyIssuerParameterArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) ToGetCertificateCertificatePolicyIssuerParameterArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyIssuerParameterArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyIssuerParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicyIssuerParameter {
+		return vs[0].([]GetCertificateCertificatePolicyIssuerParameter)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyIssuerParameterOutput)
+}
+
+type GetCertificateCertificatePolicyKeyProperty struct {
+	// Is this Certificate Exportable?
+	Exportable bool `pulumi:"exportable"`
+	// The size of the Key used in the Certificate.
+	KeySize int `pulumi:"keySize"`
+	// Specifies the Type of Key, for example `RSA`.
+	KeyType string `pulumi:"keyType"`
+	// Is the key reusable?
+	ReuseKey bool `pulumi:"reuseKey"`
+}
+
+// GetCertificateCertificatePolicyKeyPropertyInput is an input type that accepts GetCertificateCertificatePolicyKeyPropertyArgs and GetCertificateCertificatePolicyKeyPropertyOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyKeyPropertyInput` via:
+//
+// 		 GetCertificateCertificatePolicyKeyPropertyArgs{...}
+//
+type GetCertificateCertificatePolicyKeyPropertyInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyKeyPropertyOutput() GetCertificateCertificatePolicyKeyPropertyOutput
+	ToGetCertificateCertificatePolicyKeyPropertyOutputWithContext(context.Context) GetCertificateCertificatePolicyKeyPropertyOutput
+}
+
+type GetCertificateCertificatePolicyKeyPropertyArgs struct {
+	// Is this Certificate Exportable?
+	Exportable pulumi.BoolInput `pulumi:"exportable"`
+	// The size of the Key used in the Certificate.
+	KeySize pulumi.IntInput `pulumi:"keySize"`
+	// Specifies the Type of Key, for example `RSA`.
+	KeyType pulumi.StringInput `pulumi:"keyType"`
+	// Is the key reusable?
+	ReuseKey pulumi.BoolInput `pulumi:"reuseKey"`
+}
+
+func (GetCertificateCertificatePolicyKeyPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyKeyProperty)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyKeyPropertyArgs) ToGetCertificateCertificatePolicyKeyPropertyOutput() GetCertificateCertificatePolicyKeyPropertyOutput {
+	return i.ToGetCertificateCertificatePolicyKeyPropertyOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyKeyPropertyArgs) ToGetCertificateCertificatePolicyKeyPropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyKeyPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyKeyPropertyOutput)
+}
+
+// GetCertificateCertificatePolicyKeyPropertyArrayInput is an input type that accepts GetCertificateCertificatePolicyKeyPropertyArray and GetCertificateCertificatePolicyKeyPropertyArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyKeyPropertyArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyKeyPropertyArray{ GetCertificateCertificatePolicyKeyPropertyArgs{...} }
+//
+type GetCertificateCertificatePolicyKeyPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyKeyPropertyArrayOutput() GetCertificateCertificatePolicyKeyPropertyArrayOutput
+	ToGetCertificateCertificatePolicyKeyPropertyArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyKeyPropertyArrayOutput
+}
+
+type GetCertificateCertificatePolicyKeyPropertyArray []GetCertificateCertificatePolicyKeyPropertyInput
+
+func (GetCertificateCertificatePolicyKeyPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyKeyProperty)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyKeyPropertyArray) ToGetCertificateCertificatePolicyKeyPropertyArrayOutput() GetCertificateCertificatePolicyKeyPropertyArrayOutput {
+	return i.ToGetCertificateCertificatePolicyKeyPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyKeyPropertyArray) ToGetCertificateCertificatePolicyKeyPropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyKeyPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyKeyPropertyArrayOutput)
+}
+
+type GetCertificateCertificatePolicyKeyPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyKeyPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyKeyProperty)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyKeyPropertyOutput) ToGetCertificateCertificatePolicyKeyPropertyOutput() GetCertificateCertificatePolicyKeyPropertyOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyKeyPropertyOutput) ToGetCertificateCertificatePolicyKeyPropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyKeyPropertyOutput {
+	return o
+}
+
+// Is this Certificate Exportable?
+func (o GetCertificateCertificatePolicyKeyPropertyOutput) Exportable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyKeyProperty) bool { return v.Exportable }).(pulumi.BoolOutput)
+}
+
+// The size of the Key used in the Certificate.
+func (o GetCertificateCertificatePolicyKeyPropertyOutput) KeySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyKeyProperty) int { return v.KeySize }).(pulumi.IntOutput)
+}
+
+// Specifies the Type of Key, for example `RSA`.
+func (o GetCertificateCertificatePolicyKeyPropertyOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyKeyProperty) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+// Is the key reusable?
+func (o GetCertificateCertificatePolicyKeyPropertyOutput) ReuseKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyKeyProperty) bool { return v.ReuseKey }).(pulumi.BoolOutput)
+}
+
+type GetCertificateCertificatePolicyKeyPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyKeyPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyKeyProperty)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyKeyPropertyArrayOutput) ToGetCertificateCertificatePolicyKeyPropertyArrayOutput() GetCertificateCertificatePolicyKeyPropertyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyKeyPropertyArrayOutput) ToGetCertificateCertificatePolicyKeyPropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyKeyPropertyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyKeyPropertyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyKeyPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicyKeyProperty {
+		return vs[0].([]GetCertificateCertificatePolicyKeyProperty)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyKeyPropertyOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeAction struct {
+	// A `action` block as defined below.
+	Actions []GetCertificateCertificatePolicyLifetimeActionAction `pulumi:"actions"`
+	// A `trigger` block as defined below.
+	Triggers []GetCertificateCertificatePolicyLifetimeActionTrigger `pulumi:"triggers"`
+}
+
+// GetCertificateCertificatePolicyLifetimeActionInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionArgs and GetCertificateCertificatePolicyLifetimeActionOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionInput` via:
+//
+// 		 GetCertificateCertificatePolicyLifetimeActionArgs{...}
+//
+type GetCertificateCertificatePolicyLifetimeActionInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyLifetimeActionOutput() GetCertificateCertificatePolicyLifetimeActionOutput
+	ToGetCertificateCertificatePolicyLifetimeActionOutputWithContext(context.Context) GetCertificateCertificatePolicyLifetimeActionOutput
+}
+
+type GetCertificateCertificatePolicyLifetimeActionArgs struct {
+	// A `action` block as defined below.
+	Actions GetCertificateCertificatePolicyLifetimeActionActionArrayInput `pulumi:"actions"`
+	// A `trigger` block as defined below.
+	Triggers GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput `pulumi:"triggers"`
+}
+
+func (GetCertificateCertificatePolicyLifetimeActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyLifetimeAction)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionArgs) ToGetCertificateCertificatePolicyLifetimeActionOutput() GetCertificateCertificatePolicyLifetimeActionOutput {
+	return i.ToGetCertificateCertificatePolicyLifetimeActionOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionArgs) ToGetCertificateCertificatePolicyLifetimeActionOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionOutput)
+}
+
+// GetCertificateCertificatePolicyLifetimeActionArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionArray and GetCertificateCertificatePolicyLifetimeActionArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyLifetimeActionArray{ GetCertificateCertificatePolicyLifetimeActionArgs{...} }
+//
+type GetCertificateCertificatePolicyLifetimeActionArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyLifetimeActionArrayOutput() GetCertificateCertificatePolicyLifetimeActionArrayOutput
+	ToGetCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyLifetimeActionArrayOutput
+}
+
+type GetCertificateCertificatePolicyLifetimeActionArray []GetCertificateCertificatePolicyLifetimeActionInput
+
+func (GetCertificateCertificatePolicyLifetimeActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyLifetimeAction)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionArray) ToGetCertificateCertificatePolicyLifetimeActionArrayOutput() GetCertificateCertificatePolicyLifetimeActionArrayOutput {
+	return i.ToGetCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionArray) ToGetCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionArrayOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyLifetimeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyLifetimeAction)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionOutput) ToGetCertificateCertificatePolicyLifetimeActionOutput() GetCertificateCertificatePolicyLifetimeActionOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionOutput) ToGetCertificateCertificatePolicyLifetimeActionOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionOutput {
+	return o
+}
+
+// A `action` block as defined below.
+func (o GetCertificateCertificatePolicyLifetimeActionOutput) Actions() GetCertificateCertificatePolicyLifetimeActionActionArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyLifetimeAction) []GetCertificateCertificatePolicyLifetimeActionAction {
+		return v.Actions
+	}).(GetCertificateCertificatePolicyLifetimeActionActionArrayOutput)
+}
+
+// A `trigger` block as defined below.
+func (o GetCertificateCertificatePolicyLifetimeActionOutput) Triggers() GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyLifetimeAction) []GetCertificateCertificatePolicyLifetimeActionTrigger {
+		return v.Triggers
+	}).(GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyLifetimeActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyLifetimeAction)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionArrayOutput() GetCertificateCertificatePolicyLifetimeActionArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyLifetimeActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicyLifetimeAction {
+		return vs[0].([]GetCertificateCertificatePolicyLifetimeAction)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyLifetimeActionOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionAction struct {
+	// The Type of action to be performed when the lifetime trigger is triggerec.
+	ActionType string `pulumi:"actionType"`
+}
+
+// GetCertificateCertificatePolicyLifetimeActionActionInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionActionArgs and GetCertificateCertificatePolicyLifetimeActionActionOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionActionInput` via:
+//
+// 		 GetCertificateCertificatePolicyLifetimeActionActionArgs{...}
+//
+type GetCertificateCertificatePolicyLifetimeActionActionInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyLifetimeActionActionOutput() GetCertificateCertificatePolicyLifetimeActionActionOutput
+	ToGetCertificateCertificatePolicyLifetimeActionActionOutputWithContext(context.Context) GetCertificateCertificatePolicyLifetimeActionActionOutput
+}
+
+type GetCertificateCertificatePolicyLifetimeActionActionArgs struct {
+	// The Type of action to be performed when the lifetime trigger is triggerec.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+}
+
+func (GetCertificateCertificatePolicyLifetimeActionActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyLifetimeActionAction)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionActionArgs) ToGetCertificateCertificatePolicyLifetimeActionActionOutput() GetCertificateCertificatePolicyLifetimeActionActionOutput {
+	return i.ToGetCertificateCertificatePolicyLifetimeActionActionOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionActionArgs) ToGetCertificateCertificatePolicyLifetimeActionActionOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionActionOutput)
+}
+
+// GetCertificateCertificatePolicyLifetimeActionActionArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionActionArray and GetCertificateCertificatePolicyLifetimeActionActionArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionActionArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyLifetimeActionActionArray{ GetCertificateCertificatePolicyLifetimeActionActionArgs{...} }
+//
+type GetCertificateCertificatePolicyLifetimeActionActionArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutput() GetCertificateCertificatePolicyLifetimeActionActionArrayOutput
+	ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyLifetimeActionActionArrayOutput
+}
+
+type GetCertificateCertificatePolicyLifetimeActionActionArray []GetCertificateCertificatePolicyLifetimeActionActionInput
+
+func (GetCertificateCertificatePolicyLifetimeActionActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyLifetimeActionAction)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionActionArray) ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutput() GetCertificateCertificatePolicyLifetimeActionActionArrayOutput {
+	return i.ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionActionArray) ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionActionArrayOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionActionOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyLifetimeActionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyLifetimeActionAction)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ToGetCertificateCertificatePolicyLifetimeActionActionOutput() GetCertificateCertificatePolicyLifetimeActionActionOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ToGetCertificateCertificatePolicyLifetimeActionActionOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionActionOutput {
+	return o
+}
+
+// The Type of action to be performed when the lifetime trigger is triggerec.
+func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyLifetimeActionAction) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyLifetimeActionAction)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutput() GetCertificateCertificatePolicyLifetimeActionActionArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionActionArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyLifetimeActionActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicyLifetimeActionAction {
+		return vs[0].([]GetCertificateCertificatePolicyLifetimeActionAction)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyLifetimeActionActionOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionTrigger struct {
+	// The number of days before the Certificate expires that the action associated with this Trigger should run.
+	DaysBeforeExpiry int `pulumi:"daysBeforeExpiry"`
+	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
+	LifetimePercentage int `pulumi:"lifetimePercentage"`
+}
+
+// GetCertificateCertificatePolicyLifetimeActionTriggerInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionTriggerArgs and GetCertificateCertificatePolicyLifetimeActionTriggerOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionTriggerInput` via:
+//
+// 		 GetCertificateCertificatePolicyLifetimeActionTriggerArgs{...}
+//
+type GetCertificateCertificatePolicyLifetimeActionTriggerInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyLifetimeActionTriggerOutput() GetCertificateCertificatePolicyLifetimeActionTriggerOutput
+	ToGetCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerOutput
+}
+
+type GetCertificateCertificatePolicyLifetimeActionTriggerArgs struct {
+	// The number of days before the Certificate expires that the action associated with this Trigger should run.
+	DaysBeforeExpiry pulumi.IntInput `pulumi:"daysBeforeExpiry"`
+	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
+	LifetimePercentage pulumi.IntInput `pulumi:"lifetimePercentage"`
+}
+
+func (GetCertificateCertificatePolicyLifetimeActionTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyLifetimeActionTrigger)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionTriggerArgs) ToGetCertificateCertificatePolicyLifetimeActionTriggerOutput() GetCertificateCertificatePolicyLifetimeActionTriggerOutput {
+	return i.ToGetCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionTriggerArgs) ToGetCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionTriggerOutput)
+}
+
+// GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionTriggerArray and GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyLifetimeActionTriggerArray{ GetCertificateCertificatePolicyLifetimeActionTriggerArgs{...} }
+//
+type GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput() GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput
+	ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput
+}
+
+type GetCertificateCertificatePolicyLifetimeActionTriggerArray []GetCertificateCertificatePolicyLifetimeActionTriggerInput
+
+func (GetCertificateCertificatePolicyLifetimeActionTriggerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyLifetimeActionTrigger)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionTriggerArray) ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput() GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput {
+	return i.ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyLifetimeActionTriggerArray) ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionTriggerOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyLifetimeActionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyLifetimeActionTrigger)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionTriggerOutput) ToGetCertificateCertificatePolicyLifetimeActionTriggerOutput() GetCertificateCertificatePolicyLifetimeActionTriggerOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionTriggerOutput) ToGetCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerOutput {
+	return o
+}
+
+// The number of days before the Certificate expires that the action associated with this Trigger should run.
+func (o GetCertificateCertificatePolicyLifetimeActionTriggerOutput) DaysBeforeExpiry() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyLifetimeActionTrigger) int { return v.DaysBeforeExpiry }).(pulumi.IntOutput)
+}
+
+// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
+func (o GetCertificateCertificatePolicyLifetimeActionTriggerOutput) LifetimePercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyLifetimeActionTrigger) int { return v.LifetimePercentage }).(pulumi.IntOutput)
+}
+
+type GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyLifetimeActionTrigger)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput() GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyLifetimeActionTriggerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicyLifetimeActionTrigger {
+		return vs[0].([]GetCertificateCertificatePolicyLifetimeActionTrigger)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyLifetimeActionTriggerOutput)
+}
+
+type GetCertificateCertificatePolicySecretProperty struct {
+	// The Content-Type of the Certificate, for example `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
+	ContentType string `pulumi:"contentType"`
+}
+
+// GetCertificateCertificatePolicySecretPropertyInput is an input type that accepts GetCertificateCertificatePolicySecretPropertyArgs and GetCertificateCertificatePolicySecretPropertyOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicySecretPropertyInput` via:
+//
+// 		 GetCertificateCertificatePolicySecretPropertyArgs{...}
+//
+type GetCertificateCertificatePolicySecretPropertyInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicySecretPropertyOutput() GetCertificateCertificatePolicySecretPropertyOutput
+	ToGetCertificateCertificatePolicySecretPropertyOutputWithContext(context.Context) GetCertificateCertificatePolicySecretPropertyOutput
+}
+
+type GetCertificateCertificatePolicySecretPropertyArgs struct {
+	// The Content-Type of the Certificate, for example `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+}
+
+func (GetCertificateCertificatePolicySecretPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicySecretProperty)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicySecretPropertyArgs) ToGetCertificateCertificatePolicySecretPropertyOutput() GetCertificateCertificatePolicySecretPropertyOutput {
+	return i.ToGetCertificateCertificatePolicySecretPropertyOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicySecretPropertyArgs) ToGetCertificateCertificatePolicySecretPropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicySecretPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicySecretPropertyOutput)
+}
+
+// GetCertificateCertificatePolicySecretPropertyArrayInput is an input type that accepts GetCertificateCertificatePolicySecretPropertyArray and GetCertificateCertificatePolicySecretPropertyArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicySecretPropertyArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicySecretPropertyArray{ GetCertificateCertificatePolicySecretPropertyArgs{...} }
+//
+type GetCertificateCertificatePolicySecretPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicySecretPropertyArrayOutput() GetCertificateCertificatePolicySecretPropertyArrayOutput
+	ToGetCertificateCertificatePolicySecretPropertyArrayOutputWithContext(context.Context) GetCertificateCertificatePolicySecretPropertyArrayOutput
+}
+
+type GetCertificateCertificatePolicySecretPropertyArray []GetCertificateCertificatePolicySecretPropertyInput
+
+func (GetCertificateCertificatePolicySecretPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicySecretProperty)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicySecretPropertyArray) ToGetCertificateCertificatePolicySecretPropertyArrayOutput() GetCertificateCertificatePolicySecretPropertyArrayOutput {
+	return i.ToGetCertificateCertificatePolicySecretPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicySecretPropertyArray) ToGetCertificateCertificatePolicySecretPropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicySecretPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicySecretPropertyArrayOutput)
+}
+
+type GetCertificateCertificatePolicySecretPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicySecretPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicySecretProperty)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicySecretPropertyOutput) ToGetCertificateCertificatePolicySecretPropertyOutput() GetCertificateCertificatePolicySecretPropertyOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicySecretPropertyOutput) ToGetCertificateCertificatePolicySecretPropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicySecretPropertyOutput {
+	return o
+}
+
+// The Content-Type of the Certificate, for example `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
+func (o GetCertificateCertificatePolicySecretPropertyOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicySecretProperty) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+type GetCertificateCertificatePolicySecretPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicySecretPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicySecretProperty)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicySecretPropertyArrayOutput) ToGetCertificateCertificatePolicySecretPropertyArrayOutput() GetCertificateCertificatePolicySecretPropertyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicySecretPropertyArrayOutput) ToGetCertificateCertificatePolicySecretPropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicySecretPropertyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicySecretPropertyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicySecretPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicySecretProperty {
+		return vs[0].([]GetCertificateCertificatePolicySecretProperty)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicySecretPropertyOutput)
+}
+
+type GetCertificateCertificatePolicyX509CertificateProperty struct {
+	// A list of Extended/Enhanced Key Usages.
+	ExtendedKeyUsages []string `pulumi:"extendedKeyUsages"`
+	// A list of uses associated with this Key.
+	KeyUsages []string `pulumi:"keyUsages"`
+	// The Certificate's Subject.
+	Subject string `pulumi:"subject"`
+	// A `subjectAlternativeNames` block as defined below.
+	SubjectAlternativeNames []GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName `pulumi:"subjectAlternativeNames"`
+	// The Certificates Validity Period in Months.
+	ValidityInMonths int `pulumi:"validityInMonths"`
+}
+
+// GetCertificateCertificatePolicyX509CertificatePropertyInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertyArgs and GetCertificateCertificatePolicyX509CertificatePropertyOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertyInput` via:
+//
+// 		 GetCertificateCertificatePolicyX509CertificatePropertyArgs{...}
+//
+type GetCertificateCertificatePolicyX509CertificatePropertyInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyX509CertificatePropertyOutput() GetCertificateCertificatePolicyX509CertificatePropertyOutput
+	ToGetCertificateCertificatePolicyX509CertificatePropertyOutputWithContext(context.Context) GetCertificateCertificatePolicyX509CertificatePropertyOutput
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertyArgs struct {
+	// A list of Extended/Enhanced Key Usages.
+	ExtendedKeyUsages pulumi.StringArrayInput `pulumi:"extendedKeyUsages"`
+	// A list of uses associated with this Key.
+	KeyUsages pulumi.StringArrayInput `pulumi:"keyUsages"`
+	// The Certificate's Subject.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// A `subjectAlternativeNames` block as defined below.
+	SubjectAlternativeNames GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput `pulumi:"subjectAlternativeNames"`
+	// The Certificates Validity Period in Months.
+	ValidityInMonths pulumi.IntInput `pulumi:"validityInMonths"`
+}
+
+func (GetCertificateCertificatePolicyX509CertificatePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyX509CertificateProperty)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertyArgs) ToGetCertificateCertificatePolicyX509CertificatePropertyOutput() GetCertificateCertificatePolicyX509CertificatePropertyOutput {
+	return i.ToGetCertificateCertificatePolicyX509CertificatePropertyOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertyArgs) ToGetCertificateCertificatePolicyX509CertificatePropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertyOutput)
+}
+
+// GetCertificateCertificatePolicyX509CertificatePropertyArrayInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertyArray and GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertyArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyX509CertificatePropertyArray{ GetCertificateCertificatePolicyX509CertificatePropertyArgs{...} }
+//
+type GetCertificateCertificatePolicyX509CertificatePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutput() GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput
+	ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertyArray []GetCertificateCertificatePolicyX509CertificatePropertyInput
+
+func (GetCertificateCertificatePolicyX509CertificatePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyX509CertificateProperty)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertyArray) ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutput() GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput {
+	return i.ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertyArray) ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput)
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyX509CertificatePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyX509CertificateProperty)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) ToGetCertificateCertificatePolicyX509CertificatePropertyOutput() GetCertificateCertificatePolicyX509CertificatePropertyOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) ToGetCertificateCertificatePolicyX509CertificatePropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertyOutput {
+	return o
+}
+
+// A list of Extended/Enhanced Key Usages.
+func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) ExtendedKeyUsages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificateProperty) []string { return v.ExtendedKeyUsages }).(pulumi.StringArrayOutput)
+}
+
+// A list of uses associated with this Key.
+func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) KeyUsages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificateProperty) []string { return v.KeyUsages }).(pulumi.StringArrayOutput)
+}
+
+// The Certificate's Subject.
+func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificateProperty) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+// A `subjectAlternativeNames` block as defined below.
+func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) SubjectAlternativeNames() GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificateProperty) []GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName {
+		return v.SubjectAlternativeNames
+	}).(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput)
+}
+
+// The Certificates Validity Period in Months.
+func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) ValidityInMonths() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificateProperty) int { return v.ValidityInMonths }).(pulumi.IntOutput)
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyX509CertificateProperty)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutput() GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyX509CertificatePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicyX509CertificateProperty {
+		return vs[0].([]GetCertificateCertificatePolicyX509CertificateProperty)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyX509CertificatePropertyOutput)
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName struct {
+	// A list of alternative DNS names (FQDNs) identified by the Certificate.
+	DnsNames []string `pulumi:"dnsNames"`
+	// A list of email addresses identified by this Certificate.
+	Emails []string `pulumi:"emails"`
+	// A list of User Principal Names identified by the Certificate.
+	Upns []string `pulumi:"upns"`
+}
+
+// GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs and GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameInput` via:
+//
+// 		 GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs{...}
+//
+type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput() GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput
+	ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutputWithContext(context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs struct {
+	// A list of alternative DNS names (FQDNs) identified by the Certificate.
+	DnsNames pulumi.StringArrayInput `pulumi:"dnsNames"`
+	// A list of email addresses identified by this Certificate.
+	Emails pulumi.StringArrayInput `pulumi:"emails"`
+	// A list of User Principal Names identified by the Certificate.
+	Upns pulumi.StringArrayInput `pulumi:"upns"`
+}
+
+func (GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput() GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput {
+	return i.ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput)
+}
+
+// GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray and GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput values.
+// You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput` via:
+//
+// 		 GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray{ GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs{...} }
+//
+type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput() GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput
+	ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutputWithContext(context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray []GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameInput
+
+func (GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName)(nil)).Elem()
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput() GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput {
+	return i.ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput)
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput() GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput {
+	return o
+}
+
+// A list of alternative DNS names (FQDNs) identified by the Certificate.
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) DnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName) []string {
+		return v.DnsNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of email addresses identified by this Certificate.
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName) []string {
+		return v.Emails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of User Principal Names identified by the Certificate.
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) Upns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName) []string {
+		return v.Upns
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName)(nil)).Elem()
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput() GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput {
+	return o
+}
+
+func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName {
+		return vs[0].([]GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName)[vs[1].(int)]
+	}).(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput)
+}
+
 type GetKeyVaultAccessPolicy struct {
 	// The Object ID of a Azure Active Directory Application.
 	ApplicationId string `pulumi:"applicationId"`
@@ -3559,6 +4607,24 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsPtrOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyIssuerParameterOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyIssuerParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyKeyPropertyOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyKeyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyLifetimeActionOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyLifetimeActionArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyLifetimeActionActionOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyLifetimeActionActionArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyLifetimeActionTriggerOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicySecretPropertyOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicySecretPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertyOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput{})
+	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclOutput{})

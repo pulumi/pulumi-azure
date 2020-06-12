@@ -70,6 +70,9 @@ export class Environment extends pulumi.CustomResource {
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
     public readonly frontEndScaleFactor!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+     */
     public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
     /**
      * The location where the App Service Environment exists.
@@ -149,6 +152,9 @@ export interface EnvironmentState {
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
     readonly frontEndScaleFactor?: pulumi.Input<number>;
+    /**
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+     */
     readonly internalLoadBalancingMode?: pulumi.Input<string>;
     /**
      * The location where the App Service Environment exists.
@@ -184,6 +190,9 @@ export interface EnvironmentArgs {
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
     readonly frontEndScaleFactor?: pulumi.Input<number>;
+    /**
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+     */
     readonly internalLoadBalancingMode?: pulumi.Input<string>;
     /**
      * The name of the App Service Environment. Changing this forces a new resource to be created. 
