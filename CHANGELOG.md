@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.9.1 (2020-06-12)
 * Generate examples for Go SDK
 
 ## 3.9.0 (2020-06-12)
