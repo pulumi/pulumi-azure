@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 3.9.2 (2020-06-16)
+* Switch to GitHub actions for build
+
 ## 3.9.1 (2020-06-12)
 * Generate examples for Go SDK
 
