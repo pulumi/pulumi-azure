@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 3.9.3 (2020-06-17)
+* Fix up ldflags being pushed to pulumi-azure binary
+
 ## 3.9.2 (2020-06-16)
 * Switch to GitHub actions for build
 
