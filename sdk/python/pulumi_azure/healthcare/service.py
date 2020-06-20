@@ -143,8 +143,6 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_policy_object_ids is None:
-                raise TypeError("Missing required property 'access_policy_object_ids'")
             __props__['access_policy_object_ids'] = access_policy_object_ids
             __props__['authentication_configuration'] = authentication_configuration
             __props__['cors_configuration'] = cors_configuration

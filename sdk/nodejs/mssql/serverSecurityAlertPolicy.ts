@@ -98,7 +98,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly serverName!: pulumi.Output<string>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
      */
     public readonly state!: pulumi.Output<string>;
     /**
@@ -192,7 +192,7 @@ export interface ServerSecurityAlertPolicyState {
      */
     readonly serverName?: pulumi.Input<string>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
      */
     readonly state?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface ServerSecurityAlertPolicyArgs {
      */
     readonly serverName: pulumi.Input<string>;
     /**
-     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+     * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
      */
     readonly state: pulumi.Input<string>;
     /**

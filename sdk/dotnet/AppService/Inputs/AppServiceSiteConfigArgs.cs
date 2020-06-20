@@ -147,11 +147,29 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }
 
+        [Input("scmIpRestrictions")]
+        private InputList<Inputs.AppServiceSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;
+
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
+        public InputList<Inputs.AppServiceSiteConfigScmIpRestrictionArgs> ScmIpRestrictions
+        {
+            get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.AppServiceSiteConfigScmIpRestrictionArgs>());
+            set => _scmIpRestrictions = value;
+        }
+
         /// <summary>
         /// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
+
+        /// <summary>
+        /// IP security restrictions for scm to use main. Defaults to false.
+        /// </summary>
+        [Input("scmUseMainIpRestriction")]
+        public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
         /// Should the App Service run in 32 bit mode, rather than 64 bit mode?

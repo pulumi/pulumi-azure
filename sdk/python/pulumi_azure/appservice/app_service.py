@@ -182,7 +182,15 @@ class AppService(pulumi.CustomResource):
       * `pythonVersion` (`str`) - The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
       * `remoteDebuggingEnabled` (`bool`) - Is Remote Debugging Enabled? Defaults to `false`.
       * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+      * `scmIpRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        * `action` (`str`) - Allow or Deny access for this IP range. Defaults to Allow.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `name` (`str`) - The name for this IP Restriction.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
+
       * `scmType` (`str`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+      * `scmUseMainIpRestriction` (`bool`) - IP security restrictions for scm to use main. Defaults to false.
       * `use32BitWorkerProcess` (`bool`) - Should the App Service run in 32 bit mode, rather than 64 bit mode?
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
       * `windowsFxVersion` (`str`) - The Windows Docker container image (`DOCKER|<user/image:tag>`)
@@ -387,7 +395,15 @@ class AppService(pulumi.CustomResource):
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+          * `scmIpRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Allow or Deny access for this IP range. Defaults to Allow.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
+
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`) - IP security restrictions for scm to use main. Defaults to false.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service run in 32 bit mode, rather than 64 bit mode?
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`) - The Windows Docker container image (`DOCKER|<user/image:tag>`)
@@ -593,7 +609,15 @@ class AppService(pulumi.CustomResource):
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+          * `scmIpRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Allow or Deny access for this IP range. Defaults to Allow.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
+
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`) - IP security restrictions for scm to use main. Defaults to false.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service run in 32 bit mode, rather than 64 bit mode?
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`) - The Windows Docker container image (`DOCKER|<user/image:tag>`)

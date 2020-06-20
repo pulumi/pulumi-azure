@@ -13,7 +13,7 @@ import (
 type ActionHttpRunAfter struct {
 	// Specifies the name of the precedent HTTP Action.
 	ActionName string `pulumi:"actionName"`
-	// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+	// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
 	ActionResult string `pulumi:"actionResult"`
 }
 
@@ -32,7 +32,7 @@ type ActionHttpRunAfterInput interface {
 type ActionHttpRunAfterArgs struct {
 	// Specifies the name of the precedent HTTP Action.
 	ActionName pulumi.StringInput `pulumi:"actionName"`
-	// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+	// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
 	ActionResult pulumi.StringInput `pulumi:"actionResult"`
 }
 
@@ -93,7 +93,7 @@ func (o ActionHttpRunAfterOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionHttpRunAfter) string { return v.ActionName }).(pulumi.StringOutput)
 }
 
-// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
 func (o ActionHttpRunAfterOutput) ActionResult() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionHttpRunAfter) string { return v.ActionResult }).(pulumi.StringOutput)
 }

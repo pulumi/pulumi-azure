@@ -68,6 +68,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableDiskEncryption!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies if the purge operations are enabled.
+     */
+    public readonly enablePurge!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies if the streaming ingest is enabled.
      */
     public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
@@ -110,6 +114,7 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             inputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
             inputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
+            inputs["enablePurge"] = state ? state.enablePurge : undefined;
             inputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -126,6 +131,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
+            inputs["enablePurge"] = args ? args.enablePurge : undefined;
             inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -158,6 +164,10 @@ export interface ClusterState {
      * Specifies if the cluster's disks are encrypted.
      */
     readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the purge operations are enabled.
+     */
+    readonly enablePurge?: pulumi.Input<boolean>;
     /**
      * Specifies if the streaming ingest is enabled.
      */
@@ -196,6 +206,10 @@ export interface ClusterArgs {
      * Specifies if the cluster's disks are encrypted.
      */
     readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the purge operations are enabled.
+     */
+    readonly enablePurge?: pulumi.Input<boolean>;
     /**
      * Specifies if the streaming ingest is enabled.
      */

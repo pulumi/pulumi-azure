@@ -10,6 +10,546 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type EndpointCustomDnsConfig struct {
+	// The fully qualified domain name to the `privateDnsZone`.
+	Fqdn *string `pulumi:"fqdn"`
+	// A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// EndpointCustomDnsConfigInput is an input type that accepts EndpointCustomDnsConfigArgs and EndpointCustomDnsConfigOutput values.
+// You can construct a concrete instance of `EndpointCustomDnsConfigInput` via:
+//
+// 		 EndpointCustomDnsConfigArgs{...}
+//
+type EndpointCustomDnsConfigInput interface {
+	pulumi.Input
+
+	ToEndpointCustomDnsConfigOutput() EndpointCustomDnsConfigOutput
+	ToEndpointCustomDnsConfigOutputWithContext(context.Context) EndpointCustomDnsConfigOutput
+}
+
+type EndpointCustomDnsConfigArgs struct {
+	// The fully qualified domain name to the `privateDnsZone`.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (EndpointCustomDnsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCustomDnsConfig)(nil)).Elem()
+}
+
+func (i EndpointCustomDnsConfigArgs) ToEndpointCustomDnsConfigOutput() EndpointCustomDnsConfigOutput {
+	return i.ToEndpointCustomDnsConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointCustomDnsConfigArgs) ToEndpointCustomDnsConfigOutputWithContext(ctx context.Context) EndpointCustomDnsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDnsConfigOutput)
+}
+
+// EndpointCustomDnsConfigArrayInput is an input type that accepts EndpointCustomDnsConfigArray and EndpointCustomDnsConfigArrayOutput values.
+// You can construct a concrete instance of `EndpointCustomDnsConfigArrayInput` via:
+//
+// 		 EndpointCustomDnsConfigArray{ EndpointCustomDnsConfigArgs{...} }
+//
+type EndpointCustomDnsConfigArrayInput interface {
+	pulumi.Input
+
+	ToEndpointCustomDnsConfigArrayOutput() EndpointCustomDnsConfigArrayOutput
+	ToEndpointCustomDnsConfigArrayOutputWithContext(context.Context) EndpointCustomDnsConfigArrayOutput
+}
+
+type EndpointCustomDnsConfigArray []EndpointCustomDnsConfigInput
+
+func (EndpointCustomDnsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointCustomDnsConfig)(nil)).Elem()
+}
+
+func (i EndpointCustomDnsConfigArray) ToEndpointCustomDnsConfigArrayOutput() EndpointCustomDnsConfigArrayOutput {
+	return i.ToEndpointCustomDnsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointCustomDnsConfigArray) ToEndpointCustomDnsConfigArrayOutputWithContext(ctx context.Context) EndpointCustomDnsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDnsConfigArrayOutput)
+}
+
+type EndpointCustomDnsConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointCustomDnsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCustomDnsConfig)(nil)).Elem()
+}
+
+func (o EndpointCustomDnsConfigOutput) ToEndpointCustomDnsConfigOutput() EndpointCustomDnsConfigOutput {
+	return o
+}
+
+func (o EndpointCustomDnsConfigOutput) ToEndpointCustomDnsConfigOutputWithContext(ctx context.Context) EndpointCustomDnsConfigOutput {
+	return o
+}
+
+// The fully qualified domain name to the `privateDnsZone`.
+func (o EndpointCustomDnsConfigOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCustomDnsConfig) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+func (o EndpointCustomDnsConfigOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointCustomDnsConfig) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type EndpointCustomDnsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointCustomDnsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointCustomDnsConfig)(nil)).Elem()
+}
+
+func (o EndpointCustomDnsConfigArrayOutput) ToEndpointCustomDnsConfigArrayOutput() EndpointCustomDnsConfigArrayOutput {
+	return o
+}
+
+func (o EndpointCustomDnsConfigArrayOutput) ToEndpointCustomDnsConfigArrayOutputWithContext(ctx context.Context) EndpointCustomDnsConfigArrayOutput {
+	return o
+}
+
+func (o EndpointCustomDnsConfigArrayOutput) Index(i pulumi.IntInput) EndpointCustomDnsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointCustomDnsConfig {
+		return vs[0].([]EndpointCustomDnsConfig)[vs[1].(int)]
+	}).(EndpointCustomDnsConfigOutput)
+}
+
+type EndpointPrivateDnsZoneConfig struct {
+	// The ID of the Private DNS Zone Config.
+	Id *string `pulumi:"id"`
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// A list of IP Addresses
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
+	// A `recordSets` block as defined below.
+	RecordSets []EndpointPrivateDnsZoneConfigRecordSet `pulumi:"recordSets"`
+}
+
+// EndpointPrivateDnsZoneConfigInput is an input type that accepts EndpointPrivateDnsZoneConfigArgs and EndpointPrivateDnsZoneConfigOutput values.
+// You can construct a concrete instance of `EndpointPrivateDnsZoneConfigInput` via:
+//
+// 		 EndpointPrivateDnsZoneConfigArgs{...}
+//
+type EndpointPrivateDnsZoneConfigInput interface {
+	pulumi.Input
+
+	ToEndpointPrivateDnsZoneConfigOutput() EndpointPrivateDnsZoneConfigOutput
+	ToEndpointPrivateDnsZoneConfigOutputWithContext(context.Context) EndpointPrivateDnsZoneConfigOutput
+}
+
+type EndpointPrivateDnsZoneConfigArgs struct {
+	// The ID of the Private DNS Zone Config.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A list of IP Addresses
+	PrivateDnsZoneId pulumi.StringPtrInput `pulumi:"privateDnsZoneId"`
+	// A `recordSets` block as defined below.
+	RecordSets EndpointPrivateDnsZoneConfigRecordSetArrayInput `pulumi:"recordSets"`
+}
+
+func (EndpointPrivateDnsZoneConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrivateDnsZoneConfig)(nil)).Elem()
+}
+
+func (i EndpointPrivateDnsZoneConfigArgs) ToEndpointPrivateDnsZoneConfigOutput() EndpointPrivateDnsZoneConfigOutput {
+	return i.ToEndpointPrivateDnsZoneConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointPrivateDnsZoneConfigArgs) ToEndpointPrivateDnsZoneConfigOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigOutput)
+}
+
+// EndpointPrivateDnsZoneConfigArrayInput is an input type that accepts EndpointPrivateDnsZoneConfigArray and EndpointPrivateDnsZoneConfigArrayOutput values.
+// You can construct a concrete instance of `EndpointPrivateDnsZoneConfigArrayInput` via:
+//
+// 		 EndpointPrivateDnsZoneConfigArray{ EndpointPrivateDnsZoneConfigArgs{...} }
+//
+type EndpointPrivateDnsZoneConfigArrayInput interface {
+	pulumi.Input
+
+	ToEndpointPrivateDnsZoneConfigArrayOutput() EndpointPrivateDnsZoneConfigArrayOutput
+	ToEndpointPrivateDnsZoneConfigArrayOutputWithContext(context.Context) EndpointPrivateDnsZoneConfigArrayOutput
+}
+
+type EndpointPrivateDnsZoneConfigArray []EndpointPrivateDnsZoneConfigInput
+
+func (EndpointPrivateDnsZoneConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointPrivateDnsZoneConfig)(nil)).Elem()
+}
+
+func (i EndpointPrivateDnsZoneConfigArray) ToEndpointPrivateDnsZoneConfigArrayOutput() EndpointPrivateDnsZoneConfigArrayOutput {
+	return i.ToEndpointPrivateDnsZoneConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointPrivateDnsZoneConfigArray) ToEndpointPrivateDnsZoneConfigArrayOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigArrayOutput)
+}
+
+type EndpointPrivateDnsZoneConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrivateDnsZoneConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrivateDnsZoneConfig)(nil)).Elem()
+}
+
+func (o EndpointPrivateDnsZoneConfigOutput) ToEndpointPrivateDnsZoneConfigOutput() EndpointPrivateDnsZoneConfigOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneConfigOutput) ToEndpointPrivateDnsZoneConfigOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigOutput {
+	return o
+}
+
+// The ID of the Private DNS Zone Config.
+func (o EndpointPrivateDnsZoneConfigOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfig) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+func (o EndpointPrivateDnsZoneConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of IP Addresses
+func (o EndpointPrivateDnsZoneConfigOutput) PrivateDnsZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfig) *string { return v.PrivateDnsZoneId }).(pulumi.StringPtrOutput)
+}
+
+// A `recordSets` block as defined below.
+func (o EndpointPrivateDnsZoneConfigOutput) RecordSets() EndpointPrivateDnsZoneConfigRecordSetArrayOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfig) []EndpointPrivateDnsZoneConfigRecordSet { return v.RecordSets }).(EndpointPrivateDnsZoneConfigRecordSetArrayOutput)
+}
+
+type EndpointPrivateDnsZoneConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrivateDnsZoneConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointPrivateDnsZoneConfig)(nil)).Elem()
+}
+
+func (o EndpointPrivateDnsZoneConfigArrayOutput) ToEndpointPrivateDnsZoneConfigArrayOutput() EndpointPrivateDnsZoneConfigArrayOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneConfigArrayOutput) ToEndpointPrivateDnsZoneConfigArrayOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigArrayOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneConfigArrayOutput) Index(i pulumi.IntInput) EndpointPrivateDnsZoneConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointPrivateDnsZoneConfig {
+		return vs[0].([]EndpointPrivateDnsZoneConfig)[vs[1].(int)]
+	}).(EndpointPrivateDnsZoneConfigOutput)
+}
+
+type EndpointPrivateDnsZoneConfigRecordSet struct {
+	// The fully qualified domain name to the `privateDnsZone`.
+	Fqdn *string `pulumi:"fqdn"`
+	// A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// The time to live for each connection to the `privateDnsZone`.
+	Ttl *int `pulumi:"ttl"`
+	// The type of DNS record.
+	Type *string `pulumi:"type"`
+}
+
+// EndpointPrivateDnsZoneConfigRecordSetInput is an input type that accepts EndpointPrivateDnsZoneConfigRecordSetArgs and EndpointPrivateDnsZoneConfigRecordSetOutput values.
+// You can construct a concrete instance of `EndpointPrivateDnsZoneConfigRecordSetInput` via:
+//
+// 		 EndpointPrivateDnsZoneConfigRecordSetArgs{...}
+//
+type EndpointPrivateDnsZoneConfigRecordSetInput interface {
+	pulumi.Input
+
+	ToEndpointPrivateDnsZoneConfigRecordSetOutput() EndpointPrivateDnsZoneConfigRecordSetOutput
+	ToEndpointPrivateDnsZoneConfigRecordSetOutputWithContext(context.Context) EndpointPrivateDnsZoneConfigRecordSetOutput
+}
+
+type EndpointPrivateDnsZoneConfigRecordSetArgs struct {
+	// The fully qualified domain name to the `privateDnsZone`.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The time to live for each connection to the `privateDnsZone`.
+	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
+	// The type of DNS record.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (EndpointPrivateDnsZoneConfigRecordSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrivateDnsZoneConfigRecordSet)(nil)).Elem()
+}
+
+func (i EndpointPrivateDnsZoneConfigRecordSetArgs) ToEndpointPrivateDnsZoneConfigRecordSetOutput() EndpointPrivateDnsZoneConfigRecordSetOutput {
+	return i.ToEndpointPrivateDnsZoneConfigRecordSetOutputWithContext(context.Background())
+}
+
+func (i EndpointPrivateDnsZoneConfigRecordSetArgs) ToEndpointPrivateDnsZoneConfigRecordSetOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigRecordSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigRecordSetOutput)
+}
+
+// EndpointPrivateDnsZoneConfigRecordSetArrayInput is an input type that accepts EndpointPrivateDnsZoneConfigRecordSetArray and EndpointPrivateDnsZoneConfigRecordSetArrayOutput values.
+// You can construct a concrete instance of `EndpointPrivateDnsZoneConfigRecordSetArrayInput` via:
+//
+// 		 EndpointPrivateDnsZoneConfigRecordSetArray{ EndpointPrivateDnsZoneConfigRecordSetArgs{...} }
+//
+type EndpointPrivateDnsZoneConfigRecordSetArrayInput interface {
+	pulumi.Input
+
+	ToEndpointPrivateDnsZoneConfigRecordSetArrayOutput() EndpointPrivateDnsZoneConfigRecordSetArrayOutput
+	ToEndpointPrivateDnsZoneConfigRecordSetArrayOutputWithContext(context.Context) EndpointPrivateDnsZoneConfigRecordSetArrayOutput
+}
+
+type EndpointPrivateDnsZoneConfigRecordSetArray []EndpointPrivateDnsZoneConfigRecordSetInput
+
+func (EndpointPrivateDnsZoneConfigRecordSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointPrivateDnsZoneConfigRecordSet)(nil)).Elem()
+}
+
+func (i EndpointPrivateDnsZoneConfigRecordSetArray) ToEndpointPrivateDnsZoneConfigRecordSetArrayOutput() EndpointPrivateDnsZoneConfigRecordSetArrayOutput {
+	return i.ToEndpointPrivateDnsZoneConfigRecordSetArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointPrivateDnsZoneConfigRecordSetArray) ToEndpointPrivateDnsZoneConfigRecordSetArrayOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigRecordSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigRecordSetArrayOutput)
+}
+
+type EndpointPrivateDnsZoneConfigRecordSetOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrivateDnsZoneConfigRecordSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrivateDnsZoneConfigRecordSet)(nil)).Elem()
+}
+
+func (o EndpointPrivateDnsZoneConfigRecordSetOutput) ToEndpointPrivateDnsZoneConfigRecordSetOutput() EndpointPrivateDnsZoneConfigRecordSetOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneConfigRecordSetOutput) ToEndpointPrivateDnsZoneConfigRecordSetOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigRecordSetOutput {
+	return o
+}
+
+// The fully qualified domain name to the `privateDnsZone`.
+func (o EndpointPrivateDnsZoneConfigRecordSetOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfigRecordSet) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+func (o EndpointPrivateDnsZoneConfigRecordSetOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfigRecordSet) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+func (o EndpointPrivateDnsZoneConfigRecordSetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfigRecordSet) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The time to live for each connection to the `privateDnsZone`.
+func (o EndpointPrivateDnsZoneConfigRecordSetOutput) Ttl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfigRecordSet) *int { return v.Ttl }).(pulumi.IntPtrOutput)
+}
+
+// The type of DNS record.
+func (o EndpointPrivateDnsZoneConfigRecordSetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneConfigRecordSet) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type EndpointPrivateDnsZoneConfigRecordSetArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrivateDnsZoneConfigRecordSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointPrivateDnsZoneConfigRecordSet)(nil)).Elem()
+}
+
+func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) ToEndpointPrivateDnsZoneConfigRecordSetArrayOutput() EndpointPrivateDnsZoneConfigRecordSetArrayOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) ToEndpointPrivateDnsZoneConfigRecordSetArrayOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigRecordSetArrayOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) Index(i pulumi.IntInput) EndpointPrivateDnsZoneConfigRecordSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointPrivateDnsZoneConfigRecordSet {
+		return vs[0].([]EndpointPrivateDnsZoneConfigRecordSet)[vs[1].(int)]
+	}).(EndpointPrivateDnsZoneConfigRecordSetOutput)
+}
+
+type EndpointPrivateDnsZoneGroup struct {
+	// The ID of the Private DNS Zone Config.
+	Id *string `pulumi:"id"`
+	// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+	Name string `pulumi:"name"`
+	// Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
+	PrivateDnsZoneIds []string `pulumi:"privateDnsZoneIds"`
+}
+
+// EndpointPrivateDnsZoneGroupInput is an input type that accepts EndpointPrivateDnsZoneGroupArgs and EndpointPrivateDnsZoneGroupOutput values.
+// You can construct a concrete instance of `EndpointPrivateDnsZoneGroupInput` via:
+//
+// 		 EndpointPrivateDnsZoneGroupArgs{...}
+//
+type EndpointPrivateDnsZoneGroupInput interface {
+	pulumi.Input
+
+	ToEndpointPrivateDnsZoneGroupOutput() EndpointPrivateDnsZoneGroupOutput
+	ToEndpointPrivateDnsZoneGroupOutputWithContext(context.Context) EndpointPrivateDnsZoneGroupOutput
+}
+
+type EndpointPrivateDnsZoneGroupArgs struct {
+	// The ID of the Private DNS Zone Config.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
+	PrivateDnsZoneIds pulumi.StringArrayInput `pulumi:"privateDnsZoneIds"`
+}
+
+func (EndpointPrivateDnsZoneGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrivateDnsZoneGroup)(nil)).Elem()
+}
+
+func (i EndpointPrivateDnsZoneGroupArgs) ToEndpointPrivateDnsZoneGroupOutput() EndpointPrivateDnsZoneGroupOutput {
+	return i.ToEndpointPrivateDnsZoneGroupOutputWithContext(context.Background())
+}
+
+func (i EndpointPrivateDnsZoneGroupArgs) ToEndpointPrivateDnsZoneGroupOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneGroupOutput)
+}
+
+func (i EndpointPrivateDnsZoneGroupArgs) ToEndpointPrivateDnsZoneGroupPtrOutput() EndpointPrivateDnsZoneGroupPtrOutput {
+	return i.ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointPrivateDnsZoneGroupArgs) ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneGroupOutput).ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx)
+}
+
+// EndpointPrivateDnsZoneGroupPtrInput is an input type that accepts EndpointPrivateDnsZoneGroupArgs, EndpointPrivateDnsZoneGroupPtr and EndpointPrivateDnsZoneGroupPtrOutput values.
+// You can construct a concrete instance of `EndpointPrivateDnsZoneGroupPtrInput` via:
+//
+// 		 EndpointPrivateDnsZoneGroupArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type EndpointPrivateDnsZoneGroupPtrInput interface {
+	pulumi.Input
+
+	ToEndpointPrivateDnsZoneGroupPtrOutput() EndpointPrivateDnsZoneGroupPtrOutput
+	ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(context.Context) EndpointPrivateDnsZoneGroupPtrOutput
+}
+
+type endpointPrivateDnsZoneGroupPtrType EndpointPrivateDnsZoneGroupArgs
+
+func EndpointPrivateDnsZoneGroupPtr(v *EndpointPrivateDnsZoneGroupArgs) EndpointPrivateDnsZoneGroupPtrInput {
+	return (*endpointPrivateDnsZoneGroupPtrType)(v)
+}
+
+func (*endpointPrivateDnsZoneGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPrivateDnsZoneGroup)(nil)).Elem()
+}
+
+func (i *endpointPrivateDnsZoneGroupPtrType) ToEndpointPrivateDnsZoneGroupPtrOutput() EndpointPrivateDnsZoneGroupPtrOutput {
+	return i.ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointPrivateDnsZoneGroupPtrType) ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneGroupPtrOutput)
+}
+
+type EndpointPrivateDnsZoneGroupOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrivateDnsZoneGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPrivateDnsZoneGroup)(nil)).Elem()
+}
+
+func (o EndpointPrivateDnsZoneGroupOutput) ToEndpointPrivateDnsZoneGroupOutput() EndpointPrivateDnsZoneGroupOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneGroupOutput) ToEndpointPrivateDnsZoneGroupOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneGroupOutput) ToEndpointPrivateDnsZoneGroupPtrOutput() EndpointPrivateDnsZoneGroupPtrOutput {
+	return o.ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointPrivateDnsZoneGroupOutput) ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneGroup) *EndpointPrivateDnsZoneGroup {
+		return &v
+	}).(EndpointPrivateDnsZoneGroupPtrOutput)
+}
+
+// The ID of the Private DNS Zone Config.
+func (o EndpointPrivateDnsZoneGroupOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+func (o EndpointPrivateDnsZoneGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
+func (o EndpointPrivateDnsZoneGroupOutput) PrivateDnsZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointPrivateDnsZoneGroup) []string { return v.PrivateDnsZoneIds }).(pulumi.StringArrayOutput)
+}
+
+type EndpointPrivateDnsZoneGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointPrivateDnsZoneGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPrivateDnsZoneGroup)(nil)).Elem()
+}
+
+func (o EndpointPrivateDnsZoneGroupPtrOutput) ToEndpointPrivateDnsZoneGroupPtrOutput() EndpointPrivateDnsZoneGroupPtrOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneGroupPtrOutput) ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupPtrOutput {
+	return o
+}
+
+func (o EndpointPrivateDnsZoneGroupPtrOutput) Elem() EndpointPrivateDnsZoneGroupOutput {
+	return o.ApplyT(func(v *EndpointPrivateDnsZoneGroup) EndpointPrivateDnsZoneGroup { return *v }).(EndpointPrivateDnsZoneGroupOutput)
+}
+
+// The ID of the Private DNS Zone Config.
+func (o EndpointPrivateDnsZoneGroupPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateDnsZoneGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+func (o EndpointPrivateDnsZoneGroupPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPrivateDnsZoneGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
+func (o EndpointPrivateDnsZoneGroupPtrOutput) PrivateDnsZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointPrivateDnsZoneGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsZoneIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type EndpointPrivateServiceConnection struct {
 	// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 	IsManualConnection bool `pulumi:"isManualConnection"`
@@ -668,6 +1208,14 @@ func (o GetServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetSer
 }
 
 func init() {
+	pulumi.RegisterOutputType(EndpointCustomDnsConfigOutput{})
+	pulumi.RegisterOutputType(EndpointCustomDnsConfigArrayOutput{})
+	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigOutput{})
+	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigArrayOutput{})
+	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigRecordSetOutput{})
+	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigRecordSetArrayOutput{})
+	pulumi.RegisterOutputType(EndpointPrivateDnsZoneGroupOutput{})
+	pulumi.RegisterOutputType(EndpointPrivateDnsZoneGroupPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointConnectionPrivateServiceConnectionOutput{})

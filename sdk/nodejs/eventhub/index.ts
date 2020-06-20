@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./authorizationRule";
+export * from "./cluster";
 export * from "./consumerGroup";
 export * from "./domain";
 export * from "./eventGridTopic";

@@ -35,6 +35,10 @@ import * as utilities from "../utilities";
  *     subnetId: ase.id,
  *     pricingTier: "I2",
  *     frontEndScaleFactor: 10,
+ *     userWhitelistedIpRanges: [
+ *         "11.22.33.44/32",
+ *         "55.66.77.0/24",
+ *     ],
  * });
  * ```
  */
@@ -98,6 +102,10 @@ export class Environment extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+     */
+    public readonly userWhitelistedIpRanges!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -119,6 +127,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["userWhitelistedIpRanges"] = state ? state.userWhitelistedIpRanges : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
             if (!args || args.subnetId === undefined) {
@@ -131,6 +140,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
             inputs["location"] = undefined /*out*/;
         }
         if (!opts) {
@@ -180,6 +190,10 @@ export interface EnvironmentState {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+     */
+    readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -214,4 +228,8 @@ export interface EnvironmentArgs {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+     */
+    readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }

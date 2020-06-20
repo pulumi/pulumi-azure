@@ -37,7 +37,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
     """
     state: pulumi.Output[str]
     """
-    Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+    Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
     """
     storage_account_access_key: pulumi.Output[str]
     """
@@ -94,7 +94,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[float] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+        :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
@@ -151,7 +151,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[float] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+        :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """

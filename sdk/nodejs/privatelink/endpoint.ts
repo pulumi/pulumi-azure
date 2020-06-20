@@ -104,6 +104,7 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    public /*out*/ readonly customDnsConfigs!: pulumi.Output<outputs.privatelink.EndpointCustomDnsConfig[]>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -112,6 +113,11 @@ export class Endpoint extends pulumi.CustomResource {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly privateDnsZoneConfigs!: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneConfig[]>;
+    /**
+     * A `privateDnsZoneGroup` block as defined below.
+     */
+    public readonly privateDnsZoneGroup!: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneGroup | undefined>;
     /**
      * A `privateServiceConnection` block as defined below.
      */
@@ -141,8 +147,11 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EndpointState | undefined;
+            inputs["customDnsConfigs"] = state ? state.customDnsConfigs : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["privateDnsZoneConfigs"] = state ? state.privateDnsZoneConfigs : undefined;
+            inputs["privateDnsZoneGroup"] = state ? state.privateDnsZoneGroup : undefined;
             inputs["privateServiceConnection"] = state ? state.privateServiceConnection : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
@@ -160,10 +169,13 @@ export class Endpoint extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["privateDnsZoneGroup"] = args ? args.privateDnsZoneGroup : undefined;
             inputs["privateServiceConnection"] = args ? args.privateServiceConnection : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["customDnsConfigs"] = undefined /*out*/;
+            inputs["privateDnsZoneConfigs"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -180,6 +192,7 @@ export class Endpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Endpoint resources.
  */
 export interface EndpointState {
+    readonly customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointCustomDnsConfig>[]>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -188,6 +201,11 @@ export interface EndpointState {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    readonly privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneConfig>[]>;
+    /**
+     * A `privateDnsZoneGroup` block as defined below.
+     */
+    readonly privateDnsZoneGroup?: pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneGroup>;
     /**
      * A `privateServiceConnection` block as defined below.
      */
@@ -218,6 +236,10 @@ export interface EndpointArgs {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `privateDnsZoneGroup` block as defined below.
+     */
+    readonly privateDnsZoneGroup?: pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneGroup>;
     /**
      * A `privateServiceConnection` block as defined below.
      */

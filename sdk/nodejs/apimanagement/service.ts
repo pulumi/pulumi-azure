@@ -73,6 +73,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly certificates!: pulumi.Output<outputs.apimanagement.ServiceCertificate[] | undefined>;
     /**
+     * The URL for the Developer Portal associated with this API Management service.
+     */
+    public /*out*/ readonly developerPortalUrl!: pulumi.Output<string>;
+    /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
     public /*out*/ readonly gatewayRegionalUrl!: pulumi.Output<string>;
@@ -180,6 +184,7 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             inputs["additionalLocations"] = state ? state.additionalLocations : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
+            inputs["developerPortalUrl"] = state ? state.developerPortalUrl : undefined;
             inputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
             inputs["gatewayUrl"] = state ? state.gatewayUrl : undefined;
             inputs["hostnameConfiguration"] = state ? state.hostnameConfiguration : undefined;
@@ -237,6 +242,7 @@ export class Service extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             inputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            inputs["developerPortalUrl"] = undefined /*out*/;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;
             inputs["gatewayUrl"] = undefined /*out*/;
             inputs["managementApiUrl"] = undefined /*out*/;
@@ -268,6 +274,10 @@ export interface ServiceState {
      * One or more (up to 10) `certificate` blocks as defined below.
      */
     readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
+    /**
+     * The URL for the Developer Portal associated with this API Management service.
+     */
+    readonly developerPortalUrl?: pulumi.Input<string>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */

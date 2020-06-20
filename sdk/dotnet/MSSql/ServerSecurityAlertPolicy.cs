@@ -103,7 +103,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> ServerName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
-        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+        /// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Orchestrated Virtual Machine Scale Set.
- *
- * > **Note:** Orchestrated Virtual Machine Scale Sets are in Public Preview - [more details can be found in the Azure Documentation](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/orchestration-modes).
- *
- * ## Example Usage
- *
- *
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleOrchestratedVirtualMachineScaleSet = new azure.compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     platformFaultDomainCount: 5,
- *     singlePlacementGroup: true,
- *     zones: ["1"],
- * });
- * ```
- */
 export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Get an existing OrchestratedVirtualMachineScaleSet resource's state with the given name, ID, and optional extra
@@ -72,9 +49,11 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+     * Should the Orchestrated Virtual Machine Scale Set use single placement group?
+     *
+     * @deprecated Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
      */
-    public readonly singlePlacementGroup!: pulumi.Output<boolean>;
+    public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
      */
@@ -115,9 +94,6 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.singlePlacementGroup === undefined) {
-                throw new Error("Missing required property 'singlePlacementGroup'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -160,7 +136,9 @@ export interface OrchestratedVirtualMachineScaleSetState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+     * Should the Orchestrated Virtual Machine Scale Set use single placement group?
+     *
+     * @deprecated Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
      */
     readonly singlePlacementGroup?: pulumi.Input<boolean>;
     /**
@@ -198,9 +176,11 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+     * Should the Orchestrated Virtual Machine Scale Set use single placement group?
+     *
+     * @deprecated Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
      */
-    readonly singlePlacementGroup: pulumi.Input<boolean>;
+    readonly singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
      */

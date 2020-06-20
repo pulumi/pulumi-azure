@@ -17,7 +17,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     app_settings: pulumi.Output[dict]
     """
-    A key-value pair of App Settings.
+    A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
     """
     auth_settings: pulumi.Output[dict]
     """
@@ -265,7 +265,7 @@ class FunctionApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
-        :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
@@ -418,7 +418,7 @@ class FunctionApp(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
-        :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.

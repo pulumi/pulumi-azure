@@ -64,6 +64,10 @@ import (
 // 			SubnetId:            ase.ID(),
 // 			PricingTier:         pulumi.String("I2"),
 // 			FrontEndScaleFactor: pulumi.Int(10),
+// 			UserWhitelistedIpRanges: pulumi.StringArray{
+// 				pulumi.String("11.22.33.44/32"),
+// 				pulumi.String("55.66.77.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -91,6 +95,8 @@ type Environment struct {
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+	UserWhitelistedIpRanges pulumi.StringArrayOutput `pulumi:"userWhitelistedIpRanges"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -140,6 +146,8 @@ type environmentState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
+	// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
 }
 
 type EnvironmentState struct {
@@ -159,6 +167,8 @@ type EnvironmentState struct {
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
+	// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+	UserWhitelistedIpRanges pulumi.StringArrayInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {
@@ -180,6 +190,8 @@ type environmentArgs struct {
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
+	// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -198,6 +210,8 @@ type EnvironmentArgs struct {
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
+	// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+	UserWhitelistedIpRanges pulumi.StringArrayInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {

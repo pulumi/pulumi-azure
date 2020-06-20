@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 
 class Endpoint(pulumi.CustomResource):
+    custom_dns_configs: pulumi.Output[list]
     location: pulumi.Output[str]
     """
     The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -18,6 +19,15 @@ class Endpoint(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+    """
+    private_dns_zone_configs: pulumi.Output[list]
+    private_dns_zone_group: pulumi.Output[dict]
+    """
+    A `private_dns_zone_group` block as defined below.
+
+      * `id` (`str`) - The ID of the Private DNS Zone Config.
+      * `name` (`str`) - Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+      * `privateDnsZoneIds` (`list`) - Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
     """
     private_service_connection: pulumi.Output[dict]
     """
@@ -42,7 +52,7 @@ class Endpoint(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, private_dns_zone_group=None, private_service_connection=None, resource_group_name=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Private Endpoint.
 
@@ -110,10 +120,17 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
         :param pulumi.Input[dict] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        The **private_dns_zone_group** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID of the Private DNS Zone Config.
+          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+          * `privateDnsZoneIds` (`pulumi.Input[list]`) - Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
 
         The **private_service_connection** object supports the following:
 
@@ -143,6 +160,7 @@ class Endpoint(pulumi.CustomResource):
 
             __props__['location'] = location
             __props__['name'] = name
+            __props__['private_dns_zone_group'] = private_dns_zone_group
             if private_service_connection is None:
                 raise TypeError("Missing required property 'private_service_connection'")
             __props__['private_service_connection'] = private_service_connection
@@ -153,6 +171,8 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            __props__['custom_dns_configs'] = None
+            __props__['private_dns_zone_configs'] = None
         super(Endpoint, __self__).__init__(
             'azure:privatelink/endpoint:Endpoint',
             resource_name,
@@ -160,7 +180,7 @@ class Endpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, tags=None):
+    def get(resource_name, id, opts=None, custom_dns_configs=None, location=None, name=None, private_dns_zone_configs=None, private_dns_zone_group=None, private_service_connection=None, resource_group_name=None, subnet_id=None, tags=None):
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -170,10 +190,34 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
         :param pulumi.Input[dict] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        The **custom_dns_configs** object supports the following:
+
+          * `fqdn` (`pulumi.Input[str]`) - The fully qualified domain name to the `private_dns_zone`.
+          * `ipAddresses` (`pulumi.Input[list]`) - A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+
+        The **private_dns_zone_configs** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID of the Private DNS Zone Config.
+          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+          * `privateDnsZoneId` (`pulumi.Input[str]`) - A list of IP Addresses
+          * `recordSets` (`pulumi.Input[list]`) - A `record_sets` block as defined below.
+            * `fqdn` (`pulumi.Input[str]`) - The fully qualified domain name to the `private_dns_zone`.
+            * `ipAddresses` (`pulumi.Input[list]`) - A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+            * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+            * `ttl` (`pulumi.Input[float]`) - The time to live for each connection to the `private_dns_zone`.
+            * `type` (`pulumi.Input[str]`) - The type of DNS record.
+
+        The **private_dns_zone_group** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID of the Private DNS Zone Config.
+          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+          * `privateDnsZoneIds` (`pulumi.Input[list]`) - Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
 
         The **private_service_connection** object supports the following:
 
@@ -188,8 +232,11 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["custom_dns_configs"] = custom_dns_configs
         __props__["location"] = location
         __props__["name"] = name
+        __props__["private_dns_zone_configs"] = private_dns_zone_configs
+        __props__["private_dns_zone_group"] = private_dns_zone_group
         __props__["private_service_connection"] = private_service_connection
         __props__["resource_group_name"] = resource_group_name
         __props__["subnet_id"] = subnet_id

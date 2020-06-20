@@ -23,6 +23,10 @@ class Certificate(pulumi.CustomResource):
     """
     List of host names the certificate applies to.
     """
+    hosting_environment_profile_id: pulumi.Output[str]
+    """
+    Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+    """
     issue_date: pulumi.Output[str]
     """
     The issue date for the certificate.
@@ -64,12 +68,13 @@ class Certificate(pulumi.CustomResource):
     """
     The thumbprint for the certificate.
     """
-    def __init__(__self__, resource_name, opts=None, key_vault_secret_id=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, hosting_environment_profile_id=None, key_vault_secret_id=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service certificate.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
@@ -94,6 +99,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['hosting_environment_profile_id'] = hosting_environment_profile_id
             __props__['key_vault_secret_id'] = key_vault_secret_id
             __props__['location'] = location
             __props__['name'] = name
@@ -117,7 +123,7 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, expiration_date=None, friendly_name=None, host_names=None, issue_date=None, issuer=None, key_vault_secret_id=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, subject_name=None, tags=None, thumbprint=None):
+    def get(resource_name, id, opts=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile_id=None, issue_date=None, issuer=None, key_vault_secret_id=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, subject_name=None, tags=None, thumbprint=None):
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -128,6 +134,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
         :param pulumi.Input[list] host_names: List of host names the certificate applies to.
+        :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -146,6 +153,7 @@ class Certificate(pulumi.CustomResource):
         __props__["expiration_date"] = expiration_date
         __props__["friendly_name"] = friendly_name
         __props__["host_names"] = host_names
+        __props__["hosting_environment_profile_id"] = hosting_environment_profile_id
         __props__["issue_date"] = issue_date
         __props__["issuer"] = issuer
         __props__["key_vault_secret_id"] = key_vault_secret_id

@@ -95,9 +95,17 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? RemoteDebuggingVersion;
         /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppServiceSiteConfigScmIpRestriction> ScmIpRestrictions;
+        /// <summary>
         /// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         /// </summary>
         public readonly string? ScmType;
+        /// <summary>
+        /// IP security restrictions for scm to use main. Defaults to false.
+        /// </summary>
+        public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
         /// Should the App Service run in 32 bit mode, rather than 64 bit mode?
         /// </summary>
@@ -155,7 +163,11 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? remoteDebuggingVersion,
 
+            ImmutableArray<Outputs.AppServiceSiteConfigScmIpRestriction> scmIpRestrictions,
+
             string? scmType,
+
+            bool? scmUseMainIpRestriction,
 
             bool? use32BitWorkerProcess,
 
@@ -184,7 +196,9 @@ namespace Pulumi.Azure.AppService.Outputs
             PythonVersion = pythonVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;
             RemoteDebuggingVersion = remoteDebuggingVersion;
+            ScmIpRestrictions = scmIpRestrictions;
             ScmType = scmType;
+            ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             WebsocketsEnabled = websocketsEnabled;
             WindowsFxVersion = windowsFxVersion;

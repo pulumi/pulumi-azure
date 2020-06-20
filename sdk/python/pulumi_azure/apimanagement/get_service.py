@@ -13,12 +13,18 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identities=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
+    def __init__(__self__, additional_locations=None, developer_portal_url=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identities=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku_name=None, tags=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         __self__.additional_locations = additional_locations
         """
         One or more `additional_location` blocks as defined below
+        """
+        if developer_portal_url and not isinstance(developer_portal_url, str):
+            raise TypeError("Expected argument 'developer_portal_url' to be a str")
+        __self__.developer_portal_url = developer_portal_url
+        """
+        The URL for the Developer Portal associated with this API Management service.
         """
         if gateway_regional_url and not isinstance(gateway_regional_url, str):
             raise TypeError("Expected argument 'gateway_regional_url' to be a str")
@@ -123,6 +129,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             additional_locations=self.additional_locations,
+            developer_portal_url=self.developer_portal_url,
             gateway_regional_url=self.gateway_regional_url,
             gateway_url=self.gateway_url,
             hostname_configurations=self.hostname_configurations,
@@ -175,6 +182,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetServiceResult(
         additional_locations=__ret__.get('additionalLocations'),
+        developer_portal_url=__ret__.get('developerPortalUrl'),
         gateway_regional_url=__ret__.get('gatewayRegionalUrl'),
         gateway_url=__ret__.get('gatewayUrl'),
         hostname_configurations=__ret__.get('hostnameConfigurations'),

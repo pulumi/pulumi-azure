@@ -19,6 +19,10 @@ class Cluster(pulumi.CustomResource):
     """
     Specifies if the cluster's disks are encrypted.
     """
+    enable_purge: pulumi.Output[bool]
+    """
+    Specifies if the purge operations are enabled.
+    """
     enable_streaming_ingest: pulumi.Output[bool]
     """
     Specifies if the streaming ingest is enabled.
@@ -40,7 +44,7 @@ class Cluster(pulumi.CustomResource):
     A `sku` block as defined below.
 
       * `capacity` (`float`) - Specifies the node count for the cluster. Boundaries depend on the sku name.
-      * `name` (`str`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
+      * `name` (`str`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
     """
     tags: pulumi.Output[dict]
     """
@@ -50,7 +54,7 @@ class Cluster(pulumi.CustomResource):
     """
     The FQDN of the Azure Kusto Cluster.
     """
-    def __init__(__self__, resource_name, opts=None, enable_disk_encryption=None, enable_streaming_ingest=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enable_disk_encryption=None, enable_purge=None, enable_streaming_ingest=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
 
@@ -78,6 +82,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
+        :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -88,7 +93,7 @@ class Cluster(pulumi.CustomResource):
         The **sku** object supports the following:
 
           * `capacity` (`pulumi.Input[float]`) - Specifies the node count for the cluster. Boundaries depend on the sku name.
-          * `name` (`pulumi.Input[str]`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
+          * `name` (`pulumi.Input[str]`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,6 +113,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enable_disk_encryption'] = enable_disk_encryption
+            __props__['enable_purge'] = enable_purge
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
             __props__['location'] = location
             __props__['name'] = name
@@ -127,7 +133,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, data_ingestion_uri=None, enable_disk_encryption=None, enable_streaming_ingest=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, uri=None):
+    def get(resource_name, id, opts=None, data_ingestion_uri=None, enable_disk_encryption=None, enable_purge=None, enable_streaming_ingest=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, uri=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -137,6 +143,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] enable_disk_encryption: Specifies if the cluster's disks are encrypted.
+        :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -148,7 +155,7 @@ class Cluster(pulumi.CustomResource):
         The **sku** object supports the following:
 
           * `capacity` (`pulumi.Input[float]`) - Specifies the node count for the cluster. Boundaries depend on the sku name.
-          * `name` (`pulumi.Input[str]`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
+          * `name` (`pulumi.Input[str]`) - The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,6 +163,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__["data_ingestion_uri"] = data_ingestion_uri
         __props__["enable_disk_encryption"] = enable_disk_encryption
+        __props__["enable_purge"] = enable_purge
         __props__["enable_streaming_ingest"] = enable_streaming_ingest
         __props__["location"] = location
         __props__["name"] = name

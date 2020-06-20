@@ -135,7 +135,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly appServicePlanId!: pulumi.Output<string>;
     /**
-     * A key-value pair of App Settings.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -324,7 +324,7 @@ export interface FunctionAppState {
      */
     readonly appServicePlanId?: pulumi.Input<string>;
     /**
-     * A key-value pair of App Settings.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -432,7 +432,7 @@ export interface FunctionAppArgs {
      */
     readonly appServicePlanId: pulumi.Input<string>;
     /**
-     * A key-value pair of App Settings.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

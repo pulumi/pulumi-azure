@@ -18,7 +18,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string ActionName;
         /// <summary>
-        /// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+        /// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         /// </summary>
         public readonly string ActionResult;
 

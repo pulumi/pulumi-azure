@@ -20,6 +20,8 @@ type Certificate struct {
 	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
+	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	HostingEnvironmentProfileId pulumi.StringPtrOutput `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate pulumi.StringOutput `pulumi:"issueDate"`
 	// The name of the certificate issuer.
@@ -80,6 +82,8 @@ type certificateState struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
 	HostNames []string `pulumi:"hostNames"`
+	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	HostingEnvironmentProfileId *string `pulumi:"hostingEnvironmentProfileId"`
 	// The issue date for the certificate.
 	IssueDate *string `pulumi:"issueDate"`
 	// The name of the certificate issuer.
@@ -110,6 +114,8 @@ type CertificateState struct {
 	FriendlyName pulumi.StringPtrInput
 	// List of host names the certificate applies to.
 	HostNames pulumi.StringArrayInput
+	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	HostingEnvironmentProfileId pulumi.StringPtrInput
 	// The issue date for the certificate.
 	IssueDate pulumi.StringPtrInput
 	// The name of the certificate issuer.
@@ -138,6 +144,8 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	HostingEnvironmentProfileId *string `pulumi:"hostingEnvironmentProfileId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -155,6 +163,8 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+	HostingEnvironmentProfileId pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
 	KeyVaultSecretId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

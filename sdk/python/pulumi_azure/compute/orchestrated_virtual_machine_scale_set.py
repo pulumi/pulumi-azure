@@ -29,7 +29,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     """
     single_placement_group: pulumi.Output[bool]
     """
-    Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+    Should the Orchestrated Virtual Machine Scale Set use single placement group?
     """
     tags: pulumi.Output[dict]
     """
@@ -45,34 +45,14 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, single_placement_group=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages an Orchestrated Virtual Machine Scale Set.
-
-        > **Note:** Orchestrated Virtual Machine Scale Sets are in Public Preview - [more details can be found in the Azure Documentation](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/orchestration-modes).
-
-        ## Example Usage
-
-
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            platform_fault_domain_count=5,
-            single_placement_group=True,
-            zones=["1"])
-        ```
-
+        Create a OrchestratedVirtualMachineScaleSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] single_placement_group: Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] single_placement_group: Should the Orchestrated Virtual Machine Scale Set use single placement group?
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
@@ -101,8 +81,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if single_placement_group is None:
-                raise TypeError("Missing required property 'single_placement_group'")
+            if single_placement_group is not None:
+                warnings.warn("Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.", DeprecationWarning)
+                pulumi.log.warn("single_placement_group is deprecated: Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.")
             __props__['single_placement_group'] = single_placement_group
             __props__['tags'] = tags
             __props__['zones'] = zones
@@ -126,7 +107,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] single_placement_group: Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] single_placement_group: Should the Orchestrated Virtual Machine Scale Set use single placement group?
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.

@@ -46,6 +46,8 @@ func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs,
 
 // A collection of arguments for invoking getManagementGroup.
 type LookupManagementGroupArgs struct {
+	// Specifies the display name of this Management Group.
+	DisplayName *string `pulumi:"displayName"`
 	// Specifies the name or UUID of this Management Group.
 	//
 	// Deprecated: Deprecated in favour of `name`
@@ -56,7 +58,6 @@ type LookupManagementGroupArgs struct {
 
 // A collection of values returned by getManagementGroup.
 type LookupManagementGroupResult struct {
-	// A friendly name for the Management Group.
 	DisplayName string `pulumi:"displayName"`
 	// Deprecated: Deprecated in favour of `name`
 	GroupId string `pulumi:"groupId"`
@@ -65,6 +66,6 @@ type LookupManagementGroupResult struct {
 	Name string `pulumi:"name"`
 	// The ID of any Parent Management Group.
 	ParentManagementGroupId string `pulumi:"parentManagementGroupId"`
-	// A list of Subscription ID's which are assigned to the Management Group.
+	// A list of Subscription IDs which are assigned to the Management Group.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
 }

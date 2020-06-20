@@ -18,10 +18,14 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
+	CustomDnsConfigs EndpointCustomDnsConfigArrayOutput `pulumi:"customDnsConfigs"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                  pulumi.StringOutput                     `pulumi:"name"`
+	PrivateDnsZoneConfigs EndpointPrivateDnsZoneConfigArrayOutput `pulumi:"privateDnsZoneConfigs"`
+	// A `privateDnsZoneGroup` block as defined below.
+	PrivateDnsZoneGroup EndpointPrivateDnsZoneGroupPtrOutput `pulumi:"privateDnsZoneGroup"`
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnectionOutput `pulumi:"privateServiceConnection"`
 	// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
@@ -69,10 +73,14 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
+	CustomDnsConfigs []EndpointCustomDnsConfig `pulumi:"customDnsConfigs"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name                  *string                        `pulumi:"name"`
+	PrivateDnsZoneConfigs []EndpointPrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
+	// A `privateDnsZoneGroup` block as defined below.
+	PrivateDnsZoneGroup *EndpointPrivateDnsZoneGroup `pulumi:"privateDnsZoneGroup"`
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection *EndpointPrivateServiceConnection `pulumi:"privateServiceConnection"`
 	// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
@@ -84,10 +92,14 @@ type endpointState struct {
 }
 
 type EndpointState struct {
+	CustomDnsConfigs EndpointCustomDnsConfigArrayInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	PrivateDnsZoneConfigs EndpointPrivateDnsZoneConfigArrayInput
+	// A `privateDnsZoneGroup` block as defined below.
+	PrivateDnsZoneGroup EndpointPrivateDnsZoneGroupPtrInput
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnectionPtrInput
 	// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
@@ -107,6 +119,8 @@ type endpointArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `privateDnsZoneGroup` block as defined below.
+	PrivateDnsZoneGroup *EndpointPrivateDnsZoneGroup `pulumi:"privateDnsZoneGroup"`
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnection `pulumi:"privateServiceConnection"`
 	// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
@@ -123,6 +137,8 @@ type EndpointArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `privateDnsZoneGroup` block as defined below.
+	PrivateDnsZoneGroup EndpointPrivateDnsZoneGroupPtrInput
 	// A `privateServiceConnection` block as defined below.
 	PrivateServiceConnection EndpointPrivateServiceConnectionInput
 	// Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.

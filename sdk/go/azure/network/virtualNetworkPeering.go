@@ -37,7 +37,7 @@ type VirtualNetworkPeering struct {
 	// remote virtual network.  Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringOutput `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to
-	// create the virtual network. Changing this forces a new resource to be
+	// create the virtual network peering. Changing this forces a new resource to be
 	// created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Controls if remote gateways can be used on
@@ -106,7 +106,7 @@ type virtualNetworkPeeringState struct {
 	// remote virtual network.  Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId *string `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to
-	// create the virtual network. Changing this forces a new resource to be
+	// create the virtual network peering. Changing this forces a new resource to be
 	// created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Controls if remote gateways can be used on
@@ -139,7 +139,7 @@ type VirtualNetworkPeeringState struct {
 	// remote virtual network.  Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringPtrInput
 	// The name of the resource group in which to
-	// create the virtual network. Changing this forces a new resource to be
+	// create the virtual network peering. Changing this forces a new resource to be
 	// created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Controls if remote gateways can be used on
@@ -176,7 +176,7 @@ type virtualNetworkPeeringArgs struct {
 	// remote virtual network.  Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId string `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to
-	// create the virtual network. Changing this forces a new resource to be
+	// create the virtual network peering. Changing this forces a new resource to be
 	// created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Controls if remote gateways can be used on
@@ -210,7 +210,7 @@ type VirtualNetworkPeeringArgs struct {
 	// remote virtual network.  Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringInput
 	// The name of the resource group in which to
-	// create the virtual network. Changing this forces a new resource to be
+	// create the virtual network peering. Changing this forces a new resource to be
 	// created.
 	ResourceGroupName pulumi.StringInput
 	// Controls if remote gateways can be used on

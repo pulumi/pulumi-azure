@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Healthcare
 
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
-        [Input("accessPolicyObjectIds", required: true)]
+        [Input("accessPolicyObjectIds")]
         private InputList<string>? _accessPolicyObjectIds;
         public InputList<string> AccessPolicyObjectIds
         {

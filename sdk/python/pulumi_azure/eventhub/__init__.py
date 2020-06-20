@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .authorization_rule import *
+from .cluster import *
 from .consumer_group import *
 from .domain import *
 from .event_grid_topic import *

@@ -10,47 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages an Orchestrated Virtual Machine Scale Set.
-//
-// > **Note:** Orchestrated Virtual Machine Scale Sets are in Public Preview - [more details can be found in the Azure Documentation](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/orchestration-modes).
-//
-// ## Example Usage
-//
-//
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleOrchestratedVirtualMachineScaleSet, err := compute.NewOrchestratedVirtualMachineScaleSet(ctx, "exampleOrchestratedVirtualMachineScaleSet", &compute.OrchestratedVirtualMachineScaleSetArgs{
-// 			Location:                 exampleResourceGroup.Location,
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			PlatformFaultDomainCount: pulumi.Int(5),
-// 			SinglePlacementGroup:     pulumi.Bool(true),
-// 			Zones: pulumi.String(pulumi.String{
-// 				pulumi.String("1"),
-// 			}),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type OrchestratedVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
@@ -62,8 +21,10 @@ type OrchestratedVirtualMachineScaleSet struct {
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
-	SinglePlacementGroup pulumi.BoolOutput `pulumi:"singlePlacementGroup"`
+	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+	//
+	// Deprecated: Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
+	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
@@ -80,9 +41,6 @@ func NewOrchestratedVirtualMachineScaleSet(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SinglePlacementGroup == nil {
-		return nil, errors.New("missing required argument 'SinglePlacementGroup'")
 	}
 	if args == nil {
 		args = &OrchestratedVirtualMachineScaleSetArgs{}
@@ -117,7 +75,9 @@ type orchestratedVirtualMachineScaleSetState struct {
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+	//
+	// Deprecated: Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
@@ -136,7 +96,9 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	PlatformFaultDomainCount pulumi.IntPtrInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
+	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+	//
+	// Deprecated: Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
@@ -159,8 +121,10 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
-	SinglePlacementGroup bool `pulumi:"singlePlacementGroup"`
+	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+	//
+	// Deprecated: Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
+	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
@@ -177,8 +141,10 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	PlatformFaultDomainCount pulumi.IntInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Should the Orchestrated Virtual Machine Scale Set use single placement group? Changing this forces a new resource to be created.
-	SinglePlacementGroup pulumi.BoolInput
+	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+	//
+	// Deprecated: Due to an upgrade of the compute API this preview property has now been deprecated and required to be false in the 2019-12-01 api versions for orchestrated VMSS - as it will always be false for the current and future API versions this property now defaults to false and will removed in version 3.0 of the provider.
+	SinglePlacementGroup pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.

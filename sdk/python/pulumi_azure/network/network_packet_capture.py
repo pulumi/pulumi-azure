@@ -49,7 +49,7 @@ class NetworkPacketCapture(pulumi.CustomResource):
     """
     A `storage_location` block as defined below. Changing this forces a new resource to be created.
 
-      * `filePath` (`str`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+      * `file_path` (`str`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
       * `storage_account_id` (`str`) - The ID of the storage account to save the packet capture session
       * `storagePath` (`str`) - The URI of the storage path to save the packet capture.
     """
@@ -158,7 +158,7 @@ class NetworkPacketCapture(pulumi.CustomResource):
 
         The **storage_location** object supports the following:
 
-          * `filePath` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+          * `file_path` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
           * `storage_account_id` (`pulumi.Input[str]`) - The ID of the storage account to save the packet capture session
           * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
         """
@@ -231,7 +231,7 @@ class NetworkPacketCapture(pulumi.CustomResource):
 
         The **storage_location** object supports the following:
 
-          * `filePath` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
+          * `file_path` (`pulumi.Input[str]`) - A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For linux virtual machine it must start with `/var/captures`.
           * `storage_account_id` (`pulumi.Input[str]`) - The ID of the storage account to save the packet capture session
           * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
         """
