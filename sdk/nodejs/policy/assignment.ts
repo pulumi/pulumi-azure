@@ -97,6 +97,11 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
+     * Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+     * ---
+     */
+    public readonly enforcementMode!: pulumi.Output<boolean | undefined>;
+    /**
      * An `identity` block.
      */
     public readonly identity!: pulumi.Output<outputs.policy.AssignmentIdentity>;
@@ -139,6 +144,7 @@ export class Assignment extends pulumi.CustomResource {
             const state = argsOrState as AssignmentState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
+            inputs["enforcementMode"] = state ? state.enforcementMode : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -156,6 +162,7 @@ export class Assignment extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -187,6 +194,11 @@ export interface AssignmentState {
      * A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
      */
     readonly displayName?: pulumi.Input<string>;
+    /**
+     * Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+     * ---
+     */
+    readonly enforcementMode?: pulumi.Input<boolean>;
     /**
      * An `identity` block.
      */
@@ -229,6 +241,11 @@ export interface AssignmentArgs {
      * A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
      */
     readonly displayName?: pulumi.Input<string>;
+    /**
+     * Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+     * ---
+     */
+    readonly enforcementMode?: pulumi.Input<boolean>;
     /**
      * An `identity` block.
      */

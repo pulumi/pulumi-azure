@@ -9,6 +9,7 @@ from .dataset_sql_server_table import *
 from .factory import *
 from .get_factory import *
 from .integration_runtime_managed import *
+from .integration_runtime_self_hosted import *
 from .linked_service_data_lake_storage_gen2 import *
 from .linked_service_key_vault import *
 from .linked_service_mysql import *

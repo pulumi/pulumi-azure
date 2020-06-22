@@ -48,6 +48,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
     /**
+     * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     */
+    public readonly hostingEnvironmentProfileId!: pulumi.Output<string | undefined>;
+    /**
      * The issue date for the certificate.
      */
     public /*out*/ readonly issueDate!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["expirationDate"] = state ? state.expirationDate : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["hostNames"] = state ? state.hostNames : undefined;
+            inputs["hostingEnvironmentProfileId"] = state ? state.hostingEnvironmentProfileId : undefined;
             inputs["issueDate"] = state ? state.issueDate : undefined;
             inputs["issuer"] = state ? state.issuer : undefined;
             inputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
@@ -120,6 +125,7 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["hostingEnvironmentProfileId"] = args ? args.hostingEnvironmentProfileId : undefined;
             inputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -162,6 +168,10 @@ export interface CertificateState {
      * List of host names the certificate applies to.
      */
     readonly hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     */
+    readonly hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
      * The issue date for the certificate.
      */
@@ -209,6 +219,10 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
+    /**
+     * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+     */
+    readonly hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      */

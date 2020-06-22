@@ -3,6 +3,8 @@
 
 // Export members:
 export * from "./account";
+export * from "./datasetBlobStorage";
 export * from "./getAccount";
+export * from "./getDatasetBlobStorage";
 export * from "./getShare";
 export * from "./share";

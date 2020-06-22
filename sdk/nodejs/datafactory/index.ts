@@ -8,6 +8,7 @@ export * from "./datasetSqlServerTable";
 export * from "./factory";
 export * from "./getFactory";
 export * from "./integrationRuntimeManaged";
+export * from "./integrationRuntimeSelfHosted";
 export * from "./linkedServiceDataLakeStorageGen2";
 export * from "./linkedServiceKeyVault";
 export * from "./linkedServiceMysql";

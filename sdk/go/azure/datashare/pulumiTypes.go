@@ -181,6 +181,177 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DatasetBlobStorageStorageAccount struct {
+	// The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+	Name string `pulumi:"name"`
+	// The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+	SubscriptionId string `pulumi:"subscriptionId"`
+}
+
+// DatasetBlobStorageStorageAccountInput is an input type that accepts DatasetBlobStorageStorageAccountArgs and DatasetBlobStorageStorageAccountOutput values.
+// You can construct a concrete instance of `DatasetBlobStorageStorageAccountInput` via:
+//
+// 		 DatasetBlobStorageStorageAccountArgs{...}
+//
+type DatasetBlobStorageStorageAccountInput interface {
+	pulumi.Input
+
+	ToDatasetBlobStorageStorageAccountOutput() DatasetBlobStorageStorageAccountOutput
+	ToDatasetBlobStorageStorageAccountOutputWithContext(context.Context) DatasetBlobStorageStorageAccountOutput
+}
+
+type DatasetBlobStorageStorageAccountArgs struct {
+	// The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+}
+
+func (DatasetBlobStorageStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccountOutput() DatasetBlobStorageStorageAccountOutput {
+	return i.ToDatasetBlobStorageStorageAccountOutputWithContext(context.Background())
+}
+
+func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccountOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountOutput)
+}
+
+func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
+	return i.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountOutput).ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx)
+}
+
+// DatasetBlobStorageStorageAccountPtrInput is an input type that accepts DatasetBlobStorageStorageAccountArgs, DatasetBlobStorageStorageAccountPtr and DatasetBlobStorageStorageAccountPtrOutput values.
+// You can construct a concrete instance of `DatasetBlobStorageStorageAccountPtrInput` via:
+//
+// 		 DatasetBlobStorageStorageAccountArgs{...}
+//
+//  or:
+//
+// 		 nil
+//
+type DatasetBlobStorageStorageAccountPtrInput interface {
+	pulumi.Input
+
+	ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput
+	ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Context) DatasetBlobStorageStorageAccountPtrOutput
+}
+
+type datasetBlobStorageStorageAccountPtrType DatasetBlobStorageStorageAccountArgs
+
+func DatasetBlobStorageStorageAccountPtr(v *DatasetBlobStorageStorageAccountArgs) DatasetBlobStorageStorageAccountPtrInput {
+	return (*datasetBlobStorageStorageAccountPtrType)(v)
+}
+
+func (*datasetBlobStorageStorageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (i *datasetBlobStorageStorageAccountPtrType) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
+	return i.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetBlobStorageStorageAccountPtrType) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountPtrOutput)
+}
+
+type DatasetBlobStorageStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (DatasetBlobStorageStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountOutput() DatasetBlobStorageStorageAccountOutput {
+	return o
+}
+
+func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountOutput {
+	return o
+}
+
+func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
+	return o.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
+	return o.ApplyT(func(v DatasetBlobStorageStorageAccount) *DatasetBlobStorageStorageAccount {
+		return &v
+	}).(DatasetBlobStorageStorageAccountPtrOutput)
+}
+
+// The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+func (o DatasetBlobStorageStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBlobStorageStorageAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+func (o DatasetBlobStorageStorageAccountOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBlobStorageStorageAccount) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+func (o DatasetBlobStorageStorageAccountOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetBlobStorageStorageAccount) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+type DatasetBlobStorageStorageAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetBlobStorageStorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (o DatasetBlobStorageStorageAccountPtrOutput) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
+	return o
+}
+
+func (o DatasetBlobStorageStorageAccountPtrOutput) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
+	return o
+}
+
+func (o DatasetBlobStorageStorageAccountPtrOutput) Elem() DatasetBlobStorageStorageAccountOutput {
+	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) DatasetBlobStorageStorageAccount { return *v }).(DatasetBlobStorageStorageAccountOutput)
+}
+
+// The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+func (o DatasetBlobStorageStorageAccountPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+func (o DatasetBlobStorageStorageAccountPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+func (o DatasetBlobStorageStorageAccountPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetBlobStorageStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ShareSnapshotSchedule struct {
 	// The name of the snapshot schedule.
 	Name string `pulumi:"name"`
@@ -469,6 +640,123 @@ func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdenti
 	}).(GetAccountIdentityOutput)
 }
 
+type GetDatasetBlobStorageStorageAccount struct {
+	// The name of this Data Share Blob Storage Dataset.
+	Name string `pulumi:"name"`
+	// The resource group name of the storage account to be shared with the receiver.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The subscription id of the storage account to be shared with the receiver.
+	SubscriptionId string `pulumi:"subscriptionId"`
+}
+
+// GetDatasetBlobStorageStorageAccountInput is an input type that accepts GetDatasetBlobStorageStorageAccountArgs and GetDatasetBlobStorageStorageAccountOutput values.
+// You can construct a concrete instance of `GetDatasetBlobStorageStorageAccountInput` via:
+//
+// 		 GetDatasetBlobStorageStorageAccountArgs{...}
+//
+type GetDatasetBlobStorageStorageAccountInput interface {
+	pulumi.Input
+
+	ToGetDatasetBlobStorageStorageAccountOutput() GetDatasetBlobStorageStorageAccountOutput
+	ToGetDatasetBlobStorageStorageAccountOutputWithContext(context.Context) GetDatasetBlobStorageStorageAccountOutput
+}
+
+type GetDatasetBlobStorageStorageAccountArgs struct {
+	// The name of this Data Share Blob Storage Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group name of the storage account to be shared with the receiver.
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The subscription id of the storage account to be shared with the receiver.
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+}
+
+func (GetDatasetBlobStorageStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (i GetDatasetBlobStorageStorageAccountArgs) ToGetDatasetBlobStorageStorageAccountOutput() GetDatasetBlobStorageStorageAccountOutput {
+	return i.ToGetDatasetBlobStorageStorageAccountOutputWithContext(context.Background())
+}
+
+func (i GetDatasetBlobStorageStorageAccountArgs) ToGetDatasetBlobStorageStorageAccountOutputWithContext(ctx context.Context) GetDatasetBlobStorageStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatasetBlobStorageStorageAccountOutput)
+}
+
+// GetDatasetBlobStorageStorageAccountArrayInput is an input type that accepts GetDatasetBlobStorageStorageAccountArray and GetDatasetBlobStorageStorageAccountArrayOutput values.
+// You can construct a concrete instance of `GetDatasetBlobStorageStorageAccountArrayInput` via:
+//
+// 		 GetDatasetBlobStorageStorageAccountArray{ GetDatasetBlobStorageStorageAccountArgs{...} }
+//
+type GetDatasetBlobStorageStorageAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetDatasetBlobStorageStorageAccountArrayOutput() GetDatasetBlobStorageStorageAccountArrayOutput
+	ToGetDatasetBlobStorageStorageAccountArrayOutputWithContext(context.Context) GetDatasetBlobStorageStorageAccountArrayOutput
+}
+
+type GetDatasetBlobStorageStorageAccountArray []GetDatasetBlobStorageStorageAccountInput
+
+func (GetDatasetBlobStorageStorageAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (i GetDatasetBlobStorageStorageAccountArray) ToGetDatasetBlobStorageStorageAccountArrayOutput() GetDatasetBlobStorageStorageAccountArrayOutput {
+	return i.ToGetDatasetBlobStorageStorageAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatasetBlobStorageStorageAccountArray) ToGetDatasetBlobStorageStorageAccountArrayOutputWithContext(ctx context.Context) GetDatasetBlobStorageStorageAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatasetBlobStorageStorageAccountArrayOutput)
+}
+
+type GetDatasetBlobStorageStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (GetDatasetBlobStorageStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (o GetDatasetBlobStorageStorageAccountOutput) ToGetDatasetBlobStorageStorageAccountOutput() GetDatasetBlobStorageStorageAccountOutput {
+	return o
+}
+
+func (o GetDatasetBlobStorageStorageAccountOutput) ToGetDatasetBlobStorageStorageAccountOutputWithContext(ctx context.Context) GetDatasetBlobStorageStorageAccountOutput {
+	return o
+}
+
+// The name of this Data Share Blob Storage Dataset.
+func (o GetDatasetBlobStorageStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatasetBlobStorageStorageAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource group name of the storage account to be shared with the receiver.
+func (o GetDatasetBlobStorageStorageAccountOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatasetBlobStorageStorageAccount) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The subscription id of the storage account to be shared with the receiver.
+func (o GetDatasetBlobStorageStorageAccountOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatasetBlobStorageStorageAccount) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+type GetDatasetBlobStorageStorageAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatasetBlobStorageStorageAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatasetBlobStorageStorageAccount)(nil)).Elem()
+}
+
+func (o GetDatasetBlobStorageStorageAccountArrayOutput) ToGetDatasetBlobStorageStorageAccountArrayOutput() GetDatasetBlobStorageStorageAccountArrayOutput {
+	return o
+}
+
+func (o GetDatasetBlobStorageStorageAccountArrayOutput) ToGetDatasetBlobStorageStorageAccountArrayOutputWithContext(ctx context.Context) GetDatasetBlobStorageStorageAccountArrayOutput {
+	return o
+}
+
+func (o GetDatasetBlobStorageStorageAccountArrayOutput) Index(i pulumi.IntInput) GetDatasetBlobStorageStorageAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatasetBlobStorageStorageAccount {
+		return vs[0].([]GetDatasetBlobStorageStorageAccount)[vs[1].(int)]
+	}).(GetDatasetBlobStorageStorageAccountOutput)
+}
+
 type GetShareSnapshotSchedule struct {
 	// The name of this Data Share.
 	Name string `pulumi:"name"`
@@ -589,10 +877,14 @@ func (o GetShareSnapshotScheduleArrayOutput) Index(i pulumi.IntInput) GetShareSn
 func init() {
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(DatasetBlobStorageStorageAccountOutput{})
+	pulumi.RegisterOutputType(DatasetBlobStorageStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(ShareSnapshotScheduleOutput{})
 	pulumi.RegisterOutputType(ShareSnapshotSchedulePtrOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetDatasetBlobStorageStorageAccountOutput{})
+	pulumi.RegisterOutputType(GetDatasetBlobStorageStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetShareSnapshotScheduleOutput{})
 	pulumi.RegisterOutputType(GetShareSnapshotScheduleArrayOutput{})
 }

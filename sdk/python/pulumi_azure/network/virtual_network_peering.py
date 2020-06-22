@@ -40,7 +40,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to
-    create the virtual network. Changing this forces a new resource to be
+    create the virtual network peering. Changing this forces a new resource to be
     created.
     """
     use_remote_gateways: pulumi.Output[bool]
@@ -107,7 +107,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the
                remote virtual network.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network. Changing this forces a new resource to be
+               create the virtual network peering. Changing this forces a new resource to be
                created.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on
                the local virtual network. If the flag is set to `true`, and
@@ -176,7 +176,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the
                remote virtual network.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network. Changing this forces a new resource to be
+               create the virtual network peering. Changing this forces a new resource to be
                created.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on
                the local virtual network. If the flag is set to `true`, and

@@ -18,6 +18,8 @@ type Service struct {
 	AdditionalLocations ServiceAdditionalLocationArrayOutput `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayOutput `pulumi:"certificates"`
+	// The URL for the Developer Portal associated with this API Management service.
+	DeveloperPortalUrl pulumi.StringOutput `pulumi:"developerPortalUrl"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringOutput `pulumi:"gatewayRegionalUrl"`
 	// The URL of the Gateway for the API Management Service.
@@ -111,6 +113,8 @@ type serviceState struct {
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
+	// The URL for the Developer Portal associated with this API Management service.
+	DeveloperPortalUrl *string `pulumi:"developerPortalUrl"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
 	// The URL of the Gateway for the API Management Service.
@@ -165,6 +169,8 @@ type ServiceState struct {
 	AdditionalLocations ServiceAdditionalLocationArrayInput
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates ServiceCertificateArrayInput
+	// The URL for the Developer Portal associated with this API Management service.
+	DeveloperPortalUrl pulumi.StringPtrInput
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringPtrInput
 	// The URL of the Gateway for the API Management Service.

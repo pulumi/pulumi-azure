@@ -18,9 +18,6 @@ class GetManagementGroupResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
-        """
-        A friendly name for the Management Group.
-        """
         if group_id and not isinstance(group_id, str):
             raise TypeError("Expected argument 'group_id' to be a str")
         if group_id is not None:
@@ -46,7 +43,7 @@ class GetManagementGroupResult:
             raise TypeError("Expected argument 'subscription_ids' to be a list")
         __self__.subscription_ids = subscription_ids
         """
-        A list of Subscription ID's which are assigned to the Management Group.
+        A list of Subscription IDs which are assigned to the Management Group.
         """
 class AwaitableGetManagementGroupResult(GetManagementGroupResult):
     # pylint: disable=using-constant-test
@@ -61,7 +58,7 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
             parent_management_group_id=self.parent_management_group_id,
             subscription_ids=self.subscription_ids)
 
-def get_management_group(group_id=None,name=None,opts=None):
+def get_management_group(display_name=None,group_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
@@ -78,6 +75,7 @@ def get_management_group(group_id=None,name=None,opts=None):
     ```
 
 
+    :param str display_name: Specifies the display name of this Management Group.
     :param str group_id: Specifies the name or UUID of this Management Group.
     :param str name: Specifies the name or UUID of this Management Group.
     """
@@ -85,6 +83,7 @@ def get_management_group(group_id=None,name=None,opts=None):
     __args__ = dict()
 
 
+    __args__['displayName'] = display_name
     __args__['groupId'] = group_id
     __args__['name'] = name
     if opts is None:

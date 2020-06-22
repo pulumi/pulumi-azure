@@ -27,6 +27,10 @@ class Service(pulumi.CustomResource):
       * `encodedCertificate` (`str`) - The Base64 Encoded PFX Certificate.
       * `storeName` (`str`) - The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
     """
+    developer_portal_url: pulumi.Output[str]
+    """
+    The URL for the Developer Portal associated with this API Management service.
+    """
     gateway_regional_url: pulumi.Output[str]
     """
     The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -372,6 +376,7 @@ class Service(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_network_configuration'] = virtual_network_configuration
             __props__['virtual_network_type'] = virtual_network_type
+            __props__['developer_portal_url'] = None
             __props__['gateway_regional_url'] = None
             __props__['gateway_url'] = None
             __props__['management_api_url'] = None
@@ -386,7 +391,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, private_ip_addresses=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, virtual_network_configuration=None, virtual_network_type=None):
+    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, developer_portal_url=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, private_ip_addresses=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, virtual_network_configuration=None, virtual_network_type=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -396,6 +401,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[list] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input[dict] hostname_configuration: A `hostname_configuration` block as defined below.
@@ -518,6 +524,7 @@ class Service(pulumi.CustomResource):
 
         __props__["additional_locations"] = additional_locations
         __props__["certificates"] = certificates
+        __props__["developer_portal_url"] = developer_portal_url
         __props__["gateway_regional_url"] = gateway_regional_url
         __props__["gateway_url"] = gateway_url
         __props__["hostname_configuration"] = hostname_configuration

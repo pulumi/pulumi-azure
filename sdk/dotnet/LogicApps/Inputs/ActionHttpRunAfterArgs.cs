@@ -19,7 +19,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string> ActionName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+        /// Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         /// </summary>
         [Input("actionResult", required: true)]
         public Input<string> ActionResult { get; set; } = null!;

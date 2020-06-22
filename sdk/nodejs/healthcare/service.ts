@@ -79,7 +79,7 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
-    public readonly accessPolicyObjectIds!: pulumi.Output<string[]>;
+    public readonly accessPolicyObjectIds!: pulumi.Output<string[] | undefined>;
     /**
      * An `authenticationConfiguration` block as defined below.
      */
@@ -136,9 +136,6 @@ export class Service extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.accessPolicyObjectIds === undefined) {
-                throw new Error("Missing required property 'accessPolicyObjectIds'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -206,7 +203,7 @@ export interface ServiceState {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
-    readonly accessPolicyObjectIds: pulumi.Input<pulumi.Input<string>[]>;
+    readonly accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `authenticationConfiguration` block as defined below.
      */

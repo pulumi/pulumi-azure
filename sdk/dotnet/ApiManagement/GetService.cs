@@ -74,6 +74,10 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceAdditionalLocationResult> AdditionalLocations;
         /// <summary>
+        /// The URL for the Developer Portal associated with this API Management service.
+        /// </summary>
+        public readonly string DeveloperPortalUrl;
+        /// <summary>
         /// Gateway URL of the API Management service in the Region.
         /// </summary>
         public readonly string GatewayRegionalUrl;
@@ -140,6 +144,8 @@ namespace Pulumi.Azure.ApiManagement
         private GetServiceResult(
             ImmutableArray<Outputs.GetServiceAdditionalLocationResult> additionalLocations,
 
+            string developerPortalUrl,
+
             string gatewayRegionalUrl,
 
             string gatewayUrl,
@@ -175,6 +181,7 @@ namespace Pulumi.Azure.ApiManagement
             ImmutableDictionary<string, string> tags)
         {
             AdditionalLocations = additionalLocations;
+            DeveloperPortalUrl = developerPortalUrl;
             GatewayRegionalUrl = gatewayRegionalUrl;
             GatewayUrl = gatewayUrl;
             HostnameConfigurations = hostnameConfigurations;

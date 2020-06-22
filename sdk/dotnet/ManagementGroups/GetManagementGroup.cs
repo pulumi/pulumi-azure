@@ -49,6 +49,12 @@ namespace Pulumi.Azure.ManagementGroups
     public sealed class GetManagementGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specifies the display name of this Management Group.
+        /// </summary>
+        [Input("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
         /// Specifies the name or UUID of this Management Group.
         /// </summary>
         [Input("groupId")]
@@ -69,9 +75,6 @@ namespace Pulumi.Azure.ManagementGroups
     [OutputType]
     public sealed class GetManagementGroupResult
     {
-        /// <summary>
-        /// A friendly name for the Management Group.
-        /// </summary>
         public readonly string DisplayName;
         public readonly string GroupId;
         /// <summary>
@@ -84,7 +87,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// </summary>
         public readonly string ParentManagementGroupId;
         /// <summary>
-        /// A list of Subscription ID's which are assigned to the Management Group.
+        /// A list of Subscription IDs which are assigned to the Management Group.
         /// </summary>
         public readonly ImmutableArray<string> SubscriptionIds;
 

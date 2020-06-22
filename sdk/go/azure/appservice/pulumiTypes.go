@@ -2881,8 +2881,12 @@ type AppServiceSiteConfig struct {
 	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
 	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	ScmIpRestrictions []AppServiceSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType *string `pulumi:"scmType"`
+	// IP security restrictions for scm to use main. Defaults to false.
+	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -2945,8 +2949,12 @@ type AppServiceSiteConfigArgs struct {
 	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
 	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	ScmIpRestrictions AppServiceSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
+	// IP security restrictions for scm to use main. Defaults to false.
+	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -3137,9 +3145,19 @@ func (o AppServiceSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringPtrOut
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o AppServiceSiteConfigOutput) ScmIpRestrictions() AppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v AppServiceSiteConfig) []AppServiceSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(AppServiceSiteConfigScmIpRestrictionArrayOutput)
+}
+
 // The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o AppServiceSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
+}
+
+// IP security restrictions for scm to use main. Defaults to false.
+func (o AppServiceSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
 }
 
 // Should the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -3384,6 +3402,16 @@ func (o AppServiceSiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o AppServiceSiteConfigPtrOutput) ScmIpRestrictions() AppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfig) []AppServiceSiteConfigScmIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.ScmIpRestrictions
+	}).(AppServiceSiteConfigScmIpRestrictionArrayOutput)
+}
+
 // The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o AppServiceSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppServiceSiteConfig) *string {
@@ -3392,6 +3420,16 @@ func (o AppServiceSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 		}
 		return v.ScmType
 	}).(pulumi.StringPtrOutput)
+}
+
+// IP security restrictions for scm to use main. Defaults to false.
+func (o AppServiceSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScmUseMainIpRestriction
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -3709,6 +3747,141 @@ func (o AppServiceSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) A
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppServiceSiteConfigIpRestriction {
 		return vs[0].([]AppServiceSiteConfigIpRestriction)[vs[1].(int)]
 	}).(AppServiceSiteConfigIpRestrictionOutput)
+}
+
+type AppServiceSiteConfigScmIpRestriction struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action *string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// AppServiceSiteConfigScmIpRestrictionInput is an input type that accepts AppServiceSiteConfigScmIpRestrictionArgs and AppServiceSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `AppServiceSiteConfigScmIpRestrictionInput` via:
+//
+// 		 AppServiceSiteConfigScmIpRestrictionArgs{...}
+//
+type AppServiceSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigScmIpRestrictionOutput() AppServiceSiteConfigScmIpRestrictionOutput
+	ToAppServiceSiteConfigScmIpRestrictionOutputWithContext(context.Context) AppServiceSiteConfigScmIpRestrictionOutput
+}
+
+type AppServiceSiteConfigScmIpRestrictionArgs struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (AppServiceSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionArgs) ToAppServiceSiteConfigScmIpRestrictionOutput() AppServiceSiteConfigScmIpRestrictionOutput {
+	return i.ToAppServiceSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionArgs) ToAppServiceSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigScmIpRestrictionOutput)
+}
+
+// AppServiceSiteConfigScmIpRestrictionArrayInput is an input type that accepts AppServiceSiteConfigScmIpRestrictionArray and AppServiceSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `AppServiceSiteConfigScmIpRestrictionArrayInput` via:
+//
+// 		 AppServiceSiteConfigScmIpRestrictionArray{ AppServiceSiteConfigScmIpRestrictionArgs{...} }
+//
+type AppServiceSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigScmIpRestrictionArrayOutput() AppServiceSiteConfigScmIpRestrictionArrayOutput
+	ToAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) AppServiceSiteConfigScmIpRestrictionArrayOutput
+}
+
+type AppServiceSiteConfigScmIpRestrictionArray []AppServiceSiteConfigScmIpRestrictionInput
+
+func (AppServiceSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionArray) ToAppServiceSiteConfigScmIpRestrictionArrayOutput() AppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionArray) ToAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type AppServiceSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (AppServiceSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionOutput) ToAppServiceSiteConfigScmIpRestrictionOutput() AppServiceSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionOutput) ToAppServiceSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+// Allow or Deny access for this IP range. Defaults to Allow.
+func (o AppServiceSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o AppServiceSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name for this IP Restriction.
+func (o AppServiceSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+func (o AppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o AppServiceSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type AppServiceSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (AppServiceSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionArrayOutput) ToAppServiceSiteConfigScmIpRestrictionArrayOutput() AppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionArrayOutput) ToAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) AppServiceSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppServiceSiteConfigScmIpRestriction {
+		return vs[0].([]AppServiceSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(AppServiceSiteConfigScmIpRestrictionOutput)
 }
 
 type AppServiceSiteCredential struct {
@@ -11201,9 +11374,11 @@ type SlotSiteConfig struct {
 	// Is Remote Debugging Enabled? Defaults to `false`.
 	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
-	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
+	RemoteDebuggingVersion *string                          `pulumi:"remoteDebuggingVersion"`
+	ScmIpRestrictions      []SlotSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-	ScmType *string `pulumi:"scmType"`
+	ScmType                 *string `pulumi:"scmType"`
+	ScmUseMainIpRestriction *bool   `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -11262,9 +11437,11 @@ type SlotSiteConfigArgs struct {
 	// Is Remote Debugging Enabled? Defaults to `false`.
 	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
-	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
+	RemoteDebuggingVersion pulumi.StringPtrInput                    `pulumi:"remoteDebuggingVersion"`
+	ScmIpRestrictions      SlotSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
+	ScmType                 pulumi.StringPtrInput `pulumi:"scmType"`
+	ScmUseMainIpRestriction pulumi.BoolPtrInput   `pulumi:"scmUseMainIpRestriction"`
 	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -11452,9 +11629,17 @@ func (o SlotSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
+func (o SlotSiteConfigOutput) ScmIpRestrictions() SlotSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v SlotSiteConfig) []SlotSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(SlotSiteConfigScmIpRestrictionArrayOutput)
+}
+
 // The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o SlotSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
 }
 
 // Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
@@ -11696,6 +11881,15 @@ func (o SlotSiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o SlotSiteConfigPtrOutput) ScmIpRestrictions() SlotSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *SlotSiteConfig) []SlotSiteConfigScmIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.ScmIpRestrictions
+	}).(SlotSiteConfigScmIpRestrictionArrayOutput)
+}
+
 // The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 func (o SlotSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
@@ -11704,6 +11898,15 @@ func (o SlotSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 		}
 		return v.ScmType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScmUseMainIpRestriction
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
@@ -12014,6 +12217,135 @@ func (o SlotSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) SlotSit
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlotSiteConfigIpRestriction {
 		return vs[0].([]SlotSiteConfigIpRestriction)[vs[1].(int)]
 	}).(SlotSiteConfigIpRestrictionOutput)
+}
+
+type SlotSiteConfigScmIpRestriction struct {
+	Action *string `pulumi:"action"`
+	// The IP Address used for this IP Restriction.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	Name     *string `pulumi:"name"`
+	Priority *int    `pulumi:"priority"`
+	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// SlotSiteConfigScmIpRestrictionInput is an input type that accepts SlotSiteConfigScmIpRestrictionArgs and SlotSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `SlotSiteConfigScmIpRestrictionInput` via:
+//
+// 		 SlotSiteConfigScmIpRestrictionArgs{...}
+//
+type SlotSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigScmIpRestrictionOutput() SlotSiteConfigScmIpRestrictionOutput
+	ToSlotSiteConfigScmIpRestrictionOutputWithContext(context.Context) SlotSiteConfigScmIpRestrictionOutput
+}
+
+type SlotSiteConfigScmIpRestrictionArgs struct {
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Priority pulumi.IntPtrInput    `pulumi:"priority"`
+	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (SlotSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i SlotSiteConfigScmIpRestrictionArgs) ToSlotSiteConfigScmIpRestrictionOutput() SlotSiteConfigScmIpRestrictionOutput {
+	return i.ToSlotSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i SlotSiteConfigScmIpRestrictionArgs) ToSlotSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigScmIpRestrictionOutput)
+}
+
+// SlotSiteConfigScmIpRestrictionArrayInput is an input type that accepts SlotSiteConfigScmIpRestrictionArray and SlotSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `SlotSiteConfigScmIpRestrictionArrayInput` via:
+//
+// 		 SlotSiteConfigScmIpRestrictionArray{ SlotSiteConfigScmIpRestrictionArgs{...} }
+//
+type SlotSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigScmIpRestrictionArrayOutput() SlotSiteConfigScmIpRestrictionArrayOutput
+	ToSlotSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) SlotSiteConfigScmIpRestrictionArrayOutput
+}
+
+type SlotSiteConfigScmIpRestrictionArray []SlotSiteConfigScmIpRestrictionInput
+
+func (SlotSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i SlotSiteConfigScmIpRestrictionArray) ToSlotSiteConfigScmIpRestrictionArrayOutput() SlotSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToSlotSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i SlotSiteConfigScmIpRestrictionArray) ToSlotSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type SlotSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (SlotSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o SlotSiteConfigScmIpRestrictionOutput) ToSlotSiteConfigScmIpRestrictionOutput() SlotSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionOutput) ToSlotSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP Address used for this IP Restriction.
+func (o SlotSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+func (o SlotSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SlotSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+func (o SlotSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type SlotSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (SlotSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o SlotSiteConfigScmIpRestrictionArrayOutput) ToSlotSiteConfigScmIpRestrictionArrayOutput() SlotSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionArrayOutput) ToSlotSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) SlotSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlotSiteConfigScmIpRestriction {
+		return vs[0].([]SlotSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(SlotSiteConfigScmIpRestrictionOutput)
 }
 
 type SlotSiteCredential struct {
@@ -12353,8 +12685,12 @@ type GetAppServiceSiteConfig struct {
 	RemoteDebuggingEnabled bool `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio is the Remote Debugger compatible with?
 	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
+	// One or more `scmIpRestriction` blocks as defined above.
+	ScmIpRestrictions []GetAppServiceSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service.
 	ScmType string `pulumi:"scmType"`
+	// IP security restrictions for scm to use main.
+	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess bool `pulumi:"use32BitWorkerProcess"`
 	// Are WebSockets enabled for this App Service?
@@ -12416,8 +12752,12 @@ type GetAppServiceSiteConfigArgs struct {
 	RemoteDebuggingEnabled pulumi.BoolInput `pulumi:"remoteDebuggingEnabled"`
 	// Which version of Visual Studio is the Remote Debugger compatible with?
 	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
+	// One or more `scmIpRestriction` blocks as defined above.
+	ScmIpRestrictions GetAppServiceSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	// The type of Source Control enabled for this App Service.
 	ScmType pulumi.StringInput `pulumi:"scmType"`
+	// IP security restrictions for scm to use main.
+	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
 	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
 	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
 	// Are WebSockets enabled for this App Service?
@@ -12578,9 +12918,19 @@ func (o GetAppServiceSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOut
 	return o.ApplyT(func(v GetAppServiceSiteConfig) string { return v.RemoteDebuggingVersion }).(pulumi.StringOutput)
 }
 
+// One or more `scmIpRestriction` blocks as defined above.
+func (o GetAppServiceSiteConfigOutput) ScmIpRestrictions() GetAppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfig) []GetAppServiceSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(GetAppServiceSiteConfigScmIpRestrictionArrayOutput)
+}
+
 // The type of Source Control enabled for this App Service.
 func (o GetAppServiceSiteConfigOutput) ScmType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfig) string { return v.ScmType }).(pulumi.StringOutput)
+}
+
+// IP security restrictions for scm to use main.
+func (o GetAppServiceSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfig) bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolOutput)
 }
 
 // Does the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -12727,14 +13077,15 @@ func (o GetAppServiceSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetAppSe
 }
 
 type GetAppServiceSiteConfigIpRestriction struct {
-	// Does this restriction `Allow` or `Deny` access for this IP range?
+	// Allow or Deny access for this IP range. Defaults to Allow.
 	Action string `pulumi:"action"`
-	// The IP Address used for this IP Restriction.
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress string `pulumi:"ipAddress"`
 	// The name of the App Service.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority               int    `pulumi:"priority"`
+	Priority int `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -12751,14 +13102,15 @@ type GetAppServiceSiteConfigIpRestrictionInput interface {
 }
 
 type GetAppServiceSiteConfigIpRestrictionArgs struct {
-	// Does this restriction `Allow` or `Deny` access for this IP range?
+	// Allow or Deny access for this IP range. Defaults to Allow.
 	Action pulumi.StringInput `pulumi:"action"`
-	// The IP Address used for this IP Restriction.
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the App Service.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority               pulumi.IntInput    `pulumi:"priority"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -12814,12 +13166,12 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) ToGetAppServiceSiteConfigIpR
 	return o
 }
 
-// Does this restriction `Allow` or `Deny` access for this IP range?
+// Allow or Deny access for this IP range. Defaults to Allow.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The IP Address used for this IP Restriction.
+// The IP Address used for this IP Restriction in CIDR notation.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -12834,6 +13186,7 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput 
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Virtual Network Subnet ID used for this IP Restriction.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
@@ -12856,6 +13209,141 @@ func (o GetAppServiceSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppServiceSiteConfigIpRestriction {
 		return vs[0].([]GetAppServiceSiteConfigIpRestriction)[vs[1].(int)]
 	}).(GetAppServiceSiteConfigIpRestrictionOutput)
+}
+
+type GetAppServiceSiteConfigScmIpRestriction struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress string `pulumi:"ipAddress"`
+	// The name of the App Service.
+	Name string `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority int `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetAppServiceSiteConfigScmIpRestrictionInput is an input type that accepts GetAppServiceSiteConfigScmIpRestrictionArgs and GetAppServiceSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `GetAppServiceSiteConfigScmIpRestrictionInput` via:
+//
+// 		 GetAppServiceSiteConfigScmIpRestrictionArgs{...}
+//
+type GetAppServiceSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetAppServiceSiteConfigScmIpRestrictionOutput() GetAppServiceSiteConfigScmIpRestrictionOutput
+	ToGetAppServiceSiteConfigScmIpRestrictionOutputWithContext(context.Context) GetAppServiceSiteConfigScmIpRestrictionOutput
+}
+
+type GetAppServiceSiteConfigScmIpRestrictionArgs struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The name of the App Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetAppServiceSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetAppServiceSiteConfigScmIpRestrictionArgs) ToGetAppServiceSiteConfigScmIpRestrictionOutput() GetAppServiceSiteConfigScmIpRestrictionOutput {
+	return i.ToGetAppServiceSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetAppServiceSiteConfigScmIpRestrictionArgs) ToGetAppServiceSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetAppServiceSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceSiteConfigScmIpRestrictionOutput)
+}
+
+// GetAppServiceSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetAppServiceSiteConfigScmIpRestrictionArray and GetAppServiceSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetAppServiceSiteConfigScmIpRestrictionArrayInput` via:
+//
+// 		 GetAppServiceSiteConfigScmIpRestrictionArray{ GetAppServiceSiteConfigScmIpRestrictionArgs{...} }
+//
+type GetAppServiceSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetAppServiceSiteConfigScmIpRestrictionArrayOutput() GetAppServiceSiteConfigScmIpRestrictionArrayOutput
+	ToGetAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) GetAppServiceSiteConfigScmIpRestrictionArrayOutput
+}
+
+type GetAppServiceSiteConfigScmIpRestrictionArray []GetAppServiceSiteConfigScmIpRestrictionInput
+
+func (GetAppServiceSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetAppServiceSiteConfigScmIpRestrictionArray) ToGetAppServiceSiteConfigScmIpRestrictionArrayOutput() GetAppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToGetAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppServiceSiteConfigScmIpRestrictionArray) ToGetAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetAppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type GetAppServiceSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetAppServiceSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) ToGetAppServiceSiteConfigScmIpRestrictionOutput() GetAppServiceSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) ToGetAppServiceSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetAppServiceSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+// Allow or Deny access for this IP range. Defaults to Allow.
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of the App Service.
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority for this IP Restriction.
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+type GetAppServiceSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppServiceSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServiceSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionArrayOutput) ToGetAppServiceSiteConfigScmIpRestrictionArrayOutput() GetAppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionArrayOutput) ToGetAppServiceSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetAppServiceSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetAppServiceSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppServiceSiteConfigScmIpRestriction {
+		return vs[0].([]GetAppServiceSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(GetAppServiceSiteConfigScmIpRestrictionOutput)
 }
 
 type GetAppServiceSiteCredential struct {
@@ -13452,6 +13940,8 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(AppServiceSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(AppServiceSiteConfigScmIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteCredentialOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceSourceControlOutput{})
@@ -13544,6 +14034,8 @@ func init() {
 	pulumi.RegisterOutputType(SlotSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringOutput{})
@@ -13555,6 +14047,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigCorArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetAppServiceSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetAppServiceSiteConfigScmIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteCredentialOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSourceControlOutput{})

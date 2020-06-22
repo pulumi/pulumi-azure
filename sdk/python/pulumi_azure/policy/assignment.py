@@ -19,6 +19,11 @@ class Assignment(pulumi.CustomResource):
     """
     A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
     """
+    enforcement_mode: pulumi.Output[bool]
+    """
+    Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+    ---
+    """
     identity: pulumi.Output[dict]
     """
     An `identity` block.
@@ -51,7 +56,7 @@ class Assignment(pulumi.CustomResource):
     """
     The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, identity=None, location=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
 
@@ -108,6 +113,8 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+               ---
         :param pulumi.Input[dict] identity: An `identity` block.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -141,6 +148,7 @@ class Assignment(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
+            __props__['enforcement_mode'] = enforcement_mode
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['name'] = name
@@ -159,7 +167,7 @@ class Assignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, display_name=None, identity=None, location=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None):
+    def get(resource_name, id, opts=None, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None):
         """
         Get an existing Assignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -169,6 +177,8 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+               ---
         :param pulumi.Input[dict] identity: An `identity` block.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -189,6 +199,7 @@ class Assignment(pulumi.CustomResource):
 
         __props__["description"] = description
         __props__["display_name"] = display_name
+        __props__["enforcement_mode"] = enforcement_mode
         __props__["identity"] = identity
         __props__["location"] = location
         __props__["name"] = name

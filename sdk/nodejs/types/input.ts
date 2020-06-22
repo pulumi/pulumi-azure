@@ -1260,9 +1260,17 @@ export namespace appservice {
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSiteConfigScmIpRestriction>[]>;
+        /**
          * The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
         scmType?: pulumi.Input<string>;
+        /**
+         * IP security restrictions for scm to use main. Defaults to false.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
          * Should the App Service run in 32 bit mode, rather than 64 bit mode?
          */
@@ -1291,6 +1299,29 @@ export namespace appservice {
     export interface AppServiceSiteConfigIpRestriction {
         /**
          * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name for this IP Restriction.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface AppServiceSiteConfigScmIpRestriction {
+        /**
+         * Allow or Deny access for this IP range. Defaults to Allow.
          */
         action?: pulumi.Input<string>;
         /**
@@ -2156,10 +2187,12 @@ export namespace appservice {
          * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteConfigScmIpRestriction>[]>;
         /**
          * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
         scmType?: pulumi.Input<string>;
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
          * Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
          */
@@ -2183,6 +2216,23 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigIpRestriction {
+        action?: pulumi.Input<string>;
+        /**
+         * The IP Address used for this IP Restriction.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        priority?: pulumi.Input<number>;
+        /**
+         * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface SlotSiteConfigScmIpRestriction {
         action?: pulumi.Input<string>;
         /**
          * The IP Address used for this IP Restriction.
@@ -6151,6 +6201,13 @@ export namespace datafactory {
          */
         vnetId: pulumi.Input<string>;
     }
+
+    export interface IntegrationRuntimeSelfHostedRbacAuthorization {
+        /**
+         * The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+         */
+        resourceId: pulumi.Input<string>;
+    }
 }
 
 export namespace datashare {
@@ -6167,6 +6224,21 @@ export namespace datashare {
          * Specifies the identity type of the Data Share Account. At this time the only allowed value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface DatasetBlobStorageStorageAccount {
+        /**
+         * The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+         */
+        resourceGroupName: pulumi.Input<string>;
+        /**
+         * The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+         */
+        subscriptionId: pulumi.Input<string>;
     }
 
     export interface ShareSnapshotSchedule {
@@ -7733,6 +7805,8 @@ export namespace hdinsight {
     export interface HBaseClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -7995,6 +8069,8 @@ export namespace hdinsight {
     export interface HadoopClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -8152,6 +8228,8 @@ export namespace hdinsight {
     export interface InteractiveQueryClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -8312,6 +8390,8 @@ export namespace hdinsight {
     export interface KafkaClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -8500,6 +8580,8 @@ export namespace hdinsight {
     export interface MLServicesClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -8665,6 +8747,8 @@ export namespace hdinsight {
     export interface RServerClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -8806,6 +8890,8 @@ export namespace hdinsight {
     export interface SparkClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -8966,6 +9052,8 @@ export namespace hdinsight {
     export interface StormClusterRolesWorkerNode {
         /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
          */
         minInstanceCount?: pulumi.Input<number>;
         /**
@@ -9626,7 +9714,7 @@ export namespace kusto {
          */
         capacity: pulumi.Input<number>;
         /**
-         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
          */
         name: pulumi.Input<string>;
     }
@@ -9703,7 +9791,7 @@ export namespace logicapps {
          */
         actionName: pulumi.Input<string>;
         /**
-         * Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+         * Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
          */
         actionResult: pulumi.Input<string>;
     }
@@ -12765,6 +12853,74 @@ export namespace privatedns {
 }
 
 export namespace privatelink {
+    export interface EndpointCustomDnsConfig {
+        /**
+         * The fully qualified domain name to the `privateDnsZone`.
+         */
+        fqdn?: pulumi.Input<string>;
+        /**
+         * A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EndpointPrivateDnsZoneConfig {
+        /**
+         * The ID of the Private DNS Zone Config.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A list of IP Addresses
+         */
+        privateDnsZoneId?: pulumi.Input<string>;
+        /**
+         * A `recordSets` block as defined below.
+         */
+        recordSets?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointPrivateDnsZoneConfigRecordSet>[]>;
+    }
+
+    export interface EndpointPrivateDnsZoneConfigRecordSet {
+        /**
+         * The fully qualified domain name to the `privateDnsZone`.
+         */
+        fqdn?: pulumi.Input<string>;
+        /**
+         * A list of all IP Addresses that map to the `privateDnsZone` fqdn.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The time to live for each connection to the `privateDnsZone`.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * The type of DNS record.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface EndpointPrivateDnsZoneGroup {
+        /**
+         * The ID of the Private DNS Zone Config.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
+         */
+        privateDnsZoneIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface EndpointPrivateServiceConnection {
         /**
          * Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.

@@ -33,6 +33,7 @@ export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Prom
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure:management/getGroup:getGroup", {
+        "displayName": args.displayName,
         "groupId": args.groupId,
         "name": args.name,
     }, opts);
@@ -42,6 +43,10 @@ export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getGroup.
  */
 export interface GetGroupArgs {
+    /**
+     * Specifies the display name of this Management Group.
+     */
+    readonly displayName?: string;
     /**
      * Specifies the name or UUID of this Management Group.
      *
@@ -58,9 +63,6 @@ export interface GetGroupArgs {
  * A collection of values returned by getGroup.
  */
 export interface GetGroupResult {
-    /**
-     * A friendly name for the Management Group.
-     */
     readonly displayName: string;
     /**
      * @deprecated Deprecated in favour of `name`
@@ -76,7 +78,7 @@ export interface GetGroupResult {
      */
     readonly parentManagementGroupId: string;
     /**
-     * A list of Subscription ID's which are assigned to the Management Group.
+     * A list of Subscription IDs which are assigned to the Management Group.
      */
     readonly subscriptionIds: string[];
 }

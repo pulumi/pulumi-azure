@@ -62,6 +62,12 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> EnableDiskEncryption { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the purge operations are enabled.
+        /// </summary>
+        [Output("enablePurge")]
+        public Output<bool?> EnablePurge { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if the streaming ingest is enabled.
         /// </summary>
         [Output("enableStreamingIngest")]
@@ -156,6 +162,12 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? EnableDiskEncryption { get; set; }
 
         /// <summary>
+        /// Specifies if the purge operations are enabled.
+        /// </summary>
+        [Input("enablePurge")]
+        public Input<bool>? EnablePurge { get; set; }
+
+        /// <summary>
         /// Specifies if the streaming ingest is enabled.
         /// </summary>
         [Input("enableStreamingIngest")]
@@ -215,6 +227,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("enableDiskEncryption")]
         public Input<bool>? EnableDiskEncryption { get; set; }
+
+        /// <summary>
+        /// Specifies if the purge operations are enabled.
+        /// </summary>
+        [Input("enablePurge")]
+        public Input<bool>? EnablePurge { get; set; }
 
         /// <summary>
         /// Specifies if the streaming ingest is enabled.

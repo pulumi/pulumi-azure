@@ -36,7 +36,7 @@ class ActionHttp(pulumi.CustomResource):
     Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
 
       * `actionName` (`str`) - Specifies the name of the precedent HTTP Action.
-      * `actionResult` (`str`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+      * `actionResult` (`str`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
     """
     uri: pulumi.Output[str]
     """
@@ -77,7 +77,7 @@ class ActionHttp(pulumi.CustomResource):
         The **run_afters** object supports the following:
 
           * `actionName` (`pulumi.Input[str]`) - Specifies the name of the precedent HTTP Action.
-          * `actionResult` (`pulumi.Input[str]`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+          * `actionResult` (`pulumi.Input[str]`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,7 +135,7 @@ class ActionHttp(pulumi.CustomResource):
         The **run_afters** object supports the following:
 
           * `actionName` (`pulumi.Input[str]`) - Specifies the name of the precedent HTTP Action.
-          * `actionResult` (`pulumi.Input[str]`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered.
+          * `actionResult` (`pulumi.Input[str]`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

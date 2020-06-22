@@ -90,6 +90,13 @@ namespace Pulumi.Azure.Policy
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+        /// ---
+        /// </summary>
+        [Output("enforcementMode")]
+        public Output<bool?> EnforcementMode { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block.
         /// </summary>
         [Output("identity")]
@@ -190,6 +197,13 @@ namespace Pulumi.Azure.Policy
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+        /// ---
+        /// </summary>
+        [Input("enforcementMode")]
+        public Input<bool>? EnforcementMode { get; set; }
+
+        /// <summary>
         /// An `identity` block.
         /// </summary>
         [Input("identity")]
@@ -255,6 +269,13 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+        /// ---
+        /// </summary>
+        [Input("enforcementMode")]
+        public Input<bool>? EnforcementMode { get; set; }
 
         /// <summary>
         /// An `identity` block.

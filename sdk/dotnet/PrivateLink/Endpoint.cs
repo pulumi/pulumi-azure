@@ -18,6 +18,9 @@ namespace Pulumi.Azure.PrivateLink
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {
+        [Output("customDnsConfigs")]
+        public Output<ImmutableArray<Outputs.EndpointCustomDnsConfig>> CustomDnsConfigs { get; private set; } = null!;
+
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -29,6 +32,15 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("privateDnsZoneConfigs")]
+        public Output<ImmutableArray<Outputs.EndpointPrivateDnsZoneConfig>> PrivateDnsZoneConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// A `private_dns_zone_group` block as defined below.
+        /// </summary>
+        [Output("privateDnsZoneGroup")]
+        public Output<Outputs.EndpointPrivateDnsZoneGroup?> PrivateDnsZoneGroup { get; private set; } = null!;
 
         /// <summary>
         /// A `private_service_connection` block as defined below.
@@ -113,6 +125,12 @@ namespace Pulumi.Azure.PrivateLink
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `private_dns_zone_group` block as defined below.
+        /// </summary>
+        [Input("privateDnsZoneGroup")]
+        public Input<Inputs.EndpointPrivateDnsZoneGroupArgs>? PrivateDnsZoneGroup { get; set; }
+
+        /// <summary>
         /// A `private_service_connection` block as defined below.
         /// </summary>
         [Input("privateServiceConnection", required: true)]
@@ -149,6 +167,14 @@ namespace Pulumi.Azure.PrivateLink
 
     public sealed class EndpointState : Pulumi.ResourceArgs
     {
+        [Input("customDnsConfigs")]
+        private InputList<Inputs.EndpointCustomDnsConfigGetArgs>? _customDnsConfigs;
+        public InputList<Inputs.EndpointCustomDnsConfigGetArgs> CustomDnsConfigs
+        {
+            get => _customDnsConfigs ?? (_customDnsConfigs = new InputList<Inputs.EndpointCustomDnsConfigGetArgs>());
+            set => _customDnsConfigs = value;
+        }
+
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -160,6 +186,20 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("privateDnsZoneConfigs")]
+        private InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs>? _privateDnsZoneConfigs;
+        public InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs> PrivateDnsZoneConfigs
+        {
+            get => _privateDnsZoneConfigs ?? (_privateDnsZoneConfigs = new InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs>());
+            set => _privateDnsZoneConfigs = value;
+        }
+
+        /// <summary>
+        /// A `private_dns_zone_group` block as defined below.
+        /// </summary>
+        [Input("privateDnsZoneGroup")]
+        public Input<Inputs.EndpointPrivateDnsZoneGroupGetArgs>? PrivateDnsZoneGroup { get; set; }
 
         /// <summary>
         /// A `private_service_connection` block as defined below.

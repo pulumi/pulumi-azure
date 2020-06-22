@@ -1465,6 +1465,105 @@ func (o IntegrationRuntimeManagedVnetIntegrationPtrOutput) VnetId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntegrationRuntimeSelfHostedRbacAuthorization struct {
+	// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+	ResourceId string `pulumi:"resourceId"`
+}
+
+// IntegrationRuntimeSelfHostedRbacAuthorizationInput is an input type that accepts IntegrationRuntimeSelfHostedRbacAuthorizationArgs and IntegrationRuntimeSelfHostedRbacAuthorizationOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSelfHostedRbacAuthorizationInput` via:
+//
+// 		 IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...}
+//
+type IntegrationRuntimeSelfHostedRbacAuthorizationInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSelfHostedRbacAuthorizationOutput() IntegrationRuntimeSelfHostedRbacAuthorizationOutput
+	ToIntegrationRuntimeSelfHostedRbacAuthorizationOutputWithContext(context.Context) IntegrationRuntimeSelfHostedRbacAuthorizationOutput
+}
+
+type IntegrationRuntimeSelfHostedRbacAuthorizationArgs struct {
+	// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+}
+
+func (IntegrationRuntimeSelfHostedRbacAuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSelfHostedRbacAuthorization)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSelfHostedRbacAuthorizationArgs) ToIntegrationRuntimeSelfHostedRbacAuthorizationOutput() IntegrationRuntimeSelfHostedRbacAuthorizationOutput {
+	return i.ToIntegrationRuntimeSelfHostedRbacAuthorizationOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSelfHostedRbacAuthorizationArgs) ToIntegrationRuntimeSelfHostedRbacAuthorizationOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedRbacAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedRbacAuthorizationOutput)
+}
+
+// IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput is an input type that accepts IntegrationRuntimeSelfHostedRbacAuthorizationArray and IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput` via:
+//
+// 		 IntegrationRuntimeSelfHostedRbacAuthorizationArray{ IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...} }
+//
+type IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput() IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput
+	ToIntegrationRuntimeSelfHostedRbacAuthorizationArrayOutputWithContext(context.Context) IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput
+}
+
+type IntegrationRuntimeSelfHostedRbacAuthorizationArray []IntegrationRuntimeSelfHostedRbacAuthorizationInput
+
+func (IntegrationRuntimeSelfHostedRbacAuthorizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSelfHostedRbacAuthorization)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSelfHostedRbacAuthorizationArray) ToIntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput() IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput {
+	return i.ToIntegrationRuntimeSelfHostedRbacAuthorizationArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSelfHostedRbacAuthorizationArray) ToIntegrationRuntimeSelfHostedRbacAuthorizationArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput)
+}
+
+type IntegrationRuntimeSelfHostedRbacAuthorizationOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSelfHostedRbacAuthorization)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ToIntegrationRuntimeSelfHostedRbacAuthorizationOutput() IntegrationRuntimeSelfHostedRbacAuthorizationOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ToIntegrationRuntimeSelfHostedRbacAuthorizationOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedRbacAuthorizationOutput {
+	return o
+}
+
+// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
+func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSelfHostedRbacAuthorization) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationRuntimeSelfHostedRbacAuthorization)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) ToIntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput() IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) ToIntegrationRuntimeSelfHostedRbacAuthorizationArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSelfHostedRbacAuthorizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationRuntimeSelfHostedRbacAuthorization {
+		return vs[0].([]IntegrationRuntimeSelfHostedRbacAuthorization)[vs[1].(int)]
+	}).(IntegrationRuntimeSelfHostedRbacAuthorizationOutput)
+}
+
 type GetFactoryGithubConfiguration struct {
 	// The VSTS account name.
 	AccountName string `pulumi:"accountName"`
@@ -1880,6 +1979,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedCustomSetupScriptPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedVnetIntegrationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedVnetIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFactoryGithubConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryIdentityOutput{})

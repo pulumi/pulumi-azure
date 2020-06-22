@@ -43,7 +43,11 @@ class Environment(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, front_end_scale_factor=None, internal_load_balancing_mode=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    user_whitelisted_ip_ranges: pulumi.Output[list]
+    """
+    User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+    """
+    def __init__(__self__, resource_name, opts=None, front_end_scale_factor=None, internal_load_balancing_mode=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None, user_whitelisted_ip_ranges=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service Environment.
 
@@ -71,7 +75,11 @@ class Environment(pulumi.CustomResource):
         example_environment = azure.appservice.Environment("exampleEnvironment",
             subnet_id=ase.id,
             pricing_tier="I2",
-            front_end_scale_factor=10)
+            front_end_scale_factor=10,
+            user_whitelisted_ip_ranges=[
+                "11.22.33.44/32",
+                "55.66.77.0/24",
+            ])
         ```
 
         :param str resource_name: The name of the resource.
@@ -83,6 +91,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] user_whitelisted_ip_ranges: User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,6 +119,7 @@ class Environment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            __props__['user_whitelisted_ip_ranges'] = user_whitelisted_ip_ranges
             __props__['location'] = None
         super(Environment, __self__).__init__(
             'azure:appservice/environment:Environment',
@@ -118,7 +128,7 @@ class Environment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, front_end_scale_factor=None, internal_load_balancing_mode=None, location=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None):
+    def get(resource_name, id, opts=None, front_end_scale_factor=None, internal_load_balancing_mode=None, location=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None, user_whitelisted_ip_ranges=None):
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,6 +144,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] user_whitelisted_ip_ranges: User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -147,6 +158,7 @@ class Environment(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["subnet_id"] = subnet_id
         __props__["tags"] = tags
+        __props__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
         return Environment(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

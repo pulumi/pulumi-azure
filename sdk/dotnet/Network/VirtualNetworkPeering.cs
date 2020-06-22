@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The name of the resource group in which to
-        /// create the virtual network. Changing this forces a new resource to be
+        /// create the virtual network peering. Changing this forces a new resource to be
         /// created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The name of the resource group in which to
-        /// create the virtual network. Changing this forces a new resource to be
+        /// create the virtual network peering. Changing this forces a new resource to be
         /// created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The name of the resource group in which to
-        /// create the virtual network. Changing this forces a new resource to be
+        /// create the virtual network peering. Changing this forces a new resource to be
         /// created.
         /// </summary>
         [Input("resourceGroupName")]

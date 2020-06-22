@@ -58,6 +58,8 @@ type Cluster struct {
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrOutput `pulumi:"enableDiskEncryption"`
+	// Specifies if the purge operations are enabled.
+	EnablePurge pulumi.BoolPtrOutput `pulumi:"enablePurge"`
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -112,6 +114,8 @@ type clusterState struct {
 	DataIngestionUri *string `pulumi:"dataIngestionUri"`
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// Specifies if the purge operations are enabled.
+	EnablePurge *bool `pulumi:"enablePurge"`
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -133,6 +137,8 @@ type ClusterState struct {
 	DataIngestionUri pulumi.StringPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
+	// Specifies if the purge operations are enabled.
+	EnablePurge pulumi.BoolPtrInput
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -156,6 +162,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// Specifies if the purge operations are enabled.
+	EnablePurge *bool `pulumi:"enablePurge"`
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -174,6 +182,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Specifies if the cluster's disks are encrypted.
 	EnableDiskEncryption pulumi.BoolPtrInput
+	// Specifies if the purge operations are enabled.
+	EnablePurge pulumi.BoolPtrInput
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.

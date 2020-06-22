@@ -141,11 +141,22 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }
 
+        [Input("scmIpRestrictions")]
+        private InputList<Inputs.SlotSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;
+        public InputList<Inputs.SlotSiteConfigScmIpRestrictionArgs> ScmIpRestrictions
+        {
+            get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.SlotSiteConfigScmIpRestrictionArgs>());
+            set => _scmIpRestrictions = value;
+        }
+
         /// <summary>
         /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
+
+        [Input("scmUseMainIpRestriction")]
+        public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
         /// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?

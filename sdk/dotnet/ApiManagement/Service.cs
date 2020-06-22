@@ -66,6 +66,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<Outputs.ServiceCertificate>> Certificates { get; private set; } = null!;
 
         /// <summary>
+        /// The URL for the Developer Portal associated with this API Management service.
+        /// </summary>
+        [Output("developerPortalUrl")]
+        public Output<string> DeveloperPortalUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
         /// </summary>
         [Output("gatewayRegionalUrl")]
@@ -414,6 +420,12 @@ namespace Pulumi.Azure.ApiManagement
             get => _certificates ?? (_certificates = new InputList<Inputs.ServiceCertificateGetArgs>());
             set => _certificates = value;
         }
+
+        /// <summary>
+        /// The URL for the Developer Portal associated with this API Management service.
+        /// </summary>
+        [Input("developerPortalUrl")]
+        public Input<string>? DeveloperPortalUrl { get; set; }
 
         /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.

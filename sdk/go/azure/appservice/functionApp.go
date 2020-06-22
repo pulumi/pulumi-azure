@@ -184,7 +184,7 @@ type FunctionApp struct {
 
 	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
-	// A key-value pair of App Settings.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsOutput `pulumi:"authSettings"`
@@ -272,7 +272,7 @@ func GetFunctionApp(ctx *pulumi.Context,
 type functionAppState struct {
 	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
-	// A key-value pair of App Settings.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
@@ -327,7 +327,7 @@ type functionAppState struct {
 type FunctionAppState struct {
 	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId pulumi.StringPtrInput
-	// A key-value pair of App Settings.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsPtrInput
@@ -386,7 +386,7 @@ func (FunctionAppState) ElementType() reflect.Type {
 type functionAppArgs struct {
 	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId string `pulumi:"appServicePlanId"`
-	// A key-value pair of App Settings.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
@@ -432,7 +432,7 @@ type functionAppArgs struct {
 type FunctionAppArgs struct {
 	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId pulumi.StringInput
-	// A key-value pair of App Settings.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings FunctionAppAuthSettingsPtrInput

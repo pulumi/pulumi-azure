@@ -33,6 +33,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> HostNames { get; private set; } = null!;
 
         /// <summary>
+        /// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("hostingEnvironmentProfileId")]
+        public Output<string?> HostingEnvironmentProfileId { get; private set; } = null!;
+
+        /// <summary>
         /// The issue date for the certificate.
         /// </summary>
         [Output("issueDate")]
@@ -142,6 +148,12 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hostingEnvironmentProfileId")]
+        public Input<string>? HostingEnvironmentProfileId { get; set; }
+
+        /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultSecretId")]
@@ -215,6 +227,12 @@ namespace Pulumi.Azure.AppService
             get => _hostNames ?? (_hostNames = new InputList<string>());
             set => _hostNames = value;
         }
+
+        /// <summary>
+        /// Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("hostingEnvironmentProfileId")]
+        public Input<string>? HostingEnvironmentProfileId { get; set; }
 
         /// <summary>
         /// The issue date for the certificate.

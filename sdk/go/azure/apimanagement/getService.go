@@ -55,6 +55,8 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// One or more `additionalLocation` blocks as defined below
 	AdditionalLocations []GetServiceAdditionalLocation `pulumi:"additionalLocations"`
+	// The URL for the Developer Portal associated with this API Management service.
+	DeveloperPortalUrl string `pulumi:"developerPortalUrl"`
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
 	// The URL for the API Management Service's Gateway.

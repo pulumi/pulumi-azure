@@ -61,6 +61,10 @@ export interface GetServiceResult {
      */
     readonly additionalLocations: outputs.apimanagement.GetServiceAdditionalLocation[];
     /**
+     * The URL for the Developer Portal associated with this API Management service.
+     */
+    readonly developerPortalUrl: string;
+    /**
      * Gateway URL of the API Management service in the Region.
      */
     readonly gatewayRegionalUrl: string;

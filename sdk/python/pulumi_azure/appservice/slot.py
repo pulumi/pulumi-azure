@@ -141,7 +141,15 @@ class Slot(pulumi.CustomResource):
       * `pythonVersion` (`str`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
       * `remoteDebuggingEnabled` (`bool`) - Is Remote Debugging Enabled? Defaults to `false`.
       * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+      * `scmIpRestrictions` (`list`)
+        * `action` (`str`)
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction.
+        * `name` (`str`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        * `priority` (`float`)
+        * `virtualNetworkSubnetId` (`str`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+
       * `scmType` (`str`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+      * `scmUseMainIpRestriction` (`bool`)
       * `use32BitWorkerProcess` (`bool`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
       * `windowsFxVersion` (`str`)
@@ -375,7 +383,15 @@ class Slot(pulumi.CustomResource):
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+          * `scmIpRestrictions` (`pulumi.Input[list]`)
+            * `action` (`pulumi.Input[str]`)
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+            * `priority` (`pulumi.Input[float]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`)
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`)
@@ -550,7 +566,15 @@ class Slot(pulumi.CustomResource):
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+          * `scmIpRestrictions` (`pulumi.Input[list]`)
+            * `action` (`pulumi.Input[str]`)
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+            * `priority` (`pulumi.Input[float]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`)
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`)

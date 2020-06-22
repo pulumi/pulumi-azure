@@ -175,7 +175,7 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
         * `autoStorageContainerName` (`str`) - The storage container name in the auto storage account.
         * `blobPrefix` (`str`) - The blob prefix used when downloading blobs from an Azure Storage container.
         * `fileMode` (`str`) - The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
-        * `filePath` (`str`) - The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
+        * `file_path` (`str`) - The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
         * `httpUrl` (`str`) - The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
         * `storageContainerUrl` (`str`) - The URL of the blob container within Azure Blob Storage.
 

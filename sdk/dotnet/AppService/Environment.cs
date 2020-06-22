@@ -54,6 +54,11 @@ namespace Pulumi.Azure.AppService
     ///             SubnetId = ase.Id,
     ///             PricingTier = "I2",
     ///             FrontEndScaleFactor = 10,
+    ///             UserWhitelistedIpRanges = 
+    ///             {
+    ///                 "11.22.33.44/32",
+    ///                 "55.66.77.0/24",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -109,6 +114,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+        /// </summary>
+        [Output("userWhitelistedIpRanges")]
+        public Output<ImmutableArray<string>> UserWhitelistedIpRanges { get; private set; } = null!;
 
 
         /// <summary>
@@ -204,6 +215,18 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
+        [Input("userWhitelistedIpRanges")]
+        private InputList<string>? _userWhitelistedIpRanges;
+
+        /// <summary>
+        /// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+        /// </summary>
+        public InputList<string> UserWhitelistedIpRanges
+        {
+            get => _userWhitelistedIpRanges ?? (_userWhitelistedIpRanges = new InputList<string>());
+            set => _userWhitelistedIpRanges = value;
+        }
+
         public EnvironmentArgs()
         {
         }
@@ -263,6 +286,18 @@ namespace Pulumi.Azure.AppService
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("userWhitelistedIpRanges")]
+        private InputList<string>? _userWhitelistedIpRanges;
+
+        /// <summary>
+        /// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+        /// </summary>
+        public InputList<string> UserWhitelistedIpRanges
+        {
+            get => _userWhitelistedIpRanges ?? (_userWhitelistedIpRanges = new InputList<string>());
+            set => _userWhitelistedIpRanges = value;
         }
 
         public EnvironmentState()

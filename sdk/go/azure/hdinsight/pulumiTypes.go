@@ -715,6 +715,8 @@ func (o HBaseClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 type HBaseClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -746,6 +748,8 @@ type HBaseClusterRolesWorkerNodeInput interface {
 
 type HBaseClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -842,6 +846,8 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutpu
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o HBaseClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -900,6 +906,8 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) Elem() HBaseClusterRolesWorkerNode
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o HBaseClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *int {
 		if v == nil {
@@ -3260,6 +3268,8 @@ func (o HadoopClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 type HadoopClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -3291,6 +3301,8 @@ type HadoopClusterRolesWorkerNodeInput interface {
 
 type HadoopClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -3387,6 +3399,8 @@ func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodePtrOut
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o HadoopClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -3445,6 +3459,8 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) Elem() HadoopClusterRolesWorkerNo
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o HadoopClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *int {
 		if v == nil {
@@ -4759,6 +4775,8 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtr
 
 type InteractiveQueryClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -4790,6 +4808,8 @@ type InteractiveQueryClusterRolesWorkerNodeInput interface {
 
 type InteractiveQueryClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -4886,6 +4906,8 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterR
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -4944,6 +4966,8 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Elem() InteractiveQuery
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *int {
 		if v == nil {
@@ -6267,6 +6291,8 @@ func (o KafkaClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 type KafkaClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
 	NumberOfDisksPerNode int `pulumi:"numberOfDisksPerNode"`
@@ -6300,6 +6326,8 @@ type KafkaClusterRolesWorkerNodeInput interface {
 
 type KafkaClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
 	NumberOfDisksPerNode pulumi.IntInput `pulumi:"numberOfDisksPerNode"`
@@ -6398,6 +6426,8 @@ func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodePtrOutpu
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o KafkaClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -6461,6 +6491,8 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) Elem() KafkaClusterRolesWorkerNode
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o KafkaClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *int {
 		if v == nil {
@@ -7904,6 +7936,8 @@ func (o MLServicesClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput
 
 type MLServicesClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -7935,6 +7969,8 @@ type MLServicesClusterRolesWorkerNodeInput interface {
 
 type MLServicesClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -8031,6 +8067,8 @@ func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNo
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o MLServicesClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MLServicesClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -8089,6 +8127,8 @@ func (o MLServicesClusterRolesWorkerNodePtrOutput) Elem() MLServicesClusterRoles
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o MLServicesClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MLServicesClusterRolesWorkerNode) *int {
 		if v == nil {
@@ -9332,6 +9372,8 @@ func (o RServerClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 type RServerClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -9363,6 +9405,8 @@ type RServerClusterRolesWorkerNodeInput interface {
 
 type RServerClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -9459,6 +9503,8 @@ func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodePtrO
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o RServerClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RServerClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -9517,6 +9563,8 @@ func (o RServerClusterRolesWorkerNodePtrOutput) Elem() RServerClusterRolesWorker
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o RServerClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RServerClusterRolesWorkerNode) *int {
 		if v == nil {
@@ -10646,6 +10694,8 @@ func (o SparkClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 type SparkClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -10677,6 +10727,8 @@ type SparkClusterRolesWorkerNodeInput interface {
 
 type SparkClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -10773,6 +10825,8 @@ func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodePtrOutpu
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o SparkClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -10831,6 +10885,8 @@ func (o SparkClusterRolesWorkerNodePtrOutput) Elem() SparkClusterRolesWorkerNode
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o SparkClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *int {
 		if v == nil {
@@ -12150,6 +12206,8 @@ func (o StormClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 type StormClusterRolesWorkerNode struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount *int `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
@@ -12181,6 +12239,8 @@ type StormClusterRolesWorkerNodeInput interface {
 
 type StormClusterRolesWorkerNodeArgs struct {
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -12277,6 +12337,8 @@ func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodePtrOutpu
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o StormClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StormClusterRolesWorkerNode) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -12335,6 +12397,8 @@ func (o StormClusterRolesWorkerNodePtrOutput) Elem() StormClusterRolesWorkerNode
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
 func (o StormClusterRolesWorkerNodePtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StormClusterRolesWorkerNode) *int {
 		if v == nil {

@@ -90,7 +90,7 @@ type ServerSecurityAlertPolicy struct {
 	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
@@ -147,7 +147,7 @@ type serverSecurityAlertPolicyState struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -168,7 +168,7 @@ type ServerSecurityAlertPolicyState struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
 	State pulumi.StringPtrInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -193,7 +193,7 @@ type serverSecurityAlertPolicyArgs struct {
 	RetentionDays *int `pulumi:"retentionDays"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
 	State string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -215,7 +215,7 @@ type ServerSecurityAlertPolicyArgs struct {
 	RetentionDays pulumi.IntPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
-	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`, `New`.
+	// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
 	State pulumi.StringInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput

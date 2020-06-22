@@ -88,10 +88,12 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
         /// </summary>
         public readonly string? RemoteDebuggingVersion;
+        public readonly ImmutableArray<Outputs.SlotSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
         /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         /// </summary>
         public readonly string? ScmType;
+        public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
         /// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
         /// </summary>
@@ -146,7 +148,11 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? remoteDebuggingVersion,
 
+            ImmutableArray<Outputs.SlotSiteConfigScmIpRestriction> scmIpRestrictions,
+
             string? scmType,
+
+            bool? scmUseMainIpRestriction,
 
             bool? use32BitWorkerProcess,
 
@@ -175,7 +181,9 @@ namespace Pulumi.Azure.AppService.Outputs
             PythonVersion = pythonVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;
             RemoteDebuggingVersion = remoteDebuggingVersion;
+            ScmIpRestrictions = scmIpRestrictions;
             ScmType = scmType;
+            ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             WebsocketsEnabled = websocketsEnabled;
             WindowsFxVersion = windowsFxVersion;

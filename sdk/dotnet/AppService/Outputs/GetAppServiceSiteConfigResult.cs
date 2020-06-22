@@ -94,9 +94,17 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string RemoteDebuggingVersion;
         /// <summary>
+        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAppServiceSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
+        /// <summary>
         /// The type of Source Control enabled for this App Service.
         /// </summary>
         public readonly string ScmType;
+        /// <summary>
+        /// IP security restrictions for scm to use main.
+        /// </summary>
+        public readonly bool ScmUseMainIpRestriction;
         /// <summary>
         /// Does the App Service run in 32 bit mode, rather than 64 bit mode?
         /// </summary>
@@ -152,7 +160,11 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string remoteDebuggingVersion,
 
+            ImmutableArray<Outputs.GetAppServiceSiteConfigScmIpRestrictionResult> scmIpRestrictions,
+
             string scmType,
+
+            bool scmUseMainIpRestriction,
 
             bool use32BitWorkerProcess,
 
@@ -180,7 +192,9 @@ namespace Pulumi.Azure.AppService.Outputs
             PythonVersion = pythonVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;
             RemoteDebuggingVersion = remoteDebuggingVersion;
+            ScmIpRestrictions = scmIpRestrictions;
             ScmType = scmType;
+            ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             WebsocketsEnabled = websocketsEnabled;
             WindowsFxVersion = windowsFxVersion;
