@@ -9,7 +9,7 @@
     "dependencies": {
         "@pulumi/azure": "^3.0.0",
         "@pulumi/pulumi": "^2.0.0",
-        "durable-functions": "^1.3.3",
+        "durable-functions": "1.4.1",
         "mime-types": "^2.1.19"
     },
     "devDependencies": {
