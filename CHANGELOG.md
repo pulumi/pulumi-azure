@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.15.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.10.0 (2020-06-24)
+* Upgrade to v2.15.0 of the AzureRM Terraform Provider
 
 ## 3.9.3 (2020-06-17)
 * Fix up ldflags being pushed to pulumi-azure binary
