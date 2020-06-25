@@ -52,8 +52,6 @@ def get_resource_group(name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

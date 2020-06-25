@@ -11,6 +11,61 @@ import (
 )
 
 // Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/siterecovery"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("East US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+// 			Location:          secondary.Location,
+// 			ResourceGroupName: secondary.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fabric, err := siterecovery.NewFabric(ctx, "fabric", &siterecovery.FabricArgs{
+// 			ResourceGroupName: secondary.Name,
+// 			RecoveryVaultName: vault.Name,
+// 			Location:          primary.Location,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = siterecovery.NewProtectionContainer(ctx, "protection-container", &siterecovery.ProtectionContainerArgs{
+// 			ResourceGroupName:  secondary.Name,
+// 			RecoveryVaultName:  vault.Name,
+// 			RecoveryFabricName: fabric.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 

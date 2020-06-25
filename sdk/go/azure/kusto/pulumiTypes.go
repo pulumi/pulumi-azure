@@ -20,8 +20,7 @@ type ClusterSku struct {
 // ClusterSkuInput is an input type that accepts ClusterSkuArgs and ClusterSkuOutput values.
 // You can construct a concrete instance of `ClusterSkuInput` via:
 //
-// 		 ClusterSkuArgs{...}
-//
+//          ClusterSkuArgs{...}
 type ClusterSkuInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i ClusterSkuArgs) ToClusterSkuPtrOutputWithContext(ctx context.Context) Cl
 // ClusterSkuPtrInput is an input type that accepts ClusterSkuArgs, ClusterSkuPtr and ClusterSkuPtrOutput values.
 // You can construct a concrete instance of `ClusterSkuPtrInput` via:
 //
-// 		 ClusterSkuArgs{...}
+//          ClusterSkuArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterSkuPtrInput interface {
 	pulumi.Input
 

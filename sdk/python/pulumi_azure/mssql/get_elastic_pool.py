@@ -102,8 +102,6 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

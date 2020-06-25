@@ -18,8 +18,7 @@ type FunctionJavaScriptUDFInput struct {
 // FunctionJavaScriptUDFInputInput is an input type that accepts FunctionJavaScriptUDFInputArgs and FunctionJavaScriptUDFInputOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFInputInput` via:
 //
-// 		 FunctionJavaScriptUDFInputArgs{...}
-//
+//          FunctionJavaScriptUDFInputArgs{...}
 type FunctionJavaScriptUDFInputInput interface {
 	pulumi.Input
 
@@ -47,8 +46,7 @@ func (i FunctionJavaScriptUDFInputArgs) ToFunctionJavaScriptUDFInputOutputWithCo
 // FunctionJavaScriptUDFInputArrayInput is an input type that accepts FunctionJavaScriptUDFInputArray and FunctionJavaScriptUDFInputArrayOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFInputArrayInput` via:
 //
-// 		 FunctionJavaScriptUDFInputArray{ FunctionJavaScriptUDFInputArgs{...} }
-//
+//          FunctionJavaScriptUDFInputArray{ FunctionJavaScriptUDFInputArgs{...} }
 type FunctionJavaScriptUDFInputArrayInput interface {
 	pulumi.Input
 
@@ -117,8 +115,7 @@ type FunctionJavaScriptUDFOutput struct {
 // FunctionJavaScriptUDFOutputInput is an input type that accepts FunctionJavaScriptUDFOutputArgs and FunctionJavaScriptUDFOutputOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFOutputInput` via:
 //
-// 		 FunctionJavaScriptUDFOutputArgs{...}
-//
+//          FunctionJavaScriptUDFOutputArgs{...}
 type FunctionJavaScriptUDFOutputInput interface {
 	pulumi.Input
 
@@ -154,12 +151,11 @@ func (i FunctionJavaScriptUDFOutputArgs) ToFunctionJavaScriptUDFOutputPtrOutputW
 // FunctionJavaScriptUDFOutputPtrInput is an input type that accepts FunctionJavaScriptUDFOutputArgs, FunctionJavaScriptUDFOutputPtr and FunctionJavaScriptUDFOutputPtrOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFOutputPtrInput` via:
 //
-// 		 FunctionJavaScriptUDFOutputArgs{...}
+//          FunctionJavaScriptUDFOutputArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FunctionJavaScriptUDFOutputPtrInput interface {
 	pulumi.Input
 
@@ -256,8 +252,7 @@ type OutputBlobSerialization struct {
 // OutputBlobSerializationInput is an input type that accepts OutputBlobSerializationArgs and OutputBlobSerializationOutput values.
 // You can construct a concrete instance of `OutputBlobSerializationInput` via:
 //
-// 		 OutputBlobSerializationArgs{...}
-//
+//          OutputBlobSerializationArgs{...}
 type OutputBlobSerializationInput interface {
 	pulumi.Input
 
@@ -299,12 +294,11 @@ func (i OutputBlobSerializationArgs) ToOutputBlobSerializationPtrOutputWithConte
 // OutputBlobSerializationPtrInput is an input type that accepts OutputBlobSerializationArgs, OutputBlobSerializationPtr and OutputBlobSerializationPtrOutput values.
 // You can construct a concrete instance of `OutputBlobSerializationPtrInput` via:
 //
-// 		 OutputBlobSerializationArgs{...}
+//          OutputBlobSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type OutputBlobSerializationPtrInput interface {
 	pulumi.Input
 
@@ -446,8 +440,7 @@ type OutputEventHubSerialization struct {
 // OutputEventHubSerializationInput is an input type that accepts OutputEventHubSerializationArgs and OutputEventHubSerializationOutput values.
 // You can construct a concrete instance of `OutputEventHubSerializationInput` via:
 //
-// 		 OutputEventHubSerializationArgs{...}
-//
+//          OutputEventHubSerializationArgs{...}
 type OutputEventHubSerializationInput interface {
 	pulumi.Input
 
@@ -489,12 +482,11 @@ func (i OutputEventHubSerializationArgs) ToOutputEventHubSerializationPtrOutputW
 // OutputEventHubSerializationPtrInput is an input type that accepts OutputEventHubSerializationArgs, OutputEventHubSerializationPtr and OutputEventHubSerializationPtrOutput values.
 // You can construct a concrete instance of `OutputEventHubSerializationPtrInput` via:
 //
-// 		 OutputEventHubSerializationArgs{...}
+//          OutputEventHubSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type OutputEventHubSerializationPtrInput interface {
 	pulumi.Input
 
@@ -636,8 +628,7 @@ type OutputServiceBusQueueSerialization struct {
 // OutputServiceBusQueueSerializationInput is an input type that accepts OutputServiceBusQueueSerializationArgs and OutputServiceBusQueueSerializationOutput values.
 // You can construct a concrete instance of `OutputServiceBusQueueSerializationInput` via:
 //
-// 		 OutputServiceBusQueueSerializationArgs{...}
-//
+//          OutputServiceBusQueueSerializationArgs{...}
 type OutputServiceBusQueueSerializationInput interface {
 	pulumi.Input
 
@@ -679,12 +670,11 @@ func (i OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializa
 // OutputServiceBusQueueSerializationPtrInput is an input type that accepts OutputServiceBusQueueSerializationArgs, OutputServiceBusQueueSerializationPtr and OutputServiceBusQueueSerializationPtrOutput values.
 // You can construct a concrete instance of `OutputServiceBusQueueSerializationPtrInput` via:
 //
-// 		 OutputServiceBusQueueSerializationArgs{...}
+//          OutputServiceBusQueueSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type OutputServiceBusQueueSerializationPtrInput interface {
 	pulumi.Input
 
@@ -826,8 +816,7 @@ type OutputServicebusTopicSerialization struct {
 // OutputServicebusTopicSerializationInput is an input type that accepts OutputServicebusTopicSerializationArgs and OutputServicebusTopicSerializationOutput values.
 // You can construct a concrete instance of `OutputServicebusTopicSerializationInput` via:
 //
-// 		 OutputServicebusTopicSerializationArgs{...}
-//
+//          OutputServicebusTopicSerializationArgs{...}
 type OutputServicebusTopicSerializationInput interface {
 	pulumi.Input
 
@@ -869,12 +858,11 @@ func (i OutputServicebusTopicSerializationArgs) ToOutputServicebusTopicSerializa
 // OutputServicebusTopicSerializationPtrInput is an input type that accepts OutputServicebusTopicSerializationArgs, OutputServicebusTopicSerializationPtr and OutputServicebusTopicSerializationPtrOutput values.
 // You can construct a concrete instance of `OutputServicebusTopicSerializationPtrInput` via:
 //
-// 		 OutputServicebusTopicSerializationArgs{...}
+//          OutputServicebusTopicSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type OutputServicebusTopicSerializationPtrInput interface {
 	pulumi.Input
 
@@ -1014,8 +1002,7 @@ type ReferenceInputBlobSerialization struct {
 // ReferenceInputBlobSerializationInput is an input type that accepts ReferenceInputBlobSerializationArgs and ReferenceInputBlobSerializationOutput values.
 // You can construct a concrete instance of `ReferenceInputBlobSerializationInput` via:
 //
-// 		 ReferenceInputBlobSerializationArgs{...}
-//
+//          ReferenceInputBlobSerializationArgs{...}
 type ReferenceInputBlobSerializationInput interface {
 	pulumi.Input
 
@@ -1055,12 +1042,11 @@ func (i ReferenceInputBlobSerializationArgs) ToReferenceInputBlobSerializationPt
 // ReferenceInputBlobSerializationPtrInput is an input type that accepts ReferenceInputBlobSerializationArgs, ReferenceInputBlobSerializationPtr and ReferenceInputBlobSerializationPtrOutput values.
 // You can construct a concrete instance of `ReferenceInputBlobSerializationPtrInput` via:
 //
-// 		 ReferenceInputBlobSerializationArgs{...}
+//          ReferenceInputBlobSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ReferenceInputBlobSerializationPtrInput interface {
 	pulumi.Input
 
@@ -1185,8 +1171,7 @@ type StreamInputBlobSerialization struct {
 // StreamInputBlobSerializationInput is an input type that accepts StreamInputBlobSerializationArgs and StreamInputBlobSerializationOutput values.
 // You can construct a concrete instance of `StreamInputBlobSerializationInput` via:
 //
-// 		 StreamInputBlobSerializationArgs{...}
-//
+//          StreamInputBlobSerializationArgs{...}
 type StreamInputBlobSerializationInput interface {
 	pulumi.Input
 
@@ -1226,12 +1211,11 @@ func (i StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationPtrOutpu
 // StreamInputBlobSerializationPtrInput is an input type that accepts StreamInputBlobSerializationArgs, StreamInputBlobSerializationPtr and StreamInputBlobSerializationPtrOutput values.
 // You can construct a concrete instance of `StreamInputBlobSerializationPtrInput` via:
 //
-// 		 StreamInputBlobSerializationArgs{...}
+//          StreamInputBlobSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type StreamInputBlobSerializationPtrInput interface {
 	pulumi.Input
 
@@ -1356,8 +1340,7 @@ type StreamInputEventHubSerialization struct {
 // StreamInputEventHubSerializationInput is an input type that accepts StreamInputEventHubSerializationArgs and StreamInputEventHubSerializationOutput values.
 // You can construct a concrete instance of `StreamInputEventHubSerializationInput` via:
 //
-// 		 StreamInputEventHubSerializationArgs{...}
-//
+//          StreamInputEventHubSerializationArgs{...}
 type StreamInputEventHubSerializationInput interface {
 	pulumi.Input
 
@@ -1397,12 +1380,11 @@ func (i StreamInputEventHubSerializationArgs) ToStreamInputEventHubSerialization
 // StreamInputEventHubSerializationPtrInput is an input type that accepts StreamInputEventHubSerializationArgs, StreamInputEventHubSerializationPtr and StreamInputEventHubSerializationPtrOutput values.
 // You can construct a concrete instance of `StreamInputEventHubSerializationPtrInput` via:
 //
-// 		 StreamInputEventHubSerializationArgs{...}
+//          StreamInputEventHubSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type StreamInputEventHubSerializationPtrInput interface {
 	pulumi.Input
 
@@ -1527,8 +1509,7 @@ type StreamInputIotHubSerialization struct {
 // StreamInputIotHubSerializationInput is an input type that accepts StreamInputIotHubSerializationArgs and StreamInputIotHubSerializationOutput values.
 // You can construct a concrete instance of `StreamInputIotHubSerializationInput` via:
 //
-// 		 StreamInputIotHubSerializationArgs{...}
-//
+//          StreamInputIotHubSerializationArgs{...}
 type StreamInputIotHubSerializationInput interface {
 	pulumi.Input
 
@@ -1568,12 +1549,11 @@ func (i StreamInputIotHubSerializationArgs) ToStreamInputIotHubSerializationPtrO
 // StreamInputIotHubSerializationPtrInput is an input type that accepts StreamInputIotHubSerializationArgs, StreamInputIotHubSerializationPtr and StreamInputIotHubSerializationPtrOutput values.
 // You can construct a concrete instance of `StreamInputIotHubSerializationPtrInput` via:
 //
-// 		 StreamInputIotHubSerializationArgs{...}
+//          StreamInputIotHubSerializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type StreamInputIotHubSerializationPtrInput interface {
 	pulumi.Input
 

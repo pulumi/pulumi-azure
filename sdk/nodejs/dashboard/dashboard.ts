@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -137,6 +135,9 @@ import * as utilities from "../utilities";
  * `),
  * });
  * ```
+ *
+ * It is recommended to follow the steps outlined
+ * [here](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

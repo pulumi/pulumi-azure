@@ -59,8 +59,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import json

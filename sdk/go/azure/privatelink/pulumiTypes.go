@@ -20,8 +20,7 @@ type EndpointCustomDnsConfig struct {
 // EndpointCustomDnsConfigInput is an input type that accepts EndpointCustomDnsConfigArgs and EndpointCustomDnsConfigOutput values.
 // You can construct a concrete instance of `EndpointCustomDnsConfigInput` via:
 //
-// 		 EndpointCustomDnsConfigArgs{...}
-//
+//          EndpointCustomDnsConfigArgs{...}
 type EndpointCustomDnsConfigInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i EndpointCustomDnsConfigArgs) ToEndpointCustomDnsConfigOutputWithContext(
 // EndpointCustomDnsConfigArrayInput is an input type that accepts EndpointCustomDnsConfigArray and EndpointCustomDnsConfigArrayOutput values.
 // You can construct a concrete instance of `EndpointCustomDnsConfigArrayInput` via:
 //
-// 		 EndpointCustomDnsConfigArray{ EndpointCustomDnsConfigArgs{...} }
-//
+//          EndpointCustomDnsConfigArray{ EndpointCustomDnsConfigArgs{...} }
 type EndpointCustomDnsConfigArrayInput interface {
 	pulumi.Input
 
@@ -132,8 +130,7 @@ type EndpointPrivateDnsZoneConfig struct {
 // EndpointPrivateDnsZoneConfigInput is an input type that accepts EndpointPrivateDnsZoneConfigArgs and EndpointPrivateDnsZoneConfigOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneConfigInput` via:
 //
-// 		 EndpointPrivateDnsZoneConfigArgs{...}
-//
+//          EndpointPrivateDnsZoneConfigArgs{...}
 type EndpointPrivateDnsZoneConfigInput interface {
 	pulumi.Input
 
@@ -167,8 +164,7 @@ func (i EndpointPrivateDnsZoneConfigArgs) ToEndpointPrivateDnsZoneConfigOutputWi
 // EndpointPrivateDnsZoneConfigArrayInput is an input type that accepts EndpointPrivateDnsZoneConfigArray and EndpointPrivateDnsZoneConfigArrayOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneConfigArrayInput` via:
 //
-// 		 EndpointPrivateDnsZoneConfigArray{ EndpointPrivateDnsZoneConfigArgs{...} }
-//
+//          EndpointPrivateDnsZoneConfigArray{ EndpointPrivateDnsZoneConfigArgs{...} }
 type EndpointPrivateDnsZoneConfigArrayInput interface {
 	pulumi.Input
 
@@ -260,8 +256,7 @@ type EndpointPrivateDnsZoneConfigRecordSet struct {
 // EndpointPrivateDnsZoneConfigRecordSetInput is an input type that accepts EndpointPrivateDnsZoneConfigRecordSetArgs and EndpointPrivateDnsZoneConfigRecordSetOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneConfigRecordSetInput` via:
 //
-// 		 EndpointPrivateDnsZoneConfigRecordSetArgs{...}
-//
+//          EndpointPrivateDnsZoneConfigRecordSetArgs{...}
 type EndpointPrivateDnsZoneConfigRecordSetInput interface {
 	pulumi.Input
 
@@ -297,8 +292,7 @@ func (i EndpointPrivateDnsZoneConfigRecordSetArgs) ToEndpointPrivateDnsZoneConfi
 // EndpointPrivateDnsZoneConfigRecordSetArrayInput is an input type that accepts EndpointPrivateDnsZoneConfigRecordSetArray and EndpointPrivateDnsZoneConfigRecordSetArrayOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneConfigRecordSetArrayInput` via:
 //
-// 		 EndpointPrivateDnsZoneConfigRecordSetArray{ EndpointPrivateDnsZoneConfigRecordSetArgs{...} }
-//
+//          EndpointPrivateDnsZoneConfigRecordSetArray{ EndpointPrivateDnsZoneConfigRecordSetArgs{...} }
 type EndpointPrivateDnsZoneConfigRecordSetArrayInput interface {
 	pulumi.Input
 
@@ -391,8 +385,7 @@ type EndpointPrivateDnsZoneGroup struct {
 // EndpointPrivateDnsZoneGroupInput is an input type that accepts EndpointPrivateDnsZoneGroupArgs and EndpointPrivateDnsZoneGroupOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneGroupInput` via:
 //
-// 		 EndpointPrivateDnsZoneGroupArgs{...}
-//
+//          EndpointPrivateDnsZoneGroupArgs{...}
 type EndpointPrivateDnsZoneGroupInput interface {
 	pulumi.Input
 
@@ -432,12 +425,11 @@ func (i EndpointPrivateDnsZoneGroupArgs) ToEndpointPrivateDnsZoneGroupPtrOutputW
 // EndpointPrivateDnsZoneGroupPtrInput is an input type that accepts EndpointPrivateDnsZoneGroupArgs, EndpointPrivateDnsZoneGroupPtr and EndpointPrivateDnsZoneGroupPtrOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneGroupPtrInput` via:
 //
-// 		 EndpointPrivateDnsZoneGroupArgs{...}
+//          EndpointPrivateDnsZoneGroupArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EndpointPrivateDnsZoneGroupPtrInput interface {
 	pulumi.Input
 
@@ -568,8 +560,7 @@ type EndpointPrivateServiceConnection struct {
 // EndpointPrivateServiceConnectionInput is an input type that accepts EndpointPrivateServiceConnectionArgs and EndpointPrivateServiceConnectionOutput values.
 // You can construct a concrete instance of `EndpointPrivateServiceConnectionInput` via:
 //
-// 		 EndpointPrivateServiceConnectionArgs{...}
-//
+//          EndpointPrivateServiceConnectionArgs{...}
 type EndpointPrivateServiceConnectionInput interface {
 	pulumi.Input
 
@@ -615,12 +606,11 @@ func (i EndpointPrivateServiceConnectionArgs) ToEndpointPrivateServiceConnection
 // EndpointPrivateServiceConnectionPtrInput is an input type that accepts EndpointPrivateServiceConnectionArgs, EndpointPrivateServiceConnectionPtr and EndpointPrivateServiceConnectionPtrOutput values.
 // You can construct a concrete instance of `EndpointPrivateServiceConnectionPtrInput` via:
 //
-// 		 EndpointPrivateServiceConnectionArgs{...}
+//          EndpointPrivateServiceConnectionArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EndpointPrivateServiceConnectionPtrInput interface {
 	pulumi.Input
 
@@ -797,8 +787,7 @@ type GetEndpointConnectionPrivateServiceConnection struct {
 // GetEndpointConnectionPrivateServiceConnectionInput is an input type that accepts GetEndpointConnectionPrivateServiceConnectionArgs and GetEndpointConnectionPrivateServiceConnectionOutput values.
 // You can construct a concrete instance of `GetEndpointConnectionPrivateServiceConnectionInput` via:
 //
-// 		 GetEndpointConnectionPrivateServiceConnectionArgs{...}
-//
+//          GetEndpointConnectionPrivateServiceConnectionArgs{...}
 type GetEndpointConnectionPrivateServiceConnectionInput interface {
 	pulumi.Input
 
@@ -837,8 +826,7 @@ func (i GetEndpointConnectionPrivateServiceConnectionArgs) ToGetEndpointConnecti
 // GetEndpointConnectionPrivateServiceConnectionArrayInput is an input type that accepts GetEndpointConnectionPrivateServiceConnectionArray and GetEndpointConnectionPrivateServiceConnectionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointConnectionPrivateServiceConnectionArrayInput` via:
 //
-// 		 GetEndpointConnectionPrivateServiceConnectionArray{ GetEndpointConnectionPrivateServiceConnectionArgs{...} }
-//
+//          GetEndpointConnectionPrivateServiceConnectionArray{ GetEndpointConnectionPrivateServiceConnectionArgs{...} }
 type GetEndpointConnectionPrivateServiceConnectionArrayInput interface {
 	pulumi.Input
 
@@ -939,8 +927,7 @@ type GetServiceEndpointConnectionsPrivateEndpointConnection struct {
 // GetServiceEndpointConnectionsPrivateEndpointConnectionInput is an input type that accepts GetServiceEndpointConnectionsPrivateEndpointConnectionArgs and GetServiceEndpointConnectionsPrivateEndpointConnectionOutput values.
 // You can construct a concrete instance of `GetServiceEndpointConnectionsPrivateEndpointConnectionInput` via:
 //
-// 		 GetServiceEndpointConnectionsPrivateEndpointConnectionArgs{...}
-//
+//          GetServiceEndpointConnectionsPrivateEndpointConnectionArgs{...}
 type GetServiceEndpointConnectionsPrivateEndpointConnectionInput interface {
 	pulumi.Input
 
@@ -980,8 +967,7 @@ func (i GetServiceEndpointConnectionsPrivateEndpointConnectionArgs) ToGetService
 // GetServiceEndpointConnectionsPrivateEndpointConnectionArrayInput is an input type that accepts GetServiceEndpointConnectionsPrivateEndpointConnectionArray and GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput values.
 // You can construct a concrete instance of `GetServiceEndpointConnectionsPrivateEndpointConnectionArrayInput` via:
 //
-// 		 GetServiceEndpointConnectionsPrivateEndpointConnectionArray{ GetServiceEndpointConnectionsPrivateEndpointConnectionArgs{...} }
-//
+//          GetServiceEndpointConnectionsPrivateEndpointConnectionArray{ GetServiceEndpointConnectionsPrivateEndpointConnectionArgs{...} }
 type GetServiceEndpointConnectionsPrivateEndpointConnectionArrayInput interface {
 	pulumi.Input
 
@@ -1088,8 +1074,7 @@ type GetServiceNatIpConfiguration struct {
 // GetServiceNatIpConfigurationInput is an input type that accepts GetServiceNatIpConfigurationArgs and GetServiceNatIpConfigurationOutput values.
 // You can construct a concrete instance of `GetServiceNatIpConfigurationInput` via:
 //
-// 		 GetServiceNatIpConfigurationArgs{...}
-//
+//          GetServiceNatIpConfigurationArgs{...}
 type GetServiceNatIpConfigurationInput interface {
 	pulumi.Input
 
@@ -1125,8 +1110,7 @@ func (i GetServiceNatIpConfigurationArgs) ToGetServiceNatIpConfigurationOutputWi
 // GetServiceNatIpConfigurationArrayInput is an input type that accepts GetServiceNatIpConfigurationArray and GetServiceNatIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceNatIpConfigurationArrayInput` via:
 //
-// 		 GetServiceNatIpConfigurationArray{ GetServiceNatIpConfigurationArgs{...} }
-//
+//          GetServiceNatIpConfigurationArray{ GetServiceNatIpConfigurationArgs{...} }
 type GetServiceNatIpConfigurationArrayInput interface {
 	pulumi.Input
 

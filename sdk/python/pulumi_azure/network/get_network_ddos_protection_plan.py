@@ -63,8 +63,6 @@ def get_network_ddos_protection_plan(name=None,resource_group_name=None,tags=Non
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

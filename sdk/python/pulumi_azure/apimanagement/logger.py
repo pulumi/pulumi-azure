@@ -48,10 +48,7 @@ class Logger(pulumi.CustomResource):
         """
         Manages a Logger within an API Management Service.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

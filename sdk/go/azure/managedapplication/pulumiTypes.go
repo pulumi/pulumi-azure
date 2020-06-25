@@ -26,8 +26,7 @@ type ApplicationPlan struct {
 // ApplicationPlanInput is an input type that accepts ApplicationPlanArgs and ApplicationPlanOutput values.
 // You can construct a concrete instance of `ApplicationPlanInput` via:
 //
-// 		 ApplicationPlanArgs{...}
-//
+//          ApplicationPlanArgs{...}
 type ApplicationPlanInput interface {
 	pulumi.Input
 
@@ -71,12 +70,11 @@ func (i ApplicationPlanArgs) ToApplicationPlanPtrOutputWithContext(ctx context.C
 // ApplicationPlanPtrInput is an input type that accepts ApplicationPlanArgs, ApplicationPlanPtr and ApplicationPlanPtrOutput values.
 // You can construct a concrete instance of `ApplicationPlanPtrInput` via:
 //
-// 		 ApplicationPlanArgs{...}
+//          ApplicationPlanArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApplicationPlanPtrInput interface {
 	pulumi.Input
 
@@ -229,8 +227,7 @@ type DefinitionAuthorization struct {
 // DefinitionAuthorizationInput is an input type that accepts DefinitionAuthorizationArgs and DefinitionAuthorizationOutput values.
 // You can construct a concrete instance of `DefinitionAuthorizationInput` via:
 //
-// 		 DefinitionAuthorizationArgs{...}
-//
+//          DefinitionAuthorizationArgs{...}
 type DefinitionAuthorizationInput interface {
 	pulumi.Input
 
@@ -260,8 +257,7 @@ func (i DefinitionAuthorizationArgs) ToDefinitionAuthorizationOutputWithContext(
 // DefinitionAuthorizationArrayInput is an input type that accepts DefinitionAuthorizationArray and DefinitionAuthorizationArrayOutput values.
 // You can construct a concrete instance of `DefinitionAuthorizationArrayInput` via:
 //
-// 		 DefinitionAuthorizationArray{ DefinitionAuthorizationArgs{...} }
-//
+//          DefinitionAuthorizationArray{ DefinitionAuthorizationArgs{...} }
 type DefinitionAuthorizationArrayInput interface {
 	pulumi.Input
 

@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription", DeprecationWarning)
 
+
 class Subscription(pulumi.CustomResource):
     auto_delete_on_idle: pulumi.Output[str]
     """
@@ -65,13 +66,12 @@ class Subscription(pulumi.CustomResource):
     The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
     """
     warnings.warn("azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Subscription.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

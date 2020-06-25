@@ -49,8 +49,6 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

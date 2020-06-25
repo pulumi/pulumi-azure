@@ -39,10 +39,7 @@ class BoolVariable(pulumi.CustomResource):
         """
         Manages a boolean variable in Azure Automation
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

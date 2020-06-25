@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Authorization
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

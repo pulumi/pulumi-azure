@@ -11,6 +11,39 @@ import (
 )
 
 // Manages an API Management API Operation Policy
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apimanagement.NewApiOperationPolicy(ctx, "exampleApiOperationPolicy", &apimanagement.ApiOperationPolicyArgs{
+// 			ApiName:           exampleApiOperation.ApiName,
+// 			ApiManagementName: exampleApiOperation.ApiManagementName,
+// 			ResourceGroupName: exampleApiOperation.ResourceGroupName,
+// 			OperationId:       exampleApiOperation.OperationId,
+// 			XmlContent:        pulumi.String(fmt.Sprintf("%v%v%v%v%v", "<policies>\n", "  <inbound>\n", "    <find-and-replace from=\"xyz\" to=\"abc\" />\n", "  </inbound>\n", "</policies>\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ApiOperationPolicy struct {
 	pulumi.CustomResourceState
 

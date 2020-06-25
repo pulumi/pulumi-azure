@@ -22,8 +22,7 @@ type ApplicationGatewayAuthenticationCertificate struct {
 // ApplicationGatewayAuthenticationCertificateInput is an input type that accepts ApplicationGatewayAuthenticationCertificateArgs and ApplicationGatewayAuthenticationCertificateOutput values.
 // You can construct a concrete instance of `ApplicationGatewayAuthenticationCertificateInput` via:
 //
-// 		 ApplicationGatewayAuthenticationCertificateArgs{...}
-//
+//          ApplicationGatewayAuthenticationCertificateArgs{...}
 type ApplicationGatewayAuthenticationCertificateInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i ApplicationGatewayAuthenticationCertificateArgs) ToApplicationGatewayAut
 // ApplicationGatewayAuthenticationCertificateArrayInput is an input type that accepts ApplicationGatewayAuthenticationCertificateArray and ApplicationGatewayAuthenticationCertificateArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayAuthenticationCertificateArrayInput` via:
 //
-// 		 ApplicationGatewayAuthenticationCertificateArray{ ApplicationGatewayAuthenticationCertificateArgs{...} }
-//
+//          ApplicationGatewayAuthenticationCertificateArray{ ApplicationGatewayAuthenticationCertificateArgs{...} }
 type ApplicationGatewayAuthenticationCertificateArrayInput interface {
 	pulumi.Input
 
@@ -137,8 +135,7 @@ type ApplicationGatewayAutoscaleConfiguration struct {
 // ApplicationGatewayAutoscaleConfigurationInput is an input type that accepts ApplicationGatewayAutoscaleConfigurationArgs and ApplicationGatewayAutoscaleConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayAutoscaleConfigurationInput` via:
 //
-// 		 ApplicationGatewayAutoscaleConfigurationArgs{...}
-//
+//          ApplicationGatewayAutoscaleConfigurationArgs{...}
 type ApplicationGatewayAutoscaleConfigurationInput interface {
 	pulumi.Input
 
@@ -176,12 +173,11 @@ func (i ApplicationGatewayAutoscaleConfigurationArgs) ToApplicationGatewayAutosc
 // ApplicationGatewayAutoscaleConfigurationPtrInput is an input type that accepts ApplicationGatewayAutoscaleConfigurationArgs, ApplicationGatewayAutoscaleConfigurationPtr and ApplicationGatewayAutoscaleConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationGatewayAutoscaleConfigurationPtrInput` via:
 //
-// 		 ApplicationGatewayAutoscaleConfigurationArgs{...}
+//          ApplicationGatewayAutoscaleConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApplicationGatewayAutoscaleConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -293,8 +289,7 @@ type ApplicationGatewayBackendAddressPool struct {
 // ApplicationGatewayBackendAddressPoolInput is an input type that accepts ApplicationGatewayBackendAddressPoolArgs and ApplicationGatewayBackendAddressPoolOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendAddressPoolInput` via:
 //
-// 		 ApplicationGatewayBackendAddressPoolArgs{...}
-//
+//          ApplicationGatewayBackendAddressPoolArgs{...}
 type ApplicationGatewayBackendAddressPoolInput interface {
 	pulumi.Input
 
@@ -328,8 +323,7 @@ func (i ApplicationGatewayBackendAddressPoolArgs) ToApplicationGatewayBackendAdd
 // ApplicationGatewayBackendAddressPoolArrayInput is an input type that accepts ApplicationGatewayBackendAddressPoolArray and ApplicationGatewayBackendAddressPoolArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendAddressPoolArrayInput` via:
 //
-// 		 ApplicationGatewayBackendAddressPoolArray{ ApplicationGatewayBackendAddressPoolArgs{...} }
-//
+//          ApplicationGatewayBackendAddressPoolArray{ ApplicationGatewayBackendAddressPoolArgs{...} }
 type ApplicationGatewayBackendAddressPoolArrayInput interface {
 	pulumi.Input
 
@@ -441,8 +435,7 @@ type ApplicationGatewayBackendHttpSetting struct {
 // ApplicationGatewayBackendHttpSettingInput is an input type that accepts ApplicationGatewayBackendHttpSettingArgs and ApplicationGatewayBackendHttpSettingOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingInput` via:
 //
-// 		 ApplicationGatewayBackendHttpSettingArgs{...}
-//
+//          ApplicationGatewayBackendHttpSettingArgs{...}
 type ApplicationGatewayBackendHttpSettingInput interface {
 	pulumi.Input
 
@@ -498,8 +491,7 @@ func (i ApplicationGatewayBackendHttpSettingArgs) ToApplicationGatewayBackendHtt
 // ApplicationGatewayBackendHttpSettingArrayInput is an input type that accepts ApplicationGatewayBackendHttpSettingArray and ApplicationGatewayBackendHttpSettingArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingArrayInput` via:
 //
-// 		 ApplicationGatewayBackendHttpSettingArray{ ApplicationGatewayBackendHttpSettingArgs{...} }
-//
+//          ApplicationGatewayBackendHttpSettingArray{ ApplicationGatewayBackendHttpSettingArgs{...} }
 type ApplicationGatewayBackendHttpSettingArrayInput interface {
 	pulumi.Input
 
@@ -644,8 +636,7 @@ type ApplicationGatewayBackendHttpSettingAuthenticationCertificate struct {
 // ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput is an input type that accepts ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs and ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput` via:
 //
-// 		 ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...}
-//
+//          ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...}
 type ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput interface {
 	pulumi.Input
 
@@ -675,8 +666,7 @@ func (i ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToApp
 // ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput is an input type that accepts ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray and ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput` via:
 //
-// 		 ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{ ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...} }
-//
+//          ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{ ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...} }
 type ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput interface {
 	pulumi.Input
 
@@ -752,8 +742,7 @@ type ApplicationGatewayBackendHttpSettingConnectionDraining struct {
 // ApplicationGatewayBackendHttpSettingConnectionDrainingInput is an input type that accepts ApplicationGatewayBackendHttpSettingConnectionDrainingArgs and ApplicationGatewayBackendHttpSettingConnectionDrainingOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingConnectionDrainingInput` via:
 //
-// 		 ApplicationGatewayBackendHttpSettingConnectionDrainingArgs{...}
-//
+//          ApplicationGatewayBackendHttpSettingConnectionDrainingArgs{...}
 type ApplicationGatewayBackendHttpSettingConnectionDrainingInput interface {
 	pulumi.Input
 
@@ -791,12 +780,11 @@ func (i ApplicationGatewayBackendHttpSettingConnectionDrainingArgs) ToApplicatio
 // ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput is an input type that accepts ApplicationGatewayBackendHttpSettingConnectionDrainingArgs, ApplicationGatewayBackendHttpSettingConnectionDrainingPtr and ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput values.
 // You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput` via:
 //
-// 		 ApplicationGatewayBackendHttpSettingConnectionDrainingArgs{...}
+//          ApplicationGatewayBackendHttpSettingConnectionDrainingArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput interface {
 	pulumi.Input
 
@@ -908,8 +896,7 @@ type ApplicationGatewayCustomErrorConfiguration struct {
 // ApplicationGatewayCustomErrorConfigurationInput is an input type that accepts ApplicationGatewayCustomErrorConfigurationArgs and ApplicationGatewayCustomErrorConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayCustomErrorConfigurationInput` via:
 //
-// 		 ApplicationGatewayCustomErrorConfigurationArgs{...}
-//
+//          ApplicationGatewayCustomErrorConfigurationArgs{...}
 type ApplicationGatewayCustomErrorConfigurationInput interface {
 	pulumi.Input
 
@@ -941,8 +928,7 @@ func (i ApplicationGatewayCustomErrorConfigurationArgs) ToApplicationGatewayCust
 // ApplicationGatewayCustomErrorConfigurationArrayInput is an input type that accepts ApplicationGatewayCustomErrorConfigurationArray and ApplicationGatewayCustomErrorConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayCustomErrorConfigurationArrayInput` via:
 //
-// 		 ApplicationGatewayCustomErrorConfigurationArray{ ApplicationGatewayCustomErrorConfigurationArgs{...} }
-//
+//          ApplicationGatewayCustomErrorConfigurationArray{ ApplicationGatewayCustomErrorConfigurationArgs{...} }
 type ApplicationGatewayCustomErrorConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1031,8 +1017,7 @@ type ApplicationGatewayFrontendIpConfiguration struct {
 // ApplicationGatewayFrontendIpConfigurationInput is an input type that accepts ApplicationGatewayFrontendIpConfigurationArgs and ApplicationGatewayFrontendIpConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayFrontendIpConfigurationInput` via:
 //
-// 		 ApplicationGatewayFrontendIpConfigurationArgs{...}
-//
+//          ApplicationGatewayFrontendIpConfigurationArgs{...}
 type ApplicationGatewayFrontendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -1070,8 +1055,7 @@ func (i ApplicationGatewayFrontendIpConfigurationArgs) ToApplicationGatewayFront
 // ApplicationGatewayFrontendIpConfigurationArrayInput is an input type that accepts ApplicationGatewayFrontendIpConfigurationArray and ApplicationGatewayFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayFrontendIpConfigurationArrayInput` via:
 //
-// 		 ApplicationGatewayFrontendIpConfigurationArray{ ApplicationGatewayFrontendIpConfigurationArgs{...} }
-//
+//          ApplicationGatewayFrontendIpConfigurationArray{ ApplicationGatewayFrontendIpConfigurationArgs{...} }
 type ApplicationGatewayFrontendIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1169,8 +1153,7 @@ type ApplicationGatewayFrontendPort struct {
 // ApplicationGatewayFrontendPortInput is an input type that accepts ApplicationGatewayFrontendPortArgs and ApplicationGatewayFrontendPortOutput values.
 // You can construct a concrete instance of `ApplicationGatewayFrontendPortInput` via:
 //
-// 		 ApplicationGatewayFrontendPortArgs{...}
-//
+//          ApplicationGatewayFrontendPortArgs{...}
 type ApplicationGatewayFrontendPortInput interface {
 	pulumi.Input
 
@@ -1202,8 +1185,7 @@ func (i ApplicationGatewayFrontendPortArgs) ToApplicationGatewayFrontendPortOutp
 // ApplicationGatewayFrontendPortArrayInput is an input type that accepts ApplicationGatewayFrontendPortArray and ApplicationGatewayFrontendPortArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayFrontendPortArrayInput` via:
 //
-// 		 ApplicationGatewayFrontendPortArray{ ApplicationGatewayFrontendPortArgs{...} }
-//
+//          ApplicationGatewayFrontendPortArray{ ApplicationGatewayFrontendPortArgs{...} }
 type ApplicationGatewayFrontendPortArrayInput interface {
 	pulumi.Input
 
@@ -1286,8 +1268,7 @@ type ApplicationGatewayGatewayIpConfiguration struct {
 // ApplicationGatewayGatewayIpConfigurationInput is an input type that accepts ApplicationGatewayGatewayIpConfigurationArgs and ApplicationGatewayGatewayIpConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayGatewayIpConfigurationInput` via:
 //
-// 		 ApplicationGatewayGatewayIpConfigurationArgs{...}
-//
+//          ApplicationGatewayGatewayIpConfigurationArgs{...}
 type ApplicationGatewayGatewayIpConfigurationInput interface {
 	pulumi.Input
 
@@ -1319,8 +1300,7 @@ func (i ApplicationGatewayGatewayIpConfigurationArgs) ToApplicationGatewayGatewa
 // ApplicationGatewayGatewayIpConfigurationArrayInput is an input type that accepts ApplicationGatewayGatewayIpConfigurationArray and ApplicationGatewayGatewayIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayGatewayIpConfigurationArrayInput` via:
 //
-// 		 ApplicationGatewayGatewayIpConfigurationArray{ ApplicationGatewayGatewayIpConfigurationArgs{...} }
-//
+//          ApplicationGatewayGatewayIpConfigurationArray{ ApplicationGatewayGatewayIpConfigurationArgs{...} }
 type ApplicationGatewayGatewayIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1423,8 +1403,7 @@ type ApplicationGatewayHttpListener struct {
 // ApplicationGatewayHttpListenerInput is an input type that accepts ApplicationGatewayHttpListenerArgs and ApplicationGatewayHttpListenerOutput values.
 // You can construct a concrete instance of `ApplicationGatewayHttpListenerInput` via:
 //
-// 		 ApplicationGatewayHttpListenerArgs{...}
-//
+//          ApplicationGatewayHttpListenerArgs{...}
 type ApplicationGatewayHttpListenerInput interface {
 	pulumi.Input
 
@@ -1476,8 +1455,7 @@ func (i ApplicationGatewayHttpListenerArgs) ToApplicationGatewayHttpListenerOutp
 // ApplicationGatewayHttpListenerArrayInput is an input type that accepts ApplicationGatewayHttpListenerArray and ApplicationGatewayHttpListenerArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayHttpListenerArrayInput` via:
 //
-// 		 ApplicationGatewayHttpListenerArray{ ApplicationGatewayHttpListenerArgs{...} }
-//
+//          ApplicationGatewayHttpListenerArray{ ApplicationGatewayHttpListenerArgs{...} }
 type ApplicationGatewayHttpListenerArrayInput interface {
 	pulumi.Input
 
@@ -1612,8 +1590,7 @@ type ApplicationGatewayHttpListenerCustomErrorConfiguration struct {
 // ApplicationGatewayHttpListenerCustomErrorConfigurationInput is an input type that accepts ApplicationGatewayHttpListenerCustomErrorConfigurationArgs and ApplicationGatewayHttpListenerCustomErrorConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayHttpListenerCustomErrorConfigurationInput` via:
 //
-// 		 ApplicationGatewayHttpListenerCustomErrorConfigurationArgs{...}
-//
+//          ApplicationGatewayHttpListenerCustomErrorConfigurationArgs{...}
 type ApplicationGatewayHttpListenerCustomErrorConfigurationInput interface {
 	pulumi.Input
 
@@ -1645,8 +1622,7 @@ func (i ApplicationGatewayHttpListenerCustomErrorConfigurationArgs) ToApplicatio
 // ApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput is an input type that accepts ApplicationGatewayHttpListenerCustomErrorConfigurationArray and ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput` via:
 //
-// 		 ApplicationGatewayHttpListenerCustomErrorConfigurationArray{ ApplicationGatewayHttpListenerCustomErrorConfigurationArgs{...} }
-//
+//          ApplicationGatewayHttpListenerCustomErrorConfigurationArray{ ApplicationGatewayHttpListenerCustomErrorConfigurationArgs{...} }
 type ApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1727,8 +1703,7 @@ type ApplicationGatewayIdentity struct {
 // ApplicationGatewayIdentityInput is an input type that accepts ApplicationGatewayIdentityArgs and ApplicationGatewayIdentityOutput values.
 // You can construct a concrete instance of `ApplicationGatewayIdentityInput` via:
 //
-// 		 ApplicationGatewayIdentityArgs{...}
-//
+//          ApplicationGatewayIdentityArgs{...}
 type ApplicationGatewayIdentityInput interface {
 	pulumi.Input
 
@@ -1766,12 +1741,11 @@ func (i ApplicationGatewayIdentityArgs) ToApplicationGatewayIdentityPtrOutputWit
 // ApplicationGatewayIdentityPtrInput is an input type that accepts ApplicationGatewayIdentityArgs, ApplicationGatewayIdentityPtr and ApplicationGatewayIdentityPtrOutput values.
 // You can construct a concrete instance of `ApplicationGatewayIdentityPtrInput` via:
 //
-// 		 ApplicationGatewayIdentityArgs{...}
+//          ApplicationGatewayIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApplicationGatewayIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1897,8 +1871,7 @@ type ApplicationGatewayProbe struct {
 // ApplicationGatewayProbeInput is an input type that accepts ApplicationGatewayProbeArgs and ApplicationGatewayProbeOutput values.
 // You can construct a concrete instance of `ApplicationGatewayProbeInput` via:
 //
-// 		 ApplicationGatewayProbeArgs{...}
-//
+//          ApplicationGatewayProbeArgs{...}
 type ApplicationGatewayProbeInput interface {
 	pulumi.Input
 
@@ -1946,8 +1919,7 @@ func (i ApplicationGatewayProbeArgs) ToApplicationGatewayProbeOutputWithContext(
 // ApplicationGatewayProbeArrayInput is an input type that accepts ApplicationGatewayProbeArray and ApplicationGatewayProbeArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayProbeArrayInput` via:
 //
-// 		 ApplicationGatewayProbeArray{ ApplicationGatewayProbeArgs{...} }
-//
+//          ApplicationGatewayProbeArray{ ApplicationGatewayProbeArgs{...} }
 type ApplicationGatewayProbeArrayInput interface {
 	pulumi.Input
 
@@ -2068,8 +2040,7 @@ type ApplicationGatewayProbeMatch struct {
 // ApplicationGatewayProbeMatchInput is an input type that accepts ApplicationGatewayProbeMatchArgs and ApplicationGatewayProbeMatchOutput values.
 // You can construct a concrete instance of `ApplicationGatewayProbeMatchInput` via:
 //
-// 		 ApplicationGatewayProbeMatchArgs{...}
-//
+//          ApplicationGatewayProbeMatchArgs{...}
 type ApplicationGatewayProbeMatchInput interface {
 	pulumi.Input
 
@@ -2107,12 +2078,11 @@ func (i ApplicationGatewayProbeMatchArgs) ToApplicationGatewayProbeMatchPtrOutpu
 // ApplicationGatewayProbeMatchPtrInput is an input type that accepts ApplicationGatewayProbeMatchArgs, ApplicationGatewayProbeMatchPtr and ApplicationGatewayProbeMatchPtrOutput values.
 // You can construct a concrete instance of `ApplicationGatewayProbeMatchPtrInput` via:
 //
-// 		 ApplicationGatewayProbeMatchArgs{...}
+//          ApplicationGatewayProbeMatchArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApplicationGatewayProbeMatchPtrInput interface {
 	pulumi.Input
 
@@ -2231,8 +2201,7 @@ type ApplicationGatewayRedirectConfiguration struct {
 // ApplicationGatewayRedirectConfigurationInput is an input type that accepts ApplicationGatewayRedirectConfigurationArgs and ApplicationGatewayRedirectConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRedirectConfigurationInput` via:
 //
-// 		 ApplicationGatewayRedirectConfigurationArgs{...}
-//
+//          ApplicationGatewayRedirectConfigurationArgs{...}
 type ApplicationGatewayRedirectConfigurationInput interface {
 	pulumi.Input
 
@@ -2273,8 +2242,7 @@ func (i ApplicationGatewayRedirectConfigurationArgs) ToApplicationGatewayRedirec
 // ApplicationGatewayRedirectConfigurationArrayInput is an input type that accepts ApplicationGatewayRedirectConfigurationArray and ApplicationGatewayRedirectConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRedirectConfigurationArrayInput` via:
 //
-// 		 ApplicationGatewayRedirectConfigurationArray{ ApplicationGatewayRedirectConfigurationArgs{...} }
-//
+//          ApplicationGatewayRedirectConfigurationArray{ ApplicationGatewayRedirectConfigurationArgs{...} }
 type ApplicationGatewayRedirectConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2405,8 +2373,7 @@ type ApplicationGatewayRequestRoutingRule struct {
 // ApplicationGatewayRequestRoutingRuleInput is an input type that accepts ApplicationGatewayRequestRoutingRuleArgs and ApplicationGatewayRequestRoutingRuleOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRequestRoutingRuleInput` via:
 //
-// 		 ApplicationGatewayRequestRoutingRuleArgs{...}
-//
+//          ApplicationGatewayRequestRoutingRuleArgs{...}
 type ApplicationGatewayRequestRoutingRuleInput interface {
 	pulumi.Input
 
@@ -2462,8 +2429,7 @@ func (i ApplicationGatewayRequestRoutingRuleArgs) ToApplicationGatewayRequestRou
 // ApplicationGatewayRequestRoutingRuleArrayInput is an input type that accepts ApplicationGatewayRequestRoutingRuleArray and ApplicationGatewayRequestRoutingRuleArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRequestRoutingRuleArrayInput` via:
 //
-// 		 ApplicationGatewayRequestRoutingRuleArray{ ApplicationGatewayRequestRoutingRuleArgs{...} }
-//
+//          ApplicationGatewayRequestRoutingRuleArray{ ApplicationGatewayRequestRoutingRuleArgs{...} }
 type ApplicationGatewayRequestRoutingRuleArrayInput interface {
 	pulumi.Input
 
@@ -2606,8 +2572,7 @@ type ApplicationGatewayRewriteRuleSet struct {
 // ApplicationGatewayRewriteRuleSetInput is an input type that accepts ApplicationGatewayRewriteRuleSetArgs and ApplicationGatewayRewriteRuleSetOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetArgs{...}
-//
+//          ApplicationGatewayRewriteRuleSetArgs{...}
 type ApplicationGatewayRewriteRuleSetInput interface {
 	pulumi.Input
 
@@ -2639,8 +2604,7 @@ func (i ApplicationGatewayRewriteRuleSetArgs) ToApplicationGatewayRewriteRuleSet
 // ApplicationGatewayRewriteRuleSetArrayInput is an input type that accepts ApplicationGatewayRewriteRuleSetArray and ApplicationGatewayRewriteRuleSetArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetArrayInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetArray{ ApplicationGatewayRewriteRuleSetArgs{...} }
-//
+//          ApplicationGatewayRewriteRuleSetArray{ ApplicationGatewayRewriteRuleSetArgs{...} }
 type ApplicationGatewayRewriteRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -2729,8 +2693,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRule struct {
 // ApplicationGatewayRewriteRuleSetRewriteRuleInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleArgs and ApplicationGatewayRewriteRuleSetRewriteRuleOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleArgs{...}
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleArgs{...}
 type ApplicationGatewayRewriteRuleSetRewriteRuleInput interface {
 	pulumi.Input
 
@@ -2766,8 +2729,7 @@ func (i ApplicationGatewayRewriteRuleSetRewriteRuleArgs) ToApplicationGatewayRew
 // ApplicationGatewayRewriteRuleSetRewriteRuleArrayInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleArray and ApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleArrayInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleArray{ ApplicationGatewayRewriteRuleSetRewriteRuleArgs{...} }
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleArray{ ApplicationGatewayRewriteRuleSetRewriteRuleArgs{...} }
 type ApplicationGatewayRewriteRuleSetRewriteRuleArrayInput interface {
 	pulumi.Input
 
@@ -2868,8 +2830,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleCondition struct {
 // ApplicationGatewayRewriteRuleSetRewriteRuleConditionInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs and ApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleConditionInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs{...}
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs{...}
 type ApplicationGatewayRewriteRuleSetRewriteRuleConditionInput interface {
 	pulumi.Input
 
@@ -2903,8 +2864,7 @@ func (i ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs) ToApplicationG
 // ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleConditionArray and ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleConditionArray{ ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs{...} }
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleConditionArray{ ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs{...} }
 type ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -2990,8 +2950,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration struc
 // ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs and ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs{...}
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs{...}
 type ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput interface {
 	pulumi.Input
 
@@ -3021,8 +2980,7 @@ func (i ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArg
 // ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray and ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray{ ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs{...} }
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray{ ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs{...} }
 type ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -3102,8 +3060,7 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration stru
 // ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs and ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs{...}
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs{...}
 type ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput interface {
 	pulumi.Input
 
@@ -3133,8 +3090,7 @@ func (i ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationAr
 // ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput is an input type that accepts ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray and ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput` via:
 //
-// 		 ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray{ ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs{...} }
-//
+//          ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray{ ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs{...} }
 type ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -3216,8 +3172,7 @@ type ApplicationGatewaySku struct {
 // ApplicationGatewaySkuInput is an input type that accepts ApplicationGatewaySkuArgs and ApplicationGatewaySkuOutput values.
 // You can construct a concrete instance of `ApplicationGatewaySkuInput` via:
 //
-// 		 ApplicationGatewaySkuArgs{...}
-//
+//          ApplicationGatewaySkuArgs{...}
 type ApplicationGatewaySkuInput interface {
 	pulumi.Input
 
@@ -3257,12 +3212,11 @@ func (i ApplicationGatewaySkuArgs) ToApplicationGatewaySkuPtrOutputWithContext(c
 // ApplicationGatewaySkuPtrInput is an input type that accepts ApplicationGatewaySkuArgs, ApplicationGatewaySkuPtr and ApplicationGatewaySkuPtrOutput values.
 // You can construct a concrete instance of `ApplicationGatewaySkuPtrInput` via:
 //
-// 		 ApplicationGatewaySkuArgs{...}
+//          ApplicationGatewaySkuArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApplicationGatewaySkuPtrInput interface {
 	pulumi.Input
 
@@ -3393,8 +3347,7 @@ type ApplicationGatewaySslCertificate struct {
 // ApplicationGatewaySslCertificateInput is an input type that accepts ApplicationGatewaySslCertificateArgs and ApplicationGatewaySslCertificateOutput values.
 // You can construct a concrete instance of `ApplicationGatewaySslCertificateInput` via:
 //
-// 		 ApplicationGatewaySslCertificateArgs{...}
-//
+//          ApplicationGatewaySslCertificateArgs{...}
 type ApplicationGatewaySslCertificateInput interface {
 	pulumi.Input
 
@@ -3432,8 +3385,7 @@ func (i ApplicationGatewaySslCertificateArgs) ToApplicationGatewaySslCertificate
 // ApplicationGatewaySslCertificateArrayInput is an input type that accepts ApplicationGatewaySslCertificateArray and ApplicationGatewaySslCertificateArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewaySslCertificateArrayInput` via:
 //
-// 		 ApplicationGatewaySslCertificateArray{ ApplicationGatewaySslCertificateArgs{...} }
-//
+//          ApplicationGatewaySslCertificateArray{ ApplicationGatewaySslCertificateArgs{...} }
 type ApplicationGatewaySslCertificateArrayInput interface {
 	pulumi.Input
 
@@ -3536,8 +3488,7 @@ type ApplicationGatewaySslPolicy struct {
 // ApplicationGatewaySslPolicyInput is an input type that accepts ApplicationGatewaySslPolicyArgs and ApplicationGatewaySslPolicyOutput values.
 // You can construct a concrete instance of `ApplicationGatewaySslPolicyInput` via:
 //
-// 		 ApplicationGatewaySslPolicyArgs{...}
-//
+//          ApplicationGatewaySslPolicyArgs{...}
 type ApplicationGatewaySslPolicyInput interface {
 	pulumi.Input
 
@@ -3574,8 +3525,7 @@ func (i ApplicationGatewaySslPolicyArgs) ToApplicationGatewaySslPolicyOutputWith
 // ApplicationGatewaySslPolicyArrayInput is an input type that accepts ApplicationGatewaySslPolicyArray and ApplicationGatewaySslPolicyArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewaySslPolicyArrayInput` via:
 //
-// 		 ApplicationGatewaySslPolicyArray{ ApplicationGatewaySslPolicyArgs{...} }
-//
+//          ApplicationGatewaySslPolicyArray{ ApplicationGatewaySslPolicyArgs{...} }
 type ApplicationGatewaySslPolicyArrayInput interface {
 	pulumi.Input
 
@@ -3669,8 +3619,7 @@ type ApplicationGatewayTrustedRootCertificate struct {
 // ApplicationGatewayTrustedRootCertificateInput is an input type that accepts ApplicationGatewayTrustedRootCertificateArgs and ApplicationGatewayTrustedRootCertificateOutput values.
 // You can construct a concrete instance of `ApplicationGatewayTrustedRootCertificateInput` via:
 //
-// 		 ApplicationGatewayTrustedRootCertificateArgs{...}
-//
+//          ApplicationGatewayTrustedRootCertificateArgs{...}
 type ApplicationGatewayTrustedRootCertificateInput interface {
 	pulumi.Input
 
@@ -3702,8 +3651,7 @@ func (i ApplicationGatewayTrustedRootCertificateArgs) ToApplicationGatewayTruste
 // ApplicationGatewayTrustedRootCertificateArrayInput is an input type that accepts ApplicationGatewayTrustedRootCertificateArray and ApplicationGatewayTrustedRootCertificateArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayTrustedRootCertificateArrayInput` via:
 //
-// 		 ApplicationGatewayTrustedRootCertificateArray{ ApplicationGatewayTrustedRootCertificateArgs{...} }
-//
+//          ApplicationGatewayTrustedRootCertificateArray{ ApplicationGatewayTrustedRootCertificateArgs{...} }
 type ApplicationGatewayTrustedRootCertificateArrayInput interface {
 	pulumi.Input
 
@@ -3801,8 +3749,7 @@ type ApplicationGatewayUrlPathMap struct {
 // ApplicationGatewayUrlPathMapInput is an input type that accepts ApplicationGatewayUrlPathMap and ApplicationGatewayUrlPathMapOutput values.
 // You can construct a concrete instance of `ApplicationGatewayUrlPathMapInput` via:
 //
-// 		 ApplicationGatewayUrlPathMap{ "key": ApplicationGatewayUrlPathArgs{...} }
-//
+//          ApplicationGatewayUrlPathMap{ "key": ApplicationGatewayUrlPathArgs{...} }
 type ApplicationGatewayUrlPathMapInput interface {
 	pulumi.Input
 
@@ -3849,8 +3796,7 @@ func (i ApplicationGatewayUrlPathMapArgs) ToApplicationGatewayUrlPathMapOutputWi
 // ApplicationGatewayUrlPathMapArrayInput is an input type that accepts ApplicationGatewayUrlPathMapArray and ApplicationGatewayUrlPathMapArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayUrlPathMapArrayInput` via:
 //
-// 		 ApplicationGatewayUrlPathMapArray{ ApplicationGatewayUrlPathMapArgs{...} }
-//
+//          ApplicationGatewayUrlPathMapArray{ ApplicationGatewayUrlPathMapArgs{...} }
 type ApplicationGatewayUrlPathMapArrayInput interface {
 	pulumi.Input
 
@@ -3988,8 +3934,7 @@ type ApplicationGatewayUrlPathMapPathRule struct {
 // ApplicationGatewayUrlPathMapPathRuleInput is an input type that accepts ApplicationGatewayUrlPathMapPathRuleArgs and ApplicationGatewayUrlPathMapPathRuleOutput values.
 // You can construct a concrete instance of `ApplicationGatewayUrlPathMapPathRuleInput` via:
 //
-// 		 ApplicationGatewayUrlPathMapPathRuleArgs{...}
-//
+//          ApplicationGatewayUrlPathMapPathRuleArgs{...}
 type ApplicationGatewayUrlPathMapPathRuleInput interface {
 	pulumi.Input
 
@@ -4037,8 +3982,7 @@ func (i ApplicationGatewayUrlPathMapPathRuleArgs) ToApplicationGatewayUrlPathMap
 // ApplicationGatewayUrlPathMapPathRuleArrayInput is an input type that accepts ApplicationGatewayUrlPathMapPathRuleArray and ApplicationGatewayUrlPathMapPathRuleArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayUrlPathMapPathRuleArrayInput` via:
 //
-// 		 ApplicationGatewayUrlPathMapPathRuleArray{ ApplicationGatewayUrlPathMapPathRuleArgs{...} }
-//
+//          ApplicationGatewayUrlPathMapPathRuleArray{ ApplicationGatewayUrlPathMapPathRuleArgs{...} }
 type ApplicationGatewayUrlPathMapPathRuleArrayInput interface {
 	pulumi.Input
 
@@ -4173,8 +4117,7 @@ type ApplicationGatewayWafConfiguration struct {
 // ApplicationGatewayWafConfigurationInput is an input type that accepts ApplicationGatewayWafConfigurationArgs and ApplicationGatewayWafConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationGatewayWafConfigurationInput` via:
 //
-// 		 ApplicationGatewayWafConfigurationArgs{...}
-//
+//          ApplicationGatewayWafConfigurationArgs{...}
 type ApplicationGatewayWafConfigurationInput interface {
 	pulumi.Input
 
@@ -4226,12 +4169,11 @@ func (i ApplicationGatewayWafConfigurationArgs) ToApplicationGatewayWafConfigura
 // ApplicationGatewayWafConfigurationPtrInput is an input type that accepts ApplicationGatewayWafConfigurationArgs, ApplicationGatewayWafConfigurationPtr and ApplicationGatewayWafConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationGatewayWafConfigurationPtrInput` via:
 //
-// 		 ApplicationGatewayWafConfigurationArgs{...}
+//          ApplicationGatewayWafConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ApplicationGatewayWafConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -4448,8 +4390,7 @@ type ApplicationGatewayWafConfigurationDisabledRuleGroup struct {
 // ApplicationGatewayWafConfigurationDisabledRuleGroupInput is an input type that accepts ApplicationGatewayWafConfigurationDisabledRuleGroupArgs and ApplicationGatewayWafConfigurationDisabledRuleGroupOutput values.
 // You can construct a concrete instance of `ApplicationGatewayWafConfigurationDisabledRuleGroupInput` via:
 //
-// 		 ApplicationGatewayWafConfigurationDisabledRuleGroupArgs{...}
-//
+//          ApplicationGatewayWafConfigurationDisabledRuleGroupArgs{...}
 type ApplicationGatewayWafConfigurationDisabledRuleGroupInput interface {
 	pulumi.Input
 
@@ -4479,8 +4420,7 @@ func (i ApplicationGatewayWafConfigurationDisabledRuleGroupArgs) ToApplicationGa
 // ApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput is an input type that accepts ApplicationGatewayWafConfigurationDisabledRuleGroupArray and ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput` via:
 //
-// 		 ApplicationGatewayWafConfigurationDisabledRuleGroupArray{ ApplicationGatewayWafConfigurationDisabledRuleGroupArgs{...} }
-//
+//          ApplicationGatewayWafConfigurationDisabledRuleGroupArray{ ApplicationGatewayWafConfigurationDisabledRuleGroupArgs{...} }
 type ApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput interface {
 	pulumi.Input
 
@@ -4558,8 +4498,7 @@ type ApplicationGatewayWafConfigurationExclusion struct {
 // ApplicationGatewayWafConfigurationExclusionInput is an input type that accepts ApplicationGatewayWafConfigurationExclusionArgs and ApplicationGatewayWafConfigurationExclusionOutput values.
 // You can construct a concrete instance of `ApplicationGatewayWafConfigurationExclusionInput` via:
 //
-// 		 ApplicationGatewayWafConfigurationExclusionArgs{...}
-//
+//          ApplicationGatewayWafConfigurationExclusionArgs{...}
 type ApplicationGatewayWafConfigurationExclusionInput interface {
 	pulumi.Input
 
@@ -4591,8 +4530,7 @@ func (i ApplicationGatewayWafConfigurationExclusionArgs) ToApplicationGatewayWaf
 // ApplicationGatewayWafConfigurationExclusionArrayInput is an input type that accepts ApplicationGatewayWafConfigurationExclusionArray and ApplicationGatewayWafConfigurationExclusionArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayWafConfigurationExclusionArrayInput` via:
 //
-// 		 ApplicationGatewayWafConfigurationExclusionArray{ ApplicationGatewayWafConfigurationExclusionArgs{...} }
-//
+//          ApplicationGatewayWafConfigurationExclusionArray{ ApplicationGatewayWafConfigurationExclusionArgs{...} }
 type ApplicationGatewayWafConfigurationExclusionArrayInput interface {
 	pulumi.Input
 
@@ -4675,8 +4613,7 @@ type ExpressRouteCircuitPeeringMicrosoftPeeringConfig struct {
 // ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput is an input type that accepts ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs and ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput` via:
 //
-// 		 ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{...}
-//
+//          ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{...}
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput interface {
 	pulumi.Input
 
@@ -4716,12 +4653,11 @@ func (i ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs) ToExpressRouteCirc
 // ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrInput is an input type that accepts ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs, ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtr and ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrInput` via:
 //
-// 		 ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{...}
+//          ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrInput interface {
 	pulumi.Input
 
@@ -4846,8 +4782,7 @@ type ExpressRouteCircuitSku struct {
 // ExpressRouteCircuitSkuInput is an input type that accepts ExpressRouteCircuitSkuArgs and ExpressRouteCircuitSkuOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitSkuInput` via:
 //
-// 		 ExpressRouteCircuitSkuArgs{...}
-//
+//          ExpressRouteCircuitSkuArgs{...}
 type ExpressRouteCircuitSkuInput interface {
 	pulumi.Input
 
@@ -4885,12 +4820,11 @@ func (i ExpressRouteCircuitSkuArgs) ToExpressRouteCircuitSkuPtrOutputWithContext
 // ExpressRouteCircuitSkuPtrInput is an input type that accepts ExpressRouteCircuitSkuArgs, ExpressRouteCircuitSkuPtr and ExpressRouteCircuitSkuPtrOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitSkuPtrInput` via:
 //
-// 		 ExpressRouteCircuitSkuArgs{...}
+//          ExpressRouteCircuitSkuArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ExpressRouteCircuitSkuPtrInput interface {
 	pulumi.Input
 
@@ -5006,8 +4940,7 @@ type FirewallApplicationRuleCollectionRule struct {
 // FirewallApplicationRuleCollectionRuleInput is an input type that accepts FirewallApplicationRuleCollectionRuleArgs and FirewallApplicationRuleCollectionRuleOutput values.
 // You can construct a concrete instance of `FirewallApplicationRuleCollectionRuleInput` via:
 //
-// 		 FirewallApplicationRuleCollectionRuleArgs{...}
-//
+//          FirewallApplicationRuleCollectionRuleArgs{...}
 type FirewallApplicationRuleCollectionRuleInput interface {
 	pulumi.Input
 
@@ -5045,8 +4978,7 @@ func (i FirewallApplicationRuleCollectionRuleArgs) ToFirewallApplicationRuleColl
 // FirewallApplicationRuleCollectionRuleArrayInput is an input type that accepts FirewallApplicationRuleCollectionRuleArray and FirewallApplicationRuleCollectionRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallApplicationRuleCollectionRuleArrayInput` via:
 //
-// 		 FirewallApplicationRuleCollectionRuleArray{ FirewallApplicationRuleCollectionRuleArgs{...} }
-//
+//          FirewallApplicationRuleCollectionRuleArray{ FirewallApplicationRuleCollectionRuleArgs{...} }
 type FirewallApplicationRuleCollectionRuleArrayInput interface {
 	pulumi.Input
 
@@ -5144,8 +5076,7 @@ type FirewallApplicationRuleCollectionRuleProtocol struct {
 // FirewallApplicationRuleCollectionRuleProtocolInput is an input type that accepts FirewallApplicationRuleCollectionRuleProtocolArgs and FirewallApplicationRuleCollectionRuleProtocolOutput values.
 // You can construct a concrete instance of `FirewallApplicationRuleCollectionRuleProtocolInput` via:
 //
-// 		 FirewallApplicationRuleCollectionRuleProtocolArgs{...}
-//
+//          FirewallApplicationRuleCollectionRuleProtocolArgs{...}
 type FirewallApplicationRuleCollectionRuleProtocolInput interface {
 	pulumi.Input
 
@@ -5175,8 +5106,7 @@ func (i FirewallApplicationRuleCollectionRuleProtocolArgs) ToFirewallApplication
 // FirewallApplicationRuleCollectionRuleProtocolArrayInput is an input type that accepts FirewallApplicationRuleCollectionRuleProtocolArray and FirewallApplicationRuleCollectionRuleProtocolArrayOutput values.
 // You can construct a concrete instance of `FirewallApplicationRuleCollectionRuleProtocolArrayInput` via:
 //
-// 		 FirewallApplicationRuleCollectionRuleProtocolArray{ FirewallApplicationRuleCollectionRuleProtocolArgs{...} }
-//
+//          FirewallApplicationRuleCollectionRuleProtocolArray{ FirewallApplicationRuleCollectionRuleProtocolArgs{...} }
 type FirewallApplicationRuleCollectionRuleProtocolArrayInput interface {
 	pulumi.Input
 
@@ -5256,8 +5186,7 @@ type FirewallIpConfiguration struct {
 // FirewallIpConfigurationInput is an input type that accepts FirewallIpConfigurationArgs and FirewallIpConfigurationOutput values.
 // You can construct a concrete instance of `FirewallIpConfigurationInput` via:
 //
-// 		 FirewallIpConfigurationArgs{...}
-//
+//          FirewallIpConfigurationArgs{...}
 type FirewallIpConfigurationInput interface {
 	pulumi.Input
 
@@ -5291,8 +5220,7 @@ func (i FirewallIpConfigurationArgs) ToFirewallIpConfigurationOutputWithContext(
 // FirewallIpConfigurationArrayInput is an input type that accepts FirewallIpConfigurationArray and FirewallIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `FirewallIpConfigurationArrayInput` via:
 //
-// 		 FirewallIpConfigurationArray{ FirewallIpConfigurationArgs{...} }
-//
+//          FirewallIpConfigurationArray{ FirewallIpConfigurationArgs{...} }
 type FirewallIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -5390,8 +5318,7 @@ type FirewallNatRuleCollectionRule struct {
 // FirewallNatRuleCollectionRuleInput is an input type that accepts FirewallNatRuleCollectionRuleArgs and FirewallNatRuleCollectionRuleOutput values.
 // You can construct a concrete instance of `FirewallNatRuleCollectionRuleInput` via:
 //
-// 		 FirewallNatRuleCollectionRuleArgs{...}
-//
+//          FirewallNatRuleCollectionRuleArgs{...}
 type FirewallNatRuleCollectionRuleInput interface {
 	pulumi.Input
 
@@ -5433,8 +5360,7 @@ func (i FirewallNatRuleCollectionRuleArgs) ToFirewallNatRuleCollectionRuleOutput
 // FirewallNatRuleCollectionRuleArrayInput is an input type that accepts FirewallNatRuleCollectionRuleArray and FirewallNatRuleCollectionRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallNatRuleCollectionRuleArrayInput` via:
 //
-// 		 FirewallNatRuleCollectionRuleArray{ FirewallNatRuleCollectionRuleArgs{...} }
-//
+//          FirewallNatRuleCollectionRuleArray{ FirewallNatRuleCollectionRuleArgs{...} }
 type FirewallNatRuleCollectionRuleArrayInput interface {
 	pulumi.Input
 
@@ -5548,8 +5474,7 @@ type FirewallNetworkRuleCollectionRule struct {
 // FirewallNetworkRuleCollectionRuleInput is an input type that accepts FirewallNetworkRuleCollectionRuleArgs and FirewallNetworkRuleCollectionRuleOutput values.
 // You can construct a concrete instance of `FirewallNetworkRuleCollectionRuleInput` via:
 //
-// 		 FirewallNetworkRuleCollectionRuleArgs{...}
-//
+//          FirewallNetworkRuleCollectionRuleArgs{...}
 type FirewallNetworkRuleCollectionRuleInput interface {
 	pulumi.Input
 
@@ -5587,8 +5512,7 @@ func (i FirewallNetworkRuleCollectionRuleArgs) ToFirewallNetworkRuleCollectionRu
 // FirewallNetworkRuleCollectionRuleArrayInput is an input type that accepts FirewallNetworkRuleCollectionRuleArray and FirewallNetworkRuleCollectionRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallNetworkRuleCollectionRuleArrayInput` via:
 //
-// 		 FirewallNetworkRuleCollectionRuleArray{ FirewallNetworkRuleCollectionRuleArgs{...} }
-//
+//          FirewallNetworkRuleCollectionRuleArray{ FirewallNetworkRuleCollectionRuleArgs{...} }
 type FirewallNetworkRuleCollectionRuleArrayInput interface {
 	pulumi.Input
 
@@ -5688,8 +5612,7 @@ type LocalNetworkGatewayBgpSettings struct {
 // LocalNetworkGatewayBgpSettingsInput is an input type that accepts LocalNetworkGatewayBgpSettingsArgs and LocalNetworkGatewayBgpSettingsOutput values.
 // You can construct a concrete instance of `LocalNetworkGatewayBgpSettingsInput` via:
 //
-// 		 LocalNetworkGatewayBgpSettingsArgs{...}
-//
+//          LocalNetworkGatewayBgpSettingsArgs{...}
 type LocalNetworkGatewayBgpSettingsInput interface {
 	pulumi.Input
 
@@ -5731,12 +5654,11 @@ func (i LocalNetworkGatewayBgpSettingsArgs) ToLocalNetworkGatewayBgpSettingsPtrO
 // LocalNetworkGatewayBgpSettingsPtrInput is an input type that accepts LocalNetworkGatewayBgpSettingsArgs, LocalNetworkGatewayBgpSettingsPtr and LocalNetworkGatewayBgpSettingsPtrOutput values.
 // You can construct a concrete instance of `LocalNetworkGatewayBgpSettingsPtrInput` via:
 //
-// 		 LocalNetworkGatewayBgpSettingsArgs{...}
+//          LocalNetworkGatewayBgpSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type LocalNetworkGatewayBgpSettingsPtrInput interface {
 	pulumi.Input
 
@@ -5865,8 +5787,7 @@ type NetworkConnectionMonitorDestination struct {
 // NetworkConnectionMonitorDestinationInput is an input type that accepts NetworkConnectionMonitorDestinationArgs and NetworkConnectionMonitorDestinationOutput values.
 // You can construct a concrete instance of `NetworkConnectionMonitorDestinationInput` via:
 //
-// 		 NetworkConnectionMonitorDestinationArgs{...}
-//
+//          NetworkConnectionMonitorDestinationArgs{...}
 type NetworkConnectionMonitorDestinationInput interface {
 	pulumi.Input
 
@@ -5906,12 +5827,11 @@ func (i NetworkConnectionMonitorDestinationArgs) ToNetworkConnectionMonitorDesti
 // NetworkConnectionMonitorDestinationPtrInput is an input type that accepts NetworkConnectionMonitorDestinationArgs, NetworkConnectionMonitorDestinationPtr and NetworkConnectionMonitorDestinationPtrOutput values.
 // You can construct a concrete instance of `NetworkConnectionMonitorDestinationPtrInput` via:
 //
-// 		 NetworkConnectionMonitorDestinationArgs{...}
+//          NetworkConnectionMonitorDestinationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NetworkConnectionMonitorDestinationPtrInput interface {
 	pulumi.Input
 
@@ -6034,8 +5954,7 @@ type NetworkConnectionMonitorSource struct {
 // NetworkConnectionMonitorSourceInput is an input type that accepts NetworkConnectionMonitorSourceArgs and NetworkConnectionMonitorSourceOutput values.
 // You can construct a concrete instance of `NetworkConnectionMonitorSourceInput` via:
 //
-// 		 NetworkConnectionMonitorSourceArgs{...}
-//
+//          NetworkConnectionMonitorSourceArgs{...}
 type NetworkConnectionMonitorSourceInput interface {
 	pulumi.Input
 
@@ -6073,12 +5992,11 @@ func (i NetworkConnectionMonitorSourceArgs) ToNetworkConnectionMonitorSourcePtrO
 // NetworkConnectionMonitorSourcePtrInput is an input type that accepts NetworkConnectionMonitorSourceArgs, NetworkConnectionMonitorSourcePtr and NetworkConnectionMonitorSourcePtrOutput values.
 // You can construct a concrete instance of `NetworkConnectionMonitorSourcePtrInput` via:
 //
-// 		 NetworkConnectionMonitorSourceArgs{...}
+//          NetworkConnectionMonitorSourceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NetworkConnectionMonitorSourcePtrInput interface {
 	pulumi.Input
 
@@ -6196,8 +6114,7 @@ type NetworkInterfaceIpConfiguration struct {
 // NetworkInterfaceIpConfigurationInput is an input type that accepts NetworkInterfaceIpConfigurationArgs and NetworkInterfaceIpConfigurationOutput values.
 // You can construct a concrete instance of `NetworkInterfaceIpConfigurationInput` via:
 //
-// 		 NetworkInterfaceIpConfigurationArgs{...}
-//
+//          NetworkInterfaceIpConfigurationArgs{...}
 type NetworkInterfaceIpConfigurationInput interface {
 	pulumi.Input
 
@@ -6237,8 +6154,7 @@ func (i NetworkInterfaceIpConfigurationArgs) ToNetworkInterfaceIpConfigurationOu
 // NetworkInterfaceIpConfigurationArrayInput is an input type that accepts NetworkInterfaceIpConfigurationArray and NetworkInterfaceIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceIpConfigurationArrayInput` via:
 //
-// 		 NetworkInterfaceIpConfigurationArray{ NetworkInterfaceIpConfigurationArgs{...} }
-//
+//          NetworkInterfaceIpConfigurationArray{ NetworkInterfaceIpConfigurationArgs{...} }
 type NetworkInterfaceIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -6345,8 +6261,7 @@ type NetworkPacketCaptureFilter struct {
 // NetworkPacketCaptureFilterInput is an input type that accepts NetworkPacketCaptureFilterArgs and NetworkPacketCaptureFilterOutput values.
 // You can construct a concrete instance of `NetworkPacketCaptureFilterInput` via:
 //
-// 		 NetworkPacketCaptureFilterArgs{...}
-//
+//          NetworkPacketCaptureFilterArgs{...}
 type NetworkPacketCaptureFilterInput interface {
 	pulumi.Input
 
@@ -6382,8 +6297,7 @@ func (i NetworkPacketCaptureFilterArgs) ToNetworkPacketCaptureFilterOutputWithCo
 // NetworkPacketCaptureFilterArrayInput is an input type that accepts NetworkPacketCaptureFilterArray and NetworkPacketCaptureFilterArrayOutput values.
 // You can construct a concrete instance of `NetworkPacketCaptureFilterArrayInput` via:
 //
-// 		 NetworkPacketCaptureFilterArray{ NetworkPacketCaptureFilterArgs{...} }
-//
+//          NetworkPacketCaptureFilterArray{ NetworkPacketCaptureFilterArgs{...} }
 type NetworkPacketCaptureFilterArrayInput interface {
 	pulumi.Input
 
@@ -6476,8 +6390,7 @@ type NetworkPacketCaptureStorageLocation struct {
 // NetworkPacketCaptureStorageLocationInput is an input type that accepts NetworkPacketCaptureStorageLocationArgs and NetworkPacketCaptureStorageLocationOutput values.
 // You can construct a concrete instance of `NetworkPacketCaptureStorageLocationInput` via:
 //
-// 		 NetworkPacketCaptureStorageLocationArgs{...}
-//
+//          NetworkPacketCaptureStorageLocationArgs{...}
 type NetworkPacketCaptureStorageLocationInput interface {
 	pulumi.Input
 
@@ -6517,12 +6430,11 @@ func (i NetworkPacketCaptureStorageLocationArgs) ToNetworkPacketCaptureStorageLo
 // NetworkPacketCaptureStorageLocationPtrInput is an input type that accepts NetworkPacketCaptureStorageLocationArgs, NetworkPacketCaptureStorageLocationPtr and NetworkPacketCaptureStorageLocationPtrOutput values.
 // You can construct a concrete instance of `NetworkPacketCaptureStorageLocationPtrInput` via:
 //
-// 		 NetworkPacketCaptureStorageLocationArgs{...}
+//          NetworkPacketCaptureStorageLocationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NetworkPacketCaptureStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -6673,8 +6585,7 @@ type NetworkSecurityGroupSecurityRule struct {
 // NetworkSecurityGroupSecurityRuleInput is an input type that accepts NetworkSecurityGroupSecurityRuleArgs and NetworkSecurityGroupSecurityRuleOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupSecurityRuleInput` via:
 //
-// 		 NetworkSecurityGroupSecurityRuleArgs{...}
-//
+//          NetworkSecurityGroupSecurityRuleArgs{...}
 type NetworkSecurityGroupSecurityRuleInput interface {
 	pulumi.Input
 
@@ -6732,8 +6643,7 @@ func (i NetworkSecurityGroupSecurityRuleArgs) ToNetworkSecurityGroupSecurityRule
 // NetworkSecurityGroupSecurityRuleArrayInput is an input type that accepts NetworkSecurityGroupSecurityRuleArray and NetworkSecurityGroupSecurityRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupSecurityRuleArrayInput` via:
 //
-// 		 NetworkSecurityGroupSecurityRuleArray{ NetworkSecurityGroupSecurityRuleArgs{...} }
-//
+//          NetworkSecurityGroupSecurityRuleArray{ NetworkSecurityGroupSecurityRuleArgs{...} }
 type NetworkSecurityGroupSecurityRuleArrayInput interface {
 	pulumi.Input
 
@@ -6879,8 +6789,7 @@ type NetworkWatcherFlowLogRetentionPolicy struct {
 // NetworkWatcherFlowLogRetentionPolicyInput is an input type that accepts NetworkWatcherFlowLogRetentionPolicyArgs and NetworkWatcherFlowLogRetentionPolicyOutput values.
 // You can construct a concrete instance of `NetworkWatcherFlowLogRetentionPolicyInput` via:
 //
-// 		 NetworkWatcherFlowLogRetentionPolicyArgs{...}
-//
+//          NetworkWatcherFlowLogRetentionPolicyArgs{...}
 type NetworkWatcherFlowLogRetentionPolicyInput interface {
 	pulumi.Input
 
@@ -6918,12 +6827,11 @@ func (i NetworkWatcherFlowLogRetentionPolicyArgs) ToNetworkWatcherFlowLogRetenti
 // NetworkWatcherFlowLogRetentionPolicyPtrInput is an input type that accepts NetworkWatcherFlowLogRetentionPolicyArgs, NetworkWatcherFlowLogRetentionPolicyPtr and NetworkWatcherFlowLogRetentionPolicyPtrOutput values.
 // You can construct a concrete instance of `NetworkWatcherFlowLogRetentionPolicyPtrInput` via:
 //
-// 		 NetworkWatcherFlowLogRetentionPolicyArgs{...}
+//          NetworkWatcherFlowLogRetentionPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NetworkWatcherFlowLogRetentionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -7037,8 +6945,7 @@ type NetworkWatcherFlowLogTrafficAnalytics struct {
 // NetworkWatcherFlowLogTrafficAnalyticsInput is an input type that accepts NetworkWatcherFlowLogTrafficAnalyticsArgs and NetworkWatcherFlowLogTrafficAnalyticsOutput values.
 // You can construct a concrete instance of `NetworkWatcherFlowLogTrafficAnalyticsInput` via:
 //
-// 		 NetworkWatcherFlowLogTrafficAnalyticsArgs{...}
-//
+//          NetworkWatcherFlowLogTrafficAnalyticsArgs{...}
 type NetworkWatcherFlowLogTrafficAnalyticsInput interface {
 	pulumi.Input
 
@@ -7082,12 +6989,11 @@ func (i NetworkWatcherFlowLogTrafficAnalyticsArgs) ToNetworkWatcherFlowLogTraffi
 // NetworkWatcherFlowLogTrafficAnalyticsPtrInput is an input type that accepts NetworkWatcherFlowLogTrafficAnalyticsArgs, NetworkWatcherFlowLogTrafficAnalyticsPtr and NetworkWatcherFlowLogTrafficAnalyticsPtrOutput values.
 // You can construct a concrete instance of `NetworkWatcherFlowLogTrafficAnalyticsPtrInput` via:
 //
-// 		 NetworkWatcherFlowLogTrafficAnalyticsArgs{...}
+//          NetworkWatcherFlowLogTrafficAnalyticsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NetworkWatcherFlowLogTrafficAnalyticsPtrInput interface {
 	pulumi.Input
 
@@ -7246,8 +7152,7 @@ type PacketCaptureFilter struct {
 // PacketCaptureFilterInput is an input type that accepts PacketCaptureFilterArgs and PacketCaptureFilterOutput values.
 // You can construct a concrete instance of `PacketCaptureFilterInput` via:
 //
-// 		 PacketCaptureFilterArgs{...}
-//
+//          PacketCaptureFilterArgs{...}
 type PacketCaptureFilterInput interface {
 	pulumi.Input
 
@@ -7283,8 +7188,7 @@ func (i PacketCaptureFilterArgs) ToPacketCaptureFilterOutputWithContext(ctx cont
 // PacketCaptureFilterArrayInput is an input type that accepts PacketCaptureFilterArray and PacketCaptureFilterArrayOutput values.
 // You can construct a concrete instance of `PacketCaptureFilterArrayInput` via:
 //
-// 		 PacketCaptureFilterArray{ PacketCaptureFilterArgs{...} }
-//
+//          PacketCaptureFilterArray{ PacketCaptureFilterArgs{...} }
 type PacketCaptureFilterArrayInput interface {
 	pulumi.Input
 
@@ -7377,8 +7281,7 @@ type PacketCaptureStorageLocation struct {
 // PacketCaptureStorageLocationInput is an input type that accepts PacketCaptureStorageLocationArgs and PacketCaptureStorageLocationOutput values.
 // You can construct a concrete instance of `PacketCaptureStorageLocationInput` via:
 //
-// 		 PacketCaptureStorageLocationArgs{...}
-//
+//          PacketCaptureStorageLocationArgs{...}
 type PacketCaptureStorageLocationInput interface {
 	pulumi.Input
 
@@ -7418,12 +7321,11 @@ func (i PacketCaptureStorageLocationArgs) ToPacketCaptureStorageLocationPtrOutpu
 // PacketCaptureStorageLocationPtrInput is an input type that accepts PacketCaptureStorageLocationArgs, PacketCaptureStorageLocationPtr and PacketCaptureStorageLocationPtrOutput values.
 // You can construct a concrete instance of `PacketCaptureStorageLocationPtrInput` via:
 //
-// 		 PacketCaptureStorageLocationArgs{...}
+//          PacketCaptureStorageLocationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PacketCaptureStorageLocationPtrInput interface {
 	pulumi.Input
 
@@ -7546,8 +7448,7 @@ type PointToPointVpnGatewayConnectionConfiguration struct {
 // PointToPointVpnGatewayConnectionConfigurationInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationArgs and PointToPointVpnGatewayConnectionConfigurationOutput values.
 // You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationInput` via:
 //
-// 		 PointToPointVpnGatewayConnectionConfigurationArgs{...}
-//
+//          PointToPointVpnGatewayConnectionConfigurationArgs{...}
 type PointToPointVpnGatewayConnectionConfigurationInput interface {
 	pulumi.Input
 
@@ -7585,12 +7486,11 @@ func (i PointToPointVpnGatewayConnectionConfigurationArgs) ToPointToPointVpnGate
 // PointToPointVpnGatewayConnectionConfigurationPtrInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationArgs, PointToPointVpnGatewayConnectionConfigurationPtr and PointToPointVpnGatewayConnectionConfigurationPtrOutput values.
 // You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationPtrInput` via:
 //
-// 		 PointToPointVpnGatewayConnectionConfigurationArgs{...}
+//          PointToPointVpnGatewayConnectionConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PointToPointVpnGatewayConnectionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7700,8 +7600,7 @@ type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool struct {
 // PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs and PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput values.
 // You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolInput` via:
 //
-// 		 PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{...}
-//
+//          PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{...}
 type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolInput interface {
 	pulumi.Input
 
@@ -7737,12 +7636,11 @@ func (i PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs) T
 // PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs, PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtr and PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput values.
 // You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput` via:
 //
-// 		 PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{...}
+//          PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrInput interface {
 	pulumi.Input
 
@@ -7839,8 +7737,7 @@ type ProfileContainerNetworkInterface struct {
 // ProfileContainerNetworkInterfaceInput is an input type that accepts ProfileContainerNetworkInterfaceArgs and ProfileContainerNetworkInterfaceOutput values.
 // You can construct a concrete instance of `ProfileContainerNetworkInterfaceInput` via:
 //
-// 		 ProfileContainerNetworkInterfaceArgs{...}
-//
+//          ProfileContainerNetworkInterfaceArgs{...}
 type ProfileContainerNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -7878,12 +7775,11 @@ func (i ProfileContainerNetworkInterfaceArgs) ToProfileContainerNetworkInterface
 // ProfileContainerNetworkInterfacePtrInput is an input type that accepts ProfileContainerNetworkInterfaceArgs, ProfileContainerNetworkInterfacePtr and ProfileContainerNetworkInterfacePtrOutput values.
 // You can construct a concrete instance of `ProfileContainerNetworkInterfacePtrInput` via:
 //
-// 		 ProfileContainerNetworkInterfaceArgs{...}
+//          ProfileContainerNetworkInterfaceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProfileContainerNetworkInterfacePtrInput interface {
 	pulumi.Input
 
@@ -7993,8 +7889,7 @@ type ProfileContainerNetworkInterfaceIpConfiguration struct {
 // ProfileContainerNetworkInterfaceIpConfigurationInput is an input type that accepts ProfileContainerNetworkInterfaceIpConfigurationArgs and ProfileContainerNetworkInterfaceIpConfigurationOutput values.
 // You can construct a concrete instance of `ProfileContainerNetworkInterfaceIpConfigurationInput` via:
 //
-// 		 ProfileContainerNetworkInterfaceIpConfigurationArgs{...}
-//
+//          ProfileContainerNetworkInterfaceIpConfigurationArgs{...}
 type ProfileContainerNetworkInterfaceIpConfigurationInput interface {
 	pulumi.Input
 
@@ -8024,8 +7919,7 @@ func (i ProfileContainerNetworkInterfaceIpConfigurationArgs) ToProfileContainerN
 // ProfileContainerNetworkInterfaceIpConfigurationArrayInput is an input type that accepts ProfileContainerNetworkInterfaceIpConfigurationArray and ProfileContainerNetworkInterfaceIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `ProfileContainerNetworkInterfaceIpConfigurationArrayInput` via:
 //
-// 		 ProfileContainerNetworkInterfaceIpConfigurationArray{ ProfileContainerNetworkInterfaceIpConfigurationArgs{...} }
-//
+//          ProfileContainerNetworkInterfaceIpConfigurationArray{ ProfileContainerNetworkInterfaceIpConfigurationArgs{...} }
 type ProfileContainerNetworkInterfaceIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -8105,8 +7999,7 @@ type RouteTableRoute struct {
 // RouteTableRouteInput is an input type that accepts RouteTableRouteArgs and RouteTableRouteOutput values.
 // You can construct a concrete instance of `RouteTableRouteInput` via:
 //
-// 		 RouteTableRouteArgs{...}
-//
+//          RouteTableRouteArgs{...}
 type RouteTableRouteInput interface {
 	pulumi.Input
 
@@ -8140,8 +8033,7 @@ func (i RouteTableRouteArgs) ToRouteTableRouteOutputWithContext(ctx context.Cont
 // RouteTableRouteArrayInput is an input type that accepts RouteTableRouteArray and RouteTableRouteArrayOutput values.
 // You can construct a concrete instance of `RouteTableRouteArrayInput` via:
 //
-// 		 RouteTableRouteArray{ RouteTableRouteArgs{...} }
-//
+//          RouteTableRouteArray{ RouteTableRouteArgs{...} }
 type RouteTableRouteArrayInput interface {
 	pulumi.Input
 
@@ -8227,8 +8119,7 @@ type SubnetDelegation struct {
 // SubnetDelegationInput is an input type that accepts SubnetDelegationArgs and SubnetDelegationOutput values.
 // You can construct a concrete instance of `SubnetDelegationInput` via:
 //
-// 		 SubnetDelegationArgs{...}
-//
+//          SubnetDelegationArgs{...}
 type SubnetDelegationInput interface {
 	pulumi.Input
 
@@ -8258,8 +8149,7 @@ func (i SubnetDelegationArgs) ToSubnetDelegationOutputWithContext(ctx context.Co
 // SubnetDelegationArrayInput is an input type that accepts SubnetDelegationArray and SubnetDelegationArrayOutput values.
 // You can construct a concrete instance of `SubnetDelegationArrayInput` via:
 //
-// 		 SubnetDelegationArray{ SubnetDelegationArgs{...} }
-//
+//          SubnetDelegationArray{ SubnetDelegationArgs{...} }
 type SubnetDelegationArrayInput interface {
 	pulumi.Input
 
@@ -8335,8 +8225,7 @@ type SubnetDelegationServiceDelegation struct {
 // SubnetDelegationServiceDelegationInput is an input type that accepts SubnetDelegationServiceDelegationArgs and SubnetDelegationServiceDelegationOutput values.
 // You can construct a concrete instance of `SubnetDelegationServiceDelegationInput` via:
 //
-// 		 SubnetDelegationServiceDelegationArgs{...}
-//
+//          SubnetDelegationServiceDelegationArgs{...}
 type SubnetDelegationServiceDelegationInput interface {
 	pulumi.Input
 
@@ -8397,8 +8286,7 @@ type TrafficManagerEndpointCustomHeader struct {
 // TrafficManagerEndpointCustomHeaderInput is an input type that accepts TrafficManagerEndpointCustomHeaderArgs and TrafficManagerEndpointCustomHeaderOutput values.
 // You can construct a concrete instance of `TrafficManagerEndpointCustomHeaderInput` via:
 //
-// 		 TrafficManagerEndpointCustomHeaderArgs{...}
-//
+//          TrafficManagerEndpointCustomHeaderArgs{...}
 type TrafficManagerEndpointCustomHeaderInput interface {
 	pulumi.Input
 
@@ -8428,8 +8316,7 @@ func (i TrafficManagerEndpointCustomHeaderArgs) ToTrafficManagerEndpointCustomHe
 // TrafficManagerEndpointCustomHeaderArrayInput is an input type that accepts TrafficManagerEndpointCustomHeaderArray and TrafficManagerEndpointCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerEndpointCustomHeaderArrayInput` via:
 //
-// 		 TrafficManagerEndpointCustomHeaderArray{ TrafficManagerEndpointCustomHeaderArgs{...} }
-//
+//          TrafficManagerEndpointCustomHeaderArray{ TrafficManagerEndpointCustomHeaderArgs{...} }
 type TrafficManagerEndpointCustomHeaderArrayInput interface {
 	pulumi.Input
 
@@ -8507,8 +8394,7 @@ type TrafficManagerEndpointSubnet struct {
 // TrafficManagerEndpointSubnetInput is an input type that accepts TrafficManagerEndpointSubnetArgs and TrafficManagerEndpointSubnetOutput values.
 // You can construct a concrete instance of `TrafficManagerEndpointSubnetInput` via:
 //
-// 		 TrafficManagerEndpointSubnetArgs{...}
-//
+//          TrafficManagerEndpointSubnetArgs{...}
 type TrafficManagerEndpointSubnetInput interface {
 	pulumi.Input
 
@@ -8540,8 +8426,7 @@ func (i TrafficManagerEndpointSubnetArgs) ToTrafficManagerEndpointSubnetOutputWi
 // TrafficManagerEndpointSubnetArrayInput is an input type that accepts TrafficManagerEndpointSubnetArray and TrafficManagerEndpointSubnetArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerEndpointSubnetArrayInput` via:
 //
-// 		 TrafficManagerEndpointSubnetArray{ TrafficManagerEndpointSubnetArgs{...} }
-//
+//          TrafficManagerEndpointSubnetArray{ TrafficManagerEndpointSubnetArgs{...} }
 type TrafficManagerEndpointSubnetArrayInput interface {
 	pulumi.Input
 
@@ -8622,8 +8507,7 @@ type TrafficManagerProfileDnsConfig struct {
 // TrafficManagerProfileDnsConfigInput is an input type that accepts TrafficManagerProfileDnsConfigArgs and TrafficManagerProfileDnsConfigOutput values.
 // You can construct a concrete instance of `TrafficManagerProfileDnsConfigInput` via:
 //
-// 		 TrafficManagerProfileDnsConfigArgs{...}
-//
+//          TrafficManagerProfileDnsConfigArgs{...}
 type TrafficManagerProfileDnsConfigInput interface {
 	pulumi.Input
 
@@ -8661,12 +8545,11 @@ func (i TrafficManagerProfileDnsConfigArgs) ToTrafficManagerProfileDnsConfigPtrO
 // TrafficManagerProfileDnsConfigPtrInput is an input type that accepts TrafficManagerProfileDnsConfigArgs, TrafficManagerProfileDnsConfigPtr and TrafficManagerProfileDnsConfigPtrOutput values.
 // You can construct a concrete instance of `TrafficManagerProfileDnsConfigPtrInput` via:
 //
-// 		 TrafficManagerProfileDnsConfigArgs{...}
+//          TrafficManagerProfileDnsConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type TrafficManagerProfileDnsConfigPtrInput interface {
 	pulumi.Input
 
@@ -8786,8 +8669,7 @@ type TrafficManagerProfileMonitorConfig struct {
 // TrafficManagerProfileMonitorConfigInput is an input type that accepts TrafficManagerProfileMonitorConfigArgs and TrafficManagerProfileMonitorConfigOutput values.
 // You can construct a concrete instance of `TrafficManagerProfileMonitorConfigInput` via:
 //
-// 		 TrafficManagerProfileMonitorConfigArgs{...}
-//
+//          TrafficManagerProfileMonitorConfigArgs{...}
 type TrafficManagerProfileMonitorConfigInput interface {
 	pulumi.Input
 
@@ -8837,12 +8719,11 @@ func (i TrafficManagerProfileMonitorConfigArgs) ToTrafficManagerProfileMonitorCo
 // TrafficManagerProfileMonitorConfigPtrInput is an input type that accepts TrafficManagerProfileMonitorConfigArgs, TrafficManagerProfileMonitorConfigPtr and TrafficManagerProfileMonitorConfigPtrOutput values.
 // You can construct a concrete instance of `TrafficManagerProfileMonitorConfigPtrInput` via:
 //
-// 		 TrafficManagerProfileMonitorConfigArgs{...}
+//          TrafficManagerProfileMonitorConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type TrafficManagerProfileMonitorConfigPtrInput interface {
 	pulumi.Input
 
@@ -9042,8 +8923,7 @@ type TrafficManagerProfileMonitorConfigCustomHeader struct {
 // TrafficManagerProfileMonitorConfigCustomHeaderInput is an input type that accepts TrafficManagerProfileMonitorConfigCustomHeaderArgs and TrafficManagerProfileMonitorConfigCustomHeaderOutput values.
 // You can construct a concrete instance of `TrafficManagerProfileMonitorConfigCustomHeaderInput` via:
 //
-// 		 TrafficManagerProfileMonitorConfigCustomHeaderArgs{...}
-//
+//          TrafficManagerProfileMonitorConfigCustomHeaderArgs{...}
 type TrafficManagerProfileMonitorConfigCustomHeaderInput interface {
 	pulumi.Input
 
@@ -9073,8 +8953,7 @@ func (i TrafficManagerProfileMonitorConfigCustomHeaderArgs) ToTrafficManagerProf
 // TrafficManagerProfileMonitorConfigCustomHeaderArrayInput is an input type that accepts TrafficManagerProfileMonitorConfigCustomHeaderArray and TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerProfileMonitorConfigCustomHeaderArrayInput` via:
 //
-// 		 TrafficManagerProfileMonitorConfigCustomHeaderArray{ TrafficManagerProfileMonitorConfigCustomHeaderArgs{...} }
-//
+//          TrafficManagerProfileMonitorConfigCustomHeaderArray{ TrafficManagerProfileMonitorConfigCustomHeaderArgs{...} }
 type TrafficManagerProfileMonitorConfigCustomHeaderArrayInput interface {
 	pulumi.Input
 
@@ -9150,8 +9029,7 @@ type VirtualHubRoute struct {
 // VirtualHubRouteInput is an input type that accepts VirtualHubRouteArgs and VirtualHubRouteOutput values.
 // You can construct a concrete instance of `VirtualHubRouteInput` via:
 //
-// 		 VirtualHubRouteArgs{...}
-//
+//          VirtualHubRouteArgs{...}
 type VirtualHubRouteInput interface {
 	pulumi.Input
 
@@ -9181,8 +9059,7 @@ func (i VirtualHubRouteArgs) ToVirtualHubRouteOutputWithContext(ctx context.Cont
 // VirtualHubRouteArrayInput is an input type that accepts VirtualHubRouteArray and VirtualHubRouteArrayOutput values.
 // You can construct a concrete instance of `VirtualHubRouteArrayInput` via:
 //
-// 		 VirtualHubRouteArray{ VirtualHubRouteArgs{...} }
-//
+//          VirtualHubRouteArray{ VirtualHubRouteArgs{...} }
 type VirtualHubRouteArrayInput interface {
 	pulumi.Input
 
@@ -9258,8 +9135,7 @@ type VirtualNetworkDdosProtectionPlan struct {
 // VirtualNetworkDdosProtectionPlanInput is an input type that accepts VirtualNetworkDdosProtectionPlanArgs and VirtualNetworkDdosProtectionPlanOutput values.
 // You can construct a concrete instance of `VirtualNetworkDdosProtectionPlanInput` via:
 //
-// 		 VirtualNetworkDdosProtectionPlanArgs{...}
-//
+//          VirtualNetworkDdosProtectionPlanArgs{...}
 type VirtualNetworkDdosProtectionPlanInput interface {
 	pulumi.Input
 
@@ -9297,12 +9173,11 @@ func (i VirtualNetworkDdosProtectionPlanArgs) ToVirtualNetworkDdosProtectionPlan
 // VirtualNetworkDdosProtectionPlanPtrInput is an input type that accepts VirtualNetworkDdosProtectionPlanArgs, VirtualNetworkDdosProtectionPlanPtr and VirtualNetworkDdosProtectionPlanPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkDdosProtectionPlanPtrInput` via:
 //
-// 		 VirtualNetworkDdosProtectionPlanArgs{...}
+//          VirtualNetworkDdosProtectionPlanArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VirtualNetworkDdosProtectionPlanPtrInput interface {
 	pulumi.Input
 
@@ -9416,8 +9291,7 @@ type VirtualNetworkGatewayBgpSettings struct {
 // VirtualNetworkGatewayBgpSettingsInput is an input type that accepts VirtualNetworkGatewayBgpSettingsArgs and VirtualNetworkGatewayBgpSettingsOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayBgpSettingsInput` via:
 //
-// 		 VirtualNetworkGatewayBgpSettingsArgs{...}
-//
+//          VirtualNetworkGatewayBgpSettingsArgs{...}
 type VirtualNetworkGatewayBgpSettingsInput interface {
 	pulumi.Input
 
@@ -9461,12 +9335,11 @@ func (i VirtualNetworkGatewayBgpSettingsArgs) ToVirtualNetworkGatewayBgpSettings
 // VirtualNetworkGatewayBgpSettingsPtrInput is an input type that accepts VirtualNetworkGatewayBgpSettingsArgs, VirtualNetworkGatewayBgpSettingsPtr and VirtualNetworkGatewayBgpSettingsPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayBgpSettingsPtrInput` via:
 //
-// 		 VirtualNetworkGatewayBgpSettingsArgs{...}
+//          VirtualNetworkGatewayBgpSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VirtualNetworkGatewayBgpSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9619,8 +9492,7 @@ type VirtualNetworkGatewayConnectionIpsecPolicy struct {
 // VirtualNetworkGatewayConnectionIpsecPolicyInput is an input type that accepts VirtualNetworkGatewayConnectionIpsecPolicyArgs and VirtualNetworkGatewayConnectionIpsecPolicyOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayConnectionIpsecPolicyInput` via:
 //
-// 		 VirtualNetworkGatewayConnectionIpsecPolicyArgs{...}
-//
+//          VirtualNetworkGatewayConnectionIpsecPolicyArgs{...}
 type VirtualNetworkGatewayConnectionIpsecPolicyInput interface {
 	pulumi.Input
 
@@ -9680,12 +9552,11 @@ func (i VirtualNetworkGatewayConnectionIpsecPolicyArgs) ToVirtualNetworkGatewayC
 // VirtualNetworkGatewayConnectionIpsecPolicyPtrInput is an input type that accepts VirtualNetworkGatewayConnectionIpsecPolicyArgs, VirtualNetworkGatewayConnectionIpsecPolicyPtr and VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayConnectionIpsecPolicyPtrInput` via:
 //
-// 		 VirtualNetworkGatewayConnectionIpsecPolicyArgs{...}
+//          VirtualNetworkGatewayConnectionIpsecPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VirtualNetworkGatewayConnectionIpsecPolicyPtrInput interface {
 	pulumi.Input
 
@@ -9915,8 +9786,7 @@ type VirtualNetworkGatewayIpConfiguration struct {
 // VirtualNetworkGatewayIpConfigurationInput is an input type that accepts VirtualNetworkGatewayIpConfigurationArgs and VirtualNetworkGatewayIpConfigurationOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayIpConfigurationInput` via:
 //
-// 		 VirtualNetworkGatewayIpConfigurationArgs{...}
-//
+//          VirtualNetworkGatewayIpConfigurationArgs{...}
 type VirtualNetworkGatewayIpConfigurationInput interface {
 	pulumi.Input
 
@@ -9956,8 +9826,7 @@ func (i VirtualNetworkGatewayIpConfigurationArgs) ToVirtualNetworkGatewayIpConfi
 // VirtualNetworkGatewayIpConfigurationArrayInput is an input type that accepts VirtualNetworkGatewayIpConfigurationArray and VirtualNetworkGatewayIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayIpConfigurationArrayInput` via:
 //
-// 		 VirtualNetworkGatewayIpConfigurationArray{ VirtualNetworkGatewayIpConfigurationArgs{...} }
-//
+//          VirtualNetworkGatewayIpConfigurationArray{ VirtualNetworkGatewayIpConfigurationArgs{...} }
 type VirtualNetworkGatewayIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -10067,8 +9936,7 @@ type VirtualNetworkGatewayVpnClientConfiguration struct {
 // VirtualNetworkGatewayVpnClientConfigurationInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationArgs and VirtualNetworkGatewayVpnClientConfigurationOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationInput` via:
 //
-// 		 VirtualNetworkGatewayVpnClientConfigurationArgs{...}
-//
+//          VirtualNetworkGatewayVpnClientConfigurationArgs{...}
 type VirtualNetworkGatewayVpnClientConfigurationInput interface {
 	pulumi.Input
 
@@ -10124,12 +9992,11 @@ func (i VirtualNetworkGatewayVpnClientConfigurationArgs) ToVirtualNetworkGateway
 // VirtualNetworkGatewayVpnClientConfigurationPtrInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationArgs, VirtualNetworkGatewayVpnClientConfigurationPtr and VirtualNetworkGatewayVpnClientConfigurationPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationPtrInput` via:
 //
-// 		 VirtualNetworkGatewayVpnClientConfigurationArgs{...}
+//          VirtualNetworkGatewayVpnClientConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VirtualNetworkGatewayVpnClientConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -10322,8 +10189,7 @@ type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
 // VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs and VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput` via:
 //
-// 		 VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...}
-//
+//          VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...}
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput interface {
 	pulumi.Input
 
@@ -10352,8 +10218,7 @@ func (i VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs) ToVir
 // VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray and VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput` via:
 //
-// 		 VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{ VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...} }
-//
+//          VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{ VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...} }
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput interface {
 	pulumi.Input
 
@@ -10429,8 +10294,7 @@ type VirtualNetworkGatewayVpnClientConfigurationRootCertificate struct {
 // VirtualNetworkGatewayVpnClientConfigurationRootCertificateInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs and VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationRootCertificateInput` via:
 //
-// 		 VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...}
-//
+//          VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...}
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificateInput interface {
 	pulumi.Input
 
@@ -10461,8 +10325,7 @@ func (i VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs) ToVirtua
 // VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray and VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput` via:
 //
-// 		 VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{ VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...} }
-//
+//          VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{ VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...} }
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput interface {
 	pulumi.Input
 
@@ -10545,8 +10408,7 @@ type VirtualNetworkSubnet struct {
 // VirtualNetworkSubnetInput is an input type that accepts VirtualNetworkSubnetArgs and VirtualNetworkSubnetOutput values.
 // You can construct a concrete instance of `VirtualNetworkSubnetInput` via:
 //
-// 		 VirtualNetworkSubnetArgs{...}
-//
+//          VirtualNetworkSubnetArgs{...}
 type VirtualNetworkSubnetInput interface {
 	pulumi.Input
 
@@ -10582,8 +10444,7 @@ func (i VirtualNetworkSubnetArgs) ToVirtualNetworkSubnetOutputWithContext(ctx co
 // VirtualNetworkSubnetArrayInput is an input type that accepts VirtualNetworkSubnetArray and VirtualNetworkSubnetArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkSubnetArrayInput` via:
 //
-// 		 VirtualNetworkSubnetArray{ VirtualNetworkSubnetArgs{...} }
-//
+//          VirtualNetworkSubnetArray{ VirtualNetworkSubnetArgs{...} }
 type VirtualNetworkSubnetArrayInput interface {
 	pulumi.Input
 
@@ -10673,8 +10534,7 @@ type VpnGatewayBgpSetting struct {
 // VpnGatewayBgpSettingInput is an input type that accepts VpnGatewayBgpSettingArgs and VpnGatewayBgpSettingOutput values.
 // You can construct a concrete instance of `VpnGatewayBgpSettingInput` via:
 //
-// 		 VpnGatewayBgpSettingArgs{...}
-//
+//          VpnGatewayBgpSettingArgs{...}
 type VpnGatewayBgpSettingInput interface {
 	pulumi.Input
 
@@ -10706,8 +10566,7 @@ func (i VpnGatewayBgpSettingArgs) ToVpnGatewayBgpSettingOutputWithContext(ctx co
 // VpnGatewayBgpSettingArrayInput is an input type that accepts VpnGatewayBgpSettingArray and VpnGatewayBgpSettingArrayOutput values.
 // You can construct a concrete instance of `VpnGatewayBgpSettingArrayInput` via:
 //
-// 		 VpnGatewayBgpSettingArray{ VpnGatewayBgpSettingArgs{...} }
-//
+//          VpnGatewayBgpSettingArray{ VpnGatewayBgpSettingArgs{...} }
 type VpnGatewayBgpSettingArrayInput interface {
 	pulumi.Input
 
@@ -10790,8 +10649,7 @@ type VpnServerConfigurationAzureActiveDirectoryAuthentication struct {
 // VpnServerConfigurationAzureActiveDirectoryAuthenticationInput is an input type that accepts VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs and VpnServerConfigurationAzureActiveDirectoryAuthenticationOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationAzureActiveDirectoryAuthenticationInput` via:
 //
-// 		 VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{...}
-//
+//          VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{...}
 type VpnServerConfigurationAzureActiveDirectoryAuthenticationInput interface {
 	pulumi.Input
 
@@ -10823,8 +10681,7 @@ func (i VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs) ToVpnServe
 // VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput is an input type that accepts VpnServerConfigurationAzureActiveDirectoryAuthenticationArray and VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput` via:
 //
-// 		 VpnServerConfigurationAzureActiveDirectoryAuthenticationArray{ VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{...} }
-//
+//          VpnServerConfigurationAzureActiveDirectoryAuthenticationArray{ VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs{...} }
 type VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput interface {
 	pulumi.Input
 
@@ -10905,8 +10762,7 @@ type VpnServerConfigurationClientRevokedCertificate struct {
 // VpnServerConfigurationClientRevokedCertificateInput is an input type that accepts VpnServerConfigurationClientRevokedCertificateArgs and VpnServerConfigurationClientRevokedCertificateOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationClientRevokedCertificateInput` via:
 //
-// 		 VpnServerConfigurationClientRevokedCertificateArgs{...}
-//
+//          VpnServerConfigurationClientRevokedCertificateArgs{...}
 type VpnServerConfigurationClientRevokedCertificateInput interface {
 	pulumi.Input
 
@@ -10936,8 +10792,7 @@ func (i VpnServerConfigurationClientRevokedCertificateArgs) ToVpnServerConfigura
 // VpnServerConfigurationClientRevokedCertificateArrayInput is an input type that accepts VpnServerConfigurationClientRevokedCertificateArray and VpnServerConfigurationClientRevokedCertificateArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationClientRevokedCertificateArrayInput` via:
 //
-// 		 VpnServerConfigurationClientRevokedCertificateArray{ VpnServerConfigurationClientRevokedCertificateArgs{...} }
-//
+//          VpnServerConfigurationClientRevokedCertificateArray{ VpnServerConfigurationClientRevokedCertificateArgs{...} }
 type VpnServerConfigurationClientRevokedCertificateArrayInput interface {
 	pulumi.Input
 
@@ -11013,8 +10868,7 @@ type VpnServerConfigurationClientRootCertificate struct {
 // VpnServerConfigurationClientRootCertificateInput is an input type that accepts VpnServerConfigurationClientRootCertificateArgs and VpnServerConfigurationClientRootCertificateOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationClientRootCertificateInput` via:
 //
-// 		 VpnServerConfigurationClientRootCertificateArgs{...}
-//
+//          VpnServerConfigurationClientRootCertificateArgs{...}
 type VpnServerConfigurationClientRootCertificateInput interface {
 	pulumi.Input
 
@@ -11044,8 +10898,7 @@ func (i VpnServerConfigurationClientRootCertificateArgs) ToVpnServerConfiguratio
 // VpnServerConfigurationClientRootCertificateArrayInput is an input type that accepts VpnServerConfigurationClientRootCertificateArray and VpnServerConfigurationClientRootCertificateArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationClientRootCertificateArrayInput` via:
 //
-// 		 VpnServerConfigurationClientRootCertificateArray{ VpnServerConfigurationClientRootCertificateArgs{...} }
-//
+//          VpnServerConfigurationClientRootCertificateArray{ VpnServerConfigurationClientRootCertificateArgs{...} }
 type VpnServerConfigurationClientRootCertificateArrayInput interface {
 	pulumi.Input
 
@@ -11133,8 +10986,7 @@ type VpnServerConfigurationIpsecPolicy struct {
 // VpnServerConfigurationIpsecPolicyInput is an input type that accepts VpnServerConfigurationIpsecPolicyArgs and VpnServerConfigurationIpsecPolicyOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationIpsecPolicyInput` via:
 //
-// 		 VpnServerConfigurationIpsecPolicyArgs{...}
-//
+//          VpnServerConfigurationIpsecPolicyArgs{...}
 type VpnServerConfigurationIpsecPolicyInput interface {
 	pulumi.Input
 
@@ -11184,12 +11036,11 @@ func (i VpnServerConfigurationIpsecPolicyArgs) ToVpnServerConfigurationIpsecPoli
 // VpnServerConfigurationIpsecPolicyPtrInput is an input type that accepts VpnServerConfigurationIpsecPolicyArgs, VpnServerConfigurationIpsecPolicyPtr and VpnServerConfigurationIpsecPolicyPtrOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationIpsecPolicyPtrInput` via:
 //
-// 		 VpnServerConfigurationIpsecPolicyArgs{...}
+//          VpnServerConfigurationIpsecPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VpnServerConfigurationIpsecPolicyPtrInput interface {
 	pulumi.Input
 
@@ -11391,8 +11242,7 @@ type VpnServerConfigurationRadiusServer struct {
 // VpnServerConfigurationRadiusServerInput is an input type that accepts VpnServerConfigurationRadiusServerArgs and VpnServerConfigurationRadiusServerOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationRadiusServerInput` via:
 //
-// 		 VpnServerConfigurationRadiusServerArgs{...}
-//
+//          VpnServerConfigurationRadiusServerArgs{...}
 type VpnServerConfigurationRadiusServerInput interface {
 	pulumi.Input
 
@@ -11434,12 +11284,11 @@ func (i VpnServerConfigurationRadiusServerArgs) ToVpnServerConfigurationRadiusSe
 // VpnServerConfigurationRadiusServerPtrInput is an input type that accepts VpnServerConfigurationRadiusServerArgs, VpnServerConfigurationRadiusServerPtr and VpnServerConfigurationRadiusServerPtrOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationRadiusServerPtrInput` via:
 //
-// 		 VpnServerConfigurationRadiusServerArgs{...}
+//          VpnServerConfigurationRadiusServerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VpnServerConfigurationRadiusServerPtrInput interface {
 	pulumi.Input
 
@@ -11581,8 +11430,7 @@ type VpnServerConfigurationRadiusServerClientRootCertificate struct {
 // VpnServerConfigurationRadiusServerClientRootCertificateInput is an input type that accepts VpnServerConfigurationRadiusServerClientRootCertificateArgs and VpnServerConfigurationRadiusServerClientRootCertificateOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationRadiusServerClientRootCertificateInput` via:
 //
-// 		 VpnServerConfigurationRadiusServerClientRootCertificateArgs{...}
-//
+//          VpnServerConfigurationRadiusServerClientRootCertificateArgs{...}
 type VpnServerConfigurationRadiusServerClientRootCertificateInput interface {
 	pulumi.Input
 
@@ -11612,8 +11460,7 @@ func (i VpnServerConfigurationRadiusServerClientRootCertificateArgs) ToVpnServer
 // VpnServerConfigurationRadiusServerClientRootCertificateArrayInput is an input type that accepts VpnServerConfigurationRadiusServerClientRootCertificateArray and VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationRadiusServerClientRootCertificateArrayInput` via:
 //
-// 		 VpnServerConfigurationRadiusServerClientRootCertificateArray{ VpnServerConfigurationRadiusServerClientRootCertificateArgs{...} }
-//
+//          VpnServerConfigurationRadiusServerClientRootCertificateArray{ VpnServerConfigurationRadiusServerClientRootCertificateArgs{...} }
 type VpnServerConfigurationRadiusServerClientRootCertificateArrayInput interface {
 	pulumi.Input
 
@@ -11689,8 +11536,7 @@ type VpnServerConfigurationRadiusServerServerRootCertificate struct {
 // VpnServerConfigurationRadiusServerServerRootCertificateInput is an input type that accepts VpnServerConfigurationRadiusServerServerRootCertificateArgs and VpnServerConfigurationRadiusServerServerRootCertificateOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationRadiusServerServerRootCertificateInput` via:
 //
-// 		 VpnServerConfigurationRadiusServerServerRootCertificateArgs{...}
-//
+//          VpnServerConfigurationRadiusServerServerRootCertificateArgs{...}
 type VpnServerConfigurationRadiusServerServerRootCertificateInput interface {
 	pulumi.Input
 
@@ -11720,8 +11566,7 @@ func (i VpnServerConfigurationRadiusServerServerRootCertificateArgs) ToVpnServer
 // VpnServerConfigurationRadiusServerServerRootCertificateArrayInput is an input type that accepts VpnServerConfigurationRadiusServerServerRootCertificateArray and VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationRadiusServerServerRootCertificateArrayInput` via:
 //
-// 		 VpnServerConfigurationRadiusServerServerRootCertificateArray{ VpnServerConfigurationRadiusServerServerRootCertificateArgs{...} }
-//
+//          VpnServerConfigurationRadiusServerServerRootCertificateArray{ VpnServerConfigurationRadiusServerServerRootCertificateArgs{...} }
 type VpnServerConfigurationRadiusServerServerRootCertificateArrayInput interface {
 	pulumi.Input
 
@@ -11807,8 +11652,7 @@ type GetExpressRouteCircuitPeeringType struct {
 // GetExpressRouteCircuitPeeringTypeInput is an input type that accepts GetExpressRouteCircuitPeeringTypeArgs and GetExpressRouteCircuitPeeringTypeOutput values.
 // You can construct a concrete instance of `GetExpressRouteCircuitPeeringTypeInput` via:
 //
-// 		 GetExpressRouteCircuitPeeringTypeArgs{...}
-//
+//          GetExpressRouteCircuitPeeringTypeArgs{...}
 type GetExpressRouteCircuitPeeringTypeInput interface {
 	pulumi.Input
 
@@ -11848,8 +11692,7 @@ func (i GetExpressRouteCircuitPeeringTypeArgs) ToGetExpressRouteCircuitPeeringTy
 // GetExpressRouteCircuitPeeringTypeArrayInput is an input type that accepts GetExpressRouteCircuitPeeringTypeArray and GetExpressRouteCircuitPeeringTypeArrayOutput values.
 // You can construct a concrete instance of `GetExpressRouteCircuitPeeringTypeArrayInput` via:
 //
-// 		 GetExpressRouteCircuitPeeringTypeArray{ GetExpressRouteCircuitPeeringTypeArgs{...} }
-//
+//          GetExpressRouteCircuitPeeringTypeArray{ GetExpressRouteCircuitPeeringTypeArgs{...} }
 type GetExpressRouteCircuitPeeringTypeArrayInput interface {
 	pulumi.Input
 
@@ -11952,8 +11795,7 @@ type GetExpressRouteCircuitServiceProviderProperty struct {
 // GetExpressRouteCircuitServiceProviderPropertyInput is an input type that accepts GetExpressRouteCircuitServiceProviderPropertyArgs and GetExpressRouteCircuitServiceProviderPropertyOutput values.
 // You can construct a concrete instance of `GetExpressRouteCircuitServiceProviderPropertyInput` via:
 //
-// 		 GetExpressRouteCircuitServiceProviderPropertyArgs{...}
-//
+//          GetExpressRouteCircuitServiceProviderPropertyArgs{...}
 type GetExpressRouteCircuitServiceProviderPropertyInput interface {
 	pulumi.Input
 
@@ -11985,8 +11827,7 @@ func (i GetExpressRouteCircuitServiceProviderPropertyArgs) ToGetExpressRouteCirc
 // GetExpressRouteCircuitServiceProviderPropertyArrayInput is an input type that accepts GetExpressRouteCircuitServiceProviderPropertyArray and GetExpressRouteCircuitServiceProviderPropertyArrayOutput values.
 // You can construct a concrete instance of `GetExpressRouteCircuitServiceProviderPropertyArrayInput` via:
 //
-// 		 GetExpressRouteCircuitServiceProviderPropertyArray{ GetExpressRouteCircuitServiceProviderPropertyArgs{...} }
-//
+//          GetExpressRouteCircuitServiceProviderPropertyArray{ GetExpressRouteCircuitServiceProviderPropertyArgs{...} }
 type GetExpressRouteCircuitServiceProviderPropertyArrayInput interface {
 	pulumi.Input
 
@@ -12067,8 +11908,7 @@ type GetExpressRouteCircuitSku struct {
 // GetExpressRouteCircuitSkuInput is an input type that accepts GetExpressRouteCircuitSkuArgs and GetExpressRouteCircuitSkuOutput values.
 // You can construct a concrete instance of `GetExpressRouteCircuitSkuInput` via:
 //
-// 		 GetExpressRouteCircuitSkuArgs{...}
-//
+//          GetExpressRouteCircuitSkuArgs{...}
 type GetExpressRouteCircuitSkuInput interface {
 	pulumi.Input
 
@@ -12133,8 +11973,7 @@ type GetFirewallIpConfiguration struct {
 // GetFirewallIpConfigurationInput is an input type that accepts GetFirewallIpConfigurationArgs and GetFirewallIpConfigurationOutput values.
 // You can construct a concrete instance of `GetFirewallIpConfigurationInput` via:
 //
-// 		 GetFirewallIpConfigurationArgs{...}
-//
+//          GetFirewallIpConfigurationArgs{...}
 type GetFirewallIpConfigurationInput interface {
 	pulumi.Input
 
@@ -12168,8 +12007,7 @@ func (i GetFirewallIpConfigurationArgs) ToGetFirewallIpConfigurationOutputWithCo
 // GetFirewallIpConfigurationArrayInput is an input type that accepts GetFirewallIpConfigurationArray and GetFirewallIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetFirewallIpConfigurationArrayInput` via:
 //
-// 		 GetFirewallIpConfigurationArray{ GetFirewallIpConfigurationArgs{...} }
-//
+//          GetFirewallIpConfigurationArray{ GetFirewallIpConfigurationArgs{...} }
 type GetFirewallIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -12280,8 +12118,7 @@ type GetGatewayConnectionIpsecPolicy struct {
 // GetGatewayConnectionIpsecPolicyInput is an input type that accepts GetGatewayConnectionIpsecPolicyArgs and GetGatewayConnectionIpsecPolicyOutput values.
 // You can construct a concrete instance of `GetGatewayConnectionIpsecPolicyInput` via:
 //
-// 		 GetGatewayConnectionIpsecPolicyArgs{...}
-//
+//          GetGatewayConnectionIpsecPolicyArgs{...}
 type GetGatewayConnectionIpsecPolicyInput interface {
 	pulumi.Input
 
@@ -12333,8 +12170,7 @@ func (i GetGatewayConnectionIpsecPolicyArgs) ToGetGatewayConnectionIpsecPolicyOu
 // GetGatewayConnectionIpsecPolicyArrayInput is an input type that accepts GetGatewayConnectionIpsecPolicyArray and GetGatewayConnectionIpsecPolicyArrayOutput values.
 // You can construct a concrete instance of `GetGatewayConnectionIpsecPolicyArrayInput` via:
 //
-// 		 GetGatewayConnectionIpsecPolicyArray{ GetGatewayConnectionIpsecPolicyArgs{...} }
-//
+//          GetGatewayConnectionIpsecPolicyArray{ GetGatewayConnectionIpsecPolicyArgs{...} }
 type GetGatewayConnectionIpsecPolicyArrayInput interface {
 	pulumi.Input
 
@@ -12466,8 +12302,7 @@ type GetNetworkInterfaceIpConfiguration struct {
 // GetNetworkInterfaceIpConfigurationInput is an input type that accepts GetNetworkInterfaceIpConfigurationArgs and GetNetworkInterfaceIpConfigurationOutput values.
 // You can construct a concrete instance of `GetNetworkInterfaceIpConfigurationInput` via:
 //
-// 		 GetNetworkInterfaceIpConfigurationArgs{...}
-//
+//          GetNetworkInterfaceIpConfigurationArgs{...}
 type GetNetworkInterfaceIpConfigurationInput interface {
 	pulumi.Input
 
@@ -12513,8 +12348,7 @@ func (i GetNetworkInterfaceIpConfigurationArgs) ToGetNetworkInterfaceIpConfigura
 // GetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts GetNetworkInterfaceIpConfigurationArray and GetNetworkInterfaceIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetNetworkInterfaceIpConfigurationArrayInput` via:
 //
-// 		 GetNetworkInterfaceIpConfigurationArray{ GetNetworkInterfaceIpConfigurationArgs{...} }
-//
+//          GetNetworkInterfaceIpConfigurationArray{ GetNetworkInterfaceIpConfigurationArgs{...} }
 type GetNetworkInterfaceIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -12659,8 +12493,7 @@ type GetNetworkSecurityGroupSecurityRule struct {
 // GetNetworkSecurityGroupSecurityRuleInput is an input type that accepts GetNetworkSecurityGroupSecurityRuleArgs and GetNetworkSecurityGroupSecurityRuleOutput values.
 // You can construct a concrete instance of `GetNetworkSecurityGroupSecurityRuleInput` via:
 //
-// 		 GetNetworkSecurityGroupSecurityRuleArgs{...}
-//
+//          GetNetworkSecurityGroupSecurityRuleArgs{...}
 type GetNetworkSecurityGroupSecurityRuleInput interface {
 	pulumi.Input
 
@@ -12716,8 +12549,7 @@ func (i GetNetworkSecurityGroupSecurityRuleArgs) ToGetNetworkSecurityGroupSecuri
 // GetNetworkSecurityGroupSecurityRuleArrayInput is an input type that accepts GetNetworkSecurityGroupSecurityRuleArray and GetNetworkSecurityGroupSecurityRuleArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSecurityGroupSecurityRuleArrayInput` via:
 //
-// 		 GetNetworkSecurityGroupSecurityRuleArray{ GetNetworkSecurityGroupSecurityRuleArgs{...} }
-//
+//          GetNetworkSecurityGroupSecurityRuleArray{ GetNetworkSecurityGroupSecurityRuleArgs{...} }
 type GetNetworkSecurityGroupSecurityRuleArrayInput interface {
 	pulumi.Input
 
@@ -12866,8 +12698,7 @@ type GetPublicIPsPublicIp struct {
 // GetPublicIPsPublicIpInput is an input type that accepts GetPublicIPsPublicIpArgs and GetPublicIPsPublicIpOutput values.
 // You can construct a concrete instance of `GetPublicIPsPublicIpInput` via:
 //
-// 		 GetPublicIPsPublicIpArgs{...}
-//
+//          GetPublicIPsPublicIpArgs{...}
 type GetPublicIPsPublicIpInput interface {
 	pulumi.Input
 
@@ -12902,8 +12733,7 @@ func (i GetPublicIPsPublicIpArgs) ToGetPublicIPsPublicIpOutputWithContext(ctx co
 // GetPublicIPsPublicIpArrayInput is an input type that accepts GetPublicIPsPublicIpArray and GetPublicIPsPublicIpArrayOutput values.
 // You can construct a concrete instance of `GetPublicIPsPublicIpArrayInput` via:
 //
-// 		 GetPublicIPsPublicIpArray{ GetPublicIPsPublicIpArgs{...} }
-//
+//          GetPublicIPsPublicIpArray{ GetPublicIPsPublicIpArgs{...} }
 type GetPublicIPsPublicIpArrayInput interface {
 	pulumi.Input
 
@@ -12997,8 +12827,7 @@ type GetRouteTableRoute struct {
 // GetRouteTableRouteInput is an input type that accepts GetRouteTableRouteArgs and GetRouteTableRouteOutput values.
 // You can construct a concrete instance of `GetRouteTableRouteInput` via:
 //
-// 		 GetRouteTableRouteArgs{...}
-//
+//          GetRouteTableRouteArgs{...}
 type GetRouteTableRouteInput interface {
 	pulumi.Input
 
@@ -13032,8 +12861,7 @@ func (i GetRouteTableRouteArgs) ToGetRouteTableRouteOutputWithContext(ctx contex
 // GetRouteTableRouteArrayInput is an input type that accepts GetRouteTableRouteArray and GetRouteTableRouteArrayOutput values.
 // You can construct a concrete instance of `GetRouteTableRouteArrayInput` via:
 //
-// 		 GetRouteTableRouteArray{ GetRouteTableRouteArgs{...} }
-//
+//          GetRouteTableRouteArray{ GetRouteTableRouteArgs{...} }
 type GetRouteTableRouteArrayInput interface {
 	pulumi.Input
 
@@ -13124,8 +12952,7 @@ type GetVirtualNetworkGatewayBgpSetting struct {
 // GetVirtualNetworkGatewayBgpSettingInput is an input type that accepts GetVirtualNetworkGatewayBgpSettingArgs and GetVirtualNetworkGatewayBgpSettingOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayBgpSettingInput` via:
 //
-// 		 GetVirtualNetworkGatewayBgpSettingArgs{...}
-//
+//          GetVirtualNetworkGatewayBgpSettingArgs{...}
 type GetVirtualNetworkGatewayBgpSettingInput interface {
 	pulumi.Input
 
@@ -13160,8 +12987,7 @@ func (i GetVirtualNetworkGatewayBgpSettingArgs) ToGetVirtualNetworkGatewayBgpSet
 // GetVirtualNetworkGatewayBgpSettingArrayInput is an input type that accepts GetVirtualNetworkGatewayBgpSettingArray and GetVirtualNetworkGatewayBgpSettingArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayBgpSettingArrayInput` via:
 //
-// 		 GetVirtualNetworkGatewayBgpSettingArray{ GetVirtualNetworkGatewayBgpSettingArgs{...} }
-//
+//          GetVirtualNetworkGatewayBgpSettingArray{ GetVirtualNetworkGatewayBgpSettingArgs{...} }
 type GetVirtualNetworkGatewayBgpSettingArrayInput interface {
 	pulumi.Input
 
@@ -13254,8 +13080,7 @@ type GetVirtualNetworkGatewayIpConfiguration struct {
 // GetVirtualNetworkGatewayIpConfigurationInput is an input type that accepts GetVirtualNetworkGatewayIpConfigurationArgs and GetVirtualNetworkGatewayIpConfigurationOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayIpConfigurationInput` via:
 //
-// 		 GetVirtualNetworkGatewayIpConfigurationArgs{...}
-//
+//          GetVirtualNetworkGatewayIpConfigurationArgs{...}
 type GetVirtualNetworkGatewayIpConfigurationInput interface {
 	pulumi.Input
 
@@ -13294,8 +13119,7 @@ func (i GetVirtualNetworkGatewayIpConfigurationArgs) ToGetVirtualNetworkGatewayI
 // GetVirtualNetworkGatewayIpConfigurationArrayInput is an input type that accepts GetVirtualNetworkGatewayIpConfigurationArray and GetVirtualNetworkGatewayIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayIpConfigurationArrayInput` via:
 //
-// 		 GetVirtualNetworkGatewayIpConfigurationArray{ GetVirtualNetworkGatewayIpConfigurationArgs{...} }
-//
+//          GetVirtualNetworkGatewayIpConfigurationArray{ GetVirtualNetworkGatewayIpConfigurationArgs{...} }
 type GetVirtualNetworkGatewayIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -13402,8 +13226,7 @@ type GetVirtualNetworkGatewayVpnClientConfiguration struct {
 // GetVirtualNetworkGatewayVpnClientConfigurationInput is an input type that accepts GetVirtualNetworkGatewayVpnClientConfigurationArgs and GetVirtualNetworkGatewayVpnClientConfigurationOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayVpnClientConfigurationInput` via:
 //
-// 		 GetVirtualNetworkGatewayVpnClientConfigurationArgs{...}
-//
+//          GetVirtualNetworkGatewayVpnClientConfigurationArgs{...}
 type GetVirtualNetworkGatewayVpnClientConfigurationInput interface {
 	pulumi.Input
 
@@ -13449,8 +13272,7 @@ func (i GetVirtualNetworkGatewayVpnClientConfigurationArgs) ToGetVirtualNetworkG
 // GetVirtualNetworkGatewayVpnClientConfigurationArrayInput is an input type that accepts GetVirtualNetworkGatewayVpnClientConfigurationArray and GetVirtualNetworkGatewayVpnClientConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayVpnClientConfigurationArrayInput` via:
 //
-// 		 GetVirtualNetworkGatewayVpnClientConfigurationArray{ GetVirtualNetworkGatewayVpnClientConfigurationArgs{...} }
-//
+//          GetVirtualNetworkGatewayVpnClientConfigurationArray{ GetVirtualNetworkGatewayVpnClientConfigurationArgs{...} }
 type GetVirtualNetworkGatewayVpnClientConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -13557,8 +13379,7 @@ type GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
 // GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput is an input type that accepts GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs and GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput` via:
 //
-// 		 GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...}
-//
+//          GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...}
 type GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput interface {
 	pulumi.Input
 
@@ -13587,8 +13408,7 @@ func (i GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs) To
 // GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput is an input type that accepts GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray and GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput` via:
 //
-// 		 GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{ GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...} }
-//
+//          GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{ GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{...} }
 type GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput interface {
 	pulumi.Input
 
@@ -13663,8 +13483,7 @@ type GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate struct {
 // GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateInput is an input type that accepts GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs and GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateInput` via:
 //
-// 		 GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...}
-//
+//          GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...}
 type GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateInput interface {
 	pulumi.Input
 
@@ -13694,8 +13513,7 @@ func (i GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs) ToGet
 // GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput is an input type that accepts GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArray and GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput` via:
 //
-// 		 GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{ GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...} }
-//
+//          GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{ GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{...} }
 type GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput interface {
 	pulumi.Input
 

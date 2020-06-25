@@ -22,8 +22,7 @@ type ServerIpv4FirewallRule struct {
 // ServerIpv4FirewallRuleInput is an input type that accepts ServerIpv4FirewallRuleArgs and ServerIpv4FirewallRuleOutput values.
 // You can construct a concrete instance of `ServerIpv4FirewallRuleInput` via:
 //
-// 		 ServerIpv4FirewallRuleArgs{...}
-//
+//          ServerIpv4FirewallRuleArgs{...}
 type ServerIpv4FirewallRuleInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i ServerIpv4FirewallRuleArgs) ToServerIpv4FirewallRuleOutputWithContext(ct
 // ServerIpv4FirewallRuleArrayInput is an input type that accepts ServerIpv4FirewallRuleArray and ServerIpv4FirewallRuleArrayOutput values.
 // You can construct a concrete instance of `ServerIpv4FirewallRuleArrayInput` via:
 //
-// 		 ServerIpv4FirewallRuleArray{ ServerIpv4FirewallRuleArgs{...} }
-//
+//          ServerIpv4FirewallRuleArray{ ServerIpv4FirewallRuleArgs{...} }
 type ServerIpv4FirewallRuleArrayInput interface {
 	pulumi.Input
 

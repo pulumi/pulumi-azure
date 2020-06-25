@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -40,7 +38,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleIntegrationRuntimeManaged, err := datafactory.NewIntegrationRuntimeManaged(ctx, "exampleIntegrationRuntimeManaged", &datafactory.IntegrationRuntimeManagedArgs{
+// 		_, err = datafactory.NewIntegrationRuntimeManaged(ctx, "exampleIntegrationRuntimeManaged", &datafactory.IntegrationRuntimeManagedArgs{
 // 			DataFactoryName:   exampleFactory.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,

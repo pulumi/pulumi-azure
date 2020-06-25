@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,12 +31,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+// 		_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			AllocationMethod:  pulumi.String("Static"),
-// 			Tags: map[string]interface{}{
-// 				"environment": "Production",
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {

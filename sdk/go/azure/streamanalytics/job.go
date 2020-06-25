@@ -11,12 +11,56 @@ import (
 )
 
 // Manages a Stream Analytics Job.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/streamanalytics"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
+// 			ResourceGroupName:                  exampleResourceGroup.Name,
+// 			Location:                           exampleResourceGroup.Location,
+// 			CompatibilityLevel:                 pulumi.String("1.1"),
+// 			DataLocale:                         pulumi.String("en-GB"),
+// 			EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
+// 			EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
+// 			EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
+// 			OutputErrorPolicy:                  pulumi.String("Drop"),
+// 			StreamingUnits:                     pulumi.Int(3),
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("Example"),
+// 			},
+// 			TransformationQuery: pulumi.String(fmt.Sprintf("%v%v%v", "    SELECT *\n", "    INTO [YourOutputAlias]\n", "    FROM [YourInputAlias]\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Job struct {
 	pulumi.CustomResourceState
 
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringOutput `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 	EventsLateArrivalMaxDelayInSeconds pulumi.IntPtrOutput `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
@@ -81,7 +125,7 @@ func GetJob(ctx *pulumi.Context,
 type jobState struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale *string `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 	EventsLateArrivalMaxDelayInSeconds *int `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
@@ -110,7 +154,7 @@ type jobState struct {
 type JobState struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel pulumi.StringPtrInput
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringPtrInput
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 	EventsLateArrivalMaxDelayInSeconds pulumi.IntPtrInput
@@ -143,7 +187,7 @@ func (JobState) ElementType() reflect.Type {
 type jobArgs struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale *string `pulumi:"dataLocale"`
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 	EventsLateArrivalMaxDelayInSeconds *int `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
@@ -171,7 +215,7 @@ type jobArgs struct {
 type JobArgs struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
 	CompatibilityLevel pulumi.StringPtrInput
-	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>).
 	DataLocale pulumi.StringPtrInput
 	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 	EventsLateArrivalMaxDelayInSeconds pulumi.IntPtrInput

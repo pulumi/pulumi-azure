@@ -65,7 +65,6 @@ def get_pool(account_name=None,name=None,resource_group_name=None,opts=None):
     """
     Uses this data source to access information about an existing NetApp Pool.
 
-
     ## NetApp Pool Usage
 
     ```python

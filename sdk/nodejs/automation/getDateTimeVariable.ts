@@ -9,10 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Automation Datetime Variable.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

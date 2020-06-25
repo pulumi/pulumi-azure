@@ -11,6 +11,69 @@ import (
 )
 
 // Manages a Stream Analytics Stream Input IoTHub.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/iot"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/streamanalytics"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 			Name: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+// 			Name:              "example-job",
+// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Example.Name),
+// 			Location:          pulumi.String(azurerm_resource_group.Example.Location),
+// 			Sku: &iot.IoTHubSkuArgs{
+// 				Name:     pulumi.String("S1"),
+// 				Capacity: pulumi.Int(1),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = streamanalytics.NewStreamInputIotHub(ctx, "exampleStreamInputIotHub", &streamanalytics.StreamInputIotHubArgs{
+// 			StreamAnalyticsJobName:    pulumi.String(exampleJob.Name),
+// 			ResourceGroupName:         pulumi.String(exampleJob.ResourceGroupName),
+// 			Endpoint:                  pulumi.String("messages/events"),
+// 			EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("%v%v", "$", "Default")),
+// 			IothubNamespace:           exampleIoTHub.Name,
+// 			SharedAccessPolicyKey: pulumi.String(exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
+// 				return sharedAccessPolicies[0].PrimaryKey, nil
+// 			}).(pulumi.StringOutput)),
+// 			SharedAccessPolicyName: pulumi.String("iothubowner"),
+// 			Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{
+// 				Type:     pulumi.String("Json"),
+// 				Encoding: pulumi.String("UTF8"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type StreamInputIotHub struct {
 	pulumi.CustomResourceState
 

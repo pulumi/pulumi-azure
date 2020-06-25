@@ -12,7 +12,6 @@ import {Kind} from "./index";
  * Manages an App Service Plan component.
  *
  * ## Example Usage
- *
  * ### Dedicated)
  *
  * ```typescript
@@ -29,7 +28,6 @@ import {Kind} from "./index";
  *     },
  * });
  * ```
- *
  * ### Shared / Consumption Plan)
  *
  * ```typescript
@@ -47,7 +45,6 @@ import {Kind} from "./index";
  *     },
  * });
  * ```
- *
  * ### Linux)
  *
  * ```typescript
@@ -66,7 +63,6 @@ import {Kind} from "./index";
  *     },
  * });
  * ```
- *
  * ### Windows Container)
  *
  * ```typescript

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -36,14 +34,14 @@ import (
 // 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: map[string]interface{}{
-// 				"Sydney": "Australia",
+// 			Tags: pulumi.Map{
+// 				"Sydney": pulumi.String("Australia"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
+// 		_, err = devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
 // 			LabName:           exampleLab.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Subnet: &devtest.VirtualNetworkSubnetArgs{

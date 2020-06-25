@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,7 +31,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+// 		_, err = privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {

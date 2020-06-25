@@ -20,8 +20,7 @@ type CertifiateCertificate struct {
 // CertifiateCertificateInput is an input type that accepts CertifiateCertificateArgs and CertifiateCertificateOutput values.
 // You can construct a concrete instance of `CertifiateCertificateInput` via:
 //
-// 		 CertifiateCertificateArgs{...}
-//
+//          CertifiateCertificateArgs{...}
 type CertifiateCertificateInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i CertifiateCertificateArgs) ToCertifiateCertificatePtrOutputWithContext(c
 // CertifiateCertificatePtrInput is an input type that accepts CertifiateCertificateArgs, CertifiateCertificatePtr and CertifiateCertificatePtrOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePtrInput` via:
 //
-// 		 CertifiateCertificateArgs{...}
+//          CertifiateCertificateArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertifiateCertificatePtrInput interface {
 	pulumi.Input
 
@@ -178,8 +176,7 @@ type CertifiateCertificatePolicy struct {
 // CertifiateCertificatePolicyInput is an input type that accepts CertifiateCertificatePolicyArgs and CertifiateCertificatePolicyOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyInput` via:
 //
-// 		 CertifiateCertificatePolicyArgs{...}
-//
+//          CertifiateCertificatePolicyArgs{...}
 type CertifiateCertificatePolicyInput interface {
 	pulumi.Input
 
@@ -223,12 +220,11 @@ func (i CertifiateCertificatePolicyArgs) ToCertifiateCertificatePolicyPtrOutputW
 // CertifiateCertificatePolicyPtrInput is an input type that accepts CertifiateCertificatePolicyArgs, CertifiateCertificatePolicyPtr and CertifiateCertificatePolicyPtrOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyPtrInput` via:
 //
-// 		 CertifiateCertificatePolicyArgs{...}
+//          CertifiateCertificatePolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertifiateCertificatePolicyPtrInput interface {
 	pulumi.Input
 
@@ -387,8 +383,7 @@ type CertifiateCertificatePolicyIssuerParameters struct {
 // CertifiateCertificatePolicyIssuerParametersInput is an input type that accepts CertifiateCertificatePolicyIssuerParametersArgs and CertifiateCertificatePolicyIssuerParametersOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyIssuerParametersInput` via:
 //
-// 		 CertifiateCertificatePolicyIssuerParametersArgs{...}
-//
+//          CertifiateCertificatePolicyIssuerParametersArgs{...}
 type CertifiateCertificatePolicyIssuerParametersInput interface {
 	pulumi.Input
 
@@ -424,12 +419,11 @@ func (i CertifiateCertificatePolicyIssuerParametersArgs) ToCertifiateCertificate
 // CertifiateCertificatePolicyIssuerParametersPtrInput is an input type that accepts CertifiateCertificatePolicyIssuerParametersArgs, CertifiateCertificatePolicyIssuerParametersPtr and CertifiateCertificatePolicyIssuerParametersPtrOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyIssuerParametersPtrInput` via:
 //
-// 		 CertifiateCertificatePolicyIssuerParametersArgs{...}
+//          CertifiateCertificatePolicyIssuerParametersArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertifiateCertificatePolicyIssuerParametersPtrInput interface {
 	pulumi.Input
 
@@ -528,8 +522,7 @@ type CertifiateCertificatePolicyKeyProperties struct {
 // CertifiateCertificatePolicyKeyPropertiesInput is an input type that accepts CertifiateCertificatePolicyKeyPropertiesArgs and CertifiateCertificatePolicyKeyPropertiesOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyKeyPropertiesInput` via:
 //
-// 		 CertifiateCertificatePolicyKeyPropertiesArgs{...}
-//
+//          CertifiateCertificatePolicyKeyPropertiesArgs{...}
 type CertifiateCertificatePolicyKeyPropertiesInput interface {
 	pulumi.Input
 
@@ -571,12 +564,11 @@ func (i CertifiateCertificatePolicyKeyPropertiesArgs) ToCertifiateCertificatePol
 // CertifiateCertificatePolicyKeyPropertiesPtrInput is an input type that accepts CertifiateCertificatePolicyKeyPropertiesArgs, CertifiateCertificatePolicyKeyPropertiesPtr and CertifiateCertificatePolicyKeyPropertiesPtrOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyKeyPropertiesPtrInput` via:
 //
-// 		 CertifiateCertificatePolicyKeyPropertiesArgs{...}
+//          CertifiateCertificatePolicyKeyPropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertifiateCertificatePolicyKeyPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -714,8 +706,7 @@ type CertifiateCertificatePolicyLifetimeAction struct {
 // CertifiateCertificatePolicyLifetimeActionInput is an input type that accepts CertifiateCertificatePolicyLifetimeActionArgs and CertifiateCertificatePolicyLifetimeActionOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyLifetimeActionInput` via:
 //
-// 		 CertifiateCertificatePolicyLifetimeActionArgs{...}
-//
+//          CertifiateCertificatePolicyLifetimeActionArgs{...}
 type CertifiateCertificatePolicyLifetimeActionInput interface {
 	pulumi.Input
 
@@ -745,8 +736,7 @@ func (i CertifiateCertificatePolicyLifetimeActionArgs) ToCertifiateCertificatePo
 // CertifiateCertificatePolicyLifetimeActionArrayInput is an input type that accepts CertifiateCertificatePolicyLifetimeActionArray and CertifiateCertificatePolicyLifetimeActionArrayOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyLifetimeActionArrayInput` via:
 //
-// 		 CertifiateCertificatePolicyLifetimeActionArray{ CertifiateCertificatePolicyLifetimeActionArgs{...} }
-//
+//          CertifiateCertificatePolicyLifetimeActionArray{ CertifiateCertificatePolicyLifetimeActionArgs{...} }
 type CertifiateCertificatePolicyLifetimeActionArrayInput interface {
 	pulumi.Input
 
@@ -824,8 +814,7 @@ type CertifiateCertificatePolicyLifetimeActionAction struct {
 // CertifiateCertificatePolicyLifetimeActionActionInput is an input type that accepts CertifiateCertificatePolicyLifetimeActionActionArgs and CertifiateCertificatePolicyLifetimeActionActionOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyLifetimeActionActionInput` via:
 //
-// 		 CertifiateCertificatePolicyLifetimeActionActionArgs{...}
-//
+//          CertifiateCertificatePolicyLifetimeActionActionArgs{...}
 type CertifiateCertificatePolicyLifetimeActionActionInput interface {
 	pulumi.Input
 
@@ -879,8 +868,7 @@ type CertifiateCertificatePolicyLifetimeActionTrigger struct {
 // CertifiateCertificatePolicyLifetimeActionTriggerInput is an input type that accepts CertifiateCertificatePolicyLifetimeActionTriggerArgs and CertifiateCertificatePolicyLifetimeActionTriggerOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyLifetimeActionTriggerInput` via:
 //
-// 		 CertifiateCertificatePolicyLifetimeActionTriggerArgs{...}
-//
+//          CertifiateCertificatePolicyLifetimeActionTriggerArgs{...}
 type CertifiateCertificatePolicyLifetimeActionTriggerInput interface {
 	pulumi.Input
 
@@ -939,8 +927,7 @@ type CertifiateCertificatePolicySecretProperties struct {
 // CertifiateCertificatePolicySecretPropertiesInput is an input type that accepts CertifiateCertificatePolicySecretPropertiesArgs and CertifiateCertificatePolicySecretPropertiesOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicySecretPropertiesInput` via:
 //
-// 		 CertifiateCertificatePolicySecretPropertiesArgs{...}
-//
+//          CertifiateCertificatePolicySecretPropertiesArgs{...}
 type CertifiateCertificatePolicySecretPropertiesInput interface {
 	pulumi.Input
 
@@ -976,12 +963,11 @@ func (i CertifiateCertificatePolicySecretPropertiesArgs) ToCertifiateCertificate
 // CertifiateCertificatePolicySecretPropertiesPtrInput is an input type that accepts CertifiateCertificatePolicySecretPropertiesArgs, CertifiateCertificatePolicySecretPropertiesPtr and CertifiateCertificatePolicySecretPropertiesPtrOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicySecretPropertiesPtrInput` via:
 //
-// 		 CertifiateCertificatePolicySecretPropertiesArgs{...}
+//          CertifiateCertificatePolicySecretPropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertifiateCertificatePolicySecretPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1082,8 +1068,7 @@ type CertifiateCertificatePolicyX509CertificateProperties struct {
 // CertifiateCertificatePolicyX509CertificatePropertiesInput is an input type that accepts CertifiateCertificatePolicyX509CertificatePropertiesArgs and CertifiateCertificatePolicyX509CertificatePropertiesOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyX509CertificatePropertiesInput` via:
 //
-// 		 CertifiateCertificatePolicyX509CertificatePropertiesArgs{...}
-//
+//          CertifiateCertificatePolicyX509CertificatePropertiesArgs{...}
 type CertifiateCertificatePolicyX509CertificatePropertiesInput interface {
 	pulumi.Input
 
@@ -1127,12 +1112,11 @@ func (i CertifiateCertificatePolicyX509CertificatePropertiesArgs) ToCertifiateCe
 // CertifiateCertificatePolicyX509CertificatePropertiesPtrInput is an input type that accepts CertifiateCertificatePolicyX509CertificatePropertiesArgs, CertifiateCertificatePolicyX509CertificatePropertiesPtr and CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyX509CertificatePropertiesPtrInput` via:
 //
-// 		 CertifiateCertificatePolicyX509CertificatePropertiesArgs{...}
+//          CertifiateCertificatePolicyX509CertificatePropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertifiateCertificatePolicyX509CertificatePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1291,8 +1275,7 @@ type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames
 // CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesInput is an input type that accepts CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs and CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesInput` via:
 //
-// 		 CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
-//
+//          CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
 type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesInput interface {
 	pulumi.Input
 
@@ -1332,12 +1315,11 @@ func (i CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 // CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput is an input type that accepts CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs, CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtr and CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput` via:
 //
-// 		 CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
+//          CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput interface {
 	pulumi.Input
 
@@ -1468,8 +1450,7 @@ type CertificateCertificate struct {
 // CertificateCertificateInput is an input type that accepts CertificateCertificateArgs and CertificateCertificateOutput values.
 // You can construct a concrete instance of `CertificateCertificateInput` via:
 //
-// 		 CertificateCertificateArgs{...}
-//
+//          CertificateCertificateArgs{...}
 type CertificateCertificateInput interface {
 	pulumi.Input
 
@@ -1507,12 +1488,11 @@ func (i CertificateCertificateArgs) ToCertificateCertificatePtrOutputWithContext
 // CertificateCertificatePtrInput is an input type that accepts CertificateCertificateArgs, CertificateCertificatePtr and CertificateCertificatePtrOutput values.
 // You can construct a concrete instance of `CertificateCertificatePtrInput` via:
 //
-// 		 CertificateCertificateArgs{...}
+//          CertificateCertificateArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertificateCertificatePtrInput interface {
 	pulumi.Input
 
@@ -1626,8 +1606,7 @@ type CertificateCertificatePolicy struct {
 // CertificateCertificatePolicyInput is an input type that accepts CertificateCertificatePolicyArgs and CertificateCertificatePolicyOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyInput` via:
 //
-// 		 CertificateCertificatePolicyArgs{...}
-//
+//          CertificateCertificatePolicyArgs{...}
 type CertificateCertificatePolicyInput interface {
 	pulumi.Input
 
@@ -1671,12 +1650,11 @@ func (i CertificateCertificatePolicyArgs) ToCertificateCertificatePolicyPtrOutpu
 // CertificateCertificatePolicyPtrInput is an input type that accepts CertificateCertificatePolicyArgs, CertificateCertificatePolicyPtr and CertificateCertificatePolicyPtrOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyPtrInput` via:
 //
-// 		 CertificateCertificatePolicyArgs{...}
+//          CertificateCertificatePolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertificateCertificatePolicyPtrInput interface {
 	pulumi.Input
 
@@ -1835,8 +1813,7 @@ type CertificateCertificatePolicyIssuerParameters struct {
 // CertificateCertificatePolicyIssuerParametersInput is an input type that accepts CertificateCertificatePolicyIssuerParametersArgs and CertificateCertificatePolicyIssuerParametersOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyIssuerParametersInput` via:
 //
-// 		 CertificateCertificatePolicyIssuerParametersArgs{...}
-//
+//          CertificateCertificatePolicyIssuerParametersArgs{...}
 type CertificateCertificatePolicyIssuerParametersInput interface {
 	pulumi.Input
 
@@ -1872,12 +1849,11 @@ func (i CertificateCertificatePolicyIssuerParametersArgs) ToCertificateCertifica
 // CertificateCertificatePolicyIssuerParametersPtrInput is an input type that accepts CertificateCertificatePolicyIssuerParametersArgs, CertificateCertificatePolicyIssuerParametersPtr and CertificateCertificatePolicyIssuerParametersPtrOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyIssuerParametersPtrInput` via:
 //
-// 		 CertificateCertificatePolicyIssuerParametersArgs{...}
+//          CertificateCertificatePolicyIssuerParametersArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertificateCertificatePolicyIssuerParametersPtrInput interface {
 	pulumi.Input
 
@@ -1976,8 +1952,7 @@ type CertificateCertificatePolicyKeyProperties struct {
 // CertificateCertificatePolicyKeyPropertiesInput is an input type that accepts CertificateCertificatePolicyKeyPropertiesArgs and CertificateCertificatePolicyKeyPropertiesOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyKeyPropertiesInput` via:
 //
-// 		 CertificateCertificatePolicyKeyPropertiesArgs{...}
-//
+//          CertificateCertificatePolicyKeyPropertiesArgs{...}
 type CertificateCertificatePolicyKeyPropertiesInput interface {
 	pulumi.Input
 
@@ -2019,12 +1994,11 @@ func (i CertificateCertificatePolicyKeyPropertiesArgs) ToCertificateCertificateP
 // CertificateCertificatePolicyKeyPropertiesPtrInput is an input type that accepts CertificateCertificatePolicyKeyPropertiesArgs, CertificateCertificatePolicyKeyPropertiesPtr and CertificateCertificatePolicyKeyPropertiesPtrOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyKeyPropertiesPtrInput` via:
 //
-// 		 CertificateCertificatePolicyKeyPropertiesArgs{...}
+//          CertificateCertificatePolicyKeyPropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertificateCertificatePolicyKeyPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2164,8 +2138,7 @@ type CertificateCertificatePolicyLifetimeAction struct {
 // CertificateCertificatePolicyLifetimeActionInput is an input type that accepts CertificateCertificatePolicyLifetimeActionArgs and CertificateCertificatePolicyLifetimeActionOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyLifetimeActionInput` via:
 //
-// 		 CertificateCertificatePolicyLifetimeActionArgs{...}
-//
+//          CertificateCertificatePolicyLifetimeActionArgs{...}
 type CertificateCertificatePolicyLifetimeActionInput interface {
 	pulumi.Input
 
@@ -2195,8 +2168,7 @@ func (i CertificateCertificatePolicyLifetimeActionArgs) ToCertificateCertificate
 // CertificateCertificatePolicyLifetimeActionArrayInput is an input type that accepts CertificateCertificatePolicyLifetimeActionArray and CertificateCertificatePolicyLifetimeActionArrayOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyLifetimeActionArrayInput` via:
 //
-// 		 CertificateCertificatePolicyLifetimeActionArray{ CertificateCertificatePolicyLifetimeActionArgs{...} }
-//
+//          CertificateCertificatePolicyLifetimeActionArray{ CertificateCertificatePolicyLifetimeActionArgs{...} }
 type CertificateCertificatePolicyLifetimeActionArrayInput interface {
 	pulumi.Input
 
@@ -2274,8 +2246,7 @@ type CertificateCertificatePolicyLifetimeActionAction struct {
 // CertificateCertificatePolicyLifetimeActionActionInput is an input type that accepts CertificateCertificatePolicyLifetimeActionActionArgs and CertificateCertificatePolicyLifetimeActionActionOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyLifetimeActionActionInput` via:
 //
-// 		 CertificateCertificatePolicyLifetimeActionActionArgs{...}
-//
+//          CertificateCertificatePolicyLifetimeActionActionArgs{...}
 type CertificateCertificatePolicyLifetimeActionActionInput interface {
 	pulumi.Input
 
@@ -2329,8 +2300,7 @@ type CertificateCertificatePolicyLifetimeActionTrigger struct {
 // CertificateCertificatePolicyLifetimeActionTriggerInput is an input type that accepts CertificateCertificatePolicyLifetimeActionTriggerArgs and CertificateCertificatePolicyLifetimeActionTriggerOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyLifetimeActionTriggerInput` via:
 //
-// 		 CertificateCertificatePolicyLifetimeActionTriggerArgs{...}
-//
+//          CertificateCertificatePolicyLifetimeActionTriggerArgs{...}
 type CertificateCertificatePolicyLifetimeActionTriggerInput interface {
 	pulumi.Input
 
@@ -2389,8 +2359,7 @@ type CertificateCertificatePolicySecretProperties struct {
 // CertificateCertificatePolicySecretPropertiesInput is an input type that accepts CertificateCertificatePolicySecretPropertiesArgs and CertificateCertificatePolicySecretPropertiesOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicySecretPropertiesInput` via:
 //
-// 		 CertificateCertificatePolicySecretPropertiesArgs{...}
-//
+//          CertificateCertificatePolicySecretPropertiesArgs{...}
 type CertificateCertificatePolicySecretPropertiesInput interface {
 	pulumi.Input
 
@@ -2426,12 +2395,11 @@ func (i CertificateCertificatePolicySecretPropertiesArgs) ToCertificateCertifica
 // CertificateCertificatePolicySecretPropertiesPtrInput is an input type that accepts CertificateCertificatePolicySecretPropertiesArgs, CertificateCertificatePolicySecretPropertiesPtr and CertificateCertificatePolicySecretPropertiesPtrOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicySecretPropertiesPtrInput` via:
 //
-// 		 CertificateCertificatePolicySecretPropertiesArgs{...}
+//          CertificateCertificatePolicySecretPropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertificateCertificatePolicySecretPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2532,8 +2500,7 @@ type CertificateCertificatePolicyX509CertificateProperties struct {
 // CertificateCertificatePolicyX509CertificatePropertiesInput is an input type that accepts CertificateCertificatePolicyX509CertificatePropertiesArgs and CertificateCertificatePolicyX509CertificatePropertiesOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyX509CertificatePropertiesInput` via:
 //
-// 		 CertificateCertificatePolicyX509CertificatePropertiesArgs{...}
-//
+//          CertificateCertificatePolicyX509CertificatePropertiesArgs{...}
 type CertificateCertificatePolicyX509CertificatePropertiesInput interface {
 	pulumi.Input
 
@@ -2577,12 +2544,11 @@ func (i CertificateCertificatePolicyX509CertificatePropertiesArgs) ToCertificate
 // CertificateCertificatePolicyX509CertificatePropertiesPtrInput is an input type that accepts CertificateCertificatePolicyX509CertificatePropertiesArgs, CertificateCertificatePolicyX509CertificatePropertiesPtr and CertificateCertificatePolicyX509CertificatePropertiesPtrOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyX509CertificatePropertiesPtrInput` via:
 //
-// 		 CertificateCertificatePolicyX509CertificatePropertiesArgs{...}
+//          CertificateCertificatePolicyX509CertificatePropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertificateCertificatePolicyX509CertificatePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -2741,8 +2707,7 @@ type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 // CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesInput is an input type that accepts CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs and CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesInput` via:
 //
-// 		 CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
-//
+//          CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
 type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesInput interface {
 	pulumi.Input
 
@@ -2782,12 +2747,11 @@ func (i CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 // CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput is an input type that accepts CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs, CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtr and CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput` via:
 //
-// 		 CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
+//          CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput interface {
 	pulumi.Input
 
@@ -2928,8 +2892,7 @@ type KeyVaultAccessPolicy struct {
 // KeyVaultAccessPolicyInput is an input type that accepts KeyVaultAccessPolicyArgs and KeyVaultAccessPolicyOutput values.
 // You can construct a concrete instance of `KeyVaultAccessPolicyInput` via:
 //
-// 		 KeyVaultAccessPolicyArgs{...}
-//
+//          KeyVaultAccessPolicyArgs{...}
 type KeyVaultAccessPolicyInput interface {
 	pulumi.Input
 
@@ -2969,8 +2932,7 @@ func (i KeyVaultAccessPolicyArgs) ToKeyVaultAccessPolicyOutputWithContext(ctx co
 // KeyVaultAccessPolicyArrayInput is an input type that accepts KeyVaultAccessPolicyArray and KeyVaultAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `KeyVaultAccessPolicyArrayInput` via:
 //
-// 		 KeyVaultAccessPolicyArray{ KeyVaultAccessPolicyArgs{...} }
-//
+//          KeyVaultAccessPolicyArray{ KeyVaultAccessPolicyArgs{...} }
 type KeyVaultAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -3075,8 +3037,7 @@ type KeyVaultNetworkAcls struct {
 // KeyVaultNetworkAclsInput is an input type that accepts KeyVaultNetworkAclsArgs and KeyVaultNetworkAclsOutput values.
 // You can construct a concrete instance of `KeyVaultNetworkAclsInput` via:
 //
-// 		 KeyVaultNetworkAclsArgs{...}
-//
+//          KeyVaultNetworkAclsArgs{...}
 type KeyVaultNetworkAclsInput interface {
 	pulumi.Input
 
@@ -3118,12 +3079,11 @@ func (i KeyVaultNetworkAclsArgs) ToKeyVaultNetworkAclsPtrOutputWithContext(ctx c
 // KeyVaultNetworkAclsPtrInput is an input type that accepts KeyVaultNetworkAclsArgs, KeyVaultNetworkAclsPtr and KeyVaultNetworkAclsPtrOutput values.
 // You can construct a concrete instance of `KeyVaultNetworkAclsPtrInput` via:
 //
-// 		 KeyVaultNetworkAclsArgs{...}
+//          KeyVaultNetworkAclsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KeyVaultNetworkAclsPtrInput interface {
 	pulumi.Input
 
@@ -3267,8 +3227,7 @@ type GetCertificateCertificatePolicy struct {
 // GetCertificateCertificatePolicyInput is an input type that accepts GetCertificateCertificatePolicyArgs and GetCertificateCertificatePolicyOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyInput` via:
 //
-// 		 GetCertificateCertificatePolicyArgs{...}
-//
+//          GetCertificateCertificatePolicyArgs{...}
 type GetCertificateCertificatePolicyInput interface {
 	pulumi.Input
 
@@ -3304,8 +3263,7 @@ func (i GetCertificateCertificatePolicyArgs) ToGetCertificateCertificatePolicyOu
 // GetCertificateCertificatePolicyArrayInput is an input type that accepts GetCertificateCertificatePolicyArray and GetCertificateCertificatePolicyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyArray{ GetCertificateCertificatePolicyArgs{...} }
-//
+//          GetCertificateCertificatePolicyArray{ GetCertificateCertificatePolicyArgs{...} }
 type GetCertificateCertificatePolicyArrayInput interface {
 	pulumi.Input
 
@@ -3404,8 +3362,7 @@ type GetCertificateCertificatePolicyIssuerParameter struct {
 // GetCertificateCertificatePolicyIssuerParameterInput is an input type that accepts GetCertificateCertificatePolicyIssuerParameterArgs and GetCertificateCertificatePolicyIssuerParameterOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyIssuerParameterInput` via:
 //
-// 		 GetCertificateCertificatePolicyIssuerParameterArgs{...}
-//
+//          GetCertificateCertificatePolicyIssuerParameterArgs{...}
 type GetCertificateCertificatePolicyIssuerParameterInput interface {
 	pulumi.Input
 
@@ -3433,8 +3390,7 @@ func (i GetCertificateCertificatePolicyIssuerParameterArgs) ToGetCertificateCert
 // GetCertificateCertificatePolicyIssuerParameterArrayInput is an input type that accepts GetCertificateCertificatePolicyIssuerParameterArray and GetCertificateCertificatePolicyIssuerParameterArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyIssuerParameterArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyIssuerParameterArray{ GetCertificateCertificatePolicyIssuerParameterArgs{...} }
-//
+//          GetCertificateCertificatePolicyIssuerParameterArray{ GetCertificateCertificatePolicyIssuerParameterArgs{...} }
 type GetCertificateCertificatePolicyIssuerParameterArrayInput interface {
 	pulumi.Input
 
@@ -3509,8 +3465,7 @@ type GetCertificateCertificatePolicyKeyProperty struct {
 // GetCertificateCertificatePolicyKeyPropertyInput is an input type that accepts GetCertificateCertificatePolicyKeyPropertyArgs and GetCertificateCertificatePolicyKeyPropertyOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyKeyPropertyInput` via:
 //
-// 		 GetCertificateCertificatePolicyKeyPropertyArgs{...}
-//
+//          GetCertificateCertificatePolicyKeyPropertyArgs{...}
 type GetCertificateCertificatePolicyKeyPropertyInput interface {
 	pulumi.Input
 
@@ -3544,8 +3499,7 @@ func (i GetCertificateCertificatePolicyKeyPropertyArgs) ToGetCertificateCertific
 // GetCertificateCertificatePolicyKeyPropertyArrayInput is an input type that accepts GetCertificateCertificatePolicyKeyPropertyArray and GetCertificateCertificatePolicyKeyPropertyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyKeyPropertyArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyKeyPropertyArray{ GetCertificateCertificatePolicyKeyPropertyArgs{...} }
-//
+//          GetCertificateCertificatePolicyKeyPropertyArray{ GetCertificateCertificatePolicyKeyPropertyArgs{...} }
 type GetCertificateCertificatePolicyKeyPropertyArrayInput interface {
 	pulumi.Input
 
@@ -3631,8 +3585,7 @@ type GetCertificateCertificatePolicyLifetimeAction struct {
 // GetCertificateCertificatePolicyLifetimeActionInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionArgs and GetCertificateCertificatePolicyLifetimeActionOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionInput` via:
 //
-// 		 GetCertificateCertificatePolicyLifetimeActionArgs{...}
-//
+//          GetCertificateCertificatePolicyLifetimeActionArgs{...}
 type GetCertificateCertificatePolicyLifetimeActionInput interface {
 	pulumi.Input
 
@@ -3662,8 +3615,7 @@ func (i GetCertificateCertificatePolicyLifetimeActionArgs) ToGetCertificateCerti
 // GetCertificateCertificatePolicyLifetimeActionArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionArray and GetCertificateCertificatePolicyLifetimeActionArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyLifetimeActionArray{ GetCertificateCertificatePolicyLifetimeActionArgs{...} }
-//
+//          GetCertificateCertificatePolicyLifetimeActionArray{ GetCertificateCertificatePolicyLifetimeActionArgs{...} }
 type GetCertificateCertificatePolicyLifetimeActionArrayInput interface {
 	pulumi.Input
 
@@ -3741,8 +3693,7 @@ type GetCertificateCertificatePolicyLifetimeActionAction struct {
 // GetCertificateCertificatePolicyLifetimeActionActionInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionActionArgs and GetCertificateCertificatePolicyLifetimeActionActionOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionActionInput` via:
 //
-// 		 GetCertificateCertificatePolicyLifetimeActionActionArgs{...}
-//
+//          GetCertificateCertificatePolicyLifetimeActionActionArgs{...}
 type GetCertificateCertificatePolicyLifetimeActionActionInput interface {
 	pulumi.Input
 
@@ -3770,8 +3721,7 @@ func (i GetCertificateCertificatePolicyLifetimeActionActionArgs) ToGetCertificat
 // GetCertificateCertificatePolicyLifetimeActionActionArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionActionArray and GetCertificateCertificatePolicyLifetimeActionActionArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionActionArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyLifetimeActionActionArray{ GetCertificateCertificatePolicyLifetimeActionActionArgs{...} }
-//
+//          GetCertificateCertificatePolicyLifetimeActionActionArray{ GetCertificateCertificatePolicyLifetimeActionActionArgs{...} }
 type GetCertificateCertificatePolicyLifetimeActionActionArrayInput interface {
 	pulumi.Input
 
@@ -3842,8 +3792,7 @@ type GetCertificateCertificatePolicyLifetimeActionTrigger struct {
 // GetCertificateCertificatePolicyLifetimeActionTriggerInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionTriggerArgs and GetCertificateCertificatePolicyLifetimeActionTriggerOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionTriggerInput` via:
 //
-// 		 GetCertificateCertificatePolicyLifetimeActionTriggerArgs{...}
-//
+//          GetCertificateCertificatePolicyLifetimeActionTriggerArgs{...}
 type GetCertificateCertificatePolicyLifetimeActionTriggerInput interface {
 	pulumi.Input
 
@@ -3873,8 +3822,7 @@ func (i GetCertificateCertificatePolicyLifetimeActionTriggerArgs) ToGetCertifica
 // GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionTriggerArray and GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyLifetimeActionTriggerArray{ GetCertificateCertificatePolicyLifetimeActionTriggerArgs{...} }
-//
+//          GetCertificateCertificatePolicyLifetimeActionTriggerArray{ GetCertificateCertificatePolicyLifetimeActionTriggerArgs{...} }
 type GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput interface {
 	pulumi.Input
 
@@ -3948,8 +3896,7 @@ type GetCertificateCertificatePolicySecretProperty struct {
 // GetCertificateCertificatePolicySecretPropertyInput is an input type that accepts GetCertificateCertificatePolicySecretPropertyArgs and GetCertificateCertificatePolicySecretPropertyOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicySecretPropertyInput` via:
 //
-// 		 GetCertificateCertificatePolicySecretPropertyArgs{...}
-//
+//          GetCertificateCertificatePolicySecretPropertyArgs{...}
 type GetCertificateCertificatePolicySecretPropertyInput interface {
 	pulumi.Input
 
@@ -3977,8 +3924,7 @@ func (i GetCertificateCertificatePolicySecretPropertyArgs) ToGetCertificateCerti
 // GetCertificateCertificatePolicySecretPropertyArrayInput is an input type that accepts GetCertificateCertificatePolicySecretPropertyArray and GetCertificateCertificatePolicySecretPropertyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicySecretPropertyArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicySecretPropertyArray{ GetCertificateCertificatePolicySecretPropertyArgs{...} }
-//
+//          GetCertificateCertificatePolicySecretPropertyArray{ GetCertificateCertificatePolicySecretPropertyArgs{...} }
 type GetCertificateCertificatePolicySecretPropertyArrayInput interface {
 	pulumi.Input
 
@@ -4055,8 +4001,7 @@ type GetCertificateCertificatePolicyX509CertificateProperty struct {
 // GetCertificateCertificatePolicyX509CertificatePropertyInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertyArgs and GetCertificateCertificatePolicyX509CertificatePropertyOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertyInput` via:
 //
-// 		 GetCertificateCertificatePolicyX509CertificatePropertyArgs{...}
-//
+//          GetCertificateCertificatePolicyX509CertificatePropertyArgs{...}
 type GetCertificateCertificatePolicyX509CertificatePropertyInput interface {
 	pulumi.Input
 
@@ -4092,8 +4037,7 @@ func (i GetCertificateCertificatePolicyX509CertificatePropertyArgs) ToGetCertifi
 // GetCertificateCertificatePolicyX509CertificatePropertyArrayInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertyArray and GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertyArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyX509CertificatePropertyArray{ GetCertificateCertificatePolicyX509CertificatePropertyArgs{...} }
-//
+//          GetCertificateCertificatePolicyX509CertificatePropertyArray{ GetCertificateCertificatePolicyX509CertificatePropertyArgs{...} }
 type GetCertificateCertificatePolicyX509CertificatePropertyArrayInput interface {
 	pulumi.Input
 
@@ -4188,8 +4132,7 @@ type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNam
 // GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs and GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameInput` via:
 //
-// 		 GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs{...}
-//
+//          GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs{...}
 type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameInput interface {
 	pulumi.Input
 
@@ -4221,8 +4164,7 @@ func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternative
 // GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray and GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput` via:
 //
-// 		 GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray{ GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs{...} }
-//
+//          GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray{ GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs{...} }
 type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput interface {
 	pulumi.Input
 
@@ -4319,8 +4261,7 @@ type GetKeyVaultAccessPolicy struct {
 // GetKeyVaultAccessPolicyInput is an input type that accepts GetKeyVaultAccessPolicyArgs and GetKeyVaultAccessPolicyOutput values.
 // You can construct a concrete instance of `GetKeyVaultAccessPolicyInput` via:
 //
-// 		 GetKeyVaultAccessPolicyArgs{...}
-//
+//          GetKeyVaultAccessPolicyArgs{...}
 type GetKeyVaultAccessPolicyInput interface {
 	pulumi.Input
 
@@ -4360,8 +4301,7 @@ func (i GetKeyVaultAccessPolicyArgs) ToGetKeyVaultAccessPolicyOutputWithContext(
 // GetKeyVaultAccessPolicyArrayInput is an input type that accepts GetKeyVaultAccessPolicyArray and GetKeyVaultAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `GetKeyVaultAccessPolicyArrayInput` via:
 //
-// 		 GetKeyVaultAccessPolicyArray{ GetKeyVaultAccessPolicyArgs{...} }
-//
+//          GetKeyVaultAccessPolicyArray{ GetKeyVaultAccessPolicyArgs{...} }
 type GetKeyVaultAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -4462,8 +4402,7 @@ type GetKeyVaultNetworkAcl struct {
 // GetKeyVaultNetworkAclInput is an input type that accepts GetKeyVaultNetworkAclArgs and GetKeyVaultNetworkAclOutput values.
 // You can construct a concrete instance of `GetKeyVaultNetworkAclInput` via:
 //
-// 		 GetKeyVaultNetworkAclArgs{...}
-//
+//          GetKeyVaultNetworkAclArgs{...}
 type GetKeyVaultNetworkAclInput interface {
 	pulumi.Input
 
@@ -4493,8 +4432,7 @@ func (i GetKeyVaultNetworkAclArgs) ToGetKeyVaultNetworkAclOutputWithContext(ctx 
 // GetKeyVaultNetworkAclArrayInput is an input type that accepts GetKeyVaultNetworkAclArray and GetKeyVaultNetworkAclArrayOutput values.
 // You can construct a concrete instance of `GetKeyVaultNetworkAclArrayInput` via:
 //
-// 		 GetKeyVaultNetworkAclArray{ GetKeyVaultNetworkAclArgs{...} }
-//
+//          GetKeyVaultNetworkAclArray{ GetKeyVaultNetworkAclArgs{...} }
 type GetKeyVaultNetworkAclArrayInput interface {
 	pulumi.Input
 

@@ -15,8 +15,6 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
@@ -63,7 +61,6 @@ namespace Pulumi.Azure.Network
     /// 
     /// }
     /// ```
-    /// 
     /// ## Note
     /// 
     /// Virtual Network peerings cannot be created, updated or deleted concurrently.

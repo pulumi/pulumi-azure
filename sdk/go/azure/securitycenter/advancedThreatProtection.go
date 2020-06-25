@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -28,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		_, err = core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("northeurope"),
 // 		})
 // 		if err != nil {
@@ -39,14 +37,14 @@ import (
 // 			Location:               pulumi.String(azurerm_resource_group.Example.Location),
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: map[string]interface{}{
-// 				"environment": "example",
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("example"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleAdvancedThreatProtection, err := securitycenter.NewAdvancedThreatProtection(ctx, "exampleAdvancedThreatProtection", &securitycenter.AdvancedThreatProtectionArgs{
+// 		_, err = securitycenter.NewAdvancedThreatProtection(ctx, "exampleAdvancedThreatProtection", &securitycenter.AdvancedThreatProtectionArgs{
 // 			TargetResourceId: exampleAccount.ID(),
 // 			Enabled:          pulumi.Bool(true),
 // 		})

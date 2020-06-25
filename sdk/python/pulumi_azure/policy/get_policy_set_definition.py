@@ -81,8 +81,6 @@ def get_policy_set_definition(display_name=None,management_group_name=None,name=
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

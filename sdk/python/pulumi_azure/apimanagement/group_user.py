@@ -31,10 +31,7 @@ class GroupUser(pulumi.CustomResource):
         """
         Manages an API Management User Assignment to a Group.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

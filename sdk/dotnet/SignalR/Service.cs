@@ -14,8 +14,6 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

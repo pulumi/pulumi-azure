@@ -11,6 +11,54 @@ import (
 )
 
 // Manages a Bot Connection.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/bot"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("northeurope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+// 			Location:          pulumi.String("global"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("F0"),
+// 			MicrosoftAppId:    pulumi.String(current.ClientId),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = bot.NewConnection(ctx, "exampleConnection", &bot.ConnectionArgs{
+// 			BotName:             exampleChannelsRegistration.Name,
+// 			Location:            exampleChannelsRegistration.Location,
+// 			ResourceGroupName:   exampleResourceGroup.Name,
+// 			ServiceProviderName: pulumi.String("box"),
+// 			ClientId:            pulumi.String("exampleId"),
+// 			ClientSecret:        pulumi.String("exampleSecret"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 

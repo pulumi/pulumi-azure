@@ -12,10 +12,7 @@ import (
 
 // Manages an Authorization Server within an API Management Service.
 //
-//
 // ## Example Usage
-//
-//
 //
 // ```go
 // package main
@@ -27,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+// 		_, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
 // 			Name:              "search-api",
 // 			ApiManagementName: "search-api-management",
 // 			ResourceGroupName: "search-service",
@@ -36,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleAuthorizationServer, err := apimanagement.NewAuthorizationServer(ctx, "exampleAuthorizationServer", &apimanagement.AuthorizationServerArgs{
+// 		_, err = apimanagement.NewAuthorizationServer(ctx, "exampleAuthorizationServer", &apimanagement.AuthorizationServerArgs{
 // 			ApiManagementName:          pulumi.String(data.Azurerm_api_management.Example.Name),
 // 			ResourceGroupName:          pulumi.String(data.Azurerm_api_management.Example.Resource_group_name),
 // 			DisplayName:                pulumi.String("Test Server"),

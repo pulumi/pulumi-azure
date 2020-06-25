@@ -74,8 +74,6 @@ def get_group(api_management_name=None,name=None,resource_group_name=None,opts=N
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

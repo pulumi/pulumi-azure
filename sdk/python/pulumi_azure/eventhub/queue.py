@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue", DeprecationWarning)
 
+
 class Queue(pulumi.CustomResource):
     auto_delete_on_idle: pulumi.Output[str]
     """
@@ -88,13 +89,12 @@ class Queue(pulumi.CustomResource):
     create the namespace. Changing this forces a new resource to be created.
     """
     warnings.warn("azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_express=None, enable_partitioning=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Queue.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

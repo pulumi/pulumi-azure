@@ -66,7 +66,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        This example provisions a brief Managed MsSql Virtual Machine.
 
         ```python
         import pulumi

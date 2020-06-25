@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages a ServiceBus Subscription Rule.
  *
  * ## Example Usage
- *
  * ### SQL Filter)
  *
  * ```typescript
@@ -46,7 +45,6 @@ import * as utilities from "../utilities";
  *     sqlFilter: "colour = 'red'",
  * });
  * ```
- *
  * ### Correlation Filter)
  *
  * ```typescript

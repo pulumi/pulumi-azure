@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -89,6 +87,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > **NOTE:** This Resource requires that [the Network Watcher Agent Virtual Machine Extension](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor) is installed on the Virtual Machine before monitoring can be started. The extension can be installed via the `azure.compute.Extension` resource.
  */
 export class NetworkConnectionMonitor extends pulumi.CustomResource {
     /**

@@ -176,7 +176,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         Manages a Function App deployment Slot.
 
         ## Example Usage
-
         ### With App Service Plan)
 
         ```python

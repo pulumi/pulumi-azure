@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,12 +31,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
+// 		_, err = logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			SkuName:           pulumi.String("Standard"),
-// 			Tags: map[string]interface{}{
-// 				"foo": "bar",
+// 			Tags: pulumi.Map{
+// 				"foo": pulumi.String("bar"),
 // 			},
 // 		})
 // 		if err != nil {

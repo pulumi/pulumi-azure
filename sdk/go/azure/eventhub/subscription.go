@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -37,8 +35,8 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
-// 			Tags: map[string]interface{}{
-// 				"source": "example",
+// 			Tags: pulumi.Map{
+// 				"source": pulumi.String("example"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -52,7 +50,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
+// 		_, err = servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			NamespaceName:     exampleNamespace.Name,
 // 			TopicName:         exampleTopic.Name,

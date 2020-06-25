@@ -15,6 +15,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //

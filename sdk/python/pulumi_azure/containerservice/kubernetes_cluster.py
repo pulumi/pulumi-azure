@@ -238,7 +238,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        This example provisions a basic Managed Kubernetes Cluster.
 
         ```python
         import pulumi

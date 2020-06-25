@@ -32,8 +32,7 @@ type FirewallPolicyCustomRule struct {
 // FirewallPolicyCustomRuleInput is an input type that accepts FirewallPolicyCustomRuleArgs and FirewallPolicyCustomRuleOutput values.
 // You can construct a concrete instance of `FirewallPolicyCustomRuleInput` via:
 //
-// 		 FirewallPolicyCustomRuleArgs{...}
-//
+//          FirewallPolicyCustomRuleArgs{...}
 type FirewallPolicyCustomRuleInput interface {
 	pulumi.Input
 
@@ -75,8 +74,7 @@ func (i FirewallPolicyCustomRuleArgs) ToFirewallPolicyCustomRuleOutputWithContex
 // FirewallPolicyCustomRuleArrayInput is an input type that accepts FirewallPolicyCustomRuleArray and FirewallPolicyCustomRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyCustomRuleArrayInput` via:
 //
-// 		 FirewallPolicyCustomRuleArray{ FirewallPolicyCustomRuleArgs{...} }
-//
+//          FirewallPolicyCustomRuleArray{ FirewallPolicyCustomRuleArgs{...} }
 type FirewallPolicyCustomRuleArrayInput interface {
 	pulumi.Input
 
@@ -190,8 +188,7 @@ type FirewallPolicyCustomRuleMatchCondition struct {
 // FirewallPolicyCustomRuleMatchConditionInput is an input type that accepts FirewallPolicyCustomRuleMatchConditionArgs and FirewallPolicyCustomRuleMatchConditionOutput values.
 // You can construct a concrete instance of `FirewallPolicyCustomRuleMatchConditionInput` via:
 //
-// 		 FirewallPolicyCustomRuleMatchConditionArgs{...}
-//
+//          FirewallPolicyCustomRuleMatchConditionArgs{...}
 type FirewallPolicyCustomRuleMatchConditionInput interface {
 	pulumi.Input
 
@@ -229,8 +226,7 @@ func (i FirewallPolicyCustomRuleMatchConditionArgs) ToFirewallPolicyCustomRuleMa
 // FirewallPolicyCustomRuleMatchConditionArrayInput is an input type that accepts FirewallPolicyCustomRuleMatchConditionArray and FirewallPolicyCustomRuleMatchConditionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyCustomRuleMatchConditionArrayInput` via:
 //
-// 		 FirewallPolicyCustomRuleMatchConditionArray{ FirewallPolicyCustomRuleMatchConditionArgs{...} }
-//
+//          FirewallPolicyCustomRuleMatchConditionArray{ FirewallPolicyCustomRuleMatchConditionArgs{...} }
 type FirewallPolicyCustomRuleMatchConditionArrayInput interface {
 	pulumi.Input
 
@@ -330,8 +326,7 @@ type FirewallPolicyManagedRule struct {
 // FirewallPolicyManagedRuleInput is an input type that accepts FirewallPolicyManagedRuleArgs and FirewallPolicyManagedRuleOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleInput` via:
 //
-// 		 FirewallPolicyManagedRuleArgs{...}
-//
+//          FirewallPolicyManagedRuleArgs{...}
 type FirewallPolicyManagedRuleInput interface {
 	pulumi.Input
 
@@ -365,8 +360,7 @@ func (i FirewallPolicyManagedRuleArgs) ToFirewallPolicyManagedRuleOutputWithCont
 // FirewallPolicyManagedRuleArrayInput is an input type that accepts FirewallPolicyManagedRuleArray and FirewallPolicyManagedRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleArrayInput` via:
 //
-// 		 FirewallPolicyManagedRuleArray{ FirewallPolicyManagedRuleArgs{...} }
-//
+//          FirewallPolicyManagedRuleArray{ FirewallPolicyManagedRuleArgs{...} }
 type FirewallPolicyManagedRuleArrayInput interface {
 	pulumi.Input
 
@@ -454,8 +448,7 @@ type FirewallPolicyManagedRuleExclusion struct {
 // FirewallPolicyManagedRuleExclusionInput is an input type that accepts FirewallPolicyManagedRuleExclusionArgs and FirewallPolicyManagedRuleExclusionOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleExclusionInput` via:
 //
-// 		 FirewallPolicyManagedRuleExclusionArgs{...}
-//
+//          FirewallPolicyManagedRuleExclusionArgs{...}
 type FirewallPolicyManagedRuleExclusionInput interface {
 	pulumi.Input
 
@@ -487,8 +480,7 @@ func (i FirewallPolicyManagedRuleExclusionArgs) ToFirewallPolicyManagedRuleExclu
 // FirewallPolicyManagedRuleExclusionArrayInput is an input type that accepts FirewallPolicyManagedRuleExclusionArray and FirewallPolicyManagedRuleExclusionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleExclusionArrayInput` via:
 //
-// 		 FirewallPolicyManagedRuleExclusionArray{ FirewallPolicyManagedRuleExclusionArgs{...} }
-//
+//          FirewallPolicyManagedRuleExclusionArray{ FirewallPolicyManagedRuleExclusionArgs{...} }
 type FirewallPolicyManagedRuleExclusionArrayInput interface {
 	pulumi.Input
 
@@ -571,8 +563,7 @@ type FirewallPolicyManagedRuleOverride struct {
 // FirewallPolicyManagedRuleOverrideInput is an input type that accepts FirewallPolicyManagedRuleOverrideArgs and FirewallPolicyManagedRuleOverrideOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideArgs{...}
-//
+//          FirewallPolicyManagedRuleOverrideArgs{...}
 type FirewallPolicyManagedRuleOverrideInput interface {
 	pulumi.Input
 
@@ -604,8 +595,7 @@ func (i FirewallPolicyManagedRuleOverrideArgs) ToFirewallPolicyManagedRuleOverri
 // FirewallPolicyManagedRuleOverrideArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideArray and FirewallPolicyManagedRuleOverrideArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideArrayInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideArray{ FirewallPolicyManagedRuleOverrideArgs{...} }
-//
+//          FirewallPolicyManagedRuleOverrideArray{ FirewallPolicyManagedRuleOverrideArgs{...} }
 type FirewallPolicyManagedRuleOverrideArrayInput interface {
 	pulumi.Input
 
@@ -690,8 +680,7 @@ type FirewallPolicyManagedRuleOverrideExclusion struct {
 // FirewallPolicyManagedRuleOverrideExclusionInput is an input type that accepts FirewallPolicyManagedRuleOverrideExclusionArgs and FirewallPolicyManagedRuleOverrideExclusionOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideExclusionInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideExclusionArgs{...}
-//
+//          FirewallPolicyManagedRuleOverrideExclusionArgs{...}
 type FirewallPolicyManagedRuleOverrideExclusionInput interface {
 	pulumi.Input
 
@@ -723,8 +712,7 @@ func (i FirewallPolicyManagedRuleOverrideExclusionArgs) ToFirewallPolicyManagedR
 // FirewallPolicyManagedRuleOverrideExclusionArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideExclusionArray and FirewallPolicyManagedRuleOverrideExclusionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideExclusionArrayInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideExclusionArray{ FirewallPolicyManagedRuleOverrideExclusionArgs{...} }
-//
+//          FirewallPolicyManagedRuleOverrideExclusionArray{ FirewallPolicyManagedRuleOverrideExclusionArgs{...} }
 type FirewallPolicyManagedRuleOverrideExclusionArrayInput interface {
 	pulumi.Input
 
@@ -809,8 +797,7 @@ type FirewallPolicyManagedRuleOverrideRule struct {
 // FirewallPolicyManagedRuleOverrideRuleInput is an input type that accepts FirewallPolicyManagedRuleOverrideRuleArgs and FirewallPolicyManagedRuleOverrideRuleOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideRuleInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideRuleArgs{...}
-//
+//          FirewallPolicyManagedRuleOverrideRuleArgs{...}
 type FirewallPolicyManagedRuleOverrideRuleInput interface {
 	pulumi.Input
 
@@ -844,8 +831,7 @@ func (i FirewallPolicyManagedRuleOverrideRuleArgs) ToFirewallPolicyManagedRuleOv
 // FirewallPolicyManagedRuleOverrideRuleArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideRuleArray and FirewallPolicyManagedRuleOverrideRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideRuleArrayInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideRuleArray{ FirewallPolicyManagedRuleOverrideRuleArgs{...} }
-//
+//          FirewallPolicyManagedRuleOverrideRuleArray{ FirewallPolicyManagedRuleOverrideRuleArgs{...} }
 type FirewallPolicyManagedRuleOverrideRuleArrayInput interface {
 	pulumi.Input
 
@@ -935,8 +921,7 @@ type FirewallPolicyManagedRuleOverrideRuleExclusion struct {
 // FirewallPolicyManagedRuleOverrideRuleExclusionInput is an input type that accepts FirewallPolicyManagedRuleOverrideRuleExclusionArgs and FirewallPolicyManagedRuleOverrideRuleExclusionOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideRuleExclusionInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideRuleExclusionArgs{...}
-//
+//          FirewallPolicyManagedRuleOverrideRuleExclusionArgs{...}
 type FirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
 	pulumi.Input
 
@@ -968,8 +953,7 @@ func (i FirewallPolicyManagedRuleOverrideRuleExclusionArgs) ToFirewallPolicyMana
 // FirewallPolicyManagedRuleOverrideRuleExclusionArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideRuleExclusionArray and FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideRuleExclusionArrayInput` via:
 //
-// 		 FirewallPolicyManagedRuleOverrideRuleExclusionArray{ FirewallPolicyManagedRuleOverrideRuleExclusionArgs{...} }
-//
+//          FirewallPolicyManagedRuleOverrideRuleExclusionArray{ FirewallPolicyManagedRuleOverrideRuleExclusionArgs{...} }
 type FirewallPolicyManagedRuleOverrideRuleExclusionArrayInput interface {
 	pulumi.Input
 
@@ -1056,8 +1040,7 @@ type FrontdoorBackendPool struct {
 // FrontdoorBackendPoolInput is an input type that accepts FrontdoorBackendPoolArgs and FrontdoorBackendPoolOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolInput` via:
 //
-// 		 FrontdoorBackendPoolArgs{...}
-//
+//          FrontdoorBackendPoolArgs{...}
 type FrontdoorBackendPoolInput interface {
 	pulumi.Input
 
@@ -1093,8 +1076,7 @@ func (i FrontdoorBackendPoolArgs) ToFrontdoorBackendPoolOutputWithContext(ctx co
 // FrontdoorBackendPoolArrayInput is an input type that accepts FrontdoorBackendPoolArray and FrontdoorBackendPoolArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolArrayInput` via:
 //
-// 		 FrontdoorBackendPoolArray{ FrontdoorBackendPoolArgs{...} }
-//
+//          FrontdoorBackendPoolArray{ FrontdoorBackendPoolArgs{...} }
 type FrontdoorBackendPoolArrayInput interface {
 	pulumi.Input
 
@@ -1195,8 +1177,7 @@ type FrontdoorBackendPoolBackend struct {
 // FrontdoorBackendPoolBackendInput is an input type that accepts FrontdoorBackendPoolBackendArgs and FrontdoorBackendPoolBackendOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolBackendInput` via:
 //
-// 		 FrontdoorBackendPoolBackendArgs{...}
-//
+//          FrontdoorBackendPoolBackendArgs{...}
 type FrontdoorBackendPoolBackendInput interface {
 	pulumi.Input
 
@@ -1236,8 +1217,7 @@ func (i FrontdoorBackendPoolBackendArgs) ToFrontdoorBackendPoolBackendOutputWith
 // FrontdoorBackendPoolBackendArrayInput is an input type that accepts FrontdoorBackendPoolBackendArray and FrontdoorBackendPoolBackendArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolBackendArrayInput` via:
 //
-// 		 FrontdoorBackendPoolBackendArray{ FrontdoorBackendPoolBackendArgs{...} }
-//
+//          FrontdoorBackendPoolBackendArray{ FrontdoorBackendPoolBackendArgs{...} }
 type FrontdoorBackendPoolBackendArrayInput interface {
 	pulumi.Input
 
@@ -1348,8 +1328,7 @@ type FrontdoorBackendPoolHealthProbe struct {
 // FrontdoorBackendPoolHealthProbeInput is an input type that accepts FrontdoorBackendPoolHealthProbeArgs and FrontdoorBackendPoolHealthProbeOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolHealthProbeInput` via:
 //
-// 		 FrontdoorBackendPoolHealthProbeArgs{...}
-//
+//          FrontdoorBackendPoolHealthProbeArgs{...}
 type FrontdoorBackendPoolHealthProbeInput interface {
 	pulumi.Input
 
@@ -1389,8 +1368,7 @@ func (i FrontdoorBackendPoolHealthProbeArgs) ToFrontdoorBackendPoolHealthProbeOu
 // FrontdoorBackendPoolHealthProbeArrayInput is an input type that accepts FrontdoorBackendPoolHealthProbeArray and FrontdoorBackendPoolHealthProbeArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolHealthProbeArrayInput` via:
 //
-// 		 FrontdoorBackendPoolHealthProbeArray{ FrontdoorBackendPoolHealthProbeArgs{...} }
-//
+//          FrontdoorBackendPoolHealthProbeArray{ FrontdoorBackendPoolHealthProbeArgs{...} }
 type FrontdoorBackendPoolHealthProbeArrayInput interface {
 	pulumi.Input
 
@@ -1497,8 +1475,7 @@ type FrontdoorBackendPoolLoadBalancing struct {
 // FrontdoorBackendPoolLoadBalancingInput is an input type that accepts FrontdoorBackendPoolLoadBalancingArgs and FrontdoorBackendPoolLoadBalancingOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolLoadBalancingInput` via:
 //
-// 		 FrontdoorBackendPoolLoadBalancingArgs{...}
-//
+//          FrontdoorBackendPoolLoadBalancingArgs{...}
 type FrontdoorBackendPoolLoadBalancingInput interface {
 	pulumi.Input
 
@@ -1534,8 +1511,7 @@ func (i FrontdoorBackendPoolLoadBalancingArgs) ToFrontdoorBackendPoolLoadBalanci
 // FrontdoorBackendPoolLoadBalancingArrayInput is an input type that accepts FrontdoorBackendPoolLoadBalancingArray and FrontdoorBackendPoolLoadBalancingArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolLoadBalancingArrayInput` via:
 //
-// 		 FrontdoorBackendPoolLoadBalancingArray{ FrontdoorBackendPoolLoadBalancingArgs{...} }
-//
+//          FrontdoorBackendPoolLoadBalancingArray{ FrontdoorBackendPoolLoadBalancingArgs{...} }
 type FrontdoorBackendPoolLoadBalancingArrayInput interface {
 	pulumi.Input
 
@@ -1638,8 +1614,7 @@ type FrontdoorFrontendEndpoint struct {
 // FrontdoorFrontendEndpointInput is an input type that accepts FrontdoorFrontendEndpointArgs and FrontdoorFrontendEndpointOutput values.
 // You can construct a concrete instance of `FrontdoorFrontendEndpointInput` via:
 //
-// 		 FrontdoorFrontendEndpointArgs{...}
-//
+//          FrontdoorFrontendEndpointArgs{...}
 type FrontdoorFrontendEndpointInput interface {
 	pulumi.Input
 
@@ -1681,8 +1656,7 @@ func (i FrontdoorFrontendEndpointArgs) ToFrontdoorFrontendEndpointOutputWithCont
 // FrontdoorFrontendEndpointArrayInput is an input type that accepts FrontdoorFrontendEndpointArray and FrontdoorFrontendEndpointArrayOutput values.
 // You can construct a concrete instance of `FrontdoorFrontendEndpointArrayInput` via:
 //
-// 		 FrontdoorFrontendEndpointArray{ FrontdoorFrontendEndpointArgs{...} }
-//
+//          FrontdoorFrontendEndpointArray{ FrontdoorFrontendEndpointArgs{...} }
 type FrontdoorFrontendEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1800,8 +1774,7 @@ type FrontdoorFrontendEndpointCustomHttpsConfiguration struct {
 // FrontdoorFrontendEndpointCustomHttpsConfigurationInput is an input type that accepts FrontdoorFrontendEndpointCustomHttpsConfigurationArgs and FrontdoorFrontendEndpointCustomHttpsConfigurationOutput values.
 // You can construct a concrete instance of `FrontdoorFrontendEndpointCustomHttpsConfigurationInput` via:
 //
-// 		 FrontdoorFrontendEndpointCustomHttpsConfigurationArgs{...}
-//
+//          FrontdoorFrontendEndpointCustomHttpsConfigurationArgs{...}
 type FrontdoorFrontendEndpointCustomHttpsConfigurationInput interface {
 	pulumi.Input
 
@@ -1849,12 +1822,11 @@ func (i FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) ToFrontdoorFronte
 // FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput is an input type that accepts FrontdoorFrontendEndpointCustomHttpsConfigurationArgs, FrontdoorFrontendEndpointCustomHttpsConfigurationPtr and FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput values.
 // You can construct a concrete instance of `FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput` via:
 //
-// 		 FrontdoorFrontendEndpointCustomHttpsConfigurationArgs{...}
+//          FrontdoorFrontendEndpointCustomHttpsConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2057,8 +2029,7 @@ type FrontdoorRoutingRule struct {
 // FrontdoorRoutingRuleInput is an input type that accepts FrontdoorRoutingRuleArgs and FrontdoorRoutingRuleOutput values.
 // You can construct a concrete instance of `FrontdoorRoutingRuleInput` via:
 //
-// 		 FrontdoorRoutingRuleArgs{...}
-//
+//          FrontdoorRoutingRuleArgs{...}
 type FrontdoorRoutingRuleInput interface {
 	pulumi.Input
 
@@ -2100,8 +2071,7 @@ func (i FrontdoorRoutingRuleArgs) ToFrontdoorRoutingRuleOutputWithContext(ctx co
 // FrontdoorRoutingRuleArrayInput is an input type that accepts FrontdoorRoutingRuleArray and FrontdoorRoutingRuleArrayOutput values.
 // You can construct a concrete instance of `FrontdoorRoutingRuleArrayInput` via:
 //
-// 		 FrontdoorRoutingRuleArray{ FrontdoorRoutingRuleArgs{...} }
-//
+//          FrontdoorRoutingRuleArray{ FrontdoorRoutingRuleArgs{...} }
 type FrontdoorRoutingRuleArrayInput interface {
 	pulumi.Input
 
@@ -2219,8 +2189,7 @@ type FrontdoorRoutingRuleForwardingConfiguration struct {
 // FrontdoorRoutingRuleForwardingConfigurationInput is an input type that accepts FrontdoorRoutingRuleForwardingConfigurationArgs and FrontdoorRoutingRuleForwardingConfigurationOutput values.
 // You can construct a concrete instance of `FrontdoorRoutingRuleForwardingConfigurationInput` via:
 //
-// 		 FrontdoorRoutingRuleForwardingConfigurationArgs{...}
-//
+//          FrontdoorRoutingRuleForwardingConfigurationArgs{...}
 type FrontdoorRoutingRuleForwardingConfigurationInput interface {
 	pulumi.Input
 
@@ -2266,12 +2235,11 @@ func (i FrontdoorRoutingRuleForwardingConfigurationArgs) ToFrontdoorRoutingRuleF
 // FrontdoorRoutingRuleForwardingConfigurationPtrInput is an input type that accepts FrontdoorRoutingRuleForwardingConfigurationArgs, FrontdoorRoutingRuleForwardingConfigurationPtr and FrontdoorRoutingRuleForwardingConfigurationPtrOutput values.
 // You can construct a concrete instance of `FrontdoorRoutingRuleForwardingConfigurationPtrInput` via:
 //
-// 		 FrontdoorRoutingRuleForwardingConfigurationArgs{...}
+//          FrontdoorRoutingRuleForwardingConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FrontdoorRoutingRuleForwardingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2451,8 +2419,7 @@ type FrontdoorRoutingRuleRedirectConfiguration struct {
 // FrontdoorRoutingRuleRedirectConfigurationInput is an input type that accepts FrontdoorRoutingRuleRedirectConfigurationArgs and FrontdoorRoutingRuleRedirectConfigurationOutput values.
 // You can construct a concrete instance of `FrontdoorRoutingRuleRedirectConfigurationInput` via:
 //
-// 		 FrontdoorRoutingRuleRedirectConfigurationArgs{...}
-//
+//          FrontdoorRoutingRuleRedirectConfigurationArgs{...}
 type FrontdoorRoutingRuleRedirectConfigurationInput interface {
 	pulumi.Input
 
@@ -2498,12 +2465,11 @@ func (i FrontdoorRoutingRuleRedirectConfigurationArgs) ToFrontdoorRoutingRuleRed
 // FrontdoorRoutingRuleRedirectConfigurationPtrInput is an input type that accepts FrontdoorRoutingRuleRedirectConfigurationArgs, FrontdoorRoutingRuleRedirectConfigurationPtr and FrontdoorRoutingRuleRedirectConfigurationPtrOutput values.
 // You can construct a concrete instance of `FrontdoorRoutingRuleRedirectConfigurationPtrInput` via:
 //
-// 		 FrontdoorRoutingRuleRedirectConfigurationArgs{...}
+//          FrontdoorRoutingRuleRedirectConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FrontdoorRoutingRuleRedirectConfigurationPtrInput interface {
 	pulumi.Input
 

@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages a custom virtual machine image that can be used to create virtual machines.
  *
  * ## Example Usage
- *
  * ### Creating From VHD
  *
  * ```typescript
@@ -29,7 +28,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
  *
  * ```typescript

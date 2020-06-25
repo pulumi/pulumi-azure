@@ -135,8 +135,6 @@ def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

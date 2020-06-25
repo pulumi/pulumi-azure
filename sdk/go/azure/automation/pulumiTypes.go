@@ -19,8 +19,7 @@ type ModuleModuleLink struct {
 // ModuleModuleLinkInput is an input type that accepts ModuleModuleLinkArgs and ModuleModuleLinkOutput values.
 // You can construct a concrete instance of `ModuleModuleLinkInput` via:
 //
-// 		 ModuleModuleLinkArgs{...}
-//
+//          ModuleModuleLinkArgs{...}
 type ModuleModuleLinkInput interface {
 	pulumi.Input
 
@@ -57,12 +56,11 @@ func (i ModuleModuleLinkArgs) ToModuleModuleLinkPtrOutputWithContext(ctx context
 // ModuleModuleLinkPtrInput is an input type that accepts ModuleModuleLinkArgs, ModuleModuleLinkPtr and ModuleModuleLinkPtrOutput values.
 // You can construct a concrete instance of `ModuleModuleLinkPtrInput` via:
 //
-// 		 ModuleModuleLinkArgs{...}
+//          ModuleModuleLinkArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ModuleModuleLinkPtrInput interface {
 	pulumi.Input
 
@@ -165,8 +163,7 @@ type ModuleModuleLinkHash struct {
 // ModuleModuleLinkHashInput is an input type that accepts ModuleModuleLinkHashArgs and ModuleModuleLinkHashOutput values.
 // You can construct a concrete instance of `ModuleModuleLinkHashInput` via:
 //
-// 		 ModuleModuleLinkHashArgs{...}
-//
+//          ModuleModuleLinkHashArgs{...}
 type ModuleModuleLinkHashInput interface {
 	pulumi.Input
 
@@ -202,12 +199,11 @@ func (i ModuleModuleLinkHashArgs) ToModuleModuleLinkHashPtrOutputWithContext(ctx
 // ModuleModuleLinkHashPtrInput is an input type that accepts ModuleModuleLinkHashArgs, ModuleModuleLinkHashPtr and ModuleModuleLinkHashPtrOutput values.
 // You can construct a concrete instance of `ModuleModuleLinkHashPtrInput` via:
 //
-// 		 ModuleModuleLinkHashArgs{...}
+//          ModuleModuleLinkHashArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ModuleModuleLinkHashPtrInput interface {
 	pulumi.Input
 
@@ -310,8 +306,7 @@ type RunBookPublishContentLink struct {
 // RunBookPublishContentLinkInput is an input type that accepts RunBookPublishContentLinkArgs and RunBookPublishContentLinkOutput values.
 // You can construct a concrete instance of `RunBookPublishContentLinkInput` via:
 //
-// 		 RunBookPublishContentLinkArgs{...}
-//
+//          RunBookPublishContentLinkArgs{...}
 type RunBookPublishContentLinkInput interface {
 	pulumi.Input
 
@@ -349,12 +344,11 @@ func (i RunBookPublishContentLinkArgs) ToRunBookPublishContentLinkPtrOutputWithC
 // RunBookPublishContentLinkPtrInput is an input type that accepts RunBookPublishContentLinkArgs, RunBookPublishContentLinkPtr and RunBookPublishContentLinkPtrOutput values.
 // You can construct a concrete instance of `RunBookPublishContentLinkPtrInput` via:
 //
-// 		 RunBookPublishContentLinkArgs{...}
+//          RunBookPublishContentLinkArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type RunBookPublishContentLinkPtrInput interface {
 	pulumi.Input
 
@@ -470,8 +464,7 @@ type RunBookPublishContentLinkHash struct {
 // RunBookPublishContentLinkHashInput is an input type that accepts RunBookPublishContentLinkHashArgs and RunBookPublishContentLinkHashOutput values.
 // You can construct a concrete instance of `RunBookPublishContentLinkHashInput` via:
 //
-// 		 RunBookPublishContentLinkHashArgs{...}
-//
+//          RunBookPublishContentLinkHashArgs{...}
 type RunBookPublishContentLinkHashInput interface {
 	pulumi.Input
 
@@ -507,12 +500,11 @@ func (i RunBookPublishContentLinkHashArgs) ToRunBookPublishContentLinkHashPtrOut
 // RunBookPublishContentLinkHashPtrInput is an input type that accepts RunBookPublishContentLinkHashArgs, RunBookPublishContentLinkHashPtr and RunBookPublishContentLinkHashPtrOutput values.
 // You can construct a concrete instance of `RunBookPublishContentLinkHashPtrInput` via:
 //
-// 		 RunBookPublishContentLinkHashArgs{...}
+//          RunBookPublishContentLinkHashArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type RunBookPublishContentLinkHashPtrInput interface {
 	pulumi.Input
 
@@ -615,8 +607,7 @@ type ScheduleMonthlyOccurrence struct {
 // ScheduleMonthlyOccurrenceInput is an input type that accepts ScheduleMonthlyOccurrenceArgs and ScheduleMonthlyOccurrenceOutput values.
 // You can construct a concrete instance of `ScheduleMonthlyOccurrenceInput` via:
 //
-// 		 ScheduleMonthlyOccurrenceArgs{...}
-//
+//          ScheduleMonthlyOccurrenceArgs{...}
 type ScheduleMonthlyOccurrenceInput interface {
 	pulumi.Input
 
@@ -646,8 +637,7 @@ func (i ScheduleMonthlyOccurrenceArgs) ToScheduleMonthlyOccurrenceOutputWithCont
 // ScheduleMonthlyOccurrenceArrayInput is an input type that accepts ScheduleMonthlyOccurrenceArray and ScheduleMonthlyOccurrenceArrayOutput values.
 // You can construct a concrete instance of `ScheduleMonthlyOccurrenceArrayInput` via:
 //
-// 		 ScheduleMonthlyOccurrenceArray{ ScheduleMonthlyOccurrenceArgs{...} }
-//
+//          ScheduleMonthlyOccurrenceArray{ ScheduleMonthlyOccurrenceArgs{...} }
 type ScheduleMonthlyOccurrenceArrayInput interface {
 	pulumi.Input
 

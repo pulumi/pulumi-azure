@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,12 +31,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleConfiguration, err := maintenance.NewConfiguration(ctx, "exampleConfiguration", &maintenance.ConfigurationArgs{
+// 		_, err = maintenance.NewConfiguration(ctx, "exampleConfiguration", &maintenance.ConfigurationArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			Scope:             pulumi.String("All"),
-// 			Tags: map[string]interface{}{
-// 				"Env": "prod",
+// 			Tags: pulumi.Map{
+// 				"Env": pulumi.String("prod"),
 // 			},
 // 		})
 // 		if err != nil {

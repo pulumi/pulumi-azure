@@ -22,8 +22,7 @@ type ResourceGroupExportDeliveryInfo struct {
 // ResourceGroupExportDeliveryInfoInput is an input type that accepts ResourceGroupExportDeliveryInfoArgs and ResourceGroupExportDeliveryInfoOutput values.
 // You can construct a concrete instance of `ResourceGroupExportDeliveryInfoInput` via:
 //
-// 		 ResourceGroupExportDeliveryInfoArgs{...}
-//
+//          ResourceGroupExportDeliveryInfoArgs{...}
 type ResourceGroupExportDeliveryInfoInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i ResourceGroupExportDeliveryInfoArgs) ToResourceGroupExportDeliveryInfoPt
 // ResourceGroupExportDeliveryInfoPtrInput is an input type that accepts ResourceGroupExportDeliveryInfoArgs, ResourceGroupExportDeliveryInfoPtr and ResourceGroupExportDeliveryInfoPtrOutput values.
 // You can construct a concrete instance of `ResourceGroupExportDeliveryInfoPtrInput` via:
 //
-// 		 ResourceGroupExportDeliveryInfoArgs{...}
+//          ResourceGroupExportDeliveryInfoArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ResourceGroupExportDeliveryInfoPtrInput interface {
 	pulumi.Input
 
@@ -191,8 +189,7 @@ type ResourceGroupExportQuery struct {
 // ResourceGroupExportQueryInput is an input type that accepts ResourceGroupExportQueryArgs and ResourceGroupExportQueryOutput values.
 // You can construct a concrete instance of `ResourceGroupExportQueryInput` via:
 //
-// 		 ResourceGroupExportQueryArgs{...}
-//
+//          ResourceGroupExportQueryArgs{...}
 type ResourceGroupExportQueryInput interface {
 	pulumi.Input
 
@@ -230,12 +227,11 @@ func (i ResourceGroupExportQueryArgs) ToResourceGroupExportQueryPtrOutputWithCon
 // ResourceGroupExportQueryPtrInput is an input type that accepts ResourceGroupExportQueryArgs, ResourceGroupExportQueryPtr and ResourceGroupExportQueryPtrOutput values.
 // You can construct a concrete instance of `ResourceGroupExportQueryPtrInput` via:
 //
-// 		 ResourceGroupExportQueryArgs{...}
+//          ResourceGroupExportQueryArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ResourceGroupExportQueryPtrInput interface {
 	pulumi.Input
 

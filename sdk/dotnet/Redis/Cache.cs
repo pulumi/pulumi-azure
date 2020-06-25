@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Redis
     /// 
     /// &gt; **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
     /// 
-    /// ---
+    /// ***
     /// 
     /// A `patch_schedule` block supports the following:
     /// 

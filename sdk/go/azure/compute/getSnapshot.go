@@ -11,18 +11,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := compute.LookupSnapshot(ctx, &compute.LookupSnapshotArgs{
+// 		_, err := compute.LookupSnapshot(ctx, &compute.LookupSnapshotArgs{
 // 			Name:              "my-snapshot",
 // 			ResourceGroupName: "my-resource-group",
 // 		}, nil)

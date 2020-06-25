@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,14 +31,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+// 		_, err = datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleIntegrationRuntimeSelfHosted, err := datafactory.NewIntegrationRuntimeSelfHosted(ctx, "exampleIntegrationRuntimeSelfHosted", &datafactory.IntegrationRuntimeSelfHostedArgs{
+// 		_, err = datafactory.NewIntegrationRuntimeSelfHosted(ctx, "exampleIntegrationRuntimeSelfHosted", &datafactory.IntegrationRuntimeSelfHostedArgs{
 // 			ResourceGroupName: pulumi.String("example"),
 // 			DataFactoryName:   pulumi.String("example"),
 // 		})

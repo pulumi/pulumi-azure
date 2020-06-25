@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Hpc
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

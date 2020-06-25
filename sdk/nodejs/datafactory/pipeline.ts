@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -25,7 +23,6 @@ import * as utilities from "../utilities";
  *     dataFactoryName: exampleFactory.name,
  * });
  * ```
- *
  * ### With Activities
  *
  * ```typescript

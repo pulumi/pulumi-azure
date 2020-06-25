@@ -123,8 +123,6 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -11,12 +11,12 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -29,7 +29,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleDiagnosticCategories, err := monitoring.LookupDiagnosticCategories(ctx, &monitoring.LookupDiagnosticCategoriesArgs{
+// 		_, err := monitoring.GetDiagnosticCategories(ctx, &monitoring.GetDiagnosticCategoriesArgs{
 // 			ResourceId: exampleKeyVault.Id,
 // 		}, nil)
 // 		if err != nil {

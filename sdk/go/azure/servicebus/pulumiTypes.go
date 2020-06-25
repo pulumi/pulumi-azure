@@ -20,8 +20,7 @@ type NamespaceNetworkRuleSetNetworkRule struct {
 // NamespaceNetworkRuleSetNetworkRuleInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArgs and NamespaceNetworkRuleSetNetworkRuleOutput values.
 // You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleInput` via:
 //
-// 		 NamespaceNetworkRuleSetNetworkRuleArgs{...}
-//
+//          NamespaceNetworkRuleSetNetworkRuleArgs{...}
 type NamespaceNetworkRuleSetNetworkRuleInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToNamespaceNetworkRuleSetNetwork
 // NamespaceNetworkRuleSetNetworkRuleArrayInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArray and NamespaceNetworkRuleSetNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleArrayInput` via:
 //
-// 		 NamespaceNetworkRuleSetNetworkRuleArray{ NamespaceNetworkRuleSetNetworkRuleArgs{...} }
-//
+//          NamespaceNetworkRuleSetNetworkRuleArray{ NamespaceNetworkRuleSetNetworkRuleArgs{...} }
 type NamespaceNetworkRuleSetNetworkRuleArrayInput interface {
 	pulumi.Input
 
@@ -140,8 +138,7 @@ type SubscriptionRuleCorrelationFilter struct {
 // SubscriptionRuleCorrelationFilterInput is an input type that accepts SubscriptionRuleCorrelationFilterArgs and SubscriptionRuleCorrelationFilterOutput values.
 // You can construct a concrete instance of `SubscriptionRuleCorrelationFilterInput` via:
 //
-// 		 SubscriptionRuleCorrelationFilterArgs{...}
-//
+//          SubscriptionRuleCorrelationFilterArgs{...}
 type SubscriptionRuleCorrelationFilterInput interface {
 	pulumi.Input
 
@@ -191,12 +188,11 @@ func (i SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilt
 // SubscriptionRuleCorrelationFilterPtrInput is an input type that accepts SubscriptionRuleCorrelationFilterArgs, SubscriptionRuleCorrelationFilterPtr and SubscriptionRuleCorrelationFilterPtrOutput values.
 // You can construct a concrete instance of `SubscriptionRuleCorrelationFilterPtrInput` via:
 //
-// 		 SubscriptionRuleCorrelationFilterArgs{...}
+//          SubscriptionRuleCorrelationFilterArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type SubscriptionRuleCorrelationFilterPtrInput interface {
 	pulumi.Input
 

@@ -43,10 +43,7 @@ class NamedValue(pulumi.CustomResource):
         """
         Manages an API Management Named Value.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot
 {
     /// <summary>
-    /// Manages an IotHub Device Provisioning Service Certificate. 
+    /// Manages an IotHub Device Provisioning Service Certificate.
     /// </summary>
     public partial class IotHubCertificate : Pulumi.CustomResource
     {

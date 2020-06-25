@@ -11,18 +11,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := storage.LookupStorageContainer(ctx, &storage.LookupStorageContainerArgs{
+// 		_, err := storage.GetStorageContainer(ctx, &storage.GetStorageContainerArgs{
 // 			Name:               "example-container-name",
 // 			StorageAccountName: "example-storage-account-name",
 // 		}, nil)

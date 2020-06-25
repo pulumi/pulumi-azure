@@ -28,8 +28,7 @@ type ServerStorageProfile struct {
 // ServerStorageProfileInput is an input type that accepts ServerStorageProfileArgs and ServerStorageProfileOutput values.
 // You can construct a concrete instance of `ServerStorageProfileInput` via:
 //
-// 		 ServerStorageProfileArgs{...}
-//
+//          ServerStorageProfileArgs{...}
 type ServerStorageProfileInput interface {
 	pulumi.Input
 
@@ -75,12 +74,11 @@ func (i ServerStorageProfileArgs) ToServerStorageProfilePtrOutputWithContext(ctx
 // ServerStorageProfilePtrInput is an input type that accepts ServerStorageProfileArgs, ServerStorageProfilePtr and ServerStorageProfilePtrOutput values.
 // You can construct a concrete instance of `ServerStorageProfilePtrInput` via:
 //
-// 		 ServerStorageProfileArgs{...}
+//          ServerStorageProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServerStorageProfilePtrInput interface {
 	pulumi.Input
 
@@ -236,8 +234,7 @@ type ServerThreatDetectionPolicy struct {
 // ServerThreatDetectionPolicyInput is an input type that accepts ServerThreatDetectionPolicyArgs and ServerThreatDetectionPolicyOutput values.
 // You can construct a concrete instance of `ServerThreatDetectionPolicyInput` via:
 //
-// 		 ServerThreatDetectionPolicyArgs{...}
-//
+//          ServerThreatDetectionPolicyArgs{...}
 type ServerThreatDetectionPolicyInput interface {
 	pulumi.Input
 
@@ -285,12 +282,11 @@ func (i ServerThreatDetectionPolicyArgs) ToServerThreatDetectionPolicyPtrOutputW
 // ServerThreatDetectionPolicyPtrInput is an input type that accepts ServerThreatDetectionPolicyArgs, ServerThreatDetectionPolicyPtr and ServerThreatDetectionPolicyPtrOutput values.
 // You can construct a concrete instance of `ServerThreatDetectionPolicyPtrInput` via:
 //
-// 		 ServerThreatDetectionPolicyArgs{...}
+//          ServerThreatDetectionPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServerThreatDetectionPolicyPtrInput interface {
 	pulumi.Input
 

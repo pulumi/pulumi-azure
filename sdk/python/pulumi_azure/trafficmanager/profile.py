@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile", DeprecationWarning)
 
+
 class Profile(pulumi.CustomResource):
     dns_config: pulumi.Output[dict]
     """
@@ -60,13 +61,12 @@ class Profile(pulumi.CustomResource):
     Specifies the algorithm used to route traffic, possible values are:
     """
     warnings.warn("azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, dns_config=None, monitor_config=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

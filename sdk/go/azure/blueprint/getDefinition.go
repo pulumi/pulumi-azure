@@ -10,6 +10,43 @@ import (
 // Use this data source to access information about an existing Azure Blueprint Definition
 //
 // > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/blueprint"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/management"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt0 := current.TenantId
+// 		root, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err := blueprint.GetDefinition(ctx, &blueprint.GetDefinitionArgs{
+// 			Name:    "exampleManagementGroupBP",
+// 			ScopeId: root.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetDefinition(ctx *pulumi.Context, args *GetDefinitionArgs, opts ...pulumi.InvokeOption) (*GetDefinitionResult, error) {
 	var rv GetDefinitionResult
 	err := ctx.Invoke("azure:blueprint/getDefinition:getDefinition", args, &rv, opts...)

@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
 
+
 class EventSubscription(pulumi.CustomResource):
     advanced_filter: pulumi.Output[dict]
     """
@@ -169,13 +170,12 @@ class EventSubscription(pulumi.CustomResource):
       * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events.
     """
     warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, advanced_filter=None, azure_function_endpoint=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Event Subscription
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

@@ -13,6 +13,47 @@ import (
 // Manages an Extension for a Virtual Machine Scale Set.
 //
 // > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"commandToExecute": fmt.Sprintf("%v%v%v", "echo ", "$", "HOSTNAME"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "exampleVirtualMachineScaleSetExtension", &compute.VirtualMachineScaleSetExtensionArgs{
+// 			VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
+// 			Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
+// 			Type:                     pulumi.String("CustomScript"),
+// 			TypeHandlerVersion:       pulumi.String("2.0"),
+// 			Settings:                 pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VirtualMachineScaleSetExtension struct {
 	pulumi.CustomResourceState
 

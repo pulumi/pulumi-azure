@@ -105,8 +105,6 @@ def get_database(name=None,server_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

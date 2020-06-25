@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -71,14 +69,14 @@ import (
 // 				Tier:     pulumi.String("Basic"),
 // 				Capacity: pulumi.Int(1),
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"purpose": "example",
+// 			Tags: pulumi.Map{
+// 				"purpose": pulumi.String("example"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleEndpointServicebusQueue, err := iot.NewEndpointServicebusQueue(ctx, "exampleEndpointServicebusQueue", &iot.EndpointServicebusQueueArgs{
+// 		_, err = iot.NewEndpointServicebusQueue(ctx, "exampleEndpointServicebusQueue", &iot.EndpointServicebusQueueArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			IothubName:        exampleIoTHub.Name,
 // 			ConnectionString:  exampleQueueAuthorizationRule.PrimaryConnectionString,

@@ -80,8 +80,6 @@ def get_dataset_blob_storage(data_share_id=None,name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -43,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleProduct, err := apimanagement.NewProduct(ctx, "exampleProduct", &apimanagement.ProductArgs{
+// 		_, err = apimanagement.NewProduct(ctx, "exampleProduct", &apimanagement.ProductArgs{
 // 			ProductId:            pulumi.String("test-product"),
 // 			ApiManagementName:    exampleService.Name,
 // 			ResourceGroupName:    exampleResourceGroup.Name,

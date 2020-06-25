@@ -13,7 +13,6 @@ namespace Pulumi.Azure.EventHub
     /// Manages a ServiceBus Subscription Rule.
     /// 
     /// ## Example Usage
-    /// 
     /// ### SQL Filter)
     /// 
     /// ```csharp

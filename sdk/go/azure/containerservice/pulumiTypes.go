@@ -40,8 +40,7 @@ type GroupContainer struct {
 // GroupContainerInput is an input type that accepts GroupContainerArgs and GroupContainerOutput values.
 // You can construct a concrete instance of `GroupContainerInput` via:
 //
-// 		 GroupContainerArgs{...}
-//
+//          GroupContainerArgs{...}
 type GroupContainerInput interface {
 	pulumi.Input
 
@@ -91,8 +90,7 @@ func (i GroupContainerArgs) ToGroupContainerOutputWithContext(ctx context.Contex
 // GroupContainerArrayInput is an input type that accepts GroupContainerArray and GroupContainerArrayOutput values.
 // You can construct a concrete instance of `GroupContainerArrayInput` via:
 //
-// 		 GroupContainerArray{ GroupContainerArgs{...} }
-//
+//          GroupContainerArray{ GroupContainerArgs{...} }
 type GroupContainerArrayInput interface {
 	pulumi.Input
 
@@ -218,8 +216,7 @@ type GroupContainerGpu struct {
 // GroupContainerGpuInput is an input type that accepts GroupContainerGpuArgs and GroupContainerGpuOutput values.
 // You can construct a concrete instance of `GroupContainerGpuInput` via:
 //
-// 		 GroupContainerGpuArgs{...}
-//
+//          GroupContainerGpuArgs{...}
 type GroupContainerGpuInput interface {
 	pulumi.Input
 
@@ -257,12 +254,11 @@ func (i GroupContainerGpuArgs) ToGroupContainerGpuPtrOutputWithContext(ctx conte
 // GroupContainerGpuPtrInput is an input type that accepts GroupContainerGpuArgs, GroupContainerGpuPtr and GroupContainerGpuPtrOutput values.
 // You can construct a concrete instance of `GroupContainerGpuPtrInput` via:
 //
-// 		 GroupContainerGpuArgs{...}
+//          GroupContainerGpuArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GroupContainerGpuPtrInput interface {
 	pulumi.Input
 
@@ -380,8 +376,7 @@ type GroupContainerLivenessProbe struct {
 // GroupContainerLivenessProbeInput is an input type that accepts GroupContainerLivenessProbeArgs and GroupContainerLivenessProbeOutput values.
 // You can construct a concrete instance of `GroupContainerLivenessProbeInput` via:
 //
-// 		 GroupContainerLivenessProbeArgs{...}
-//
+//          GroupContainerLivenessProbeArgs{...}
 type GroupContainerLivenessProbeInput interface {
 	pulumi.Input
 
@@ -429,12 +424,11 @@ func (i GroupContainerLivenessProbeArgs) ToGroupContainerLivenessProbePtrOutputW
 // GroupContainerLivenessProbePtrInput is an input type that accepts GroupContainerLivenessProbeArgs, GroupContainerLivenessProbePtr and GroupContainerLivenessProbePtrOutput values.
 // You can construct a concrete instance of `GroupContainerLivenessProbePtrInput` via:
 //
-// 		 GroupContainerLivenessProbeArgs{...}
+//          GroupContainerLivenessProbeArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GroupContainerLivenessProbePtrInput interface {
 	pulumi.Input
 
@@ -619,8 +613,7 @@ type GroupContainerLivenessProbeHttpGet struct {
 // GroupContainerLivenessProbeHttpGetInput is an input type that accepts GroupContainerLivenessProbeHttpGetArgs and GroupContainerLivenessProbeHttpGetOutput values.
 // You can construct a concrete instance of `GroupContainerLivenessProbeHttpGetInput` via:
 //
-// 		 GroupContainerLivenessProbeHttpGetArgs{...}
-//
+//          GroupContainerLivenessProbeHttpGetArgs{...}
 type GroupContainerLivenessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -652,8 +645,7 @@ func (i GroupContainerLivenessProbeHttpGetArgs) ToGroupContainerLivenessProbeHtt
 // GroupContainerLivenessProbeHttpGetArrayInput is an input type that accepts GroupContainerLivenessProbeHttpGetArray and GroupContainerLivenessProbeHttpGetArrayOutput values.
 // You can construct a concrete instance of `GroupContainerLivenessProbeHttpGetArrayInput` via:
 //
-// 		 GroupContainerLivenessProbeHttpGetArray{ GroupContainerLivenessProbeHttpGetArgs{...} }
-//
+//          GroupContainerLivenessProbeHttpGetArray{ GroupContainerLivenessProbeHttpGetArgs{...} }
 type GroupContainerLivenessProbeHttpGetArrayInput interface {
 	pulumi.Input
 
@@ -734,8 +726,7 @@ type GroupContainerPort struct {
 // GroupContainerPortInput is an input type that accepts GroupContainerPortArgs and GroupContainerPortOutput values.
 // You can construct a concrete instance of `GroupContainerPortInput` via:
 //
-// 		 GroupContainerPortArgs{...}
-//
+//          GroupContainerPortArgs{...}
 type GroupContainerPortInput interface {
 	pulumi.Input
 
@@ -765,8 +756,7 @@ func (i GroupContainerPortArgs) ToGroupContainerPortOutputWithContext(ctx contex
 // GroupContainerPortArrayInput is an input type that accepts GroupContainerPortArray and GroupContainerPortArrayOutput values.
 // You can construct a concrete instance of `GroupContainerPortArrayInput` via:
 //
-// 		 GroupContainerPortArray{ GroupContainerPortArgs{...} }
-//
+//          GroupContainerPortArray{ GroupContainerPortArgs{...} }
 type GroupContainerPortArrayInput interface {
 	pulumi.Input
 
@@ -852,8 +842,7 @@ type GroupContainerReadinessProbe struct {
 // GroupContainerReadinessProbeInput is an input type that accepts GroupContainerReadinessProbeArgs and GroupContainerReadinessProbeOutput values.
 // You can construct a concrete instance of `GroupContainerReadinessProbeInput` via:
 //
-// 		 GroupContainerReadinessProbeArgs{...}
-//
+//          GroupContainerReadinessProbeArgs{...}
 type GroupContainerReadinessProbeInput interface {
 	pulumi.Input
 
@@ -901,12 +890,11 @@ func (i GroupContainerReadinessProbeArgs) ToGroupContainerReadinessProbePtrOutpu
 // GroupContainerReadinessProbePtrInput is an input type that accepts GroupContainerReadinessProbeArgs, GroupContainerReadinessProbePtr and GroupContainerReadinessProbePtrOutput values.
 // You can construct a concrete instance of `GroupContainerReadinessProbePtrInput` via:
 //
-// 		 GroupContainerReadinessProbeArgs{...}
+//          GroupContainerReadinessProbeArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GroupContainerReadinessProbePtrInput interface {
 	pulumi.Input
 
@@ -1091,8 +1079,7 @@ type GroupContainerReadinessProbeHttpGet struct {
 // GroupContainerReadinessProbeHttpGetInput is an input type that accepts GroupContainerReadinessProbeHttpGetArgs and GroupContainerReadinessProbeHttpGetOutput values.
 // You can construct a concrete instance of `GroupContainerReadinessProbeHttpGetInput` via:
 //
-// 		 GroupContainerReadinessProbeHttpGetArgs{...}
-//
+//          GroupContainerReadinessProbeHttpGetArgs{...}
 type GroupContainerReadinessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -1124,8 +1111,7 @@ func (i GroupContainerReadinessProbeHttpGetArgs) ToGroupContainerReadinessProbeH
 // GroupContainerReadinessProbeHttpGetArrayInput is an input type that accepts GroupContainerReadinessProbeHttpGetArray and GroupContainerReadinessProbeHttpGetArrayOutput values.
 // You can construct a concrete instance of `GroupContainerReadinessProbeHttpGetArrayInput` via:
 //
-// 		 GroupContainerReadinessProbeHttpGetArray{ GroupContainerReadinessProbeHttpGetArgs{...} }
-//
+//          GroupContainerReadinessProbeHttpGetArray{ GroupContainerReadinessProbeHttpGetArgs{...} }
 type GroupContainerReadinessProbeHttpGetArrayInput interface {
 	pulumi.Input
 
@@ -1214,8 +1200,7 @@ type GroupContainerVolume struct {
 // GroupContainerVolumeInput is an input type that accepts GroupContainerVolumeArgs and GroupContainerVolumeOutput values.
 // You can construct a concrete instance of `GroupContainerVolumeInput` via:
 //
-// 		 GroupContainerVolumeArgs{...}
-//
+//          GroupContainerVolumeArgs{...}
 type GroupContainerVolumeInput interface {
 	pulumi.Input
 
@@ -1253,8 +1238,7 @@ func (i GroupContainerVolumeArgs) ToGroupContainerVolumeOutputWithContext(ctx co
 // GroupContainerVolumeArrayInput is an input type that accepts GroupContainerVolumeArray and GroupContainerVolumeArrayOutput values.
 // You can construct a concrete instance of `GroupContainerVolumeArrayInput` via:
 //
-// 		 GroupContainerVolumeArray{ GroupContainerVolumeArgs{...} }
-//
+//          GroupContainerVolumeArray{ GroupContainerVolumeArgs{...} }
 type GroupContainerVolumeArrayInput interface {
 	pulumi.Input
 
@@ -1348,8 +1332,7 @@ type GroupDiagnostics struct {
 // GroupDiagnosticsInput is an input type that accepts GroupDiagnosticsArgs and GroupDiagnosticsOutput values.
 // You can construct a concrete instance of `GroupDiagnosticsInput` via:
 //
-// 		 GroupDiagnosticsArgs{...}
-//
+//          GroupDiagnosticsArgs{...}
 type GroupDiagnosticsInput interface {
 	pulumi.Input
 
@@ -1385,12 +1368,11 @@ func (i GroupDiagnosticsArgs) ToGroupDiagnosticsPtrOutputWithContext(ctx context
 // GroupDiagnosticsPtrInput is an input type that accepts GroupDiagnosticsArgs, GroupDiagnosticsPtr and GroupDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `GroupDiagnosticsPtrInput` via:
 //
-// 		 GroupDiagnosticsArgs{...}
+//          GroupDiagnosticsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GroupDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -1487,8 +1469,7 @@ type GroupDiagnosticsLogAnalytics struct {
 // GroupDiagnosticsLogAnalyticsInput is an input type that accepts GroupDiagnosticsLogAnalyticsArgs and GroupDiagnosticsLogAnalyticsOutput values.
 // You can construct a concrete instance of `GroupDiagnosticsLogAnalyticsInput` via:
 //
-// 		 GroupDiagnosticsLogAnalyticsArgs{...}
-//
+//          GroupDiagnosticsLogAnalyticsArgs{...}
 type GroupDiagnosticsLogAnalyticsInput interface {
 	pulumi.Input
 
@@ -1530,12 +1511,11 @@ func (i GroupDiagnosticsLogAnalyticsArgs) ToGroupDiagnosticsLogAnalyticsPtrOutpu
 // GroupDiagnosticsLogAnalyticsPtrInput is an input type that accepts GroupDiagnosticsLogAnalyticsArgs, GroupDiagnosticsLogAnalyticsPtr and GroupDiagnosticsLogAnalyticsPtrOutput values.
 // You can construct a concrete instance of `GroupDiagnosticsLogAnalyticsPtrInput` via:
 //
-// 		 GroupDiagnosticsLogAnalyticsArgs{...}
+//          GroupDiagnosticsLogAnalyticsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GroupDiagnosticsLogAnalyticsPtrInput interface {
 	pulumi.Input
 
@@ -1674,8 +1654,7 @@ type GroupIdentity struct {
 // GroupIdentityInput is an input type that accepts GroupIdentityArgs and GroupIdentityOutput values.
 // You can construct a concrete instance of `GroupIdentityInput` via:
 //
-// 		 GroupIdentityArgs{...}
-//
+//          GroupIdentityArgs{...}
 type GroupIdentityInput interface {
 	pulumi.Input
 
@@ -1714,12 +1693,11 @@ func (i GroupIdentityArgs) ToGroupIdentityPtrOutputWithContext(ctx context.Conte
 // GroupIdentityPtrInput is an input type that accepts GroupIdentityArgs, GroupIdentityPtr and GroupIdentityPtrOutput values.
 // You can construct a concrete instance of `GroupIdentityPtrInput` via:
 //
-// 		 GroupIdentityArgs{...}
+//          GroupIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GroupIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1842,8 +1820,7 @@ type GroupImageRegistryCredential struct {
 // GroupImageRegistryCredentialInput is an input type that accepts GroupImageRegistryCredentialArgs and GroupImageRegistryCredentialOutput values.
 // You can construct a concrete instance of `GroupImageRegistryCredentialInput` via:
 //
-// 		 GroupImageRegistryCredentialArgs{...}
-//
+//          GroupImageRegistryCredentialArgs{...}
 type GroupImageRegistryCredentialInput interface {
 	pulumi.Input
 
@@ -1875,8 +1852,7 @@ func (i GroupImageRegistryCredentialArgs) ToGroupImageRegistryCredentialOutputWi
 // GroupImageRegistryCredentialArrayInput is an input type that accepts GroupImageRegistryCredentialArray and GroupImageRegistryCredentialArrayOutput values.
 // You can construct a concrete instance of `GroupImageRegistryCredentialArrayInput` via:
 //
-// 		 GroupImageRegistryCredentialArray{ GroupImageRegistryCredentialArgs{...} }
-//
+//          GroupImageRegistryCredentialArray{ GroupImageRegistryCredentialArgs{...} }
 type GroupImageRegistryCredentialArrayInput interface {
 	pulumi.Input
 
@@ -1963,8 +1939,7 @@ type KubernetesClusterAddonProfile struct {
 // KubernetesClusterAddonProfileInput is an input type that accepts KubernetesClusterAddonProfileArgs and KubernetesClusterAddonProfileOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileInput` via:
 //
-// 		 KubernetesClusterAddonProfileArgs{...}
-//
+//          KubernetesClusterAddonProfileArgs{...}
 type KubernetesClusterAddonProfileInput interface {
 	pulumi.Input
 
@@ -2008,12 +1983,11 @@ func (i KubernetesClusterAddonProfileArgs) ToKubernetesClusterAddonProfilePtrOut
 // KubernetesClusterAddonProfilePtrInput is an input type that accepts KubernetesClusterAddonProfileArgs, KubernetesClusterAddonProfilePtr and KubernetesClusterAddonProfilePtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfilePtrInput` via:
 //
-// 		 KubernetesClusterAddonProfileArgs{...}
+//          KubernetesClusterAddonProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterAddonProfilePtrInput interface {
 	pulumi.Input
 
@@ -2172,8 +2146,7 @@ type KubernetesClusterAddonProfileAciConnectorLinux struct {
 // KubernetesClusterAddonProfileAciConnectorLinuxInput is an input type that accepts KubernetesClusterAddonProfileAciConnectorLinuxArgs and KubernetesClusterAddonProfileAciConnectorLinuxOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileAciConnectorLinuxInput` via:
 //
-// 		 KubernetesClusterAddonProfileAciConnectorLinuxArgs{...}
-//
+//          KubernetesClusterAddonProfileAciConnectorLinuxArgs{...}
 type KubernetesClusterAddonProfileAciConnectorLinuxInput interface {
 	pulumi.Input
 
@@ -2211,12 +2184,11 @@ func (i KubernetesClusterAddonProfileAciConnectorLinuxArgs) ToKubernetesClusterA
 // KubernetesClusterAddonProfileAciConnectorLinuxPtrInput is an input type that accepts KubernetesClusterAddonProfileAciConnectorLinuxArgs, KubernetesClusterAddonProfileAciConnectorLinuxPtr and KubernetesClusterAddonProfileAciConnectorLinuxPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileAciConnectorLinuxPtrInput` via:
 //
-// 		 KubernetesClusterAddonProfileAciConnectorLinuxArgs{...}
+//          KubernetesClusterAddonProfileAciConnectorLinuxArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterAddonProfileAciConnectorLinuxPtrInput interface {
 	pulumi.Input
 
@@ -2324,8 +2296,7 @@ type KubernetesClusterAddonProfileAzurePolicy struct {
 // KubernetesClusterAddonProfileAzurePolicyInput is an input type that accepts KubernetesClusterAddonProfileAzurePolicyArgs and KubernetesClusterAddonProfileAzurePolicyOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileAzurePolicyInput` via:
 //
-// 		 KubernetesClusterAddonProfileAzurePolicyArgs{...}
-//
+//          KubernetesClusterAddonProfileAzurePolicyArgs{...}
 type KubernetesClusterAddonProfileAzurePolicyInput interface {
 	pulumi.Input
 
@@ -2361,12 +2332,11 @@ func (i KubernetesClusterAddonProfileAzurePolicyArgs) ToKubernetesClusterAddonPr
 // KubernetesClusterAddonProfileAzurePolicyPtrInput is an input type that accepts KubernetesClusterAddonProfileAzurePolicyArgs, KubernetesClusterAddonProfileAzurePolicyPtr and KubernetesClusterAddonProfileAzurePolicyPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileAzurePolicyPtrInput` via:
 //
-// 		 KubernetesClusterAddonProfileAzurePolicyArgs{...}
+//          KubernetesClusterAddonProfileAzurePolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterAddonProfileAzurePolicyPtrInput interface {
 	pulumi.Input
 
@@ -2459,8 +2429,7 @@ type KubernetesClusterAddonProfileHttpApplicationRouting struct {
 // KubernetesClusterAddonProfileHttpApplicationRoutingInput is an input type that accepts KubernetesClusterAddonProfileHttpApplicationRoutingArgs and KubernetesClusterAddonProfileHttpApplicationRoutingOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileHttpApplicationRoutingInput` via:
 //
-// 		 KubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
-//
+//          KubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
 type KubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
 	pulumi.Input
 
@@ -2498,12 +2467,11 @@ func (i KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToKubernetesClu
 // KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput is an input type that accepts KubernetesClusterAddonProfileHttpApplicationRoutingArgs, KubernetesClusterAddonProfileHttpApplicationRoutingPtr and KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput` via:
 //
-// 		 KubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
+//          KubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput interface {
 	pulumi.Input
 
@@ -2613,8 +2581,7 @@ type KubernetesClusterAddonProfileKubeDashboard struct {
 // KubernetesClusterAddonProfileKubeDashboardInput is an input type that accepts KubernetesClusterAddonProfileKubeDashboardArgs and KubernetesClusterAddonProfileKubeDashboardOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileKubeDashboardInput` via:
 //
-// 		 KubernetesClusterAddonProfileKubeDashboardArgs{...}
-//
+//          KubernetesClusterAddonProfileKubeDashboardArgs{...}
 type KubernetesClusterAddonProfileKubeDashboardInput interface {
 	pulumi.Input
 
@@ -2650,12 +2617,11 @@ func (i KubernetesClusterAddonProfileKubeDashboardArgs) ToKubernetesClusterAddon
 // KubernetesClusterAddonProfileKubeDashboardPtrInput is an input type that accepts KubernetesClusterAddonProfileKubeDashboardArgs, KubernetesClusterAddonProfileKubeDashboardPtr and KubernetesClusterAddonProfileKubeDashboardPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileKubeDashboardPtrInput` via:
 //
-// 		 KubernetesClusterAddonProfileKubeDashboardArgs{...}
+//          KubernetesClusterAddonProfileKubeDashboardArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterAddonProfileKubeDashboardPtrInput interface {
 	pulumi.Input
 
@@ -2752,8 +2718,7 @@ type KubernetesClusterAddonProfileOmsAgent struct {
 // KubernetesClusterAddonProfileOmsAgentInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentArgs and KubernetesClusterAddonProfileOmsAgentOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentInput` via:
 //
-// 		 KubernetesClusterAddonProfileOmsAgentArgs{...}
-//
+//          KubernetesClusterAddonProfileOmsAgentArgs{...}
 type KubernetesClusterAddonProfileOmsAgentInput interface {
 	pulumi.Input
 
@@ -2793,12 +2758,11 @@ func (i KubernetesClusterAddonProfileOmsAgentArgs) ToKubernetesClusterAddonProfi
 // KubernetesClusterAddonProfileOmsAgentPtrInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentArgs, KubernetesClusterAddonProfileOmsAgentPtr and KubernetesClusterAddonProfileOmsAgentPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentPtrInput` via:
 //
-// 		 KubernetesClusterAddonProfileOmsAgentArgs{...}
+//          KubernetesClusterAddonProfileOmsAgentArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterAddonProfileOmsAgentPtrInput interface {
 	pulumi.Input
 
@@ -2925,8 +2889,7 @@ type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
 // KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs and KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput` via:
 //
-// 		 KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
-//
+//          KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
 type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput interface {
 	pulumi.Input
 
@@ -2958,8 +2921,7 @@ func (i KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToKubernetesC
 // KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput is an input type that accepts KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray and KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput` via:
 //
-// 		 KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
-//
+//          KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
 type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput interface {
 	pulumi.Input
 
@@ -3054,8 +3016,7 @@ type KubernetesClusterAutoScalerProfile struct {
 // KubernetesClusterAutoScalerProfileInput is an input type that accepts KubernetesClusterAutoScalerProfileArgs and KubernetesClusterAutoScalerProfileOutput values.
 // You can construct a concrete instance of `KubernetesClusterAutoScalerProfileInput` via:
 //
-// 		 KubernetesClusterAutoScalerProfileArgs{...}
-//
+//          KubernetesClusterAutoScalerProfileArgs{...}
 type KubernetesClusterAutoScalerProfileInput interface {
 	pulumi.Input
 
@@ -3107,12 +3068,11 @@ func (i KubernetesClusterAutoScalerProfileArgs) ToKubernetesClusterAutoScalerPro
 // KubernetesClusterAutoScalerProfilePtrInput is an input type that accepts KubernetesClusterAutoScalerProfileArgs, KubernetesClusterAutoScalerProfilePtr and KubernetesClusterAutoScalerProfilePtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterAutoScalerProfilePtrInput` via:
 //
-// 		 KubernetesClusterAutoScalerProfileArgs{...}
+//          KubernetesClusterAutoScalerProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterAutoScalerProfilePtrInput interface {
 	pulumi.Input
 
@@ -3353,8 +3313,7 @@ type KubernetesClusterDefaultNodePool struct {
 // KubernetesClusterDefaultNodePoolInput is an input type that accepts KubernetesClusterDefaultNodePoolArgs and KubernetesClusterDefaultNodePoolOutput values.
 // You can construct a concrete instance of `KubernetesClusterDefaultNodePoolInput` via:
 //
-// 		 KubernetesClusterDefaultNodePoolArgs{...}
-//
+//          KubernetesClusterDefaultNodePoolArgs{...}
 type KubernetesClusterDefaultNodePoolInput interface {
 	pulumi.Input
 
@@ -3420,12 +3379,11 @@ func (i KubernetesClusterDefaultNodePoolArgs) ToKubernetesClusterDefaultNodePool
 // KubernetesClusterDefaultNodePoolPtrInput is an input type that accepts KubernetesClusterDefaultNodePoolArgs, KubernetesClusterDefaultNodePoolPtr and KubernetesClusterDefaultNodePoolPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterDefaultNodePoolPtrInput` via:
 //
-// 		 KubernetesClusterDefaultNodePoolArgs{...}
+//          KubernetesClusterDefaultNodePoolArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterDefaultNodePoolPtrInput interface {
 	pulumi.Input
 
@@ -3745,8 +3703,7 @@ type KubernetesClusterIdentity struct {
 // KubernetesClusterIdentityInput is an input type that accepts KubernetesClusterIdentityArgs and KubernetesClusterIdentityOutput values.
 // You can construct a concrete instance of `KubernetesClusterIdentityInput` via:
 //
-// 		 KubernetesClusterIdentityArgs{...}
-//
+//          KubernetesClusterIdentityArgs{...}
 type KubernetesClusterIdentityInput interface {
 	pulumi.Input
 
@@ -3786,12 +3743,11 @@ func (i KubernetesClusterIdentityArgs) ToKubernetesClusterIdentityPtrOutputWithC
 // KubernetesClusterIdentityPtrInput is an input type that accepts KubernetesClusterIdentityArgs, KubernetesClusterIdentityPtr and KubernetesClusterIdentityPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterIdentityPtrInput` via:
 //
-// 		 KubernetesClusterIdentityArgs{...}
+//          KubernetesClusterIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterIdentityPtrInput interface {
 	pulumi.Input
 
@@ -3922,8 +3878,7 @@ type KubernetesClusterKubeAdminConfig struct {
 // KubernetesClusterKubeAdminConfigInput is an input type that accepts KubernetesClusterKubeAdminConfigArgs and KubernetesClusterKubeAdminConfigOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeAdminConfigInput` via:
 //
-// 		 KubernetesClusterKubeAdminConfigArgs{...}
-//
+//          KubernetesClusterKubeAdminConfigArgs{...}
 type KubernetesClusterKubeAdminConfigInput interface {
 	pulumi.Input
 
@@ -3961,8 +3916,7 @@ func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfig
 // KubernetesClusterKubeAdminConfigArrayInput is an input type that accepts KubernetesClusterKubeAdminConfigArray and KubernetesClusterKubeAdminConfigArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeAdminConfigArrayInput` via:
 //
-// 		 KubernetesClusterKubeAdminConfigArray{ KubernetesClusterKubeAdminConfigArgs{...} }
-//
+//          KubernetesClusterKubeAdminConfigArray{ KubernetesClusterKubeAdminConfigArgs{...} }
 type KubernetesClusterKubeAdminConfigArrayInput interface {
 	pulumi.Input
 
@@ -4066,8 +4020,7 @@ type KubernetesClusterKubeConfig struct {
 // KubernetesClusterKubeConfigInput is an input type that accepts KubernetesClusterKubeConfigArgs and KubernetesClusterKubeConfigOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeConfigInput` via:
 //
-// 		 KubernetesClusterKubeConfigArgs{...}
-//
+//          KubernetesClusterKubeConfigArgs{...}
 type KubernetesClusterKubeConfigInput interface {
 	pulumi.Input
 
@@ -4105,8 +4058,7 @@ func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigOutputWith
 // KubernetesClusterKubeConfigArrayInput is an input type that accepts KubernetesClusterKubeConfigArray and KubernetesClusterKubeConfigArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeConfigArrayInput` via:
 //
-// 		 KubernetesClusterKubeConfigArray{ KubernetesClusterKubeConfigArgs{...} }
-//
+//          KubernetesClusterKubeConfigArray{ KubernetesClusterKubeConfigArgs{...} }
 type KubernetesClusterKubeConfigArrayInput interface {
 	pulumi.Input
 
@@ -4204,8 +4156,7 @@ type KubernetesClusterKubeletIdentity struct {
 // KubernetesClusterKubeletIdentityInput is an input type that accepts KubernetesClusterKubeletIdentityArgs and KubernetesClusterKubeletIdentityOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeletIdentityInput` via:
 //
-// 		 KubernetesClusterKubeletIdentityArgs{...}
-//
+//          KubernetesClusterKubeletIdentityArgs{...}
 type KubernetesClusterKubeletIdentityInput interface {
 	pulumi.Input
 
@@ -4237,8 +4188,7 @@ func (i KubernetesClusterKubeletIdentityArgs) ToKubernetesClusterKubeletIdentity
 // KubernetesClusterKubeletIdentityArrayInput is an input type that accepts KubernetesClusterKubeletIdentityArray and KubernetesClusterKubeletIdentityArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterKubeletIdentityArrayInput` via:
 //
-// 		 KubernetesClusterKubeletIdentityArray{ KubernetesClusterKubeletIdentityArgs{...} }
-//
+//          KubernetesClusterKubeletIdentityArray{ KubernetesClusterKubeletIdentityArgs{...} }
 type KubernetesClusterKubeletIdentityArrayInput interface {
 	pulumi.Input
 
@@ -4319,8 +4269,7 @@ type KubernetesClusterLinuxProfile struct {
 // KubernetesClusterLinuxProfileInput is an input type that accepts KubernetesClusterLinuxProfileArgs and KubernetesClusterLinuxProfileOutput values.
 // You can construct a concrete instance of `KubernetesClusterLinuxProfileInput` via:
 //
-// 		 KubernetesClusterLinuxProfileArgs{...}
-//
+//          KubernetesClusterLinuxProfileArgs{...}
 type KubernetesClusterLinuxProfileInput interface {
 	pulumi.Input
 
@@ -4358,12 +4307,11 @@ func (i KubernetesClusterLinuxProfileArgs) ToKubernetesClusterLinuxProfilePtrOut
 // KubernetesClusterLinuxProfilePtrInput is an input type that accepts KubernetesClusterLinuxProfileArgs, KubernetesClusterLinuxProfilePtr and KubernetesClusterLinuxProfilePtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterLinuxProfilePtrInput` via:
 //
-// 		 KubernetesClusterLinuxProfileArgs{...}
+//          KubernetesClusterLinuxProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterLinuxProfilePtrInput interface {
 	pulumi.Input
 
@@ -4469,8 +4417,7 @@ type KubernetesClusterLinuxProfileSshKey struct {
 // KubernetesClusterLinuxProfileSshKeyInput is an input type that accepts KubernetesClusterLinuxProfileSshKeyArgs and KubernetesClusterLinuxProfileSshKeyOutput values.
 // You can construct a concrete instance of `KubernetesClusterLinuxProfileSshKeyInput` via:
 //
-// 		 KubernetesClusterLinuxProfileSshKeyArgs{...}
-//
+//          KubernetesClusterLinuxProfileSshKeyArgs{...}
 type KubernetesClusterLinuxProfileSshKeyInput interface {
 	pulumi.Input
 
@@ -4506,12 +4453,11 @@ func (i KubernetesClusterLinuxProfileSshKeyArgs) ToKubernetesClusterLinuxProfile
 // KubernetesClusterLinuxProfileSshKeyPtrInput is an input type that accepts KubernetesClusterLinuxProfileSshKeyArgs, KubernetesClusterLinuxProfileSshKeyPtr and KubernetesClusterLinuxProfileSshKeyPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterLinuxProfileSshKeyPtrInput` via:
 //
-// 		 KubernetesClusterLinuxProfileSshKeyArgs{...}
+//          KubernetesClusterLinuxProfileSshKeyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterLinuxProfileSshKeyPtrInput interface {
 	pulumi.Input
 
@@ -4618,8 +4564,7 @@ type KubernetesClusterNetworkProfile struct {
 // KubernetesClusterNetworkProfileInput is an input type that accepts KubernetesClusterNetworkProfileArgs and KubernetesClusterNetworkProfileOutput values.
 // You can construct a concrete instance of `KubernetesClusterNetworkProfileInput` via:
 //
-// 		 KubernetesClusterNetworkProfileArgs{...}
-//
+//          KubernetesClusterNetworkProfileArgs{...}
 type KubernetesClusterNetworkProfileInput interface {
 	pulumi.Input
 
@@ -4671,12 +4616,11 @@ func (i KubernetesClusterNetworkProfileArgs) ToKubernetesClusterNetworkProfilePt
 // KubernetesClusterNetworkProfilePtrInput is an input type that accepts KubernetesClusterNetworkProfileArgs, KubernetesClusterNetworkProfilePtr and KubernetesClusterNetworkProfilePtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterNetworkProfilePtrInput` via:
 //
-// 		 KubernetesClusterNetworkProfileArgs{...}
+//          KubernetesClusterNetworkProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterNetworkProfilePtrInput interface {
 	pulumi.Input
 
@@ -4899,8 +4843,7 @@ type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 // KubernetesClusterNetworkProfileLoadBalancerProfileInput is an input type that accepts KubernetesClusterNetworkProfileLoadBalancerProfileArgs and KubernetesClusterNetworkProfileLoadBalancerProfileOutput values.
 // You can construct a concrete instance of `KubernetesClusterNetworkProfileLoadBalancerProfileInput` via:
 //
-// 		 KubernetesClusterNetworkProfileLoadBalancerProfileArgs{...}
-//
+//          KubernetesClusterNetworkProfileLoadBalancerProfileArgs{...}
 type KubernetesClusterNetworkProfileLoadBalancerProfileInput interface {
 	pulumi.Input
 
@@ -4946,12 +4889,11 @@ func (i KubernetesClusterNetworkProfileLoadBalancerProfileArgs) ToKubernetesClus
 // KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput is an input type that accepts KubernetesClusterNetworkProfileLoadBalancerProfileArgs, KubernetesClusterNetworkProfileLoadBalancerProfilePtr and KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput` via:
 //
-// 		 KubernetesClusterNetworkProfileLoadBalancerProfileArgs{...}
+//          KubernetesClusterNetworkProfileLoadBalancerProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput interface {
 	pulumi.Input
 
@@ -5121,8 +5063,7 @@ type KubernetesClusterRoleBasedAccessControl struct {
 // KubernetesClusterRoleBasedAccessControlInput is an input type that accepts KubernetesClusterRoleBasedAccessControlArgs and KubernetesClusterRoleBasedAccessControlOutput values.
 // You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlInput` via:
 //
-// 		 KubernetesClusterRoleBasedAccessControlArgs{...}
-//
+//          KubernetesClusterRoleBasedAccessControlArgs{...}
 type KubernetesClusterRoleBasedAccessControlInput interface {
 	pulumi.Input
 
@@ -5160,12 +5101,11 @@ func (i KubernetesClusterRoleBasedAccessControlArgs) ToKubernetesClusterRoleBase
 // KubernetesClusterRoleBasedAccessControlPtrInput is an input type that accepts KubernetesClusterRoleBasedAccessControlArgs, KubernetesClusterRoleBasedAccessControlPtr and KubernetesClusterRoleBasedAccessControlPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlPtrInput` via:
 //
-// 		 KubernetesClusterRoleBasedAccessControlArgs{...}
+//          KubernetesClusterRoleBasedAccessControlArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterRoleBasedAccessControlPtrInput interface {
 	pulumi.Input
 
@@ -5283,8 +5223,7 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
 // KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput is an input type that accepts KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs and KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput values.
 // You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput` via:
 //
-// 		 KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
-//
+//          KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -5330,12 +5269,11 @@ func (i KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToKuber
 // KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput is an input type that accepts KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs, KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtr and KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput` via:
 //
-// 		 KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
+//          KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrInput interface {
 	pulumi.Input
 
@@ -5507,8 +5445,7 @@ type KubernetesClusterServicePrincipal struct {
 // KubernetesClusterServicePrincipalInput is an input type that accepts KubernetesClusterServicePrincipalArgs and KubernetesClusterServicePrincipalOutput values.
 // You can construct a concrete instance of `KubernetesClusterServicePrincipalInput` via:
 //
-// 		 KubernetesClusterServicePrincipalArgs{...}
-//
+//          KubernetesClusterServicePrincipalArgs{...}
 type KubernetesClusterServicePrincipalInput interface {
 	pulumi.Input
 
@@ -5546,12 +5483,11 @@ func (i KubernetesClusterServicePrincipalArgs) ToKubernetesClusterServicePrincip
 // KubernetesClusterServicePrincipalPtrInput is an input type that accepts KubernetesClusterServicePrincipalArgs, KubernetesClusterServicePrincipalPtr and KubernetesClusterServicePrincipalPtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterServicePrincipalPtrInput` via:
 //
-// 		 KubernetesClusterServicePrincipalArgs{...}
+//          KubernetesClusterServicePrincipalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterServicePrincipalPtrInput interface {
 	pulumi.Input
 
@@ -5659,8 +5595,7 @@ type KubernetesClusterWindowsProfile struct {
 // KubernetesClusterWindowsProfileInput is an input type that accepts KubernetesClusterWindowsProfileArgs and KubernetesClusterWindowsProfileOutput values.
 // You can construct a concrete instance of `KubernetesClusterWindowsProfileInput` via:
 //
-// 		 KubernetesClusterWindowsProfileArgs{...}
-//
+//          KubernetesClusterWindowsProfileArgs{...}
 type KubernetesClusterWindowsProfileInput interface {
 	pulumi.Input
 
@@ -5698,12 +5633,11 @@ func (i KubernetesClusterWindowsProfileArgs) ToKubernetesClusterWindowsProfilePt
 // KubernetesClusterWindowsProfilePtrInput is an input type that accepts KubernetesClusterWindowsProfileArgs, KubernetesClusterWindowsProfilePtr and KubernetesClusterWindowsProfilePtrOutput values.
 // You can construct a concrete instance of `KubernetesClusterWindowsProfilePtrInput` via:
 //
-// 		 KubernetesClusterWindowsProfileArgs{...}
+//          KubernetesClusterWindowsProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type KubernetesClusterWindowsProfilePtrInput interface {
 	pulumi.Input
 
@@ -5813,8 +5747,7 @@ type RegistryNetworkRuleSet struct {
 // RegistryNetworkRuleSetInput is an input type that accepts RegistryNetworkRuleSetArgs and RegistryNetworkRuleSetOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetInput` via:
 //
-// 		 RegistryNetworkRuleSetArgs{...}
-//
+//          RegistryNetworkRuleSetArgs{...}
 type RegistryNetworkRuleSetInput interface {
 	pulumi.Input
 
@@ -5854,12 +5787,11 @@ func (i RegistryNetworkRuleSetArgs) ToRegistryNetworkRuleSetPtrOutputWithContext
 // RegistryNetworkRuleSetPtrInput is an input type that accepts RegistryNetworkRuleSetArgs, RegistryNetworkRuleSetPtr and RegistryNetworkRuleSetPtrOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetPtrInput` via:
 //
-// 		 RegistryNetworkRuleSetArgs{...}
+//          RegistryNetworkRuleSetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type RegistryNetworkRuleSetPtrInput interface {
 	pulumi.Input
 
@@ -5982,8 +5914,7 @@ type RegistryNetworkRuleSetIpRule struct {
 // RegistryNetworkRuleSetIpRuleInput is an input type that accepts RegistryNetworkRuleSetIpRuleArgs and RegistryNetworkRuleSetIpRuleOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetIpRuleInput` via:
 //
-// 		 RegistryNetworkRuleSetIpRuleArgs{...}
-//
+//          RegistryNetworkRuleSetIpRuleArgs{...}
 type RegistryNetworkRuleSetIpRuleInput interface {
 	pulumi.Input
 
@@ -6013,8 +5944,7 @@ func (i RegistryNetworkRuleSetIpRuleArgs) ToRegistryNetworkRuleSetIpRuleOutputWi
 // RegistryNetworkRuleSetIpRuleArrayInput is an input type that accepts RegistryNetworkRuleSetIpRuleArray and RegistryNetworkRuleSetIpRuleArrayOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetIpRuleArrayInput` via:
 //
-// 		 RegistryNetworkRuleSetIpRuleArray{ RegistryNetworkRuleSetIpRuleArgs{...} }
-//
+//          RegistryNetworkRuleSetIpRuleArray{ RegistryNetworkRuleSetIpRuleArgs{...} }
 type RegistryNetworkRuleSetIpRuleArrayInput interface {
 	pulumi.Input
 
@@ -6090,8 +6020,7 @@ type RegistryNetworkRuleSetVirtualNetwork struct {
 // RegistryNetworkRuleSetVirtualNetworkInput is an input type that accepts RegistryNetworkRuleSetVirtualNetworkArgs and RegistryNetworkRuleSetVirtualNetworkOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetVirtualNetworkInput` via:
 //
-// 		 RegistryNetworkRuleSetVirtualNetworkArgs{...}
-//
+//          RegistryNetworkRuleSetVirtualNetworkArgs{...}
 type RegistryNetworkRuleSetVirtualNetworkInput interface {
 	pulumi.Input
 
@@ -6121,8 +6050,7 @@ func (i RegistryNetworkRuleSetVirtualNetworkArgs) ToRegistryNetworkRuleSetVirtua
 // RegistryNetworkRuleSetVirtualNetworkArrayInput is an input type that accepts RegistryNetworkRuleSetVirtualNetworkArray and RegistryNetworkRuleSetVirtualNetworkArrayOutput values.
 // You can construct a concrete instance of `RegistryNetworkRuleSetVirtualNetworkArrayInput` via:
 //
-// 		 RegistryNetworkRuleSetVirtualNetworkArray{ RegistryNetworkRuleSetVirtualNetworkArgs{...} }
-//
+//          RegistryNetworkRuleSetVirtualNetworkArray{ RegistryNetworkRuleSetVirtualNetworkArgs{...} }
 type RegistryNetworkRuleSetVirtualNetworkArrayInput interface {
 	pulumi.Input
 
@@ -6202,8 +6130,7 @@ type GetKubernetesClusterAddonProfile struct {
 // GetKubernetesClusterAddonProfileInput is an input type that accepts GetKubernetesClusterAddonProfileArgs and GetKubernetesClusterAddonProfileOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileArgs{...}
-//
+//          GetKubernetesClusterAddonProfileArgs{...}
 type GetKubernetesClusterAddonProfileInput interface {
 	pulumi.Input
 
@@ -6237,8 +6164,7 @@ func (i GetKubernetesClusterAddonProfileArgs) ToGetKubernetesClusterAddonProfile
 // GetKubernetesClusterAddonProfileArrayInput is an input type that accepts GetKubernetesClusterAddonProfileArray and GetKubernetesClusterAddonProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileArrayInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileArray{ GetKubernetesClusterAddonProfileArgs{...} }
-//
+//          GetKubernetesClusterAddonProfileArray{ GetKubernetesClusterAddonProfileArgs{...} }
 type GetKubernetesClusterAddonProfileArrayInput interface {
 	pulumi.Input
 
@@ -6330,8 +6256,7 @@ type GetKubernetesClusterAddonProfileAzurePolicy struct {
 // GetKubernetesClusterAddonProfileAzurePolicyInput is an input type that accepts GetKubernetesClusterAddonProfileAzurePolicyArgs and GetKubernetesClusterAddonProfileAzurePolicyOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzurePolicyInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileAzurePolicyArgs{...}
-//
+//          GetKubernetesClusterAddonProfileAzurePolicyArgs{...}
 type GetKubernetesClusterAddonProfileAzurePolicyInput interface {
 	pulumi.Input
 
@@ -6359,8 +6284,7 @@ func (i GetKubernetesClusterAddonProfileAzurePolicyArgs) ToGetKubernetesClusterA
 // GetKubernetesClusterAddonProfileAzurePolicyArrayInput is an input type that accepts GetKubernetesClusterAddonProfileAzurePolicyArray and GetKubernetesClusterAddonProfileAzurePolicyArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileAzurePolicyArrayInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileAzurePolicyArray{ GetKubernetesClusterAddonProfileAzurePolicyArgs{...} }
-//
+//          GetKubernetesClusterAddonProfileAzurePolicyArray{ GetKubernetesClusterAddonProfileAzurePolicyArgs{...} }
 type GetKubernetesClusterAddonProfileAzurePolicyArrayInput interface {
 	pulumi.Input
 
@@ -6431,8 +6355,7 @@ type GetKubernetesClusterAddonProfileHttpApplicationRouting struct {
 // GetKubernetesClusterAddonProfileHttpApplicationRoutingInput is an input type that accepts GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs and GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileHttpApplicationRoutingInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
-//
+//          GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{...}
 type GetKubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
 	pulumi.Input
 
@@ -6462,8 +6385,7 @@ func (i GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToGetKuberne
 // GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput is an input type that accepts GetKubernetesClusterAddonProfileHttpApplicationRoutingArray and GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileHttpApplicationRoutingArray{ GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{...} }
-//
+//          GetKubernetesClusterAddonProfileHttpApplicationRoutingArray{ GetKubernetesClusterAddonProfileHttpApplicationRoutingArgs{...} }
 type GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput interface {
 	pulumi.Input
 
@@ -6539,8 +6461,7 @@ type GetKubernetesClusterAddonProfileKubeDashboard struct {
 // GetKubernetesClusterAddonProfileKubeDashboardInput is an input type that accepts GetKubernetesClusterAddonProfileKubeDashboardArgs and GetKubernetesClusterAddonProfileKubeDashboardOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileKubeDashboardInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileKubeDashboardArgs{...}
-//
+//          GetKubernetesClusterAddonProfileKubeDashboardArgs{...}
 type GetKubernetesClusterAddonProfileKubeDashboardInput interface {
 	pulumi.Input
 
@@ -6568,8 +6489,7 @@ func (i GetKubernetesClusterAddonProfileKubeDashboardArgs) ToGetKubernetesCluste
 // GetKubernetesClusterAddonProfileKubeDashboardArrayInput is an input type that accepts GetKubernetesClusterAddonProfileKubeDashboardArray and GetKubernetesClusterAddonProfileKubeDashboardArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileKubeDashboardArrayInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileKubeDashboardArray{ GetKubernetesClusterAddonProfileKubeDashboardArgs{...} }
-//
+//          GetKubernetesClusterAddonProfileKubeDashboardArray{ GetKubernetesClusterAddonProfileKubeDashboardArgs{...} }
 type GetKubernetesClusterAddonProfileKubeDashboardArrayInput interface {
 	pulumi.Input
 
@@ -6642,8 +6562,7 @@ type GetKubernetesClusterAddonProfileOmsAgent struct {
 // GetKubernetesClusterAddonProfileOmsAgentInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentArgs and GetKubernetesClusterAddonProfileOmsAgentOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileOmsAgentArgs{...}
-//
+//          GetKubernetesClusterAddonProfileOmsAgentArgs{...}
 type GetKubernetesClusterAddonProfileOmsAgentInput interface {
 	pulumi.Input
 
@@ -6675,8 +6594,7 @@ func (i GetKubernetesClusterAddonProfileOmsAgentArgs) ToGetKubernetesClusterAddo
 // GetKubernetesClusterAddonProfileOmsAgentArrayInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentArray and GetKubernetesClusterAddonProfileOmsAgentArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentArrayInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileOmsAgentArray{ GetKubernetesClusterAddonProfileOmsAgentArgs{...} }
-//
+//          GetKubernetesClusterAddonProfileOmsAgentArray{ GetKubernetesClusterAddonProfileOmsAgentArgs{...} }
 type GetKubernetesClusterAddonProfileOmsAgentArrayInput interface {
 	pulumi.Input
 
@@ -6761,8 +6679,7 @@ type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
 // GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs and GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
-//
+//          GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...}
 type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput interface {
 	pulumi.Input
 
@@ -6794,8 +6711,7 @@ func (i GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs) ToGetKuber
 // GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput is an input type that accepts GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray and GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput` via:
 //
-// 		 GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
-//
+//          GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArray{ GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs{...} }
 type GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayInput interface {
 	pulumi.Input
 
@@ -6906,8 +6822,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 // GetKubernetesClusterAgentPoolProfileInput is an input type that accepts GetKubernetesClusterAgentPoolProfileArgs and GetKubernetesClusterAgentPoolProfileOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAgentPoolProfileInput` via:
 //
-// 		 GetKubernetesClusterAgentPoolProfileArgs{...}
-//
+//          GetKubernetesClusterAgentPoolProfileArgs{...}
 type GetKubernetesClusterAgentPoolProfileInput interface {
 	pulumi.Input
 
@@ -6965,8 +6880,7 @@ func (i GetKubernetesClusterAgentPoolProfileArgs) ToGetKubernetesClusterAgentPoo
 // GetKubernetesClusterAgentPoolProfileArrayInput is an input type that accepts GetKubernetesClusterAgentPoolProfileArray and GetKubernetesClusterAgentPoolProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterAgentPoolProfileArrayInput` via:
 //
-// 		 GetKubernetesClusterAgentPoolProfileArray{ GetKubernetesClusterAgentPoolProfileArgs{...} }
-//
+//          GetKubernetesClusterAgentPoolProfileArray{ GetKubernetesClusterAgentPoolProfileArgs{...} }
 type GetKubernetesClusterAgentPoolProfileArrayInput interface {
 	pulumi.Input
 
@@ -7117,8 +7031,7 @@ type GetKubernetesClusterIdentity struct {
 // GetKubernetesClusterIdentityInput is an input type that accepts GetKubernetesClusterIdentityArgs and GetKubernetesClusterIdentityOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterIdentityInput` via:
 //
-// 		 GetKubernetesClusterIdentityArgs{...}
-//
+//          GetKubernetesClusterIdentityArgs{...}
 type GetKubernetesClusterIdentityInput interface {
 	pulumi.Input
 
@@ -7150,8 +7063,7 @@ func (i GetKubernetesClusterIdentityArgs) ToGetKubernetesClusterIdentityOutputWi
 // GetKubernetesClusterIdentityArrayInput is an input type that accepts GetKubernetesClusterIdentityArray and GetKubernetesClusterIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterIdentityArrayInput` via:
 //
-// 		 GetKubernetesClusterIdentityArray{ GetKubernetesClusterIdentityArgs{...} }
-//
+//          GetKubernetesClusterIdentityArray{ GetKubernetesClusterIdentityArgs{...} }
 type GetKubernetesClusterIdentityArrayInput interface {
 	pulumi.Input
 
@@ -7240,8 +7152,7 @@ type GetKubernetesClusterKubeAdminConfig struct {
 // GetKubernetesClusterKubeAdminConfigInput is an input type that accepts GetKubernetesClusterKubeAdminConfigArgs and GetKubernetesClusterKubeAdminConfigOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeAdminConfigInput` via:
 //
-// 		 GetKubernetesClusterKubeAdminConfigArgs{...}
-//
+//          GetKubernetesClusterKubeAdminConfigArgs{...}
 type GetKubernetesClusterKubeAdminConfigInput interface {
 	pulumi.Input
 
@@ -7279,8 +7190,7 @@ func (i GetKubernetesClusterKubeAdminConfigArgs) ToGetKubernetesClusterKubeAdmin
 // GetKubernetesClusterKubeAdminConfigArrayInput is an input type that accepts GetKubernetesClusterKubeAdminConfigArray and GetKubernetesClusterKubeAdminConfigArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeAdminConfigArrayInput` via:
 //
-// 		 GetKubernetesClusterKubeAdminConfigArray{ GetKubernetesClusterKubeAdminConfigArgs{...} }
-//
+//          GetKubernetesClusterKubeAdminConfigArray{ GetKubernetesClusterKubeAdminConfigArgs{...} }
 type GetKubernetesClusterKubeAdminConfigArrayInput interface {
 	pulumi.Input
 
@@ -7384,8 +7294,7 @@ type GetKubernetesClusterKubeConfig struct {
 // GetKubernetesClusterKubeConfigInput is an input type that accepts GetKubernetesClusterKubeConfigArgs and GetKubernetesClusterKubeConfigOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeConfigInput` via:
 //
-// 		 GetKubernetesClusterKubeConfigArgs{...}
-//
+//          GetKubernetesClusterKubeConfigArgs{...}
 type GetKubernetesClusterKubeConfigInput interface {
 	pulumi.Input
 
@@ -7423,8 +7332,7 @@ func (i GetKubernetesClusterKubeConfigArgs) ToGetKubernetesClusterKubeConfigOutp
 // GetKubernetesClusterKubeConfigArrayInput is an input type that accepts GetKubernetesClusterKubeConfigArray and GetKubernetesClusterKubeConfigArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeConfigArrayInput` via:
 //
-// 		 GetKubernetesClusterKubeConfigArray{ GetKubernetesClusterKubeConfigArgs{...} }
-//
+//          GetKubernetesClusterKubeConfigArray{ GetKubernetesClusterKubeConfigArgs{...} }
 type GetKubernetesClusterKubeConfigArrayInput interface {
 	pulumi.Input
 
@@ -7522,8 +7430,7 @@ type GetKubernetesClusterKubeletIdentity struct {
 // GetKubernetesClusterKubeletIdentityInput is an input type that accepts GetKubernetesClusterKubeletIdentityArgs and GetKubernetesClusterKubeletIdentityOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeletIdentityInput` via:
 //
-// 		 GetKubernetesClusterKubeletIdentityArgs{...}
-//
+//          GetKubernetesClusterKubeletIdentityArgs{...}
 type GetKubernetesClusterKubeletIdentityInput interface {
 	pulumi.Input
 
@@ -7555,8 +7462,7 @@ func (i GetKubernetesClusterKubeletIdentityArgs) ToGetKubernetesClusterKubeletId
 // GetKubernetesClusterKubeletIdentityArrayInput is an input type that accepts GetKubernetesClusterKubeletIdentityArray and GetKubernetesClusterKubeletIdentityArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterKubeletIdentityArrayInput` via:
 //
-// 		 GetKubernetesClusterKubeletIdentityArray{ GetKubernetesClusterKubeletIdentityArgs{...} }
-//
+//          GetKubernetesClusterKubeletIdentityArray{ GetKubernetesClusterKubeletIdentityArgs{...} }
 type GetKubernetesClusterKubeletIdentityArrayInput interface {
 	pulumi.Input
 
@@ -7637,8 +7543,7 @@ type GetKubernetesClusterLinuxProfile struct {
 // GetKubernetesClusterLinuxProfileInput is an input type that accepts GetKubernetesClusterLinuxProfileArgs and GetKubernetesClusterLinuxProfileOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterLinuxProfileInput` via:
 //
-// 		 GetKubernetesClusterLinuxProfileArgs{...}
-//
+//          GetKubernetesClusterLinuxProfileArgs{...}
 type GetKubernetesClusterLinuxProfileInput interface {
 	pulumi.Input
 
@@ -7668,8 +7573,7 @@ func (i GetKubernetesClusterLinuxProfileArgs) ToGetKubernetesClusterLinuxProfile
 // GetKubernetesClusterLinuxProfileArrayInput is an input type that accepts GetKubernetesClusterLinuxProfileArray and GetKubernetesClusterLinuxProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterLinuxProfileArrayInput` via:
 //
-// 		 GetKubernetesClusterLinuxProfileArray{ GetKubernetesClusterLinuxProfileArgs{...} }
-//
+//          GetKubernetesClusterLinuxProfileArray{ GetKubernetesClusterLinuxProfileArgs{...} }
 type GetKubernetesClusterLinuxProfileArrayInput interface {
 	pulumi.Input
 
@@ -7743,8 +7647,7 @@ type GetKubernetesClusterLinuxProfileSshKey struct {
 // GetKubernetesClusterLinuxProfileSshKeyInput is an input type that accepts GetKubernetesClusterLinuxProfileSshKeyArgs and GetKubernetesClusterLinuxProfileSshKeyOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterLinuxProfileSshKeyInput` via:
 //
-// 		 GetKubernetesClusterLinuxProfileSshKeyArgs{...}
-//
+//          GetKubernetesClusterLinuxProfileSshKeyArgs{...}
 type GetKubernetesClusterLinuxProfileSshKeyInput interface {
 	pulumi.Input
 
@@ -7772,8 +7675,7 @@ func (i GetKubernetesClusterLinuxProfileSshKeyArgs) ToGetKubernetesClusterLinuxP
 // GetKubernetesClusterLinuxProfileSshKeyArrayInput is an input type that accepts GetKubernetesClusterLinuxProfileSshKeyArray and GetKubernetesClusterLinuxProfileSshKeyArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterLinuxProfileSshKeyArrayInput` via:
 //
-// 		 GetKubernetesClusterLinuxProfileSshKeyArray{ GetKubernetesClusterLinuxProfileSshKeyArgs{...} }
-//
+//          GetKubernetesClusterLinuxProfileSshKeyArray{ GetKubernetesClusterLinuxProfileSshKeyArgs{...} }
 type GetKubernetesClusterLinuxProfileSshKeyArrayInput interface {
 	pulumi.Input
 
@@ -7853,8 +7755,7 @@ type GetKubernetesClusterNetworkProfile struct {
 // GetKubernetesClusterNetworkProfileInput is an input type that accepts GetKubernetesClusterNetworkProfileArgs and GetKubernetesClusterNetworkProfileOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterNetworkProfileInput` via:
 //
-// 		 GetKubernetesClusterNetworkProfileArgs{...}
-//
+//          GetKubernetesClusterNetworkProfileArgs{...}
 type GetKubernetesClusterNetworkProfileInput interface {
 	pulumi.Input
 
@@ -7893,8 +7794,7 @@ func (i GetKubernetesClusterNetworkProfileArgs) ToGetKubernetesClusterNetworkPro
 // GetKubernetesClusterNetworkProfileArrayInput is an input type that accepts GetKubernetesClusterNetworkProfileArray and GetKubernetesClusterNetworkProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterNetworkProfileArrayInput` via:
 //
-// 		 GetKubernetesClusterNetworkProfileArray{ GetKubernetesClusterNetworkProfileArgs{...} }
-//
+//          GetKubernetesClusterNetworkProfileArray{ GetKubernetesClusterNetworkProfileArgs{...} }
 type GetKubernetesClusterNetworkProfileArrayInput interface {
 	pulumi.Input
 
@@ -7994,8 +7894,7 @@ type GetKubernetesClusterRoleBasedAccessControl struct {
 // GetKubernetesClusterRoleBasedAccessControlInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlArgs and GetKubernetesClusterRoleBasedAccessControlOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlInput` via:
 //
-// 		 GetKubernetesClusterRoleBasedAccessControlArgs{...}
-//
+//          GetKubernetesClusterRoleBasedAccessControlArgs{...}
 type GetKubernetesClusterRoleBasedAccessControlInput interface {
 	pulumi.Input
 
@@ -8025,8 +7924,7 @@ func (i GetKubernetesClusterRoleBasedAccessControlArgs) ToGetKubernetesClusterRo
 // GetKubernetesClusterRoleBasedAccessControlArrayInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlArray and GetKubernetesClusterRoleBasedAccessControlArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlArrayInput` via:
 //
-// 		 GetKubernetesClusterRoleBasedAccessControlArray{ GetKubernetesClusterRoleBasedAccessControlArgs{...} }
-//
+//          GetKubernetesClusterRoleBasedAccessControlArray{ GetKubernetesClusterRoleBasedAccessControlArgs{...} }
 type GetKubernetesClusterRoleBasedAccessControlArrayInput interface {
 	pulumi.Input
 
@@ -8110,8 +8008,7 @@ type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
 // GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs and GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput` via:
 //
-// 		 GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
-//
+//          GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...}
 type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -8147,8 +8044,7 @@ func (i GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToGe
 // GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput is an input type that accepts GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray and GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput` via:
 //
-// 		 GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray{ GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...} }
-//
+//          GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArray{ GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs{...} }
 type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArrayInput interface {
 	pulumi.Input
 
@@ -8239,8 +8135,7 @@ type GetKubernetesClusterServicePrincipal struct {
 // GetKubernetesClusterServicePrincipalInput is an input type that accepts GetKubernetesClusterServicePrincipalArgs and GetKubernetesClusterServicePrincipalOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterServicePrincipalInput` via:
 //
-// 		 GetKubernetesClusterServicePrincipalArgs{...}
-//
+//          GetKubernetesClusterServicePrincipalArgs{...}
 type GetKubernetesClusterServicePrincipalInput interface {
 	pulumi.Input
 
@@ -8268,8 +8163,7 @@ func (i GetKubernetesClusterServicePrincipalArgs) ToGetKubernetesClusterServiceP
 // GetKubernetesClusterServicePrincipalArrayInput is an input type that accepts GetKubernetesClusterServicePrincipalArray and GetKubernetesClusterServicePrincipalArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterServicePrincipalArrayInput` via:
 //
-// 		 GetKubernetesClusterServicePrincipalArray{ GetKubernetesClusterServicePrincipalArgs{...} }
-//
+//          GetKubernetesClusterServicePrincipalArray{ GetKubernetesClusterServicePrincipalArgs{...} }
 type GetKubernetesClusterServicePrincipalArrayInput interface {
 	pulumi.Input
 
@@ -8338,8 +8232,7 @@ type GetKubernetesClusterWindowsProfile struct {
 // GetKubernetesClusterWindowsProfileInput is an input type that accepts GetKubernetesClusterWindowsProfileArgs and GetKubernetesClusterWindowsProfileOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterWindowsProfileInput` via:
 //
-// 		 GetKubernetesClusterWindowsProfileArgs{...}
-//
+//          GetKubernetesClusterWindowsProfileArgs{...}
 type GetKubernetesClusterWindowsProfileInput interface {
 	pulumi.Input
 
@@ -8367,8 +8260,7 @@ func (i GetKubernetesClusterWindowsProfileArgs) ToGetKubernetesClusterWindowsPro
 // GetKubernetesClusterWindowsProfileArrayInput is an input type that accepts GetKubernetesClusterWindowsProfileArray and GetKubernetesClusterWindowsProfileArrayOutput values.
 // You can construct a concrete instance of `GetKubernetesClusterWindowsProfileArrayInput` via:
 //
-// 		 GetKubernetesClusterWindowsProfileArray{ GetKubernetesClusterWindowsProfileArgs{...} }
-//
+//          GetKubernetesClusterWindowsProfileArray{ GetKubernetesClusterWindowsProfileArgs{...} }
 type GetKubernetesClusterWindowsProfileArrayInput interface {
 	pulumi.Input
 

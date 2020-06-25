@@ -11,6 +11,46 @@ import (
 )
 
 // Manages a Custom Action within a Logic App Workflow
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/logicapps"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("East US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = logicapps.NewActionCustom(ctx, "exampleActionCustom", &logicapps.ActionCustomArgs{
+// 			LogicAppId: exampleWorkflow.ID(),
+// 			Body:       pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"description\": \"A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).\",\n", "    \"inputs\": {\n", "        \"variables\": [\n", "            {\n", "                \"name\": \"ExpirationAgeInDays\",\n", "                \"type\": \"Integer\",\n", "                \"value\": -30\n", "            }\n", "        ]\n", "    },\n", "    \"runAfter\": {},\n", "    \"type\": \"InitializeVariable\"\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ActionCustom struct {
 	pulumi.CustomResourceState
 

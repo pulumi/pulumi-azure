@@ -54,8 +54,6 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,version=
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -60,8 +60,6 @@ def get_kubernetes_service_versions(include_preview=None,location=None,version_p
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -11,18 +11,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/containerservice"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := containerservice.LookupKubernetesServiceVersions(ctx, &containerservice.LookupKubernetesServiceVersionsArgs{
+// 		current, err := containerservice.GetKubernetesServiceVersions(ctx, &containerservice.GetKubernetesServiceVersionsArgs{
 // 			Location: "West Europe",
 // 		}, nil)
 // 		if err != nil {

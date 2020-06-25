@@ -11,6 +11,8 @@ import (
 )
 
 // Manages a Key Vault Certificate.
+//
+// ## Example Usage
 type Certificate struct {
 	pulumi.CustomResourceState
 

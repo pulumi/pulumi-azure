@@ -74,8 +74,6 @@ def get_dps_shared_access_policy(iothub_dps_name=None,name=None,resource_group_n
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -23,6 +23,7 @@ class GetManagementGroupResult:
         if group_id is not None:
             warnings.warn("Deprecated in favour of `name`", DeprecationWarning)
             pulumi.log.warn("group_id is deprecated: Deprecated in favour of `name`")
+
         __self__.group_id = group_id
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -63,8 +64,6 @@ def get_management_group(display_name=None,group_id=None,name=None,opts=None):
     Use this data source to access information about an existing Management Group.
 
     ## Example Usage
-
-
 
     ```python
     import pulumi

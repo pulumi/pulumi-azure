@@ -34,8 +34,7 @@ type GetRecommendationsRecommendation struct {
 // GetRecommendationsRecommendationInput is an input type that accepts GetRecommendationsRecommendationArgs and GetRecommendationsRecommendationOutput values.
 // You can construct a concrete instance of `GetRecommendationsRecommendationInput` via:
 //
-// 		 GetRecommendationsRecommendationArgs{...}
-//
+//          GetRecommendationsRecommendationArgs{...}
 type GetRecommendationsRecommendationInput interface {
 	pulumi.Input
 
@@ -79,8 +78,7 @@ func (i GetRecommendationsRecommendationArgs) ToGetRecommendationsRecommendation
 // GetRecommendationsRecommendationArrayInput is an input type that accepts GetRecommendationsRecommendationArray and GetRecommendationsRecommendationArrayOutput values.
 // You can construct a concrete instance of `GetRecommendationsRecommendationArrayInput` via:
 //
-// 		 GetRecommendationsRecommendationArray{ GetRecommendationsRecommendationArgs{...} }
-//
+//          GetRecommendationsRecommendationArray{ GetRecommendationsRecommendationArgs{...} }
 type GetRecommendationsRecommendationArrayInput interface {
 	pulumi.Input
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Automation
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// This is an example of just the Job Schedule.
     /// 
     /// ```csharp
     /// using Pulumi;

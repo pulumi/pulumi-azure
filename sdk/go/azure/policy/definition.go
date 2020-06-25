@@ -13,6 +13,36 @@ import (
 // Manages a policy rule definition on a management group or your provider subscription.
 //
 // Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/policy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
+// 			DisplayName: pulumi.String("acceptance test policy definition"),
+// 			Metadata:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "    {\n", "    \"category\": \"General\"\n", "    }\n", "  \n", "\n")),
+// 			Mode:        pulumi.String("Indexed"),
+// 			Parameters: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"allowedLocations\": {\n", "      \"type\": \"Array\",\n", "      \"metadata\": {\n", "        \"description\": \"The list of allowed locations for resources.\",\n", "        \"displayName\": \"Allowed locations\",\n", "        \"strongType\": \"location\"\n", "      }\n", "    }\n", "  }\n", "\n")),
+// 			PolicyRule: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"if\": {\n", "      \"not\": {\n", "        \"field\": \"location\",\n", "        \"in\": \"[parameters('allowedLocations')]\"\n", "      }\n", "    },\n", "    \"then\": {\n", "      \"effect\": \"audit\"\n", "    }\n", "  }\n", "\n")),
+// 			PolicyType: pulumi.String("Custom"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Definition struct {
 	pulumi.CustomResourceState
 

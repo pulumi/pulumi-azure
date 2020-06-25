@@ -25,8 +25,7 @@ type ChannelDirectLineSite struct {
 // ChannelDirectLineSiteInput is an input type that accepts ChannelDirectLineSiteArgs and ChannelDirectLineSiteOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSiteInput` via:
 //
-// 		 ChannelDirectLineSiteArgs{...}
-//
+//          ChannelDirectLineSiteArgs{...}
 type ChannelDirectLineSiteInput interface {
 	pulumi.Input
 
@@ -61,8 +60,7 @@ func (i ChannelDirectLineSiteArgs) ToChannelDirectLineSiteOutputWithContext(ctx 
 // ChannelDirectLineSiteArrayInput is an input type that accepts ChannelDirectLineSiteArray and ChannelDirectLineSiteArrayOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSiteArrayInput` via:
 //
-// 		 ChannelDirectLineSiteArray{ ChannelDirectLineSiteArgs{...} }
-//
+//          ChannelDirectLineSiteArray{ ChannelDirectLineSiteArgs{...} }
 type ChannelDirectLineSiteArrayInput interface {
 	pulumi.Input
 

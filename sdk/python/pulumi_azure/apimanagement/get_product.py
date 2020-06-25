@@ -95,8 +95,6 @@ def get_product(api_management_name=None,product_id=None,resource_group_name=Non
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

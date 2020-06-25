@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment", DeprecationWarning)
 
+
 class Assignment(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
@@ -41,12 +42,12 @@ class Assignment(pulumi.CustomResource):
     If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
     """
     warnings.warn("azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, name=None, principal_id=None, role_definition_id=None, role_definition_name=None, scope=None, skip_service_principal_aad_check=None, __props__=None, __name__=None, __opts__=None):
         """
         Assigns a given Principal (User or Group) to a given Role.
 
         ## Example Usage
-
         ### Using A Built-In Role)
 
         ```python
@@ -60,7 +61,6 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example_client_config.object_id)
         ```
-
         ### Custom Role & Service Principal)
 
         ```python
@@ -83,7 +83,6 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.id,
             principal_id=example_client_config.object_id)
         ```
-
         ### Custom Role & User)
 
         ```python
@@ -106,7 +105,6 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.id,
             principal_id=example_client_config.client_id)
         ```
-
         ### Custom Role & Management Group)
 
         ```python

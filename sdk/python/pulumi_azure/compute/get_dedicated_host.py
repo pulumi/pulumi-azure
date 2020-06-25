@@ -60,8 +60,6 @@ def get_dedicated_host(dedicated_host_group_name=None,name=None,resource_group_n
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

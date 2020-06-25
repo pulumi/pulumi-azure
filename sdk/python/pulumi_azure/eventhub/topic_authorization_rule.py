@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
 
+
 class TopicAuthorizationRule(pulumi.CustomResource):
     listen: pulumi.Output[bool]
     """
@@ -57,13 +58,12 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
     """
     warnings.warn("azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -28,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appservice.NewSourceCodeToken(ctx, "example", &appservice.SourceCodeTokenArgs{
+// 		_, err = appservice.NewSourceCodeToken(ctx, "example", &appservice.SourceCodeTokenArgs{
 // 			Token: pulumi.String("7e57735e77e577e57"),
 // 			Type:  pulumi.String("GitHub"),
 // 		})

@@ -32,8 +32,7 @@ type IoTHubEndpoint struct {
 // IoTHubEndpointInput is an input type that accepts IoTHubEndpointArgs and IoTHubEndpointOutput values.
 // You can construct a concrete instance of `IoTHubEndpointInput` via:
 //
-// 		 IoTHubEndpointArgs{...}
-//
+//          IoTHubEndpointArgs{...}
 type IoTHubEndpointInput interface {
 	pulumi.Input
 
@@ -75,8 +74,7 @@ func (i IoTHubEndpointArgs) ToIoTHubEndpointOutputWithContext(ctx context.Contex
 // IoTHubEndpointArrayInput is an input type that accepts IoTHubEndpointArray and IoTHubEndpointArrayOutput values.
 // You can construct a concrete instance of `IoTHubEndpointArrayInput` via:
 //
-// 		 IoTHubEndpointArray{ IoTHubEndpointArgs{...} }
-//
+//          IoTHubEndpointArray{ IoTHubEndpointArgs{...} }
 type IoTHubEndpointArrayInput interface {
 	pulumi.Input
 
@@ -186,8 +184,7 @@ type IoTHubFallbackRoute struct {
 // IoTHubFallbackRouteInput is an input type that accepts IoTHubFallbackRouteArgs and IoTHubFallbackRouteOutput values.
 // You can construct a concrete instance of `IoTHubFallbackRouteInput` via:
 //
-// 		 IoTHubFallbackRouteArgs{...}
-//
+//          IoTHubFallbackRouteArgs{...}
 type IoTHubFallbackRouteInput interface {
 	pulumi.Input
 
@@ -229,12 +226,11 @@ func (i IoTHubFallbackRouteArgs) ToIoTHubFallbackRoutePtrOutputWithContext(ctx c
 // IoTHubFallbackRoutePtrInput is an input type that accepts IoTHubFallbackRouteArgs, IoTHubFallbackRoutePtr and IoTHubFallbackRoutePtrOutput values.
 // You can construct a concrete instance of `IoTHubFallbackRoutePtrInput` via:
 //
-// 		 IoTHubFallbackRouteArgs{...}
+//          IoTHubFallbackRouteArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type IoTHubFallbackRoutePtrInput interface {
 	pulumi.Input
 
@@ -382,8 +378,7 @@ type IoTHubFileUpload struct {
 // IoTHubFileUploadInput is an input type that accepts IoTHubFileUploadArgs and IoTHubFileUploadOutput values.
 // You can construct a concrete instance of `IoTHubFileUploadInput` via:
 //
-// 		 IoTHubFileUploadArgs{...}
-//
+//          IoTHubFileUploadArgs{...}
 type IoTHubFileUploadInput interface {
 	pulumi.Input
 
@@ -431,12 +426,11 @@ func (i IoTHubFileUploadArgs) ToIoTHubFileUploadPtrOutputWithContext(ctx context
 // IoTHubFileUploadPtrInput is an input type that accepts IoTHubFileUploadArgs, IoTHubFileUploadPtr and IoTHubFileUploadPtrOutput values.
 // You can construct a concrete instance of `IoTHubFileUploadPtrInput` via:
 //
-// 		 IoTHubFileUploadArgs{...}
+//          IoTHubFileUploadArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type IoTHubFileUploadPtrInput interface {
 	pulumi.Input
 
@@ -621,8 +615,7 @@ type IoTHubIpFilterRule struct {
 // IoTHubIpFilterRuleInput is an input type that accepts IoTHubIpFilterRuleArgs and IoTHubIpFilterRuleOutput values.
 // You can construct a concrete instance of `IoTHubIpFilterRuleInput` via:
 //
-// 		 IoTHubIpFilterRuleArgs{...}
-//
+//          IoTHubIpFilterRuleArgs{...}
 type IoTHubIpFilterRuleInput interface {
 	pulumi.Input
 
@@ -654,8 +647,7 @@ func (i IoTHubIpFilterRuleArgs) ToIoTHubIpFilterRuleOutputWithContext(ctx contex
 // IoTHubIpFilterRuleArrayInput is an input type that accepts IoTHubIpFilterRuleArray and IoTHubIpFilterRuleArrayOutput values.
 // You can construct a concrete instance of `IoTHubIpFilterRuleArrayInput` via:
 //
-// 		 IoTHubIpFilterRuleArray{ IoTHubIpFilterRuleArgs{...} }
-//
+//          IoTHubIpFilterRuleArray{ IoTHubIpFilterRuleArgs{...} }
 type IoTHubIpFilterRuleArrayInput interface {
 	pulumi.Input
 
@@ -742,8 +734,7 @@ type IoTHubRoute struct {
 // IoTHubRouteInput is an input type that accepts IoTHubRouteArgs and IoTHubRouteOutput values.
 // You can construct a concrete instance of `IoTHubRouteInput` via:
 //
-// 		 IoTHubRouteArgs{...}
-//
+//          IoTHubRouteArgs{...}
 type IoTHubRouteInput interface {
 	pulumi.Input
 
@@ -779,8 +770,7 @@ func (i IoTHubRouteArgs) ToIoTHubRouteOutputWithContext(ctx context.Context) IoT
 // IoTHubRouteArrayInput is an input type that accepts IoTHubRouteArray and IoTHubRouteArrayOutput values.
 // You can construct a concrete instance of `IoTHubRouteArrayInput` via:
 //
-// 		 IoTHubRouteArray{ IoTHubRouteArgs{...} }
-//
+//          IoTHubRouteArray{ IoTHubRouteArgs{...} }
 type IoTHubRouteArrayInput interface {
 	pulumi.Input
 
@@ -875,8 +865,7 @@ type IoTHubSharedAccessPolicy struct {
 // IoTHubSharedAccessPolicyInput is an input type that accepts IoTHubSharedAccessPolicyArgs and IoTHubSharedAccessPolicyOutput values.
 // You can construct a concrete instance of `IoTHubSharedAccessPolicyInput` via:
 //
-// 		 IoTHubSharedAccessPolicyArgs{...}
-//
+//          IoTHubSharedAccessPolicyArgs{...}
 type IoTHubSharedAccessPolicyInput interface {
 	pulumi.Input
 
@@ -910,8 +899,7 @@ func (i IoTHubSharedAccessPolicyArgs) ToIoTHubSharedAccessPolicyOutputWithContex
 // IoTHubSharedAccessPolicyArrayInput is an input type that accepts IoTHubSharedAccessPolicyArray and IoTHubSharedAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `IoTHubSharedAccessPolicyArrayInput` via:
 //
-// 		 IoTHubSharedAccessPolicyArray{ IoTHubSharedAccessPolicyArgs{...} }
-//
+//          IoTHubSharedAccessPolicyArray{ IoTHubSharedAccessPolicyArgs{...} }
 type IoTHubSharedAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -997,8 +985,7 @@ type IoTHubSku struct {
 // IoTHubSkuInput is an input type that accepts IoTHubSkuArgs and IoTHubSkuOutput values.
 // You can construct a concrete instance of `IoTHubSkuInput` via:
 //
-// 		 IoTHubSkuArgs{...}
-//
+//          IoTHubSkuArgs{...}
 type IoTHubSkuInput interface {
 	pulumi.Input
 
@@ -1036,12 +1023,11 @@ func (i IoTHubSkuArgs) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) IoTH
 // IoTHubSkuPtrInput is an input type that accepts IoTHubSkuArgs, IoTHubSkuPtr and IoTHubSkuPtrOutput values.
 // You can construct a concrete instance of `IoTHubSkuPtrInput` via:
 //
-// 		 IoTHubSkuArgs{...}
+//          IoTHubSkuArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type IoTHubSkuPtrInput interface {
 	pulumi.Input
 
@@ -1155,8 +1141,7 @@ type IotHubDpsLinkedHub struct {
 // IotHubDpsLinkedHubInput is an input type that accepts IotHubDpsLinkedHubArgs and IotHubDpsLinkedHubOutput values.
 // You can construct a concrete instance of `IotHubDpsLinkedHubInput` via:
 //
-// 		 IotHubDpsLinkedHubArgs{...}
-//
+//          IotHubDpsLinkedHubArgs{...}
 type IotHubDpsLinkedHubInput interface {
 	pulumi.Input
 
@@ -1192,8 +1177,7 @@ func (i IotHubDpsLinkedHubArgs) ToIotHubDpsLinkedHubOutputWithContext(ctx contex
 // IotHubDpsLinkedHubArrayInput is an input type that accepts IotHubDpsLinkedHubArray and IotHubDpsLinkedHubArrayOutput values.
 // You can construct a concrete instance of `IotHubDpsLinkedHubArrayInput` via:
 //
-// 		 IotHubDpsLinkedHubArray{ IotHubDpsLinkedHubArgs{...} }
-//
+//          IotHubDpsLinkedHubArray{ IotHubDpsLinkedHubArgs{...} }
 type IotHubDpsLinkedHubArrayInput interface {
 	pulumi.Input
 
@@ -1284,8 +1268,7 @@ type IotHubDpsSku struct {
 // IotHubDpsSkuInput is an input type that accepts IotHubDpsSkuArgs and IotHubDpsSkuOutput values.
 // You can construct a concrete instance of `IotHubDpsSkuInput` via:
 //
-// 		 IotHubDpsSkuArgs{...}
-//
+//          IotHubDpsSkuArgs{...}
 type IotHubDpsSkuInput interface {
 	pulumi.Input
 
@@ -1323,12 +1306,11 @@ func (i IotHubDpsSkuArgs) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Context
 // IotHubDpsSkuPtrInput is an input type that accepts IotHubDpsSkuArgs, IotHubDpsSkuPtr and IotHubDpsSkuPtrOutput values.
 // You can construct a concrete instance of `IotHubDpsSkuPtrInput` via:
 //
-// 		 IotHubDpsSkuArgs{...}
+//          IotHubDpsSkuArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type IotHubDpsSkuPtrInput interface {
 	pulumi.Input
 
@@ -1436,8 +1418,7 @@ type TimeSeriesInsightsReferenceDataSetKeyProperty struct {
 // TimeSeriesInsightsReferenceDataSetKeyPropertyInput is an input type that accepts TimeSeriesInsightsReferenceDataSetKeyPropertyArgs and TimeSeriesInsightsReferenceDataSetKeyPropertyOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetKeyPropertyInput` via:
 //
-// 		 TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...}
-//
+//          TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...}
 type TimeSeriesInsightsReferenceDataSetKeyPropertyInput interface {
 	pulumi.Input
 
@@ -1467,8 +1448,7 @@ func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ToTimeSeriesInsightsR
 // TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput is an input type that accepts TimeSeriesInsightsReferenceDataSetKeyPropertyArray and TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput` via:
 //
-// 		 TimeSeriesInsightsReferenceDataSetKeyPropertyArray{ TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...} }
-//
+//          TimeSeriesInsightsReferenceDataSetKeyPropertyArray{ TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{...} }
 type TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput interface {
 	pulumi.Input
 

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -37,15 +35,15 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			Description:       pulumi.String("Shared images and things."),
-// 			Tags: map[string]interface{}{
-// 				"Hello": "There",
-// 				"World": "Example",
+// 			Tags: pulumi.Map{
+// 				"Hello": pulumi.String("There"),
+// 				"World": pulumi.String("Example"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleSharedImage, err := compute.NewSharedImage(ctx, "exampleSharedImage", &compute.SharedImageArgs{
+// 		_, err = compute.NewSharedImage(ctx, "exampleSharedImage", &compute.SharedImageArgs{
 // 			GalleryName:       exampleSharedImageGallery.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,

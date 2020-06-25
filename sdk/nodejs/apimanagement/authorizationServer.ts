@@ -9,10 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an Authorization Server within an API Management Service.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

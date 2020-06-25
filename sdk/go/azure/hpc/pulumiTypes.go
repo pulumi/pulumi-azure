@@ -22,8 +22,7 @@ type CacheNfsTargetNamespaceJunction struct {
 // CacheNfsTargetNamespaceJunctionInput is an input type that accepts CacheNfsTargetNamespaceJunctionArgs and CacheNfsTargetNamespaceJunctionOutput values.
 // You can construct a concrete instance of `CacheNfsTargetNamespaceJunctionInput` via:
 //
-// 		 CacheNfsTargetNamespaceJunctionArgs{...}
-//
+//          CacheNfsTargetNamespaceJunctionArgs{...}
 type CacheNfsTargetNamespaceJunctionInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i CacheNfsTargetNamespaceJunctionArgs) ToCacheNfsTargetNamespaceJunctionOu
 // CacheNfsTargetNamespaceJunctionArrayInput is an input type that accepts CacheNfsTargetNamespaceJunctionArray and CacheNfsTargetNamespaceJunctionArrayOutput values.
 // You can construct a concrete instance of `CacheNfsTargetNamespaceJunctionArrayInput` via:
 //
-// 		 CacheNfsTargetNamespaceJunctionArray{ CacheNfsTargetNamespaceJunctionArgs{...} }
-//
+//          CacheNfsTargetNamespaceJunctionArray{ CacheNfsTargetNamespaceJunctionArgs{...} }
 type CacheNfsTargetNamespaceJunctionArrayInput interface {
 	pulumi.Input
 

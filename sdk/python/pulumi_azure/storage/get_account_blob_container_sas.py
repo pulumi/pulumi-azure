@@ -91,8 +91,6 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

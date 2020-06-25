@@ -275,7 +275,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
 
         ```python
         import pulumi

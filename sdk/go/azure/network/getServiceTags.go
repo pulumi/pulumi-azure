@@ -11,21 +11,21 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupServiceTags(ctx, &network.LookupServiceTagsArgs{
+// 		opt0 := "northeurope"
+// 		_, err := network.GetServiceTags(ctx, &network.GetServiceTagsArgs{
 // 			Location:       "West Europe",
 // 			Service:        "AzureKeyVault",
-// 			LocationFilter: "northeurope",
+// 			LocationFilter: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

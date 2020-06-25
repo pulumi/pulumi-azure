@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -34,6 +32,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
  */
 export class Server extends pulumi.CustomResource {
     /**

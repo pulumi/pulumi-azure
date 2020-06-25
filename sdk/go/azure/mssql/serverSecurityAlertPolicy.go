@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -56,7 +54,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleServerSecurityAlertPolicy, err := mssql.NewServerSecurityAlertPolicy(ctx, "exampleServerSecurityAlertPolicy", &mssql.ServerSecurityAlertPolicyArgs{
+// 		_, err = mssql.NewServerSecurityAlertPolicy(ctx, "exampleServerSecurityAlertPolicy", &mssql.ServerSecurityAlertPolicyArgs{
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			ServerName:              exampleSqlServer.Name,
 // 			State:                   pulumi.String("Enabled"),

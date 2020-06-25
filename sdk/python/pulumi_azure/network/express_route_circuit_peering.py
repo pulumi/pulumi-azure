@@ -69,7 +69,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         Manages an ExpressRoute Circuit Peering.
 
         ## Example Usage
-
         ### Creating A Microsoft Peering)
 
         ```python

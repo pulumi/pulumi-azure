@@ -28,8 +28,7 @@ type ServerStorageProfile struct {
 // ServerStorageProfileInput is an input type that accepts ServerStorageProfileArgs and ServerStorageProfileOutput values.
 // You can construct a concrete instance of `ServerStorageProfileInput` via:
 //
-// 		 ServerStorageProfileArgs{...}
-//
+//          ServerStorageProfileArgs{...}
 type ServerStorageProfileInput interface {
 	pulumi.Input
 
@@ -75,12 +74,11 @@ func (i ServerStorageProfileArgs) ToServerStorageProfilePtrOutputWithContext(ctx
 // ServerStorageProfilePtrInput is an input type that accepts ServerStorageProfileArgs, ServerStorageProfilePtr and ServerStorageProfilePtrOutput values.
 // You can construct a concrete instance of `ServerStorageProfilePtrInput` via:
 //
-// 		 ServerStorageProfileArgs{...}
+//          ServerStorageProfileArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServerStorageProfilePtrInput interface {
 	pulumi.Input
 
@@ -230,8 +228,7 @@ type GetMariaDbServerStorageProfile struct {
 // GetMariaDbServerStorageProfileInput is an input type that accepts GetMariaDbServerStorageProfileArgs and GetMariaDbServerStorageProfileOutput values.
 // You can construct a concrete instance of `GetMariaDbServerStorageProfileInput` via:
 //
-// 		 GetMariaDbServerStorageProfileArgs{...}
-//
+//          GetMariaDbServerStorageProfileArgs{...}
 type GetMariaDbServerStorageProfileInput interface {
 	pulumi.Input
 
@@ -265,8 +262,7 @@ func (i GetMariaDbServerStorageProfileArgs) ToGetMariaDbServerStorageProfileOutp
 // GetMariaDbServerStorageProfileArrayInput is an input type that accepts GetMariaDbServerStorageProfileArray and GetMariaDbServerStorageProfileArrayOutput values.
 // You can construct a concrete instance of `GetMariaDbServerStorageProfileArrayInput` via:
 //
-// 		 GetMariaDbServerStorageProfileArray{ GetMariaDbServerStorageProfileArgs{...} }
-//
+//          GetMariaDbServerStorageProfileArray{ GetMariaDbServerStorageProfileArgs{...} }
 type GetMariaDbServerStorageProfileArrayInput interface {
 	pulumi.Input
 

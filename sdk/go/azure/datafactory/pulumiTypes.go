@@ -22,8 +22,7 @@ type DatasetMysqlSchemaColumn struct {
 // DatasetMysqlSchemaColumnInput is an input type that accepts DatasetMysqlSchemaColumnArgs and DatasetMysqlSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetMysqlSchemaColumnInput` via:
 //
-// 		 DatasetMysqlSchemaColumnArgs{...}
-//
+//          DatasetMysqlSchemaColumnArgs{...}
 type DatasetMysqlSchemaColumnInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i DatasetMysqlSchemaColumnArgs) ToDatasetMysqlSchemaColumnOutputWithContex
 // DatasetMysqlSchemaColumnArrayInput is an input type that accepts DatasetMysqlSchemaColumnArray and DatasetMysqlSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetMysqlSchemaColumnArrayInput` via:
 //
-// 		 DatasetMysqlSchemaColumnArray{ DatasetMysqlSchemaColumnArgs{...} }
-//
+//          DatasetMysqlSchemaColumnArray{ DatasetMysqlSchemaColumnArgs{...} }
 type DatasetMysqlSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -139,8 +137,7 @@ type DatasetPostgresqlSchemaColumn struct {
 // DatasetPostgresqlSchemaColumnInput is an input type that accepts DatasetPostgresqlSchemaColumnArgs and DatasetPostgresqlSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetPostgresqlSchemaColumnInput` via:
 //
-// 		 DatasetPostgresqlSchemaColumnArgs{...}
-//
+//          DatasetPostgresqlSchemaColumnArgs{...}
 type DatasetPostgresqlSchemaColumnInput interface {
 	pulumi.Input
 
@@ -172,8 +169,7 @@ func (i DatasetPostgresqlSchemaColumnArgs) ToDatasetPostgresqlSchemaColumnOutput
 // DatasetPostgresqlSchemaColumnArrayInput is an input type that accepts DatasetPostgresqlSchemaColumnArray and DatasetPostgresqlSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetPostgresqlSchemaColumnArrayInput` via:
 //
-// 		 DatasetPostgresqlSchemaColumnArray{ DatasetPostgresqlSchemaColumnArgs{...} }
-//
+//          DatasetPostgresqlSchemaColumnArray{ DatasetPostgresqlSchemaColumnArgs{...} }
 type DatasetPostgresqlSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -256,8 +252,7 @@ type DatasetSqlServerTableSchemaColumn struct {
 // DatasetSqlServerTableSchemaColumnInput is an input type that accepts DatasetSqlServerTableSchemaColumnArgs and DatasetSqlServerTableSchemaColumnOutput values.
 // You can construct a concrete instance of `DatasetSqlServerTableSchemaColumnInput` via:
 //
-// 		 DatasetSqlServerTableSchemaColumnArgs{...}
-//
+//          DatasetSqlServerTableSchemaColumnArgs{...}
 type DatasetSqlServerTableSchemaColumnInput interface {
 	pulumi.Input
 
@@ -289,8 +284,7 @@ func (i DatasetSqlServerTableSchemaColumnArgs) ToDatasetSqlServerTableSchemaColu
 // DatasetSqlServerTableSchemaColumnArrayInput is an input type that accepts DatasetSqlServerTableSchemaColumnArray and DatasetSqlServerTableSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `DatasetSqlServerTableSchemaColumnArrayInput` via:
 //
-// 		 DatasetSqlServerTableSchemaColumnArray{ DatasetSqlServerTableSchemaColumnArgs{...} }
-//
+//          DatasetSqlServerTableSchemaColumnArray{ DatasetSqlServerTableSchemaColumnArgs{...} }
 type DatasetSqlServerTableSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -377,8 +371,7 @@ type FactoryGithubConfiguration struct {
 // FactoryGithubConfigurationInput is an input type that accepts FactoryGithubConfigurationArgs and FactoryGithubConfigurationOutput values.
 // You can construct a concrete instance of `FactoryGithubConfigurationInput` via:
 //
-// 		 FactoryGithubConfigurationArgs{...}
-//
+//          FactoryGithubConfigurationArgs{...}
 type FactoryGithubConfigurationInput interface {
 	pulumi.Input
 
@@ -422,12 +415,11 @@ func (i FactoryGithubConfigurationArgs) ToFactoryGithubConfigurationPtrOutputWit
 // FactoryGithubConfigurationPtrInput is an input type that accepts FactoryGithubConfigurationArgs, FactoryGithubConfigurationPtr and FactoryGithubConfigurationPtrOutput values.
 // You can construct a concrete instance of `FactoryGithubConfigurationPtrInput` via:
 //
-// 		 FactoryGithubConfigurationArgs{...}
+//          FactoryGithubConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FactoryGithubConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -582,8 +574,7 @@ type FactoryIdentity struct {
 // FactoryIdentityInput is an input type that accepts FactoryIdentityArgs and FactoryIdentityOutput values.
 // You can construct a concrete instance of `FactoryIdentityInput` via:
 //
-// 		 FactoryIdentityArgs{...}
-//
+//          FactoryIdentityArgs{...}
 type FactoryIdentityInput interface {
 	pulumi.Input
 
@@ -623,12 +614,11 @@ func (i FactoryIdentityArgs) ToFactoryIdentityPtrOutputWithContext(ctx context.C
 // FactoryIdentityPtrInput is an input type that accepts FactoryIdentityArgs, FactoryIdentityPtr and FactoryIdentityPtrOutput values.
 // You can construct a concrete instance of `FactoryIdentityPtrInput` via:
 //
-// 		 FactoryIdentityArgs{...}
+//          FactoryIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FactoryIdentityPtrInput interface {
 	pulumi.Input
 
@@ -759,8 +749,7 @@ type FactoryVstsConfiguration struct {
 // FactoryVstsConfigurationInput is an input type that accepts FactoryVstsConfigurationArgs and FactoryVstsConfigurationOutput values.
 // You can construct a concrete instance of `FactoryVstsConfigurationInput` via:
 //
-// 		 FactoryVstsConfigurationArgs{...}
-//
+//          FactoryVstsConfigurationArgs{...}
 type FactoryVstsConfigurationInput interface {
 	pulumi.Input
 
@@ -806,12 +795,11 @@ func (i FactoryVstsConfigurationArgs) ToFactoryVstsConfigurationPtrOutputWithCon
 // FactoryVstsConfigurationPtrInput is an input type that accepts FactoryVstsConfigurationArgs, FactoryVstsConfigurationPtr and FactoryVstsConfigurationPtrOutput values.
 // You can construct a concrete instance of `FactoryVstsConfigurationPtrInput` via:
 //
-// 		 FactoryVstsConfigurationArgs{...}
+//          FactoryVstsConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FactoryVstsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -983,8 +971,7 @@ type IntegrationRuntimeManagedCatalogInfo struct {
 // IntegrationRuntimeManagedCatalogInfoInput is an input type that accepts IntegrationRuntimeManagedCatalogInfoArgs and IntegrationRuntimeManagedCatalogInfoOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCatalogInfoInput` via:
 //
-// 		 IntegrationRuntimeManagedCatalogInfoArgs{...}
-//
+//          IntegrationRuntimeManagedCatalogInfoArgs{...}
 type IntegrationRuntimeManagedCatalogInfoInput interface {
 	pulumi.Input
 
@@ -1026,12 +1013,11 @@ func (i IntegrationRuntimeManagedCatalogInfoArgs) ToIntegrationRuntimeManagedCat
 // IntegrationRuntimeManagedCatalogInfoPtrInput is an input type that accepts IntegrationRuntimeManagedCatalogInfoArgs, IntegrationRuntimeManagedCatalogInfoPtr and IntegrationRuntimeManagedCatalogInfoPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCatalogInfoPtrInput` via:
 //
-// 		 IntegrationRuntimeManagedCatalogInfoArgs{...}
+//          IntegrationRuntimeManagedCatalogInfoArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type IntegrationRuntimeManagedCatalogInfoPtrInput interface {
 	pulumi.Input
 
@@ -1169,8 +1155,7 @@ type IntegrationRuntimeManagedCustomSetupScript struct {
 // IntegrationRuntimeManagedCustomSetupScriptInput is an input type that accepts IntegrationRuntimeManagedCustomSetupScriptArgs and IntegrationRuntimeManagedCustomSetupScriptOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCustomSetupScriptInput` via:
 //
-// 		 IntegrationRuntimeManagedCustomSetupScriptArgs{...}
-//
+//          IntegrationRuntimeManagedCustomSetupScriptArgs{...}
 type IntegrationRuntimeManagedCustomSetupScriptInput interface {
 	pulumi.Input
 
@@ -1208,12 +1193,11 @@ func (i IntegrationRuntimeManagedCustomSetupScriptArgs) ToIntegrationRuntimeMana
 // IntegrationRuntimeManagedCustomSetupScriptPtrInput is an input type that accepts IntegrationRuntimeManagedCustomSetupScriptArgs, IntegrationRuntimeManagedCustomSetupScriptPtr and IntegrationRuntimeManagedCustomSetupScriptPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedCustomSetupScriptPtrInput` via:
 //
-// 		 IntegrationRuntimeManagedCustomSetupScriptArgs{...}
+//          IntegrationRuntimeManagedCustomSetupScriptArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type IntegrationRuntimeManagedCustomSetupScriptPtrInput interface {
 	pulumi.Input
 
@@ -1323,8 +1307,7 @@ type IntegrationRuntimeManagedVnetIntegration struct {
 // IntegrationRuntimeManagedVnetIntegrationInput is an input type that accepts IntegrationRuntimeManagedVnetIntegrationArgs and IntegrationRuntimeManagedVnetIntegrationOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedVnetIntegrationInput` via:
 //
-// 		 IntegrationRuntimeManagedVnetIntegrationArgs{...}
-//
+//          IntegrationRuntimeManagedVnetIntegrationArgs{...}
 type IntegrationRuntimeManagedVnetIntegrationInput interface {
 	pulumi.Input
 
@@ -1362,12 +1345,11 @@ func (i IntegrationRuntimeManagedVnetIntegrationArgs) ToIntegrationRuntimeManage
 // IntegrationRuntimeManagedVnetIntegrationPtrInput is an input type that accepts IntegrationRuntimeManagedVnetIntegrationArgs, IntegrationRuntimeManagedVnetIntegrationPtr and IntegrationRuntimeManagedVnetIntegrationPtrOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedVnetIntegrationPtrInput` via:
 //
-// 		 IntegrationRuntimeManagedVnetIntegrationArgs{...}
+//          IntegrationRuntimeManagedVnetIntegrationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type IntegrationRuntimeManagedVnetIntegrationPtrInput interface {
 	pulumi.Input
 
@@ -1473,8 +1455,7 @@ type IntegrationRuntimeSelfHostedRbacAuthorization struct {
 // IntegrationRuntimeSelfHostedRbacAuthorizationInput is an input type that accepts IntegrationRuntimeSelfHostedRbacAuthorizationArgs and IntegrationRuntimeSelfHostedRbacAuthorizationOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSelfHostedRbacAuthorizationInput` via:
 //
-// 		 IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...}
-//
+//          IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...}
 type IntegrationRuntimeSelfHostedRbacAuthorizationInput interface {
 	pulumi.Input
 
@@ -1502,8 +1483,7 @@ func (i IntegrationRuntimeSelfHostedRbacAuthorizationArgs) ToIntegrationRuntimeS
 // IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput is an input type that accepts IntegrationRuntimeSelfHostedRbacAuthorizationArray and IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput` via:
 //
-// 		 IntegrationRuntimeSelfHostedRbacAuthorizationArray{ IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...} }
-//
+//          IntegrationRuntimeSelfHostedRbacAuthorizationArray{ IntegrationRuntimeSelfHostedRbacAuthorizationArgs{...} }
 type IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -1580,8 +1560,7 @@ type GetFactoryGithubConfiguration struct {
 // GetFactoryGithubConfigurationInput is an input type that accepts GetFactoryGithubConfigurationArgs and GetFactoryGithubConfigurationOutput values.
 // You can construct a concrete instance of `GetFactoryGithubConfigurationInput` via:
 //
-// 		 GetFactoryGithubConfigurationArgs{...}
-//
+//          GetFactoryGithubConfigurationArgs{...}
 type GetFactoryGithubConfigurationInput interface {
 	pulumi.Input
 
@@ -1617,8 +1596,7 @@ func (i GetFactoryGithubConfigurationArgs) ToGetFactoryGithubConfigurationOutput
 // GetFactoryGithubConfigurationArrayInput is an input type that accepts GetFactoryGithubConfigurationArray and GetFactoryGithubConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetFactoryGithubConfigurationArrayInput` via:
 //
-// 		 GetFactoryGithubConfigurationArray{ GetFactoryGithubConfigurationArgs{...} }
-//
+//          GetFactoryGithubConfigurationArray{ GetFactoryGithubConfigurationArgs{...} }
 type GetFactoryGithubConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1711,8 +1689,7 @@ type GetFactoryIdentity struct {
 // GetFactoryIdentityInput is an input type that accepts GetFactoryIdentityArgs and GetFactoryIdentityOutput values.
 // You can construct a concrete instance of `GetFactoryIdentityInput` via:
 //
-// 		 GetFactoryIdentityArgs{...}
-//
+//          GetFactoryIdentityArgs{...}
 type GetFactoryIdentityInput interface {
 	pulumi.Input
 
@@ -1744,8 +1721,7 @@ func (i GetFactoryIdentityArgs) ToGetFactoryIdentityOutputWithContext(ctx contex
 // GetFactoryIdentityArrayInput is an input type that accepts GetFactoryIdentityArray and GetFactoryIdentityArrayOutput values.
 // You can construct a concrete instance of `GetFactoryIdentityArrayInput` via:
 //
-// 		 GetFactoryIdentityArray{ GetFactoryIdentityArgs{...} }
-//
+//          GetFactoryIdentityArray{ GetFactoryIdentityArgs{...} }
 type GetFactoryIdentityArrayInput interface {
 	pulumi.Input
 
@@ -1834,8 +1810,7 @@ type GetFactoryVstsConfiguration struct {
 // GetFactoryVstsConfigurationInput is an input type that accepts GetFactoryVstsConfigurationArgs and GetFactoryVstsConfigurationOutput values.
 // You can construct a concrete instance of `GetFactoryVstsConfigurationInput` via:
 //
-// 		 GetFactoryVstsConfigurationArgs{...}
-//
+//          GetFactoryVstsConfigurationArgs{...}
 type GetFactoryVstsConfigurationInput interface {
 	pulumi.Input
 
@@ -1873,8 +1848,7 @@ func (i GetFactoryVstsConfigurationArgs) ToGetFactoryVstsConfigurationOutputWith
 // GetFactoryVstsConfigurationArrayInput is an input type that accepts GetFactoryVstsConfigurationArray and GetFactoryVstsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetFactoryVstsConfigurationArrayInput` via:
 //
-// 		 GetFactoryVstsConfigurationArray{ GetFactoryVstsConfigurationArgs{...} }
-//
+//          GetFactoryVstsConfigurationArray{ GetFactoryVstsConfigurationArgs{...} }
 type GetFactoryVstsConfigurationArrayInput interface {
 	pulumi.Input
 

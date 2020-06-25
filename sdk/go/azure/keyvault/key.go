@@ -11,6 +11,8 @@ import (
 )
 
 // Manages a Key Vault Key.
+//
+// ## Example Usage
 type Key struct {
 	pulumi.CustomResourceState
 

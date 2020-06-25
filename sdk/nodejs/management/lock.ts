@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
  *
  * ## Example Usage
- *
  * ### Subscription Level Lock)
  *
  * ```typescript
@@ -23,6 +22,19 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## Example Usage (Resource Group Level Lock)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const resource_group_level = new azure.management.Lock("resource-group-level", {
+ *     scope: example.id,
+ *     lockLevel: "ReadOnly",
+ *     notes: "This Resource Group is Read-Only",
+ * });
+ * ```
  * ### Resource Level Lock)
  *
  * ```typescript

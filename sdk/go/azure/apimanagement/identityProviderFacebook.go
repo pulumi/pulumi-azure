@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -43,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleIdentityProviderFacebook, err := apimanagement.NewIdentityProviderFacebook(ctx, "exampleIdentityProviderFacebook", &apimanagement.IdentityProviderFacebookArgs{
+// 		_, err = apimanagement.NewIdentityProviderFacebook(ctx, "exampleIdentityProviderFacebook", &apimanagement.IdentityProviderFacebookArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ApiManagementName: exampleService.Name,
 // 			AppId:             pulumi.String("00000000000000000000000000000000"),

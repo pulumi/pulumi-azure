@@ -13,7 +13,6 @@ namespace Pulumi.Azure.AppService
     /// Manages a Function App.
     /// 
     /// ## Example Usage
-    /// 
     /// ### With App Service Plan)
     /// 
     /// ```csharp
@@ -56,7 +55,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
-    /// 
     /// ### In A Consumption Plan)
     /// 
     /// ```csharp
@@ -100,7 +98,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
-    /// 
     /// ### Linux)
     /// 
     /// ```csharp

@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Function App.
  *
  * ## Example Usage
- *
  * ### With App Service Plan)
  *
  * ```typescript
@@ -39,7 +38,6 @@ import * as utilities from "../utilities";
  *     storageConnectionString: exampleAccount.primaryConnectionString,
  * });
  * ```
- *
  * ### In A Consumption Plan)
  *
  * ```typescript
@@ -69,7 +67,6 @@ import * as utilities from "../utilities";
  *     storageConnectionString: exampleAccount.primaryConnectionString,
  * });
  * ```
- *
  * ### Linux)
  *
  * ```typescript

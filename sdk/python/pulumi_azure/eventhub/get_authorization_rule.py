@@ -108,8 +108,6 @@ def get_authorization_rule(eventhub_name=None,listen=None,manage=None,name=None,
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

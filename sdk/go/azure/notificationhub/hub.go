@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -42,7 +40,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleHub, err := notificationhub.NewHub(ctx, "exampleHub", &notificationhub.HubArgs{
+// 		_, err = notificationhub.NewHub(ctx, "exampleHub", &notificationhub.HubArgs{
 // 			NamespaceName:     exampleNamespace.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,

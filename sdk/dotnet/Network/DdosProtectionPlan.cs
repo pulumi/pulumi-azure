@@ -16,8 +16,6 @@ namespace Pulumi.Azure.Network
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

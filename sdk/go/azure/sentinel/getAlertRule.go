@@ -11,12 +11,12 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/sentinel"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -29,7 +29,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleAlertRule, err := sentinel.LookupAlertRule(ctx, &sentinel.LookupAlertRuleArgs{
+// 		exampleAlertRule, err := sentinel.GetAlertRule(ctx, &sentinel.GetAlertRuleArgs{
 // 			Name:                    "existing",
 // 			LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.Id,
 // 		}, nil)

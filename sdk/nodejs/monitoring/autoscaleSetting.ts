@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -79,7 +77,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### Repeating On Weekends)
  *
  * ```typescript
@@ -158,7 +155,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ### For Fixed Dates)
  *
  * ```typescript

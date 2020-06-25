@@ -127,8 +127,6 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

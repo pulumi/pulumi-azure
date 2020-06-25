@@ -111,8 +111,6 @@ def get_database(name=None,resource_group_name=None,server_name=None,tags=None,o
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

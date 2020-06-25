@@ -62,8 +62,6 @@ class Server(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -84,6 +82,8 @@ class Server(pulumi.CustomResource):
                 "abc": 123,
             })
         ```
+
+        > **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

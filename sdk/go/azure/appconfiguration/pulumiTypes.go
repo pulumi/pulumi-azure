@@ -22,8 +22,7 @@ type ConfigurationStorePrimaryReadKey struct {
 // ConfigurationStorePrimaryReadKeyInput is an input type that accepts ConfigurationStorePrimaryReadKeyArgs and ConfigurationStorePrimaryReadKeyOutput values.
 // You can construct a concrete instance of `ConfigurationStorePrimaryReadKeyInput` via:
 //
-// 		 ConfigurationStorePrimaryReadKeyArgs{...}
-//
+//          ConfigurationStorePrimaryReadKeyArgs{...}
 type ConfigurationStorePrimaryReadKeyInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i ConfigurationStorePrimaryReadKeyArgs) ToConfigurationStorePrimaryReadKey
 // ConfigurationStorePrimaryReadKeyArrayInput is an input type that accepts ConfigurationStorePrimaryReadKeyArray and ConfigurationStorePrimaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStorePrimaryReadKeyArrayInput` via:
 //
-// 		 ConfigurationStorePrimaryReadKeyArray{ ConfigurationStorePrimaryReadKeyArgs{...} }
-//
+//          ConfigurationStorePrimaryReadKeyArray{ ConfigurationStorePrimaryReadKeyArgs{...} }
 type ConfigurationStorePrimaryReadKeyArrayInput interface {
 	pulumi.Input
 
@@ -139,8 +137,7 @@ type ConfigurationStorePrimaryWriteKey struct {
 // ConfigurationStorePrimaryWriteKeyInput is an input type that accepts ConfigurationStorePrimaryWriteKeyArgs and ConfigurationStorePrimaryWriteKeyOutput values.
 // You can construct a concrete instance of `ConfigurationStorePrimaryWriteKeyInput` via:
 //
-// 		 ConfigurationStorePrimaryWriteKeyArgs{...}
-//
+//          ConfigurationStorePrimaryWriteKeyArgs{...}
 type ConfigurationStorePrimaryWriteKeyInput interface {
 	pulumi.Input
 
@@ -172,8 +169,7 @@ func (i ConfigurationStorePrimaryWriteKeyArgs) ToConfigurationStorePrimaryWriteK
 // ConfigurationStorePrimaryWriteKeyArrayInput is an input type that accepts ConfigurationStorePrimaryWriteKeyArray and ConfigurationStorePrimaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStorePrimaryWriteKeyArrayInput` via:
 //
-// 		 ConfigurationStorePrimaryWriteKeyArray{ ConfigurationStorePrimaryWriteKeyArgs{...} }
-//
+//          ConfigurationStorePrimaryWriteKeyArray{ ConfigurationStorePrimaryWriteKeyArgs{...} }
 type ConfigurationStorePrimaryWriteKeyArrayInput interface {
 	pulumi.Input
 
@@ -256,8 +252,7 @@ type ConfigurationStoreSecondaryReadKey struct {
 // ConfigurationStoreSecondaryReadKeyInput is an input type that accepts ConfigurationStoreSecondaryReadKeyArgs and ConfigurationStoreSecondaryReadKeyOutput values.
 // You can construct a concrete instance of `ConfigurationStoreSecondaryReadKeyInput` via:
 //
-// 		 ConfigurationStoreSecondaryReadKeyArgs{...}
-//
+//          ConfigurationStoreSecondaryReadKeyArgs{...}
 type ConfigurationStoreSecondaryReadKeyInput interface {
 	pulumi.Input
 
@@ -289,8 +284,7 @@ func (i ConfigurationStoreSecondaryReadKeyArgs) ToConfigurationStoreSecondaryRea
 // ConfigurationStoreSecondaryReadKeyArrayInput is an input type that accepts ConfigurationStoreSecondaryReadKeyArray and ConfigurationStoreSecondaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStoreSecondaryReadKeyArrayInput` via:
 //
-// 		 ConfigurationStoreSecondaryReadKeyArray{ ConfigurationStoreSecondaryReadKeyArgs{...} }
-//
+//          ConfigurationStoreSecondaryReadKeyArray{ ConfigurationStoreSecondaryReadKeyArgs{...} }
 type ConfigurationStoreSecondaryReadKeyArrayInput interface {
 	pulumi.Input
 
@@ -373,8 +367,7 @@ type ConfigurationStoreSecondaryWriteKey struct {
 // ConfigurationStoreSecondaryWriteKeyInput is an input type that accepts ConfigurationStoreSecondaryWriteKeyArgs and ConfigurationStoreSecondaryWriteKeyOutput values.
 // You can construct a concrete instance of `ConfigurationStoreSecondaryWriteKeyInput` via:
 //
-// 		 ConfigurationStoreSecondaryWriteKeyArgs{...}
-//
+//          ConfigurationStoreSecondaryWriteKeyArgs{...}
 type ConfigurationStoreSecondaryWriteKeyInput interface {
 	pulumi.Input
 
@@ -406,8 +399,7 @@ func (i ConfigurationStoreSecondaryWriteKeyArgs) ToConfigurationStoreSecondaryWr
 // ConfigurationStoreSecondaryWriteKeyArrayInput is an input type that accepts ConfigurationStoreSecondaryWriteKeyArray and ConfigurationStoreSecondaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStoreSecondaryWriteKeyArrayInput` via:
 //
-// 		 ConfigurationStoreSecondaryWriteKeyArray{ ConfigurationStoreSecondaryWriteKeyArgs{...} }
-//
+//          ConfigurationStoreSecondaryWriteKeyArray{ ConfigurationStoreSecondaryWriteKeyArgs{...} }
 type ConfigurationStoreSecondaryWriteKeyArrayInput interface {
 	pulumi.Input
 
@@ -490,8 +482,7 @@ type GetConfigurationStorePrimaryReadKey struct {
 // GetConfigurationStorePrimaryReadKeyInput is an input type that accepts GetConfigurationStorePrimaryReadKeyArgs and GetConfigurationStorePrimaryReadKeyOutput values.
 // You can construct a concrete instance of `GetConfigurationStorePrimaryReadKeyInput` via:
 //
-// 		 GetConfigurationStorePrimaryReadKeyArgs{...}
-//
+//          GetConfigurationStorePrimaryReadKeyArgs{...}
 type GetConfigurationStorePrimaryReadKeyInput interface {
 	pulumi.Input
 
@@ -523,8 +514,7 @@ func (i GetConfigurationStorePrimaryReadKeyArgs) ToGetConfigurationStorePrimaryR
 // GetConfigurationStorePrimaryReadKeyArrayInput is an input type that accepts GetConfigurationStorePrimaryReadKeyArray and GetConfigurationStorePrimaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStorePrimaryReadKeyArrayInput` via:
 //
-// 		 GetConfigurationStorePrimaryReadKeyArray{ GetConfigurationStorePrimaryReadKeyArgs{...} }
-//
+//          GetConfigurationStorePrimaryReadKeyArray{ GetConfigurationStorePrimaryReadKeyArgs{...} }
 type GetConfigurationStorePrimaryReadKeyArrayInput interface {
 	pulumi.Input
 
@@ -607,8 +597,7 @@ type GetConfigurationStorePrimaryWriteKey struct {
 // GetConfigurationStorePrimaryWriteKeyInput is an input type that accepts GetConfigurationStorePrimaryWriteKeyArgs and GetConfigurationStorePrimaryWriteKeyOutput values.
 // You can construct a concrete instance of `GetConfigurationStorePrimaryWriteKeyInput` via:
 //
-// 		 GetConfigurationStorePrimaryWriteKeyArgs{...}
-//
+//          GetConfigurationStorePrimaryWriteKeyArgs{...}
 type GetConfigurationStorePrimaryWriteKeyInput interface {
 	pulumi.Input
 
@@ -640,8 +629,7 @@ func (i GetConfigurationStorePrimaryWriteKeyArgs) ToGetConfigurationStorePrimary
 // GetConfigurationStorePrimaryWriteKeyArrayInput is an input type that accepts GetConfigurationStorePrimaryWriteKeyArray and GetConfigurationStorePrimaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStorePrimaryWriteKeyArrayInput` via:
 //
-// 		 GetConfigurationStorePrimaryWriteKeyArray{ GetConfigurationStorePrimaryWriteKeyArgs{...} }
-//
+//          GetConfigurationStorePrimaryWriteKeyArray{ GetConfigurationStorePrimaryWriteKeyArgs{...} }
 type GetConfigurationStorePrimaryWriteKeyArrayInput interface {
 	pulumi.Input
 
@@ -724,8 +712,7 @@ type GetConfigurationStoreSecondaryReadKey struct {
 // GetConfigurationStoreSecondaryReadKeyInput is an input type that accepts GetConfigurationStoreSecondaryReadKeyArgs and GetConfigurationStoreSecondaryReadKeyOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreSecondaryReadKeyInput` via:
 //
-// 		 GetConfigurationStoreSecondaryReadKeyArgs{...}
-//
+//          GetConfigurationStoreSecondaryReadKeyArgs{...}
 type GetConfigurationStoreSecondaryReadKeyInput interface {
 	pulumi.Input
 
@@ -757,8 +744,7 @@ func (i GetConfigurationStoreSecondaryReadKeyArgs) ToGetConfigurationStoreSecond
 // GetConfigurationStoreSecondaryReadKeyArrayInput is an input type that accepts GetConfigurationStoreSecondaryReadKeyArray and GetConfigurationStoreSecondaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreSecondaryReadKeyArrayInput` via:
 //
-// 		 GetConfigurationStoreSecondaryReadKeyArray{ GetConfigurationStoreSecondaryReadKeyArgs{...} }
-//
+//          GetConfigurationStoreSecondaryReadKeyArray{ GetConfigurationStoreSecondaryReadKeyArgs{...} }
 type GetConfigurationStoreSecondaryReadKeyArrayInput interface {
 	pulumi.Input
 
@@ -841,8 +827,7 @@ type GetConfigurationStoreSecondaryWriteKey struct {
 // GetConfigurationStoreSecondaryWriteKeyInput is an input type that accepts GetConfigurationStoreSecondaryWriteKeyArgs and GetConfigurationStoreSecondaryWriteKeyOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreSecondaryWriteKeyInput` via:
 //
-// 		 GetConfigurationStoreSecondaryWriteKeyArgs{...}
-//
+//          GetConfigurationStoreSecondaryWriteKeyArgs{...}
 type GetConfigurationStoreSecondaryWriteKeyInput interface {
 	pulumi.Input
 
@@ -874,8 +859,7 @@ func (i GetConfigurationStoreSecondaryWriteKeyArgs) ToGetConfigurationStoreSecon
 // GetConfigurationStoreSecondaryWriteKeyArrayInput is an input type that accepts GetConfigurationStoreSecondaryWriteKeyArray and GetConfigurationStoreSecondaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreSecondaryWriteKeyArrayInput` via:
 //
-// 		 GetConfigurationStoreSecondaryWriteKeyArray{ GetConfigurationStoreSecondaryWriteKeyArgs{...} }
-//
+//          GetConfigurationStoreSecondaryWriteKeyArray{ GetConfigurationStoreSecondaryWriteKeyArgs{...} }
 type GetConfigurationStoreSecondaryWriteKeyArrayInput interface {
 	pulumi.Input
 

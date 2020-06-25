@@ -42,7 +42,7 @@ class JobSchedule(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        This is an example of just the Job Schedule.
 
         ```python
         import pulumi

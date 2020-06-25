@@ -43,10 +43,7 @@ class Property(pulumi.CustomResource):
         """
         Manages an API Management Property.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

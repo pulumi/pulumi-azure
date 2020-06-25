@@ -77,8 +77,6 @@ def get_storage_container(metadata=None,name=None,storage_account_name=None,opts
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

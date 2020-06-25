@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -40,7 +38,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleLinkedServiceSqlServer, err := datafactory.NewLinkedServiceSqlServer(ctx, "exampleLinkedServiceSqlServer", &datafactory.LinkedServiceSqlServerArgs{
+// 		_, err = datafactory.NewLinkedServiceSqlServer(ctx, "exampleLinkedServiceSqlServer", &datafactory.LinkedServiceSqlServerArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			DataFactoryName:   exampleFactory.Name,
 // 			ConnectionString:  pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"),

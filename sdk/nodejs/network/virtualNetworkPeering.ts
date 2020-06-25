@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
@@ -38,7 +36,6 @@ import * as utilities from "../utilities";
  *     remoteVirtualNetworkId: example_1VirtualNetwork.id,
  * });
  * ```
- *
  * ## Note
  *
  * Virtual Network peerings cannot be created, updated or deleted concurrently.

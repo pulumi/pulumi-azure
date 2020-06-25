@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Dns
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
@@ -42,7 +40,6 @@ namespace Pulumi.Azure.Dns
     /// 
     /// }
     /// ```
-    /// 
     /// ### Alias Record)
     /// 
     /// ```csharp

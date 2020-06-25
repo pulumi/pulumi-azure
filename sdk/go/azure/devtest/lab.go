@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,11 +31,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+// 		_, err = devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: map[string]interface{}{
-// 				"Sydney": "Australia",
+// 			Tags: pulumi.Map{
+// 				"Sydney": pulumi.String("Australia"),
 // 			},
 // 		})
 // 		if err != nil {

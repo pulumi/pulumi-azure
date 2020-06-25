@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * This example provisions a Windows App Service.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

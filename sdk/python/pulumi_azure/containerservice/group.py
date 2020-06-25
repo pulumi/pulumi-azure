@@ -140,7 +140,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        This example provisions a Basic Container.
 
         ```python
         import pulumi

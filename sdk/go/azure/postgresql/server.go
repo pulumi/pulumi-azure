@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,7 +31,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+// 		_, err = postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
 // 			Location:                     exampleResourceGroup.Location,
 // 			ResourceGroupName:            exampleResourceGroup.Name,
 // 			AdministratorLogin:           pulumi.String("psqladminun"),

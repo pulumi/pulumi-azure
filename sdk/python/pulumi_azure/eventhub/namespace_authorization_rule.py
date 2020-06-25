@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule", DeprecationWarning)
 
+
 class NamespaceAuthorizationRule(pulumi.CustomResource):
     listen: pulumi.Output[bool]
     """
@@ -53,13 +54,12 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     Grants send access to this this Authorization Rule. Defaults to `false`.
     """
     warnings.warn("azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

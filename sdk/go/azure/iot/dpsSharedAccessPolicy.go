@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -44,7 +42,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleDpsSharedAccessPolicy, err := iot.NewDpsSharedAccessPolicy(ctx, "exampleDpsSharedAccessPolicy", &iot.DpsSharedAccessPolicyArgs{
+// 		_, err = iot.NewDpsSharedAccessPolicy(ctx, "exampleDpsSharedAccessPolicy", &iot.DpsSharedAccessPolicyArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			IothubDpsName:     exampleIotHubDps.Name,
 // 			EnrollmentWrite:   pulumi.Bool(true),

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * This example provisions a basic Windows Virtual Machine on an internal network.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

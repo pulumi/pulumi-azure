@@ -70,8 +70,6 @@ def get_app_service_environment(name=None,resource_group_name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -57,8 +57,6 @@ def get_shared_image_versions(gallery_name=None,image_name=None,resource_group_n
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

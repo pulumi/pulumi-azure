@@ -11,6 +11,59 @@ import (
 )
 
 // Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("eastus"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			TenantId:          pulumi.String(current.TenantId),
+// 			SkuName:           pulumi.String("standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datafactory.NewLinkedServiceKeyVault(ctx, "exampleLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			DataFactoryName:   exampleFactory.Name,
+// 			KeyVaultId:        exampleKeyVault.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LinkedServiceKeyVault struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
 
+
 class QueueAuthorizationRule(pulumi.CustomResource):
     listen: pulumi.Output[bool]
     """
@@ -57,13 +58,12 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
     """
     warnings.warn("azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, queue_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

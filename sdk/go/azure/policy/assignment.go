@@ -11,6 +11,52 @@ import (
 )
 
 // Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/policy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+// 			PolicyType:  pulumi.String("Custom"),
+// 			Mode:        pulumi.String("All"),
+// 			DisplayName: pulumi.String("my-policy-definition"),
+// 			PolicyRule: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"if\": {\n", "      \"not\": {\n", "        \"field\": \"location\",\n", "        \"in\": \"[parameters('allowedLocations')]\"\n", "      }\n", "    },\n", "    \"then\": {\n", "      \"effect\": \"audit\"\n", "    }\n", "  }\n")),
+// 			Parameters: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"allowedLocations\": {\n", "      \"type\": \"Array\",\n", "      \"metadata\": {\n", "        \"description\": \"The list of allowed locations for resources.\",\n", "        \"displayName\": \"Allowed locations\",\n", "        \"strongType\": \"location\"\n", "      }\n", "    }\n", "  }\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = policy.NewAssignment(ctx, "exampleAssignment", &policy.AssignmentArgs{
+// 			Scope:              exampleResourceGroup.ID(),
+// 			PolicyDefinitionId: exampleDefinition.ID(),
+// 			Description:        pulumi.String("Policy Assignment created via an Acceptance Test"),
+// 			DisplayName:        pulumi.String("My Example Policy Assignment"),
+// 			Parameters:         pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"allowedLocations\": {\n", "    \"value\": [ \"West Europe\" ]\n", "  }\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Assignment struct {
 	pulumi.CustomResourceState
 

@@ -86,8 +86,6 @@ def get_definition(name=None,scope_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

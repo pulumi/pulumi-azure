@@ -16,8 +16,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

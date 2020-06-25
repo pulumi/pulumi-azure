@@ -26,8 +26,7 @@ type HubApnsCredential struct {
 // HubApnsCredentialInput is an input type that accepts HubApnsCredentialArgs and HubApnsCredentialOutput values.
 // You can construct a concrete instance of `HubApnsCredentialInput` via:
 //
-// 		 HubApnsCredentialArgs{...}
-//
+//          HubApnsCredentialArgs{...}
 type HubApnsCredentialInput interface {
 	pulumi.Input
 
@@ -71,12 +70,11 @@ func (i HubApnsCredentialArgs) ToHubApnsCredentialPtrOutputWithContext(ctx conte
 // HubApnsCredentialPtrInput is an input type that accepts HubApnsCredentialArgs, HubApnsCredentialPtr and HubApnsCredentialPtrOutput values.
 // You can construct a concrete instance of `HubApnsCredentialPtrInput` via:
 //
-// 		 HubApnsCredentialArgs{...}
+//          HubApnsCredentialArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type HubApnsCredentialPtrInput interface {
 	pulumi.Input
 
@@ -227,8 +225,7 @@ type HubGcmCredential struct {
 // HubGcmCredentialInput is an input type that accepts HubGcmCredentialArgs and HubGcmCredentialOutput values.
 // You can construct a concrete instance of `HubGcmCredentialInput` via:
 //
-// 		 HubGcmCredentialArgs{...}
-//
+//          HubGcmCredentialArgs{...}
 type HubGcmCredentialInput interface {
 	pulumi.Input
 
@@ -264,12 +261,11 @@ func (i HubGcmCredentialArgs) ToHubGcmCredentialPtrOutputWithContext(ctx context
 // HubGcmCredentialPtrInput is an input type that accepts HubGcmCredentialArgs, HubGcmCredentialPtr and HubGcmCredentialPtrOutput values.
 // You can construct a concrete instance of `HubGcmCredentialPtrInput` via:
 //
-// 		 HubGcmCredentialArgs{...}
+//          HubGcmCredentialArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type HubGcmCredentialPtrInput interface {
 	pulumi.Input
 
@@ -368,8 +364,7 @@ type GetHubApnsCredential struct {
 // GetHubApnsCredentialInput is an input type that accepts GetHubApnsCredentialArgs and GetHubApnsCredentialOutput values.
 // You can construct a concrete instance of `GetHubApnsCredentialInput` via:
 //
-// 		 GetHubApnsCredentialArgs{...}
-//
+//          GetHubApnsCredentialArgs{...}
 type GetHubApnsCredentialInput interface {
 	pulumi.Input
 
@@ -405,8 +400,7 @@ func (i GetHubApnsCredentialArgs) ToGetHubApnsCredentialOutputWithContext(ctx co
 // GetHubApnsCredentialArrayInput is an input type that accepts GetHubApnsCredentialArray and GetHubApnsCredentialArrayOutput values.
 // You can construct a concrete instance of `GetHubApnsCredentialArrayInput` via:
 //
-// 		 GetHubApnsCredentialArray{ GetHubApnsCredentialArgs{...} }
-//
+//          GetHubApnsCredentialArray{ GetHubApnsCredentialArgs{...} }
 type GetHubApnsCredentialArrayInput interface {
 	pulumi.Input
 
@@ -495,8 +489,7 @@ type GetHubGcmCredential struct {
 // GetHubGcmCredentialInput is an input type that accepts GetHubGcmCredentialArgs and GetHubGcmCredentialOutput values.
 // You can construct a concrete instance of `GetHubGcmCredentialInput` via:
 //
-// 		 GetHubGcmCredentialArgs{...}
-//
+//          GetHubGcmCredentialArgs{...}
 type GetHubGcmCredentialInput interface {
 	pulumi.Input
 
@@ -524,8 +517,7 @@ func (i GetHubGcmCredentialArgs) ToGetHubGcmCredentialOutputWithContext(ctx cont
 // GetHubGcmCredentialArrayInput is an input type that accepts GetHubGcmCredentialArray and GetHubGcmCredentialArrayOutput values.
 // You can construct a concrete instance of `GetHubGcmCredentialArrayInput` via:
 //
-// 		 GetHubGcmCredentialArray{ GetHubGcmCredentialArgs{...} }
-//
+//          GetHubGcmCredentialArray{ GetHubGcmCredentialArgs{...} }
 type GetHubGcmCredentialArrayInput interface {
 	pulumi.Input
 
@@ -594,8 +586,7 @@ type GetNamespaceSku struct {
 // GetNamespaceSkuInput is an input type that accepts GetNamespaceSkuArgs and GetNamespaceSkuOutput values.
 // You can construct a concrete instance of `GetNamespaceSkuInput` via:
 //
-// 		 GetNamespaceSkuArgs{...}
-//
+//          GetNamespaceSkuArgs{...}
 type GetNamespaceSkuInput interface {
 	pulumi.Input
 

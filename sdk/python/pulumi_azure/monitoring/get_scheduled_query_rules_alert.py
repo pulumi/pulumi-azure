@@ -131,8 +131,6 @@ def get_scheduled_query_rules_alert(name=None,resource_group_name=None,opts=None
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

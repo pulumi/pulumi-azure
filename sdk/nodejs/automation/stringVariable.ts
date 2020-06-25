@@ -7,10 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a string variable in Azure Automation
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

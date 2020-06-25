@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * This example provisions a Standard Redis Cache.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  *     redis_configuration: {},
  * });
  * ```
- *
  * ## Default Redis Configuration Values
  *
  * | Redis Value                     | Basic        | Standard     | Premium      |
@@ -43,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
  *
- * ---
+ * ***
  *
  * A `patchSchedule` block supports the following:
  *

@@ -49,8 +49,6 @@ def get_recommendations(filter_by_categories=None,filter_by_resource_groups=None
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure
