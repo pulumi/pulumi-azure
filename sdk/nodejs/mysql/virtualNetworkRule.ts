@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const internal = new azure.network.Subnet("internal", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.7.29.0/29",
+ *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
  * const exampleServer = new azure.mysql.Server("exampleServer", {
@@ -32,14 +32,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     skuName: "B_Gen5_2",
+ *     storageMb: 5120,
  *     version: "5.7",
- *     sslEnforcement: "Enabled",
- *     skuName: "GP_Gen5_2",
- *     storage_profile: {
- *         storageMb: 5120,
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *     },
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackupEnabled: false,
+ *     sslEnforcementEnabled: true,
  * });
  * const exampleVirtualNetworkRule = new azure.mysql.VirtualNetworkRule("exampleVirtualNetworkRule", {
  *     resourceGroupName: exampleResourceGroup.name,

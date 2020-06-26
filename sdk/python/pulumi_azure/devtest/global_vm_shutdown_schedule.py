@@ -89,7 +89,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             location=example_resource_group.location,
             enabled=True,
             daily_recurrence_time="1100",
-            time_zone="Pacific Standard Time",
+            timezone="Pacific Standard Time",
             notification_settings={
                 "enabled": True,
                 "timeInMinutes": "60",

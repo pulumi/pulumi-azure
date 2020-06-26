@@ -30,6 +30,18 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? OperationName;
         /// <summary>
+        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        /// </summary>
+        public readonly string? RecommendationCategory;
+        /// <summary>
+        /// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+        /// </summary>
+        public readonly string? RecommendationImpact;
+        /// <summary>
+        /// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        /// </summary>
+        public readonly string? RecommendationType;
+        /// <summary>
         /// The name of resource group monitored by the activity log alert.
         /// </summary>
         public readonly string? ResourceGroup;
@@ -64,6 +76,12 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string? operationName,
 
+            string? recommendationCategory,
+
+            string? recommendationImpact,
+
+            string? recommendationType,
+
             string? resourceGroup,
 
             string? resourceId,
@@ -80,6 +98,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
             Category = category;
             Level = level;
             OperationName = operationName;
+            RecommendationCategory = recommendationCategory;
+            RecommendationImpact = recommendationImpact;
+            RecommendationType = recommendationType;
             ResourceGroup = resourceGroup;
             ResourceId = resourceId;
             ResourceProvider = resourceProvider;

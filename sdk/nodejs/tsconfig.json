@@ -571,6 +571,7 @@
         "policy/index.ts",
         "policy/policySetDefinition.ts",
         "policy/remediation.ts",
+        "postgresql/activeDirectoryAdministrator.ts",
         "postgresql/configuration.ts",
         "postgresql/database.ts",
         "postgresql/firewallRule.ts",

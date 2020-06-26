@@ -93,6 +93,8 @@ type Api struct {
 	SoapPassThrough pulumi.BoolPtrOutput `pulumi:"soapPassThrough"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesOutput `pulumi:"subscriptionKeyParameterNames"`
+	// Should this API require a subscription key?
+	SubscriptionRequired pulumi.BoolOutput `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.
@@ -173,6 +175,8 @@ type apiState struct {
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
+	// Should this API require a subscription key?
+	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.
@@ -208,6 +212,8 @@ type ApiState struct {
 	SoapPassThrough pulumi.BoolPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
+	// Should this API require a subscription key?
+	SubscriptionRequired pulumi.BoolPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
@@ -243,6 +249,8 @@ type apiArgs struct {
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
+	// Should this API require a subscription key?
+	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version *string `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.
@@ -275,6 +283,8 @@ type ApiArgs struct {
 	SoapPassThrough pulumi.BoolPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
+	// Should this API require a subscription key?
+	SubscriptionRequired pulumi.BoolPtrInput
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.

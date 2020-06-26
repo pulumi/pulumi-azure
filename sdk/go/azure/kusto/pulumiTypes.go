@@ -10,6 +10,194 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ClusterIdentity struct {
+	// The list of user identities associated with the Kusto cluster.
+	IdentityIds []string `pulumi:"identityIds"`
+	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+	PrincipalId *string `pulumi:"principalId"`
+	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+	Type string `pulumi:"type"`
+}
+
+// ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
+// You can construct a concrete instance of `ClusterIdentityInput` via:
+//
+//          ClusterIdentityArgs{...}
+type ClusterIdentityInput interface {
+	pulumi.Input
+
+	ToClusterIdentityOutput() ClusterIdentityOutput
+	ToClusterIdentityOutputWithContext(context.Context) ClusterIdentityOutput
+}
+
+type ClusterIdentityArgs struct {
+	// The list of user identities associated with the Kusto cluster.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentity)(nil)).Elem()
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityOutput() ClusterIdentityOutput {
+	return i.ToClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Context) ClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput).ToClusterIdentityPtrOutputWithContext(ctx)
+}
+
+// ClusterIdentityPtrInput is an input type that accepts ClusterIdentityArgs, ClusterIdentityPtr and ClusterIdentityPtrOutput values.
+// You can construct a concrete instance of `ClusterIdentityPtrInput` via:
+//
+//          ClusterIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterIdentityPtrInput interface {
+	pulumi.Input
+
+	ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput
+	ToClusterIdentityPtrOutputWithContext(context.Context) ClusterIdentityPtrOutput
+}
+
+type clusterIdentityPtrType ClusterIdentityArgs
+
+func ClusterIdentityPtr(v *ClusterIdentityArgs) ClusterIdentityPtrInput {
+	return (*clusterIdentityPtrType)(v)
+}
+
+func (*clusterIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterIdentity)(nil)).Elem()
+}
+
+func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPtrOutput)
+}
+
+type ClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (ClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentity)(nil)).Elem()
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityOutput() ClusterIdentityOutput {
+	return o
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityOutputWithContext(ctx context.Context) ClusterIdentityOutput {
+	return o
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return o.ToClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return o.ApplyT(func(v ClusterIdentity) *ClusterIdentity {
+		return &v
+	}).(ClusterIdentityPtrOutput)
+}
+
+// The list of user identities associated with the Kusto cluster.
+func (o ClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+func (o ClusterIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+func (o ClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+func (o ClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClusterIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterIdentity)(nil)).Elem()
+}
+
+func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
+	return o.ApplyT(func(v *ClusterIdentity) ClusterIdentity { return *v }).(ClusterIdentityOutput)
+}
+
+// The list of user identities associated with the Kusto cluster.
+func (o ClusterIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+func (o ClusterIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+func (o ClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterSku struct {
 	// Specifies the node count for the cluster. Boundaries depend on the sku name.
 	Capacity int `pulumi:"capacity"`
@@ -160,7 +348,180 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterVirtualNetworkConfiguration struct {
+	// Data management's service public IP address resource id.
+	DataManagementPublicIpId string `pulumi:"dataManagementPublicIpId"`
+	// Engine service's public IP address resource id.
+	EnginePublicIpId string `pulumi:"enginePublicIpId"`
+	// The subnet resource id.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ClusterVirtualNetworkConfigurationInput is an input type that accepts ClusterVirtualNetworkConfigurationArgs and ClusterVirtualNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ClusterVirtualNetworkConfigurationInput` via:
+//
+//          ClusterVirtualNetworkConfigurationArgs{...}
+type ClusterVirtualNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterVirtualNetworkConfigurationOutput() ClusterVirtualNetworkConfigurationOutput
+	ToClusterVirtualNetworkConfigurationOutputWithContext(context.Context) ClusterVirtualNetworkConfigurationOutput
+}
+
+type ClusterVirtualNetworkConfigurationArgs struct {
+	// Data management's service public IP address resource id.
+	DataManagementPublicIpId pulumi.StringInput `pulumi:"dataManagementPublicIpId"`
+	// Engine service's public IP address resource id.
+	EnginePublicIpId pulumi.StringInput `pulumi:"enginePublicIpId"`
+	// The subnet resource id.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ClusterVirtualNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationOutput() ClusterVirtualNetworkConfigurationOutput {
+	return i.ToClusterVirtualNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationOutput)
+}
+
+func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
+	return i.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationOutput).ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterVirtualNetworkConfigurationPtrInput is an input type that accepts ClusterVirtualNetworkConfigurationArgs, ClusterVirtualNetworkConfigurationPtr and ClusterVirtualNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterVirtualNetworkConfigurationPtrInput` via:
+//
+//          ClusterVirtualNetworkConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterVirtualNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput
+	ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Context) ClusterVirtualNetworkConfigurationPtrOutput
+}
+
+type clusterVirtualNetworkConfigurationPtrType ClusterVirtualNetworkConfigurationArgs
+
+func ClusterVirtualNetworkConfigurationPtr(v *ClusterVirtualNetworkConfigurationArgs) ClusterVirtualNetworkConfigurationPtrInput {
+	return (*clusterVirtualNetworkConfigurationPtrType)(v)
+}
+
+func (*clusterVirtualNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *clusterVirtualNetworkConfigurationPtrType) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
+	return i.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVirtualNetworkConfigurationPtrType) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationPtrOutput)
+}
+
+type ClusterVirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterVirtualNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationOutput() ClusterVirtualNetworkConfigurationOutput {
+	return o
+}
+
+func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationOutput {
+	return o
+}
+
+func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
+	return o.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) *ClusterVirtualNetworkConfiguration {
+		return &v
+	}).(ClusterVirtualNetworkConfigurationPtrOutput)
+}
+
+// Data management's service public IP address resource id.
+func (o ClusterVirtualNetworkConfigurationOutput) DataManagementPublicIpId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.DataManagementPublicIpId }).(pulumi.StringOutput)
+}
+
+// Engine service's public IP address resource id.
+func (o ClusterVirtualNetworkConfigurationOutput) EnginePublicIpId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.EnginePublicIpId }).(pulumi.StringOutput)
+}
+
+// The subnet resource id.
+func (o ClusterVirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ClusterVirtualNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVirtualNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ClusterVirtualNetworkConfigurationPtrOutput) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterVirtualNetworkConfigurationPtrOutput) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterVirtualNetworkConfigurationPtrOutput) Elem() ClusterVirtualNetworkConfigurationOutput {
+	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) ClusterVirtualNetworkConfiguration { return *v }).(ClusterVirtualNetworkConfigurationOutput)
+}
+
+// Data management's service public IP address resource id.
+func (o ClusterVirtualNetworkConfigurationPtrOutput) DataManagementPublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataManagementPublicIpId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Engine service's public IP address resource id.
+func (o ClusterVirtualNetworkConfigurationPtrOutput) EnginePublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EnginePublicIpId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subnet resource id.
+func (o ClusterVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ClusterIdentityOutput{})
+	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationPtrOutput{})
 }

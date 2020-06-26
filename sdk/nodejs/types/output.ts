@@ -9175,7 +9175,7 @@ export namespace frontdoor {
          */
         redirectProtocol: string;
         /**
-         * Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+         * Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
          */
         redirectType: string;
     }
@@ -11366,6 +11366,25 @@ export namespace keyvault {
 }
 
 export namespace kusto {
+    export interface ClusterIdentity {
+        /**
+         * The list of user identities associated with the Kusto cluster.
+         */
+        identityIds: string[];
+        /**
+         * Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+         */
+        principalId: string;
+        /**
+         * Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+         */
+        type: string;
+    }
+
     export interface ClusterSku {
         /**
          * Specifies the node count for the cluster. Boundaries depend on the sku name.
@@ -11375,6 +11394,21 @@ export namespace kusto {
          * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
          */
         name: string;
+    }
+
+    export interface ClusterVirtualNetworkConfiguration {
+        /**
+         * Data management's service public IP address resource id.
+         */
+        dataManagementPublicIpId: string;
+        /**
+         * Engine service's public IP address resource id.
+         */
+        enginePublicIpId: string;
+        /**
+         * The subnet resource id.
+         */
+        subnetId: string;
     }
 }
 
@@ -12086,6 +12120,18 @@ export namespace monitoring {
          * The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
          */
         operationName?: string;
+        /**
+         * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         */
+        recommendationCategory?: string;
+        /**
+         * The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+         */
+        recommendationImpact?: string;
+        /**
+         * The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+         */
+        recommendationType?: string;
         /**
          * The name of resource group monitored by the activity log alert.
          */
@@ -15280,7 +15326,7 @@ export namespace privatelink {
          */
         id: string;
         /**
-         * Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+         * Specifies the Name of the Private DNS Zone Group. Changing this forces a new `privateDnsZoneGroup` resource to be created.
          */
         name: string;
         /**

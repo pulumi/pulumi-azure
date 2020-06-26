@@ -74,6 +74,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
     /**
+     * A identity block.
+     */
+    public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity>;
+    /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -97,6 +101,14 @@ export class Cluster extends pulumi.CustomResource {
      * The FQDN of the Azure Kusto Cluster.
      */
     public /*out*/ readonly uri!: pulumi.Output<string>;
+    /**
+     * A `virtualNetworkConfiguration` block as defined below.
+     */
+    public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
+    /**
+     * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -114,12 +126,15 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enableDiskEncryption"] = state ? state.enableDiskEncryption : undefined;
             inputs["enablePurge"] = state ? state.enablePurge : undefined;
             inputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["uri"] = state ? state.uri : undefined;
+            inputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
+            inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -131,11 +146,14 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
             inputs["enablePurge"] = args ? args.enablePurge : undefined;
             inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            inputs["zones"] = args ? args.zones : undefined;
             inputs["dataIngestionUri"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
@@ -171,6 +189,10 @@ export interface ClusterState {
      */
     readonly enableStreamingIngest?: pulumi.Input<boolean>;
     /**
+     * A identity block.
+     */
+    readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
+    /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -194,6 +216,14 @@ export interface ClusterState {
      * The FQDN of the Azure Kusto Cluster.
      */
     readonly uri?: pulumi.Input<string>;
+    /**
+     * A `virtualNetworkConfiguration` block as defined below.
+     */
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
+    /**
+     * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+     */
+    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -212,6 +242,10 @@ export interface ClusterArgs {
      * Specifies if the streaming ingest is enabled.
      */
     readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    /**
+     * A identity block.
+     */
+    readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
@@ -232,4 +266,12 @@ export interface ClusterArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `virtualNetworkConfiguration` block as defined below.
+     */
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
+    /**
+     * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+     */
+    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

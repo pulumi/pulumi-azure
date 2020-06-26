@@ -4615,6 +4615,12 @@ type ActivityLogAlertCriteria struct {
 	Level *string `pulumi:"level"`
 	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 	OperationName *string `pulumi:"operationName"`
+	// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+	RecommendationCategory *string `pulumi:"recommendationCategory"`
+	// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+	RecommendationImpact *string `pulumi:"recommendationImpact"`
+	// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+	RecommendationType *string `pulumi:"recommendationType"`
 	// The name of resource group monitored by the activity log alert.
 	ResourceGroup *string `pulumi:"resourceGroup"`
 	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
@@ -4649,6 +4655,12 @@ type ActivityLogAlertCriteriaArgs struct {
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+	RecommendationCategory pulumi.StringPtrInput `pulumi:"recommendationCategory"`
+	// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+	RecommendationImpact pulumi.StringPtrInput `pulumi:"recommendationImpact"`
+	// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+	RecommendationType pulumi.StringPtrInput `pulumi:"recommendationType"`
 	// The name of resource group monitored by the activity log alert.
 	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	// The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
@@ -4760,6 +4772,21 @@ func (o ActivityLogAlertCriteriaOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.OperationName }).(pulumi.StringPtrOutput)
 }
 
+// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+func (o ActivityLogAlertCriteriaOutput) RecommendationCategory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.RecommendationCategory }).(pulumi.StringPtrOutput)
+}
+
+// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+func (o ActivityLogAlertCriteriaOutput) RecommendationImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.RecommendationImpact }).(pulumi.StringPtrOutput)
+}
+
+// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+func (o ActivityLogAlertCriteriaOutput) RecommendationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.RecommendationType }).(pulumi.StringPtrOutput)
+}
+
 // The name of resource group monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
@@ -4845,6 +4872,36 @@ func (o ActivityLogAlertCriteriaPtrOutput) OperationName() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+func (o ActivityLogAlertCriteriaPtrOutput) RecommendationCategory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecommendationCategory
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+func (o ActivityLogAlertCriteriaPtrOutput) RecommendationImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecommendationImpact
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+func (o ActivityLogAlertCriteriaPtrOutput) RecommendationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecommendationType
 	}).(pulumi.StringPtrOutput)
 }
 

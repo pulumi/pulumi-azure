@@ -13,6 +13,66 @@ namespace Pulumi.Azure.MySql
     /// Manages a MySQL Virtual Network Rule.
     /// 
     /// &gt; **NOTE:** MySQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/mysql/concepts-data-access-and-security-vnet)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.7.29.0/29",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.7.29.0/29",
+    ///             },
+    ///             ServiceEndpoints = 
+    ///             {
+    ///                 "Microsoft.Sql",
+    ///             },
+    ///         });
+    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AdministratorLogin = "mysqladminun",
+    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             SkuName = "B_Gen5_2",
+    ///             StorageMb = 5120,
+    ///             Version = "5.7",
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackupEnabled = false,
+    ///             SslEnforcementEnabled = true,
+    ///         });
+    ///         var exampleVirtualNetworkRule = new Azure.MySql.VirtualNetworkRule("exampleVirtualNetworkRule", new Azure.MySql.VirtualNetworkRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             SubnetId = @internal.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {

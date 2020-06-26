@@ -104,7 +104,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly startTime!: pulumi.Output<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface ScheduleState {
      */
     readonly startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
      */
     readonly timezone?: pulumi.Input<string>;
     /**
@@ -270,7 +270,7 @@ export interface ScheduleArgs {
      */
     readonly startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
      */
     readonly timezone?: pulumi.Input<string>;
     /**

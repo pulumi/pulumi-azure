@@ -60,6 +60,8 @@ type Cluster struct {
 	EnablePurge pulumi.BoolPtrOutput `pulumi:"enablePurge"`
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
+	// A identity block.
+	Identity ClusterIdentityOutput `pulumi:"identity"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -72,6 +74,10 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringOutput `pulumi:"uri"`
+	// A `virtualNetworkConfiguration` block as defined below.
+	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
+	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -116,6 +122,8 @@ type clusterState struct {
 	EnablePurge *bool `pulumi:"enablePurge"`
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
+	// A identity block.
+	Identity *ClusterIdentity `pulumi:"identity"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -128,6 +136,10 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri *string `pulumi:"uri"`
+	// A `virtualNetworkConfiguration` block as defined below.
+	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
+	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 type ClusterState struct {
@@ -139,6 +151,8 @@ type ClusterState struct {
 	EnablePurge pulumi.BoolPtrInput
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput
+	// A identity block.
+	Identity ClusterIdentityPtrInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -151,6 +165,10 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringPtrInput
+	// A `virtualNetworkConfiguration` block as defined below.
+	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
+	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	Zones pulumi.StringArrayInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -164,6 +182,8 @@ type clusterArgs struct {
 	EnablePurge *bool `pulumi:"enablePurge"`
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
+	// A identity block.
+	Identity *ClusterIdentity `pulumi:"identity"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -174,6 +194,10 @@ type clusterArgs struct {
 	Sku ClusterSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `virtualNetworkConfiguration` block as defined below.
+	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
+	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -184,6 +208,8 @@ type ClusterArgs struct {
 	EnablePurge pulumi.BoolPtrInput
 	// Specifies if the streaming ingest is enabled.
 	EnableStreamingIngest pulumi.BoolPtrInput
+	// A identity block.
+	Identity ClusterIdentityPtrInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
@@ -194,6 +220,10 @@ type ClusterArgs struct {
 	Sku ClusterSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `virtualNetworkConfiguration` block as defined below.
+	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
+	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+	Zones pulumi.StringArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

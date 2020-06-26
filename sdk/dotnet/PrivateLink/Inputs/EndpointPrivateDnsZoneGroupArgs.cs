@@ -19,7 +19,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+        /// Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

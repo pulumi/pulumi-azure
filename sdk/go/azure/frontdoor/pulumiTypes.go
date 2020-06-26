@@ -2412,7 +2412,7 @@ type FrontdoorRoutingRuleRedirectConfiguration struct {
 	CustomQueryString *string `pulumi:"customQueryString"`
 	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
 	RedirectProtocol string `pulumi:"redirectProtocol"`
-	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
 	RedirectType string `pulumi:"redirectType"`
 }
 
@@ -2438,7 +2438,7 @@ type FrontdoorRoutingRuleRedirectConfigurationArgs struct {
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
 	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
 	RedirectProtocol pulumi.StringInput `pulumi:"redirectProtocol"`
-	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
 	RedirectType pulumi.StringInput `pulumi:"redirectType"`
 }
 
@@ -2544,7 +2544,7 @@ func (o FrontdoorRoutingRuleRedirectConfigurationOutput) RedirectProtocol() pulu
 	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
 }
 
-// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) RedirectType() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
 }
@@ -2619,7 +2619,7 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectProtocol() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
 		if v == nil {

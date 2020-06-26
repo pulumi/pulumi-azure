@@ -45,6 +45,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        /// </summary>
+        [Output("threatIntelMode")]
+        public Output<string?> ThreatIntelMode { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the availability zones in which the Azure Firewall should be created.
         /// </summary>
         [Output("zones")]
@@ -138,6 +144,12 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        /// </summary>
+        [Input("threatIntelMode")]
+        public Input<string>? ThreatIntelMode { get; set; }
+
         [Input("zones")]
         private InputList<string>? _zones;
 
@@ -198,6 +210,12 @@ namespace Pulumi.Azure.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+        /// </summary>
+        [Input("threatIntelMode")]
+        public Input<string>? ThreatIntelMode { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

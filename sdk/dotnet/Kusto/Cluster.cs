@@ -72,6 +72,12 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> EnableStreamingIngest { get; private set; } = null!;
 
         /// <summary>
+        /// A identity block.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ClusterIdentity> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -106,6 +112,18 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
+
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below.
+        /// </summary>
+        [Output("virtualNetworkConfiguration")]
+        public Output<Outputs.ClusterVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -172,6 +190,12 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? EnableStreamingIngest { get; set; }
 
         /// <summary>
+        /// A identity block.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -207,6 +231,24 @@ namespace Pulumi.Azure.Kusto
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below.
+        /// </summary>
+        [Input("virtualNetworkConfiguration")]
+        public Input<Inputs.ClusterVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public ClusterArgs()
         {
         }
@@ -237,6 +279,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("enableStreamingIngest")]
         public Input<bool>? EnableStreamingIngest { get; set; }
+
+        /// <summary>
+        /// A identity block.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -279,6 +327,24 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
+
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below.
+        /// </summary>
+        [Input("virtualNetworkConfiguration")]
+        public Input<Inputs.ClusterVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public ClusterState()
         {

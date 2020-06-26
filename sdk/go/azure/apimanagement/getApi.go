@@ -82,6 +82,8 @@ type LookupApiResult struct {
 	SoapPassThrough bool `pulumi:"soapPassThrough"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames []GetApiSubscriptionKeyParameterName `pulumi:"subscriptionKeyParameterNames"`
+	// Should this API require a subscription key?
+	SubscriptionRequired bool `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version string `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.

@@ -92,6 +92,10 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+     */
+    public readonly threatIntelMode!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the availability zones in which the Azure Firewall should be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
@@ -113,6 +117,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["threatIntelMode"] = state ? state.threatIntelMode : undefined;
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
@@ -127,6 +132,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
         if (!opts) {
@@ -165,6 +171,10 @@ export interface FirewallState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+     */
+    readonly threatIntelMode?: pulumi.Input<string>;
+    /**
      * Specifies the availability zones in which the Azure Firewall should be created.
      */
     readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
@@ -194,6 +204,10 @@ export interface FirewallArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
+     */
+    readonly threatIntelMode?: pulumi.Input<string>;
     /**
      * Specifies the availability zones in which the Azure Firewall should be created.
      */

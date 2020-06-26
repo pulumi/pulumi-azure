@@ -47,21 +47,19 @@ class VirtualNetworkRule(pulumi.CustomResource):
         internal = azure.network.Subnet("internal",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.7.29.0/29",
+            address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
         example_server = azure.mysql.Server("exampleServer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             administrator_login="mysqladminun",
             administrator_login_password="H@Sh1CoR3!",
+            sku_name="B_Gen5_2",
+            storage_mb=5120,
             version="5.7",
-            ssl_enforcement="Enabled",
-            sku_name="GP_Gen5_2",
-            storage_profile={
-                "storage_mb": 5120,
-                "backup_retention_days": 7,
-                "geoRedundantBackup": "Disabled",
-            })
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=False,
+            ssl_enforcement_enabled=True)
         example_virtual_network_rule = azure.mysql.VirtualNetworkRule("exampleVirtualNetworkRule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,

@@ -13,7 +13,7 @@ class GetApiResult:
     """
     A collection of values returned by getApi.
     """
-    def __init__(__self__, api_management_name=None, description=None, display_name=None, id=None, is_current=None, is_online=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, version=None, version_set_id=None):
+    def __init__(__self__, api_management_name=None, description=None, display_name=None, id=None, is_current=None, is_online=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, subscription_required=None, version=None, version_set_id=None):
         if api_management_name and not isinstance(api_management_name, str):
             raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
@@ -86,6 +86,12 @@ class GetApiResult:
         """
         A `subscription_key_parameter_names` block as documented below.
         """
+        if subscription_required and not isinstance(subscription_required, bool):
+            raise TypeError("Expected argument 'subscription_required' to be a bool")
+        __self__.subscription_required = subscription_required
+        """
+        Should this API require a subscription key?
+        """
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
@@ -118,6 +124,7 @@ class AwaitableGetApiResult(GetApiResult):
             service_url=self.service_url,
             soap_pass_through=self.soap_pass_through,
             subscription_key_parameter_names=self.subscription_key_parameter_names,
+            subscription_required=self.subscription_required,
             version=self.version,
             version_set_id=self.version_set_id)
 
@@ -172,5 +179,6 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
         service_url=__ret__.get('serviceUrl'),
         soap_pass_through=__ret__.get('soapPassThrough'),
         subscription_key_parameter_names=__ret__.get('subscriptionKeyParameterNames'),
+        subscription_required=__ret__.get('subscriptionRequired'),
         version=__ret__.get('version'),
         version_set_id=__ret__.get('versionSetId'))

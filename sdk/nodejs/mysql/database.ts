@@ -17,16 +17,18 @@ import * as utilities from "../utilities";
  * const exampleServer = new azure.mysql.Server("exampleServer", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
- *     storage_profile: {
- *         storageMb: 5120,
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *     },
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     skuName: "B_Gen5_2",
+ *     storageMb: 5120,
  *     version: "5.7",
- *     sslEnforcement: "Enabled",
+ *     autoGrowEnabled: true,
+ *     backupRetentionDays: 7,
+ *     geoRedundantBackupEnabled: true,
+ *     infrastructureEncryptionEnabled: true,
+ *     publicNetworkAccessEnabled: false,
+ *     sslEnforcementEnabled: true,
+ *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
  * const exampleDatabase = new azure.mysql.Database("exampleDatabase", {
  *     resourceGroupName: exampleResourceGroup.name,

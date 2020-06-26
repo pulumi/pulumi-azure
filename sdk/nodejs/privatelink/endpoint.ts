@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  * const service = new azure.network.Subnet("service", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.1.0/24",
+ *     addressPrefixes: ["10.0.1.0/24"],
  *     enforcePrivateLinkServiceNetworkPolicies: true,
  * });
  * const endpoint = new azure.network.Subnet("endpoint", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
+ *     addressPrefixes: ["10.0.2.0/24"],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {

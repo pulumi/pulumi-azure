@@ -111,6 +111,10 @@ export interface GetApiResult {
      */
     readonly subscriptionKeyParameterNames: outputs.apimanagement.GetApiSubscriptionKeyParameterName[];
     /**
+     * Should this API require a subscription key?
+     */
+    readonly subscriptionRequired: boolean;
+    /**
      * The Version number of this API, if this API is versioned.
      */
     readonly version: string;
