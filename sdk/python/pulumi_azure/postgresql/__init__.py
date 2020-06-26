@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .active_directory_administrator import *
 from .configuration import *
 from .database import *
 from .firewall_rule import *

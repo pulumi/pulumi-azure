@@ -143,6 +143,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.ApiSubscriptionKeyParameterNames> SubscriptionKeyParameterNames { get; private set; } = null!;
 
         /// <summary>
+        /// Should this API require a subscription key?
+        /// </summary>
+        [Output("subscriptionRequired")]
+        public Output<bool> SubscriptionRequired { get; private set; } = null!;
+
+        /// <summary>
         /// The Version number of this API, if this API is versioned.
         /// </summary>
         [Output("version")]
@@ -279,6 +285,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ApiSubscriptionKeyParameterNamesArgs>? SubscriptionKeyParameterNames { get; set; }
 
         /// <summary>
+        /// Should this API require a subscription key?
+        /// </summary>
+        [Input("subscriptionRequired")]
+        public Input<bool>? SubscriptionRequired { get; set; }
+
+        /// <summary>
         /// The Version number of this API, if this API is versioned.
         /// </summary>
         [Input("version")]
@@ -386,6 +398,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.ApiSubscriptionKeyParameterNamesGetArgs>? SubscriptionKeyParameterNames { get; set; }
+
+        /// <summary>
+        /// Should this API require a subscription key?
+        /// </summary>
+        [Input("subscriptionRequired")]
+        public Input<bool>? SubscriptionRequired { get; set; }
 
         /// <summary>
         /// The Version number of this API, if this API is versioned.

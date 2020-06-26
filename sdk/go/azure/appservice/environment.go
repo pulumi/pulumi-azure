@@ -59,9 +59,10 @@ import (
 // 			return err
 // 		}
 // 		_, err = appservice.NewEnvironment(ctx, "exampleEnvironment", &appservice.EnvironmentArgs{
-// 			SubnetId:            ase.ID(),
-// 			PricingTier:         pulumi.String("I2"),
-// 			FrontEndScaleFactor: pulumi.Int(10),
+// 			SubnetId:                  ase.ID(),
+// 			PricingTier:               pulumi.String("I2"),
+// 			FrontEndScaleFactor:       pulumi.Int(10),
+// 			InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
 // 			UserWhitelistedIpRanges: pulumi.StringArray{
 // 				pulumi.String("11.22.33.44/32"),
 // 				pulumi.String("55.66.77.0/24"),
@@ -79,7 +80,7 @@ type Environment struct {
 
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrOutput `pulumi:"frontEndScaleFactor"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
 	// The location where the App Service Environment exists.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -130,7 +131,7 @@ func GetEnvironment(ctx *pulumi.Context,
 type environmentState struct {
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// The location where the App Service Environment exists.
 	Location *string `pulumi:"location"`
@@ -151,7 +152,7 @@ type environmentState struct {
 type EnvironmentState struct {
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrInput
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrInput
 	// The location where the App Service Environment exists.
 	Location pulumi.StringPtrInput
@@ -176,7 +177,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -196,7 +197,7 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrInput
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrInput
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

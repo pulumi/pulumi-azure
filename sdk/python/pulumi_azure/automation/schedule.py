@@ -56,7 +56,7 @@ class Schedule(pulumi.CustomResource):
     """
     timezone: pulumi.Output[str]
     """
-    The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+    The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
     """
     week_days: pulumi.Output[list]
     """
@@ -102,7 +102,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
         :param pulumi.Input[list] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 
         The **monthly_occurrences** object supports the following:
@@ -170,7 +170,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
         :param pulumi.Input[list] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 
         The **monthly_occurrences** object supports the following:

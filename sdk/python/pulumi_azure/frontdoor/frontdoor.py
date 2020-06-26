@@ -129,7 +129,7 @@ class Frontdoor(pulumi.CustomResource):
         * `customPath` (`str`) - The path to retain as per the incoming request, or update in the URL for the redirection.
         * `customQueryString` (`str`) - Replace any existing query string from the incoming request URL.
         * `redirectProtocol` (`str`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
-        * `redirectType` (`str`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+        * `redirectType` (`str`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
     """
     tags: pulumi.Output[dict]
     """
@@ -283,7 +283,7 @@ class Frontdoor(pulumi.CustomResource):
             * `customPath` (`pulumi.Input[str]`) - The path to retain as per the incoming request, or update in the URL for the redirection.
             * `customQueryString` (`pulumi.Input[str]`) - Replace any existing query string from the incoming request URL.
             * `redirectProtocol` (`pulumi.Input[str]`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
-            * `redirectType` (`pulumi.Input[str]`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+            * `redirectType` (`pulumi.Input[str]`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -439,7 +439,7 @@ class Frontdoor(pulumi.CustomResource):
             * `customPath` (`pulumi.Input[str]`) - The path to retain as per the incoming request, or update in the URL for the redirection.
             * `customQueryString` (`pulumi.Input[str]`) - Replace any existing query string from the incoming request URL.
             * `redirectProtocol` (`pulumi.Input[str]`) - Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
-            * `redirectType` (`pulumi.Input[str]`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+            * `redirectType` (`pulumi.Input[str]`) - Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

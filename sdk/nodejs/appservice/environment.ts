@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     subnetId: ase.id,
  *     pricingTier: "I2",
  *     frontEndScaleFactor: 10,
+ *     internalLoadBalancingMode: "Web, Publishing",
  *     userWhitelistedIpRanges: [
  *         "11.22.33.44/32",
  *         "55.66.77.0/24",
@@ -73,7 +74,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly frontEndScaleFactor!: pulumi.Output<number | undefined>;
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
      */
     public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
     /**
@@ -161,7 +162,7 @@ export interface EnvironmentState {
      */
     readonly frontEndScaleFactor?: pulumi.Input<number>;
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
      */
     readonly internalLoadBalancingMode?: pulumi.Input<string>;
     /**
@@ -203,7 +204,7 @@ export interface EnvironmentArgs {
      */
     readonly frontEndScaleFactor?: pulumi.Input<number>;
     /**
-     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
      */
     readonly internalLoadBalancingMode?: pulumi.Input<string>;
     /**

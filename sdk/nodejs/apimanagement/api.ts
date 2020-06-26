@@ -122,6 +122,10 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly subscriptionKeyParameterNames!: pulumi.Output<outputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
+     * Should this API require a subscription key?
+     */
+    public readonly subscriptionRequired!: pulumi.Output<boolean>;
+    /**
      * The Version number of this API, if this API is versioned.
      */
     public readonly version!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class Api extends pulumi.CustomResource {
             inputs["serviceUrl"] = state ? state.serviceUrl : undefined;
             inputs["soapPassThrough"] = state ? state.soapPassThrough : undefined;
             inputs["subscriptionKeyParameterNames"] = state ? state.subscriptionKeyParameterNames : undefined;
+            inputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
             inputs["version"] = state ? state.version : undefined;
             inputs["versionSetId"] = state ? state.versionSetId : undefined;
         } else {
@@ -190,6 +195,7 @@ export class Api extends pulumi.CustomResource {
             inputs["serviceUrl"] = args ? args.serviceUrl : undefined;
             inputs["soapPassThrough"] = args ? args.soapPassThrough : undefined;
             inputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
+            inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["versionSetId"] = args ? args.versionSetId : undefined;
             inputs["isCurrent"] = undefined /*out*/;
@@ -267,6 +273,10 @@ export interface ApiState {
      */
     readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
+     * Should this API require a subscription key?
+     */
+    readonly subscriptionRequired?: pulumi.Input<boolean>;
+    /**
      * The Version number of this API, if this API is versioned.
      */
     readonly version?: pulumi.Input<string>;
@@ -328,6 +338,10 @@ export interface ApiArgs {
      * A `subscriptionKeyParameterNames` block as documented below.
      */
     readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
+    /**
+     * Should this API require a subscription key?
+     */
+    readonly subscriptionRequired?: pulumi.Input<boolean>;
     /**
      * The Version number of this API, if this API is versioned.
      */

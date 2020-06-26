@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     enabled: true,
  *     dailyRecurrenceTime: "1100",
- *     timeZone: "Pacific Standard Time",
+ *     timezone: "Pacific Standard Time",
  *     notification_settings: {
  *         enabled: true,
  *         timeInMinutes: "60",

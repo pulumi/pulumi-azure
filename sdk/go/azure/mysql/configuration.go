@@ -15,6 +15,57 @@ import (
 // ## Disclaimers
 //
 // > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mysql"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
+// 			Location:                        exampleResourceGroup.Location,
+// 			ResourceGroupName:               exampleResourceGroup.Name,
+// 			AdministratorLogin:              pulumi.String("mysqladminun"),
+// 			AdministratorLoginPassword:      pulumi.String("H@Sh1CoR3!"),
+// 			SkuName:                         pulumi.String("B_Gen5_2"),
+// 			StorageMb:                       pulumi.Int(5120),
+// 			Version:                         pulumi.String("5.7"),
+// 			AutoGrowEnabled:                 pulumi.Bool(true),
+// 			BackupRetentionDays:             pulumi.Int(7),
+// 			GeoRedundantBackupEnabled:       pulumi.Bool(true),
+// 			InfrastructureEncryptionEnabled: pulumi.Bool(true),
+// 			PublicNetworkAccessEnabled:      pulumi.Bool(false),
+// 			SslEnforcementEnabled:           pulumi.Bool(true),
+// 			SslMinimalTlsVersionEnforced:    pulumi.String("TLS1_2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = mysql.NewConfiguration(ctx, "exampleConfiguration", &mysql.ConfigurationArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServerName:        exampleServer.Name,
+// 			Value:             pulumi.String("600"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Configuration struct {
 	pulumi.CustomResourceState
 

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> RedirectProtocol { get; set; } = null!;
 
         /// <summary>
-        /// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`. Defaults to `Found`
+        /// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
         /// </summary>
         [Input("redirectType", required: true)]
         public Input<string> RedirectType { get; set; } = null!;

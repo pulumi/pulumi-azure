@@ -861,6 +861,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_postgresql_firewall_rule":        {Tok: azureResource(azurePostgresql, "FirewallRule")},
 			"azurerm_postgresql_server":               {Tok: azureResource(azurePostgresql, "Server")},
 			"azurerm_postgresql_virtual_network_rule": {Tok: azureResource(azurePostgresql, "VirtualNetworkRule")},
+			"azurerm_postgresql_active_directory_administrator": {
+				Tok: azureResource(azurePostgresql, "ActiveDirectoryAdministrator"),
+			},
 
 			// Policy
 			"azurerm_policy_assignment":     {Tok: azureResource(azurePolicy, "Assignment")},

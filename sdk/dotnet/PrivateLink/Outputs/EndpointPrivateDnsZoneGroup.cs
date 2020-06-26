@@ -18,7 +18,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+        /// Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

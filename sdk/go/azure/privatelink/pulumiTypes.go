@@ -376,7 +376,7 @@ func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) Index(i pulumi.IntInpu
 type EndpointPrivateDnsZoneGroup struct {
 	// The ID of the Private DNS Zone Config.
 	Id *string `pulumi:"id"`
-	// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+	// Specifies the Name of the Private DNS Zone Group. Changing this forces a new `privateDnsZoneGroup` resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
 	PrivateDnsZoneIds []string `pulumi:"privateDnsZoneIds"`
@@ -396,7 +396,7 @@ type EndpointPrivateDnsZoneGroupInput interface {
 type EndpointPrivateDnsZoneGroupArgs struct {
 	// The ID of the Private DNS Zone Config.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+	// Specifies the Name of the Private DNS Zone Group. Changing this forces a new `privateDnsZoneGroup` resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
 	PrivateDnsZoneIds pulumi.StringArrayInput `pulumi:"privateDnsZoneIds"`
@@ -484,7 +484,7 @@ func (o EndpointPrivateDnsZoneGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateDnsZoneGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+// Specifies the Name of the Private DNS Zone Group. Changing this forces a new `privateDnsZoneGroup` resource to be created.
 func (o EndpointPrivateDnsZoneGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointPrivateDnsZoneGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -522,7 +522,7 @@ func (o EndpointPrivateDnsZoneGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Name of the Private Service Connection. Changing this forces the a new `privateDnsZoneGroup` to be created.
+// Specifies the Name of the Private DNS Zone Group. Changing this forces a new `privateDnsZoneGroup` resource to be created.
 func (o EndpointPrivateDnsZoneGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateDnsZoneGroup) *string {
 		if v == nil {

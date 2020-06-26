@@ -37,6 +37,24 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string>? OperationName { get; set; }
 
         /// <summary>
+        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        /// </summary>
+        [Input("recommendationCategory")]
+        public Input<string>? RecommendationCategory { get; set; }
+
+        /// <summary>
+        /// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+        /// </summary>
+        [Input("recommendationImpact")]
+        public Input<string>? RecommendationImpact { get; set; }
+
+        /// <summary>
+        /// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        /// </summary>
+        [Input("recommendationType")]
+        public Input<string>? RecommendationType { get; set; }
+
+        /// <summary>
         /// The name of resource group monitored by the activity log alert.
         /// </summary>
         [Input("resourceGroup")]

@@ -128,6 +128,10 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApiSubscriptionKeyParameterNameResult> SubscriptionKeyParameterNames;
         /// <summary>
+        /// Should this API require a subscription key?
+        /// </summary>
+        public readonly bool SubscriptionRequired;
+        /// <summary>
         /// The Version number of this API, if this API is versioned.
         /// </summary>
         public readonly string Version;
@@ -166,6 +170,8 @@ namespace Pulumi.Azure.ApiManagement
 
             ImmutableArray<Outputs.GetApiSubscriptionKeyParameterNameResult> subscriptionKeyParameterNames,
 
+            bool subscriptionRequired,
+
             string version,
 
             string versionSetId)
@@ -184,6 +190,7 @@ namespace Pulumi.Azure.ApiManagement
             ServiceUrl = serviceUrl;
             SoapPassThrough = soapPassThrough;
             SubscriptionKeyParameterNames = subscriptionKeyParameterNames;
+            SubscriptionRequired = subscriptionRequired;
             Version = version;
             VersionSetId = versionSetId;
         }

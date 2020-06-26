@@ -26,7 +26,7 @@ class Endpoint(pulumi.CustomResource):
     A `private_dns_zone_group` block as defined below.
 
       * `id` (`str`) - The ID of the Private DNS Zone Config.
-      * `name` (`str`) - Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+      * `name` (`str`) - Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
       * `privateDnsZoneIds` (`list`) - Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
     """
     private_service_connection: pulumi.Output[dict]
@@ -74,12 +74,12 @@ class Endpoint(pulumi.CustomResource):
         service = azure.network.Subnet("service",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.1.0/24",
+            address_prefixes=["10.0.1.0/24"],
             enforce_private_link_service_network_policies=True)
         endpoint = azure.network.Subnet("endpoint",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.2.0/24",
+            address_prefixes=["10.0.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             sku="Standard",
@@ -127,7 +127,7 @@ class Endpoint(pulumi.CustomResource):
         The **private_dns_zone_group** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Private DNS Zone Config.
-          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
           * `privateDnsZoneIds` (`pulumi.Input[list]`) - Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
 
         The **private_service_connection** object supports the following:
@@ -214,7 +214,7 @@ class Endpoint(pulumi.CustomResource):
         The **private_dns_zone_group** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the Private DNS Zone Config.
-          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces the a new `private_dns_zone_group` to be created.
+          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
           * `privateDnsZoneIds` (`pulumi.Input[list]`) - Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
 
         The **private_service_connection** object supports the following:

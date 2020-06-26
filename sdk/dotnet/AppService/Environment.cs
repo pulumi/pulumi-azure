@@ -52,6 +52,7 @@ namespace Pulumi.Azure.AppService
     ///             SubnetId = ase.Id,
     ///             PricingTier = "I2",
     ///             FrontEndScaleFactor = 10,
+    ///             InternalLoadBalancingMode = "Web, Publishing",
     ///             UserWhitelistedIpRanges = 
     ///             {
     ///                 "11.22.33.44/32",
@@ -72,7 +73,7 @@ namespace Pulumi.Azure.AppService
         public Output<int?> FrontEndScaleFactor { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         /// </summary>
         [Output("internalLoadBalancingMode")]
         public Output<string?> InternalLoadBalancingMode { get; private set; } = null!;
@@ -172,7 +173,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? FrontEndScaleFactor { get; set; }
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         /// </summary>
         [Input("internalLoadBalancingMode")]
         public Input<string>? InternalLoadBalancingMode { get; set; }
@@ -239,7 +240,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? FrontEndScaleFactor { get; set; }
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web` and `Publishing`. Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         /// </summary>
         [Input("internalLoadBalancingMode")]
         public Input<string>? InternalLoadBalancingMode { get; set; }

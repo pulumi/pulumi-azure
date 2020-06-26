@@ -15,6 +15,48 @@ namespace Pulumi.Azure.MySql
     /// ## Disclaimers
     /// 
     /// &gt; **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AdministratorLogin = "mysqladminun",
+    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             SkuName = "B_Gen5_2",
+    ///             StorageMb = 5120,
+    ///             Version = "5.7",
+    ///             AutoGrowEnabled = true,
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackupEnabled = true,
+    ///             InfrastructureEncryptionEnabled = true,
+    ///             PublicNetworkAccessEnabled = false,
+    ///             SslEnforcementEnabled = true,
+    ///             SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///         });
+    ///         var exampleConfiguration = new Azure.MySql.Configuration("exampleConfiguration", new Azure.MySql.ConfigurationArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             Value = "600",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource
     {

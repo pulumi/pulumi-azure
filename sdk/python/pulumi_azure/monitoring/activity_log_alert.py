@@ -26,6 +26,9 @@ class ActivityLogAlert(pulumi.CustomResource):
       * `category` (`str`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
       * `level` (`str`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
       * `operationName` (`str`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+      * `recommendationCategory` (`str`) - The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+      * `recommendationImpact` (`str`) - The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+      * `recommendationType` (`str`) - The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
       * `resourceGroup` (`str`) - The name of resource group monitored by the activity log alert.
       * `resource_id` (`str`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
       * `resourceProvider` (`str`) - The name of the resource provider monitored by the activity log alert.
@@ -119,6 +122,9 @@ class ActivityLogAlert(pulumi.CustomResource):
           * `category` (`pulumi.Input[str]`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
           * `level` (`pulumi.Input[str]`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
           * `operationName` (`pulumi.Input[str]`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+          * `recommendationCategory` (`pulumi.Input[str]`) - The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+          * `recommendationImpact` (`pulumi.Input[str]`) - The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+          * `recommendationType` (`pulumi.Input[str]`) - The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
           * `resourceGroup` (`pulumi.Input[str]`) - The name of resource group monitored by the activity log alert.
           * `resource_id` (`pulumi.Input[str]`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
           * `resourceProvider` (`pulumi.Input[str]`) - The name of the resource provider monitored by the activity log alert.
@@ -192,6 +198,9 @@ class ActivityLogAlert(pulumi.CustomResource):
           * `category` (`pulumi.Input[str]`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
           * `level` (`pulumi.Input[str]`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
           * `operationName` (`pulumi.Input[str]`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+          * `recommendationCategory` (`pulumi.Input[str]`) - The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+          * `recommendationImpact` (`pulumi.Input[str]`) - The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+          * `recommendationType` (`pulumi.Input[str]`) - The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
           * `resourceGroup` (`pulumi.Input[str]`) - The name of resource group monitored by the activity log alert.
           * `resource_id` (`pulumi.Input[str]`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
           * `resourceProvider` (`pulumi.Input[str]`) - The name of the resource provider monitored by the activity log alert.

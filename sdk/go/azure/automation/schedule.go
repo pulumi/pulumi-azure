@@ -34,7 +34,7 @@ type Schedule struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
-	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 	WeekDays pulumi.StringArrayOutput `pulumi:"weekDays"`
@@ -97,7 +97,7 @@ type scheduleState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime *string `pulumi:"startTime"`
-	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
 	Timezone *string `pulumi:"timezone"`
 	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 	WeekDays []string `pulumi:"weekDays"`
@@ -124,7 +124,7 @@ type ScheduleState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime pulumi.StringPtrInput
-	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
 	Timezone pulumi.StringPtrInput
 	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 	WeekDays pulumi.StringArrayInput
@@ -155,7 +155,7 @@ type scheduleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime *string `pulumi:"startTime"`
-	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
 	Timezone *string `pulumi:"timezone"`
 	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 	WeekDays []string `pulumi:"weekDays"`
@@ -183,7 +183,7 @@ type ScheduleArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime pulumi.StringPtrInput
-	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
 	Timezone pulumi.StringPtrInput
 	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 	WeekDays pulumi.StringArrayInput
